@@ -1,0 +1,45 @@
+// Doccure Color Palette
+$primary: #09e5ab; 
+$secondary: #15558d; 
+$accent: #20c0f3;
+$success: #15ccbb;
+$info: #1b5a90;
+$warning: #ff9800;
+$danger: #f62d51;
+$light: #f8f9fa;
+$dark: #272b41;
+$white: #ffffff;
+
+// Neutrals
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+
+$text-color: #272b41;
+$text-muted: #757575;
+$border-color: #f0f0f0;
+
+// Typography
+$font-family-sans-serif: 'Poppins', sans-serif;
+$font-family-base: 'Inter', sans-serif;
+$font-size-base: 0.9375rem;
+$headings-font-weight: 600;
+$headings-color: #272b41;
+
+// Shadows
+$box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+$card-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+
+// Border Radius
+$border-radius: 5px;
+$border-radius-lg: 10px;
+$border-radius-pill: 50rem;
+
+// Layout
+$header-height: 80px;
