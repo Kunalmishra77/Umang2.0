@@ -26,6 +26,7 @@ import HealthLibrary from './pages/HealthLibrary';
 import PatientCorner from './pages/PatientCorner';
 import MediaCenter from './pages/MediaCenter';
 import Team from './pages/Team';
+import DynamicSubPage from './pages/DynamicSubPage';
 
 function App() {
   return (
@@ -41,10 +42,19 @@ function App() {
           <Route path="specialities/:id" element={<SpecialityDetail />} />
           <Route path="doctors" element={<DoctorSearch />} />
           <Route path="team" element={<Team />} />
+          
           <Route path="services" element={<Services />} />
+          <Route path="services/:slug" element={<DynamicSubPage />} />
+          
           <Route path="health-library" element={<HealthLibrary />} />
+          <Route path="health-library/:slug" element={<DynamicSubPage />} />
+          
           <Route path="patient-corner" element={<PatientCorner />} />
+          <Route path="patient-corner/:slug" element={<DynamicSubPage />} />
+          
           <Route path="media-center" element={<MediaCenter />} />
+          <Route path="media-center/:slug" element={<DynamicSubPage />} />
+          
           <Route path="doctor/:id" element={<DoctorProfile />} />
           <Route path="booking" element={<Navigate to="/doctors" replace />} />
           <Route path="booking/:id" element={<BookingPage />} />

@@ -1,35 +1,23 @@
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronRight, CheckCircle, HelpCircle, ArrowRight, ShieldCheck } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
-
-// Mock Data (In production, fetch from API)
-const data = {
-  title: "Cardiac Sciences",
-  subtitle: "Comprehensive Heart Care",
-  desc: "Our Centre of Excellence for Cardiac Sciences is equipped with the latest technology for non-invasive and interventional cardiac care.",
-  img: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&q=80&w=2000",
-  procedures: [
-    "Angiography & Angioplasty", "Pacemaker Implantation", "Bypass Surgery (CABG)", "Valve Replacement"
-  ],
-  tech: [
-    { title: "Cath Lab", desc: "Philips Azurion 7" },
-    { title: "ECG/Echo", desc: "Advanced 4D Imaging" }
-  ],
-  faq: [
-    { q: "What are the visiting hours for ICU?", a: "ICU visiting hours are 11:00 AM - 12:00 PM and 5:00 PM - 6:00 PM." },
-    { q: "Do you accept insurance?", a: "Yes, we are empanelled with all major TPAs and government schemes." }
-  ]
-};
+import { specialitiesData } from '../data/specialitiesData';
 
 const SpecialityDetail = () => {
-  const { id } = useParams(); // Use this to fetch real data
+  const { id } = useParams();
+  const data = specialitiesData[id];
+
+  if (!data) {
+    return <Navigate to="/specialities" replace />;
+  }
 
   return (
     <div className="bg-white">
       <Helmet>
         <title>{data.title} | Umang Superspeciality Hospital</title>
+        <meta name="description" content={data.desc} />
       </Helmet>
 
       {/* 1. Hero */}
@@ -97,7 +85,7 @@ const SpecialityDetail = () => {
                 <div className="bg-[#005580] rounded-[2rem] p-8 text-white relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl" />
                   <h3 className="text-2xl font-bold mb-4">Need a Consultation?</h3>
-                  <p className="text-blue-100 mb-8 text-sm">Book an appointment with our expert cardiologists today.</p>
+                  <p className="text-blue-100 mb-8 text-sm">Book an appointment with our expert {data.title.toLowerCase().includes('surgery') ? 'surgeons' : 'specialists'} today.</p>
                   <Link to="/doctors" className="w-full bg-white text-[#005580] py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-blue-50 transition-colors">
                     Find a Doctor <ArrowRight className="w-4 h-4" />
                   </Link>

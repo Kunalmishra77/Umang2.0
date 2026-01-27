@@ -72,11 +72,17 @@ const Header = () => {
       content: (
          <div className="p-2 bg-white rounded-xl">
             {[
-               "Second Opinion", "Lab Test & Diagnostic", "Home Care", "Buy Medicines", 
-               "Telemedicine", "Emergency", "Health Checkup", "Elder Care"
+               { name: "Second Opinion", slug: "second-opinion" },
+               { name: "Lab Test & Diagnostic", slug: "lab-test-diagnostic" },
+               { name: "Home Care", slug: "home-care" },
+               { name: "Buy Medicines", slug: "buy-medicines" },
+               { name: "Telemedicine", slug: "telemedicine" },
+               { name: "Emergency", slug: "emergency" },
+               { name: "Health Checkup", slug: "health-checkup" },
+               { name: "Elder Care", slug: "elder-care" }
             ].map((item, i) => (
-               <Link key={i} to="/services" className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
-                  {item}
+               <Link key={i} to={`/services/${item.slug}`} className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
+                  {item.name}
                </Link>
             ))}
          </div>
@@ -90,10 +96,15 @@ const Header = () => {
       content: (
          <div className="p-2 bg-white rounded-xl">
             {[
-               "Treatments", "Technologies", "Ailments", "Knowledge Center", "Events", "Downloads"
+               { name: "Treatments", slug: "treatments" },
+               { name: "Technologies", slug: "technologies" },
+               { name: "Ailments", slug: "ailments" },
+               { name: "Knowledge Center", slug: "knowledge-center" },
+               { name: "Events", slug: "events" },
+               { name: "Downloads", slug: "downloads" }
             ].map((item, i) => (
-               <Link key={i} to="/health-library" className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
-                  {item}
+               <Link key={i} to={`/health-library/${item.slug}`} className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
+                  {item.name}
                </Link>
             ))}
          </div>
@@ -108,10 +119,14 @@ const Header = () => {
        content: (
           <div className="p-2 bg-white rounded-xl">
              {[
-                "Patient Stories", "Blogs", "Podcasts", "Patient Information Literature", "Breakthrough Cases"
+                { name: "Patient Stories", slug: "patient-stories" },
+                { name: "Blogs", slug: "blogs" },
+                { name: "Podcasts", slug: "podcasts" },
+                { name: "Patient Information", slug: "patient-information-literature" },
+                { name: "Breakthrough Cases", slug: "breakthrough-cases" }
              ].map((item, i) => (
-                <Link key={i} to="/patient-corner" className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
-                   {item}
+                <Link key={i} to={`/patient-corner/${item.slug}`} className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
+                   {item.name}
                 </Link>
              ))}
           </div>
@@ -125,10 +140,13 @@ const Header = () => {
        content: (
           <div className="p-2 bg-white rounded-xl">
              {[
-                "Press Release", "Media Coverage", "Newsletters", "Media Connect"
+                { name: "Press Release", slug: "press-release" },
+                { name: "Media Coverage", slug: "media-coverage" },
+                { name: "Newsletters", slug: "newsletters" },
+                { name: "Media Connect", slug: "media-connect" }
              ].map((item, i) => (
-                <Link key={i} to="/media-center" className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
-                   {item}
+                <Link key={i} to={`/media-center/${item.slug}`} className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
+                   {item.name}
                 </Link>
              ))}
           </div>
@@ -143,10 +161,14 @@ const Header = () => {
           <div className="p-2 bg-white rounded-xl">
              <div className="px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest">I Want To</div>
              {[
-                "Find A Doctor", "Request An Appointment", "Book A HealthCheck", "Access Lab Reports", "Other"
+                { name: "Find A Doctor", path: "/doctors" },
+                { name: "Request An Appointment", path: "/doctors" },
+                { name: "Book A HealthCheck", path: "/services/health-checkup" },
+                { name: "Access Lab Reports", path: "/login" },
+                { name: "Other", path: "/contact" }
              ].map((item, i) => (
-                <Link key={i} to="/contact" className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
-                   {item}
+                <Link key={i} to={item.path} className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
+                   {item.name}
                 </Link>
              ))}
           </div>
