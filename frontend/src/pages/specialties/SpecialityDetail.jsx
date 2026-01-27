@@ -3,7 +3,7 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronRight, CheckCircle, HelpCircle, ArrowRight, ShieldCheck } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
-import { specialitiesData } from '../data/specialitiesData';
+import { specialitiesData } from '../../data/specialitiesData';
 
 const SpecialityDetail = () => {
   const { id } = useParams();

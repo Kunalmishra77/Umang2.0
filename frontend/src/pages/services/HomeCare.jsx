@@ -98,13 +98,13 @@ const HomeCare = () => {
             
             <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-md">
                <h3 className="font-bold text-[#0f172a] mb-4">Request a Call Back</h3>
-               <form className="space-y-4">
+               <div className="space-y-4">
                   <input type="text" placeholder="Patient Name" className="w-full h-12 px-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-[#005580] outline-none" />
                   <input type="tel" placeholder="Phone Number" className="w-full h-12 px-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-[#005580] outline-none" />
-                  <button className="w-full h-12 bg-[#005580] text-white rounded-xl font-bold hover:bg-[#004466] transition-all shadow-lg flex items-center justify-center gap-2">
+                  <Link to="/services/booking/home-care" className="w-full h-12 bg-[#005580] text-white rounded-xl font-bold hover:bg-[#004466] transition-all shadow-lg flex items-center justify-center gap-2">
                      Get Free Consultation <ArrowRight className="w-4 h-4" />
-                  </button>
-               </form>
+                  </Link>
+               </div>
             </div>
           </motion.div>
         </div>
@@ -168,7 +168,7 @@ const HomeCare = () => {
          <div className="container-custom">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-16 text-center">How It Works</h2>
             
-            <div className="grid md:grid-cols-4 gap-8 relative">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
                <div className="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-gray-200 -z-10" />
                
                {[

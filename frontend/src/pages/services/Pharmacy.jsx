@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { 
   Search, Upload, ShieldCheck, Clock, Truck, Plus, Minus, 
@@ -119,7 +119,7 @@ const Pharmacy = () => {
       </section>
 
       {/* 2. Shop by Category */}
-      <section className="py-16 container-custom -mt-16 relative z-20">
+      <section className="py-24 container-custom -mt-16 relative z-20">
         <div className="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100">
           <h3 className="text-lg font-bold text-gray-900 mb-6 uppercase tracking-wider">Shop by Category</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -140,7 +140,7 @@ const Pharmacy = () => {
       </section>
 
       {/* 3. Best Sellers */}
-      <section className="py-12 container-custom">
+      <section className="py-24 container-custom">
         <div className="flex justify-between items-end mb-12">
           <div>
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Best Sellers</h2>

@@ -178,7 +178,7 @@ const HealthCheckup = () => {
                            </div>
                            <p className="text-green-600 text-sm font-bold">{pkg.tests}</p>
                         </div>
-                        <Link to="/contact" className="h-14 px-8 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-[#005580] transition-all shadow-lg flex items-center gap-2">
+                        <Link to="/services/booking/health-checkup" className="h-14 px-8 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-[#005580] transition-all shadow-lg flex items-center gap-2">
                            Book Now
                         </Link>
                      </div>

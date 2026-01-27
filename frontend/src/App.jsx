@@ -2,40 +2,42 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import ScrollToTop from './components/utils/ScrollToTop';
-import Home from './pages/Home';
-import About from './pages/About';
-import Infrastructure from './pages/Infrastructure';
-import Careers from './pages/Careers';
-import Specialities from './pages/Specialities';
-import SpecialityDetail from './pages/SpecialityDetail';
-import DoctorSearch from './pages/DoctorSearch';
-import DoctorProfile from './pages/DoctorProfile';
-import BookingPage from './pages/BookingPage';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Pharmacy from './pages/Pharmacy';
-import Contact from './pages/Contact';
-import PatientDashboard from './pages/PatientDashboard';
-import PatientAppointments from './pages/PatientAppointments';
-import PatientProfile from './pages/PatientProfile';
-import BookAppointmentPatient from './pages/BookAppointmentPatient';
-import Terms from './pages/Terms';
-import Privacy from './pages/Privacy';
-import Services from './pages/Services';
-import HealthLibrary from './pages/HealthLibrary';
-import PatientCorner from './pages/PatientCorner';
-import MediaCenter from './pages/MediaCenter';
-import Team from './pages/Team';
-import DynamicSubPage from './pages/DynamicSubPage';
-import SecondOpinion from './pages/SecondOpinion';
-import LabDiagnostics from './pages/LabDiagnostics';
-import HomeCare from './pages/HomeCare';
-import Telemedicine from './pages/Telemedicine';
-import Emergency from './pages/Emergency';
-import HealthCheckup from './pages/HealthCheckup';
-import ElderCare from './pages/ElderCare';
-import PharmacyCategory from './pages/PharmacyCategory';
-import TelemedicineConsult from './pages/TelemedicineConsult';
+import Home from './pages/home/Home';
+import About from './pages/about/About';
+import Infrastructure from './pages/infrastructure/Infrastructure';
+import Careers from './pages/careers/Careers';
+import Specialities from './pages/specialties/Specialities';
+import SpecialityDetail from './pages/specialties/SpecialityDetail';
+import DoctorSearch from './pages/doctors/DoctorSearch';
+import DoctorProfile from './pages/doctors/DoctorProfile';
+import BookingPage from './pages/appointments/BookingPage';
+import Login from './pages/auth/Login';
+import Register from './pages/auth/Register';
+import Pharmacy from './pages/services/Pharmacy';
+import Contact from './pages/contact/Contact';
+import PatientDashboard from './pages/patients/PatientDashboard';
+import PatientAppointments from './pages/patients/PatientAppointments';
+import PatientProfile from './pages/patients/PatientProfile';
+import BookAppointmentPatient from './pages/appointments/BookAppointmentPatient';
+import Terms from './pages/legal/Terms';
+import Privacy from './pages/legal/Privacy';
+import Services from './pages/services/Services';
+import HealthLibrary from './pages/health-library/HealthLibrary';
+import PatientCorner from './pages/patient-corner/PatientCorner';
+import MediaCenter from './pages/media-center/MediaCenter';
+import Team from './pages/our-team/Team';
+import DynamicSubPage from './pages/services/DynamicSubPage';
+import SecondOpinion from './pages/services/SecondOpinion';
+import LabDiagnostics from './pages/services/LabDiagnostics';
+import HomeCare from './pages/services/HomeCare';
+import Telemedicine from './pages/services/Telemedicine';
+import Emergency from './pages/services/Emergency';
+import HealthCheckup from './pages/services/HealthCheckup';
+import ElderCare from './pages/services/ElderCare';
+import PharmacyCategory from './pages/services/PharmacyCategory';
+import TelemedicineConsult from './pages/services/TelemedicineConsult';
+import ServiceBooking from './pages/services/ServiceBooking';
+import PrescriptionUpload from './pages/services/PrescriptionUpload';
 
 function App() {
   return (
@@ -56,14 +58,20 @@ function App() {
           <Route path="services/second-opinion" element={<SecondOpinion />} />
           <Route path="services/lab-test-diagnostic" element={<LabDiagnostics />} />
           <Route path="services/home-care" element={<HomeCare />} />
+          
           <Route path="services/buy-medicines" element={<Pharmacy />} />
           <Route path="services/buy-medicines/category/:slug" element={<PharmacyCategory />} />
           <Route path="services/buy-medicines/all-products" element={<PharmacyCategory />} />
+          <Route path="services/buy-medicines/prescription-upload" element={<PrescriptionUpload />} />
+          
           <Route path="services/telemedicine" element={<Telemedicine />} />
           <Route path="services/telemedicine/consult" element={<TelemedicineConsult />} />
           <Route path="services/emergency" element={<Emergency />} />
           <Route path="services/health-checkup" element={<HealthCheckup />} />
           <Route path="services/elder-care" element={<ElderCare />} />
+          
+          <Route path="services/booking/:serviceType" element={<ServiceBooking />} />
+          
           <Route path="services/:slug" element={<DynamicSubPage />} />
           
           <Route path="health-library" element={<HealthLibrary />} />

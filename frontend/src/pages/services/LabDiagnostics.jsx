@@ -184,9 +184,9 @@ const LabDiagnostics = () => {
                               <span className="text-xs text-gray-400 line-through block">{pkg.originalPrice}</span>
                               <span className="text-2xl font-bold text-[#0f172a]">{pkg.price}</span>
                            </div>
-                           <button className="h-10 px-4 rounded-xl bg-[#005580] text-white text-sm font-bold hover:bg-[#004466] transition-all shadow-lg">
+                           <Link to="/services/booking/lab-test" className="h-10 px-4 rounded-xl bg-[#005580] text-white text-sm font-bold hover:bg-[#004466] transition-all shadow-lg flex items-center justify-center">
                               Book Now
-                           </button>
+                           </Link>
                         </div>
                      </div>
                   </motion.div>
@@ -249,9 +249,9 @@ const LabDiagnostics = () => {
                      Skip the queue and stay safe. Our vaccinated and trained phlebotomists will collect samples from the comfort of your home at no extra cost.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                     <button className="h-14 px-8 rounded-full bg-white text-[#005580] font-bold hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-2">
+                     <Link to="/services/booking/lab-test" className="h-14 px-8 rounded-full bg-white text-[#005580] font-bold hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-2">
                         <Home className="w-4 h-4" /> Book Home Visit
-                     </button>
+                     </Link>
                      <button className="h-14 px-8 rounded-full bg-transparent border border-white/30 text-white font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
                         <Phone className="w-4 h-4" /> Call +91 89297 33551
                      </button>

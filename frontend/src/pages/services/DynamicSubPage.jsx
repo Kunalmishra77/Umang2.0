@@ -3,7 +3,7 @@ import { useParams, Link, Navigate, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { ChevronRight, ArrowRight, CheckCircle, Phone, Calendar } from 'lucide-react';
-import { pageContent } from '../data/pageContent';
+import { pageContent } from '../../data/pageContent';
 
 const DynamicSubPage = () => {
   const { slug } = useParams();

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Star, ChevronRight, Clock, ShieldCheck, X, Phone, Calendar, ArrowLeft, Award, MapPin } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { doctors } from '../utils/doctorsData';
+import { doctors } from '../../utils/doctorsData';
 
 const departments = ['All', 'Cardiac Sciences', 'Neuro Sciences', 'Orthopaedics', 'Gastroenterology', 'General Surgery', 'Pediatrics', 'Oncology', 'Nephrology', 'Pulmonology', 'Urology'];
 

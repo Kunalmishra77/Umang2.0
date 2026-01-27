@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import DoctorFilter from '../components/doctors/DoctorFilter';
-import DoctorCard from '../components/doctors/DoctorCard';
-import { doctors } from '../utils/doctorsData';
+import DoctorFilter from '../../components/doctors/DoctorFilter';
+import DoctorCard from '../../components/doctors/DoctorCard';
+import { doctors } from '../../utils/doctorsData';
 import { Search } from 'lucide-react';
 
 // Reusing the DoctorSearch logic but with a "Team" header focus

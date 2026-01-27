@@ -1,12 +1,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import HeroSection from '../components/home/HeroSection';
-import SpecialitiesSection from '../components/home/SpecialitiesSection';
-import ServicesSection from '../components/home/ServicesSection';
-import WhyChooseUs from '../components/home/WhyChooseUs';
-import PremiumDoctors from '../components/home/PremiumDoctors';
-import AppointmentCTA from '../components/home/AppointmentCTA';
-import Testimonials from '../components/home/Testimonials';
+import HeroSection from '../../components/home/HeroSection';
+import SpecialitiesSection from '../../components/home/SpecialitiesSection';
+import ServicesSection from '../../components/home/ServicesSection';
+import WhyChooseUs from '../../components/home/WhyChooseUs';
+import PremiumDoctors from '../../components/home/PremiumDoctors';
+import AppointmentCTA from '../../components/home/AppointmentCTA';
+import Testimonials from '../../components/home/Testimonials';
 
 const Home = () => {
   return (

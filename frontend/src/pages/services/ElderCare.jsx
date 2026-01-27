@@ -194,9 +194,9 @@ const ElderCare = () => {
                         ))}
                      </ul>
 
-                     <button className={`w-full h-14 rounded-xl font-bold transition-all ${plan.popular ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'bg-gray-100 hover:bg-gray-200 text-[#0f172a]'}`}>
+                     <Link to="/services/booking/elder-care" className={`w-full h-14 rounded-xl font-bold transition-all flex items-center justify-center ${plan.popular ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'bg-gray-100 hover:bg-gray-200 text-[#0f172a]'}`}>
                         Choose Plan
-                     </button>
+                     </Link>
                   </motion.div>
                ))}
             </div>
@@ -252,7 +252,7 @@ const ElderCare = () => {
                Schedule a free home assessment visit. Our geriatric experts will evaluate the medical and lifestyle needs to recommend the perfect care plan.
             </p>
             <div className="flex justify-center gap-6">
-               <Link to="/contact" className="h-16 px-10 rounded-full bg-orange-500 text-white font-bold text-lg hover:bg-orange-600 transition-all flex items-center gap-2 shadow-lg hover:shadow-orange-500/20">
+               <Link to="/services/booking/elder-care" className="h-16 px-10 rounded-full bg-orange-500 text-white font-bold text-lg hover:bg-orange-600 transition-all flex items-center gap-2 shadow-lg hover:shadow-orange-500/20">
                   Book Free Assessment
                </Link>
             </div>

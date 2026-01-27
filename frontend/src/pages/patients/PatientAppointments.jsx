@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Card, Row, Col, Badge, Button, Modal, Table, Alert } from 'react-bootstrap';
 import { FaCalendarAlt, FaMapMarkerAlt, FaPhone, FaEnvelope, FaTimes, FaCheck } from 'react-icons/fa';
-import api from '../services/api';
+import api from '../../services/api';
 
 const PatientAppointments = () => {
   const [appointments, setAppointments] = useState([]);

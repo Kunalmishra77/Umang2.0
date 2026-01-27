@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Card, Row, Col, Form, Button, ProgressBar, Badge, Alert, Image } from 'react-bootstrap';
 import { FaUserMd, FaCalendarAlt, FaClock, FaCheck, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import api from '../services/api';
+import api from '../../services/api';
 
 const BookAppointmentPatient = () => {
   const [currentStep, setCurrentStep] = useState(1);
