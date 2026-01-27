@@ -293,12 +293,19 @@ const SecondOpinion = () => {
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">
-             {['Oncology', 'Cardiology', 'Neurology', 'Orthopedics', 'Transplants', 'Spine Surgery'].map((spec, i) => (
+             {[
+               { name: 'Oncology', img: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800' },
+               { name: 'Cardiology', img: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&q=80&w=800' },
+               { name: 'Neurology', img: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800' },
+               { name: 'Orthopedics', img: 'https://images.unsplash.com/photo-1583912267670-6575ad43263d?auto=format&fit=crop&q=80&w=800' },
+               { name: 'Transplants', img: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800' },
+               { name: 'Spine Surgery', img: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=800' }
+             ].map((spec, i) => (
                 <div key={i} className="group relative overflow-hidden rounded-2xl h-64 cursor-pointer">
-                   <img src={`https://source.unsplash.com/random/800x600?medical,${spec}`} alt={spec} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                   <img src={spec.img} alt={spec.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
-                      <h3 className="text-white text-xl font-bold mb-1">{spec}</h3>
-                      <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Get a second opinion from our {spec} board.</p>
+                      <h3 className="text-white text-xl font-bold mb-1">{spec.name}</h3>
+                      <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">Get a second opinion from our {spec.name} board.</p>
                    </div>
                 </div>
              ))}

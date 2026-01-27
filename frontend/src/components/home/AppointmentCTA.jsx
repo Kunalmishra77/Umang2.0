@@ -5,10 +5,20 @@ import { Link } from 'react-router-dom';
 
 const AppointmentCTA = () => {
   return (
-    <section className="py-24 bg-brand-dark relative overflow-hidden">
+    <section className="py-32 bg-[#0f172a] relative overflow-hidden">
+       {/* Background Image with Overlay */}
+       <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2500" 
+            alt="Hospital Building" 
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/80 to-[#0f172a]" />
+       </div>
+
        {/* Background Glows */}
-       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-600 rounded-full blur-[150px] opacity-20" />
-       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-brand-cyan rounded-full blur-[150px] opacity-20" />
+       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-10" />
+       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-600 rounded-full blur-[150px] opacity-10" />
 
        <div className="container-custom relative z-10 text-center">
           <motion.div
@@ -24,7 +34,7 @@ const AppointmentCTA = () => {
              </p>
              
              <div className="flex flex-col sm:flex-row justify-center gap-6">
-                <Link to="/doctors" className="btn-primary text-lg px-12 py-5 shadow-primary-500/50">
+                <Link to="/appointments/request" className="btn-primary text-lg px-12 py-5 shadow-primary-500/50">
                    Book Appointment Now
                 </Link>
                 <a href="tel:+918929733551" className="px-12 py-5 rounded-full border border-white/20 text-white font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-3">

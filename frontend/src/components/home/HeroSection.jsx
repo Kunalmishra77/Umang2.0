@@ -18,7 +18,7 @@ const slides = [
     tag: "24/7 Emergency",
     title: "Care When It Matters",
     subtitle: "Level 1 Trauma Centre with rapid response ambulances.",
-    image: "https://images.unsplash.com/photo-1516574187841-69301976e499?auto=format&fit=crop&q=80&w=2500",
+    image: "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=2500",
     color: "from-red-900 to-[#0f172a]",
     accent: "text-red-400"
   },
@@ -97,19 +97,19 @@ const HeroSection = () => {
                   <span className="text-xs font-bold uppercase tracking-[0.2em]">{slides[current].tag}</span>
                 </div>
 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-[1] mb-6 tracking-tight drop-shadow-2xl">
+                <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-[1.1] md:leading-[1] mb-6 tracking-tight drop-shadow-2xl">
                   {slides[current].title}
                 </h1>
 
-                <p className="text-xl md:text-2xl text-blue-100/90 font-light mb-10 max-w-lg leading-relaxed border-l-4 border-blue-500/30 pl-6">
+                <p className="text-lg md:text-2xl text-blue-100/90 font-light mb-8 md:mb-10 max-w-lg leading-relaxed border-l-4 border-blue-500/30 pl-6">
                   {slides[current].subtitle}
                 </p>
 
-                <div className="flex flex-wrap gap-5">
-                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <div className="flex flex-col sm:flex-row gap-4 md:gap-5">
+                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
                      <Link 
-                       to="/doctors" 
-                       className="group relative px-8 py-4 bg-white text-[#005580] rounded-full overflow-hidden flex items-center gap-3 font-bold tracking-wide shadow-xl transition-all"
+                       to="/appointments/request" 
+                       className="group relative px-8 py-4 bg-white text-[#005580] rounded-full overflow-hidden flex items-center justify-center sm:justify-start gap-3 font-bold tracking-wide shadow-xl transition-all w-full"
                      >
                        <span className="relative z-10">Book Appointment</span>
                        <div className="w-8 h-8 rounded-full bg-[#005580] text-white flex items-center justify-center relative z-10 group-hover:rotate-45 transition-all duration-300">
@@ -118,7 +118,7 @@ const HeroSection = () => {
                      </Link>
                    </motion.div>
                    
-                   <a href="tel:+918929733551" className="px-8 py-4 rounded-full border border-white/30 hover:bg-white/10 transition-all flex items-center gap-3 font-bold backdrop-blur-md group">
+                   <a href="tel:+918929733551" className="px-8 py-4 rounded-full border border-white/30 hover:bg-white/10 transition-all flex items-center justify-center sm:justify-start gap-3 font-bold backdrop-blur-md group w-full sm:w-auto">
                       <div className="w-10 h-10 rounded-full border border-white flex items-center justify-center group-hover:bg-red-500 group-hover:border-red-500 transition-all">
                          <Phone className="w-4 h-4 fill-current" />
                       </div>

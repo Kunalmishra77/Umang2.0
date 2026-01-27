@@ -62,7 +62,7 @@ const Footer = () => {
                 { name: 'Search for Doctors', path: '/doctors' },
                 { name: 'Login', path: '/login' },
                 { name: 'Register', path: '/register' },
-                { name: 'Booking', path: '/booking' },
+                { name: 'Request Appointment', path: '/appointments/request' },
                 { name: 'Patient Dashboard', path: '/patients' },
               ].map((link) => (
                 <li key={link.name}>

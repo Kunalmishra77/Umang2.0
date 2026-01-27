@@ -97,9 +97,9 @@ const Technologies = () => {
               We invest in the latest medical advancements to ensure precision, safety, and faster recovery for our patients.
             </p>
             
-            <button className="h-14 px-8 rounded-full bg-white text-[#0f172a] font-bold hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all flex items-center gap-2">
+            <Link to="/health-library/technologies/virtual-tour" className="h-14 px-8 rounded-full bg-white text-[#0f172a] font-bold hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] transition-all flex items-center gap-2">
               <Play className="w-4 h-4 fill-current" /> Virtual Tour
-            </button>
+            </Link>
           </motion.div>
 
           <motion.div 

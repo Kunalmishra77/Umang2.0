@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Calendar, Clock, User, Phone, Mail, CreditCard, CheckCircle, ArrowLeft, ArrowRight, ShieldCheck, Star, MapPin } from 'lucide-react';
+import { 
+  Calendar, Clock, User, Phone, Mail, CreditCard, CheckCircle, 
+  ArrowLeft, ArrowRight, ShieldCheck, Star, MapPin, Video, 
+  Info, Bell, Smartphone, HelpCircle, FileText, MessageSquare
+} from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
 // Mock Data (In production, fetch based on ID)
@@ -43,65 +47,81 @@ const BookingPage = () => {
         <title>Book Appointment | Umang Hospital</title>
       </Helmet>
 
-      <div className="container-custom">
-        <Link to="/doctors" className="inline-flex items-center gap-2 text-gray-500 hover:text-[#023e8a] mb-8 font-medium transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Back to Doctors
-        </Link>
+      {/* 1. Booking Hero - Spacious & Reassuring */}
+      <section className="bg-[#023e8a] text-white py-20 relative overflow-hidden">
+         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
+         <div className="container-custom relative z-10">
+            <Link to="/doctors" className="inline-flex items-center gap-2 text-blue-200 hover:text-white mb-8 font-medium transition-colors">
+               <ArrowLeft className="w-4 h-4" /> Back to Search
+            </Link>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+               <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4">Request an Appointment</h1>
+               <p className="text-blue-100 text-lg max-w-2xl opacity-80">Take the first step towards recovery. Our booking system ensures you get to see your preferred specialist at your chosen time.</p>
+            </motion.div>
+         </div>
+      </section>
 
-        <div className="grid lg:grid-cols-12 gap-8 h-auto lg:h-[800px]">
+      {/* 2. Main Booking Wizard */}
+      <div className="container-custom -mt-16 relative z-20 mb-32">
+        <div className="grid lg:grid-cols-12 gap-8">
           
           {/* LEFT: Context Card (Sticky) */}
-          <div className="lg:col-span-4 lg:h-full">
-            <div className="bg-[#023e8a] text-white rounded-[2.5rem] p-8 h-full flex flex-col relative overflow-hidden shadow-2xl">
-               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none" />
+          <div className="lg:col-span-4 h-fit sticky top-24">
+            <div className="bg-white rounded-[2.5rem] p-8 shadow-2xl border border-gray-100 relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-10 -mt-10" />
                
-               <div className="relative z-10 flex-1">
-                  <span className="inline-block px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-white/10">
+               <div className="relative z-10">
+                  <span className="inline-block px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-[10px] font-bold uppercase tracking-widest mb-6 border border-blue-100">
                      Selected Specialist
                   </span>
                   
-                  <div className="relative aspect-square rounded-[2rem] overflow-hidden mb-6 border-4 border-white/10 shadow-lg">
-                     <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
+                  <div className="flex items-center gap-6 mb-8 pb-8 border-b border-gray-100">
+                     <div className="w-24 h-24 rounded-2xl overflow-hidden shadow-lg border-2 border-white">
+                        <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
+                     </div>
+                     <div>
+                        <h2 className="text-2xl font-bold text-[#0f172a]">{doctor.name}</h2>
+                        <p className="text-blue-600 text-sm font-bold uppercase tracking-wide">{doctor.dept}</p>
+                        <div className="flex items-center gap-1 text-yellow-400 mt-1">
+                           <Star className="w-3 h-3 fill-current" /> <span className="text-gray-400 text-xs font-bold">{doctor.rating}</span>
+                        </div>
+                     </div>
                   </div>
 
-                  <h2 className="text-3xl font-serif font-bold mb-1">{doctor.name}</h2>
-                  <p className="text-blue-200 mb-6 font-light">{doctor.role}</p>
-
-                  <div className="space-y-4 text-sm text-blue-100">
-                     <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/5">
-                        <MapPin className="w-5 h-5 text-blue-300" />
-                        <span>{doctor.loc} Branch</span>
+                  <div className="space-y-4 text-sm">
+                     <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                        <MapPin className="w-5 h-5 text-gray-400" />
+                        <span className="font-medium text-gray-700">{doctor.loc} Branch</span>
                      </div>
-                     <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/5">
-                        <CreditCard className="w-5 h-5 text-blue-300" />
-                        <span>Consultation Fee: <strong className="text-white text-lg ml-1">{doctor.fee}</strong></span>
+                     <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-2xl border border-gray-100">
+                        <CreditCard className="w-5 h-5 text-gray-400" />
+                        <span className="font-medium text-gray-700">Consultation Fee: <strong className="text-[#0f172a] text-lg ml-1">{doctor.fee}</strong></span>
                      </div>
                   </div>
                </div>
 
-               <div className="mt-8 pt-8 border-t border-white/10 text-xs text-blue-200/60 text-center">
-                  <p className="flex items-center justify-center gap-2 mb-1">
-                     <ShieldCheck className="w-3 h-3" /> Secure Booking
+               <div className="mt-8 pt-8 border-t border-gray-100 text-center">
+                  <p className="flex items-center justify-center gap-2 mb-1 text-gray-400 text-xs font-bold">
+                     <ShieldCheck className="w-3 h-3 text-green-500" /> SECURE BOOKING
                   </p>
-                  <p>Your data is encrypted and safe.</p>
                </div>
             </div>
           </div>
 
           {/* RIGHT: Multi-Step Form */}
-          <div className="lg:col-span-8 bg-white rounded-[2.5rem] shadow-xl border border-gray-100 flex flex-col overflow-hidden relative">
+          <div className="lg:col-span-8 bg-white rounded-[2.5rem] shadow-2xl border border-gray-100 flex flex-col overflow-hidden relative">
              
              {/* Tabs */}
              <div className="flex border-b border-gray-100">
                 <button 
                   onClick={() => setActiveTab('book')}
-                  className={`flex-1 py-4 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'book' ? 'text-[#023e8a] bg-blue-50/50 border-b-2 border-[#023e8a]' : 'text-gray-400 hover:text-gray-600'}`}
+                  className={`flex-1 py-6 text-xs font-black uppercase tracking-[0.2em] transition-all ${activeTab === 'book' ? 'text-[#023e8a] bg-blue-50/50 border-b-2 border-[#023e8a]' : 'text-gray-400 hover:text-gray-600'}`}
                 >
                   Book Appointment
                 </button>
                 <button 
                   onClick={() => setActiveTab('callback')}
-                  className={`flex-1 py-4 text-sm font-bold uppercase tracking-wider transition-colors ${activeTab === 'callback' ? 'text-[#023e8a] bg-blue-50/50 border-b-2 border-[#023e8a]' : 'text-gray-400 hover:text-gray-600'}`}
+                  className={`flex-1 py-6 text-xs font-black uppercase tracking-[0.2em] transition-all ${activeTab === 'callback' ? 'text-[#023e8a] bg-blue-50/50 border-b-2 border-[#023e8a]' : 'text-gray-400 hover:text-gray-600'}`}
                 >
                   Request Call Back
                 </button>
@@ -110,7 +130,7 @@ const BookingPage = () => {
              {activeTab === 'book' ? (
                <>
                  {/* Progress Bar */}
-                 <div className="absolute top-[58px] left-0 w-full h-1 bg-gray-100">
+                 <div className="absolute top-[68px] left-0 w-full h-1.5 bg-gray-100">
                     <motion.div 
                       initial={{ width: 0 }} 
                       animate={{ width: `${(step / 3) * 100}%` }} 
@@ -126,33 +146,35 @@ const BookingPage = () => {
                              initial={{ opacity: 0, x: 20 }}
                              animate={{ opacity: 1, x: 0 }}
                              exit={{ opacity: 0, x: -20 }}
-                             className="space-y-8"
+                             className="space-y-10"
                           >
-                             <h2 className="text-3xl font-serif font-bold text-[#0f172a]">Patient Details</h2>
-                             <p className="text-gray-500 -mt-6">Please enter the details of the patient visiting.</p>
+                             <div>
+                                <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Patient Details</h2>
+                                <p className="text-gray-500">Enter the details of the individual visiting the doctor.</p>
+                             </div>
 
-                             <div className="grid md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                   <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">Full Name</label>
+                             <div className="grid md:grid-cols-2 gap-8">
+                                <div className="space-y-3">
+                                   <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Full Name</label>
                                    <div className="relative">
-                                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                      <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                                       <input 
                                         type="text" 
                                         placeholder="e.g. Rajesh Kumar" 
-                                        className="w-full h-14 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-[#023e8a] focus:ring-4 focus:ring-blue-50 outline-none transition-all font-medium"
+                                        className="w-full h-14 pl-12 pr-4 rounded-xl border-2 border-gray-100 focus:border-[#023e8a] outline-none transition-all font-bold text-lg"
                                         value={formData.name}
                                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                                       />
                                    </div>
                                 </div>
-                                <div className="space-y-2">
-                                   <label className="text-sm font-bold text-gray-700 uppercase tracking-wide">Phone Number</label>
+                                <div className="space-y-3">
+                                   <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Phone Number</label>
                                    <div className="relative">
-                                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                                       <input 
                                         type="tel" 
                                         placeholder="+91 98765 43210" 
-                                        className="w-full h-14 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-[#023e8a] focus:ring-4 focus:ring-blue-50 outline-none transition-all font-medium"
+                                        className="w-full h-14 pl-12 pr-4 rounded-xl border-2 border-gray-100 focus:border-[#023e8a] outline-none transition-all font-bold text-lg"
                                         value={formData.phone}
                                         onChange={(e) => setFormData({...formData, phone: e.target.value})}
                                       />
@@ -168,43 +190,47 @@ const BookingPage = () => {
                              initial={{ opacity: 0, x: 20 }}
                              animate={{ opacity: 1, x: 0 }}
                              exit={{ opacity: 0, x: -20 }}
-                             className="space-y-8"
+                             className="space-y-10"
                           >
-                             <h2 className="text-3xl font-serif font-bold text-[#0f172a]">Select Schedule</h2>
-                             <p className="text-gray-500 -mt-6">Choose a date and time that works for you.</p>
+                             <div>
+                                <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Schedule Slot</h2>
+                                <p className="text-gray-500">Choose a convenient date and time for your visit.</p>
+                             </div>
 
                              {/* Date Picker (Mock) */}
-                             <div className="flex gap-4 overflow-x-auto pb-2 no-scrollbar">
-                                {[0, 1, 2, 3, 4].map((i) => (
+                             <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
+                                {[0, 1, 2, 3, 4, 5, 6].map((i) => (
                                    <button 
                                      key={i}
-                                     className={`min-w-[100px] p-4 rounded-2xl border transition-all ${i === 0 ? 'border-[#023e8a] bg-blue-50' : 'border-gray-200 hover:border-blue-200'}`}
+                                     className={`min-w-[110px] p-6 rounded-3xl border-2 transition-all text-center ${i === 0 ? 'border-[#023e8a] bg-blue-50 shadow-lg' : 'border-gray-100 hover:border-blue-200 bg-white'}`}
                                    >
-                                      <span className="block text-xs font-bold text-gray-400 uppercase mb-1">Jan</span>
-                                      <span className="block text-2xl font-bold text-[#0f172a]">{26 + i}</span>
-                                      <span className="block text-xs font-medium text-gray-500 mt-1">Today</span>
+                                      <span className="block text-[10px] font-black text-gray-400 uppercase mb-2">Jan</span>
+                                      <span className={`block text-3xl font-black ${i === 0 ? 'text-[#023e8a]' : 'text-gray-900'}`}>{26 + i}</span>
+                                      <span className="block text-[10px] font-bold text-gray-400 mt-2 uppercase">{i === 0 ? 'Today' : 'Wed'}</span>
                                    </button>
                                 ))}
                              </div>
 
                              {/* Slots */}
                              <div>
-                                <h4 className="font-bold text-[#0f172a] mb-4 flex items-center gap-2">
-                                   <Clock className="w-4 h-4 text-blue-500" /> Morning Slots
+                                <h4 className="font-black text-[#0f172a] text-xs uppercase tracking-widest mb-6 flex items-center gap-2">
+                                   <Clock className="w-4 h-4 text-blue-500" /> Morning Sessions
                                 </h4>
-                                <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
+                                <div className="grid grid-cols-3 md:grid-cols-4 gap-4">
                                    {slots.map((slot) => (
-                                      <button 
+                                      <motion.button 
                                         key={slot}
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
                                         onClick={() => setFormData({...formData, slot})}
-                                        className={`py-3 rounded-xl text-sm font-bold border transition-all ${
+                                        className={`py-4 rounded-2xl text-sm font-black border-2 transition-all ${
                                            formData.slot === slot 
-                                             ? 'bg-[#023e8a] text-white border-[#023e8a] shadow-lg' 
-                                             : 'bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+                                             ? 'bg-[#023e8a] text-white border-[#023e8a] shadow-xl' 
+                                             : 'bg-white text-gray-600 border-gray-100 hover:border-blue-300'
                                         }`}
                                       >
                                          {slot}
-                                      </button>
+                                      </motion.button>
                                    ))}
                                 </div>
                              </div>
@@ -216,29 +242,33 @@ const BookingPage = () => {
                              key="step3"
                              initial={{ opacity: 0, scale: 0.9 }}
                              animate={{ opacity: 1, scale: 1 }}
-                             className="flex flex-col items-center text-center justify-center h-full"
+                             className="flex flex-col items-center text-center justify-center h-full py-12"
                           >
-                             <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                             <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-8 shadow-inner animate-bounce">
                                 <CheckCircle className="w-12 h-12 text-green-600" />
                              </div>
-                             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Booking Confirmed!</h2>
-                             <p className="text-gray-500 max-w-md mb-8">
-                                Your appointment with <span className="font-bold text-[#0f172a]">{doctor.name}</span> is confirmed for <span className="font-bold text-[#0f172a]">{formData.slot}</span>.
+                             <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-4">Booking Confirmed!</h2>
+                             <p className="text-gray-500 max-w-md mb-12 text-lg">
+                                Your appointment with <span className="font-bold text-[#023e8a]">{doctor.name}</span> is confirmed for <span className="font-bold text-[#023e8a]">{formData.slot}</span>.
                              </p>
-                             <div className="bg-gray-50 p-6 rounded-2xl w-full max-w-md border border-gray-200 mb-8 text-left">
-                                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Booking ID: #UMG-8821</p>
-                                <div className="flex justify-between items-center">
-                                   <div>
-                                      <p className="text-sm text-gray-500">Patient</p>
-                                      <p className="font-bold text-[#0f172a]">{formData.name || 'Guest'}</p>
+                             <div className="bg-gray-50 p-10 rounded-[3rem] w-full max-w-md border-2 border-gray-100 mb-12 text-left shadow-lg">
+                                <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-6 border-b border-gray-200 pb-4">Receipt: #UMG-882190</p>
+                                <div className="space-y-4">
+                                   <div className="flex justify-between">
+                                      <span className="text-gray-400 font-bold text-xs uppercase">Patient</span>
+                                      <span className="font-black text-[#0f172a]">{formData.name || 'Guest'}</span>
                                    </div>
-                                   <div className="text-right">
-                                      <p className="text-sm text-gray-500">Amount to Pay</p>
-                                      <p className="font-bold text-[#0f172a] text-lg">{doctor.fee}</p>
+                                   <div className="flex justify-between">
+                                      <span className="text-gray-400 font-bold text-xs uppercase">Specialty</span>
+                                      <span className="font-black text-[#0f172a]">{doctor.dept}</span>
+                                   </div>
+                                   <div className="flex justify-between items-center pt-4 border-t border-gray-200">
+                                      <span className="text-gray-400 font-bold text-xs uppercase">Fee</span>
+                                      <span className="font-black text-[#0f172a] text-2xl">{doctor.fee}</span>
                                    </div>
                                 </div>
                              </div>
-                             <Link to="/" className="btn-primary w-full max-w-xs justify-center">Return Home</Link>
+                             <Link to="/" className="h-14 px-12 bg-[#023e8a] text-white rounded-xl font-black text-lg hover:bg-[#002855] transition-all shadow-xl">Return Home</Link>
                           </motion.div>
                        )}
                     </AnimatePresence>
@@ -246,24 +276,26 @@ const BookingPage = () => {
 
                  {/* Footer Actions */}
                  {step < 3 && (
-                    <div className="p-8 border-t border-gray-100 bg-gray-50 flex justify-between items-center">
+                    <div className="p-10 border-t border-gray-100 bg-gray-50/50 flex justify-between items-center">
                        {step > 1 ? (
-                          <button onClick={prevStep} className="font-bold text-gray-500 hover:text-[#0f172a] transition-colors flex items-center gap-2">
-                             <ArrowLeft className="w-4 h-4" /> Back
+                          <button onClick={prevStep} className="font-black text-xs uppercase tracking-widest text-gray-400 hover:text-[#0f172a] transition-all flex items-center gap-2">
+                             <ArrowLeft className="w-4 h-4" /> Go Back
                           </button>
                        ) : (
                           <div />
                        )}
                        
-                       <button 
+                       <motion.button 
+                         whileHover={{ scale: 1.05 }}
+                         whileTap={{ scale: 0.95 }}
                          onClick={nextStep} 
                          disabled={step === 1 && !formData.name}
-                         className={`h-12 px-8 rounded-full font-bold text-white flex items-center gap-2 shadow-lg transition-all ${
-                            step === 1 && !formData.name ? 'bg-gray-300 cursor-not-allowed' : 'bg-[#023e8a] hover:bg-[#002855] hover:shadow-xl'
+                         className={`h-14 px-10 rounded-xl font-black text-lg text-white flex items-center gap-3 shadow-xl transition-all ${
+                            step === 1 && !formData.name ? 'bg-gray-300 cursor-not-allowed' : 'bg-[#023e8a] hover:bg-[#002855]'
                          }`}
                        >
-                          {step === 2 ? 'Confirm Booking' : 'Next Step'} <ArrowRight className="w-4 h-4" />
-                       </button>
+                          {step === 2 ? 'Confirm Booking' : 'Continue'} <ArrowRight className="w-5 h-5" />
+                       </motion.button>
                     </div>
                  )}
                </>
@@ -274,56 +306,51 @@ const BookingPage = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       onSubmit={handleCallbackSubmit} 
-                      className="space-y-6"
+                      className="space-y-8"
                     >
-                       <div className="space-y-2">
+                       <div className="space-y-3">
                           <h2 className="text-3xl font-serif font-bold text-[#0f172a]">Request Call Back</h2>
-                          <p className="text-gray-500">Leave your details and we'll get back to you shortly.</p>
+                          <p className="text-gray-500">Leave your contact details and our patient relation officer will call you within 15 minutes.</p>
                        </div>
 
-                       <div className="space-y-4">
-                          <div>
-                             <label className="text-sm font-bold text-gray-700 uppercase tracking-wide block mb-2">Name</label>
-                             <input type="text" required className="w-full h-12 px-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-100 outline-none" />
+                       <div className="grid md:grid-cols-2 gap-8">
+                          <div className="space-y-3">
+                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest block">Your Name</label>
+                             <input type="text" required className="w-full h-14 bg-gray-50 rounded-xl px-6 border-2 border-gray-100 focus:border-[#023e8a] outline-none font-bold text-lg transition-all" />
                           </div>
-                          <div>
-                             <label className="text-sm font-bold text-gray-700 uppercase tracking-wide block mb-2">Phone</label>
-                             <input type="tel" required className="w-full h-12 px-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-100 outline-none" />
-                          </div>
-                          <div>
-                             <label className="text-sm font-bold text-gray-700 uppercase tracking-wide block mb-2">Preferred Time</label>
-                             <select className="w-full h-12 px-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-100 outline-none bg-white">
-                                <option>Morning (9 AM - 12 PM)</option>
-                                <option>Afternoon (12 PM - 4 PM)</option>
-                                <option>Evening (4 PM - 8 PM)</option>
-                             </select>
-                          </div>
-                          <div>
-                             <label className="text-sm font-bold text-gray-700 uppercase tracking-wide block mb-2">Message (Optional)</label>
-                             <textarea rows="3" className="w-full p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-100 outline-none resize-none"></textarea>
+                          <div className="space-y-3">
+                             <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest block">Phone Number</label>
+                             <input type="tel" required className="w-full h-14 bg-gray-50 rounded-xl px-6 border-2 border-gray-100 focus:border-[#023e8a] outline-none font-bold text-lg transition-all" />
                           </div>
                        </div>
+                       
+                       <div className="space-y-3">
+                          <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest block">Message (Optional)</label>
+                          <textarea rows="4" className="w-full p-6 bg-gray-50 rounded-2xl border-2 border-gray-100 focus:border-[#023e8a] outline-none font-bold text-lg transition-all resize-none" placeholder="Briefly describe your medical query..."></textarea>
+                       </div>
 
-                       <button className="w-full h-12 rounded-xl bg-[#023e8a] text-white font-bold hover:bg-[#002855] transition-colors shadow-lg">
-                          Request Call Back
-                       </button>
+                       <motion.button 
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          className="w-full h-16 rounded-2xl bg-[#023e8a] text-white font-black text-xl hover:bg-[#002855] transition-all shadow-2xl flex items-center justify-center gap-4"
+                       >
+                          Submit Request <ArrowRight className="w-6 h-6" />
+                       </motion.button>
                     </motion.form>
                  ) : (
                     <motion.div 
                        initial={{ opacity: 0, scale: 0.9 }}
                        animate={{ opacity: 1, scale: 1 }}
-                       className="flex flex-col items-center justify-center h-full text-center"
+                       className="flex flex-col items-center justify-center h-full text-center py-12"
                     >
-                       <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                          <CheckCircle className="w-10 h-10 text-green-600" />
+                       <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-8 shadow-inner animate-bounce">
+                          <CheckCircle className="w-12 h-12 text-green-600" />
                        </div>
-                       <h3 className="text-2xl font-bold text-[#0f172a] mb-2">Request Received!</h3>
-                       <p className="text-gray-500 max-w-xs mx-auto">
-                          Our support team will call you back at your preferred time.
+                       <h3 className="text-4xl font-serif font-bold text-[#0f172a] mb-4">Request Received!</h3>
+                       <p className="text-gray-500 text-lg max-w-sm mx-auto leading-relaxed">
+                          Our support team is notified. Expect a call shortly at your provided number.
                        </p>
-                       <button onClick={() => setCallbackSubmitted(false)} className="mt-8 text-blue-600 font-bold hover:underline">
-                          Submit Another Request
-                       </button>
+                       <button onClick={() => setCallbackSubmitted(false)} className="mt-12 text-[#023e8a] font-black uppercase tracking-widest text-sm hover:underline">Submit Another Request</button>
                     </motion.div>
                  )}
                </div>
@@ -332,6 +359,148 @@ const BookingPage = () => {
 
         </div>
       </div>
+
+      {/* 3. Tele-consultation vs In-person */}
+      <section className="py-32 bg-white">
+         <div className="container-custom">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] text-center mb-20">Choose Your Mode of Consultation</h2>
+            <div className="grid md:grid-cols-2 gap-12">
+               <div className="p-12 rounded-[3rem] bg-gray-50 border-2 border-gray-100 group hover:border-[#023e8a] transition-all duration-500">
+                  <div className="w-16 h-16 rounded-2xl bg-blue-100 text-[#023e8a] flex items-center justify-center mb-8 group-hover:bg-[#023e8a] group-hover:text-white transition-all">
+                     <Video className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-3xl font-bold mb-4 text-[#0f172a]">Tele-Consultation</h3>
+                  <p className="text-gray-500 text-lg mb-8 leading-relaxed">Ideal for second opinions, routine follow-ups, and non-emergency medical queries from the comfort of your home.</p>
+                  <ul className="space-y-4 mb-10">
+                     {["HD Video Quality", "Instant Digital RX", "Secure & Confidential"].map((item, i) => (
+                        <li key={i} className="flex items-center gap-3 font-bold text-[#0f172a]">
+                           <CheckCircle className="w-5 h-5 text-green-500" /> {item}
+                        </li>
+                     ))}
+                  </ul>
+                  <Link to="/services/telemedicine" className="inline-flex items-center gap-2 font-black text-blue-600 hover:gap-4 transition-all">Start Virtual Visit <ArrowRight className="w-5 h-5" /></Link>
+               </div>
+               <div className="p-12 rounded-[3rem] bg-gray-50 border-2 border-gray-100 group hover:border-[#023e8a] transition-all duration-500">
+                  <div className="w-16 h-16 rounded-2xl bg-blue-100 text-[#023e8a] flex items-center justify-center mb-8 group-hover:bg-[#023e8a] group-hover:text-white transition-all">
+                     <MapPin className="w-8 h-8" />
+                  </div>
+                  <h3 className="text-3xl font-bold mb-4 text-[#0f172a]">In-Person Visit</h3>
+                  <p className="text-gray-500 text-lg mb-8 leading-relaxed">Comprehensive physical examination at our advanced clinical facilities with immediate access to diagnostics.</p>
+                  <ul className="space-y-4 mb-10">
+                     {["On-site Diagnostics", "Physical Assessment", "Immediate Lab Access"].map((item, i) => (
+                        <li key={i} className="flex items-center gap-3 font-bold text-[#0f172a]">
+                           <CheckCircle className="w-5 h-5 text-green-500" /> {item}
+                        </li>
+                     ))}
+                  </ul>
+                  <button className="inline-flex items-center gap-2 font-black text-blue-600 hover:gap-4 transition-all">Hospital Locations <ArrowRight className="w-5 h-5" /></button>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* 4. Insurance Assistance */}
+      <section className="py-24 bg-[#023e8a] text-white">
+         <div className="container-custom flex flex-col md:flex-row items-center justify-between gap-12">
+            <div>
+               <h2 className="text-4xl font-serif font-bold mb-4">Cashless Treatment Assistance</h2>
+               <p className="text-blue-100 text-lg opacity-80">We are empanelled with all major TPAs and insurance providers. Check your eligibility now.</p>
+            </div>
+            <Link to="/contact" className="h-16 px-10 rounded-xl bg-white text-[#023e8a] font-black text-lg hover:bg-blue-50 transition-all flex items-center gap-3 shadow-2xl">
+               <ShieldCheck className="w-6 h-6" /> Check Eligibility
+            </Link>
+         </div>
+      </section>
+
+      {/* 5. Preparation Guide */}
+      <section className="py-32 bg-gray-50">
+         <div className="container-custom">
+            <h2 className="text-4xl font-serif font-bold text-[#0f172a] text-center mb-20">Before You Visit</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+               {[
+                  { title: "Bring Records", desc: "Carry all previous medical reports, prescriptions, and current medication list.", icon: FileText },
+                  { title: "Arrival Time", desc: "Please arrive at least 15 minutes before your slot for registration.", icon: Clock },
+                  { title: "ID & Insurance", desc: "Bring a government-issued photo ID and your insurance card.", icon: User }
+               ].map((item, i) => (
+                  <div key={i} className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-sm text-center">
+                     <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center mx-auto mb-8 text-[#023e8a]">
+                        <item.icon className="w-8 h-8" />
+                     </div>
+                     <h4 className="text-xl font-bold text-[#0f172a] mb-4">{item.title}</h4>
+                     <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+               ))}
+            </div>
+         </div>
+      </section>
+
+      {/* 6. Patient Portal Benefits */}
+      <section className="py-32 bg-white overflow-hidden">
+         <div className="container-custom grid lg:grid-cols-2 gap-24 items-center">
+            <div className="relative">
+               <div className="absolute inset-0 bg-blue-100 rounded-[4rem] -rotate-3" />
+               <img src="https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80&w=1000" alt="Mobile Portal" className="relative rounded-[4rem] shadow-2xl w-full h-[600px] object-cover" />
+               <div className="absolute bottom-10 right-10 bg-white p-8 rounded-3xl shadow-2xl border border-gray-100 max-w-[250px]">
+                  <div className="flex items-center gap-3 mb-4">
+                     <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white"><Bell className="w-5 h-5" /></div>
+                     <span className="font-bold text-sm">Reminders</span>
+                  </div>
+                  <p className="text-xs text-gray-500 font-bold leading-relaxed">Medicine refill reminder: Take Atorvastatin at 9 PM.</p>
+               </div>
+            </div>
+            <div>
+               <span className="text-blue-600 font-black text-[10px] uppercase tracking-[0.3em] mb-8 inline-block shadow-sm">Digital Care</span>
+               <h2 className="text-5xl font-serif font-bold text-[#0f172a] mb-8 leading-tight">Manage Your Health on the Go.</h2>
+               <p className="text-gray-500 text-xl leading-relaxed mb-12">
+                  Create an account to access our Patient Portal. View lab reports, manage bookings, and communicate with your care team seamlessly.
+               </p>
+               <div className="space-y-6 mb-12">
+                  {[
+                     { title: "Instant Lab Reports", desc: "Download and share your results securely." },
+                     { title: "Family Health Cards", desc: "Manage multiple family members in one app." },
+                     { title: "Medication Refills", desc: "Set reminders and order genuine medicines." }
+                  ].map((item, i) => (
+                     <div key={i} className="flex gap-6 items-start group cursor-pointer">
+                        <div className="w-12 h-12 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 group-hover:bg-[#023e8a] group-hover:text-white transition-all">
+                           <Smartphone className="w-6 h-6" />
+                        </div>
+                        <div>
+                           <h4 className="text-xl font-bold text-[#0f172a] group-hover:text-[#023e8a] transition-colors">{item.title}</h4>
+                           <p className="text-gray-500 text-sm">{item.desc}</p>
+                        </div>
+                     </div>
+                  ))}
+               </div>
+               <Link to="/register" className="h-16 px-10 rounded-xl bg-[#0f172a] text-white font-black text-lg hover:bg-[#023e8a] transition-all flex items-center gap-3 w-fit">
+                  Create Free Account <ArrowRight className="w-6 h-6" />
+               </Link>
+            </div>
+         </div>
+      </section>
+
+      {/* 7. Contact Support */}
+      <section className="py-24 bg-gray-50 border-t border-gray-100">
+         <div className="container-custom text-center max-w-4xl">
+            <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12">Need Assistance with Booking?</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+               <div className="bg-white p-8 rounded-3xl border border-gray-100 flex items-center gap-6 shadow-sm hover:shadow-xl transition-all">
+                  <div className="w-14 h-14 rounded-2xl bg-green-100 text-green-600 flex items-center justify-center"><MessageSquare className="w-8 h-8" /></div>
+                  <div className="text-left">
+                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">WhatsApp Support</p>
+                     <p className="text-xl font-black text-[#0f172a]">89297 33551</p>
+                  </div>
+               </div>
+               <div className="bg-white p-8 rounded-3xl border border-gray-100 flex items-center gap-6 shadow-sm hover:shadow-xl transition-all">
+                  <div className="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center"><HelpCircle className="w-8 h-8" /></div>
+                  <div className="text-left">
+                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">24/7 Helpline</p>
+                     <p className="text-xl font-black text-[#0f172a]">0124 456 7890</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
     </div>
   );
 };

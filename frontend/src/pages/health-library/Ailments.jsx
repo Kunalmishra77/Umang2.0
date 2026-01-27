@@ -12,6 +12,7 @@ const commonAilments = [
     id: 1,
     name: "Diabetes Mellitus",
     category: "Endocrinology",
+    specialityId: "endocrinology", // Assuming this will be added or maps to general medicine for now
     desc: "A chronic condition that affects how your body turns food into energy.",
     symptoms: ["Frequent urination", "Excessive thirst", "Blurry vision"],
     risk: "High",
@@ -21,6 +22,7 @@ const commonAilments = [
     id: 2,
     name: "Hypertension",
     category: "Cardiology",
+    specialityId: "cardiac",
     desc: "High blood pressure that can lead to severe complications like heart disease and stroke.",
     symptoms: ["Headaches", "Shortness of breath", "Nosebleeds"],
     risk: "Medium",
@@ -30,6 +32,7 @@ const commonAilments = [
     id: 3,
     name: "Migraine",
     category: "Neurology",
+    specialityId: "neuro",
     desc: "A neurological condition causing intense, debilitating headaches.",
     symptoms: ["Severe throbbing pain", "Sensitivity to light", "Nausea"],
     risk: "Low",
@@ -39,6 +42,7 @@ const commonAilments = [
     id: 4,
     name: "Arthritis",
     category: "Orthopedics",
+    specialityId: "ortho",
     desc: "Swelling and tenderness of one or more joints causing pain and stiffness.",
     symptoms: ["Joint pain", "Stiffness", "Swelling", "Decreased range of motion"],
     risk: "Medium",
@@ -48,6 +52,7 @@ const commonAilments = [
     id: 5,
     name: "Asthma",
     category: "Pulmonology",
+    specialityId: "pulmonology",
     desc: "A condition in which your airways narrow and swell and may produce extra mucus.",
     symptoms: ["Shortness of breath", "Chest tightness", "Wheezing"],
     risk: "Medium",
@@ -57,6 +62,7 @@ const commonAilments = [
     id: 6,
     name: "Gastroenteritis",
     category: "Gastroenterology",
+    specialityId: "gastro",
     desc: "An intestinal infection marked by diarrhea, cramps, nausea, vomiting, and fever.",
     symptoms: ["Watery diarrhea", "Abdominal cramps", "Nausea"],
     risk: "Low",
@@ -188,7 +194,7 @@ const Ailments = () => {
                            </div>
                         </div>
 
-                        <Link to={`/specialities/${ailment.category.toLowerCase()}`} className="flex items-center gap-2 text-[#005580] font-bold hover:gap-3 transition-all">
+                        <Link to={`/specialities/${ailment.specialityId}`} className="flex items-center gap-2 text-[#005580] font-bold hover:gap-3 transition-all">
                            Consult Specialist <ArrowRight className="w-4 h-4" />
                         </Link>
                      </div>

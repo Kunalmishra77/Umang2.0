@@ -165,7 +165,11 @@ const Events = () => {
             <div className="grid md:grid-cols-3 gap-8">
                {pastEvents.map((event, i) => (
                   <div key={i} className="group cursor-pointer relative rounded-3xl overflow-hidden aspect-[4/3]">
-                     <img src={`https://source.unsplash.com/random/800x600?event,${i}`} alt={event.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                     <img src={[
+                       "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&q=80&w=800",
+                       "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&q=80&w=800",
+                       "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&q=80&w=800"
+                     ][i % 3]} alt={event.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
                      <div className="absolute bottom-6 left-6 text-white">
                         <p className="text-xs font-bold opacity-80 mb-1">{event.date}</p>

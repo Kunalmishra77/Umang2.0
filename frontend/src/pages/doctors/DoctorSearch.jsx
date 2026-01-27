@@ -1,11 +1,27 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Star, ChevronRight, Clock, ShieldCheck, X, Phone, Calendar, ArrowLeft, Award, MapPin } from 'lucide-react';
+import { 
+  Search, Star, ChevronRight, Clock, ShieldCheck, X, Phone, 
+  Calendar, ArrowLeft, Award, MapPin, Filter, User, HelpCircle,
+  ThumbsUp, Activity, Heart, Brain, Bone, Eye
+} from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { doctors } from '../../utils/doctorsData';
 
-const departments = ['All', 'Cardiac Sciences', 'Neuro Sciences', 'Orthopaedics', 'Gastroenterology', 'General Surgery', 'Pediatrics', 'Oncology', 'Nephrology', 'Pulmonology', 'Urology'];
+const departments = [
+  { name: 'All', icon: Activity },
+  { name: 'Cardiac Sciences', icon: Heart },
+  { name: 'Neuro Sciences', icon: Brain },
+  { name: 'Orthopaedics', icon: Bone },
+  { name: 'Gastroenterology', icon: Activity },
+  { name: 'General Surgery', icon: Activity },
+  { name: 'Pediatrics', icon: User },
+  { name: 'Oncology', icon: Activity },
+  { name: 'Nephrology', icon: Activity },
+  { name: 'Pulmonology', icon: Activity },
+  { name: 'Urology', icon: Activity }
+];
 
 const DoctorSearch = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -117,95 +133,176 @@ const DoctorSearch = () => {
   );
 
   return (
-    <div className="bg-[#f8fafc] min-h-screen pt-20">
-      <Helmet><title>Medical Directory | Umang Hospital</title></Helmet>
+    <div className="bg-white min-h-screen pt-20">
+      <Helmet><title>Find a Doctor | Umang Hospital</title></Helmet>
 
-      {/* Header Area */}
-      <section className="bg-[#0f172a] text-white py-12 pb-24 relative overflow-hidden">
+      {/* 1. Hero Section - Search Focused */}
+      <section className="bg-[#0f172a] text-white py-20 relative overflow-hidden">
          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-         <div className="container-custom relative z-10">
-            <h1 className="text-4xl md:text-6xl font-serif font-bold mb-3 tracking-tight">Medical Directory</h1>
-            <p className="text-blue-300 text-sm md:text-base opacity-80">Discover world-class specialists dedicated to your recovery.</p>
-         </div>
-      </section>
-
-      {/* Main Content Area */}
-      <div className="container-custom -mt-16 pb-20 relative z-20">
-         <div className="bg-white rounded-[2rem] shadow-2xl overflow-hidden border border-gray-200 flex flex-col lg:flex-row h-auto lg:h-[800px]">
-            
-            {/* LIST SECTION - Scrollable list of doctors */}
-            <div className="w-full lg:w-5/12 border-r border-gray-100 flex flex-col bg-white overflow-hidden h-[600px] lg:h-full">
+         <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+               <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 tracking-tight">Find the Right <br /><span className="text-blue-400">Specialist.</span></h1>
+               <p className="text-blue-200 text-lg mb-12 opacity-80">Search from our network of 100+ world-class doctors and book your consultation in seconds.</p>
                
-               {/* Search & Filter Fixed Header */}
-               <div className="p-5 border-b border-gray-100 bg-gray-50/50 sticky top-0 z-10">
-                  <div className="relative mb-4">
-                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+               <div className="bg-white p-2 rounded-2xl shadow-2xl flex max-w-2xl mx-auto items-center">
+                  <div className="flex-1 flex items-center px-4">
+                     <Search className="w-6 h-6 text-gray-400 mr-3" />
                      <input 
                        type="text" 
-                       placeholder="Search name or speciality..." 
-                       className="w-full h-12 pl-10 pr-4 rounded-xl border border-gray-200 bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-50/50 outline-none transition-all text-sm font-medium shadow-sm"
+                       placeholder="Search by name, specialty, or condition..." 
+                       className="w-full h-14 bg-transparent border-none outline-none text-gray-700 placeholder-gray-400 font-medium text-lg"
                        value={searchTerm}
                        onChange={(e) => setSearchTerm(e.target.value)}
                      />
                   </div>
-                  <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
-                     {departments.map(dept => (
-                        <button key={dept} onClick={() => setSelectedDept(dept)}
-                           className={`px-4 py-2 rounded-full text-[10px] font-bold whitespace-nowrap transition-all uppercase tracking-wider ${selectedDept === dept ? 'bg-[#005580] text-white shadow-lg shadow-blue-900/20' : 'bg-white border border-gray-200 text-gray-500 hover:border-gray-300'}`}>
-                           {dept}
-                        </button>
+                  <button className="h-14 px-10 bg-[#005580] text-white rounded-xl font-bold hover:bg-[#004466] transition-all hidden md:block">
+                     Find Doctor
+                  </button>
+               </div>
+            </motion.div>
+         </div>
+      </section>
+
+      {/* 2. Department Quick Filter */}
+      <section className="py-12 bg-gray-50 border-b border-gray-100">
+         <div className="container-custom">
+            <div className="flex gap-4 overflow-x-auto no-scrollbar pb-2">
+               {departments.map((dept) => (
+                  <button 
+                     key={dept.name}
+                     onClick={() => setSelectedDept(dept.name)}
+                     className={`flex items-center gap-3 px-6 py-3 rounded-full font-bold text-sm whitespace-nowrap transition-all ${selectedDept === dept.name ? 'bg-[#005580] text-white shadow-lg' : 'bg-white text-gray-500 border border-gray-200 hover:border-blue-300'}`}
+                  >
+                     <dept.icon className="w-4 h-4" />
+                     {dept.name}
+                  </button>
+               ))}
+            </div>
+         </div>
+      </section>
+
+      {/* 3. Main Directory & Preview */}
+      <section className="py-12 md:py-24 bg-white">
+         <div className="container-custom">
+            <div className="bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl overflow-hidden border border-gray-100 flex flex-col lg:grid lg:grid-cols-12 h-auto lg:h-[800px]">
+               
+               {/* List Section */}
+               <div className="lg:col-span-5 border-b lg:border-b-0 lg:border-r border-gray-100 flex flex-col bg-white overflow-hidden h-[500px] sm:h-[600px] lg:h-full">
+                  <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
+                     <h3 className="font-bold text-[#0f172a]">Doctors ({filteredDoctors.length})</h3>
+                     <div className="flex items-center gap-4 text-xs font-bold text-gray-400">
+                        <span className="hidden sm:inline">Tap to view</span>
+                        <Filter className="w-5 h-5 cursor-pointer" />
+                     </div>
+                  </div>
+                  <div className="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
+                     {filteredDoctors.map(doc => (
+                        <motion.div 
+                           key={doc.id} 
+                           onClick={() => handleDocSelect(doc.id)}
+                           whileHover={{ scale: 1.01 }}
+                           className={`p-4 sm:p-5 rounded-[1.5rem] sm:rounded-[2rem] cursor-pointer transition-all flex items-center gap-4 sm:gap-5 border group ${
+                              selectedDocId === doc.id ? 'bg-[#0f172a] text-white shadow-2xl border-transparent' : 'bg-white hover:bg-blue-50/50 border-gray-50'
+                           }`}
+                        >
+                           <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl overflow-hidden shrink-0 border border-gray-100 group-hover:rotate-3 transition-transform">
+                              <img src={doc.image} alt={doc.name} className="w-full h-full object-cover" />
+                           </div>
+                           <div className="flex-1 min-w-0">
+                              <h4 className="font-bold truncate text-sm sm:text-base mb-0.5">{doc.name}</h4>
+                              <p className={`text-[9px] sm:text-[10px] font-black uppercase tracking-widest ${selectedDocId === doc.id ? 'text-blue-400' : 'text-[#005580]'}`}>{doc.dept}</p>
+                              <div className="flex items-center gap-2 sm:gap-3 mt-1 sm:mt-2 text-[9px] sm:text-[10px] font-bold">
+                                 <span className="flex items-center gap-1 text-yellow-400"><Star className="w-2.5 h-2.5 fill-current" /> {doc.rating}</span>
+                                 <span className="text-gray-400">• {doc.exp} Exp</span>
+                              </div>
+                           </div>
+                           <ChevronRight className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1 ${selectedDocId === doc.id ? 'text-white' : 'text-gray-300'}`} />
+                        </motion.div>
                      ))}
                   </div>
                </div>
 
-               {/* Results List */}
-               <div className="flex-1 overflow-y-auto p-3 space-y-2 no-scrollbar scroll-smooth">
-                  {filteredDoctors.map(doc => (
-                     <div key={doc.id} onClick={() => handleDocSelect(doc.id)}
-                        className={`p-4 rounded-2xl cursor-pointer transition-all flex items-center gap-4 border group ${
-                           selectedDocId === doc.id ? 'bg-[#0f172a] text-white shadow-xl border-transparent' : 'bg-white hover:bg-blue-50/50 border-gray-50 hover:border-blue-100'
-                        }`}>
-                        <div className="w-14 h-14 rounded-xl overflow-hidden shrink-0 border border-gray-100 group-hover:scale-105 transition-transform">
-                           <img src={doc.image} alt={doc.name} loading="lazy" className="w-full h-full object-cover" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                           <h4 className="font-bold truncate text-sm md:text-base mb-0.5">{doc.name}</h4>
-                           <p className={`text-[10px] truncate font-bold uppercase tracking-tight ${selectedDocId === doc.id ? 'text-blue-400' : 'text-primary-600'}`}>{doc.dept}</p>
-                           <div className="flex items-center gap-2 mt-1">
-                              <div className="flex items-center gap-0.5 text-yellow-400">
-                                 <Star className="w-3 h-3 fill-current" />
-                                 <span className={`text-[10px] font-bold ${selectedDocId === doc.id ? 'text-gray-300' : 'text-gray-500'}`}>{doc.rating}</span>
-                              </div>
-                              <span className="text-[10px] text-gray-400 font-medium">• {doc.exp} Exp</span>
-                           </div>
-                        </div>
-                        <ChevronRight className={`w-5 h-5 shrink-0 transition-transform group-hover:translate-x-1 ${selectedDocId === doc.id ? 'text-white' : 'text-gray-300'}`} />
-                     </div>
-                  ))}
-                  {filteredDoctors.length === 0 && (
-                    <div className="text-center py-20 px-6">
-                       <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-4 text-gray-300">
-                          <Search className="w-8 h-8" />
-                       </div>
-                       <p className="text-gray-500 font-medium">No specialists found.</p>
-                       <button onClick={() => {setSearchTerm(''); setSelectedDept('All');}} className="text-[#005580] text-sm font-bold mt-2 hover:underline">Clear all filters</button>
-                    </div>
-                  )}
+               {/* Desktop Preview */}
+               <div className="hidden lg:flex lg:col-span-7 bg-gray-50/30 flex-col border-l border-gray-100">
+                  <AnimatePresence mode="wait">
+                     <motion.div key={selectedDoc.id} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="h-full">
+                        <DetailContent doc={selectedDoc} />
+                     </motion.div>
+                  </AnimatePresence>
                </div>
             </div>
+         </div>
+      </section>
 
-            {/* DESKTOP PREVIEW SECTION - Always visible on large screens */}
-            <div className="hidden lg:flex lg:w-7/12 bg-gray-50/30 flex-col border-l border-gray-100">
-               <AnimatePresence mode="wait">
-                  <motion.div key={selectedDoc.id} initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} transition={{ duration: 0.2 }} className="h-full">
-                     <DetailContent doc={selectedDoc} />
-                  </motion.div>
-               </AnimatePresence>
+      {/* 4. Commitment Section */}
+      <section className="py-32 bg-gray-50">
+         <div className="container-custom grid lg:grid-cols-3 gap-12">
+            <div className="p-10 bg-white rounded-[3rem] shadow-sm border border-gray-100">
+               <ShieldCheck className="w-12 h-12 text-blue-600 mb-6" />
+               <h3 className="text-xl font-bold text-[#0f172a] mb-4">Board Certified</h3>
+               <p className="text-gray-500 text-sm leading-relaxed">Every doctor in our network undergoes a rigorous credentialing process to ensure the highest standards of medical care.</p>
+            </div>
+            <div className="p-10 bg-white rounded-[3rem] shadow-sm border border-gray-100">
+               <ThumbsUp className="w-12 h-12 text-green-600 mb-6" />
+               <h3 className="text-xl font-bold text-[#0f172a] mb-4">Patient-First Approach</h3>
+               <p className="text-gray-500 text-sm leading-relaxed">Our doctors are ranked based on patient feedback, ensuring you receive care that is not only expert but also compassionate.</p>
+            </div>
+            <div className="p-10 bg-white rounded-[3rem] shadow-sm border border-gray-100">
+               <Award className="w-12 h-12 text-purple-600 mb-6" />
+               <h3 className="text-xl font-bold text-[#0f172a] mb-4">Leading Specialists</h3>
+               <p className="text-gray-500 text-sm leading-relaxed">Access pioneers in medical research and complex surgeries, bringing global expertise to your local hospital.</p>
             </div>
          </div>
-      </div>
+      </section>
 
-      {/* MOBILE & TABLET DETAIL OVERLAY - Slide up animation */}
+      {/* 5. Educational: How to Choose */}
+      <section className="py-32 bg-white">
+         <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
+            <div className="relative">
+               <div className="absolute inset-0 bg-blue-100 rounded-[3rem] rotate-3" />
+               <img src="https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80&w=1000" alt="Consultation" className="relative rounded-[3rem] shadow-2xl w-full h-[500px] object-cover" />
+            </div>
+            <div>
+               <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-8">How to Choose the Right Specialist?</h2>
+               <div className="space-y-8">
+                  {[
+                     { title: "Review Clinical Experience", desc: "Look at the doctor's years of practice and their specific focus areas within their specialty." },
+                     { title: "Check Patient Testimonials", desc: "Read what other patients have to say about their experience and bedside manner." },
+                     { title: "Evaluate Credentials", desc: "Verify board certifications, fellowship training, and academic contributions." }
+                  ].map((item, i) => (
+                     <div key={i} className="flex gap-6">
+                        <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-[#005580] font-bold text-xl shrink-0">{i+1}</div>
+                        <div>
+                           <h4 className="text-xl font-bold mb-2">{item.title}</h4>
+                           <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+                        </div>
+                     </div>
+                  ))}
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* 6. FAQ Section */}
+      <section className="py-32 bg-gray-50 border-t border-gray-100">
+         <div className="container-custom max-w-4xl">
+            <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-16">Frequently Asked Questions</h2>
+            <div className="space-y-4">
+               {[
+                  { q: "Can I book a same-day appointment?", a: "Yes, if slots are available, you can book same-day appointments. Look for the 'Today' badge on doctor profiles." },
+                  { q: "Do you offer second opinions online?", a: "Absolutely. Most of our specialists are available for video consultations specifically for second opinions." },
+                  { q: "How do I cancel or reschedule?", a: "You can manage your bookings through the Patient Portal or by calling our helpline at 89297 33551." }
+               ].map((faq, i) => (
+                  <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100">
+                     <h4 className="font-bold text-lg text-[#0f172a] mb-2 flex items-center gap-3"><HelpCircle className="w-5 h-5 text-blue-500" /> {faq.q}</h4>
+                     <p className="text-gray-500 ml-8">{faq.a}</p>
+                  </div>
+               ))}
+            </div>
+         </div>
+      </section>
+
+      {/* Mobile Detail Overlay */}
       <AnimatePresence>
         {isMobileDetailOpen && (
           <motion.div 

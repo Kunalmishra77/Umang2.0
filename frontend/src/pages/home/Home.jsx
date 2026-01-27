@@ -5,6 +5,7 @@ import SpecialitiesSection from '../../components/home/SpecialitiesSection';
 import ServicesSection from '../../components/home/ServicesSection';
 import WhyChooseUs from '../../components/home/WhyChooseUs';
 import PremiumDoctors from '../../components/home/PremiumDoctors';
+import MedicalUpgrades from '../../components/home/MedicalUpgrades';
 import AppointmentCTA from '../../components/home/AppointmentCTA';
 import Testimonials from '../../components/home/Testimonials';
 
@@ -22,6 +23,7 @@ const Home = () => {
         <ServicesSection />
         <WhyChooseUs />
         <PremiumDoctors />
+        <MedicalUpgrades />
         <Testimonials />
         <AppointmentCTA />
       </main>

@@ -10,10 +10,17 @@ const Header = () => {
   const location = useLocation();
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 100);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -162,10 +169,10 @@ const Header = () => {
              <div className="px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest">I Want To</div>
              {[
                 { name: "Find A Doctor", path: "/doctors" },
-                { name: "Request An Appointment", path: "/doctors" },
-                { name: "Book A HealthCheck", path: "/services/health-checkup" },
-                { name: "Access Lab Reports", path: "/login" },
-                { name: "Other", path: "/contact" }
+                { name: "Request An Appointment", path: "/appointments/request" },
+                { name: "Book A HealthCheck", path: "/services/health-checkup/book" },
+                { name: "Access Lab Reports", path: "/patients/lab-reports" },
+                { name: "Other", path: "/contact/inquiry-hub" }
              ].map((item, i) => (
                 <Link key={i} to={item.path} className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
                    {item.name}
@@ -178,108 +185,116 @@ const Header = () => {
 
   return (
     <>
-      <div className={`bg-gradient-to-r from-[#005580] to-[#0088cc] text-white transition-all duration-500 ease-in-out hidden sm:block ${isScrolled ? 'h-0 opacity-0 overflow-hidden' : 'h-10 opacity-100'} relative z-[101]`}>
-         <div className="container-custom h-full flex items-center justify-between text-[10px] md:text-[11px] font-bold tracking-wide">
-            <div className="flex items-center gap-4 md:gap-6">
-               <a href="tel:+918929733551" className="flex items-center gap-2 hover:text-blue-200 transition-colors"><Phone className="w-3 h-3 fill-current" /> Emergency: +91 89297 33551</a>
-               <a href="mailto:info@umanghospitals.in" className="hidden lg:flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity"><Mail className="w-3 h-3" /> info@umanghospitals.in</a>
-            </div>
-            <div className="flex items-center gap-4">
-               <Link to="/doctors" className="hover:text-blue-200 transition-colors">Book Appointment</Link>
-               <span className="opacity-30">|</span>
-               <Link to="/careers" className="hover:text-blue-200 transition-colors">Careers</Link>
-            </div>
-         </div>
-      </div>
-
       <header 
-        className={`fixed left-0 right-0 z-[100] transition-all duration-500 border-b ${
-          isScrolled 
-            ? 'top-0 bg-white/95 backdrop-blur-xl shadow-lg border-white/20 py-2' 
-            : 'top-0 sm:top-10 bg-white border-gray-100 py-3 md:py-4 shadow-sm'
+        className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 will-change-transform ${
+          isScrolled ? 'shadow-xl' : ''
         }`}
       >
-        <div className="container-custom flex items-center justify-between gap-4">
-          
-          <Link to="/" className="flex items-center gap-2 md:gap-3 group relative z-50 shrink-0">
-             <div className="p-1 md:p-1.5 bg-white rounded-lg shadow-sm shrink-0 h-10 md:h-12 flex items-center">
-               <img src="/umang.jpg" alt="Umang Hospital" className="h-full w-auto object-contain" />
-             </div>
-             <div className="flex flex-col leading-tight md:leading-none">
-               <span className="text-base sm:text-lg md:text-2xl font-bold tracking-tight text-[#005580]">
-                 Umang <span className="text-[#0088cc]">Hospital</span>
-               </span>
-               <span className="hidden sm:block text-[8px] md:text-[10px] uppercase tracking-[0.1em] md:tracking-[0.2em] font-bold text-gray-500 mt-0.5 group-hover:text-[#0088cc] transition-colors">
-                 Superspeciality Care
-               </span>
-             </div>
-          </Link>
-
-          <nav className="hidden xl:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <div 
-                key={link.name}
-                className="relative group h-14 flex items-center"
-                onMouseEnter={() => link.type === 'dropdown' && setActiveDropdown(link.name)}
-                onMouseLeave={() => link.type === 'dropdown' && setActiveDropdown(null)}
-              >
-                <NavLink 
-                  to={link.path}
-                  className={({ isActive }) => 
-                    `relative px-4 py-2 text-xs xl:text-sm font-bold rounded-full transition-all duration-300 flex items-center gap-1 ${
-                      isActive 
-                        ? 'text-white bg-[#005580] shadow-md' 
-                        : 'text-gray-600 hover:text-[#005580] hover:bg-blue-50/80'
-                    }`
-                  }
-                >
-                  <span className="relative z-10 flex items-center gap-1">
-                    {link.name}
-                    {link.type === 'dropdown' && (
-                      <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
-                    )}
-                  </span>
-                </NavLink>
-
-                <AnimatePresence>
-                  {activeDropdown === link.name && link.type === 'dropdown' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                      animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                      className={`absolute top-[90%] left-1/2 -translate-x-1/2 pt-4 z-[110] ${link.width}`}
-                    >
-                       <div className="absolute -top-4 left-0 w-full h-4 bg-transparent" />
-                       <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden relative z-50 ring-1 ring-black/5">
-                          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#005580] via-[#0088cc] to-[#005580]" />
-                          {link.content}
-                       </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+        {/* Top Bar */}
+        <div className={`bg-gradient-to-r from-[#005580] to-[#0088cc] text-white transition-all duration-300 ease-in-out hidden sm:block overflow-hidden ${
+          isScrolled ? 'max-h-0 opacity-0' : 'max-h-10 opacity-100'
+        }`}>
+           <div className="container-custom h-10 flex items-center justify-between text-[10px] md:text-[11px] font-bold tracking-wide">
+              <div className="flex items-center gap-4 md:gap-6">
+                 <a href="tel:+918929733551" className="flex items-center gap-2 hover:text-blue-200 transition-colors"><Phone className="w-3 h-3 fill-current" /> Emergency: +91 89297 33551</a>
+                 <a href="mailto:info@umanghospitals.in" className="hidden lg:flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity"><Mail className="w-3 h-3" /> info@umanghospitals.in</a>
               </div>
-            ))}
-          </nav>
+              <div className="flex items-center gap-4">
+                 <Link to="/doctors" className="hover:text-blue-200 transition-colors">Book Appointment</Link>
+                 <span className="opacity-30">|</span>
+                 <Link to="/careers" className="hover:text-blue-200 transition-colors">Careers</Link>
+              </div>
+           </div>
+        </div>
 
-          <div className="flex items-center gap-2 md:gap-4">
-             <Link 
-                to="/doctors" 
-                className="hidden sm:flex group h-10 md:h-12 px-4 md:px-8 rounded-full items-center gap-2 text-xs md:text-sm font-bold bg-gradient-to-r from-[#005580] to-[#0088cc] text-white hover:shadow-lg transition-all shadow-md shadow-blue-900/20"
-             >
-               <Calendar className="w-4 h-4" />
-               <span className="whitespace-nowrap">Appointment</span>
-             </Link>
+        {/* Main Navigation */}
+        <div className={`transition-all duration-300 border-b ${
+          isScrolled 
+            ? 'bg-white/95 backdrop-blur-xl border-white/10 py-3 shadow-lg' 
+            : 'bg-white border-gray-100 py-4 md:py-5'
+        }`}>
+          <div className="container-custom flex items-center justify-between gap-4">
+            
+            <Link to="/" className="flex items-center gap-2 md:gap-3 group relative z-50 shrink-0">
+               <div className="p-1 md:p-1.5 bg-white rounded-lg shadow-sm shrink-0 h-10 md:h-12 flex items-center">
+                 <img src="/umang.jpg" alt="Umang Hospital" className="h-full w-auto object-contain" />
+               </div>
+               <div className="flex flex-col leading-tight md:leading-none">
+                 <span className="text-base sm:text-lg md:text-2xl font-bold tracking-tight text-[#005580]">
+                   Umang <span className="text-[#0088cc]">Hospital</span>
+                 </span>
+                 <span className="hidden sm:block text-[8px] md:text-[10px] uppercase tracking-[0.1em] md:tracking-[0.2em] font-bold text-gray-500 mt-0.5 group-hover:text-[#0088cc] transition-colors">
+                   Superspeciality Care
+                 </span>
+               </div>
+            </Link>
 
-             <button 
-               className="xl:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center border border-gray-100"
-               onClick={(e) => {
-                 e.stopPropagation();
-                 setIsMobileMenuOpen(true);
-               }}
-             >
-               <Menu className="w-6 h-6 md:w-7 md:h-7" />
-             </button>
+            <nav className="hidden xl:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <div 
+                  key={link.name}
+                  className="relative group h-14 flex items-center"
+                  onMouseEnter={() => link.type === 'dropdown' && setActiveDropdown(link.name)}
+                  onMouseLeave={() => link.type === 'dropdown' && setActiveDropdown(null)}
+                >
+                  <NavLink 
+                    to={link.path}
+                    className={({ isActive }) => 
+                      `relative px-4 py-2 text-xs xl:text-sm font-bold rounded-full transition-all duration-300 flex items-center gap-1 ${
+                        isActive 
+                          ? 'text-white bg-[#005580] shadow-md' 
+                          : 'text-gray-600 hover:text-[#005580] hover:bg-blue-50/80'
+                      }`
+                    }
+                  >
+                    <span className="relative z-10 flex items-center gap-1">
+                      {link.name}
+                      {link.type === 'dropdown' && (
+                        <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
+                      )}
+                    </span>
+                  </NavLink>
+
+                  <AnimatePresence>
+                    {activeDropdown === link.name && link.type === 'dropdown' && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 25 }}
+                        className={`absolute top-[90%] left-1/2 -translate-x-1/2 pt-4 z-[110] ${link.width}`}
+                      >
+                         <div className="absolute -top-4 left-0 w-full h-4 bg-transparent" />
+                         <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden relative z-50 ring-1 ring-black/5">
+                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#005580] via-[#0088cc] to-[#005580]" />
+                            {link.content}
+                         </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </nav>
+
+            <div className="flex items-center gap-2 md:gap-4">
+               <Link 
+                  to="/doctors" 
+                  className="hidden sm:flex group h-10 md:h-12 px-4 md:px-8 rounded-full items-center gap-2 text-xs md:text-sm font-bold bg-gradient-to-r from-[#005580] to-[#0088cc] text-white hover:shadow-lg transition-all shadow-md shadow-blue-900/20"
+               >
+                 <Calendar className="w-4 h-4" />
+                 <span className="whitespace-nowrap">Appointment</span>
+               </Link>
+
+               <button 
+                 className="xl:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center border border-gray-100"
+                 onClick={(e) => {
+                   e.stopPropagation();
+                   setIsMobileMenuOpen(true);
+                 }}
+               >
+                 <Menu className="w-6 h-6 md:w-7 md:h-7" />
+               </button>
+            </div>
           </div>
         </div>
       </header>

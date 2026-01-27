@@ -25,7 +25,7 @@ const DoctorCard = ({ doctor }) => {
               <Card.Img variant="top" src={doctor.image} alt={name} className="img-fluid object-fit-cover" style={{ height: '220px', width: '100%' }} />
             ) : (
               <div className="bg-light d-flex align-items-center justify-content-center" style={{ height: '220px', fontSize: '5rem' }}>
-                <img src={`https://doccure.dreamstechnologies.com/react/template/80517726715f3ecda881.jpg`} alt={name} className="img-fluid" />
+                <img src={`https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400`} alt={name} className="img-fluid h-100 w-100 object-fit-cover" />
               </div>
             )}
           </Link>

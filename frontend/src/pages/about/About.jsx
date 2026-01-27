@@ -1,144 +1,186 @@
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ChevronRight, Target, Eye, Quote, ShieldCheck, Heart, Users, Award, ArrowRight } from 'lucide-react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { 
+  ChevronRight, Target, Eye, Quote, ShieldCheck, Heart, Users, 
+  Award, ArrowRight, Activity, Zap, Globe, Microscope, Star, 
+  CheckCircle2, Plus, MessageCircle, Phone, Calendar
+} from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 const IMAGES = {
-  banner: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000",
+  banner: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2500",
   director: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800",
-  infra1: "https://images.unsplash.com/photo-1516549655169-df83a0833860?auto=format&fit=crop&q=80&w=1200", 
+  philosophy: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200",
+  infra1: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200", 
   infra2: "https://images.unsplash.com/photo-1581056771107-24ca5f037085?auto=format&fit=crop&q=80&w=800", 
-  infra3: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
+  global: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200",
 };
-
-const timeline = [
-  { year: '2010', title: 'Inception', desc: 'Umang Hospital opens its doors as a 50-bed nursing home dedicated to affordable care.' },
-  { year: '2015', title: 'Expansion', desc: 'Upgraded to a 100-bed facility with a 24/7 Trauma Centre and Advanced ICU.' },
-  { year: '2020', title: 'Super Speciality', desc: 'Launch of dedicated Cardiac Sciences and Neuro Sciences wings.' },
-  { year: '2024', title: 'NABH Accreditation', desc: 'Recognized for highest quality standards, expanding to 150 beds.' },
-];
-
-const values = [
-  { icon: Heart, title: "Compassion", desc: "Treating every patient with empathy and kindness." },
-  { icon: ShieldCheck, title: "Integrity", desc: "Upholding the highest ethical standards in care." },
-  { icon: Users, title: "Teamwork", desc: "Collaborating across specialities for best outcomes." },
-  { icon: Award, title: "Excellence", desc: "Pursuing the highest quality in medical practices." },
-];
 
 const About = () => {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef });
-  const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, -150]);
+
+  // Animation variants
+  const fadeIn = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+  };
 
   return (
-    <div ref={containerRef} className="bg-white overflow-hidden relative">
+    <div ref={containerRef} className="bg-white overflow-hidden relative font-sans">
       <Helmet>
-        <title>About Us | Umang Superspeciality Hospital</title>
+        <title>Our Story & Legacy | Umang Superspeciality Hospital</title>
+        <meta name="description" content="Discover the legacy of Umang Hospital. 15+ years of clinical excellence, advanced infrastructure, and compassionate care in Gurugram." />
       </Helmet>
 
-      {/* 1. Hero - Reduced height on mobile */}
-      <section className="relative h-[50vh] sm:h-[65vh] min-h-[400px] flex items-center justify-center overflow-hidden bg-[#0f172a]">
+      {/* SECTION 1: CINEMATIC HERO */}
+      <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-[#0f172a]">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <img src={IMAGES.banner} alt="Hospital" className="w-full h-full object-cover opacity-40 scale-110" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/20 to-transparent" />
+          <img src={IMAGES.banner} alt="Hospital Building" className="w-full h-full object-cover opacity-40 scale-110" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-transparent to-[#0f172a]" />
         </motion.div>
         
-        <div className="container-custom relative z-10 text-center pt-16">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif font-bold text-white mb-4 sm:mb-6 tracking-tight">
-              Legacy of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300 italic">Trust</span>
+        <div className="container-custom relative z-10 text-center">
+          <motion.div initial="hidden" animate="visible" variants={fadeIn}>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-8">
+              <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" /> Established 2010
+            </span>
+            <h1 className="text-5xl md:text-8xl font-serif font-bold text-white mb-8 tracking-tighter leading-[0.9]">
+              Legacy of <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-cyan-200 to-blue-400 italic">Excellence.</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8 font-light px-4">
-              Serving the community with cutting-edge medical technology and a legacy of healing hands.
+            <p className="text-lg md:text-2xl text-blue-100/80 max-w-3xl mx-auto mb-12 font-light leading-relaxed px-4">
+              More than a hospital, Umang is a sanctuary of healing where medical science meets deep human compassion.
             </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+               <button onClick={() => document.getElementById('purpose').scrollIntoView({ behavior: 'smooth' })} className="px-10 py-5 bg-white text-[#0f172a] rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-blue-50 transition-all shadow-2xl">
+                  Explore Our Story
+               </button>
+               <Link to="/contact" className="px-10 py-5 rounded-2xl border-2 border-white/20 text-white font-black text-sm uppercase tracking-widest backdrop-blur-md hover:bg-white/10 transition-all text-center">
+                  Visit Campus
+               </Link>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 2. Narrative & Timeline */}
-      <section className="py-16 md:py-24 bg-white relative">
-        <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-            
-            <div className="lg:col-span-5">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-6 leading-tight">
-                A Decade of <br /> <span className="text-blue-600 italic">Caring Hearts.</span>
+      {/* SECTION 2: PURPOSE & PHILOSOPHY (MISSION/VISION) */}
+      <section id="purpose" className="py-32 bg-white relative">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
+              <span className="text-blue-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Our Purpose</span>
+              <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#0f172a] mb-8 leading-tight">
+                Guided by <span className="text-blue-600">Vision,</span> <br />Driven by Mission.
               </h2>
-              <div className="space-y-4 text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
-                <p>From a humble 50-bed facility, we have evolved into a 150-bed superspeciality beacon, housing the region's most advanced ICU and trauma response units.</p>
-              </div>
-              <div className="flex gap-8 sm:gap-12 items-center">
-                <div>
-                  <p className="text-3xl sm:text-4xl font-bold text-[#0f172a]">15+</p>
-                  <p className="text-[9px] sm:text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Years</p>
-                </div>
-                <div className="w-px h-10 bg-gray-200" />
-                <div>
-                  <p className="text-3xl sm:text-4xl font-bold text-[#0f172a]">50k+</p>
-                  <p className="text-[9px] sm:text-[10px] text-gray-400 font-bold uppercase tracking-widest mt-1">Patients</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Timeline - Adjusted for Mobile (Remove -left-[72px] on small screens) */}
-            <div className="lg:col-span-7 space-y-10 lg:pl-16 lg:border-l border-gray-100">
-              {timeline.map((item, idx) => (
-                <motion.div key={idx} className="relative pl-6 lg:pl-0">
-                  <div className="hidden lg:block absolute -left-[72px] top-1.5 w-3 h-3 rounded-full bg-white border-4 border-blue-600 shadow-lg" />
-                  <span className="text-5xl sm:text-7xl font-black text-gray-100 absolute -top-4 left-0 lg:left-4 -z-10 select-none opacity-50">
-                    {item.year}
-                  </span>
-                  <div className="pt-1">
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#0f172a] mb-2">{item.title}</h3>
-                    <p className="text-gray-500 leading-relaxed text-sm sm:text-base max-w-xl">{item.desc}</p>
+              <p className="text-gray-500 text-xl font-light leading-relaxed mb-12">
+                We believe that premium healthcare is a fundamental right. Our philosophy centers on "Patient-First" ethics, ensuring every individual receives world-class treatment without compromise.
+              </p>
+              
+              <div className="grid sm:grid-cols-2 gap-8">
+                <div className="p-8 rounded-[2.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover:shadow-2xl transition-all duration-500">
+                  <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-blue-200">
+                    <Eye className="w-6 h-6" />
                   </div>
-                </motion.div>
-              ))}
-            </div>
-
+                  <h4 className="text-xl font-bold text-[#0f172a] mb-3">Our Vision</h4>
+                  <p className="text-gray-500 text-sm leading-relaxed">To be the most trusted global destination for advanced superspeciality care.</p>
+                </div>
+                <div className="p-8 rounded-[2.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover:shadow-2xl transition-all duration-500">
+                  <div className="w-12 h-12 bg-cyan-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-cyan-200">
+                    <Target className="w-6 h-6" />
+                  </div>
+                  <h4 className="text-xl font-bold text-[#0f172a] mb-3">Our Mission</h4>
+                  <p className="text-gray-500 text-sm leading-relaxed">To provide ethically grounded, high-tech medical solutions with compassion.</p>
+                </div>
+              </div>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="absolute inset-0 bg-blue-600 rounded-[4rem] rotate-3 transform translate-x-4 translate-y-4" />
+              <img src={IMAGES.philosophy} alt="Care" className="relative z-10 rounded-[4rem] shadow-2xl w-full h-[600px] object-cover" />
+              <div className="absolute -bottom-10 -left-10 bg-white p-10 rounded-[3rem] shadow-2xl z-20 max-w-[280px] hidden md:block">
+                <Quote className="w-10 h-10 text-blue-100 mb-4 fill-current" />
+                <p className="text-[#0f172a] font-bold italic leading-relaxed">"We treat every patient like they are our only patient."</p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 3. Core Values - Grid columns adjusted */}
-      <section className="py-16 bg-gray-50">
+      {/* SECTION 3: CORE VALUES GRID */}
+      <section className="py-32 bg-[#0f172a] text-white overflow-hidden">
         <div className="container-custom">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((val, idx) => (
-              <div key={idx} className="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-gray-100">
-                <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-50 rounded-xl flex items-center justify-center text-blue-600 mb-6">
-                  <val.icon className="w-5 h-5 md:w-6 md:h-6" />
+          <div className="text-center max-w-3xl mx-auto mb-20">
+            <span className="text-blue-400 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">The Umang Ethos</span>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6">Our Core Values</h2>
+            <p className="text-gray-400 text-xl font-light">The pillars that support our clinical excellence and patient trust.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[ 
+              { icon: Heart, title: "Compassion", desc: "Empathy at every touchpoint of care.", color: "bg-rose-500" },
+              { icon: ShieldCheck, title: "Integrity", desc: "Transparent billing and ethical trials.", color: "bg-blue-500" },
+              { icon: Users, title: "Teamwork", desc: "Multidisciplinary boards for complex cases.", color: "bg-cyan-500" },
+              { icon: Award, title: "Excellence", desc: "Continuous medical education and research.", color: "bg-yellow-500" },
+            ].map((val, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white/5 backdrop-blur-md border border-white/10 p-10 rounded-[3rem] hover:bg-white hover:text-[#0f172a] transition-all duration-500 group"
+              >
+                <div className={`w-14 h-14 ${val.color} rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform`}>
+                  <val.icon className="w-7 h-7" />
                 </div>
-                <h4 className="text-lg md:text-xl font-bold text-[#0f172a] mb-3">{val.title}</h4>
-                <p className="text-gray-500 text-sm leading-relaxed">{val.desc}</p>
-              </div>
+                <h4 className="text-2xl font-bold mb-4">{val.title}</h4>
+                <p className="opacity-60 group-hover:opacity-100 text-sm leading-relaxed">{val.desc}</p>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Leadership - Responsive Grid & Image Size */}
-      <section className="py-16 bg-white">
+      {/* SECTION 4: LEADERSHIP MESSAGE */}
+      <section className="py-32 bg-white">
         <div className="container-custom">
-          <div className="relative rounded-[2rem] md:rounded-[3rem] bg-[#0f172a] overflow-hidden p-8 md:p-16 lg:p-20">
-            <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
-              <div className="order-2 lg:order-1">
-                <Quote className="w-10 h-10 md:w-16 md:h-16 text-blue-500/20 mb-6" />
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white leading-tight mb-8 italic">
-                  "Science and humanity must meet at every bedside."
+          <div className="relative rounded-[4rem] bg-gray-50 overflow-hidden p-8 md:p-24 border border-gray-100">
+            <div className="grid lg:grid-cols-12 gap-16 items-center relative z-10">
+              <div className="lg:col-span-7">
+                <Quote className="w-16 h-16 text-blue-200 mb-8 fill-current" />
+                <h3 className="text-3xl md:text-5xl font-serif font-bold text-[#0f172a] leading-tight mb-10 italic">
+                  "In the world of technology, we must never lose the touch of humanity. Our goal is to heal not just the disease, but the person."
                 </h3>
-                <div className="flex items-center gap-4">
-                  <div className="w-8 md:w-12 h-1 bg-blue-500 rounded-full" />
+                <div className="flex items-center gap-6">
+                  <div className="w-16 h-1 bg-blue-600 rounded-full" />
                   <div>
-                    <h4 className="text-lg md:text-xl font-bold text-white">Dr. Rakesh Gupta</h4>
-                    <p className="text-blue-300 text-[9px] md:text-[10px] font-bold uppercase tracking-widest">Medical Director</p>
+                    <h4 className="text-2xl font-bold text-[#0f172a]">Dr. Rakesh Gupta</h4>
+                    <p className="text-blue-600 font-black uppercase tracking-widest text-[10px] mt-1">Medical Director & Founder</p>
                   </div>
                 </div>
+                <div className="mt-12">
+                   <Link to="/team" className="inline-flex items-center gap-3 font-bold text-[#0f172a] hover:text-blue-600 transition-colors">
+                      Meet Our Leadership Board <ArrowRight className="w-5 h-5" />
+                   </Link>
+                </div>
               </div>
-              <div className="order-1 lg:order-2 flex justify-center">
-                <div className="relative w-48 h-48 sm:w-64 sm:h-64 lg:w-[380px] lg:h-[380px]">
-                  <img src={IMAGES.director} alt="Director" className="w-full h-full object-cover rounded-[2rem] border-4 border-white/5" />
+              <div className="lg:col-span-5">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-blue-200 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-1000" />
+                  <img src={IMAGES.director} alt="Director" className="relative z-10 w-full aspect-square object-cover rounded-[3rem] shadow-2xl border-8 border-white" />
                 </div>
               </div>
             </div>
@@ -146,33 +188,186 @@ const About = () => {
         </div>
       </section>
 
-      {/* 5. Infrastructure - Grid Fix */}
-      <section className="py-16 bg-gray-50">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 min-h-[500px]">
-            <div className="md:col-span-8 relative rounded-3xl overflow-hidden min-h-[300px]">
-              <img src={IMAGES.infra1} alt="OT" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 to-transparent" />
-              <div className="absolute bottom-6 left-6 text-white pr-6">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">Advanced Modular OTs</h3>
-                <p className="text-gray-300 text-xs sm:text-sm max-w-md font-light">Integrated surgical suites designed for highest safety.</p>
-              </div>
+      {/* SECTION 5: QUALITY & ACCREDITATIONS */}
+      <section className="py-32 bg-gray-50">
+         <div className="container-custom">
+            <div className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
+               <div className="max-w-2xl">
+                  <span className="text-blue-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Trust & Quality</span>
+                  <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#0f172a] leading-tight">Standards that <br /><span className="text-blue-600 italic">Define Us.</span></h2>
+               </div>
+               <div className="flex gap-4">
+                  <div className="px-6 py-3 bg-white rounded-xl border border-gray-200 shadow-sm flex items-center gap-3">
+                     <CheckCircle2 className="w-5 h-5 text-green-500" />
+                     <span className="font-bold text-sm">NABH Accredited</span>
+                  </div>
+                  <div className="px-6 py-3 bg-white rounded-xl border border-gray-200 shadow-sm flex items-center gap-3">
+                     <CheckCircle2 className="w-5 h-5 text-green-500" />
+                     <span className="font-bold text-sm">NABL Certified</span>
+                  </div>
+               </div>
             </div>
-            <div className="md:col-span-4 flex flex-col gap-6">
-              <div className="flex-1 relative rounded-3xl overflow-hidden min-h-[200px]">
-                <img src={IMAGES.infra2} alt="ICU" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 to-transparent" />
-                <h3 className="absolute bottom-4 left-4 text-white font-bold">Critical Care ICU</h3>
-              </div>
-              <div className="flex-1 relative rounded-3xl overflow-hidden min-h-[200px]">
-                <img src={IMAGES.infra3} alt="Imaging" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 to-transparent" />
-                <h3 className="absolute bottom-4 left-4 text-white font-bold">Advanced Imaging</h3>
-              </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+               {[ 
+                  { title: "Clinical Excellence", desc: "Rigorous medical audits and peer reviews to ensure the highest success rates in complex surgeries.", icon: Activity },
+                  { title: "Patient Safety", desc: "Zero-infection protocols and a dedicated patient safety department monitored by global standards.", icon: ShieldCheck },
+                  { title: "Advanced Research", desc: "Collaborating with international medical institutions for clinical trials and treatment breakthroughs.", icon: Microscope }
+               ].map((item, i) => (
+                  <div key={i} className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500">
+                     <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600 mb-8">
+                        <item.icon className="w-6 h-6" />
+                     </div>
+                     <h4 className="text-xl font-bold text-[#0f172a] mb-4">{item.title}</h4>
+                     <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+               ))}
             </div>
-          </div>
-        </div>
+         </div>
       </section>
+
+      {/* SECTION 6: THE TIMELINE JOURNEY */}
+      <section className="py-32 bg-white overflow-hidden">
+         <div className="container-custom">
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#0f172a] text-center mb-24">The Healing Journey</h2>
+            
+            <div className="relative">
+               {/* Vertical Line */}
+               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-100 hidden lg:block" />
+               
+               <div className="space-y-24">
+                  {[ 
+                    { year: '2010', title: 'The Foundation', desc: 'Umang opens as a 50-bed focused care unit with a mission to bring world-class healthcare to Gurugram.', align: 'left' },
+                    { year: '2015', title: 'Technological Leap', desc: 'Upgraded to a 100-bed facility with the region\'s first 128-slice CT scan and advanced Modular OTs.', align: 'right' },
+                    { year: '2020', title: 'Super Speciality Beacon', desc: 'Launched dedicated Cardiac and Neuro wings, performing over 1,000 complex procedures in the first year.', align: 'left' },
+                    { year: '2024', title: 'NABH Gold Standard', desc: 'Expanding to 150 beds with state-of-the-art robotic OT suites and high-clearance 3T MRI systems.', align: 'right' },
+                  ].map((item, i) => (
+                     <motion.div 
+                        key={i} 
+                        initial={{ opacity: 0, x: item.align === 'left' ? -50 : 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-0 ${item.align === 'right' ? 'lg:flex-row-reverse' : ''}`}
+                     >
+                        <div className="lg:w-1/2 flex justify-center lg:justify-end lg:pr-20 group">
+                           <div className={`text-center ${item.align === 'right' ? 'lg:text-left lg:pl-20 lg:pr-0' : 'lg:text-right'}`}>
+                              <span className="text-6xl md:text-8xl font-black text-gray-50 mb-2 block group-hover:text-blue-50 transition-colors">{item.year}</span>
+                              <h4 className="text-2xl font-bold text-[#0f172a] mb-4">{item.title}</h4>
+                              <p className="text-gray-500 max-w-md mx-auto lg:mx-0">{item.desc}</p>
+                           </div>
+                        </div>
+                        <div className="hidden lg:flex w-12 h-12 rounded-full bg-[#0f172a] border-4 border-white shadow-xl z-10 items-center justify-center">
+                           <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+                        </div>
+                        <div className="lg:w-1/2" />
+                     </motion.div>
+                  ))}
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* SECTION 7: INFRASTRUCTURE PREVIEW */}
+      <section className="py-32 bg-gray-50">
+         <div className="container-custom">
+            <div className="grid lg:grid-cols-12 gap-8 min-h-[600px]">
+               <div className="lg:col-span-8 relative rounded-[3rem] overflow-hidden group">
+                  <img src={IMAGES.infra1} alt="OT" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/90 via-transparent to-transparent" />
+                  <div className="absolute bottom-12 left-12">
+                     <span className="text-blue-400 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Medical Hub</span>
+                     <h3 className="text-3xl md:text-5xl font-serif font-bold text-white mb-6">150-Bedded Elite Facility</h3>
+                     <Link to="/infrastructure" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#0f172a] rounded-2xl font-bold text-sm hover:bg-blue-50 transition-all">
+                        Virtual Tour <ArrowRight className="w-4 h-4" />
+                     </Link>
+                  </div>
+               </div>
+               <div className="lg:col-span-4 flex flex-col gap-8">
+                  <div className="flex-1 relative rounded-[3rem] overflow-hidden group">
+                     <img src={IMAGES.infra2} alt="ICU" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                     <div className="absolute inset-0 bg-[#005580]/60 mix-blend-multiply" />
+                     <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center p-8">
+                        <Activity className="w-10 h-10 mb-4" />
+                        <h4 className="text-2xl font-bold">Advanced ICU</h4>
+                        <p className="text-sm opacity-80 mt-2">24/7 Monitoring with 1:1 Nursing</p>
+                     </div>
+                  </div>
+                  <div className="flex-1 bg-[#0f172a] rounded-[3rem] p-10 text-white flex flex-col justify-between">
+                     <div>
+                        <h4 className="text-2xl font-bold mb-4">Quick Stats</h4>
+                        <ul className="space-y-4 text-gray-400 font-medium">
+                           <li className="flex justify-between border-b border-white/5 pb-2"><span>ICU Beds</span> <span className="text-white">40+</span></li>
+                           <li className="flex justify-between border-b border-white/5 pb-2"><span>Modular OTs</span> <span className="text-white">04</span></li>
+                           <li className="flex justify-between border-b border-white/5 pb-2"><span>Specialists</span> <span className="text-white">100+</span></li>
+                        </ul>
+                     </div>
+                     <Link to="/doctors" className="flex items-center gap-2 text-blue-400 font-bold hover:gap-4 transition-all">
+                        View Full Directory <ChevronRight className="w-4 h-4" />
+                     </Link>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* SECTION 8: GLOBAL OUTREACH */}
+      <section className="py-32 bg-white">
+         <div className="container-custom">
+            <div className="grid lg:grid-cols-2 gap-20 items-center">
+               <div className="relative order-2 lg:order-1">
+                  <div className="absolute -inset-10 bg-blue-50 rounded-full blur-3xl opacity-60" />
+                  <img src={IMAGES.global} alt="International Patients" className="relative z-10 rounded-[4rem] shadow-2xl" />
+                  <div className="absolute top-10 right-10 bg-[#005580] text-white p-8 rounded-[3rem] shadow-2xl z-20 hidden md:block">
+                     <h4 className="text-4xl font-serif font-bold mb-1">30+</h4>
+                     <p className="text-xs font-bold uppercase tracking-widest opacity-80">Countries Served</p>
+                  </div>
+               </div>
+               <div className="order-1 lg:order-2">
+                  <span className="text-blue-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Global Footprint</span>
+                  <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#0f172a] leading-tight mb-8">A Global Medical <br /><span className="text-blue-600">Destination.</span></h2>
+                  <p className="text-gray-500 text-xl font-light leading-relaxed mb-10">
+                     Umang Hospital is a preferred choice for international patients seeking high-quality surgical procedures. Our International Patient Desk provides visa assistance, concierge services, and post-discharge follow-ups globally.
+                  </p>
+                  <div className="space-y-4">
+                     {[ "International Concierge Desk", "Interpreter Services", "Global Follow-up Program"].map((item, i) => (
+                        <div key={i} className="flex items-center gap-4 text-[#0f172a] font-bold">
+                           <div className="w-2 h-2 rounded-full bg-blue-600" />
+                           {item}
+                        </div>
+                     ))}
+                  </div>
+                  <Link to="/contact/inquiry-hub" className="inline-block mt-12 px-10 py-5 bg-[#0f172a] text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#005580] transition-all shadow-xl">
+                     Inquire for International Desk
+                  </Link>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* SECTION 9: FINAL CTA */}
+      <section className="py-32 bg-[#0f172a] relative overflow-hidden">
+         <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-600 rounded-full blur-[150px]" />
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-600 rounded-full blur-[150px]" />
+         </div>
+         
+         <div className="container-custom relative z-10 text-center">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
+               <Star className="w-16 h-16 text-yellow-400 fill-current mx-auto mb-10 animate-pulse" />
+               <h2 className="text-5xl md:text-8xl font-serif font-bold text-white mb-10 tracking-tighter">Ready to experience <br />the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 italic">Umang difference?</span></h2>
+               <div className="flex flex-wrap justify-center gap-8">
+                  <Link to="/doctors" className="px-12 py-6 bg-white text-[#0f172a] rounded-3xl font-black text-lg shadow-2xl hover:scale-105 transition-all flex items-center gap-4">
+                     Book an Appointment <Calendar className="w-6 h-6" />
+                  </Link>
+                  <a href="tel:+918929733551" className="px-12 py-6 border-2 border-white/20 text-white rounded-3xl font-black text-lg backdrop-blur-md hover:bg-white/10 transition-all flex items-center gap-4">
+                     Call 24/7 Helpline <Phone className="w-6 h-6" />
+                  </a>
+               </div>
+               <p className="mt-16 text-gray-500 font-bold uppercase tracking-widest text-xs">Certified by NABH • NABL • JCI Standards</p>
+            </motion.div>
+         </div>
+      </section>
+
     </div>
   );
 };

@@ -37,6 +37,7 @@ import ElderCare from './pages/services/ElderCare';
 import PharmacyCategory from './pages/services/PharmacyCategory';
 import TelemedicineConsult from './pages/services/TelemedicineConsult';
 import ServiceBooking from './pages/services/ServiceBooking';
+import HealthCheckBooking from './pages/services/HealthCheckBooking';
 import PrescriptionUpload from './pages/services/PrescriptionUpload';
 import Treatments from './pages/health-library/Treatments';
 import Technologies from './pages/health-library/Technologies';
@@ -44,6 +45,25 @@ import Ailments from './pages/health-library/Ailments';
 import KnowledgeCenter from './pages/health-library/KnowledgeCenter';
 import Events from './pages/health-library/Events';
 import Downloads from './pages/health-library/Downloads';
+import ResourceDetail from './pages/health-library/ResourceDetail';
+import EventRegistration from './pages/health-library/EventRegistration';
+import VirtualTour from './pages/health-library/VirtualTour';
+import Podcasts from './pages/patient-corner/Podcasts';
+import PatientInformation from './pages/patient-corner/PatientInformation';
+import BreakthroughCases from './pages/patient-corner/BreakthroughCases';
+import PatientStories from './pages/patient-corner/PatientStories';
+import Blogs from './pages/patient-corner/Blogs';
+import BlogDetail from './pages/patient-corner/BlogDetail';
+import CaseDetail from './pages/patient-corner/CaseDetail';
+import StoryDetail from './pages/patient-corner/StoryDetail';
+import PressRelease from './pages/media-center/PressRelease';
+import MediaCoverage from './pages/media-center/MediaCoverage';
+import Newsletters from './pages/media-center/Newsletters';
+import MediaConnect from './pages/media-center/MediaConnect';
+import PressReleaseDetail from './pages/media-center/PressReleaseDetail';
+import GeneralAppointment from './pages/appointments/GeneralAppointment';
+import LabReports from './pages/patients/LabReports';
+import InquiryHub from './pages/contact/InquiryHub';
 
 function App() {
   return (
@@ -74,6 +94,7 @@ function App() {
           <Route path="services/telemedicine/consult" element={<TelemedicineConsult />} />
           <Route path="services/emergency" element={<Emergency />} />
           <Route path="services/health-checkup" element={<HealthCheckup />} />
+          <Route path="services/health-checkup/book" element={<HealthCheckBooking />} />
           <Route path="services/elder-care" element={<ElderCare />} />
           
           <Route path="services/booking/:serviceType" element={<ServiceBooking />} />
@@ -83,27 +104,46 @@ function App() {
           <Route path="health-library" element={<HealthLibrary />} />
           <Route path="health-library/treatments" element={<Treatments />} />
           <Route path="health-library/technologies" element={<Technologies />} />
+          <Route path="health-library/technologies/virtual-tour" element={<VirtualTour />} />
           <Route path="health-library/ailments" element={<Ailments />} />
           <Route path="health-library/knowledge-center" element={<KnowledgeCenter />} />
+          <Route path="health-library/knowledge-center/resource/:id" element={<ResourceDetail />} />
           <Route path="health-library/events" element={<Events />} />
+          <Route path="health-library/events/register/:id" element={<EventRegistration />} />
           <Route path="health-library/downloads" element={<Downloads />} />
           <Route path="health-library/:slug" element={<DynamicSubPage />} />
           
           <Route path="patient-corner" element={<PatientCorner />} />
+          <Route path="patient-corner/podcasts" element={<Podcasts />} />
+          <Route path="patient-corner/patient-information-literature" element={<PatientInformation />} />
+          <Route path="patient-corner/breakthrough-cases" element={<BreakthroughCases />} />
+          <Route path="patient-corner/breakthrough-cases/:id" element={<CaseDetail />} />
+          <Route path="patient-corner/patient-stories" element={<PatientStories />} />
+          <Route path="patient-corner/patient-stories/:id" element={<StoryDetail />} />
+          <Route path="patient-corner/blogs" element={<Blogs />} />
+          <Route path="patient-corner/blogs/:id" element={<BlogDetail />} />
           <Route path="patient-corner/:slug" element={<DynamicSubPage />} />
           
           <Route path="media-center" element={<MediaCenter />} />
+          <Route path="media-center/press-release" element={<PressRelease />} />
+          <Route path="media-center/press-release/:id" element={<PressReleaseDetail />} />
+          <Route path="media-center/media-coverage" element={<MediaCoverage />} />
+          <Route path="media-center/newsletters" element={<Newsletters />} />
+          <Route path="media-center/media-connect" element={<MediaConnect />} />
           <Route path="media-center/:slug" element={<DynamicSubPage />} />
           
           <Route path="doctor/:id" element={<DoctorProfile />} />
           <Route path="booking" element={<Navigate to="/doctors" replace />} />
           <Route path="booking/:id" element={<BookingPage />} />
+          <Route path="appointments/request" element={<GeneralAppointment />} />
           <Route path="patients" element={<PatientDashboard />} />
+          <Route path="patients/lab-reports" element={<LabReports />} />
           <Route path="patients/appointments" element={<PatientAppointments />} />
           <Route path="patients/profile" element={<PatientProfile />} />
           <Route path="patients/book-appointment" element={<BookAppointmentPatient />} />
           <Route path="pharmacy" element={<Pharmacy />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="contact/inquiry-hub" element={<InquiryHub />} />
           <Route path="terms" element={<Terms />} />
           <Route path="privacy" element={<Privacy />} />
         </Route>
