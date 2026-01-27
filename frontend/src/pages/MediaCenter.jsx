@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { Newspaper, Video, Mail, Radio } from 'lucide-react';
 
 const MediaCenter = () => {
@@ -35,10 +36,10 @@ const MediaCenter = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Press Release", icon: Newspaper, desc: "Official announcements and statements.", color: "text-blue-600 bg-blue-50" },
-              { title: "Media Coverage", icon: Video, desc: "Umang Hospital in the news and media.", color: "text-red-600 bg-red-50" },
-              { title: "Newsletters", icon: Mail, desc: "Monthly updates and health digests.", color: "text-green-600 bg-green-50" },
-              { title: "Media Connect", icon: Radio, desc: "Resources for journalists and media partners.", color: "text-purple-600 bg-purple-50" },
+              { title: "Press Release", slug: "press-release", icon: Newspaper, desc: "Official announcements and statements.", color: "text-blue-600 bg-blue-50" },
+              { title: "Media Coverage", slug: "media-coverage", icon: Video, desc: "Umang Hospital in the news and media.", color: "text-red-600 bg-red-50" },
+              { title: "Newsletters", slug: "newsletters", icon: Mail, desc: "Monthly updates and health digests.", color: "text-green-600 bg-green-50" },
+              { title: "Media Connect", slug: "media-connect", icon: Radio, desc: "Resources for journalists and media partners.", color: "text-purple-600 bg-purple-50" },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -46,13 +47,17 @@ const MediaCenter = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group cursor-pointer"
               >
-                 <div className={`w-14 h-14 rounded-xl ${item.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <item.icon className="w-7 h-7" />
-                 </div>
-                 <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                 <p className="text-sm text-gray-500">{item.desc}</p>
+                <Link 
+                  to={`/media-center/${item.slug}`}
+                  className="block h-full bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+                >
+                   <div className={`w-14 h-14 rounded-xl ${item.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                      <item.icon className="w-7 h-7" />
+                   </div>
+                   <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                   <p className="text-sm text-gray-500">{item.desc}</p>
+                </Link>
               </motion.div>
             ))}
           </div>

@@ -1,42 +1,49 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { BookOpen, Cpu, Stethoscope, GraduationCap, Calendar, Download } from 'lucide-react';
 
 const categories = [
   {
     icon: Stethoscope,
     title: "Treatments",
+    slug: "treatments",
     count: "150+ Articles",
     desc: "In-depth information about various medical procedures and treatments."
   },
   {
     icon: Cpu,
     title: "Technologies",
+    slug: "technologies",
     count: "50+ Updates",
     desc: "Latest advancements in medical technology and equipment."
   },
   {
     icon: BookOpen,
     title: "Ailments",
+    slug: "ailments",
     count: "200+ Guides",
     desc: "Comprehensive guides on symptoms, causes, and prevention."
   },
   {
     icon: GraduationCap,
     title: "Knowledge Center",
+    slug: "knowledge-center",
     count: "Resource Hub",
     desc: "Educational materials for medical students and professionals."
   },
   {
     icon: Calendar,
     title: "Events",
+    slug: "events",
     count: "Upcoming",
     desc: "Seminars, workshops, and health camps organized by Umang."
   },
   {
     icon: Download,
     title: "Downloads",
+    slug: "downloads",
     count: "Forms & Brochures",
     desc: "Patient forms, hospital brochures, and preparation guides."
   }
@@ -80,20 +87,24 @@ const HealthLibrary = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group cursor-pointer"
               >
-                <div className="flex items-start justify-between mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#005580] flex items-center justify-center group-hover:bg-[#005580] group-hover:text-white transition-colors duration-300">
-                    <cat.icon className="w-6 h-6" />
+                <Link 
+                  to={`/health-library/${cat.slug}`}
+                  className="block h-full bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+                >
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#005580] flex items-center justify-center group-hover:bg-[#005580] group-hover:text-white transition-colors duration-300">
+                      <cat.icon className="w-6 h-6" />
+                    </div>
+                    <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">{cat.count}</span>
                   </div>
-                  <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">{cat.count}</span>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#005580] transition-colors">
-                  {cat.title}
-                </h3>
-                <p className="text-gray-500 leading-relaxed text-sm">
-                  {cat.desc}
-                </p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#005580] transition-colors">
+                    {cat.title}
+                  </h3>
+                  <p className="text-gray-500 leading-relaxed text-sm">
+                    {cat.desc}
+                  </p>
+                </Link>
               </motion.div>
             ))}
           </div>

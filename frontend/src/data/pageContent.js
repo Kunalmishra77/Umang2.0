@@ -1,4 +1,4 @@
-import { Stethoscope, Activity, Home, Pill, Video, Phone, ShieldCheck, Heart, BookOpen, Cpu, GraduationCap, Calendar, Download, User, PenTool, Mic, Lightbulb, Newspaper, Radio, FileText } from 'lucide-react';
+import { Stethoscope, Activity, Home, Pill, Video, Phone, ShieldCheck, Heart, BookOpen, Cpu, GraduationCap, Calendar, Download, User, PenTool, Mic, Lightbulb, Newspaper, Radio, FileText, Mail } from 'lucide-react';
 
 export const pageContent = {
   // SERVICES

@@ -1,36 +1,42 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { User, PenTool, Mic, Book, Lightbulb } from 'lucide-react';
 
 const sections = [
   {
     icon: User,
     title: "Patient Stories",
+    slug: "patient-stories",
     desc: "Real stories of hope, healing, and resilience from our patients.",
     color: "bg-rose-50 text-rose-600"
   },
   {
     icon: PenTool,
     title: "Blogs",
+    slug: "blogs",
     desc: "Expert insights on health, wellness, and medical advancements.",
     color: "bg-amber-50 text-amber-600"
   },
   {
     icon: Mic,
     title: "Podcasts",
+    slug: "podcasts",
     desc: "Listen to our doctors discuss various health topics and tips.",
     color: "bg-purple-50 text-purple-600"
   },
   {
     icon: Book,
     title: "Information Literature",
+    slug: "patient-information-literature",
     desc: "Downloadable brochures and guides for patient education.",
     color: "bg-blue-50 text-blue-600"
   },
   {
     icon: Lightbulb,
     title: "Breakthrough Cases",
+    slug: "breakthrough-cases",
     desc: "Highlighting complex cases successfully treated at Umang.",
     color: "bg-emerald-50 text-emerald-600"
   }
@@ -74,17 +80,21 @@ const PatientCorner = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group cursor-pointer"
               >
-                <div className={`w-14 h-14 rounded-xl ${section.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <section.icon className="w-7 h-7" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#005580] transition-colors">
-                  {section.title}
-                </h3>
-                <p className="text-gray-500 leading-relaxed text-sm">
-                  {section.desc}
-                </p>
+                <Link 
+                  to={`/patient-corner/${section.slug}`}
+                  className="block h-full bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+                >
+                  <div className={`w-14 h-14 rounded-xl ${section.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <section.icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#005580] transition-colors">
+                    {section.title}
+                  </h3>
+                  <p className="text-gray-500 leading-relaxed text-sm">
+                    {section.desc}
+                  </p>
+                </Link>
               </motion.div>
             ))}
           </div>

@@ -7,24 +7,28 @@ const services = [
   {
     icon: Home,
     title: "Home Care",
+    slug: "home-care",
     desc: "Professional care at your doorstep.",
     color: "bg-blue-50 text-blue-600"
   },
   {
     icon: Video,
     title: "Telemedicine",
+    slug: "telemedicine",
     desc: "Consult specialists online.",
     color: "bg-green-50 text-green-600"
   },
   {
     icon: Pill,
     title: "Pharmacy",
+    slug: "buy-medicines",
     desc: "24/7 medicines delivery.",
     color: "bg-purple-50 text-purple-600"
   },
   {
     icon: Activity,
     title: "Health Checkup",
+    slug: "health-checkup",
     desc: "Comprehensive packages.",
     color: "bg-orange-50 text-orange-600"
   }
@@ -67,7 +71,7 @@ const ServicesSection = () => {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">{service.title}</h3>
               <p className="text-gray-500 mb-4 text-sm">{service.desc}</p>
-              <Link to="/services" className="inline-flex items-center text-sm font-bold text-[#005580] gap-1 group-hover:gap-2 transition-all">
+              <Link to={`/services/${service.slug}`} className="inline-flex items-center text-sm font-bold text-[#005580] gap-1 group-hover:gap-2 transition-all">
                 Learn More <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>
