@@ -33,6 +33,7 @@ import HomeCare from './pages/HomeCare';
 import Telemedicine from './pages/Telemedicine';
 import Emergency from './pages/Emergency';
 import HealthCheckup from './pages/HealthCheckup';
+import ElderCare from './pages/ElderCare';
 
 function App() {
   return (
@@ -57,6 +58,7 @@ function App() {
           <Route path="services/telemedicine" element={<Telemedicine />} />
           <Route path="services/emergency" element={<Emergency />} />
           <Route path="services/health-checkup" element={<HealthCheckup />} />
+          <Route path="services/elder-care" element={<ElderCare />} />
           <Route path="services/:slug" element={<DynamicSubPage />} />
           
           <Route path="health-library" element={<HealthLibrary />} />
