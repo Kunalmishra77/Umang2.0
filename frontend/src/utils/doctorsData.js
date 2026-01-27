@@ -6,7 +6,9 @@ const depts = [
   { name: 'Oncology', color: 'text-emerald-400', id: 'oncology' },
   { name: 'Pediatrics', color: 'text-pink-400', id: 'pediatrics' },
   { name: 'General Surgery', color: 'text-blue-400', id: 'surgery' },
-  { name: 'Nephrology', color: 'text-teal-400', id: 'nephrology' }
+  { name: 'Nephrology', color: 'text-teal-400', id: 'nephrology' },
+  { name: 'Pulmonology', color: 'text-cyan-400', id: 'pulmonology' },
+  { name: 'Urology', color: 'text-indigo-400', id: 'urology' }
 ];
 
 const images = [

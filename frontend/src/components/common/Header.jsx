@@ -25,7 +25,7 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About Us', path: '/about' },
+    { name: 'About', path: '/about' },
     { 
       name: 'Specialties', 
       path: '/specialities', 
@@ -49,38 +49,109 @@ const Header = () => {
              </Link>
           </div>
           
-          <div className="w-full md:w-2/3 p-4 md:p-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 bg-white">
-             <div>
-               <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-                  <Heart className="w-3 h-3" /> Departments
-               </div>
-               <div className="space-y-1">
-                 {[{ name: "Cardiac Sciences", id: 'cardiac' }, { name: "Neuro Sciences", id: 'neuro' }, { name: "Orthopaedics", id: 'ortho' }].map((item, i) => (
-                   <Link key={i} to="/specialities" state={{ category: item.id }} className="flex items-center gap-2 p-2 rounded-lg hover:bg-blue-50 text-sm text-gray-600 hover:text-[#005580] transition-colors font-medium">
-                      {item.name}
-                   </Link>
-                 ))}
-               </div>
+          <div className="w-full md:w-2/3 p-4 md:p-8 bg-white">
+             <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <Heart className="w-3 h-3" /> Departments
              </div>
-             <div>
-               <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
-                  <Clock className="w-3 h-3" /> Support
-               </div>
-               <div className="space-y-1">
-                 {[{ name: "Infrastructure", path: "/infrastructure" }, { name: "Careers", path: "/careers" }, { name: "Contact", path: "/contact" }].map((item, i) => (
-                   <Link key={i} to={item.path} className="flex items-center gap-2 p-2 rounded-lg hover:bg-blue-50 text-sm text-gray-600 hover:text-[#005580] transition-colors font-medium">
-                      {item.name}
-                   </Link>
-                 ))}
-               </div>
+             <div className="grid grid-cols-2 gap-2">
+               {[{ name: "Cardiac Sciences", id: 'cardiac' }, { name: "Neuro Sciences", id: 'neuro' }, { name: "Orthopaedics", id: 'ortho' }, { name: "Gastroenterology", id: 'gastro' }, { name: "Pulmonology", id: 'pulmonology' }, { name: "Urology", id: 'urology' }].map((item, i) => (
+                 <Link key={i} to="/specialities" state={{ category: item.id }} className="flex items-center gap-2 p-2 rounded-lg hover:bg-blue-50 text-sm text-gray-600 hover:text-[#005580] transition-colors font-medium">
+                    {item.name}
+                 </Link>
+               ))}
              </div>
           </div>
         </div>
       )
     },
-    { name: 'Doctors', path: '/doctors' },
-    { name: 'Infrastructure', path: '/infrastructure' },
-    { name: 'Contact', path: '/contact' },
+    {
+      name: 'Services',
+      path: '/services',
+      type: 'dropdown',
+      width: 'w-[280px]',
+      content: (
+         <div className="p-2 bg-white rounded-xl">
+            {[
+               "Second Opinion", "Lab Test & Diagnostic", "Home Care", "Buy Medicines", 
+               "Telemedicine", "Emergency", "Health Checkup", "Elder Care"
+            ].map((item, i) => (
+               <Link key={i} to="/services" className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
+                  {item}
+               </Link>
+            ))}
+         </div>
+      )
+    },
+    {
+      name: 'Health Library',
+      path: '/health-library',
+      type: 'dropdown',
+      width: 'w-[260px]',
+      content: (
+         <div className="p-2 bg-white rounded-xl">
+            {[
+               "Treatments", "Technologies", "Ailments", "Knowledge Center", "Events", "Downloads"
+            ].map((item, i) => (
+               <Link key={i} to="/health-library" className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
+                  {item}
+               </Link>
+            ))}
+         </div>
+      )
+    },
+    { name: 'Our Team', path: '/team' },
+    {
+       name: 'Patient Corner',
+       path: '/patient-corner',
+       type: 'dropdown',
+       width: 'w-[280px]',
+       content: (
+          <div className="p-2 bg-white rounded-xl">
+             {[
+                "Patient Stories", "Blogs", "Podcasts", "Patient Information Literature", "Breakthrough Cases"
+             ].map((item, i) => (
+                <Link key={i} to="/patient-corner" className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
+                   {item}
+                </Link>
+             ))}
+          </div>
+       )
+    },
+    {
+       name: 'Media Center',
+       path: '/media-center',
+       type: 'dropdown',
+       width: 'w-[260px]',
+       content: (
+          <div className="p-2 bg-white rounded-xl">
+             {[
+                "Press Release", "Media Coverage", "Newsletters", "Media Connect"
+             ].map((item, i) => (
+                <Link key={i} to="/media-center" className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
+                   {item}
+                </Link>
+             ))}
+          </div>
+       )
+    },
+    { 
+       name: 'Contact', 
+       path: '/contact',
+       type: 'dropdown',
+       width: 'w-[280px]',
+       content: (
+          <div className="p-2 bg-white rounded-xl">
+             <div className="px-4 py-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest">I Want To</div>
+             {[
+                "Find A Doctor", "Request An Appointment", "Book A HealthCheck", "Access Lab Reports", "Other"
+             ].map((item, i) => (
+                <Link key={i} to="/contact" className="block px-4 py-2.5 text-sm font-medium text-gray-600 hover:bg-blue-50 hover:text-[#005580] rounded-lg transition-colors">
+                   {item}
+                </Link>
+             ))}
+          </div>
+       )
+    },
   ];
 
   return (

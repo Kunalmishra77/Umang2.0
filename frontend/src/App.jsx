@@ -21,6 +21,11 @@ import PatientProfile from './pages/PatientProfile';
 import BookAppointmentPatient from './pages/BookAppointmentPatient';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
+import Services from './pages/Services';
+import HealthLibrary from './pages/HealthLibrary';
+import PatientCorner from './pages/PatientCorner';
+import MediaCenter from './pages/MediaCenter';
+import Team from './pages/Team';
 
 function App() {
   return (
@@ -35,6 +40,11 @@ function App() {
           <Route path="specialities" element={<Specialities />} />
           <Route path="specialities/:id" element={<SpecialityDetail />} />
           <Route path="doctors" element={<DoctorSearch />} />
+          <Route path="team" element={<Team />} />
+          <Route path="services" element={<Services />} />
+          <Route path="health-library" element={<HealthLibrary />} />
+          <Route path="patient-corner" element={<PatientCorner />} />
+          <Route path="media-center" element={<MediaCenter />} />
           <Route path="doctor/:id" element={<DoctorProfile />} />
           <Route path="booking" element={<Navigate to="/doctors" replace />} />
           <Route path="booking/:id" element={<BookingPage />} />
