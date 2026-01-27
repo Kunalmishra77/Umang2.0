@@ -1,72 +1,244 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, ShoppingBag, Plus, Star, ShieldCheck, Clock, Truck, ArrowRight } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { 
+  Search, Upload, ShieldCheck, Clock, Truck, Plus, Minus, 
+  ShoppingBag, CheckCircle, Smartphone, ArrowRight 
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-const products = [
-  { id: 1, name: 'Wellness Kit', cat: 'Health', price: '₹999', img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=600' },
-  { id: 2, name: 'Vitamin C Complex', cat: 'Supplements', price: '₹450', img: 'https://images.unsplash.com/photo-1616671285410-09502197946a?auto=format&fit=crop&q=80&w=600' },
-  { id: 3, name: 'Digital BP Monitor', cat: 'Devices', price: '₹2,499', img: 'https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&q=80&w=600' },
-  { id: 4, name: 'Sanitization Pack', cat: 'Hygiene', price: '₹299', img: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=600' },
+const categories = [
+  { name: "Prescription", img: "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80" },
+  { name: "Diabetes Care", img: "https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80" },
+  { name: "Cardiac Care", img: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80" },
+  { name: "Mother & Baby", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80" },
+  { name: "Devices", img: "https://images.unsplash.com/photo-1583912267670-6575ad43263d?auto=format&fit=crop&q=80" },
+  { name: "Personal Care", img: "https://images.unsplash.com/photo-1556228720-1957be83f360?auto=format&fit=crop&q=80" }
+];
+
+const bestSellers = [
+  { id: 1, name: "Accu-Chek Active Strips", pack: "50 Strips", price: 850, oldPrice: 975, img: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=400" },
+  { id: 2, name: "Omron BP Monitor", pack: "1 Unit", price: 2100, oldPrice: 2400, img: "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&q=80&w=400" },
+  { id: 3, name: "Multivitamin Complex", pack: "60 Tabs", price: 499, oldPrice: 650, img: "https://images.unsplash.com/photo-1616671285410-09502197946a?auto=format&fit=crop&q=80&w=400" },
+  { id: 4, name: "N95 Face Masks", pack: "Pack of 5", price: 299, oldPrice: 400, img: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=400" }
 ];
 
 const Pharmacy = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [cartCount, setCartCount] = useState(0);
+
+  const addToCart = () => {
+    setCartCount(prev => prev + 1);
+  };
+
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-gray-50 min-h-screen pt-20">
       <Helmet>
-        <title>24/7 Pharmacy | Umang Hospital</title>
+        <title>Online Pharmacy | Umang Hospital</title>
+        <meta name="description" content="Order genuine medicines and healthcare products online. 24/7 delivery, prescription upload, and cold chain storage." />
       </Helmet>
 
-      {/* Hero */}
-      <section className="bg-[#0f172a] text-white py-20 relative overflow-hidden">
-         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-         <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-               <span className="text-blue-400 font-bold uppercase tracking-[0.2em] text-[10px] mb-4 block">Trust & Quality</span>
-               <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 tracking-tight">Umang <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">Pharmacy</span></h1>
-               <p className="text-xl text-gray-300 font-light leading-relaxed mb-8">Authentic medicines, surgical supplies, and health wellness products delivered to your doorstep 24/7.</p>
-               <div className="flex gap-6 text-sm text-blue-200">
-                  <div className="flex items-center gap-2"><Truck className="w-4 h-4" /> Home Delivery</div>
-                  <div className="flex items-center gap-2"><ShieldCheck className="w-4 h-4" /> 100% Genuine</div>
-               </div>
+      {/* 1. Hero with Prescription Upload */}
+      <section className="bg-[#005580] text-white pt-12 pb-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
+        
+        <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <div className="flex items-center gap-2 text-cyan-300 font-bold uppercase tracking-widest text-xs mb-6">
+              <ShieldCheck className="w-4 h-4" />
+              <span>100% Genuine Medicines</span>
             </div>
-            <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-[3rem] relative">
-               <h3 className="text-2xl font-bold mb-6">Upload Prescription</h3>
-               <p className="text-gray-400 mb-8 text-sm">Need medicines quickly? Just upload your prescription and we will verify and deliver.</p>
-               <button className="w-full py-4 bg-white text-[#0f172a] rounded-2xl font-bold hover:bg-blue-50 transition-all flex items-center justify-center gap-2">
-                  Select File <Plus className="w-4 h-4" />
-               </button>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6 leading-tight">
+              Your Health Delivered <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200">Safely & Quickly.</span>
+            </h1>
+            <p className="text-xl text-blue-100 font-light leading-relaxed mb-10">
+              Skip the pharmacy queue. Upload your prescription, and our pharmacists will verify and dispatch your medicines instantly.
+            </p>
+            
+            <div className="flex gap-8 text-sm font-medium">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                  <Clock className="w-4 h-4 text-cyan-300" />
+                </div>
+                <span>24/7 Delivery</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
+                  <Truck className="w-4 h-4 text-cyan-300" />
+                </div>
+                <span>Home Delivery</span>
+              </div>
             </div>
-         </div>
+          </div>
+
+          {/* Upload Card */}
+          <div className="bg-white text-gray-900 rounded-[2.5rem] p-8 shadow-2xl relative">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-2xl font-bold text-[#0f172a]">Quick Order</h3>
+              <div className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                <CheckCircle className="w-3 h-3" /> Flat 15% OFF
+              </div>
+            </div>
+            
+            <div className="border-2 border-dashed border-gray-300 rounded-2xl h-40 flex flex-col items-center justify-center bg-gray-50 hover:bg-blue-50 hover:border-blue-300 transition-all cursor-pointer group">
+              <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform">
+                <Upload className="w-5 h-5 text-[#005580]" />
+              </div>
+              <p className="font-bold text-gray-600 group-hover:text-[#005580]">Upload Prescription</p>
+              <p className="text-xs text-gray-400 mt-1">PDF, JPG, or PNG (Max 5MB)</p>
+            </div>
+
+            <div className="mt-6 flex items-center gap-4">
+              <div className="h-[1px] flex-1 bg-gray-200"></div>
+              <span className="text-xs font-bold text-gray-400 uppercase">OR</span>
+              <div className="h-[1px] flex-1 bg-gray-200"></div>
+            </div>
+
+            <div className="mt-6 relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <input 
+                type="text" 
+                placeholder="Search medicines (e.g. Paracetamol)" 
+                className="w-full h-12 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-[#005580] outline-none font-medium"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="py-24 container-custom">
-         <div className="flex justify-between items-end mb-12">
-            <h2 className="text-4xl font-serif font-bold text-[#0f172a]">Essentials</h2>
-            <button className="text-[#005580] font-bold text-sm flex items-center gap-2">View Full Store <ArrowRight className="w-4 h-4" /></button>
-         </div>
-
-         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {products.map((item) => (
-               <motion.div whileHover={{ y: -10 }} key={item.id} className="group relative bg-gray-50 rounded-3xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500">
-                  <div className="h-64 relative overflow-hidden bg-white p-8">
-                     <img src={item.img} alt={item.name} className="w-full h-full object-contain mix-blend-multiply transition-transform duration-700 group-hover:scale-110" />
-                  </div>
-                  <div className="p-6">
-                     <span className="text-[10px] font-bold uppercase tracking-widest text-primary-600 mb-1 block">{item.cat}</span>
-                     <h3 className="font-bold text-[#0f172a] text-lg mb-4">{item.name}</h3>
-                     <div className="flex justify-between items-center">
-                        <span className="text-xl font-black text-[#0f172a]">{item.price}</span>
-                        <button className="w-10 h-10 rounded-xl bg-[#005580] text-white flex items-center justify-center hover:bg-[#004466] shadow-lg transition-all">
-                           <ShoppingBag className="w-4 h-4" />
-                        </button>
-                     </div>
-                  </div>
-               </motion.div>
+      {/* 2. Shop by Category */}
+      <section className="py-16 container-custom -mt-16 relative z-20">
+        <div className="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100">
+          <h3 className="text-lg font-bold text-gray-900 mb-6 uppercase tracking-wider">Shop by Category</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {categories.map((cat, i) => (
+              <motion.div 
+                key={i} 
+                whileHover={{ y: -5 }}
+                className="flex flex-col items-center text-center cursor-pointer group"
+              >
+                <div className="w-20 h-20 rounded-full overflow-hidden mb-3 border-2 border-transparent group-hover:border-[#005580] transition-all">
+                  <img src={cat.img} alt={cat.name} className="w-full h-full object-cover" />
+                </div>
+                <span className="text-sm font-bold text-gray-600 group-hover:text-[#005580] transition-colors">{cat.name}</span>
+              </motion.div>
             ))}
-         </div>
+          </div>
+        </div>
       </section>
+
+      {/* 3. Best Sellers */}
+      <section className="py-12 container-custom">
+        <div className="flex justify-between items-end mb-12">
+          <div>
+            <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Best Sellers</h2>
+            <p className="text-gray-500">Most popular health products chosen by our patients.</p>
+          </div>
+          <button className="text-[#005580] font-bold flex items-center gap-2 hover:gap-3 transition-all">
+            View All <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {bestSellers.map((product) => (
+            <div key={product.id} className="bg-white p-4 rounded-2xl border border-gray-100 hover:shadow-xl transition-all group">
+              <div className="h-48 relative bg-gray-50 rounded-xl overflow-hidden mb-4 p-6 flex items-center justify-center">
+                <img src={product.img} alt={product.name} className="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
+                <button className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity hover:text-red-500">
+                  <motion.div whileTap={{ scale: 1.2 }}>♥</motion.div>
+                </button>
+              </div>
+              
+              <div className="space-y-1">
+                <h3 className="font-bold text-gray-900 line-clamp-1">{product.name}</h3>
+                <p className="text-xs text-gray-500">{product.pack}</p>
+              </div>
+              
+              <div className="flex items-end justify-between mt-4">
+                <div>
+                  <span className="text-xs text-gray-400 line-through">₹{product.oldPrice}</span>
+                  <p className="text-lg font-bold text-[#0f172a]">₹{product.price}</p>
+                </div>
+                <button 
+                  onClick={addToCart}
+                  className="w-10 h-10 bg-[#005580] text-white rounded-xl flex items-center justify-center hover:bg-[#004466] active:scale-95 transition-all shadow-lg"
+                >
+                  <Plus className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. Process Steps */}
+      <section className="py-24 bg-white border-t border-gray-100">
+        <div className="container-custom">
+          <h2 className="text-3xl font-serif font-bold text-center text-[#0f172a] mb-16">How It Works</h2>
+          <div className="grid md:grid-cols-3 gap-8 relative">
+            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-100 -z-10" />
+            
+            {[
+              { title: "Upload Prescription", desc: "Upload a photo of your prescription or search for medicines." },
+              { title: "Pharmacist Verification", desc: "Our qualified pharmacists check your order for safety and accuracy." },
+              { title: "Doorstep Delivery", desc: "Get your medicines delivered within 24 hours in temperature-controlled boxes." }
+            ].map((step, i) => (
+              <div key={i} className="text-center bg-white">
+                <div className="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 border-4 border-white shadow-sm text-[#005580] font-bold text-2xl">
+                  {i + 1}
+                </div>
+                <h4 className="text-xl font-bold text-[#0f172a] mb-2">{step.title}</h4>
+                <p className="text-gray-500 max-w-xs mx-auto">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Mobile App CTA */}
+      <section className="py-20 bg-[#0f172a] text-white overflow-hidden relative">
+        <div className="container-custom relative z-10 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">Order Faster with <br />the Umang App</h2>
+            <p className="text-blue-200 text-lg mb-8 max-w-md">
+              Track orders, set refill reminders, and consult doctors on the go. Download now for exclusive app-only discounts.
+            </p>
+            <div className="flex gap-4">
+              <button className="h-14 px-6 rounded-xl bg-white text-[#0f172a] font-bold flex items-center gap-3 hover:bg-gray-100 transition-all">
+                <Smartphone className="w-6 h-6" /> App Store
+              </button>
+              <button className="h-14 px-6 rounded-xl bg-transparent border border-white/20 text-white font-bold flex items-center gap-3 hover:bg-white/10 transition-all">
+                <Smartphone className="w-6 h-6" /> Play Store
+              </button>
+            </div>
+          </div>
+          <div className="flex justify-center relative">
+            <div className="absolute inset-0 bg-blue-500/20 blur-[80px] rounded-full" />
+            <img 
+              src="https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&q=80&w=400" 
+              alt="Mobile App" 
+              className="relative z-10 rounded-3xl border-8 border-[#1e293b] shadow-2xl rotate-[-5deg] hover:rotate-0 transition-all duration-500" 
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Sticky Cart Button (Mobile) */}
+      <div className="fixed bottom-6 right-6 z-50 md:hidden">
+        <button className="w-14 h-14 bg-[#005580] text-white rounded-full shadow-2xl flex items-center justify-center relative">
+          <ShoppingBag className="w-6 h-6" />
+          {cartCount > 0 && (
+            <span className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full text-xs flex items-center justify-center font-bold border-2 border-white">
+              {cartCount}
+            </span>
+          )}
+        </button>
+      </div>
+
     </div>
   );
 };

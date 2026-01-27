@@ -27,6 +27,11 @@ import PatientCorner from './pages/PatientCorner';
 import MediaCenter from './pages/MediaCenter';
 import Team from './pages/Team';
 import DynamicSubPage from './pages/DynamicSubPage';
+import SecondOpinion from './pages/SecondOpinion';
+import LabDiagnostics from './pages/LabDiagnostics';
+import HomeCare from './pages/HomeCare';
+import Telemedicine from './pages/Telemedicine';
+import Emergency from './pages/Emergency';
 
 function App() {
   return (
@@ -44,6 +49,12 @@ function App() {
           <Route path="team" element={<Team />} />
           
           <Route path="services" element={<Services />} />
+          <Route path="services/second-opinion" element={<SecondOpinion />} />
+          <Route path="services/lab-test-diagnostic" element={<LabDiagnostics />} />
+          <Route path="services/home-care" element={<HomeCare />} />
+          <Route path="services/buy-medicines" element={<Pharmacy />} />
+          <Route path="services/telemedicine" element={<Telemedicine />} />
+          <Route path="services/emergency" element={<Emergency />} />
           <Route path="services/:slug" element={<DynamicSubPage />} />
           
           <Route path="health-library" element={<HealthLibrary />} />
