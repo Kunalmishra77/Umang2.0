@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { Newspaper, Video, Mail, Radio } from 'lucide-react';
 
 const MediaCenter = () => {

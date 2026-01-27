@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { Stethoscope, Activity, Home, Pill, Video, Phone, ShieldCheck, Heart } from 'lucide-react';
 
 const services = [

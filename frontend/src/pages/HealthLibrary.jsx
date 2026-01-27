@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { BookOpen, Cpu, Stethoscope, GraduationCap, Calendar, Download } from 'lucide-react';
 
 const categories = [
