@@ -1,9 +1,9 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { 
   Phone, Ambulance, Heart, Activity, Clock, MapPin, 
-  ShieldCheck, AlertCircle, ArrowRight, Zap 
+  ShieldCheck, AlertCircle, ArrowRight, Zap, ChevronDown, Plus
 } from 'lucide-react';
 
 const emergencyServices = [
@@ -33,7 +33,15 @@ const emergencyServices = [
   }
 ];
 
+const firstAid = [
+  { title: "Heart Attack", steps: ["Call Ambulance immediately", "Chew 300mg Aspirin", "Keep patient calm & seated", "Perform CPR if unconscious"] },
+  { title: "Stroke", steps: ["Check FAST (Face, Arms, Speech, Time)", "Note the time of symptom onset", "Do NOT give food or water", "Rush to stroke-ready hospital"] },
+  { title: "Severe Bleeding", steps: ["Apply direct pressure on wound", "Elevate the injured part", "Do not remove embedded objects", "Keep patient warm"] }
+];
+
 const Emergency = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
   return (
     <div className="bg-white min-h-screen pt-20">
       <Helmet>
@@ -76,9 +84,9 @@ const Emergency = () => {
               <a href="tel:+918929733551" className="h-16 px-8 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 hover:shadow-2xl hover:shadow-red-900/50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
                 <Phone className="w-6 h-6 animate-wiggle" /> Call Ambulance: 89297 33551
               </a>
-              <button className="h-16 px-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
+              <a href="https://maps.google.com/?q=Umang+Hospital+Gurugram" target="_blank" rel="noreferrer" className="h-16 px-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
                 <MapPin className="w-6 h-6" /> Get Directions
-              </button>
+              </a>
             </div>
           </motion.div>
         </div>
@@ -188,7 +196,30 @@ const Emergency = () => {
          </div>
       </section>
 
-      {/* 5. Sticky Emergency Bottom Bar */}
+      {/* 5. First Aid Guide */}
+      <section className="py-24 bg-gray-900 text-white">
+        <div className="container-custom">
+          <h2 className="text-3xl font-serif font-bold mb-12 text-center">Quick First Aid Guide</h2>
+          <div className="grid lg:grid-cols-3 gap-8">
+            {firstAid.map((item, i) => (
+              <div key={i} className="bg-gray-800 p-8 rounded-3xl border border-gray-700">
+                <h3 className="text-xl font-bold mb-6 text-red-400">{item.title}</h3>
+                <ul className="space-y-4">
+                  {item.steps.map((step, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <div className="w-6 h-6 rounded-full bg-gray-700 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{idx + 1}</div>
+                      <span className="text-gray-300 text-sm">{step}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-gray-500 text-xs mt-12">*This information is for educational purposes. Always call emergency services first.</p>
+        </div>
+      </section>
+
+      {/* 6. Sticky Emergency Bottom Bar */}
       <div className="fixed bottom-0 left-0 right-0 bg-red-600 text-white py-4 z-50 shadow-2xl md:hidden">
          <div className="container-custom flex items-center justify-between">
             <div>

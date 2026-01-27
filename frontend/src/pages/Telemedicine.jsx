@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { 
   Video, Calendar, Clock, ShieldCheck, Wifi, User, 
-  MessageSquare, Mic, FileText, CheckCircle, ArrowRight, Star, Phone
+  MessageSquare, Mic, FileText, CheckCircle, ArrowRight, Star, Phone, HelpCircle, Laptop
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -20,6 +20,11 @@ const doctors = [
   { id: 1, name: "Dr. Anjali Gupta", spec: "General Physician", exp: "12 Yrs", rating: 4.9, img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400", online: true },
   { id: 2, name: "Dr. Rahul Sharma", spec: "Dermatologist", exp: "8 Yrs", rating: 4.8, img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400", online: true },
   { id: 3, name: "Dr. Priya Singh", spec: "Pediatrician", exp: "15 Yrs", rating: 5.0, img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400", online: false },
+];
+
+const testimonials = [
+  { name: "Riya Kapoor", text: "The video quality was amazing, and Dr. Anjali listened to all my concerns patiently. Got the prescription instantly!", rating: 5 },
+  { name: "Vikram Singh", text: "Saved me a trip to the hospital for a follow-up. Telemedicine is a game-changer for busy professionals.", rating: 5 }
 ];
 
 const Telemedicine = () => {
@@ -56,9 +61,9 @@ const Telemedicine = () => {
             </p>
             
             <div className="flex gap-4">
-              <button className="h-14 px-8 rounded-full bg-green-600 text-white font-bold hover:bg-green-700 hover:shadow-xl transition-all flex items-center gap-2">
+              <Link to="/services/telemedicine/consult" className="h-14 px-8 rounded-full bg-green-600 text-white font-bold hover:bg-green-700 hover:shadow-xl transition-all flex items-center gap-2">
                 <Video className="w-5 h-5" /> Start Consultation
-              </button>
+              </Link>
               <button className="h-14 px-8 rounded-full bg-white border border-green-200 text-green-700 font-bold hover:bg-green-50 transition-all flex items-center gap-2">
                 <Calendar className="w-5 h-5" /> Book for Later
               </button>
@@ -105,17 +110,18 @@ const Telemedicine = () => {
             
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                {specialties.map((spec, i) => (
-                  <motion.div 
-                     key={i}
-                     whileHover={{ y: -5 }}
-                     className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-green-200 transition-all text-center cursor-pointer group"
-                  >
-                     <div className="text-4xl mb-4 group-hover:scale-110 transition-transform inline-block">{spec.icon}</div>
-                     <h3 className="font-bold text-[#0f172a] mb-1">{spec.name}</h3>
-                     <p className="text-[10px] font-bold text-green-600 bg-green-50 inline-block px-2 py-0.5 rounded-full">
-                        Wait: {spec.waiting}
-                     </p>
-                  </motion.div>
+                  <Link to="/services/telemedicine/consult" key={i} className="group">
+                    <motion.div 
+                       whileHover={{ y: -5 }}
+                       className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-green-200 transition-all text-center cursor-pointer h-full"
+                    >
+                       <div className="text-4xl mb-4 group-hover:scale-110 transition-transform inline-block">{spec.icon}</div>
+                       <h3 className="font-bold text-[#0f172a] mb-1">{spec.name}</h3>
+                       <p className="text-[10px] font-bold text-green-600 bg-green-50 inline-block px-2 py-0.5 rounded-full">
+                          Wait: {spec.waiting}
+                       </p>
+                    </motion.div>
+                  </Link>
                ))}
             </div>
          </div>
@@ -149,9 +155,9 @@ const Telemedicine = () => {
                            <span>• {doc.exp} Exp</span>
                         </div>
                         <div className="mt-4 flex gap-2">
-                           <button className={`flex-1 py-2 rounded-lg text-xs font-bold ${doc.online ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}>
+                           <Link to="/services/telemedicine/consult" className={`flex-1 py-2 rounded-lg text-xs font-bold text-center flex items-center justify-center ${doc.online ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}>
                               {doc.online ? 'Call Now' : 'Offline'}
-                           </button>
+                           </Link>
                            <button className="px-3 py-2 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50">
                               <MessageSquare className="w-4 h-4" />
                            </button>
@@ -219,6 +225,45 @@ const Telemedicine = () => {
                </div>
             </div>
          </div>
+      </section>
+
+      {/* 5. Patient Stories */}
+      <section className="py-24 bg-green-50">
+        <div className="container-custom">
+          <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-16">Patient Stories</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.map((test, i) => (
+              <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-green-100 relative">
+                <div className="text-4xl text-green-200 absolute top-6 left-6">"</div>
+                <p className="text-gray-600 mb-6 relative z-10">{test.text}</p>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center font-bold text-green-700">
+                    {test.name[0]}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-[#0f172a]">{test.name}</h4>
+                    <div className="flex text-yellow-400 text-xs">
+                      {[...Array(test.rating)].map((_, j) => <Star key={j} className="w-3 h-3 fill-current" />)}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Technical Help */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="container-custom text-center">
+          <h3 className="text-xl font-bold text-gray-900 mb-8">Technical Requirements</h3>
+          <div className="flex flex-wrap justify-center gap-8 text-gray-500 text-sm">
+            <div className="flex items-center gap-2"><Wifi className="w-5 h-5 text-green-600" /> Stable Internet (4G/WiFi)</div>
+            <div className="flex items-center gap-2"><Laptop className="w-5 h-5 text-green-600" /> Smartphone or Laptop</div>
+            <div className="flex items-center gap-2"><Mic className="w-5 h-5 text-green-600" /> Working Mic & Camera</div>
+            <div className="flex items-center gap-2"><HelpCircle className="w-5 h-5 text-green-600" /> Need Help? Call Support</div>
+          </div>
+        </div>
       </section>
 
     </div>

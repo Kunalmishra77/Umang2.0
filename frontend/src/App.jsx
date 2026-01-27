@@ -34,6 +34,8 @@ import Telemedicine from './pages/Telemedicine';
 import Emergency from './pages/Emergency';
 import HealthCheckup from './pages/HealthCheckup';
 import ElderCare from './pages/ElderCare';
+import PharmacyCategory from './pages/PharmacyCategory';
+import TelemedicineConsult from './pages/TelemedicineConsult';
 
 function App() {
   return (
@@ -55,7 +57,10 @@ function App() {
           <Route path="services/lab-test-diagnostic" element={<LabDiagnostics />} />
           <Route path="services/home-care" element={<HomeCare />} />
           <Route path="services/buy-medicines" element={<Pharmacy />} />
+          <Route path="services/buy-medicines/category/:slug" element={<PharmacyCategory />} />
+          <Route path="services/buy-medicines/all-products" element={<PharmacyCategory />} />
           <Route path="services/telemedicine" element={<Telemedicine />} />
+          <Route path="services/telemedicine/consult" element={<TelemedicineConsult />} />
           <Route path="services/emergency" element={<Emergency />} />
           <Route path="services/health-checkup" element={<HealthCheckup />} />
           <Route path="services/elder-care" element={<ElderCare />} />

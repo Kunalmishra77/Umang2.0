@@ -3,17 +3,18 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { 
   Search, Upload, ShieldCheck, Clock, Truck, Plus, Minus, 
-  ShoppingBag, CheckCircle, Smartphone, ArrowRight 
+  ShoppingBag, CheckCircle, Smartphone, ArrowRight, Star, Heart, 
+  HelpCircle, ChevronDown, Leaf
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const categories = [
-  { name: "Prescription", img: "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80" },
-  { name: "Diabetes Care", img: "https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80" },
-  { name: "Cardiac Care", img: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80" },
-  { name: "Mother & Baby", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80" },
-  { name: "Devices", img: "https://images.unsplash.com/photo-1583912267670-6575ad43263d?auto=format&fit=crop&q=80" },
-  { name: "Personal Care", img: "https://images.unsplash.com/photo-1556228720-1957be83f360?auto=format&fit=crop&q=80" }
+  { name: "Prescription", slug: "prescription", img: "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80" },
+  { name: "Diabetes Care", slug: "diabetes-care", img: "https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80" },
+  { name: "Cardiac Care", slug: "cardiac-care", img: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80" },
+  { name: "Mother & Baby", slug: "mother-baby", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80" },
+  { name: "Devices", slug: "devices", img: "https://images.unsplash.com/photo-1583912267670-6575ad43263d?auto=format&fit=crop&q=80" },
+  { name: "Personal Care", slug: "personal-care", img: "https://images.unsplash.com/photo-1556228720-1957be83f360?auto=format&fit=crop&q=80" }
 ];
 
 const bestSellers = [
@@ -23,9 +24,16 @@ const bestSellers = [
   { id: 4, name: "N95 Face Masks", pack: "Pack of 5", price: 299, oldPrice: 400, img: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=400" }
 ];
 
+const faqs = [
+  { q: "Is a prescription mandatory?", a: "Yes, for Schedule H and H1 drugs, a valid prescription from a registered medical practitioner is mandatory. OTC products can be bought without one." },
+  { q: "How do I return a product?", a: "We have a 7-day return policy for damaged or incorrect items. Please contact support within 48 hours of delivery." },
+  { q: "Do you deliver internationally?", a: "Currently, we deliver only within India. International shipping is coming soon." }
+];
+
 const Pharmacy = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [cartCount, setCartCount] = useState(0);
+  const [activeAccordion, setActiveAccordion] = useState(null);
 
   const addToCart = () => {
     setCartCount(prev => prev + 1);
@@ -82,13 +90,13 @@ const Pharmacy = () => {
               </div>
             </div>
             
-            <div className="border-2 border-dashed border-gray-300 rounded-2xl h-40 flex flex-col items-center justify-center bg-gray-50 hover:bg-blue-50 hover:border-blue-300 transition-all cursor-pointer group">
+            <Link to="/services/buy-medicines/prescription-upload" className="border-2 border-dashed border-gray-300 rounded-2xl h-40 flex flex-col items-center justify-center bg-gray-50 hover:bg-blue-50 hover:border-blue-300 transition-all cursor-pointer group">
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform">
                 <Upload className="w-5 h-5 text-[#005580]" />
               </div>
               <p className="font-bold text-gray-600 group-hover:text-[#005580]">Upload Prescription</p>
               <p className="text-xs text-gray-400 mt-1">PDF, JPG, or PNG (Max 5MB)</p>
-            </div>
+            </Link>
 
             <div className="mt-6 flex items-center gap-4">
               <div className="h-[1px] flex-1 bg-gray-200"></div>
@@ -116,16 +124,16 @@ const Pharmacy = () => {
           <h3 className="text-lg font-bold text-gray-900 mb-6 uppercase tracking-wider">Shop by Category</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {categories.map((cat, i) => (
-              <motion.div 
+              <Link 
+                to={`/services/buy-medicines/category/${cat.slug}`}
                 key={i} 
-                whileHover={{ y: -5 }}
                 className="flex flex-col items-center text-center cursor-pointer group"
               >
                 <div className="w-20 h-20 rounded-full overflow-hidden mb-3 border-2 border-transparent group-hover:border-[#005580] transition-all">
                   <img src={cat.img} alt={cat.name} className="w-full h-full object-cover" />
                 </div>
                 <span className="text-sm font-bold text-gray-600 group-hover:text-[#005580] transition-colors">{cat.name}</span>
-              </motion.div>
+              </Link>
             ))}
           </div>
         </div>
@@ -138,9 +146,9 @@ const Pharmacy = () => {
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Best Sellers</h2>
             <p className="text-gray-500">Most popular health products chosen by our patients.</p>
           </div>
-          <button className="text-[#005580] font-bold flex items-center gap-2 hover:gap-3 transition-all">
+          <Link to="/services/buy-medicines/all-products" className="text-[#005580] font-bold flex items-center gap-2 hover:gap-3 transition-all">
             View All <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -175,8 +183,45 @@ const Pharmacy = () => {
         </div>
       </section>
 
-      {/* 4. Process Steps */}
-      <section className="py-24 bg-white border-t border-gray-100">
+      {/* 4. Trusted Brands Section */}
+      <section className="py-16 bg-white border-y border-gray-100">
+        <div className="container-custom">
+          <h3 className="text-center text-lg font-bold text-gray-400 uppercase tracking-widest mb-10">Trusted Partners</h3>
+          <div className="flex flex-wrap justify-center gap-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+            {['Pfizer', 'Cipla', 'Sun Pharma', 'Abbott', 'GSK', 'Dr. Reddy'].map((brand, i) => (
+              <span key={i} className="text-2xl font-serif font-bold text-[#0f172a]">{brand}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Health Essentials Articles */}
+      <section className="py-24 bg-gray-50">
+        <div className="container-custom">
+          <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12">Health Essentials</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Vitamin D: Why you need it", category: "Nutrition", img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80" },
+              { title: "Managing Diabetes at Home", category: "Chronic Care", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80" },
+              { title: "Best Skincare Routine", category: "Wellness", img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80" }
+            ].map((article, i) => (
+              <Link to="/patient-corner/blogs" key={i} className="group cursor-pointer">
+                <div className="h-64 rounded-2xl overflow-hidden mb-4 relative">
+                  <img src={article.img} alt={article.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-[#005580] uppercase tracking-wide">
+                    {article.category}
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-[#0f172a] mb-2 group-hover:text-[#005580] transition-colors">{article.title}</h3>
+                <span className="text-sm text-gray-500 font-bold flex items-center gap-1 group-hover:gap-2 transition-all">Read More <ArrowRight className="w-4 h-4" /></span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Process Steps */}
+      <section className="py-24 bg-white">
         <div className="container-custom">
           <h2 className="text-3xl font-serif font-bold text-center text-[#0f172a] mb-16">How It Works</h2>
           <div className="grid md:grid-cols-3 gap-8 relative">
@@ -199,7 +244,41 @@ const Pharmacy = () => {
         </div>
       </section>
 
-      {/* 5. Mobile App CTA */}
+      {/* 7. FAQ Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="container-custom max-w-3xl">
+          <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-12">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            {faqs.map((faq, i) => (
+              <div key={i} className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+                <button 
+                  onClick={() => setActiveAccordion(activeAccordion === i ? null : i)}
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors"
+                >
+                  <span className="font-bold text-[#0f172a]">{faq.q}</span>
+                  <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${activeAccordion === i ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {activeAccordion === i && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-6 pt-0 text-gray-600 border-t border-gray-100">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. Mobile App CTA */}
       <section className="py-20 bg-[#0f172a] text-white overflow-hidden relative">
         <div className="container-custom relative z-10 grid md:grid-cols-2 gap-12 items-center">
           <div>
