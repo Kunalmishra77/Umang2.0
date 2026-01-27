@@ -17,6 +17,7 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close everything on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setActiveDropdown(null);
@@ -66,7 +67,7 @@ const Header = () => {
                   <Clock className="w-3 h-3" /> Support
                </div>
                <div className="space-y-1">
-                 {[{ name: "Emergency", path: "/infrastructure" }, { name: "Careers", path: "/careers" }, { name: "Contact", path: "/contact" }].map((item, i) => (
+                 {[{ name: "Infrastructure", path: "/infrastructure" }, { name: "Careers", path: "/careers" }, { name: "Contact", path: "/contact" }].map((item, i) => (
                    <Link key={i} to={item.path} className="flex items-center gap-2 p-2 rounded-lg hover:bg-blue-50 text-sm text-gray-600 hover:text-[#005580] transition-colors font-medium">
                       {item.name}
                    </Link>
@@ -84,7 +85,6 @@ const Header = () => {
 
   return (
     <>
-      {/* 1. Top Bar - Hidden on smallest screens to save space */}
       <div className={`bg-gradient-to-r from-[#005580] to-[#0088cc] text-white transition-all duration-500 ease-in-out hidden sm:block ${isScrolled ? 'h-0 opacity-0 overflow-hidden' : 'h-10 opacity-100'} relative z-[101]`}>
          <div className="container-custom h-full flex items-center justify-between text-[10px] md:text-[11px] font-bold tracking-wide">
             <div className="flex items-center gap-4 md:gap-6">
@@ -99,7 +99,6 @@ const Header = () => {
          </div>
       </div>
 
-      {/* 2. Main Header */}
       <header 
         className={`fixed left-0 right-0 z-[100] transition-all duration-500 border-b ${
           isScrolled 
@@ -107,24 +106,22 @@ const Header = () => {
             : 'top-0 sm:top-10 bg-white border-gray-100 py-3 md:py-4 shadow-sm'
         }`}
       >
-        <div className="container-custom flex items-center justify-between">
+        <div className="container-custom flex items-center justify-between gap-4">
           
-          {/* Logo Section - Fixed Height to prevent "jumping" */}
           <Link to="/" className="flex items-center gap-2 md:gap-3 group relative z-50 shrink-0">
              <div className="p-1 md:p-1.5 bg-white rounded-lg shadow-sm shrink-0 h-10 md:h-12 flex items-center">
                <img src="/umang.jpg" alt="Umang Hospital" className="h-full w-auto object-contain" />
              </div>
              <div className="flex flex-col leading-tight md:leading-none">
-               <span className="text-lg md:text-2xl font-bold tracking-tight text-[#005580]">
+               <span className="text-base sm:text-lg md:text-2xl font-bold tracking-tight text-[#005580]">
                  Umang<span className="text-[#0088cc]">Hospital</span>
                </span>
-               <span className="text-[8px] md:text-[10px] uppercase tracking-[0.1em] md:tracking-[0.2em] font-bold text-gray-500 mt-0.5 group-hover:text-[#0088cc] transition-colors">
+               <span className="hidden sm:block text-[8px] md:text-[10px] uppercase tracking-[0.1em] md:tracking-[0.2em] font-bold text-gray-500 mt-0.5 group-hover:text-[#0088cc] transition-colors">
                  Superspeciality Care
                </span>
              </div>
           </Link>
 
-          {/* Desktop Navigation - Hidden on lg and below */}
           <nav className="hidden xl:flex items-center gap-1">
             {navLinks.map((link) => (
               <div 
@@ -151,7 +148,6 @@ const Header = () => {
                   </span>
                 </NavLink>
 
-                {/* Dropdown */}
                 <AnimatePresence>
                   {activeDropdown === link.name && link.type === 'dropdown' && (
                     <motion.div
@@ -159,7 +155,7 @@ const Header = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.98 }}
                       transition={{ type: "spring", stiffness: 400, damping: 25 }}
-                      className={`absolute top-[90%] left-1/2 -translate-x-1/2 pt-4 ${link.width}`}
+                      className={`absolute top-[90%] left-1/2 -translate-x-1/2 pt-4 z-[110] ${link.width}`}
                     >
                        <div className="absolute -top-4 left-0 w-full h-4 bg-transparent" />
                        <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden relative z-50 ring-1 ring-black/5">
@@ -173,20 +169,21 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Right Actions */}
           <div className="flex items-center gap-2 md:gap-4">
              <Link 
                 to="/doctors" 
-                className="hidden md:flex group h-10 md:h-12 px-4 md:px-8 rounded-full items-center gap-2 text-xs md:text-sm font-bold bg-gradient-to-r from-[#005580] to-[#0088cc] text-white hover:shadow-lg transition-all"
+                className="hidden sm:flex group h-10 md:h-12 px-4 md:px-8 rounded-full items-center gap-2 text-xs md:text-sm font-bold bg-gradient-to-r from-[#005580] to-[#0088cc] text-white hover:shadow-lg transition-all shadow-md shadow-blue-900/20"
              >
                <Calendar className="w-4 h-4" />
-               <span className="whitespace-nowrap">Book Appointment</span>
+               <span className="whitespace-nowrap">Appointment</span>
              </Link>
 
-             {/* Mobile Toggle */}
              <button 
-               className="xl:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center"
-               onClick={() => setIsMobileMenuOpen(true)}
+               className="xl:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-colors flex items-center justify-center border border-gray-100"
+               onClick={(e) => {
+                 e.stopPropagation();
+                 setIsMobileMenuOpen(true);
+               }}
              >
                <Menu className="w-6 h-6 md:w-7 md:h-7" />
              </button>
@@ -194,7 +191,6 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Mobile Menu - Enhanced Responsiveness */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
@@ -209,15 +205,18 @@ const Header = () => {
                initial={{ x: '100%' }}
                animate={{ x: 0 }}
                exit={{ x: '100%' }}
-               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-               className="fixed inset-y-0 right-0 w-full sm:w-[80%] max-w-[360px] bg-white z-[160] shadow-2xl p-6 flex flex-col"
+               transition={{ type: "spring", damping: 35, stiffness: 300 }}
+               className="fixed inset-y-0 right-0 w-full sm:w-[80%] max-w-[320px] bg-white z-[160] shadow-2xl p-6 flex flex-col pointer-events-auto"
             >
                <div className="flex justify-between items-center mb-8 border-b border-gray-100 pb-4">
                   <div className="flex items-center gap-2">
                      <img src="/umang.jpg" alt="Logo" className="h-8" />
-                     <span className="font-bold text-[#005580]">Menu</span>
+                     <span className="font-bold text-[#005580] text-lg tracking-tight">Menu</span>
                   </div>
-                  <button onClick={() => setIsMobileMenuOpen(false)} className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-gray-100">
+                  <button 
+                    onClick={() => setIsMobileMenuOpen(false)} 
+                    className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-500 hover:bg-gray-100 border border-gray-100"
+                  >
                     <X className="w-5 h-5" />
                   </button>
                </div>
@@ -229,7 +228,7 @@ const Header = () => {
                       to={link.path}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={({ isActive }) => 
-                        `block px-4 py-4 rounded-2xl text-base font-bold transition-colors ${isActive ? 'bg-blue-50 text-[#005580]' : 'text-gray-600 hover:bg-gray-50'}`
+                        `block px-5 py-4 rounded-2xl text-base font-bold transition-all ${isActive ? 'bg-[#005580] text-white shadow-lg' : 'text-gray-600 hover:bg-blue-50 hover:text-[#005580]'}`
                       }
                     >
                       {link.name}
@@ -238,8 +237,8 @@ const Header = () => {
                </div>
 
                <div className="pt-6 border-t border-gray-100 space-y-3">
-                  <Link to="/doctors" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-center gap-2 w-full py-4 rounded-full bg-[#005580] text-white font-bold hover:bg-[#004466] shadow-lg">
-                     Book Appointment
+                  <Link to="/doctors" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-center gap-2 w-full py-4 rounded-full bg-gradient-to-r from-[#005580] to-[#0088cc] text-white font-bold hover:shadow-lg">
+                     <Calendar className="w-4 h-4" /> Book Appointment
                   </Link>
                   <a href="tel:+918929733551" className="flex items-center justify-center gap-2 w-full py-4 rounded-full border-2 border-primary-100 text-primary-600 font-bold hover:bg-primary-50 transition-colors">
                      <Phone className="w-4 h-4" /> Emergency Call
