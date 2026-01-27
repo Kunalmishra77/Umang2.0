@@ -19,9 +19,21 @@ const faqs = [
 
 const Contact = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
 
   const toggleAccordion = (index) => {
     setActiveAccordion(activeAccordion === index ? null : index);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    // Simulate API call
+    setTimeout(() => {
+      alert("Thank you for contacting us! We will get back to you shortly.");
+      setSubmitted(false);
+      e.target.reset();
+    }, 1000);
   };
 
   return (
@@ -122,20 +134,20 @@ const Contact = () => {
                <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Write to Us</h2>
                <p className="text-gray-500 mb-8">For feedback, complaints, or general inquiries.</p>
 
-               <form className="space-y-6">
+               <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-6">
                      <div className="space-y-2">
-                        <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Name</label>
-                        <input type="text" className="w-full h-12 px-4 rounded-xl border border-gray-200 focus:border-[#005580] focus:ring-2 focus:ring-blue-50 outline-none transition-all bg-gray-50" />
+                        <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Name <span className="text-red-500">*</span></label>
+                        <input type="text" required className="w-full h-12 px-4 rounded-xl border border-gray-200 focus:border-[#005580] focus:ring-2 focus:ring-blue-50 outline-none transition-all bg-gray-50" />
                      </div>
                      <div className="space-y-2">
-                        <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Email</label>
-                        <input type="email" className="w-full h-12 px-4 rounded-xl border border-gray-200 focus:border-[#005580] focus:ring-2 focus:ring-blue-50 outline-none transition-all bg-gray-50" />
+                        <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Email <span className="text-red-500">*</span></label>
+                        <input type="email" required className="w-full h-12 px-4 rounded-xl border border-gray-200 focus:border-[#005580] focus:ring-2 focus:ring-blue-50 outline-none transition-all bg-gray-50" />
                      </div>
                   </div>
 
                   <div className="space-y-2">
-                     <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Subject</label>
+                     <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Subject <span className="text-red-500">*</span></label>
                      <select className="w-full h-12 px-4 rounded-xl border border-gray-200 focus:border-[#005580] focus:ring-2 focus:ring-blue-50 outline-none transition-all bg-gray-50">
                         <option>General Inquiry</option>
                         <option>Feedback</option>
@@ -145,12 +157,12 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2">
-                     <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Message</label>
-                     <textarea rows="4" className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#005580] focus:ring-2 focus:ring-blue-50 outline-none transition-all bg-gray-50 resize-none"></textarea>
+                     <label className="text-xs font-bold text-gray-500 uppercase tracking-wider">Message <span className="text-red-500">*</span></label>
+                     <textarea required rows="4" className="w-full p-4 rounded-xl border border-gray-200 focus:border-[#005580] focus:ring-2 focus:ring-blue-50 outline-none transition-all bg-gray-50 resize-none"></textarea>
                   </div>
 
-                  <button className="w-full h-14 bg-[#005580] text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#004466] shadow-lg transition-all">
-                     Submit Request <Send className="w-4 h-4" />
+                  <button disabled={submitted} className={`w-full h-14 bg-[#005580] text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#004466] shadow-lg transition-all ${submitted ? 'opacity-70 cursor-wait' : ''}`}>
+                     {submitted ? 'Sending...' : 'Submit Request'} <Send className="w-4 h-4" />
                   </button>
                </form>
             </div>

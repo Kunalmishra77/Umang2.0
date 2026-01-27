@@ -27,7 +27,7 @@ const Header = () => {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { 
-      name: 'Centres of Excellence', 
+      name: 'Specialties', 
       path: '/specialities', 
       type: 'dropdown',
       width: 'w-[90vw] md:w-[800px]',
@@ -114,7 +114,7 @@ const Header = () => {
              </div>
              <div className="flex flex-col leading-tight md:leading-none">
                <span className="text-base sm:text-lg md:text-2xl font-bold tracking-tight text-[#005580]">
-                 Umang<span className="text-[#0088cc]">Hospital</span>
+                 Umang <span className="text-[#0088cc]">Hospital</span>
                </span>
                <span className="hidden sm:block text-[8px] md:text-[10px] uppercase tracking-[0.1em] md:tracking-[0.2em] font-bold text-gray-500 mt-0.5 group-hover:text-[#0088cc] transition-colors">
                  Superspeciality Care

@@ -20,25 +20,37 @@ const images = [
   'https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=60&w=400',
 ];
 
-const firstNames = ['Arjun', 'Sarah', 'Vikram', 'Priya', 'Robert', 'Emily', 'Ankit', 'Neha', 'Manmohan', 'Rohit', 'Sahil', 'Shubham'];
-const lastNames = ['Sharma', 'Johnson', 'Singh', 'Patel', 'Wilson', 'Chen', 'Gupta', 'Kumar', 'Arora', 'Anand', 'Yadav', 'Kapoor'];
+const firstNames = [
+  'Arjun', 'Sarah', 'Vikram', 'Priya', 'Robert', 'Emily', 'Ankit', 'Neha', 'Manmohan', 
+  'Rohit', 'Sahil', 'Shubham', 'Aditi', 'Raj', 'Sonia', 'Karan', 'Pooja', 'Amit', 
+  'Suresh', 'Anita', 'Deepak', 'Meera', 'Rakesh', 'Sunita', 'Vivek', 'Riya'
+];
+const lastNames = [
+  'Sharma', 'Johnson', 'Singh', 'Patel', 'Wilson', 'Chen', 'Gupta', 'Kumar', 'Arora', 
+  'Anand', 'Yadav', 'Kapoor', 'Verma', 'Reddy', 'Nair', 'Malhotra', 'Bhatia', 'Saxena',
+  'Joshi', 'Mehta', 'Chopra', 'Desai', 'Jain', 'Agarwal', 'Mishra', 'Pandey'
+];
 
 export const doctors = Array.from({ length: 60 }).map((_, i) => {
   const dept = depts[i % depts.length];
+  // Create more unique combinations
+  const firstName = firstNames[i % firstNames.length];
+  const lastName = lastNames[(i + Math.floor(i / firstNames.length)) % lastNames.length];
+  
   return {
     id: i + 1,
-    name: `Dr. ${firstNames[i % firstNames.length]} ${lastNames[i % lastNames.length]}`,
+    name: `Dr. ${firstName} ${lastName}`,
     dept: dept.name,
     deptId: dept.id,
     deptColor: dept.color,
-    role: i % 5 === 0 ? 'Director & Head' : 'Senior Consultant',
-    exp: `${10 + (i % 20)} Years`,
+    role: i % 8 === 0 ? 'Director & Head' : (i % 3 === 0 ? 'Senior Consultant' : 'Consultant'),
+    exp: `${8 + (i % 25)} Years`,
     image: images[i % images.length],
-    rating: (4.6 + (i % 5) * 0.1).toFixed(1),
-    cases: 3000 + (i * 150),
-    loc: i % 2 === 0 ? 'Gurugram' : 'Delhi NCR',
-    about: "Internationally trained specialist dedicated to clinical excellence and patient-centric healing protocols.",
-    tags: ['Certified', 'Board Member', 'Top Specialist'].slice(0, 1 + (i % 3)),
+    rating: (4.5 + (i % 5) * 0.1).toFixed(1),
+    cases: 2000 + (i * 123),
+    loc: i % 3 === 0 ? 'Gurugram' : (i % 3 === 1 ? 'Delhi NCR' : 'Noida'),
+    about: `Dr. ${firstName} ${lastName} is a renowned specialist in ${dept.name} with over ${8 + (i % 25)} years of experience. Dedicated to providing comprehensive care and advanced treatment protocols.`,
+    tags: ['Certified', 'Board Member', 'Top Specialist', 'Gold Medalist', 'Award Winner'].slice(0, 1 + (i % 4)),
     nextSlot: i % 2 === 0 ? 'Today' : 'Tomorrow'
   };
 });

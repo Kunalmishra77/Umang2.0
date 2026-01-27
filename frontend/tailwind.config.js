@@ -37,11 +37,16 @@ export default {
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
+        'scroll': 'scroll 40s linear infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-10px)' },
+        },
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-33.333%)' },
         }
       }
     },

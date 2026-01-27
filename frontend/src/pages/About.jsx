@@ -52,11 +52,6 @@ const About = () => {
             <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8 font-light px-4">
               Serving the community with cutting-edge medical technology and a legacy of healing hands.
             </p>
-            <div className="flex items-center justify-center gap-2 text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-400">
-              <Link to="/">Home</Link>
-              <ChevronRight className="w-3 h-3" />
-              <span className="text-blue-400">About</span>
-            </div>
           </motion.div>
         </div>
       </section>

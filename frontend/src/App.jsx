@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import ScrollToTop from './components/utils/ScrollToTop';
 import Home from './pages/Home';
@@ -19,6 +19,8 @@ import PatientDashboard from './pages/PatientDashboard';
 import PatientAppointments from './pages/PatientAppointments';
 import PatientProfile from './pages/PatientProfile';
 import BookAppointmentPatient from './pages/BookAppointmentPatient';
+import Terms from './pages/Terms';
+import Privacy from './pages/Privacy';
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
           <Route path="specialities/:id" element={<SpecialityDetail />} />
           <Route path="doctors" element={<DoctorSearch />} />
           <Route path="doctor/:id" element={<DoctorProfile />} />
+          <Route path="booking" element={<Navigate to="/doctors" replace />} />
           <Route path="booking/:id" element={<BookingPage />} />
           <Route path="patients" element={<PatientDashboard />} />
           <Route path="patients/appointments" element={<PatientAppointments />} />
@@ -41,6 +44,8 @@ function App() {
           <Route path="patients/book-appointment" element={<BookAppointmentPatient />} />
           <Route path="pharmacy" element={<Pharmacy />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="terms" element={<Terms />} />
+          <Route path="privacy" element={<Privacy />} />
         </Route>
         
         <Route path="/login" element={<Login />} />
