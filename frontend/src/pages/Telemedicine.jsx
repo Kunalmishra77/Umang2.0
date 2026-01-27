@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { 
   Video, Calendar, Clock, ShieldCheck, Wifi, User, 
-  MessageSquare, Mic, FileText, CheckCircle, ArrowRight, Star
+  MessageSquare, Mic, FileText, CheckCircle, ArrowRight, Star, Phone
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
