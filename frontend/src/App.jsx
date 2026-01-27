@@ -38,6 +38,12 @@ import PharmacyCategory from './pages/services/PharmacyCategory';
 import TelemedicineConsult from './pages/services/TelemedicineConsult';
 import ServiceBooking from './pages/services/ServiceBooking';
 import PrescriptionUpload from './pages/services/PrescriptionUpload';
+import Treatments from './pages/health-library/Treatments';
+import Technologies from './pages/health-library/Technologies';
+import Ailments from './pages/health-library/Ailments';
+import KnowledgeCenter from './pages/health-library/KnowledgeCenter';
+import Events from './pages/health-library/Events';
+import Downloads from './pages/health-library/Downloads';
 
 function App() {
   return (
@@ -75,6 +81,12 @@ function App() {
           <Route path="services/:slug" element={<DynamicSubPage />} />
           
           <Route path="health-library" element={<HealthLibrary />} />
+          <Route path="health-library/treatments" element={<Treatments />} />
+          <Route path="health-library/technologies" element={<Technologies />} />
+          <Route path="health-library/ailments" element={<Ailments />} />
+          <Route path="health-library/knowledge-center" element={<KnowledgeCenter />} />
+          <Route path="health-library/events" element={<Events />} />
+          <Route path="health-library/downloads" element={<Downloads />} />
           <Route path="health-library/:slug" element={<DynamicSubPage />} />
           
           <Route path="patient-corner" element={<PatientCorner />} />

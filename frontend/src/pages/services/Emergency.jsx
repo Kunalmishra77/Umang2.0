@@ -50,7 +50,7 @@ const Emergency = () => {
       </Helmet>
 
       {/* 1. High-Urgency Hero Section */}
-      <section className="relative h-[650px] overflow-hidden flex items-center bg-[#0f172a]">
+      <section className="relative min-h-[750px] overflow-hidden flex items-center bg-[#0f172a] py-20">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1516574187841-693018f33663?auto=format&fit=crop&q=80&w=2000" 
@@ -62,7 +62,7 @@ const Emergency = () => {
           <div className="absolute inset-0 bg-red-500/10 animate-pulse" />
         </div>
 
-        <div className="container-custom relative z-20 text-white">
+        <div className="container-custom relative z-20 text-white pb-12">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -80,7 +80,7 @@ const Emergency = () => {
               World-class emergency care staffed by fellowship-trained experts. Prepared for the unexpected, every moment of every day.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6">
+            <div className="flex flex-col sm:flex-row gap-6 mb-12">
               <a href="tel:+918929733551" className="h-16 px-8 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 hover:shadow-2xl hover:shadow-red-900/50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
                 <Phone className="w-6 h-6 animate-wiggle" /> Call Ambulance: 89297 33551
               </a>
