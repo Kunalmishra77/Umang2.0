@@ -86,7 +86,11 @@ const Infrastructure = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
-    <div ref={containerRef} className="bg-slate-50 min-h-screen font-sans relative">
+    <div 
+      ref={containerRef} 
+      className="bg-slate-50 min-h-screen font-sans relative"
+      style={{ position: 'relative' }}
+    >
       <Helmet>
         <title>Infrastructure | Umang Superspeciality Hospital</title>
       </Helmet>

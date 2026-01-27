@@ -34,7 +34,11 @@ const About = () => {
   };
 
   return (
-    <div ref={containerRef} className="bg-white overflow-hidden relative font-sans">
+    <div 
+      ref={containerRef} 
+      className="bg-white overflow-hidden relative font-sans"
+      style={{ position: 'relative' }}
+    >
       <Helmet>
         <title>Our Story & Legacy | Umang Superspeciality Hospital</title>
         <meta name="description" content="Discover the legacy of Umang Hospital. 15+ years of clinical excellence, advanced infrastructure, and compassionate care in Gurugram." />
