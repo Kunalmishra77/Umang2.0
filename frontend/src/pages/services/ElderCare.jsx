@@ -6,6 +6,7 @@ import {
   Phone, Calendar, CheckCircle, ArrowRight, Sun, Shield 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const services = [
   {
@@ -83,7 +84,7 @@ const ElderCare = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 w-3/4 h-full bg-[#ffedd5] rounded-bl-[15rem] z-0" />
           <img 
-            src="https://images.unsplash.com/photo-1581579438747-104c53d7fbc4?auto=format&fit=crop&q=80&w=2000" 
+            src={ASSETS.GERIATRICS} 
             alt="Senior Citizen Care" 
             className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[85%] object-cover rounded-l-[4rem] shadow-2xl z-10 hidden lg:block"
           />
@@ -209,9 +210,9 @@ const ElderCare = () => {
             <div className="relative">
                <div className="absolute inset-0 bg-orange-50 rounded-full blur-[100px] opacity-50" />
                <img 
-                  src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&q=80&w=1000" 
+                  src={ASSETS.NURSE_CARE} 
                   alt="Caregiver Holding Hand" 
-                  className="relative rounded-[3rem] shadow-2xl border-8 border-white z-10 rotate-2 hover:rotate-0 transition-transform duration-700"
+                  className="relative rounded-[3rem] shadow-2xl border-8 border-white z-10 hover:scale-[1.02] transition-transform duration-700 object-cover object-top"
                />
             </div>
             

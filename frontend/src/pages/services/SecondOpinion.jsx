@@ -6,6 +6,7 @@ import {
   Activity, Clock, User, MessageCircle, ChevronDown, Plus 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const features = [
   {
@@ -52,7 +53,7 @@ const SecondOpinion = () => {
       <section className="relative h-[600px] overflow-hidden flex items-center">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=2000" 
+            src={ASSETS.CONSULTATION} 
             alt="Doctor Consultation" 
             className="w-full h-full object-cover"
           />
@@ -159,10 +160,10 @@ const SecondOpinion = () => {
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.4 }}
                     src={[
-                      "https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80",
-                      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80",
-                      "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80",
-                      "https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80"
+                      ASSETS.UPLOAD_REPORT,
+                      ASSETS.SURGERY_TEAM,
+                      ASSETS.TELEMEDICINE,
+                      ASSETS.CONSULTATION
                     ][activeStep - 1]}
                     alt="Process Step" 
                     className="rounded-[2.5rem] w-full h-[500px] object-cover"
@@ -294,12 +295,12 @@ const SecondOpinion = () => {
           
           <div className="grid md:grid-cols-3 gap-6">
              {[
-               { name: 'Oncology', img: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800' },
-               { name: 'Cardiology', img: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&q=80&w=800' },
-               { name: 'Neurology', img: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=800' },
-               { name: 'Orthopedics', img: 'https://images.unsplash.com/photo-1583912267670-6575ad43263d?auto=format&fit=crop&q=80&w=800' },
-               { name: 'Transplants', img: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800' },
-               { name: 'Spine Surgery', img: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?auto=format&fit=crop&q=80&w=800' }
+               { name: 'Oncology', img: ASSETS.RADIOLOGY },
+               { name: 'Cardiology', img: ASSETS.CARDIAC },
+               { name: 'Neurology', img: ASSETS.NEURO },
+               { name: 'Orthopedics', img: ASSETS.ORTHO },
+               { name: 'Transplants', img: ASSETS.HEART_TRANSPLANT },
+               { name: 'Spine Surgery', img: ASSETS.NEURO }
              ].map((spec, i) => (
                 <div key={i} className="group relative overflow-hidden rounded-2xl h-64 cursor-pointer">
                    <img src={spec.img} alt={spec.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />

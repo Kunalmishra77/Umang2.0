@@ -7,6 +7,7 @@ import {
   Clock, MapPin, MessageCircle, AlertCircle, Bed
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const guides = [
   { id: 1, title: "Admission Process", category: "Hospital Stay", size: "1.2 MB" },
@@ -18,10 +19,10 @@ const guides = [
 ];
 
 const rooms = [
-  { type: "General Ward", desc: "Economical multi-bed units with curtain partitions.", img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=400" },
-  { type: "Twin Sharing", desc: "Comfortable room shared by two patients.", img: "https://images.unsplash.com/photo-1516549655169-df83a092dd14?auto=format&fit=crop&q=80&w=400" },
-  { type: "Private Room", desc: "Single occupancy room with attendant couch.", img: "https://images.unsplash.com/photo-1512678080530-7760d81faba6?auto=format&fit=crop&q=80&w=400" },
-  { type: "Suite", desc: "Luxury suite with separate living area for family.", img: "https://images.unsplash.com/photo-1596541223130-5d31a73fb6c6?auto=format&fit=crop&q=80&w=400" }
+  { type: "General Ward", desc: "Economical multi-bed units with curtain partitions.", img: ASSETS.PATIENT_ROOM },
+  { type: "Twin Sharing", desc: "Comfortable room shared by two patients.", img: ASSETS.TWIN_SHARING },
+  { type: "Private Room", desc: "Single occupancy room with attendant couch.", img: ASSETS.PATIENT_ROOM },
+  { type: "Suite", desc: "Luxury suite with separate living area for family.", img: ASSETS.TWIN_SHARING }
 ];
 
 const PatientInformation = () => {

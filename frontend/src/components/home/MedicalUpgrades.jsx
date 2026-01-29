@@ -2,27 +2,28 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Shield, Activity, Cpu, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const upgrades = [
   {
     title: "128-Slice CT Scan",
     desc: "Ultra-fast imaging with 80% less radiation dose than conventional scanners.",
     icon: Activity,
-    image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=800",
+    image: ASSETS.CT_SCAN,
     tag: "Diagnostic"
   },
   {
     title: "3 Tesla MRI",
     desc: "Highest clarity imaging for neurological and musculoskeletal diagnostics.",
     icon: Cpu,
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
+    image: ASSETS.MRI_SCAN,
     tag: "Precision"
   },
   {
     title: "Robotic OT Suite",
     desc: "Modular operation theatres with advanced robotic-assisted surgery systems.",
     icon: Zap,
-    image: "https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=800",
+    image: ASSETS.OT,
     tag: "Surgical"
   }
 ];

@@ -3,7 +3,7 @@ export const specialitiesData = {
     title: "Cardiac Sciences",
     subtitle: "Advanced Heart Care Center",
     desc: "Our Centre of Excellence for Cardiac Sciences is renowned for its comprehensive care, from prevention to advanced interventional procedures. We treat the most complex heart conditions with precision and compassion.",
-    img: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&q=80&w=2000",
+    img: "/assets/images/specialty-cardiac.jpg",
     procedures: [
       "Angiography & Angioplasty (PTCA)",
       "Coronary Artery Bypass Graft (CABG)",
@@ -26,7 +26,7 @@ export const specialitiesData = {
     title: "Neuro Sciences",
     subtitle: "Brain & Spine Excellence",
     desc: "Dedicated to the diagnosis and treatment of complex neurological disorders. Our team of neurosurgeons and neurologists provides world-class care for brain tumors, stroke, and spine conditions.",
-    img: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=2000",
+    img: "/assets/images/specialty-neuro.jpg",
     procedures: [
       "Brain Tumor Excision",
       "Stroke Management (Thrombolysis)",
@@ -49,7 +49,7 @@ export const specialitiesData = {
     title: "Orthopaedics",
     subtitle: "Joint & Bone Care",
     desc: "Restoring mobility and quality of life. Our Orthopaedics department specializes in joint replacements, sports injuries, and complex trauma management using the latest robotic-assisted techniques.",
-    img: "https://images.unsplash.com/photo-1583912267670-6575ad43263d?auto=format&fit=crop&q=80&w=2000",
+    img: "/assets/images/specialty-ortho.jpg",
     procedures: [
       "Total Knee Replacement (TKR)",
       "Total Hip Replacement (THR)",
@@ -72,7 +72,7 @@ export const specialitiesData = {
     title: "Gastroenterology",
     subtitle: "Digestive & Liver Care",
     desc: "Comprehensive care for digestive, liver, and pancreatic disorders. We offer advanced endoscopic procedures and hepatobiliary surgeries.",
-    img: "https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&q=80&w=2000",
+    img: "/assets/images/specialty-gastro.jpg",
     procedures: [
       "Endoscopy & Colonoscopy",
       "ERCP (Stone Removal)",
@@ -95,7 +95,7 @@ export const specialitiesData = {
     title: "Pulmonology",
     subtitle: "Respiratory Care",
     desc: "Expert care for all respiratory conditions. From asthma and COPD to interstitial lung diseases and sleep disorders, our pulmonologists help you breathe easier.",
-    img: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=2000",
+    img: "/assets/images/specialty-pulmonology.jpg",
     procedures: [
       "Bronchoscopy",
       "Thoracoscopy",
@@ -118,7 +118,7 @@ export const specialitiesData = {
     title: "General Surgery",
     subtitle: "Minimally Invasive Surgery",
     desc: "Our General Surgery department performs a wide range of procedures, focusing on laparoscopic and minimally invasive techniques for faster recovery and minimal scarring.",
-    img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=2000",
+    img: "/assets/images/infrastructure-ot.jpg",
     procedures: [
       "Laparoscopic Cholecystectomy (Gallbladder)",
       "Hernia Repair",
@@ -141,7 +141,7 @@ export const specialitiesData = {
     title: "Urology",
     subtitle: "Kidney & Urinary Care",
     desc: "Specialized care for urinary tract and reproductive health. We treat kidney stones, prostate issues, and urological cancers with advanced laser and robotic techniques.",
-    img: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&q=80&w=2000",
+    img: "/assets/images/specialty-urology.jpg",
     procedures: [
       "Laser Lithotripsy (Kidney Stones)",
       "TURP (Prostate Surgery)",
@@ -164,7 +164,7 @@ export const specialitiesData = {
     title: "Nephrology",
     subtitle: "Kidney Health & Dialysis",
     desc: "Dedicated to the prevention, diagnosis, and treatment of kidney diseases. Our state-of-the-art dialysis unit and transplant program offer hope and healing.",
-    img: "https://images.unsplash.com/photo-1579684453423-f84349ca60df?auto=format&fit=crop&q=80&w=2000",
+    img: "/assets/images/department-nephrology.jpg",
     procedures: [
       "Hemodialysis",
       "Peritoneal Dialysis",

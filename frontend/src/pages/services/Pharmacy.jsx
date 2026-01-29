@@ -7,21 +7,22 @@ import {
   HelpCircle, ChevronDown, Leaf
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const categories = [
-  { name: "Prescription", slug: "prescription", img: "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80" },
-  { name: "Diabetes Care", slug: "diabetes-care", img: "https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80" },
-  { name: "Cardiac Care", slug: "cardiac-care", img: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80" },
-  { name: "Mother & Baby", slug: "mother-baby", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80" },
-  { name: "Devices", slug: "devices", img: "https://images.unsplash.com/photo-1583912267670-6575ad43263d?auto=format&fit=crop&q=80" },
-  { name: "Personal Care", slug: "personal-care", img: "https://images.unsplash.com/photo-1556228720-1957be83f360?auto=format&fit=crop&q=80" }
+  { name: "Prescription", slug: "prescription", img: ASSETS.PHARMACY },
+  { name: "Diabetes Care", slug: "diabetes-care", img: ASSETS.DIABETIC_CARE },
+  { name: "Cardiac Care", slug: "cardiac-care", img: ASSETS.BP_MONITOR },
+  { name: "Mother & Baby", slug: "mother-baby", img: ASSETS.NURSE_CARE },
+  { name: "Devices", slug: "devices", img: ASSETS.BP_MONITOR },
+  { name: "Personal Care", slug: "personal-care", img: ASSETS.PERSONAL_CARE }
 ];
 
 const bestSellers = [
-  { id: 1, name: "Accu-Chek Active Strips", pack: "50 Strips", price: 850, oldPrice: 975, img: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=400" },
-  { id: 2, name: "Omron BP Monitor", pack: "1 Unit", price: 2100, oldPrice: 2400, img: "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&q=80&w=400" },
-  { id: 3, name: "Multivitamin Complex", pack: "60 Tabs", price: 499, oldPrice: 650, img: "https://images.unsplash.com/photo-1616671285410-09502197946a?auto=format&fit=crop&q=80&w=400" },
-  { id: 4, name: "N95 Face Masks", pack: "Pack of 5", price: 299, oldPrice: 400, img: "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=400" }
+  { id: 1, name: "Accu-Chek Active Strips", pack: "50 Strips", price: 850, oldPrice: 975, img: ASSETS.DIABETIC_CARE },
+  { id: 2, name: "Omron BP Monitor", pack: "1 Unit", price: 2100, oldPrice: 2400, img: ASSETS.BP_MONITOR },
+  { id: 3, name: "Multivitamin Complex", pack: "60 Tabs", price: 499, oldPrice: 650, img: ASSETS.MULTIVITAMIN },
+  { id: 4, name: "N95 Face Masks", pack: "Pack of 5", price: 299, oldPrice: 400, img: ASSETS.PERSONAL_CARE }
 ];
 
 const faqs = [
@@ -201,9 +202,9 @@ const Pharmacy = () => {
           <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12">Health Essentials</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Vitamin D: Why you need it", category: "Nutrition", img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80" },
-              { title: "Managing Diabetes at Home", category: "Chronic Care", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80" },
-              { title: "Best Skincare Routine", category: "Wellness", img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&q=80" }
+              { title: "Vitamin D: Why you need it", category: "Nutrition", img: ASSETS.BLOG_FOOD },
+              { title: "Managing Diabetes at Home", category: "Chronic Care", img: ASSETS.DIABETIC_CARE },
+              { title: "Best Skincare Routine", category: "Wellness", img: ASSETS.PERSONAL_CARE }
             ].map((article, i) => (
               <Link to="/patient-corner/blogs" key={i} className="group cursor-pointer">
                 <div className="h-64 rounded-2xl overflow-hidden mb-4 relative">
@@ -298,7 +299,7 @@ const Pharmacy = () => {
           <div className="flex justify-center relative">
             <div className="absolute inset-0 bg-blue-500/20 blur-[80px] rounded-full" />
             <img 
-              src="https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&q=80&w=400" 
+              src={ASSETS.TELEMEDICINE} 
               alt="Mobile App" 
               className="relative z-10 rounded-3xl border-8 border-[#1e293b] shadow-2xl rotate-[-5deg] hover:rotate-0 transition-all duration-500" 
             />

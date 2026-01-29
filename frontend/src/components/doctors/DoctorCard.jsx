@@ -3,6 +3,7 @@ import { Card, Button, Badge } from 'react-bootstrap';
 import { FaMapMarkerAlt, FaStar, FaRegClock, FaMoneyBillAlt, FaInfoCircle, FaCheckCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { getRandomDoctor } from '../../utils/imageAssets';
 
 const DoctorCard = ({ doctor }) => {
   const name = doctor.user ? doctor.user.name : doctor.name;
@@ -10,6 +11,9 @@ const DoctorCard = ({ doctor }) => {
   const reviews = doctor.reviews_count !== undefined ? doctor.reviews_count : (doctor.reviews || 0);
   const rating = doctor.rating || 0;
   const fee = doctor.fee || 100;
+  
+  // Use local image if available, else random doctor placeholder
+  const docImage = (doctor.image && !doctor.image.startsWith('http')) ? doctor.image : getRandomDoctor();
 
   return (
     <motion.div
@@ -21,13 +25,7 @@ const DoctorCard = ({ doctor }) => {
         <div className="position-absolute top-0 start-0 bg-primary opacity-10" style={{width: '100px', height: '100px', borderRadius: '0 0 100px 0'}}></div>
         <div className="position-relative">
           <Link to={`/doctor/${doctor.id}`}>
-            {doctor.image && doctor.image.startsWith('http') ? (
-              <Card.Img variant="top" src={doctor.image} alt={name} className="img-fluid object-fit-cover" style={{ height: '220px', width: '100%' }} />
-            ) : (
-              <div className="bg-light d-flex align-items-center justify-content-center" style={{ height: '220px', fontSize: '5rem' }}>
-                <img src={`https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400`} alt={name} className="img-fluid h-100 w-100 object-fit-cover" />
-              </div>
-            )}
+             <Card.Img variant="top" src={docImage} alt={name} className="img-fluid object-fit-cover object-top" style={{ height: '220px', width: '100%' }} />
           </Link>
           <div className="position-absolute top-0 end-0 p-3">
              <Button variant="light" size="sm" className="rounded-circle shadow-sm" style={{ width: '32px', height: '32px', padding: 0 }}>

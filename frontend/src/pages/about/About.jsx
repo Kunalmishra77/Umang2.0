@@ -7,14 +7,15 @@ import {
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const IMAGES = {
-  banner: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2500",
-  director: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=800",
-  philosophy: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=1200",
-  infra1: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1200", 
-  infra2: "https://images.unsplash.com/photo-1581056771107-24ca5f037085?auto=format&fit=crop&q=80&w=800", 
-  global: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200",
+  banner: "/assets/images/hospital-building-exterior.jpg",
+  director: "/assets/images/director-profile.jpg",
+  philosophy: "/assets/images/nursing-care.jpg",
+  infra1: "/assets/images/hospital-reception.jpg", 
+  infra2: "/assets/images/infrastructure-icu.jpg", 
+  global: "/assets/images/international-patients.jpg",
 };
 
 const About = () => {
@@ -184,7 +185,7 @@ const About = () => {
               <div className="lg:col-span-5">
                 <div className="relative group">
                   <div className="absolute inset-0 bg-blue-200 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-1000" />
-                  <img src={IMAGES.director} alt="Director" className="relative z-10 w-full aspect-square object-cover rounded-[3rem] shadow-2xl border-8 border-white" />
+                  <img src={IMAGES.director} alt="Director" className="relative z-10 w-full aspect-square object-cover object-top rounded-[3rem] shadow-2xl border-8 border-white" />
                 </div>
               </div>
             </div>
@@ -231,39 +232,70 @@ const About = () => {
       </section>
 
       {/* SECTION 6: THE TIMELINE JOURNEY */}
-      <section className="py-32 bg-white overflow-hidden">
-         <div className="container-custom">
-            <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#0f172a] text-center mb-24">The Healing Journey</h2>
+      <section className="py-32 bg-gray-50 overflow-hidden relative">
+         {/* Background Decoration */}
+         <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+            <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-900 to-transparent" />
+            <div className="absolute bottom-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-900 to-transparent" />
+         </div>
+
+         <div className="container-custom relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-20">
+               <span className="text-blue-600 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Our Milestones</span>
+               <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#0f172a] mb-6">The Healing Journey</h2>
+               <p className="text-gray-500 text-lg">From a humble beginning to a world-class institution, every step has been taken with our patients in mind.</p>
+            </div>
             
             <div className="relative">
-               {/* Vertical Line */}
-               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-100 hidden lg:block" />
+               {/* Central Vertical Line (Gradient) */}
+               <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-100 via-blue-300 to-blue-100 hidden lg:block rounded-full transform -translate-x-1/2" />
                
-               <div className="space-y-24">
+               <div className="space-y-32">
                   {[ 
-                    { year: '2010', title: 'The Foundation', desc: 'Umang opens as a 50-bed focused care unit with a mission to bring world-class healthcare to Gurugram.', align: 'left' },
-                    { year: '2015', title: 'Technological Leap', desc: 'Upgraded to a 100-bed facility with the region\'s first 128-slice CT scan and advanced Modular OTs.', align: 'right' },
-                    { year: '2020', title: 'Super Speciality Beacon', desc: 'Launched dedicated Cardiac and Neuro wings, performing over 1,000 complex procedures in the first year.', align: 'left' },
-                    { year: '2024', title: 'NABH Gold Standard', desc: 'Expanding to 150 beds with state-of-the-art robotic OT suites and high-clearance 3T MRI systems.', align: 'right' },
+                    { year: '2010', title: 'The Foundation', desc: 'Umang opens its doors as a 50-bed focused care unit. Driven by a mission to bring accessible, world-class healthcare to Gurugram, we started with just two OTs and a dream.', align: 'left', img: ASSETS.HOSPITAL_EXTERIOR },
+                    { year: '2015', title: 'Technological Leap', desc: 'A major upgrade to a 100-bed facility. We installed the region\'s first 128-slice CT scan and inaugurated our advanced 24/7 Pathology Lab.', align: 'right', img: ASSETS.LAB },
+                    { year: '2020', title: 'Super Speciality Beacon', desc: 'Launch of dedicated Cardiac and Neuro Sciences wings. In the very first year, our team successfully performed over 1,000 complex life-saving procedures.', align: 'left', img: ASSETS.OT },
+                    { year: '2024', title: 'NABH Gold Standard', desc: 'Expanding to 150 beds with state-of-the-art Robotic OT suites and high-clearance 3T MRI. Achieving the highest national accreditation for quality and safety.', align: 'right', img: ASSETS.RECEPTION },
                   ].map((item, i) => (
                      <motion.div 
                         key={i} 
-                        initial={{ opacity: 0, x: item.align === 'left' ? -50 : 50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-0 ${item.align === 'right' ? 'lg:flex-row-reverse' : ''}`}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.6, delay: i * 0.1 }}
+                        className={`flex flex-col lg:flex-row items-center gap-12 ${item.align === 'right' ? 'lg:flex-row-reverse' : ''}`}
                      >
-                        <div className="lg:w-1/2 flex justify-center lg:justify-end lg:pr-20 group">
-                           <div className={`text-center ${item.align === 'right' ? 'lg:text-left lg:pl-20 lg:pr-0' : 'lg:text-right'}`}>
-                              <span className="text-6xl md:text-8xl font-black text-gray-50 mb-2 block group-hover:text-blue-50 transition-colors">{item.year}</span>
-                              <h4 className="text-2xl font-bold text-[#0f172a] mb-4">{item.title}</h4>
-                              <p className="text-gray-500 max-w-md mx-auto lg:mx-0">{item.desc}</p>
+                        {/* Content Side */}
+                        <div className={`lg:w-1/2 flex ${item.align === 'right' ? 'justify-start' : 'justify-end'} relative`}>
+                           <div className={`bg-white p-8 md:p-10 rounded-[2.5rem] shadow-xl border border-gray-100 max-w-xl relative group hover:-translate-y-2 transition-transform duration-500`}>
+                              {/* Connector Dot for Desktop */}
+                              <div className={`hidden lg:flex absolute top-1/2 -translate-y-1/2 w-16 h-1 bg-blue-200 ${item.align === 'right' ? '-left-16' : '-right-16'}`}>
+                                <div className={`absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-lg ${item.align === 'right' ? '-left-2' : '-right-2'}`} />
+                              </div>
+
+                              <span className="text-6xl font-serif font-bold text-blue-500/10 absolute top-4 right-8 select-none">{item.year}</span>
+                              <div className="relative z-10">
+                                 <span className="inline-block px-3 py-1 rounded-lg bg-blue-50 text-blue-600 font-bold text-xs mb-4">{item.year}</span>
+                                 <h4 className="text-2xl font-bold text-[#0f172a] mb-4">{item.title}</h4>
+                                 <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+                              </div>
                            </div>
                         </div>
-                        <div className="hidden lg:flex w-12 h-12 rounded-full bg-[#0f172a] border-4 border-white shadow-xl z-10 items-center justify-center">
-                           <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+
+                        {/* Center Node (Mobile Only) */}
+                        <div className="lg:hidden w-4 h-4 rounded-full bg-blue-500 border-4 border-white shadow-md" />
+
+                        {/* Image Side */}
+                        <div className={`lg:w-1/2 flex ${item.align === 'right' ? 'justify-end' : 'justify-start'}`}>
+                           <div className="relative w-full max-w-md aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl group">
+                              <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                              <img 
+                                 src={item.img} 
+                                 alt={item.title} 
+                                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000" 
+                              />
+                           </div>
                         </div>
-                        <div className="lg:w-1/2" />
                      </motion.div>
                   ))}
                </div>

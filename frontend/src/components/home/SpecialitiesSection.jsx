@@ -2,14 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Heart, Brain, Bone, Baby, Activity, Scissors, Wind, Microscope } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const departments = [
-  { id: 1, name: 'Cardiac Sciences', icon: Heart, desc: 'Advanced Cath Labs & Cardiac Surgery', img: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?q=80&w=1000&auto=format&fit=crop', col: 'md:col-span-2' },
-  { id: 2, name: 'Neuro Sciences', icon: Brain, desc: 'Complex Brain & Spine Surgeries', img: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=1000&auto=format&fit=crop', col: 'md:col-span-1' },
-  { id: 3, name: 'Orthopaedics', icon: Bone, desc: 'Joint Replacement & Trauma Care', img: 'https://plus.unsplash.com/premium_photo-1661766718556-13c2efac1388?q=80&w=1000&auto=format&fit=crop', col: 'md:col-span-1' },
-  { id: 4, name: 'Gastroenterology', icon: Activity, desc: 'Digestive & Liver Care', img: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=1000&auto=format&fit=crop', col: 'md:col-span-2' },
-  { id: 5, name: 'Pulmonology', icon: Wind, desc: 'Respiratory & Chest Medicine', img: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=1000&auto=format&fit=crop', col: 'md:col-span-1' },
-  { id: 6, name: 'General Surgery', icon: Scissors, desc: 'Laparoscopic & Minimal Access', img: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1000&auto=format&fit=crop', col: 'md:col-span-1' },
+  { id: 'cardiac', name: 'Cardiac Sciences', icon: Heart, desc: 'Advanced Cath Labs & Cardiac Surgery', img: ASSETS.CARDIAC, col: 'md:col-span-2' },
+  { id: 'neuro', name: 'Neuro Sciences', icon: Brain, desc: 'Complex Brain & Spine Surgeries', img: ASSETS.NEURO, col: 'md:col-span-1' },
+  { id: 'ortho', name: 'Orthopaedics', icon: Bone, desc: 'Joint Replacement & Trauma Care', img: ASSETS.ORTHO, col: 'md:col-span-1' },
+  { id: 'gastro', name: 'Gastroenterology', icon: Activity, desc: 'Digestive & Liver Care', img: ASSETS.GASTRO, col: 'md:col-span-2' },
+  { id: 'pulmonology', name: 'Pulmonology', icon: Wind, desc: 'Respiratory & Chest Medicine', img: ASSETS.PULMONOLOGY, col: 'md:col-span-1' },
+  { id: 'surgery', name: 'General Surgery', icon: Scissors, desc: 'Laparoscopic & Minimal Access', img: ASSETS.OT, col: 'md:col-span-1' },
 ];
 
 const SpecialitiesSection = () => {
@@ -39,6 +40,7 @@ const SpecialitiesSection = () => {
               viewport={{ once: true }}
               className={`group relative rounded-[2rem] overflow-hidden cursor-pointer ${dept.col}`}
             >
+              <Link to={`/specialities/${dept.id}`} className="absolute inset-0 z-30"></Link>
               {/* Background Image with Zoom Effect */}
               <img 
                 src={dept.img} 

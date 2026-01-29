@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Home, Video, Pill, Activity } from 'lucide-react';
+import { ASSETS } from '../../utils/imageAssets';
 
 const services = [
   {
@@ -10,7 +11,7 @@ const services = [
     slug: "home-care",
     desc: "Professional care at your doorstep.",
     color: "bg-blue-50 text-blue-600",
-    img: "https://images.unsplash.com/photo-1586773860418-d3b9a8ec8c77?auto=format&fit=crop&q=80&w=400"
+    img: ASSETS.NURSE_CARE
   },
   {
     icon: Video,
@@ -18,7 +19,7 @@ const services = [
     slug: "telemedicine",
     desc: "Consult specialists online.",
     color: "bg-green-50 text-green-600",
-    img: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=400"
+    img: ASSETS.TELEMEDICINE
   },
   {
     icon: Pill,
@@ -26,7 +27,7 @@ const services = [
     slug: "buy-medicines",
     desc: "24/7 medicines delivery.",
     color: "bg-purple-50 text-purple-600",
-    img: "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&q=80&w=400"
+    img: ASSETS.PHARMACY
   },
   {
     icon: Activity,
@@ -34,7 +35,7 @@ const services = [
     slug: "health-checkup",
     desc: "Comprehensive packages.",
     color: "bg-orange-50 text-orange-600",
-    img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=400"
+    img: ASSETS.HEALTH_CHECKUP
   }
 ];
 

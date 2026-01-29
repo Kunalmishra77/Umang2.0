@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Play, Quote, Star, MessageCircle, Heart, ArrowRight, Users, Activity, ThumbsUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const stories = [
   {
@@ -11,7 +12,7 @@ const stories = [
     age: "45",
     condition: "Cardiac Bypass",
     quote: "I was given a second chance at life. The care I received was beyond medical; it was personal.",
-    img: "https://images.unsplash.com/photo-1566753323558-f4e0952af115?auto=format&fit=crop&q=80&w=600",
+    img: ASSETS.HEART_TRANSPLANT,
     video: true
   },
   {
@@ -20,7 +21,7 @@ const stories = [
     age: "32",
     condition: "High-Risk Pregnancy",
     quote: "The doctors held my hand through the toughest months. Today, I hold my healthy baby because of them.",
-    img: "https://images.unsplash.com/photo-1595257841889-cbad522e3026?auto=format&fit=crop&q=80&w=600",
+    img: ASSETS.SNEHA_KAPOOR,
     video: false
   },
   {
@@ -29,7 +30,7 @@ const stories = [
     age: "58",
     condition: "Knee Replacement",
     quote: "I walked out of the hospital on my own feet. The robotic surgery technology here is miraculous.",
-    img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600",
+    img: ASSETS.ORTHO_KNEE,
     video: true
   }
 ];
@@ -70,7 +71,7 @@ const PatientStories = () => {
       <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=2000" 
+            src={ASSETS.SNEHA_KAPOOR} 
             alt="Happy Patient" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay" 
           />

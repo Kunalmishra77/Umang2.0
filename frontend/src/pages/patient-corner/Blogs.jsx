@@ -3,22 +3,23 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Search, User, Clock, ArrowRight, Mail, Star, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS, getRandomDoctor } from '../../utils/imageAssets';
 
 const categories = ["All", "Wellness", "Nutrition", "Mental Health", "Cardiology", "Pediatrics", "Oncology", "Neurology", "Orthopedics"];
 
 // Helper to generate 50+ realistic blog posts
 const generateBlogs = () => {
   const baseBlogs = [
-    { title: "Superfoods for Immunity", cat: "Nutrition" },
-    { title: "Managing Anxiety Daily", cat: "Mental Health" },
-    { title: "Heart Attack vs Cardiac Arrest", cat: "Cardiology" },
-    { title: "Screen Time & Kids", cat: "Pediatrics" },
-    { title: "Early Signs of Cancer", cat: "Oncology" },
-    { title: "Post-Stroke Recovery", cat: "Neurology" },
-    { title: "Preventing Knee Pain", cat: "Orthopedics" },
-    { title: "Yoga for Stress Relief", cat: "Wellness" },
-    { title: "Balanced Diet Plans", cat: "Nutrition" },
-    { title: "Sleep Hygiene 101", cat: "Wellness" },
+    { title: "Superfoods for Immunity", cat: "Nutrition", img: ASSETS.BLOG_FOOD },
+    { title: "Managing Anxiety Daily", cat: "Mental Health", img: ASSETS.BLOG_KNEE }, // Reusing knee for generic health or update later
+    { title: "Heart Attack vs Cardiac Arrest", cat: "Cardiology", img: ASSETS.HEART_TRANSPLANT },
+    { title: "Screen Time & Kids", cat: "Pediatrics", img: ASSETS.NURSE_CARE },
+    { title: "Early Signs of Cancer", cat: "Oncology", img: ASSETS.RADIOLOGY },
+    { title: "Post-Stroke Recovery", cat: "Neurology", img: ASSETS.NEURO },
+    { title: "Preventing Knee Pain", cat: "Orthopedics", img: ASSETS.ORTHO_KNEE },
+    { title: "Yoga for Stress Relief", cat: "Wellness", img: ASSETS.BLOG_FOOD },
+    { title: "Balanced Diet Plans", cat: "Nutrition", img: ASSETS.BLOG_FOOD },
+    { title: "Sleep Hygiene 101", cat: "Wellness", img: ASSETS.SLEEP_STUDY },
   ];
 
   let allBlogs = [];
@@ -31,14 +32,7 @@ const generateBlogs = () => {
       date: `Jan ${20 + (i % 10)}, 2026`,
       category: base.cat,
       readTime: `${5 + (i % 5)} min read`,
-      img: [
-        "https://images.unsplash.com/photo-1505751172107-573225a912b7?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
-        "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=800"
-      ][i % 6],
+      img: base.img,
       summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     });
   }
@@ -48,9 +42,9 @@ const generateBlogs = () => {
 const blogs = generateBlogs();
 
 const authors = [
-  { name: "Dr. Rajesh Kumar", role: "Cardiologist", articles: 12, img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=200" },
-  { name: "Dt. Suman Verma", role: "Nutritionist", articles: 25, img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=200" },
-  { name: "Dr. Ananya Singh", role: "Psychiatrist", articles: 18, img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=200" }
+  { name: "Dr. Rajesh Kumar", role: "Cardiologist", articles: 12, img: getRandomDoctor('male') },
+  { name: "Dt. Suman Verma", role: "Nutritionist", articles: 25, img: getRandomDoctor('female') },
+  { name: "Dr. Ananya Singh", role: "Psychiatrist", articles: 18, img: getRandomDoctor('female') }
 ];
 
 const Blogs = () => {
@@ -95,7 +89,7 @@ const Blogs = () => {
            </motion.div>
            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="relative">
               <img 
-                 src="https://images.unsplash.com/photo-1541781777631-faaf292c97dd?auto=format&fit=crop&q=80&w=800" 
+                 src={ASSETS.SLEEP_STUDY} 
                  alt="Sleep" 
                  className="rounded-[3rem] shadow-2xl w-full object-cover h-[400px]" 
               />

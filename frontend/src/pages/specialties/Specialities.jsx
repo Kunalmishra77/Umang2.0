@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Heart, Brain, Bone, Activity, Stethoscope, Microscope, ChevronRight, ArrowRight, ShieldCheck } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 // Data Structure
 const categories = [
@@ -16,34 +17,34 @@ const categories = [
 
 const services = {
   cardiac: [
-    { title: 'Interventional Cardiology', desc: 'Minimally invasive catheter-based treatment for heart diseases.', img: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Cardiothoracic Surgery', desc: 'Complex surgical procedures of the heart, lungs, and chest.', img: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Electrophysiology', desc: 'Diagnosis and treatment of heart rhythm disorders.', img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=600' },
+    { title: 'Interventional Cardiology', desc: 'Minimally invasive catheter-based treatment for heart diseases.', img: ASSETS.CARDIAC },
+    { title: 'Cardiothoracic Surgery', desc: 'Complex surgical procedures of the heart, lungs, and chest.', img: ASSETS.HEART_TRANSPLANT },
+    { title: 'Electrophysiology', desc: 'Diagnosis and treatment of heart rhythm disorders.', img: ASSETS.CARDIAC },
   ],
   neuro: [
-    { title: 'Neuro Surgery', desc: 'Advanced surgical care for brain and spine disorders.', img: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Neurology', desc: 'Comprehensive management of neurological conditions.', img: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Stroke Care', desc: '24/7 rapid response for acute stroke management.', img: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=600' },
+    { title: 'Neuro Surgery', desc: 'Advanced surgical care for brain and spine disorders.', img: ASSETS.NEURO },
+    { title: 'Neurology', desc: 'Comprehensive management of neurological conditions.', img: ASSETS.NEURO },
+    { title: 'Stroke Care', desc: '24/7 rapid response for acute stroke management.', img: ASSETS.ICU },
   ],
   ortho: [
-    { title: 'Joint Replacement', desc: 'Total knee and hip replacement using robotic precision.', img: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Sports Medicine', desc: 'Treatment for sports-related injuries and rehabilitation.', img: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Trauma Surgery', desc: 'Emergency surgical care for fractures and dislocations.', img: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=600' },
+    { title: 'Joint Replacement', desc: 'Total knee and hip replacement using robotic precision.', img: ASSETS.ORTHO_KNEE },
+    { title: 'Sports Medicine', desc: 'Treatment for sports-related injuries and rehabilitation.', img: ASSETS.ORTHO },
+    { title: 'Trauma Surgery', desc: 'Emergency surgical care for fractures and dislocations.', img: ASSETS.ORTHO },
   ],
   gastro: [
-    { title: 'Medical Gastroenterology', desc: 'Diagnosis and treatment of digestive tract and liver disorders.', img: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Surgical Gastroenterology', desc: 'Advanced surgical interventions for complex GI conditions.', img: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Hepatology', desc: 'Specialized care for liver, gallbladder, and pancreas diseases.', img: 'https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&q=80&w=600' },
+    { title: 'Medical Gastroenterology', desc: 'Diagnosis and treatment of digestive tract and liver disorders.', img: ASSETS.GASTRO },
+    { title: 'Surgical Gastroenterology', desc: 'Advanced surgical interventions for complex GI conditions.', img: ASSETS.SURGERY_TEAM },
+    { title: 'Hepatology', desc: 'Specialized care for liver, gallbladder, and pancreas diseases.', img: ASSETS.GASTRO },
   ],
   surgery: [
-    { title: 'Laparoscopic Surgery', desc: 'Minimally invasive surgery for faster recovery and less pain.', img: 'https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&q=80&w=600' },
-    { title: 'General Surgery', desc: 'Comprehensive surgical care for a wide range of conditions.', img: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Bariatric Surgery', desc: 'Weight loss surgery for obesity and metabolic disorders.', img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600' },
+    { title: 'Laparoscopic Surgery', desc: 'Minimally invasive surgery for faster recovery and less pain.', img: ASSETS.ROBOTIC_SURGERY },
+    { title: 'General Surgery', desc: 'Comprehensive surgical care for a wide range of conditions.', img: ASSETS.OT },
+    { title: 'Bariatric Surgery', desc: 'Weight loss surgery for obesity and metabolic disorders.', img: ASSETS.OT },
   ],
   internal: [
-    { title: 'General Medicine', desc: 'Comprehensive care for adult health and common illnesses.', img: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Infectious Diseases', desc: 'Diagnosis and management of complex infections.', img: 'https://images.unsplash.com/photo-1584362917165-526a968579e8?auto=format&fit=crop&q=80&w=600' },
-    { title: 'Geriatrics', desc: 'Specialized healthcare for the elderly population.', img: 'https://images.unsplash.com/photo-1581056771107-24ca5f037085?auto=format&fit=crop&q=80&w=600' },
+    { title: 'General Medicine', desc: 'Comprehensive care for adult health and common illnesses.', img: ASSETS.CONSULTATION },
+    { title: 'Infectious Diseases', desc: 'Diagnosis and management of complex infections.', img: ASSETS.LAB },
+    { title: 'Geriatrics', desc: 'Specialized healthcare for the elderly population.', img: ASSETS.GERIATRICS },
   ]
 };
 

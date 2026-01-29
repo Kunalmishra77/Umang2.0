@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Lightbulb, CheckCircle, ArrowRight, Activity, Heart, User, Star, Award, Microscope, Play, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const cases = [
   {
@@ -12,7 +13,7 @@ const cases = [
     summary: "Successfully performed a heart transplant on a 4-year-old patient with dilated cardiomyopathy using advanced bridging therapy.",
     outcome: "Patient discharged in 3 weeks with full recovery.",
     doctor: "Dr. S. K. Gupta",
-    img: "https://images.unsplash.com/photo-1551076882-68b47d82a8da?auto=format&fit=crop&q=80&w=800",
+    img: ASSETS.HEART_TRANSPLANT,
     tech: "ECMO Support"
   },
   {
@@ -22,7 +23,7 @@ const cases = [
     summary: "Micro-surgical excision of a giant spinal tumor compressing the spinal cord using real-time neuro-monitoring.",
     outcome: "Restored mobility in legs within 10 days.",
     doctor: "Dr. R. Mehta",
-    img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
+    img: ASSETS.NEURO,
     tech: "Neuro-Navigation"
   },
   {
@@ -32,7 +33,7 @@ const cases = [
     summary: "Robotic-assisted bilateral total knee replacement for a 75-year-old patient with severe osteoarthritis and comorbidities.",
     outcome: "Walking without support on Day 2.",
     doctor: "Dr. A. Singh",
-    img: "https://images.unsplash.com/photo-1584515933487-9dca71d603a1?auto=format&fit=crop&q=80&w=800",
+    img: ASSETS.ORTHO_KNEE,
     tech: "Mako Robot"
   }
 ];
@@ -180,7 +181,7 @@ const BreakthroughCases = () => {
                </button>
             </div>
             <div className="relative">
-               <img src="https://images.unsplash.com/photo-1516574187841-693018f33663?auto=format&fit=crop&q=80&w=800" alt="Video Thumbnail" className="rounded-[2rem] shadow-2xl border-4 border-white/10" />
+               <img src={ASSETS.SURGERY_TEAM} alt="Video Thumbnail" className="rounded-[2rem] shadow-2xl border-4 border-white/10" />
                <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/50 cursor-pointer hover:scale-110 transition-transform">
                      <Play className="w-8 h-8 text-white fill-current ml-1" />

@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowRight, Play, Star, Activity, ChevronRight, ChevronLeft, Phone, Calendar } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const slides = [
   {
@@ -9,7 +10,7 @@ const slides = [
     tag: "NABH Accredited",
     title: "World-Class Healthcare",
     subtitle: "Gurugram's leading 150-bedded super-speciality facility.",
-    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2500",
+    image: ASSETS.HOSPITAL_EXTERIOR,
     color: "from-[#005580] to-[#0f172a]",
     accent: "text-blue-400"
   },
@@ -18,7 +19,7 @@ const slides = [
     tag: "24/7 Emergency",
     title: "Care When It Matters",
     subtitle: "Level 1 Trauma Centre with rapid response ambulances.",
-    image: "https://images.unsplash.com/photo-1583324113626-70df0f4deaab?auto=format&fit=crop&q=80&w=2500",
+    image: ASSETS.ICU,
     color: "from-red-900 to-[#0f172a]",
     accent: "text-red-400"
   },
@@ -27,7 +28,7 @@ const slides = [
     tag: "Cardiac Excellence",
     title: "Healthy Hearts",
     subtitle: "Advanced Cath Labs and world-renowned cardiologists.",
-    image: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&q=80&w=2500",
+    image: ASSETS.CARDIAC_HERO,
     color: "from-teal-900 to-[#0f172a]",
     accent: "text-teal-400"
   }
@@ -79,7 +80,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 opacity-20 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] z-0 mix-blend-overlay" />
 
       {/* Main Container */}
-      <div className="container-custom h-full relative z-10 flex flex-col justify-center pt-32 lg:pt-40">
+      <div className="container-custom h-full relative z-10 flex flex-col justify-center pt-32 pb-40 lg:pt-40">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           
           {/* LEFT: Typography */}

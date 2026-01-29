@@ -6,7 +6,7 @@ export const pageContent = {
     title: "Second Opinion",
     category: "Services",
     icon: Stethoscope,
-    heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/doctor-consultation.jpg",
     description: "When it comes to your health, certainty is everything. Our Second Opinion service connects you with world-leading specialists to review your diagnosis and treatment plan.",
     features: [
       "Review by Senior Consultants",
@@ -27,7 +27,7 @@ export const pageContent = {
     title: "Lab Test & Diagnostics",
     category: "Services",
     icon: Activity,
-    heroImage: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/lab-diagnostics-mri.jpg",
     description: "Precision diagnostics powered by advanced technology. Accurate results, delivered quickly.",
     features: [
       "NABL Accredited Labs",
@@ -48,7 +48,7 @@ export const pageContent = {
     title: "Home Care Services",
     category: "Services",
     icon: Home,
-    heroImage: "https://images.unsplash.com/photo-1584515933487-9dca71d603a1?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/service-homecare.jpg",
     description: "Bringing hospital-quality care to the comfort and safety of your home.",
     features: [
       "ICU Setup at Home",
@@ -69,7 +69,7 @@ export const pageContent = {
     title: "Pharmacy & Medicines",
     category: "Services",
     icon: Pill,
-    heroImage: "https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/service-pharmacy.jpg",
     description: "Genuine medicines from trusted sources, delivered 24/7 to your doorstep.",
     features: [
       "24/7 Home Delivery",
@@ -90,7 +90,7 @@ export const pageContent = {
     title: "Telemedicine",
     category: "Services",
     icon: Video,
-    heroImage: "https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/service-telemedicine.jpg",
     description: "Consult with top specialists from anywhere in the world via secure video calls.",
     features: [
       "HD Video Consultations",
@@ -111,7 +111,7 @@ export const pageContent = {
     title: "Emergency & Trauma",
     category: "Services",
     icon: Phone,
-    heroImage: "https://images.unsplash.com/photo-1516574187841-693018f33663?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/service-ambulance.jpg",
     description: "Round-the-clock emergency care backed by rapid response teams and advanced life support.",
     features: [
       "24/7 ACLS Ambulances",
@@ -132,7 +132,7 @@ export const pageContent = {
     title: "Preventive Health Checkups",
     category: "Services",
     icon: ShieldCheck,
-    heroImage: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/service-health-checkup.jpg",
     description: "Invest in your health today for a better tomorrow with our comprehensive screening packages.",
     features: [
       "Customized Packages",
@@ -150,7 +150,7 @@ export const pageContent = {
     title: "Elder Care (Geriatrics)",
     category: "Services",
     icon: Heart,
-    heroImage: "https://images.unsplash.com/photo-1581579438747-104c53d7fbc4?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/patient-room.jpg",
     description: "Compassionate, specialized care tailored to the unique needs of senior citizens.",
     features: [
       "Geriatric Assessment",
@@ -170,7 +170,7 @@ export const pageContent = {
     title: "Medical Treatments",
     category: "Health Library",
     icon: Stethoscope,
-    heroImage: "https://images.unsplash.com/photo-1551076882-68b47d82a8da?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/infrastructure-ot.jpg",
     description: "A comprehensive guide to the medical and surgical procedures performed at Umang Hospital.",
     features: ["Surgical Procedures", "Non-Invasive Therapies", "Rehabilitation Protocols", "Pre-op Guides", "Recovery Timelines"],
     content: `<h3>Understanding Your Treatment</h3><p>Knowledge reduces anxiety. In this section, we provide detailed, easy-to-understand explanations of various treatments, from angioplasty to knee replacement. Learn about the procedure, risks, benefits, and what to expect during recovery.</p>`
@@ -179,7 +179,7 @@ export const pageContent = {
     title: "Advanced Technologies",
     category: "Health Library",
     icon: Cpu,
-    heroImage: "https://images.unsplash.com/photo-1516549655169-df83a092dd14?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/lab-diagnostics-mri.jpg",
     description: "Explore the cutting-edge medical technology that powers our clinical excellence.",
     features: ["Robotic Surgery", "AI in Diagnostics", "Linear Accelerators", "3D Printing", "Smart ICUs"],
     content: `<h3>Innovation in Healthcare</h3><p>We believe in staying ahead of the curve. Our hospital invests in the latest medical technologies to improve precision and patient outcomes. Discover how robotic assistants and AI algorithms are revolutionizing surgery and diagnosis at Umang.</p>`
@@ -188,7 +188,7 @@ export const pageContent = {
     title: "Ailments & Conditions",
     category: "Health Library",
     icon: BookOpen,
-    heroImage: "https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/doctor-consultation.jpg",
     description: "Encyclopedia of symptoms, causes, and treatments for common and rare diseases.",
     features: ["Symptom Checker", "Disease Guides", "Prevention Tips", "Risk Factors", "When to see a Doctor"],
     content: `<h3>Knowledge is Power</h3><p>Browse our extensive library of medical conditions. Whether you are researching a chronic illness like diabetes or an acute condition like appendicitis, our medically reviewed articles provide reliable information you can trust.</p>`
@@ -197,7 +197,7 @@ export const pageContent = {
     title: "Knowledge Center",
     category: "Health Library",
     icon: GraduationCap,
-    heroImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/knowledge-center-cme.jpg",
     description: "Resources for medical professionals, students, and health enthusiasts.",
     features: ["CME Programs", "Case Studies", "Medical Journals", "Research Papers", "Webinars"],
     content: `<h3>For the Medical Community</h3><p>Umang Hospital is also an academic institution. Access our repository of clinical case studies, research publications, and recorded lectures from our Continuous Medical Education (CME) sessions.</p>`
@@ -206,7 +206,7 @@ export const pageContent = {
     title: "Events & Workshops",
     category: "Health Library",
     icon: Calendar,
-    heroImage: "https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/event-health-camp.jpg",
     description: "Upcoming health camps, seminars, and community outreach programs.",
     features: ["Health Camps", "Blood Donation Drives", "Marathons", "Health Talks", "Support Group Meetings"],
     content: `<h3>Engaging the Community</h3><p>Stay updated with our calendar of events. We regularly organize free health checkup camps, awareness walks, and expert talks on topics like heart health, cancer awareness, and mental well-being.</p>`
@@ -215,7 +215,7 @@ export const pageContent = {
     title: "Patient Downloads",
     category: "Health Library",
     icon: Download,
-    heroImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/hospital-reception.jpg",
     description: "Essential forms, brochures, and guides for your hospital visit.",
     features: ["Admission Forms", "Insurance Checklists", "Hospital Map", "Patient Rights Policy", "Diet Charts"],
     content: `<h3>Easy Access</h3><p>Save time at the hospital by downloading and filling out necessary forms in advance. You can also find helpful brochures about our departments and patient guides to help you navigate your stay.</p>`
@@ -226,7 +226,7 @@ export const pageContent = {
     title: "Patient Stories",
     category: "Patient Corner",
     icon: User,
-    heroImage: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/patient-room.jpg",
     description: "Inspiring journeys of recovery and resilience from our patients.",
     features: ["Video Testimonials", "Written Reviews", "Before/After", "Recovery Diaries", "Interviews"],
     content: `<h3>Voices of Hope</h3><p>Read real stories from people who have overcome immense health challenges. These narratives not only highlight our clinical success but also the indomitable human spirit. Share your own story to inspire others.</p>`
@@ -235,7 +235,7 @@ export const pageContent = {
     title: "Health Blogs",
     category: "Patient Corner",
     icon: PenTool,
-    heroImage: "https://images.unsplash.com/photo-1499750310159-52f0f83ad497?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/knowledge-center-cme.jpg",
     description: "Tips, trends, and medical insights from our expert doctors.",
     features: ["Lifestyle Tips", "Disease Awareness", "Diet & Nutrition", "Mental Health", "Parenting Guides"],
     content: `<h3>Stay Informed</h3><p>Our blog covers a wide range of topics, from simple lifestyle changes to boost immunity to in-depth explanations of complex surgeries. Curated by our doctors, these articles are your daily dose of health wisdom.</p>`
@@ -244,7 +244,7 @@ export const pageContent = {
     title: "Umang Health Podcast",
     category: "Patient Corner",
     icon: Mic,
-    heroImage: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/media-press-meet.jpg",
     description: "Tune in to expert discussions on health, wellness, and medical breakthroughs.",
     features: ["Doctor Interviews", "Q&A Sessions", "Health Myths Busted", "Patient Spotlights", "Wellness Series"],
     content: `<h3>Listen on the Go</h3><p>Prefer listening over reading? Our podcast series brings you conversations with top specialists. We discuss common health concerns, debunk myths, and share actionable advice for a healthier life.</p>`
@@ -253,7 +253,7 @@ export const pageContent = {
     title: "Patient Information",
     category: "Patient Corner",
     icon: FileText,
-    heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/hospital-reception.jpg",
     description: "Detailed guides and brochures for patient education.",
     features: ["Disease Booklets", "Post-discharge Care", "Medication Guides", "Exercise Pamphlets", "Nutrition Handbooks"],
     content: `<h3>Empowering Patients</h3><p>We believe that an educated patient recovers better. Access our library of information leaflets and booklets designed to help you understand your condition and manage your health effectively at home.</p>`
@@ -262,7 +262,7 @@ export const pageContent = {
     title: "Breakthrough Cases",
     category: "Patient Corner",
     icon: Lightbulb,
-    heroImage: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/infrastructure-icu.jpg",
     description: "Highlighting complex and rare medical cases successfully treated at Umang.",
     features: ["Rare Surgeries", "Complex Diagnoses", "Multi-organ Transplants", "Emergency Saves", "Innovation in Care"],
     content: `<h3>Medical Miracles</h3><p>Explore case studies of patients who came to us with little hope and left with a new lease on life. These cases demonstrate our team's ability to handle the most challenging medical scenarios with expertise and compassion.</p>`
@@ -273,7 +273,7 @@ export const pageContent = {
     title: "Press Releases",
     category: "Media Center",
     icon: Newspaper,
-    heroImage: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/media-press-meet.jpg",
     description: "Official announcements and news from Umang Hospital.",
     features: ["Hospital News", "New Launches", "Partnerships", "Awards & Accolades", "Corporate Updates"],
     content: `<h3>Official News</h3><p>Keep up with the latest developments at Umang Group of Hospitals. From the inauguration of new wings to strategic partnerships and national awards, find all our official statements here.</p>`
@@ -282,7 +282,7 @@ export const pageContent = {
     title: "Media Coverage",
     category: "Media Center",
     icon: Video,
-    heroImage: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/media-press-meet.jpg",
     description: "Umang Hospital in the news - print, digital, and broadcast.",
     features: ["Newspaper Articles", "TV Features", "Online Mentions", "Magazine Interviews", "Doctor Quotes"],
     content: `<h3>In the Spotlight</h3><p>See what the media is saying about us. We are frequently featured in leading national dailies and news channels for our clinical achievements and contributions to public health.</p>`
@@ -291,7 +291,7 @@ export const pageContent = {
     title: "Newsletters",
     category: "Media Center",
     icon: Mail,
-    heroImage: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/hospital-building-exterior.jpg",
     description: "Our monthly health digest delivered to your inbox.",
     features: ["Monthly Editions", "Health Tips", "Doctor Columns", "Event Recaps", "Subscription"],
     content: `<h3>Umang Pulse</h3><p>Subscribe to our monthly newsletter, 'Umang Pulse'. It's packed with seasonal health tips, updates from our departments, and inspiring stories from our community.</p>`
@@ -300,7 +300,7 @@ export const pageContent = {
     title: "Media Connect",
     category: "Media Center",
     icon: Radio,
-    heroImage: "https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&q=80",
+    heroImage: "/assets/images/media-press-meet.jpg",
     description: "Resources and contacts for journalists and media professionals.",
     features: ["Media Kit", "Spokesperson Contact", "Image Gallery", "Fact Sheet", "Interview Requests"],
     content: `<h3>For the Press</h3><p>Are you a journalist looking for expert medical opinion or information about our hospital? Connect with our corporate communications team for prompt responses, high-resolution assets, and interview scheduling.</p>`

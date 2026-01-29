@@ -6,6 +6,7 @@ import {
   ArrowRight, CheckCircle, Calendar, DollarSign, FileText, ChevronDown, Clock
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const categories = [
   { id: 'cardio', name: 'Cardiology', icon: Heart, count: 24 },
@@ -17,12 +18,12 @@ const categories = [
 ];
 
 const treatments = [
-  { id: 1, name: "Angioplasty", category: "Cardiology", duration: "1-2 Hours", stay: "2 Days", cost: "₹1.5L - ₹2.5L", img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=600" },
-  { id: 2, name: "Total Knee Replacement", category: "Orthopedics", duration: "2-3 Hours", stay: "4-5 Days", cost: "₹2.0L - ₹3.5L", img: "https://images.unsplash.com/photo-1584515933487-9dca71d603a1?auto=format&fit=crop&q=80&w=600" },
-  { id: 3, name: "Cataract Surgery", category: "Ophthalmology", duration: "30 Mins", stay: "Day Care", cost: "₹25k - ₹50k", img: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=600" },
-  { id: 4, name: "MRI Scan", category: "Diagnostics", duration: "45 Mins", stay: "N/A", cost: "₹6k - ₹12k", img: "https://images.unsplash.com/photo-1516549655169-df83a092dd14?auto=format&fit=crop&q=80&w=600" },
-  { id: 5, name: "Chemotherapy", category: "Oncology", duration: "2-4 Hours", stay: "Day Care", cost: "₹15k - ₹50k/cycle", img: "https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&q=80&w=600" },
-  { id: 6, name: "Brain Tumor Surgery", category: "Neurology", duration: "4-6 Hours", stay: "7-10 Days", cost: "₹3.0L - ₹5.0L", img: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&q=80&w=600" },
+  { id: 1, name: "Angioplasty", category: "Cardiology", duration: "1-2 Hours", stay: "2 Days", cost: "₹1.5L - ₹2.5L", img: ASSETS.CARDIAC },
+  { id: 2, name: "Total Knee Replacement", category: "Orthopedics", duration: "2-3 Hours", stay: "4-5 Days", cost: "₹2.0L - ₹3.5L", img: ASSETS.ORTHO_KNEE },
+  { id: 3, name: "Cataract Surgery", category: "Ophthalmology", duration: "30 Mins", stay: "Day Care", cost: "₹25k - ₹50k", img: ASSETS.SURGERY_TEAM },
+  { id: 4, name: "MRI Scan", category: "Diagnostics", duration: "45 Mins", stay: "N/A", cost: "₹6k - ₹12k", img: ASSETS.MRI_SCAN },
+  { id: 5, name: "Chemotherapy", category: "Oncology", duration: "2-4 Hours", stay: "Day Care", cost: "₹15k - ₹50k/cycle", img: ASSETS.NURSE_CARE },
+  { id: 6, name: "Brain Tumor Surgery", category: "Neurology", duration: "4-6 Hours", stay: "7-10 Days", cost: "₹3.0L - ₹5.0L", img: ASSETS.NEURO },
 ];
 
 const Treatments = () => {
@@ -45,7 +46,7 @@ const Treatments = () => {
       <section className="relative min-h-[600px] flex items-center bg-[#005580] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1551076882-68b47d82a8da?auto=format&fit=crop&q=80&w=2000" 
+            src={ASSETS.SURGERY_TEAM} 
             alt="Surgery" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay" 
           />

@@ -6,6 +6,7 @@ import {
   ArrowRight, CheckCircle, ShieldCheck, Play 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const techs = [
   {
@@ -14,7 +15,7 @@ const techs = [
     category: "Surgical Robotics",
     desc: "The world's most advanced surgical robot for minimally invasive procedures with 3D HD vision and wrist-like precision.",
     specs: ["10x Magnification", "Tremor Filtration", "7 Degrees of Freedom"],
-    img: "https://images.unsplash.com/photo-1551076882-68b47d82a8da?auto=format&fit=crop&q=80&w=800",
+    img: ASSETS.ROBOTIC_SURGERY,
     icon: Cpu
   },
   {
@@ -23,7 +24,7 @@ const techs = [
     category: "Diagnostic Imaging",
     desc: "High-resolution imaging with reduced noise and faster scan times, providing exceptional clarity for neuro and cardiac scans.",
     specs: ["70cm Wide Bore", "Silent Scan Tech", "4D Flow Imaging"],
-    img: "https://images.unsplash.com/photo-1516549655169-df83a092dd14?auto=format&fit=crop&q=80&w=800",
+    img: ASSETS.MRI_SCAN,
     icon: Eye
   },
   {
@@ -32,7 +33,7 @@ const techs = [
     category: "Cancer Care",
     desc: "Precise radiation therapy that targets tumors with sub-millimeter accuracy while protecting healthy tissue.",
     specs: ["RapidArc Therapy", "Motion Management", "HyperArc"],
-    img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=800",
+    img: ASSETS.CT_SCAN,
     icon: Zap
   },
   {
@@ -41,7 +42,7 @@ const techs = [
     category: "Critical Care",
     desc: "Advanced life support system that functions as an artificial heart and lung for critically ill patients.",
     specs: ["Portable Unit", "Long-term Support", "Adult & Pediatric"],
-    img: "https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=800",
+    img: ASSETS.ICU,
     icon: Activity
   },
   {
@@ -50,7 +51,7 @@ const techs = [
     category: "Cardiology",
     desc: "Integrated suite for performing complex interventional and open heart procedures simultaneously.",
     specs: ["3D Roadmapping", "Low Dose X-Ray", "Sterile OR Environment"],
-    img: "https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?auto=format&fit=crop&q=80&w=800",
+    img: ASSETS.CARDIAC,
     icon: Server
   },
   {
@@ -59,7 +60,7 @@ const techs = [
     category: "Diagnostics",
     desc: "Utilizing artificial intelligence for faster and more accurate analysis of tissue samples and blood work.",
     specs: ["Digital Slides", "Pattern Recognition", "Auto-Validation"],
-    img: "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800",
+    img: ASSETS.LAB,
     icon: Database
   }
 ];
@@ -110,7 +111,7 @@ const Technologies = () => {
           >
              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-[2.5rem] blur-lg opacity-30" />
              <img 
-               src="https://images.unsplash.com/photo-1516549655169-df83a092dd14?auto=format&fit=crop&q=80&w=1000" 
+               src={ASSETS.MRI_SCAN} 
                alt="Advanced MRI" 
                className="relative z-10 rounded-[2rem] shadow-2xl border border-white/10" 
              />
@@ -219,7 +220,7 @@ const Technologies = () => {
             <div className="relative">
                <div className="absolute inset-0 bg-blue-50 rounded-full blur-[80px] opacity-60" />
                <img 
-                  src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?auto=format&fit=crop&q=80&w=800" 
+                  src={ASSETS.ROBOTIC_SURGERY} 
                   alt="Safety Tech" 
                   className="relative z-10 rounded-[3rem] shadow-2xl border-8 border-white"
                />

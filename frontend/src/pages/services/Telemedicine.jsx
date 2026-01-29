@@ -6,6 +6,7 @@ import {
   MessageSquare, Mic, FileText, CheckCircle, ArrowRight, Star, Phone, HelpCircle, Laptop
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS, getRandomDoctor } from '../../utils/imageAssets';
 
 const specialties = [
   { name: "General Medicine", icon: "🩺", waiting: "10 mins" },
@@ -17,9 +18,9 @@ const specialties = [
 ];
 
 const doctors = [
-  { id: 1, name: "Dr. Anjali Gupta", spec: "General Physician", exp: "12 Yrs", rating: 4.9, img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=400", online: true },
-  { id: 2, name: "Dr. Rahul Sharma", spec: "Dermatologist", exp: "8 Yrs", rating: 4.8, img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400", online: true },
-  { id: 3, name: "Dr. Priya Singh", spec: "Pediatrician", exp: "15 Yrs", rating: 5.0, img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400", online: false },
+  { id: 1, name: "Dr. Anjali Gupta", spec: "General Physician", exp: "12 Yrs", rating: 4.9, img: getRandomDoctor('female'), online: true },
+  { id: 2, name: "Dr. Rahul Sharma", spec: "Dermatologist", exp: "8 Yrs", rating: 4.8, img: getRandomDoctor('male'), online: true },
+  { id: 3, name: "Dr. Priya Singh", spec: "Pediatrician", exp: "15 Yrs", rating: 5.0, img: getRandomDoctor('female'), online: false },
 ];
 
 const testimonials = [
@@ -76,10 +77,9 @@ const Telemedicine = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative"
           >
-            <div className="relative z-10 bg-white rounded-[2.5rem] shadow-2xl p-6 border border-gray-100 max-w-md mx-auto rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
-              <div className="aspect-[4/3] bg-gray-100 rounded-2xl overflow-hidden mb-4 relative">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800" alt="Doctor on Call" className="w-full h-full object-cover" />
-                <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs flex items-center gap-2">
+                      <div className="relative z-10 bg-white rounded-[2.5rem] shadow-2xl p-6 border border-gray-100 max-w-md mx-auto hover:scale-[1.02] transition-transform duration-500">
+                        <div className="relative h-[500px] rounded-[2rem] overflow-hidden">
+                          <img src={ASSETS.TELEMEDICINE} alt="Doctor on Call" className="w-full h-full object-cover object-top" />                <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs flex items-center gap-2">
                   <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
                   Live • 12:45
                 </div>

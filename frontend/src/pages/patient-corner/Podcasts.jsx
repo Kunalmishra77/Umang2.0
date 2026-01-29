@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Play, Pause, Mic, Clock, Calendar, Headphones, Share2, Heart, ArrowRight, User, Star, MessageSquare, Radio, Podcast, CheckCircle } from 'lucide-react';
+import { ASSETS, getRandomDoctor } from '../../utils/imageAssets';
 
 const episodes = [
   {
@@ -12,7 +13,7 @@ const episodes = [
     duration: "24 min",
     date: "Jan 20, 2026",
     category: "Cardiology",
-    img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=600"
+    img: ASSETS.CARDIAC
   },
   {
     id: 2,
@@ -22,7 +23,7 @@ const episodes = [
     duration: "18 min",
     date: "Jan 12, 2026",
     category: "Mental Health",
-    img: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&q=80&w=600"
+    img: ASSETS.NEURO
   },
   {
     id: 3,
@@ -32,7 +33,7 @@ const episodes = [
     duration: "30 min",
     date: "Dec 28, 2025",
     category: "Nutrition",
-    img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=600"
+    img: ASSETS.DIABETIC_CARE
   },
   {
     id: 4,
@@ -42,14 +43,14 @@ const episodes = [
     duration: "45 min",
     date: "Dec 15, 2025",
     category: "Technology",
-    img: "https://images.unsplash.com/photo-1551076882-68b47d82a8da?auto=format&fit=crop&q=80&w=600"
+    img: ASSETS.ROBOTIC_SURGERY
   }
 ];
 
 const hosts = [
-  { name: "Dr. Rajesh Kumar", role: "Cardiology", episodes: 12, img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=200" },
-  { name: "Dr. Ananya Singh", role: "Psychiatry", episodes: 8, img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=200" },
-  { name: "Dt. Suman Verma", role: "Nutrition", episodes: 15, img: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=200" }
+  { name: "Dr. Rajesh Kumar", role: "Cardiology", episodes: 12, img: getRandomDoctor('male') },
+  { name: "Dr. Ananya Singh", role: "Psychiatry", episodes: 8, img: getRandomDoctor('female') },
+  { name: "Dt. Suman Verma", role: "Nutrition", episodes: 15, img: getRandomDoctor('female') }
 ];
 
 const reviews = [
@@ -111,7 +112,7 @@ const Podcasts = () => {
           >
              <div className="relative z-10 bg-white/5 backdrop-blur-xl rounded-[3rem] p-8 border border-white/10 shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&q=80&w=800" 
+                  src={ASSETS.PRESS_EVENT} 
                   alt="Podcast Host" 
                   className="w-full aspect-square object-cover rounded-[2rem] mb-6 shadow-lg" 
                 />
