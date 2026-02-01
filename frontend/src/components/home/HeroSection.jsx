@@ -236,7 +236,7 @@ const HeroSection = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.6, duration: 0.8 }}
-                  className="absolute top-12 right-8 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full flex items-center gap-2 shadow-xl z-20"
+                  className="absolute top-12 right-8 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full hidden lg:flex items-center gap-2 shadow-xl z-20"
                 >
                    <Star className="w-4 h-4 text-yellow-400 fill-current" />
                    <span className="text-xs font-bold uppercase tracking-wider">Top Rated</span>
@@ -251,21 +251,21 @@ const HeroSection = () => {
                     default: { delay: 0.5, duration: 0.8 }
                   }}
                   style={{ translateZ: 80 }}
-                  className="absolute bottom-8 left-8 bg-white/10 backdrop-blur-2xl border border-white/20 p-6 rounded-2xl w-72 shadow-[0_0_30px_rgba(16,185,129,0.2)] z-20 hover-lift cursor-default"
+                  className="absolute bottom-4 left-4 lg:bottom-8 lg:left-8 bg-white/10 backdrop-blur-2xl border border-white/20 p-2 lg:p-6 rounded-full lg:rounded-2xl shadow-[0_0_30px_rgba(16,185,129,0.2)] z-20 hover-lift cursor-default flex items-center gap-3 lg:block lg:w-72"
                 >
-                   <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30">
-                         <Activity className="w-6 h-6 text-emerald-400" />
+                   <div className="flex items-center gap-2 lg:gap-4 lg:mb-4">
+                      <div className="w-8 h-8 lg:w-12 lg:h-12 rounded-full bg-emerald-500/20 flex items-center justify-center border border-emerald-500/30 shrink-0">
+                         <Activity className="w-4 h-4 lg:w-6 lg:h-6 text-emerald-400" />
                       </div>
                       <div>
-                         <p className="text-[11px] text-emerald-400 font-bold uppercase tracking-widest mb-0.5">Live Status</p>
-                         <p className="text-lg font-bold text-white leading-none">Emergency Ready</p>
+                         <p className="hidden lg:block text-[11px] text-emerald-400 font-bold uppercase tracking-widest mb-0.5">Live Status</p>
+                         <p className="text-[10px] lg:text-lg font-bold text-white leading-none whitespace-nowrap lg:whitespace-normal">Emergency Ready</p>
                       </div>
                    </div>
-                   <div className="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+                   <div className="hidden lg:block w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
                       <div className="w-[100%] h-full bg-emerald-500 animate-[pulse_2s_infinite]" />
                    </div>
-                   <div className="mt-2 text-right">
+                   <div className="hidden lg:block mt-2 text-right">
                       <span className="text-[10px] text-white/60 font-medium">Avg Response: &lt;5 mins</span>
                    </div>
                 </motion.div>
