@@ -35,7 +35,7 @@ const PatientInformation = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Patient Information & Guides | Umang Hospital</title>
         <meta name="description" content="Essential information for patients and visitors. Admission guides, insurance details, and hospital policies." />
@@ -119,7 +119,7 @@ const PatientInformation = () => {
       </section>
 
       {/* 3. Room Categories */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
          <div className="container-custom">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12">Accommodation Options</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -174,7 +174,7 @@ const PatientInformation = () => {
       </section>
 
       {/* 5. Patient Rights */}
-      <section className="py-24 bg-[#005580] text-white">
+      <section className="py-16 bg-[#005580] text-white">
          <div className="container-custom grid lg:grid-cols-2 gap-16 items-center">
             <div>
                <h2 className="text-4xl font-serif font-bold mb-6">Patient Rights & Responsibilities</h2>
@@ -202,7 +202,7 @@ const PatientInformation = () => {
       </section>
 
       {/* 6. Visitor Policy */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
          <div className="container-custom max-w-4xl text-center">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12">Visitor Guidelines</h2>
             <div className="grid md:grid-cols-3 gap-8 text-left">
@@ -226,7 +226,7 @@ const PatientInformation = () => {
       </section>
 
       {/* 7. Insurance & Billing */}
-      <section className="py-24 bg-blue-50">
+      <section className="py-16 bg-blue-50">
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div>
                <div className="inline-flex items-center gap-2 text-[#005580] font-bold uppercase tracking-widest text-xs mb-6">

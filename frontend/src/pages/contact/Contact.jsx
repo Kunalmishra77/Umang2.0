@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const depts = [
   { title: "International Patients", icon: Globe, email: "international@umanghospitals.in", phone: "+91 98765 43210" },
@@ -47,22 +48,22 @@ const Contact = () => {
       </Helmet>
 
       {/* 1. Hero Section - Cinematic */}
-      <section className="relative min-h-[500px] flex items-center bg-[#0f172a] pt-32 pb-24 overflow-hidden">
+      <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center bg-brand-dark pt-20 pb-24 overflow-hidden">
          <div className="absolute inset-0 z-0">
             <img 
-               src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=2000" 
+               src={ASSETS.RECEPTION} 
                alt="Hospital Reception" 
-               className="w-full h-full object-cover opacity-20 mix-blend-overlay"
+               className="w-full h-full object-cover opacity-20 mix-blend-luminosity"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a]/60 via-transparent to-[#0f172a]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/80 via-brand-dark/50 to-brand-dark" />
          </div>
          <div className="container-custom relative z-10 text-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-               <span className="inline-flex items-center gap-2 bg-blue-500/20 px-4 py-2 rounded-full border border-blue-500/30 text-blue-300 font-bold uppercase tracking-widest text-[10px] mb-8">
+               <span className="inline-flex items-center gap-2 bg-primary-500/10 px-4 py-2 rounded-full border border-primary-500/20 text-primary-300 font-bold uppercase tracking-widest text-[10px] mb-8">
                   <Headset className="w-4 h-4" /> 24/7 Patient Support
                </span>
-               <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6">How can we <span className="text-blue-400">help?</span></h1>
-               <p className="text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+               <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6">How can we <span className="text-primary-400 italic">help?</span></h1>
+               <p className="text-xl text-primary-100/70 max-w-2xl mx-auto font-light leading-relaxed">
                   From critical emergencies to routine checkups, our dedicated assistance team is just a call or click away.
                </p>
             </motion.div>
@@ -73,34 +74,35 @@ const Contact = () => {
       <section className="container-custom -mt-20 relative z-20 mb-32">
          <div className="grid md:grid-cols-3 gap-8">
             <Link to="/appointments/request" className="group">
-               <motion.div whileHover={{ y: -10 }} className="bg-white p-10 rounded-[3rem] shadow-2xl border border-gray-100 h-full transition-all hover:bg-[#005580] hover:text-white">
-                  <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-[#005580] mb-8 group-hover:bg-white group-hover:scale-110 transition-all duration-500">
+               <motion.div whileHover={{ y: -10 }} className="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-100 h-full transition-all hover:bg-brand-dark hover:text-white group">
+                  <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center text-primary-600 mb-8 group-hover:bg-white/10 group-hover:text-white group-hover:scale-110 transition-all duration-500">
                      <Calendar className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Request Appointment</h3>
-                  <p className="text-gray-500 group-hover:text-blue-100 transition-colors mb-8 leading-relaxed">Schedule a visit with our world-class specialists in seconds.</p>
-                  <span className="inline-flex items-center gap-2 font-bold text-[#005580] group-hover:text-white">
+                  <p className="text-gray-500 group-hover:text-gray-300 transition-colors mb-8 leading-relaxed">Schedule a visit with our world-class specialists in seconds.</p>
+                  <span className="inline-flex items-center gap-2 font-bold text-primary-600 group-hover:text-white uppercase tracking-wider text-sm">
                      Book Now <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                   </span>
                </motion.div>
             </Link>
 
             <Link to="/doctors" className="group">
-               <motion.div whileHover={{ y: -10 }} className="bg-white p-10 rounded-[3rem] shadow-2xl border border-gray-100 h-full transition-all hover:bg-[#005580] hover:text-white">
-                  <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-[#005580] mb-8 group-hover:bg-white group-hover:scale-110 transition-all duration-500">
+               <motion.div whileHover={{ y: -10 }} className="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-100 h-full transition-all hover:bg-brand-dark hover:text-white group">
+                  <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center text-primary-600 mb-8 group-hover:bg-white/10 group-hover:text-white group-hover:scale-110 transition-all duration-500">
                      <Search className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Find a Doctor</h3>
-                  <p className="text-gray-500 group-hover:text-blue-100 transition-colors mb-8 leading-relaxed">Search through our directory of 100+ expert medical consultants.</p>
-                  <span className="inline-flex items-center gap-2 font-bold text-[#005580] group-hover:text-white">
+                  <p className="text-gray-500 group-hover:text-gray-300 transition-colors mb-8 leading-relaxed">Search through our directory of 100+ expert medical consultants.</p>
+                  <span className="inline-flex items-center gap-2 font-bold text-primary-600 group-hover:text-white uppercase tracking-wider text-sm">
                      Search Directory <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                   </span>
                </motion.div>
             </Link>
 
             <div className="group">
-               <motion.div whileHover={{ y: -10 }} className="bg-[#0f172a] p-10 rounded-[3rem] shadow-2xl border border-white/5 h-full text-white">
-                  <div className="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(239,68,68,0.4)]">
+               <motion.div whileHover={{ y: -10 }} className="bg-brand-dark p-10 rounded-[3rem] shadow-2xl shadow-primary-900/20 border border-white/5 h-full text-white relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-red-500/10 rounded-full blur-3xl -mr-10 -mt-10" />
+                  <div className="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-red-500/30">
                      <Ambulance className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-red-400">Emergency Call</h3>
@@ -119,47 +121,54 @@ const Contact = () => {
                {/* LEFT: Info */}
                <div className="lg:col-span-5 space-y-12">
                   <div>
-                     <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Our Main Campus</h2>
+                     <span className="section-subtitle">Get in Touch</span>
+                     <h2 className="section-title">Our Main Campus</h2>
                      <p className="text-gray-500 text-lg leading-relaxed mb-10">Visit our flagship superspeciality center in the heart of Gurugram for all your medical needs.</p>
                      
-                     <div className="space-y-8">
-                        <div className="flex gap-6 p-8 bg-white rounded-3xl border border-gray-100 shadow-sm group hover:shadow-xl transition-all duration-500">
-                           <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-[#005580] shrink-0 group-hover:bg-[#005580] group-hover:text-white transition-colors">
-                              <MapPin className="w-6 h-6" />
+                     <div className="space-y-6">
+                        <div className="flex gap-6 p-8 bg-white rounded-[2.5rem] border border-gray-100 shadow-sm group hover:shadow-xl transition-all duration-500">
+                           <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center text-primary-600 shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+                              <MapPin className="w-7 h-7" />
                            </div>
                            <div>
-                              <h4 className="font-bold text-lg mb-1">Hospital Location</h4>
-                              <p className="text-gray-500 text-sm leading-relaxed">Sector 55, Golf Course Road,<br />Gurugram, Haryana 122011</p>
-                              <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="text-[#005580] font-bold text-xs uppercase tracking-widest mt-4 inline-block border-b-2 border-blue-100 hover:border-[#005580] transition-all">Get Directions</a>
+                              <h4 className="font-bold text-lg text-brand-dark mb-1">Hospital Location</h4>
+                              <p className="text-gray-500 text-sm leading-relaxed mb-3">Sector 55, Golf Course Road,<br />Gurugram, Haryana 122011</p>
+                              <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="text-primary-600 font-bold text-xs uppercase tracking-widest inline-block border-b border-primary-200 hover:border-primary-600 transition-all">Get Directions</a>
                            </div>
                         </div>
 
-                        <div className="flex gap-6 p-8 bg-white rounded-3xl border border-gray-100 shadow-sm group hover:shadow-xl transition-all duration-500">
-                           <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-[#005580] shrink-0 group-hover:bg-[#005580] group-hover:text-white transition-colors">
-                              <Clock className="w-6 h-6" />
+                        <div className="flex gap-6 p-8 bg-white rounded-[2.5rem] border border-gray-100 shadow-sm group hover:shadow-xl transition-all duration-500">
+                           <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center text-primary-600 shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+                              <Clock className="w-7 h-7" />
                            </div>
                            <div>
-                              <h4 className="font-bold text-lg mb-1">Operational Hours</h4>
+                              <h4 className="font-bold text-lg text-brand-dark mb-1">Operational Hours</h4>
                               <p className="text-gray-500 text-sm leading-relaxed">Emergency: 24/7 (All Days)<br />OPD: Mon - Sat (9 AM - 8 PM)</p>
                            </div>
                         </div>
                      </div>
                   </div>
 
-                  <div className="bg-[#005580] rounded-[3rem] p-10 text-white relative overflow-hidden">
-                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-full -mr-10 -mt-10" />
-                     <h4 className="text-xl font-bold mb-6">Connect Digitally</h4>
-                     <div className="space-y-4">
-                        <a href="mailto:info@umanghospitals.in" className="flex items-center gap-4 text-blue-100 hover:text-white transition-colors">
-                           <Mail className="w-5 h-5 text-blue-300" /> info@umanghospitals.in
+                  <div className="bg-brand-dark rounded-[3rem] p-10 text-white relative overflow-hidden shadow-2xl">
+                     <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-3xl -mr-10 -mt-10" />
+                     <h4 className="text-xl font-bold mb-8">Connect Digitally</h4>
+                     <div className="space-y-5">
+                        <a href="mailto:info@umanghospitals.in" className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
+                           <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary-600 transition-colors">
+                              <Mail className="w-5 h-5" />
+                           </div>
+                           info@umanghospitals.in
                         </a>
-                        <a href="tel:+911244567890" className="flex items-center gap-4 text-blue-100 hover:text-white transition-colors">
-                           <Phone className="w-5 h-5 text-blue-300" /> +91 124 456 7890
+                        <a href="tel:+911244567890" className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
+                           <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary-600 transition-colors">
+                              <Phone className="w-5 h-5" />
+                           </div>
+                           +91 124 456 7890
                         </a>
                      </div>
-                     <div className="mt-10 flex gap-4">
+                     <div className="mt-10 flex gap-4 border-t border-white/10 pt-8">
                         {[Facebook, Twitter, Linkedin, Instagram].map((Icon, i) => (
-                           <a key={i} href="#" className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center hover:bg-white hover:text-[#005580] transition-all border border-white/10">
+                           <a key={i} href="#" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-white hover:text-brand-dark transition-all border border-white/5 hover:border-white">
                               <Icon className="w-5 h-5" />
                            </a>
                         ))}
@@ -168,27 +177,27 @@ const Contact = () => {
                </div>
 
                {/* RIGHT: Form */}
-               <div className="lg:col-span-7 bg-white rounded-[4rem] p-12 md:p-20 shadow-2xl border border-gray-100">
-                  <div className="mb-12">
-                     <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-4">Send an Inquiry</h2>
+               <div className="lg:col-span-7 bg-white rounded-[3rem] p-10 md:p-16 shadow-2xl border border-gray-100">
+                  <div className="mb-10">
+                     <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-4">Send an Inquiry</h2>
                      <p className="text-gray-500">For non-emergency feedback, corporate tie-ups, or hospital visits.</p>
                   </div>
 
-                  <form className="space-y-8" onSubmit={handleSubmit}>
-                     <div className="grid md:grid-cols-2 gap-8">
-                        <div className="space-y-3">
-                           <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Your Name</label>
-                           <input type="text" required className="w-full h-14 bg-gray-50 rounded-2xl px-6 border-2 border-transparent focus:border-[#005580] focus:bg-white outline-none transition-all font-bold" />
+                  <form className="space-y-6" onSubmit={handleSubmit}>
+                     <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-2">
+                           <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Your Name</label>
+                           <input type="text" required className="w-full h-14 bg-gray-50 rounded-2xl px-6 border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark placeholder:text-gray-300" placeholder="John Doe" />
                         </div>
-                        <div className="space-y-3">
-                           <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Email Address</label>
-                           <input type="email" required className="w-full h-14 bg-gray-50 rounded-2xl px-6 border-2 border-transparent focus:border-[#005580] focus:bg-white outline-none transition-all font-bold" />
+                        <div className="space-y-2">
+                           <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
+                           <input type="email" required className="w-full h-14 bg-gray-50 rounded-2xl px-6 border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark placeholder:text-gray-300" placeholder="john@example.com" />
                         </div>
                      </div>
 
-                     <div className="space-y-3">
-                        <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Subject</label>
-                        <select className="w-full h-14 bg-gray-50 rounded-2xl px-6 border-2 border-transparent focus:border-[#005580] focus:bg-white outline-none transition-all font-bold appearance-none cursor-pointer">
+                     <div className="space-y-2">
+                        <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Subject</label>
+                        <select className="w-full h-14 bg-gray-50 rounded-2xl px-6 border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark appearance-none cursor-pointer">
                            <option>General Inquiry</option>
                            <option>Corporate Partnership</option>
                            <option>Billing & Insurance</option>
@@ -196,18 +205,18 @@ const Contact = () => {
                         </select>
                      </div>
 
-                     <div className="space-y-3">
-                        <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Your Message</label>
-                        <textarea rows="4" required className="w-full p-6 bg-gray-50 rounded-[2rem] border-2 border-transparent focus:border-[#005580] focus:bg-white outline-none transition-all font-bold resize-none" placeholder="How can we assist you today?"></textarea>
+                     <div className="space-y-2">
+                        <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Your Message</label>
+                        <textarea rows="4" required className="w-full p-6 bg-gray-50 rounded-[2rem] border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark resize-none placeholder:text-gray-300" placeholder="How can we assist you today?"></textarea>
                      </div>
 
                      <motion.button 
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         disabled={submitted}
-                        className={`w-full h-16 bg-[#0f172a] text-white rounded-2xl font-black text-xl hover:bg-[#005580] transition-all shadow-2xl flex items-center justify-center gap-4 ${submitted ? 'opacity-70 cursor-wait' : ''}`}
+                        className={`w-full h-16 bg-brand-dark text-white rounded-2xl font-bold text-lg hover:bg-primary-600 transition-all shadow-xl flex items-center justify-center gap-3 ${submitted ? 'opacity-70 cursor-wait' : ''}`}
                      >
-                        {submitted ? 'Sending...' : 'Submit Request'} <Send className="w-6 h-6" />
+                        {submitted ? 'Sending...' : 'Submit Request'} <Send className="w-5 h-5" />
                      </motion.button>
                   </form>
                </div>
@@ -217,22 +226,22 @@ const Contact = () => {
       </section>
 
       {/* 4. Specialized Department Contacts */}
-      <section className="py-32 bg-white">
+      <section className="py-16 lg:py-24 bg-white">
          <div className="container-custom">
-            <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-16 text-center">Specific Assistance</h2>
+            <h2 className="text-3xl font-serif font-bold text-brand-dark mb-16 text-center">Specific Assistance</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                {depts.map((dept, i) => (
                   <motion.div 
                     key={i} 
-                    whileHover={{ y: -5 }}
-                    className="p-8 rounded-[2.5rem] bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-xl transition-all group"
+                    whileHover={{ y: -8 }}
+                    className="p-10 rounded-[2.5rem] bg-white border border-gray-100 shadow-lg hover-lift hover:border-primary-100 transition-all group"
                   >
-                     <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-[#005580] mb-6 shadow-sm group-hover:bg-[#005580] group-hover:text-white transition-all">
-                        <dept.icon className="w-6 h-6" />
+                     <div className="w-14 h-14 bg-primary-50 rounded-2xl flex items-center justify-center text-primary-600 mb-8 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-all">
+                        <dept.icon className="w-7 h-7" />
                      </div>
-                     <h3 className="font-bold text-lg text-[#0f172a] mb-4">{dept.title}</h3>
+                     <h3 className="font-bold text-lg text-brand-dark mb-4">{dept.title}</h3>
                      <p className="text-sm text-gray-500 mb-2 font-medium">{dept.email}</p>
-                     <p className="text-sm text-[#005580] font-bold">{dept.phone}</p>
+                     <p className="text-sm text-primary-600 font-bold">{dept.phone}</p>
                   </motion.div>
                ))}
             </div>
@@ -244,18 +253,19 @@ const Contact = () => {
          <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
                <div>
-                  <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-8 leading-tight">Your Questions, <br />Answered.</h2>
-                  <p className="text-gray-500 text-lg mb-12">Can't find what you are looking for? Our FAQ section covers the most common patient queries.</p>
+                  <span className="section-subtitle">Common Queries</span>
+                  <h2 className="section-title mb-8">Your Questions, <br /><span className="text-primary-600">Answered.</span></h2>
+                  <p className="text-gray-500 text-lg mb-12 font-light">Can't find what you are looking for? Our FAQ section covers the most common patient queries regarding appointments, insurance, and visiting hours.</p>
                   
                   <div className="space-y-4">
                      {faqs.map((faq, i) => (
-                        <div key={i} className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm">
+                        <div key={i} className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
                            <button 
                               onClick={() => toggleAccordion(i)}
-                              className="w-full flex items-center justify-between p-8 text-left hover:bg-gray-50/50 transition-colors"
+                              className="w-full flex items-center justify-between p-6 lg:p-8 text-left hover:bg-gray-50 transition-colors"
                            >
-                              <span className="font-bold text-[#0f172a] text-lg">{faq.q}</span>
-                              <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${activeAccordion === i ? 'bg-[#005580] text-white rotate-180' : 'bg-gray-100 text-gray-400'}`}>
+                              <span className="font-bold text-brand-dark text-lg pr-4">{faq.q}</span>
+                              <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-all ${activeAccordion === i ? 'bg-primary-600 text-white rotate-180' : 'bg-gray-100 text-gray-400'}`}>
                                  <Plus className="w-4 h-4" />
                               </div>
                            </button>
@@ -278,19 +288,19 @@ const Contact = () => {
                   </div>
                </div>
                <div className="relative group">
-                  <div className="absolute inset-0 bg-blue-500/10 rounded-[4rem] blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                  <div className="relative bg-white p-12 rounded-[4rem] shadow-2xl border border-gray-100">
-                     <ShieldCheck className="w-16 h-16 text-green-500 mb-8" />
-                     <h3 className="text-3xl font-serif font-bold text-[#0f172a] mb-6">Patient Rights & Privacy</h3>
-                     <p className="text-gray-500 text-lg leading-relaxed mb-8">At Umang Hospital, we strictly adhere to international patient privacy laws and ethical standards of medical care.</p>
-                     <ul className="space-y-4 mb-10">
+                  <div className="absolute inset-0 bg-primary-200 rounded-[4rem] blur-[80px] opacity-0 group-hover:opacity-60 transition-opacity duration-1000" />
+                  <div className="relative bg-white p-12 lg:p-16 rounded-[4rem] shadow-2xl border border-gray-100">
+                     <ShieldCheck className="w-20 h-20 text-green-500 mb-10" />
+                     <h3 className="text-3xl font-serif font-bold text-brand-dark mb-6">Patient Rights & Privacy</h3>
+                     <p className="text-gray-500 text-lg leading-relaxed mb-10 font-light">At Umang Hospital, we strictly adhere to international patient privacy laws and ethical standards of medical care.</p>
+                     <ul className="space-y-5 mb-12">
                         {["Confidentiality Guarantee", "Transparent Billing", "Ethical Clinical Practices"].map((item, i) => (
-                           <li key={i} className="flex items-center gap-3 font-bold text-[#0f172a]">
-                              <CheckCircle className="w-5 h-5 text-blue-500" /> {item}
+                           <li key={i} className="flex items-center gap-4 font-bold text-brand-dark">
+                              <CheckCircle className="w-6 h-6 text-primary-500" /> {item}
                            </li>
                         ))}
                      </ul>
-                     <Link to="/privacy" className="text-[#005580] font-black uppercase tracking-widest text-xs border-b-2 border-blue-100 hover:border-[#005580] transition-all">Read Privacy Policy</Link>
+                     <Link to="/privacy" className="text-primary-600 font-black uppercase tracking-widest text-xs border-b-2 border-primary-100 hover:border-primary-600 transition-all pb-1">Read Privacy Policy</Link>
                   </div>
                </div>
             </div>
@@ -298,7 +308,7 @@ const Contact = () => {
       </section>
 
       {/* 6. Live Map - Full Width Premium */}
-      <section className="h-[600px] w-full relative group grayscale hover:grayscale-0 transition-all duration-1000">
+      <section className="h-[500px] lg:h-[600px] w-full relative group grayscale hover:grayscale-0 transition-all duration-1000">
          <iframe 
            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.574636787962!2d77.0915!3d28.4322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDI1JzU1LjkiTiA3N8KwMDUnMjkuNCJF!5e0!3m2!1sen!2sin!4v1638202993631!5m2!1sen!2sin" 
            width="100%" 
@@ -308,20 +318,24 @@ const Contact = () => {
            loading="lazy"
            title="Hospital Location"
          ></iframe>
-         <div className="absolute top-10 left-10 bg-white/90 backdrop-blur-md p-8 rounded-[2.5rem] shadow-2xl border border-white/20 hidden md:block max-w-sm pointer-events-none group-hover:opacity-0 transition-opacity duration-500">
-            <h4 className="font-bold text-[#0f172a] text-xl mb-2">Find Us on the Map</h4>
-            <p className="text-gray-500 text-sm leading-relaxed italic">Our center is conveniently located near the Sector 55-56 Metro Station, Gurugram.</p>
+         <div className="absolute top-10 left-10 bg-white/95 backdrop-blur-md p-8 rounded-[2.5rem] shadow-2xl border border-white/20 hidden md:block max-w-sm pointer-events-none group-hover:opacity-0 transition-opacity duration-500">
+            <div className="flex items-center gap-3 mb-3">
+               <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
+               <span className="text-xs font-bold uppercase tracking-wider text-gray-500">Open Now</span>
+            </div>
+            <h4 className="font-bold text-brand-dark text-xl mb-2">Find Us on the Map</h4>
+            <p className="text-gray-500 text-sm leading-relaxed font-light">Our center is conveniently located near the Sector 55-56 Metro Station, Gurugram.</p>
          </div>
       </section>
 
       {/* 7. Post-Visit Feedback CTA */}
-      <section className="py-24 bg-[#0f172a] text-white overflow-hidden relative">
-         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[120px]" />
+      <section className="py-16 bg-brand-dark text-white overflow-hidden relative">
+         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[120px] pointer-events-none" />
          <div className="container-custom relative z-10 text-center">
-            <MessageCircle className="w-16 h-16 text-blue-400 mx-auto mb-8 animate-pulse" />
-            <h2 className="text-4xl font-serif font-bold mb-6 tracking-tight">Help us improve your experience.</h2>
-            <p className="text-blue-200 text-xl max-w-2xl mx-auto mb-12 opacity-80">We value your feedback. Whether it's a compliment or a suggestion for improvement, we are listening.</p>
-            <button className="h-16 px-12 rounded-2xl bg-white text-[#0f172a] font-black text-lg hover:bg-blue-50 transition-all shadow-xl shadow-blue-900/40">
+            <MessageCircle className="w-16 h-16 text-primary-400 mx-auto mb-8 animate-bounce" />
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 tracking-tight">Help us improve your experience.</h2>
+            <p className="text-primary-100 text-xl max-w-2xl mx-auto mb-12 opacity-80 font-light">We value your feedback. Whether it's a compliment or a suggestion for improvement, we are listening.</p>
+            <button className="h-16 px-12 rounded-full bg-white text-brand-dark font-bold text-lg hover:bg-primary-50 transition-all shadow-xl hover-lift hover:-translate-y-1">
                Share Your Feedback
             </button>
          </div>
@@ -330,8 +344,8 @@ const Contact = () => {
       {/* Sticky Quick Contact */}
       <div className="fixed bottom-10 right-10 flex flex-col gap-4 z-50">
          <a href="https://wa.me/918929733551" target="_blank" rel="noreferrer" className="w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 group relative">
-            <div className="absolute right-full mr-4 bg-white text-[#0f172a] px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-gray-100">WhatsApp Us</div>
-            <MessageCircle className="w-8 h-8" />
+            <div className="absolute right-full mr-4 bg-white text-brand-dark px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-gray-100">WhatsApp Us</div>
+            <MessageCircle className="w-8 h-8 fill-current" />
          </a>
       </div>
     </div>

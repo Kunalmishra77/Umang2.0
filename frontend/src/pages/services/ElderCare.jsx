@@ -73,7 +73,7 @@ const ElderCare = () => {
   const [activeTab, setActiveTab] = useState('care');
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Elder Care Services | Umang Hospital</title>
         <meta name="description" content="Compassionate geriatric care for seniors. Assisted living, dementia care, and medical support at home." />
@@ -136,7 +136,7 @@ const ElderCare = () => {
                   <motion.div 
                      key={i}
                      whileHover={{ y: -10 }}
-                     className="bg-white p-10 rounded-[2.5rem] border border-gray-100 hover:border-orange-200 hover:shadow-2xl transition-all group relative overflow-hidden"
+                     className="bg-white p-10 rounded-[2.5rem] border border-gray-100 hover:border-orange-200 hover-lift transition-all group relative overflow-hidden"
                   >
                      <div className="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-[100%] -mr-10 -mt-10 transition-transform group-hover:scale-110" />
                      
@@ -246,7 +246,7 @@ const ElderCare = () => {
       </section>
 
       {/* 5. CTA Section */}
-      <section className="py-24 bg-[#0f172a] text-white text-center">
+      <section className="py-16 bg-[#0f172a] text-white text-center">
          <div className="container-custom max-w-4xl">
             <h2 className="text-4xl font-serif font-bold mb-6">Not sure what's best for your parent?</h2>
             <p className="text-xl text-gray-400 font-light mb-10">

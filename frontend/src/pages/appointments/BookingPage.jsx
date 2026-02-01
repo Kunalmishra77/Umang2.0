@@ -42,7 +42,7 @@ const BookingPage = () => {
   };
 
   return (
-    <div className="bg-[#f8fafc] min-h-screen pt-20 pb-12 font-sans selection:bg-[#023e8a] selection:text-white">
+    <div className="bg-[#f8fafc] min-h-screen pt-12 pb-12 font-sans selection:bg-[#023e8a] selection:text-white">
       <Helmet>
         <title>Book Appointment | Umang Hospital</title>
       </Helmet>
@@ -400,7 +400,7 @@ const BookingPage = () => {
       </section>
 
       {/* 4. Insurance Assistance */}
-      <section className="py-24 bg-[#023e8a] text-white">
+      <section className="py-16 bg-[#023e8a] text-white">
          <div className="container-custom flex flex-col md:flex-row items-center justify-between gap-12">
             <div>
                <h2 className="text-4xl font-serif font-bold mb-4">Cashless Treatment Assistance</h2>
@@ -479,7 +479,7 @@ const BookingPage = () => {
       </section>
 
       {/* 7. Contact Support */}
-      <section className="py-24 bg-gray-50 border-t border-gray-100">
+      <section className="py-16 bg-gray-50 border-t border-gray-100">
          <div className="container-custom text-center max-w-4xl">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12">Need Assistance with Booking?</h2>
             <div className="grid md:grid-cols-2 gap-8">

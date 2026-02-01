@@ -47,7 +47,7 @@ const KnowledgeCenter = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Knowledge Center & Academics | Umang Hospital</title>
         <meta name="description" content="A hub for medical education, research papers, case studies, and CME programs for healthcare professionals." />
@@ -96,7 +96,7 @@ const KnowledgeCenter = () => {
       </section>
 
       {/* 2. Resource Library */}
-      <section className="py-24 bg-gray-50 border-b border-gray-200">
+      <section className="py-16 bg-gray-50 border-b border-gray-200">
          <div className="container-custom">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                <div>
@@ -159,7 +159,7 @@ const KnowledgeCenter = () => {
       </section>
 
       {/* 3. Upcoming CME */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative">
                <div className="absolute inset-0 bg-blue-50 rounded-[3rem] -rotate-2" />

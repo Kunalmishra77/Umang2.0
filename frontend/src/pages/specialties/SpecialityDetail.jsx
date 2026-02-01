@@ -25,7 +25,7 @@ const SpecialityDetail = () => {
         <img src={data.img} alt={data.title} className="absolute inset-0 w-full h-full object-cover opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent" />
         
-        <div className="container-custom relative z-10 pt-20">
+        <div className="container-custom relative z-10 pt-12">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <div className="flex items-center gap-2 text-blue-300 font-bold uppercase tracking-widest text-xs mb-4">
               <Link to="/specialities" className="hover:text-white">Centres of Excellence</Link>
@@ -39,7 +39,7 @@ const SpecialityDetail = () => {
       </section>
 
       {/* 2. Overview & Procedures */}
-      <section className="py-24">
+      <section className="py-16">
         <div className="container-custom">
           <div className="grid lg:grid-cols-12 gap-16">
             

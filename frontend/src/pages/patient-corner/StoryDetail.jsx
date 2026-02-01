@@ -19,7 +19,7 @@ const StoryDetail = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-24 pb-12">
+    <div className="bg-white min-h-screen pt-16 pb-12">
       <Helmet>
         <title>{story.name}'s Recovery | Patient Stories</title>
       </Helmet>

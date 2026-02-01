@@ -58,7 +58,7 @@ const Blogs = () => {
   );
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Health Blogs & Articles | Umang Hospital</title>
         <meta name="description" content="Expert health tips, medical news, and wellness advice from Umang Hospital's specialists." />
@@ -98,7 +98,7 @@ const Blogs = () => {
       </section>
 
       {/* 2. Trending Now */}
-      <section className="py-24 bg-white border-b border-gray-100">
+      <section className="py-16 bg-white border-b border-gray-100">
          <div className="container-custom">
             <div className="flex items-center gap-3 mb-12 text-[#0f172a]">
                <div className="w-12 h-12 rounded-2xl bg-red-50 flex items-center justify-center text-red-500">
@@ -166,7 +166,7 @@ const Blogs = () => {
                      whileInView={{ opacity: 1, y: 0 }}
                      viewport={{ once: true }}
                      whileHover={{ y: -15 }}
-                     className="bg-white rounded-[3rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 group flex flex-col border border-gray-100"
+                     className="bg-white rounded-[3rem] overflow-hidden shadow-sm hover-lift transition-all duration-500 group flex flex-col border border-gray-100"
                   >
                      <div className="h-64 overflow-hidden relative">
                         <img src={blog.img} alt={blog.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
@@ -218,7 +218,7 @@ const Blogs = () => {
       </section>
 
       {/* 5. Editor's Picks */}
-      <section className="py-24 bg-[#0f172a] text-white">
+      <section className="py-16 bg-[#0f172a] text-white">
          <div className="container-custom">
             <div className="flex items-center gap-3 mb-12">
                <Star className="w-6 h-6 text-yellow-400 fill-current" />
@@ -244,7 +244,7 @@ const Blogs = () => {
       </section>
 
       {/* 6. Meet the Authors */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
          <div className="container-custom">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-16 text-center">Meet Our Medical Writers</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -264,7 +264,7 @@ const Blogs = () => {
       </section>
 
       {/* 7. Newsletter */}
-      <section className="py-24 bg-[#005580] text-white text-center">
+      <section className="py-16 bg-[#005580] text-white text-center">
          <div className="container-custom max-w-2xl">
             <Mail className="w-12 h-12 text-cyan-300 mx-auto mb-6" />
             <h2 className="text-4xl font-serif font-bold mb-4">Health in Your Inbox</h2>

@@ -28,7 +28,7 @@ const ResourceDetail = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-24 pb-12">
+    <div className="bg-white min-h-screen pt-16 pb-12">
       <Helmet>
         <title>{resource.title} | Umang Knowledge Center</title>
       </Helmet>

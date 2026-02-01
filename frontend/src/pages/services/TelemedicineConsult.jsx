@@ -14,7 +14,7 @@ const TelemedicineConsult = () => {
   }, [step]);
 
   return (
-    <div className="bg-[#0f172a] min-h-screen flex flex-col justify-center items-center text-white p-6 pt-24">
+    <div className="bg-[#0f172a] min-h-screen flex flex-col justify-center items-center text-white p-6 pt-16">
       <Helmet>
         <title>Consultation Waiting Room | Umang Hospital</title>
       </Helmet>

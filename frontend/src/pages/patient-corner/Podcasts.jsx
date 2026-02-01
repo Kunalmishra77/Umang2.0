@@ -63,7 +63,7 @@ const Podcasts = () => {
   const [playing, setPlaying] = useState(null);
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Umang Health Podcasts | Listen & Learn</title>
         <meta name="description" content="Tune in to expert medical advice, health tips, and inspiring stories from Umang Hospital's top doctors." />
@@ -95,7 +95,7 @@ const Podcasts = () => {
             </p>
             
             <div className="flex gap-4">
-              <button className="h-14 px-8 rounded-full bg-white text-[#1e1b4b] font-bold hover:bg-purple-50 transition-all flex items-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105">
+              <button className="h-14 px-8 rounded-full bg-white text-[#1e1b4b] font-bold hover:bg-purple-50 transition-all flex items-center gap-2 shadow-xl hover-lift hover:scale-105">
                 <Play className="w-5 h-5 fill-current" /> Latest Episode
               </button>
               <button className="h-14 px-8 rounded-full bg-transparent border border-white/30 text-white font-bold hover:bg-white/10 transition-all flex items-center gap-2">
@@ -134,7 +134,7 @@ const Podcasts = () => {
       </section>
 
       {/* 2. Recent Episodes */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
          <div className="container-custom">
             <div className="flex justify-between items-end mb-16">
                <div>
@@ -212,7 +212,7 @@ const Podcasts = () => {
       </section>
 
       {/* 3. Meet the Hosts */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
          <div className="container-custom">
             <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-16 text-center">Meet Our Hosts</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -232,7 +232,7 @@ const Podcasts = () => {
       </section>
 
       {/* 4. Featured Series */}
-      <section className="py-24 bg-[#1e1b4b] text-white">
+      <section className="py-16 bg-[#1e1b4b] text-white">
          <div className="container-custom text-center">
             <Mic className="w-16 h-16 text-purple-400 mx-auto mb-8 animate-bounce" />
             <h2 className="text-4xl font-serif font-bold mb-6">Want to be a guest?</h2>
@@ -246,7 +246,7 @@ const Podcasts = () => {
       </section>
 
       {/* 5. Listener Reviews */}
-      <section className="py-24 bg-purple-50">
+      <section className="py-16 bg-purple-50">
          <div className="container-custom">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12 text-center">Listener Love</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -284,7 +284,7 @@ const Podcasts = () => {
       </section>
 
       {/* 7. Suggest a Topic */}
-      <section className="py-24 bg-gradient-to-r from-purple-600 to-pink-500 text-white relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-r from-purple-600 to-pink-500 text-white relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
          <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <div>

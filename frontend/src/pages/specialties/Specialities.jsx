@@ -66,7 +66,7 @@ const Specialities = () => {
       </Helmet>
 
       {/* 1. Page Header */}
-      <section className="bg-[#0f172a] pt-32 pb-20 relative overflow-hidden">
+      <section className="bg-[#0f172a] pt-20 pb-20 relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
          <div className="container-custom relative z-10">
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6">Centres of Excellence</h1>

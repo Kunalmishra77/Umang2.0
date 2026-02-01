@@ -33,7 +33,7 @@ const InquiryHub = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Specific Inquiries & Support | Umang Hospital</title>
       </Helmet>
@@ -83,7 +83,7 @@ const InquiryHub = () => {
                   <motion.div 
                      key={i}
                      whileHover={{ y: -10 }}
-                     className="p-10 rounded-[3rem] border border-gray-100 bg-white shadow-sm hover:shadow-2xl transition-all group"
+                     className="p-10 rounded-[3rem] border border-gray-100 bg-white shadow-sm hover-lift transition-all group"
                   >
                      <div className={`w-16 h-16 rounded-2xl ${item.color} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform`}>
                         <item.icon className="w-8 h-8" />

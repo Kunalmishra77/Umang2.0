@@ -57,7 +57,7 @@ const packages = [
 
 const HealthCheckup = () => {
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Preventive Health Checkups | Umang Hospital</title>
         <meta name="description" content="Book comprehensive full body checkups starting at ₹1499. Includes blood tests, cardiac screening, and doctor consultation." />
@@ -92,7 +92,7 @@ const HealthCheckup = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6">
-              <button onClick={() => document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })} className="h-16 px-10 rounded-full bg-white text-[#005580] font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-3">
+              <button onClick={() => document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })} className="h-16 px-10 rounded-full bg-white text-[#005580] font-bold text-lg hover-lift hover:scale-105 transition-all flex items-center justify-center gap-3">
                 View Packages <ArrowRight className="w-5 h-5" />
               </button>
               <div className="flex items-center gap-4 text-white">

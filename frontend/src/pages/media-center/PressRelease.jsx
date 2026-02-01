@@ -45,7 +45,7 @@ const PressRelease = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Press Releases | Umang Hospital Media Center</title>
         <meta name="description" content="Stay updated with the latest news, announcements, and corporate updates from Umang Hospital." />
@@ -176,7 +176,7 @@ const PressRelease = () => {
       </section>
 
       {/* 4. Media Kit */}
-      <section className="py-24 bg-[#0f172a] text-white relative overflow-hidden">
+      <section className="py-16 bg-[#0f172a] text-white relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
          <div className="container-custom relative z-10">
             <div className="bg-white/5 backdrop-blur-md rounded-[3rem] p-12 md:p-20 border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -223,7 +223,7 @@ const PressRelease = () => {
       </section>
 
       {/* 6. Media Contact */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
          <div className="container-custom">
             <div className="bg-white rounded-[3rem] p-12 md:p-16 border border-gray-100 shadow-xl flex flex-col md:flex-row items-center gap-12">
                <div className="md:w-1/2">

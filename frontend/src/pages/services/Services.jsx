@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Stethoscope, Activity, Home, Pill, Video, Phone, ShieldCheck, Heart } from 'lucide-react';
+import { Stethoscope, Activity, Home, Pill, Video, Phone, ShieldCheck, Heart, ArrowRight } from 'lucide-react';
+import { ASSETS } from '../../utils/imageAssets';
 
 const services = [
   {
@@ -65,37 +66,43 @@ const services = [
 
 const Services = () => {
   return (
-    <div className="bg-gray-50 min-h-screen pt-20">
+    <div className="bg-white min-h-screen">
       <Helmet>
         <title>Our Services - Umang Hospital</title>
       </Helmet>
 
       {/* Hero Section */}
-      <section className="bg-[#005580] text-white py-20 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10"></div>
-        <div className="container-custom relative z-10 text-center">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
+      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-dark">
+        <div className="absolute inset-0 z-0">
+           <img 
+             src={ASSETS.HOSPITAL_EXTERIOR} 
+             alt="Services Hero" 
+             className="w-full h-full object-cover opacity-20 mix-blend-luminosity"
+           />
+           <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/80 via-brand-dark/50 to-brand-dark" />
+        </div>
+        
+        <div className="container-custom relative z-10 text-center pt-12">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-serif font-bold mb-4"
+            transition={{ duration: 0.8 }}
           >
-            Clinical Excellence & Services
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-blue-100 text-lg max-w-2xl mx-auto"
-          >
-            Comprehensive healthcare solutions designed around your needs, from preventive care to advanced treatments.
-          </motion.p>
+            <span className="section-subtitle text-primary-400 mb-6 block mx-auto">Comprehensive Care</span>
+            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 tracking-tight">
+              Clinical <span className="text-primary-400 italic">Excellence</span>
+            </h1>
+            <p className="text-xl text-primary-100/70 max-w-2xl mx-auto font-light leading-relaxed">
+              Comprehensive healthcare solutions designed around your needs, from preventive care to advanced treatments.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="py-20 px-4">
+      {/* 2. Service Categories Grid */}
+      <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -106,17 +113,20 @@ const Services = () => {
               >
                 <Link 
                   to={`/services/${service.slug}`}
-                  className="block h-full bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+                  className="block h-full bg-white p-8 rounded-[2.5rem] shadow-sm hover-lift transition-all duration-500 border border-gray-100 group hover:-translate-y-2"
                 >
-                  <div className={`w-14 h-14 rounded-xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className="w-7 h-7" />
+                  <div className={`w-16 h-16 rounded-2xl ${service.color} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-sm`}>
+                    <service.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#005580] transition-colors">
+                  <h3 className="text-xl font-bold text-brand-dark mb-4 group-hover:text-primary-600 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-gray-500 leading-relaxed text-sm">
+                  <p className="text-gray-500 leading-relaxed text-sm mb-6">
                     {service.desc}
                   </p>
+                  <div className="flex items-center text-primary-600 font-bold text-xs uppercase tracking-widest gap-2 opacity-60 group-hover:opacity-100 transition-all">
+                     Explore <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </Link>
               </motion.div>
             ))}

@@ -36,7 +36,7 @@ const newsItems = [
 
 const MediaCoverage = () => {
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Media Coverage | Umang in the News</title>
         <meta name="description" content="Umang Hospital in the headlines. Watch news segments, read digital articles, and see our impact in the medical world." />
@@ -136,7 +136,7 @@ const MediaCoverage = () => {
       </section>
 
       {/* 3. Media Mentions Slider Placeholder */}
-      <section className="py-24 bg-white border-y border-gray-100">
+      <section className="py-16 bg-white border-y border-gray-100">
          <div className="container-custom">
             <h3 className="text-center text-sm font-bold text-gray-400 uppercase tracking-[0.3em] mb-12">Recognized By</h3>
             <div className="flex flex-wrap justify-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
@@ -211,7 +211,7 @@ const MediaCoverage = () => {
       </section>
 
       {/* 6. Social Media Buzz */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
          <div className="container-custom text-center">
             <Radio className="w-12 h-12 text-[#005580] mx-auto mb-6" />
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-4">Stay Connected</h2>

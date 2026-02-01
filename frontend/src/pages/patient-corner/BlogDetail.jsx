@@ -24,7 +24,7 @@ const BlogDetail = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-24 pb-12">
+    <div className="bg-white min-h-screen pt-16 pb-12">
       <Helmet>
         <title>{blog.title} | Umang Blogs</title>
       </Helmet>

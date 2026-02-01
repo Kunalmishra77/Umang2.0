@@ -50,7 +50,7 @@ const Events = () => {
   const [filter, setFilter] = useState('All');
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Events & Health Camps | Umang Hospital</title>
         <meta name="description" content="Join our upcoming health camps, webinars, and community events. Stay healthy and informed with Umang Hospital." />
@@ -96,7 +96,7 @@ const Events = () => {
       </section>
 
       {/* 2. Upcoming Events */}
-      <section id="upcoming" className="py-24 bg-gray-50">
+      <section id="upcoming" className="py-16 bg-gray-50">
          <div className="container-custom">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                <div>
@@ -122,7 +122,7 @@ const Events = () => {
                   <motion.div 
                      key={event.id}
                      whileHover={{ y: -10 }}
-                     className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all group flex flex-col"
+                     className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover-lift transition-all group flex flex-col"
                   >
                      <div className="h-64 relative overflow-hidden">
                         <img src={event.image} alt={event.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -159,7 +159,7 @@ const Events = () => {
       </section>
 
       {/* 3. Past Events Gallery */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
          <div className="container-custom">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12 text-center">Past Highlights</h2>
             <div className="grid md:grid-cols-3 gap-8">

@@ -41,7 +41,7 @@ const Pharmacy = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-20">
+    <div className="bg-gray-50 min-h-screen pt-12">
       <Helmet>
         <title>Online Pharmacy | Umang Hospital</title>
         <meta name="description" content="Order genuine medicines and healthcare products online. 24/7 delivery, prescription upload, and cold chain storage." />
@@ -120,7 +120,7 @@ const Pharmacy = () => {
       </section>
 
       {/* 2. Shop by Category */}
-      <section className="py-24 container-custom -mt-16 relative z-20">
+      <section className="py-16 container-custom -mt-16 relative z-20">
         <div className="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100">
           <h3 className="text-lg font-bold text-gray-900 mb-6 uppercase tracking-wider">Shop by Category</h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -141,7 +141,7 @@ const Pharmacy = () => {
       </section>
 
       {/* 3. Best Sellers */}
-      <section className="py-24 container-custom">
+      <section className="py-16 container-custom">
         <div className="flex justify-between items-end mb-12">
           <div>
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Best Sellers</h2>
@@ -197,7 +197,7 @@ const Pharmacy = () => {
       </section>
 
       {/* 5. Health Essentials Articles */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12">Health Essentials</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -222,7 +222,7 @@ const Pharmacy = () => {
       </section>
 
       {/* 6. Process Steps */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <h2 className="text-3xl font-serif font-bold text-center text-[#0f172a] mb-16">How It Works</h2>
           <div className="grid md:grid-cols-3 gap-8 relative">
@@ -246,7 +246,7 @@ const Pharmacy = () => {
       </section>
 
       {/* 7. FAQ Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="container-custom max-w-3xl">
           <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-12">Frequently Asked Questions</h2>
           <div className="space-y-4">

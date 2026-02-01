@@ -39,7 +39,7 @@ const Careers = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/50 to-transparent" />
          </div>
          
-         <div className="container-custom relative z-10 text-center pt-20">
+         <div className="container-custom relative z-10 text-center pt-12">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ const Careers = () => {
       </section>
 
       {/* 2. Culture & Perks */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
          <div className="container-custom">
             <div className="text-center mb-16">
                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-4">Why Choose Umang?</h2>
@@ -86,7 +86,7 @@ const Careers = () => {
       </section>
 
       {/* 3. Job Board */}
-      <section id="openings" className="py-24 bg-white">
+      <section id="openings" className="py-16 bg-white">
          <div className="container-custom">
             <div className="flex flex-col md:flex-row justify-between items-end mb-12">
                <div>

@@ -60,7 +60,7 @@ const HealthCheckBooking = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Premium Health Checkups | Umang Hospital</title>
       </Helmet>
@@ -373,7 +373,7 @@ const HealthCheckBooking = () => {
       </section>
 
       {/* 7. Footer Banner */}
-      <section className="py-24 bg-[#0f172a] text-white overflow-hidden relative">
+      <section className="py-16 bg-[#0f172a] text-white overflow-hidden relative">
          <div className="container-custom relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="max-w-2xl">
                <h2 className="text-4xl font-serif font-bold mb-4">Healthy Living Starts Here.</h2>

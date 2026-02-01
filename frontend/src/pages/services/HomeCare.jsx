@@ -60,7 +60,7 @@ const HomeCare = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Home Care Services | Umang Hospital</title>
         <meta name="description" content="Professional hospital-like care at home. ICU setup, nursing, physiotherapy, and medical equipment rental services." />
@@ -111,7 +111,7 @@ const HomeCare = () => {
       </section>
 
       {/* 2. Services Grid */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
          <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto mb-16">
                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-4">Comprehensive Home Care</h2>
@@ -164,7 +164,7 @@ const HomeCare = () => {
       </section>
 
       {/* 4. Process Steps */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
          <div className="container-custom">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-16 text-center">How It Works</h2>
             
@@ -190,7 +190,7 @@ const HomeCare = () => {
       </section>
 
       {/* 5. FAQ & CTA */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
          <div className="container-custom max-w-4xl">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-12">Common Questions</h2>
             <div className="space-y-4 mb-16">
@@ -227,7 +227,7 @@ const HomeCare = () => {
                </div>
                <h3 className="text-2xl font-bold text-[#0f172a] mb-4">Need immediate assistance?</h3>
                <p className="text-gray-600 mb-8 max-w-lg mx-auto">Our Home Care coordinators are available 24/7 to answer your queries and arrange urgent care.</p>
-               <a href="tel:+918929733551" className="inline-flex items-center gap-2 px-8 py-4 bg-[#005580] text-white rounded-full font-bold shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
+               <a href="tel:+918929733551" className="inline-flex items-center gap-2 px-8 py-4 bg-[#005580] text-white rounded-full font-bold shadow-xl hover-lift hover:-translate-y-1 transition-all">
                   Call Support Team
                </a>
             </div>

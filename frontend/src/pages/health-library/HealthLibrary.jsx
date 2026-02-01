@@ -51,7 +51,7 @@ const categories = [
 
 const HealthLibrary = () => {
   return (
-    <div className="bg-gray-50 min-h-screen pt-20">
+    <div className="bg-gray-50 min-h-screen pt-12">
       <Helmet>
         <title>Health Library - Umang Hospital</title>
       </Helmet>

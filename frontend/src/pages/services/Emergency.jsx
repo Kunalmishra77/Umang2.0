@@ -43,7 +43,7 @@ const Emergency = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Emergency & Trauma Care | Umang Hospital</title>
         <meta name="description" content="24/7 Emergency Room and Trauma Center. Immediate care for heart attacks, strokes, and accidents. Call 89297 33551." />
@@ -81,7 +81,7 @@ const Emergency = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 mb-12">
-              <a href="tel:+918929733551" className="h-16 px-8 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 hover:shadow-2xl hover:shadow-red-900/50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
+              <a href="tel:+918929733551" className="h-16 px-8 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 hover-lift hover:shadow-red-900/50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
                 <Phone className="w-6 h-6 animate-wiggle" /> Call Ambulance: 89297 33551
               </a>
               <a href="https://maps.google.com/?q=Umang+Hospital+Gurugram" target="_blank" rel="noreferrer" className="h-16 px-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
@@ -93,7 +93,7 @@ const Emergency = () => {
       </section>
 
       {/* 2. Critical Services Grid */}
-      <section className="py-24 bg-white relative -mt-20 z-30">
+      <section className="py-16 bg-white relative -mt-20 z-30">
          <div className="container-custom">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                {emergencyServices.map((service, i) => (
@@ -117,7 +117,7 @@ const Emergency = () => {
       </section>
 
       {/* 3. Triage & Protocol Info */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-16 bg-gray-50">
          <div className="container-custom grid lg:grid-cols-2 gap-16 items-center">
             <div>
                <span className="text-red-600 font-bold uppercase tracking-widest text-sm mb-4 block">Our Protocol</span>
@@ -171,7 +171,7 @@ const Emergency = () => {
       </section>
 
       {/* 4. When to Visit ER */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
          <div className="container-custom">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-16">When to visit the ER?</h2>
             
@@ -197,7 +197,7 @@ const Emergency = () => {
       </section>
 
       {/* 5. First Aid Guide */}
-      <section className="py-24 bg-gray-900 text-white">
+      <section className="py-16 bg-gray-900 text-white">
         <div className="container-custom">
           <h2 className="text-3xl font-serif font-bold mb-12 text-center">Quick First Aid Guide</h2>
           <div className="grid lg:grid-cols-3 gap-8">

@@ -81,7 +81,7 @@ const Ailments = () => {
   );
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Ailments & Conditions | Umang Hospital</title>
         <meta name="description" content="Comprehensive guide to medical conditions, symptoms, and treatments. Search our encyclopedia of ailments." />
@@ -165,7 +165,7 @@ const Ailments = () => {
                   <motion.div 
                      key={ailment.id}
                      whileHover={{ y: -10 }}
-                     className="bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 group relative overflow-hidden"
+                     className="bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm hover-lift transition-all duration-300 group relative overflow-hidden"
                   >
                      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-[100%] transition-transform group-hover:scale-110" />
                      
@@ -248,7 +248,7 @@ const Ailments = () => {
       </section>
 
       {/* 5. CTA */}
-      <section className="py-24 bg-[#005580] text-white relative overflow-hidden text-center">
+      <section className="py-16 bg-[#005580] text-white relative overflow-hidden text-center">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
          <div className="container-custom relative z-10 max-w-4xl">
             <h2 className="text-4xl font-serif font-bold mb-6">Unsure about your symptoms?</h2>

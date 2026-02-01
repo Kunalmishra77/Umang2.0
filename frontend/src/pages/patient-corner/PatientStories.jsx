@@ -61,7 +61,7 @@ const writtenStories = [
 
 const PatientStories = () => {
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Patient Stories & Testimonials | Umang Hospital</title>
         <meta name="description" content="Read inspiring stories of recovery and hope from patients treated at Umang Hospital." />
@@ -162,7 +162,7 @@ const PatientStories = () => {
       </section>
 
       {/* 3. Stats of Success */}
-      <section className="py-24 bg-gradient-to-b from-pink-50 to-white">
+      <section className="py-16 bg-gradient-to-b from-pink-50 to-white">
          <div className="container-custom">
             <div className="grid md:grid-cols-4 gap-12 text-center divide-x divide-pink-200">
                {[
@@ -196,7 +196,7 @@ const PatientStories = () => {
                   <Link to={`/patient-corner/patient-stories/${story.id}`} key={story.id} className="group block">
                      <motion.div 
                         whileHover={{ scale: 1.03, borderColor: "#fbcfe8" }}
-                        className="border border-gray-100 rounded-[2.5rem] p-10 transition-all duration-500 hover:bg-pink-50/20 hover:shadow-2xl h-full flex flex-col"
+                        className="border border-gray-100 rounded-[2.5rem] p-10 transition-all duration-500 hover:bg-pink-50/20 hover-lift h-full flex flex-col"
                      >
                         <span className="text-[10px] font-bold text-pink-500 uppercase tracking-[0.2em] mb-4 block">{story.category}</span>
                         <h3 className="text-2xl font-bold text-[#0f172a] mb-6 group-hover:text-pink-600 transition-colors leading-tight">{story.title}</h3>
@@ -219,7 +219,7 @@ const PatientStories = () => {
       </section>
 
       {/* 5. Support Community */}
-      <section className="py-24 bg-[#0f172a] text-white relative overflow-hidden">
+      <section className="py-16 bg-[#0f172a] text-white relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
          <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -260,7 +260,7 @@ const PatientStories = () => {
       </section>
 
       {/* 6. Share Your Story CTA */}
-      <section id="share-story" className="py-24 bg-white text-center border-t border-gray-100">
+      <section id="share-story" className="py-16 bg-white text-center border-t border-gray-100">
          <div className="container-custom max-w-3xl">
             <Star className="w-12 h-12 text-yellow-400 mx-auto mb-6 fill-current animate-spin-slow" />
             <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Your Story Can Inspire Others</h2>

@@ -67,7 +67,7 @@ const techs = [
 
 const Technologies = () => {
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Advanced Medical Technology | Umang Hospital</title>
         <meta name="description" content="Explore our state-of-the-art medical technology including Robotic Surgery, 3T MRI, and Linear Accelerators." />
@@ -134,7 +134,7 @@ const Technologies = () => {
                   <motion.div 
                      key={tech.id}
                      whileHover={{ y: -10 }}
-                     className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 group"
+                     className="bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover-lift transition-all duration-500 border border-gray-100 group"
                   >
                      <div className="h-64 relative overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent z-10 opacity-60" />
@@ -169,7 +169,7 @@ const Technologies = () => {
       </section>
 
       {/* 3. Innovation Stats */}
-      <section className="py-24 bg-[#005580] text-white relative overflow-hidden">
+      <section className="py-16 bg-[#005580] text-white relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10" />
          <div className="container-custom relative z-10">
             <div className="grid md:grid-cols-4 gap-12 text-center divide-x divide-white/10">

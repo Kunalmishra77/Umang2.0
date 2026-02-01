@@ -28,7 +28,7 @@ const MediaConnect = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Media Connect | Journalist Resources | Umang Hospital</title>
         <meta name="description" content="Official resource hub for media professionals. Connect with our spokespeople, download press kits, and request interviews." />
@@ -326,7 +326,7 @@ const MediaConnect = () => {
       {/* 7. Social Media & Whatsapp */}
       <section className="py-32 bg-gray-50 border-t border-gray-100">
          <div className="container-custom">
-            <div className="bg-white rounded-[3rem] p-12 shadow-xl border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-12 group transition-all duration-500 hover:shadow-2xl">
+            <div className="bg-white rounded-[3rem] p-12 shadow-xl border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-12 group transition-all duration-500 hover-lift">
                <div className="flex items-center gap-8">
                   <motion.div 
                      whileHover={{ scale: 1.1, rotate: 15 }}

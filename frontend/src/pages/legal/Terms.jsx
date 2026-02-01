@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 
 const Terms = () => {
   return (
-    <div className="pt-24 pb-16 min-h-screen bg-gray-50">
+    <div className="pt-16 pb-16 min-h-screen bg-gray-50">
       <Helmet>
         <title>Terms and Conditions | Umang Hospital</title>
       </Helmet>

@@ -43,7 +43,7 @@ const SecondOpinion = () => {
   const [formStep, setFormStep] = useState(1);
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Second Opinion | Umang Hospital</title>
         <meta name="description" content="Get expert validation on your medical diagnosis and treatment plan from Umang Hospital's top specialists." />
@@ -92,7 +92,7 @@ const SecondOpinion = () => {
       </section>
 
       {/* 2. Value Proposition Grid */}
-      <section className="py-24 bg-gray-50 relative">
+      <section className="py-16 bg-gray-50 relative">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-4">Why seek a Second Opinion?</h2>
@@ -121,7 +121,7 @@ const SecondOpinion = () => {
       </section>
 
       {/* 3. Interactive Process Timeline */}
-      <section className="py-24 bg-white overflow-hidden">
+      <section className="py-16 bg-white overflow-hidden">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             
@@ -193,7 +193,7 @@ const SecondOpinion = () => {
       </section>
 
       {/* 4. Request Form Section */}
-      <section id="request-form" className="py-24 bg-[#0f172a] text-white relative overflow-hidden">
+      <section id="request-form" className="py-16 bg-[#0f172a] text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[100px]" />
 
@@ -286,7 +286,7 @@ const SecondOpinion = () => {
       </section>
 
       {/* 5. Specialities Slider (Static for now) */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="flex justify-between items-end mb-12">
              <h2 className="text-3xl font-serif font-bold text-[#0f172a]">Expertise You Can Trust</h2>

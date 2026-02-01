@@ -26,7 +26,7 @@ const DynamicSubPage = () => {
   }, [slug]);
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>{data.title} | Umang Hospital</title>
         <meta name="description" content={data.description} />
@@ -62,7 +62,7 @@ const DynamicSubPage = () => {
         </div>
       </div>
 
-      <div className="container-custom py-16 md:py-24">
+      <div className="container-custom py-16 md:py-16">
         <div className="grid lg:grid-cols-12 gap-12">
           
           {/* Main Content */}

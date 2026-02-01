@@ -26,7 +26,7 @@ const EventRegistration = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-24 pb-12 flex items-center justify-center">
+    <div className="bg-gray-50 min-h-screen pt-16 pb-12 flex items-center justify-center">
       <Helmet>
         <title>Event Registration | Umang Hospital</title>
       </Helmet>

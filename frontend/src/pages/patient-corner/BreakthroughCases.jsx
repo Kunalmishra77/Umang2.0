@@ -40,7 +40,7 @@ const cases = [
 
 const BreakthroughCases = () => {
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Breakthrough Cases | Umang Hospital</title>
         <meta name="description" content="Explore our medical success stories and complex cases treated by expert doctors." />
@@ -85,7 +85,7 @@ const BreakthroughCases = () => {
                      whileInView={{ opacity: 1, y: 0 }}
                      viewport={{ once: true }}
                      whileHover={{ y: -10 }}
-                     className="bg-white rounded-[3rem] overflow-hidden shadow-xl border border-gray-100 flex flex-col lg:flex-row group transition-all duration-500 hover:shadow-2xl"
+                     className="bg-white rounded-[3rem] overflow-hidden shadow-xl border border-gray-100 flex flex-col lg:flex-row group transition-all duration-500 hover-lift"
                   >
                      <div className="lg:w-1/2 relative overflow-hidden h-[400px] lg:h-auto">
                         <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
@@ -144,7 +144,7 @@ const BreakthroughCases = () => {
       </section>
 
       {/* 3. Technology Spotlight */}
-      <section className="py-24 bg-white border-t border-gray-100">
+      <section className="py-16 bg-white border-t border-gray-100">
          <div className="container-custom text-center">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-16">Powered by Innovation</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -166,7 +166,7 @@ const BreakthroughCases = () => {
       </section>
 
       {/* 4. Patient Video Testimonial */}
-      <section className="py-24 bg-[#0f172a] text-white relative overflow-hidden">
+      <section className="py-16 bg-[#0f172a] text-white relative overflow-hidden">
          <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <div>
                <h2 className="text-4xl font-serif font-bold mb-6">"I never thought I'd walk again."</h2>
@@ -215,7 +215,7 @@ const BreakthroughCases = () => {
       </section>
 
       {/* 6. Stats & CTA */}
-      <section className="py-24 bg-white text-center">
+      <section className="py-16 bg-white text-center">
          <div className="container-custom">
             <div className="grid md:grid-cols-3 gap-12 text-center divide-x divide-gray-100 mb-16">
                {[

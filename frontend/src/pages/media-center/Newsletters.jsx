@@ -31,7 +31,7 @@ const Newsletters = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Umang Pulse Newsletter | Media Center</title>
         <meta name="description" content="Subscribe to Umang Pulse, our monthly health newsletter. Get expert tips, hospital updates, and wellness guides delivered to your inbox." />
@@ -210,7 +210,7 @@ const Newsletters = () => {
       </section>
 
       {/* 4. Preference Center Section */}
-      <section className="py-24 bg-[#0f172a] text-white relative overflow-hidden">
+      <section className="py-16 bg-[#0f172a] text-white relative overflow-hidden">
          <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-20 items-center">
             <div>
                <h2 className="text-4xl font-serif font-bold mb-8 leading-tight">Customize Your Experience</h2>

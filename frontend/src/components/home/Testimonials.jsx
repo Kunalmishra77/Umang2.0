@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote, MessageCircle } from 'lucide-react';
+import { Star, Quote, MessageCircle, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const testimonials = [
@@ -26,23 +26,38 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-32 bg-gray-50 overflow-hidden">
-      <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+    <section className="py-16 lg:py-24 bg-gray-50 overflow-hidden relative">
+      {/* Decorative Background */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-[0.4] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none mix-blend-multiply" />
+      
+      <div className="container-custom relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="max-w-3xl"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-blue-700 text-[10px] font-black uppercase tracking-[0.2em] mb-6">
-              <MessageCircle className="w-3 h-3" /> Voice of Our Patients
-            </span>
-            <h2 className="text-4xl md:text-6xl font-serif font-bold text-[#0f172a] mb-6">
-              Stories of <span className="text-blue-600">Hope & Healing</span>
-            </h2>
-            <p className="text-xl text-gray-500 font-light leading-relaxed">
+            <span className="section-subtitle">Voice of Our Patients</span>
+            <h2 className="section-title">Stories of <span className="text-primary-600">Hope & Healing</span></h2>
+            <p className="text-gray-500 mt-6 text-xl font-light leading-relaxed">
               Nothing speaks louder than the experiences of those who have walked through our doors and returned home with a smile.
             </p>
+          </motion.div>
+          
+          <motion.div
+             initial={{ opacity: 0, x: 50 }}
+             whileInView={{ opacity: 1, x: 0 }}
+             transition={{ duration: 0.8 }}
+             viewport={{ once: true }}
+          >
+             <Link 
+              to="/patient-corner/patient-stories" 
+              className="hidden md:flex btn-outline group"
+             >
+                View All Stories <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+             </Link>
           </motion.div>
         </div>
 
@@ -52,42 +67,43 @@ const Testimonials = () => {
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
+              transition={{ delay: idx * 0.15 }}
               viewport={{ once: true }}
-              className="bg-white rounded-[3rem] p-12 border border-gray-100 shadow-xl shadow-gray-200/50 flex flex-col justify-between relative group hover:-translate-y-2 transition-all duration-500"
+              whileHover={{ y: -10 }}
+              className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-xl shadow-gray-200/50 flex flex-col justify-between relative group transition-all duration-500 hover-lift hover:shadow-primary-500/10"
             >
-              <div className="absolute top-10 right-10 text-gray-100 group-hover:text-blue-50 transition-colors">
-                <Quote className="w-16 h-16 fill-current" />
+              <div className="absolute top-8 right-8 text-gray-100 group-hover:text-primary-50 transition-colors duration-500">
+                <Quote className="w-20 h-20 fill-current transform rotate-180" />
               </div>
               
               <div className="relative z-10">
-                <div className="flex gap-1 mb-8">
+                <div className="flex gap-1 mb-6">
                   {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
                 </div>
-                <p className="text-gray-600 text-xl leading-relaxed italic mb-10 font-light">
+                <p className="text-gray-600 text-lg leading-relaxed italic mb-8 font-light relative">
                   "{item.text}"
                 </p>
               </div>
 
-              <div className="flex items-center gap-5 relative z-10">
-                 <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
+              <div className="flex items-center gap-5 relative z-10 pt-6 border-t border-gray-100">
+                 <div className="w-14 h-14 rounded-full overflow-hidden shadow-md border-2 border-white ring-2 ring-gray-100 group-hover:ring-primary-200 transition-all">
                     <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                  </div>
                  <div>
-                    <h4 className="font-bold text-xl text-[#0f172a]">{item.name}</h4>
-                    <p className="text-sm text-blue-500 font-bold uppercase tracking-widest">{item.loc}</p>
+                    <h4 className="font-bold text-lg text-brand-dark group-hover:text-primary-700 transition-colors">{item.name}</h4>
+                    <p className="text-xs text-primary-500 font-bold uppercase tracking-widest">{item.loc}</p>
                  </div>
               </div>
             </motion.div>
           ))}
         </div>
 
-        <div className="mt-20 text-center">
+        <div className="mt-16 text-center md:hidden">
            <Link 
             to="/patient-corner/patient-stories" 
-            className="inline-block px-10 py-4 rounded-full border-2 border-[#0f172a] text-[#0f172a] font-black text-sm uppercase tracking-widest hover:bg-[#0f172a] hover:text-white transition-all"
+            className="btn-outline w-full justify-center"
            >
-              View All Patient Stories
+              View All Stories
            </Link>
         </div>
       </div>

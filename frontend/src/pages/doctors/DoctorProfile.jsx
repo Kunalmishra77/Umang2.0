@@ -45,7 +45,7 @@ const DoctorProfile = () => {
       </Helmet>
 
       {/* 1. Profile Hero */}
-      <section className="bg-[#0f172a] pt-32 pb-20 relative overflow-hidden">
+      <section className="bg-[#0f172a] pt-20 pb-20 relative overflow-hidden">
          <div className="container-custom relative z-10">
             <div className="flex flex-col md:flex-row gap-12 items-center">
                {/* Image */}

@@ -133,7 +133,7 @@ const DoctorSearch = () => {
   );
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet><title>Find a Doctor | Umang Hospital</title></Helmet>
 
       {/* 1. Hero Section - Search Focused */}
@@ -182,7 +182,7 @@ const DoctorSearch = () => {
       </section>
 
       {/* 3. Main Directory & Preview */}
-      <section className="py-12 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
          <div className="container-custom">
             <div className="bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl overflow-hidden border border-gray-100 flex flex-col lg:grid lg:grid-cols-12 h-auto lg:h-[800px]">
                

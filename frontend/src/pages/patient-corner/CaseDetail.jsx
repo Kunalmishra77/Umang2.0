@@ -23,7 +23,7 @@ const CaseDetail = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-24 pb-12">
+    <div className="bg-white min-h-screen pt-16 pb-12">
       <Helmet>
         <title>{caseData.title} | Breakthrough Cases</title>
       </Helmet>

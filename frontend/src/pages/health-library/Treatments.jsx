@@ -36,7 +36,7 @@ const Treatments = () => {
   );
 
   return (
-    <div className="bg-white min-h-screen pt-20">
+    <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Medical Treatments & Procedures | Umang Hospital</title>
         <meta name="description" content="Explore our comprehensive list of medical treatments, surgeries, and procedures. Get details on cost, duration, and recovery." />
@@ -93,7 +93,7 @@ const Treatments = () => {
       </section>
 
       {/* 2. Browse by Specialty */}
-      <section className="py-24 bg-gray-50 border-b border-gray-200">
+      <section className="py-16 bg-gray-50 border-b border-gray-200">
          <div className="container-custom">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12">Browse by Specialty</h2>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -118,7 +118,7 @@ const Treatments = () => {
       </section>
 
       {/* 3. Treatment Listings */}
-      <section className="py-24 bg-white">
+      <section className="py-16 bg-white">
          <div className="container-custom">
             <div className="flex justify-between items-end mb-12">
                <h2 className="text-3xl font-serif font-bold text-[#0f172a]">
@@ -134,7 +134,7 @@ const Treatments = () => {
                      initial={{ opacity: 0 }}
                      whileInView={{ opacity: 1 }}
                      viewport={{ once: true }}
-                     className="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl hover:border-blue-100 transition-all duration-300 flex flex-col"
+                     className="group bg-white border border-gray-100 rounded-3xl overflow-hidden hover-lift hover:border-blue-100 transition-all duration-300 flex flex-col"
                   >
                      <div className="h-56 overflow-hidden relative">
                         <img src={treatment.img} alt={treatment.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -172,7 +172,7 @@ const Treatments = () => {
       </section>
 
       {/* 4. Patient Education (Process) */}
-      <section className="py-24 bg-[#0f172a] text-white relative overflow-hidden">
+      <section className="py-16 bg-[#0f172a] text-white relative overflow-hidden">
          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
          
          <div className="container-custom relative z-10">
@@ -200,14 +200,14 @@ const Treatments = () => {
       </section>
 
       {/* 5. CTA */}
-      <section className="py-24 bg-blue-50">
+      <section className="py-16 bg-blue-50">
          <div className="container-custom max-w-4xl text-center">
             <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Need guidance on a procedure?</h2>
             <p className="text-xl text-gray-500 mb-10 leading-relaxed">
                Our patient counselors are here to help you understand the treatment process, costs, and insurance coverage.
             </p>
             <div className="flex justify-center gap-6">
-               <Link to="/contact" className="h-16 px-10 rounded-full bg-[#005580] text-white font-bold text-lg hover:bg-[#004466] shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all flex items-center gap-3">
+               <Link to="/contact" className="h-16 px-10 rounded-full bg-[#005580] text-white font-bold text-lg hover:bg-[#004466] shadow-xl hover-lift hover:-translate-y-1 transition-all flex items-center gap-3">
                   <FileText className="w-5 h-5" /> Get Cost Estimate
                </Link>
             </div>
