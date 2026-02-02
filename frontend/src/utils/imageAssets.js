@@ -9,9 +9,9 @@ export const ASSETS = {
   
   // Services & Departments
   PHARMACY: '/assets/images/corrected/service-pharmacy.jpg',
-  AMBULANCE: '/assets/images/corrected/hospital-building.jpg',
+  AMBULANCE: '/assets/images/service-ambulance.jpg',
   LAB: '/assets/images/corrected/service-lab.jpg',
-  DIALYSIS: '/assets/images/corrected/specialty-nephro.jpg',
+  DIALYSIS: '/assets/images/department-nephrology.jpg',
   HOME_COLLECTION: '/assets/images/specific/home-collection.jpg',
   UPLOAD_REPORT: '/assets/images/specific/upload-report.jpg',
   
@@ -33,12 +33,12 @@ export const ASSETS = {
   ROBOTIC_SURGERY: '/assets/images/specific/robotic-surgery.jpg',
   
   // People & Interaction
-  DIRECTOR: '/assets/images/corrected/dr-male-1.jpg',
-  NURSE_CARE: '/assets/images/specific/nurse-patient.jpg',
-  CONSULTATION: '/assets/images/specific/consultation.jpg',
-  TELEMEDICINE: '/assets/images/specific/telemedicine.jpg',
-  HEALTH_CHECKUP: '/assets/images/corrected/service-lab.jpg',
-  INTERNATIONAL: '/assets/images/corrected/reception.jpg',
+  DIRECTOR: '/assets/images/director-profile.jpg',
+  NURSE_CARE: '/assets/images/nursing-care.jpg',
+  CONSULTATION: '/assets/images/doctor-consultation.jpg',
+  TELEMEDICINE: '/assets/images/service-telemedicine.jpg',
+  HEALTH_CHECKUP: '/assets/images/service-health-checkup.jpg',
+  INTERNATIONAL: '/assets/images/international-patients.jpg',
   GERIATRICS: '/assets/images/specific/geriatrics.jpg',
   SURGERY_TEAM: '/assets/images/specific/surgery-team.jpg',
   HEART_TRANSPLANT: '/assets/images/specific/heart-transplant.jpg',
@@ -54,7 +54,7 @@ export const ASSETS = {
   BLOG_KNEE: '/assets/images/specific/blog-knee.jpg',
   PRESS_EVENT: '/assets/images/specific/press-event.jpg',
   SNEHA_KAPOOR: '/assets/images/specific/sneha-kapoor.jpg',
-  CAMP: '/assets/images/corrected/reception.jpg',
+  CAMP: '/assets/images/event-health-camp.jpg',
   CME: '/assets/images/corrected/dr-male-3.jpg',
   
   // Doctors Lists
