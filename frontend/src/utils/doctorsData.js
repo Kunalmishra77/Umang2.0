@@ -5,12 +5,13 @@ const depts = [
   { name: 'Neuro Sciences', color: 'text-violet-400', id: 'neuro' },
   { name: 'Orthopaedics', color: 'text-sky-400', id: 'ortho' },
   { name: 'Gastroenterology', color: 'text-amber-400', id: 'gastro' },
-  { name: 'Oncology', color: 'text-emerald-400', id: 'oncology' },
-  { name: 'Pediatrics', color: 'text-pink-400', id: 'pediatrics' },
   { name: 'General Surgery', color: 'text-blue-400', id: 'surgery' },
   { name: 'Nephrology', color: 'text-teal-400', id: 'nephrology' },
   { name: 'Pulmonology', color: 'text-cyan-400', id: 'pulmonology' },
-  { name: 'Urology', color: 'text-indigo-400', id: 'urology' }
+  { name: 'Urology', color: 'text-indigo-400', id: 'urology' },
+  { name: 'Gynecology', color: 'text-pink-500', id: 'gynecology' },
+  { name: 'Physiotherapy', color: 'text-green-500', id: 'physiotherapy' },
+  { name: 'Pain Management', color: 'text-orange-500', id: 'pain-management' }
 ];
 
 const firstNames = [

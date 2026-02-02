@@ -1,40 +1,19 @@
 import { Stethoscope, Activity, Home, Pill, Video, Phone, ShieldCheck, Heart, BookOpen, Cpu, GraduationCap, Calendar, Download, User, PenTool, Mic, Lightbulb, Newspaper, Radio, FileText, Mail } from 'lucide-react';
 
 export const pageContent = {
-  // SERVICES
-  'second-opinion': {
-    title: "Second Opinion",
-    category: "Services",
-    icon: Stethoscope,
-    heroImage: "/assets/images/doctor-consultation.jpg",
-    description: "When it comes to your health, certainty is everything. Our Second Opinion service connects you with world-leading specialists to review your diagnosis and treatment plan.",
-    features: [
-      "Review by Senior Consultants",
-      "Detailed Report Analysis",
-      "Video Consultation Options",
-      "Treatment Plan Validation",
-      "Peace of Mind"
-    ],
-    content: `
-      <h3>Why Seek a Second Opinion?</h3>
-      <p>A second medical opinion can be a game-changer. It provides confirmation of a diagnosis, offers alternative treatment perspectives, and ensures you are on the right path to recovery. At Umang Hospital, our multidisciplinary board of experts reviews complex cases to provide comprehensive insights.</p>
-      
-      <h3>Our Process</h3>
-      <p>We have streamlined the process to be as stress-free as possible. Simply upload your reports, and our team will assign the most relevant specialist to your case. Within 48 hours, you will receive a detailed assessment and an opportunity to discuss the findings directly with the doctor.</p>
-    `
-  },
+  // SERVICES - VERIFIED & AUDITED
   'lab-test-diagnostic': {
-    title: "Lab Test & Diagnostics",
+    title: "Diagnostics, Imaging & Pathology",
     category: "Services",
     icon: Activity,
     heroImage: "/assets/images/lab-diagnostics-mri.jpg",
     description: "Precision diagnostics powered by advanced technology. Accurate results, delivered quickly.",
     features: [
       "NABL Accredited Labs",
-      "Home Sample Collection",
-      "24/7 Operational",
+      "CT Scan & MRI",
+      "Pathology & Blood Tests",
       "Digital Reports",
-      "Advanced Imaging (MRI, CT, PET)"
+      "Advanced Imaging"
     ],
     content: `
       <h3>State-of-the-art Technology</h3>
@@ -44,35 +23,14 @@ export const pageContent = {
       <p>We understand that waiting for results can be anxious. That's why we prioritize speed without compromising quality. Most routine test results are available within 4-6 hours via our secure online portal.</p>
     `
   },
-  'home-care': {
-    title: "Home Care Services",
-    category: "Services",
-    icon: Home,
-    heroImage: "/assets/images/service-homecare.jpg",
-    description: "Bringing hospital-quality care to the comfort and safety of your home.",
-    features: [
-      "ICU Setup at Home",
-      "Physiotherapy Visits",
-      "Nursing Care",
-      "Post-Surgical Care",
-      "Elderly Companionship"
-    ],
-    content: `
-      <h3>Healing at Home</h3>
-      <p>Research shows that patients recover faster in familiar surroundings. Our Home Care division bridges the gap between hospital and home, providing professional medical support for patients who are bedridden, elderly, or recovering from major surgeries.</p>
-      
-      <h3>Customized Care Plans</h3>
-      <p>Every patient is unique. Our care managers work with your primary doctor to design a personalized home care plan that covers medication management, vitals monitoring, and rehabilitation exercises.</p>
-    `
-  },
   'buy-medicines': {
-    title: "Pharmacy & Medicines",
+    title: "Pharmacy",
     category: "Services",
     icon: Pill,
     heroImage: "/assets/images/service-pharmacy.jpg",
     description: "Genuine medicines from trusted sources, delivered 24/7 to your doorstep.",
     features: [
-      "24/7 Home Delivery",
+      "24/7 Availability",
       "Genuine Medicine Guarantee",
       "Prescription Refill Reminders",
       "Cold Chain Storage",
@@ -81,34 +39,10 @@ export const pageContent = {
     content: `
       <h3>Your Trusted Pharmacy</h3>
       <p>Umang Pharmacy is committed to providing only 100% genuine medications. We maintain strict quality controls and storage conditions to ensure the efficacy of every drug we dispense.</p>
-      
-      <h3>Convenience First</h3>
-      <p>Upload your prescription via our app or website, and our team will verify and dispatch your medicines immediately. We also offer specialized medication counseling to help you understand dosage and side effects.</p>
-    `
-  },
-  'telemedicine': {
-    title: "Telemedicine",
-    category: "Services",
-    icon: Video,
-    heroImage: "/assets/images/service-telemedicine.jpg",
-    description: "Consult with top specialists from anywhere in the world via secure video calls.",
-    features: [
-      "HD Video Consultations",
-      "Digital Prescriptions",
-      "Secure Health Records",
-      "Multi-specialty Access",
-      "Follow-up Ease"
-    ],
-    content: `
-      <h3>Healthcare Without Borders</h3>
-      <p>Distance should not be a barrier to quality healthcare. Our Telemedicine platform connects you with Umang Hospital's top specialists, whether you are in a remote village or a different country.</p>
-      
-      <h3>Seamless Experience</h3>
-      <p>Book an appointment, consult via high-definition video, and receive your digital prescription instantly. It's the perfect solution for second opinions, routine follow-ups, and minor ailments.</p>
     `
   },
   'emergency': {
-    title: "Emergency & Trauma",
+    title: "Emergency & Trauma (24/7)",
     category: "Services",
     icon: Phone,
     heroImage: "/assets/images/service-ambulance.jpg",
@@ -129,7 +63,7 @@ export const pageContent = {
     `
   },
   'health-checkup': {
-    title: "Preventive Health Checkups",
+    title: "Preventive Health Check-ups",
     category: "Services",
     icon: ShieldCheck,
     heroImage: "/assets/images/service-health-checkup.jpg",
@@ -146,22 +80,32 @@ export const pageContent = {
       <p>Lifestyle diseases are on the rise. Our health checkup packages are designed to detect silent health issues early, when they are most treatable. From basic screenings to comprehensive full-body scans, we have a package for every age and risk profile.</p>
     `
   },
-  'elder-care': {
-    title: "Elder Care (Geriatrics)",
+  'critical-care': {
+    title: "ICU / NICU / PICU",
     category: "Services",
-    icon: Heart,
-    heroImage: "/assets/images/patient-room.jpg",
-    description: "Compassionate, specialized care tailored to the unique needs of senior citizens.",
+    icon: Activity,
+    heroImage: "/assets/images/infrastructure-icu.jpg",
+    description: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
     features: [
-      "Geriatric Assessment",
-      "Dementia Care",
-      "Fall Prevention Program",
-      "Palliative Care",
-      "Social Support Groups"
+      "[CONTENT REQUIRED FROM UMANG HOSPITAL]"
     ],
     content: `
-      <h3>Aging with Dignity</h3>
-      <p>Our Geriatrics department focuses on optimizing function and quality of life for older adults. We address complex health needs, including chronic disease management, mobility issues, and cognitive health.</p>
+      <h3>[CONTENT REQUIRED FROM UMANG HOSPITAL]</h3>
+      <p>[CONTENT REQUIRED FROM UMANG HOSPITAL]</p>
+    `
+  },
+  'ipd-opd': {
+    title: "Inpatient & Outpatient Services",
+    category: "Services",
+    icon: Home,
+    heroImage: "/assets/images/hospital-reception.jpg",
+    description: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    features: [
+      "[CONTENT REQUIRED FROM UMANG HOSPITAL]"
+    ],
+    content: `
+      <h3>[CONTENT REQUIRED FROM UMANG HOSPITAL]</h3>
+      <p>[CONTENT REQUIRED FROM UMANG HOSPITAL]</p>
     `
   },
 
@@ -306,3 +250,4 @@ export const pageContent = {
     content: `<h3>For the Press</h3><p>Are you a journalist looking for expert medical opinion or information about our hospital? Connect with our corporate communications team for prompt responses, high-resolution assets, and interview scheduling.</p>`
   }
 };
+

@@ -1,6 +1,6 @@
 export const specialitiesData = {
   'cardiac': {
-    title: "Cardiac Sciences",
+    title: "Cardiac Sciences (Cardiology & Cardiothoracic Care)",
     subtitle: "Advanced Heart Care Center",
     desc: "Our Centre of Excellence for Cardiac Sciences is renowned for its comprehensive care, from prevention to advanced interventional procedures. We treat the most complex heart conditions with precision and compassion.",
     img: "/assets/images/specialty-cardiac.jpg",
@@ -23,7 +23,7 @@ export const specialitiesData = {
     ]
   },
   'neuro': {
-    title: "Neuro Sciences",
+    title: "Neuro Sciences (Neurology & Neurosurgery)",
     subtitle: "Brain & Spine Excellence",
     desc: "Dedicated to the diagnosis and treatment of complex neurological disorders. Our team of neurosurgeons and neurologists provides world-class care for brain tumors, stroke, and spine conditions.",
     img: "/assets/images/specialty-neuro.jpg",
@@ -46,7 +46,7 @@ export const specialitiesData = {
     ]
   },
   'ortho': {
-    title: "Orthopaedics",
+    title: "Orthopaedics & Joint Replacement",
     subtitle: "Joint & Bone Care",
     desc: "Restoring mobility and quality of life. Our Orthopaedics department specializes in joint replacements, sports injuries, and complex trauma management using the latest robotic-assisted techniques.",
     img: "/assets/images/specialty-ortho.jpg",
@@ -115,7 +115,7 @@ export const specialitiesData = {
     ]
   },
   'surgery': {
-    title: "General Surgery",
+    title: "General & Laparoscopic Surgery",
     subtitle: "Minimally Invasive Surgery",
     desc: "Our General Surgery department performs a wide range of procedures, focusing on laparoscopic and minimally invasive techniques for faster recovery and minimal scarring.",
     img: "/assets/images/infrastructure-ot.jpg",
@@ -182,5 +182,51 @@ export const specialitiesData = {
       { q: "What is dialysis?", a: "It is a procedure to remove waste and excess fluid from the blood when the kidneys stop working properly." },
       { q: "How can I prevent kidney disease?", a: "Control blood pressure and diabetes, stay hydrated, and avoid over-the-counter painkillers." }
     ]
+  },
+  'pain-management': {
+    title: "Pain Management",
+    subtitle: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    img: "/assets/images/hospital-reception.jpg",
+    procedures: [
+      "[CONTENT REQUIRED FROM UMANG HOSPITAL]"
+    ],
+    tech: [
+      { title: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+    ],
+    faq: [
+      { q: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", a: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+    ]
+  },
+  'gynecology': {
+    title: "Gynecology",
+    subtitle: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    img: "/assets/images/doctor-consultation.jpg",
+    procedures: [
+      "[CONTENT REQUIRED FROM UMANG HOSPITAL]"
+    ],
+    tech: [
+      { title: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+    ],
+    faq: [
+      { q: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", a: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+    ]
+  },
+  'physiotherapy': {
+    title: "Physiotherapy",
+    subtitle: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    img: "/assets/images/service-homecare.jpg",
+    procedures: [
+      "[CONTENT REQUIRED FROM UMANG HOSPITAL]"
+    ],
+    tech: [
+      { title: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+    ],
+    faq: [
+      { q: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", a: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+    ]
   }
 };
+
