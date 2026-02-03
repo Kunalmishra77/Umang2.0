@@ -111,7 +111,7 @@ const HomeCare = () => {
       </section>
 
       {/* 2. Services Grid */}
-      <section className="py-16 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto mb-16">
                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-4">Comprehensive Home Care</h2>
@@ -144,7 +144,7 @@ const HomeCare = () => {
       </section>
 
       {/* 3. Why Choose Us (Stats) */}
-      <section className="py-20 bg-[#005580] text-white relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-[#005580] text-white relative overflow-hidden">
          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
          <div className="container-custom relative z-10">
             <div className="grid md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
@@ -164,7 +164,7 @@ const HomeCare = () => {
       </section>
 
       {/* 4. Process Steps */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 lg:py-10 bg-gray-50">
          <div className="container-custom">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-16 text-center">How It Works</h2>
             
@@ -190,7 +190,7 @@ const HomeCare = () => {
       </section>
 
       {/* 5. FAQ & CTA */}
-      <section className="py-16 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom max-w-4xl">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-12">Common Questions</h2>
             <div className="space-y-4 mb-16">

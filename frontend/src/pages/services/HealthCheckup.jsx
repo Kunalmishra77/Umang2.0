@@ -74,7 +74,7 @@ const HealthCheckup = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#005580] via-[#005580]/90 to-transparent" />
         </div>
 
-        <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center py-20">
+        <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center py-12 lg:py-10">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}

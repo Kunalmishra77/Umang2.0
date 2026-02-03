@@ -60,7 +60,7 @@ const Careers = () => {
       </section>
 
       {/* 2. Culture & Perks */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 lg:py-10 bg-gray-50">
          <div className="container-custom">
             <div className="text-center mb-16">
                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-4">Why Choose Umang?</h2>
@@ -86,7 +86,7 @@ const Careers = () => {
       </section>
 
       {/* 3. Job Board */}
-      <section id="openings" className="py-16 bg-white">
+      <section id="openings" className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
             <div className="flex flex-col md:flex-row justify-between items-end mb-12">
                <div>
@@ -151,7 +151,7 @@ const Careers = () => {
       </section>
 
       {/* 4. CTA */}
-      <section className="py-20 bg-[#005580] text-white">
+      <section className="py-12 lg:py-10 bg-[#005580] text-white">
          <div className="container-custom text-center">
             <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Don't see a suitable role?</h2>
             <p className="text-blue-100 max-w-xl mx-auto mb-10 text-lg">

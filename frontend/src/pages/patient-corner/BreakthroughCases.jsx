@@ -53,7 +53,7 @@ const BreakthroughCases = () => {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-yellow-500/10 rounded-full blur-[120px]" />
         </div>
 
-        <div className="container-custom relative z-10 py-20">
+        <div className="container-custom relative z-10 py-12 lg:py-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ const BreakthroughCases = () => {
       </section>
 
       {/* 3. Technology Spotlight */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      <section className="py-12 lg:py-10 bg-white border-t border-gray-100">
          <div className="container-custom text-center">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-16">Powered by Innovation</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -166,7 +166,7 @@ const BreakthroughCases = () => {
       </section>
 
       {/* 4. Patient Video Testimonial */}
-      <section className="py-16 bg-[#0f172a] text-white relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-[#0f172a] text-white relative overflow-hidden">
          <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <div>
                <h2 className="text-4xl font-serif font-bold mb-6">"I never thought I'd walk again."</h2>
@@ -192,7 +192,7 @@ const BreakthroughCases = () => {
       </section>
 
       {/* 5. Awards & Recognition */}
-      <section className="py-20 bg-yellow-50">
+      <section className="py-12 lg:py-10 bg-yellow-50">
          <div className="container-custom">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8 bg-white p-10 rounded-[3rem] shadow-sm border border-yellow-100">
                <div className="flex items-center gap-6">
@@ -215,7 +215,7 @@ const BreakthroughCases = () => {
       </section>
 
       {/* 6. Stats & CTA */}
-      <section className="py-16 bg-white text-center">
+      <section className="py-12 lg:py-10 bg-white text-center">
          <div className="container-custom">
             <div className="grid md:grid-cols-3 gap-12 text-center divide-x divide-gray-100 mb-16">
                {[

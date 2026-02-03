@@ -248,7 +248,7 @@ const Ailments = () => {
       </section>
 
       {/* 5. CTA */}
-      <section className="py-16 bg-[#005580] text-white relative overflow-hidden text-center">
+      <section className="py-12 lg:py-10 bg-[#005580] text-white relative overflow-hidden text-center">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
          <div className="container-custom relative z-10 max-w-4xl">
             <h2 className="text-4xl font-serif font-bold mb-6">Unsure about your symptoms?</h2>

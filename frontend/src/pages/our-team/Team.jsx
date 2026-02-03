@@ -56,7 +56,7 @@ const Team = () => {
       </section>
 
       {/* SECTION 2: LEADERSHIP BOARD */}
-      <section className="py-16 bg-white relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-white relative overflow-hidden">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
@@ -117,7 +117,7 @@ const Team = () => {
       </section>
 
       {/* SECTION 3: DEPARTMENT HEADS (HODs) */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 lg:py-10 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-16">
             <span className="text-[#005580] font-bold uppercase tracking-widest text-xs">Pillars of Excellence</span>
@@ -156,7 +156,7 @@ const Team = () => {
       </section>
 
       {/* SECTION 4: SENIOR CONSULTANTS SLIDER/GRID */}
-      <section className="py-16 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
         <div className="container-custom">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
@@ -192,7 +192,7 @@ const Team = () => {
       </section>
 
       {/* SECTION 5: NURSING & SUPPORT (The Heart) */}
-      <section className="py-16 bg-[#005580] text-white relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-[#005580] text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[#004466] transform skew-x-12 translate-x-20 z-0" />
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -238,7 +238,7 @@ const Team = () => {
       </section>
 
       {/* SECTION 6: JOIN THE TEAM (CTA) */}
-      <section className="py-16 bg-white text-center">
+      <section className="py-12 lg:py-10 bg-white text-center">
         <div className="container-custom max-w-3xl">
           <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-8 text-[#005580]">
             <UserPlus className="w-10 h-10" />

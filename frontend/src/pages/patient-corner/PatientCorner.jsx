@@ -49,7 +49,7 @@ const PatientCorner = () => {
         <title>Patient Corner - Umang Hospital</title>
       </Helmet>
 
-      <section className="bg-[#005580] text-white py-20 px-4 relative overflow-hidden">
+      <section className="bg-[#005580] text-white py-12 lg:py-10 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10"></div>
         <div className="container-custom relative z-10 text-center">
           <motion.h1 
@@ -70,7 +70,7 @@ const PatientCorner = () => {
         </div>
       </section>
 
-      <section className="py-20 px-4">
+      <section className="py-12 lg:py-10 px-4">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {sections.map((section, index) => (

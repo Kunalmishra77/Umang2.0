@@ -39,7 +39,7 @@ const SpecialityDetail = () => {
       </section>
 
       {/* 2. Overview & Procedures */}
-      <section className="py-16">
+      <section className="py-12 lg:py-10">
         <div className="container-custom">
           <div className="grid lg:grid-cols-12 gap-16">
             

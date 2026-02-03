@@ -18,7 +18,7 @@ const PremiumDoctors = () => {
   };
 
   return (
-    <section ref={spotlightRef} className="py-16 lg:py-24 bg-brand-dark relative overflow-hidden">
+    <section ref={spotlightRef} className="py-12 lg:py-10 bg-brand-dark relative overflow-hidden">
       {/* Dynamic Background Elements */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-600/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />

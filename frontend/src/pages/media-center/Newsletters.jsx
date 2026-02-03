@@ -48,7 +48,7 @@ const Newsletters = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#005580] via-[#005580]/90 to-transparent" />
         </div>
 
-        <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center py-20">
+        <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center py-12 lg:py-10">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -210,7 +210,7 @@ const Newsletters = () => {
       </section>
 
       {/* 4. Preference Center Section */}
-      <section className="py-16 bg-[#0f172a] text-white relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-[#0f172a] text-white relative overflow-hidden">
          <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-20 items-center">
             <div>
                <h2 className="text-4xl font-serif font-bold mb-8 leading-tight">Customize Your Experience</h2>

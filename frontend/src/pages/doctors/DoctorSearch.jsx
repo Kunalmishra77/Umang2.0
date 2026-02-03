@@ -137,7 +137,7 @@ const DoctorSearch = () => {
       <Helmet><title>Find a Doctor | Umang Hospital</title></Helmet>
 
       {/* 1. Hero Section - Search Focused */}
-      <section className="bg-[#0f172a] text-white py-20 relative overflow-hidden">
+      <section className="bg-[#0f172a] text-white py-12 lg:py-10 relative overflow-hidden">
          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
          <div className="container-custom relative z-10 text-center max-w-4xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
@@ -182,7 +182,7 @@ const DoctorSearch = () => {
       </section>
 
       {/* 3. Main Directory & Preview */}
-      <section className="py-12 md:py-16 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
             <div className="bg-white rounded-[2rem] md:rounded-[3rem] shadow-2xl overflow-hidden border border-gray-100 flex flex-col lg:grid lg:grid-cols-12 h-auto lg:h-[800px]">
                

@@ -61,7 +61,7 @@ const cardVariants = {
 
 const ServicesSection = () => {
   return (
-    <section className="py-16 lg:py-24 bg-white overflow-hidden">
+    <section className="py-12 lg:py-10 bg-white overflow-hidden">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row justify-between items-end mb-20">
           <div className="max-w-3xl">

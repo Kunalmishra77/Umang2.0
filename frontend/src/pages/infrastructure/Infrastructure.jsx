@@ -136,7 +136,7 @@ const Infrastructure = () => {
       </section>
 
       {/* 2. Interactive Hotspot Section */}
-      <section className="py-16 lg:py-24 bg-white overflow-hidden relative">
+      <section className="py-12 lg:py-10 bg-white overflow-hidden relative">
          <div className="container-custom">
             <div className="text-center mb-12 lg:mb-16">
                <span className="section-subtitle">Precision Engineering</span>
@@ -192,7 +192,7 @@ const Infrastructure = () => {
       </section>
 
       {/* 3. Expandable Gallery (The "Click Effect") */}
-      <section id="gallery" className="py-16 lg:py-24 bg-gray-50">
+      <section id="gallery" className="py-12 lg:py-10 bg-gray-50">
          <div className="container-custom">
             <span className="section-subtitle">Visual Tour</span>
             <h2 className="section-title mb-16">Infrastructure Gallery</h2>

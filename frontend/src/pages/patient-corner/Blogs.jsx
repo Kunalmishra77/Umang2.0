@@ -69,7 +69,7 @@ const Blogs = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 w-1/2 h-full bg-[#dcfce7] rounded-bl-[15rem]" />
         </div>
-        <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center py-20">
+        <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center py-12 lg:py-10">
            <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
               <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-6 inline-block">Featured Story</span>
               <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#0f172a] mb-6 leading-tight">
@@ -98,7 +98,7 @@ const Blogs = () => {
       </section>
 
       {/* 2. Trending Now */}
-      <section className="py-16 bg-white border-b border-gray-100">
+      <section className="py-12 lg:py-10 bg-white border-b border-gray-100">
          <div className="container-custom">
             <div className="flex items-center gap-3 mb-12 text-[#0f172a]">
                <div className="w-12 h-12 rounded-2xl bg-red-50 flex items-center justify-center text-red-500">
@@ -127,7 +127,7 @@ const Blogs = () => {
       </section>
 
       {/* 3. Filter & Search */}
-      <section className="py-16 bg-white sticky top-20 z-30 border-b border-gray-100 shadow-sm backdrop-blur-md bg-white/90">
+      <section className="py-12 lg:py-10 bg-white sticky top-20 z-30 border-b border-gray-100 shadow-sm backdrop-blur-md bg-white/90">
          <div className="container-custom flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex gap-3 overflow-x-auto w-full md:w-auto pb-4 md:pb-0 no-scrollbar">
                {categories.map(cat => (
@@ -218,7 +218,7 @@ const Blogs = () => {
       </section>
 
       {/* 5. Editor's Picks */}
-      <section className="py-16 bg-[#0f172a] text-white">
+      <section className="py-12 lg:py-10 bg-[#0f172a] text-white">
          <div className="container-custom">
             <div className="flex items-center gap-3 mb-12">
                <Star className="w-6 h-6 text-yellow-400 fill-current" />
@@ -244,7 +244,7 @@ const Blogs = () => {
       </section>
 
       {/* 6. Meet the Authors */}
-      <section className="py-16 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-16 text-center">Meet Our Medical Writers</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -264,7 +264,7 @@ const Blogs = () => {
       </section>
 
       {/* 7. Newsletter */}
-      <section className="py-16 bg-[#005580] text-white text-center">
+      <section className="py-12 lg:py-10 bg-[#005580] text-white text-center">
          <div className="container-custom max-w-2xl">
             <Mail className="w-12 h-12 text-cyan-300 mx-auto mb-6" />
             <h2 className="text-4xl font-serif font-bold mb-4">Health in Your Inbox</h2>

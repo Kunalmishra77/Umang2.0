@@ -62,7 +62,7 @@ const About = () => {
       </section>
 
       {/* SECTION 2: PURPOSE & PHILOSOPHY (MISSION/VISION) */}
-      <section id="purpose" className="pt-0 pb-16 lg:pt-0 lg:pb-24 bg-white relative">
+      <section id="purpose" className="pt-10 pb-16 lg:pt-15 lg:pb-24 bg-white relative">
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="relative z-10">
@@ -71,7 +71,9 @@ const About = () => {
                 Guided by <span className="text-primary-600">Vision,</span> <br />Driven by Mission.
               </h2>
               <p className="text-gray-500 text-lg lg:text-xl font-light leading-relaxed mb-12">
-                We believe that premium healthcare is a fundamental right. Our philosophy centers on "Patient-First" ethics, ensuring every individual receives world-class treatment without compromise.
+                Umang Superspeciality Hospital is a 100-bedded healthcare facility dedicated to providing advanced, patient-centric medical care. Equipped with modern infrastructure, including modular operation theaters, fully equipped ICUs, and comprehensive diagnostic services, the hospital offers expertise across specialties like Cardiology, Neurology, Orthopedics, Oncology, and more.
+                <br /><br />
+                With a team of highly skilled doctors and compassionate staff, Umang Hospital ensures personalized treatment and exceptional outcomes. Committed to innovation, community outreach, and preventive care, it strives to set new standards in healthcare excellence.
               </p>
               
               <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
@@ -118,7 +120,7 @@ const About = () => {
 
 
       {/* SECTION 3: CORE VALUES GRID */}
-      <section className="py-16 lg:py-24 bg-brand-dark text-white overflow-hidden">
+      <section className="py-12 lg:py-10 bg-brand-dark text-white overflow-hidden">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-xs mb-4 block">The Umang Ethos</span>
@@ -155,7 +157,7 @@ const About = () => {
       </section>
 
       {/* SECTION 4: LEADERSHIP MESSAGE */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-10 lg:py-10 bg-white">
         <div className="container-custom">
           <div className="relative rounded-[3rem] bg-gray-50 overflow-hidden p-8 md:p-20 border border-gray-100 shadow-sm">
             <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center relative z-10">
@@ -191,7 +193,7 @@ const About = () => {
       </section>
 
       {/* SECTION 5: QUALITY & ACCREDITATIONS */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-12 lg:py-10 bg-gray-50">
          <div className="container-custom">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 lg:mb-20 gap-8">
                <div className="max-w-2xl">
@@ -239,7 +241,7 @@ const About = () => {
       </section>
 
       {/* SECTION 6: THE TIMELINE JOURNEY */}
-      <section className="py-16 lg:py-24 bg-white overflow-hidden relative">
+      <section className="py-12 lg:py-10 bg-white overflow-hidden relative">
          <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-multiply" />
 
          <div className="container-custom relative z-10">
@@ -307,7 +309,7 @@ const About = () => {
       </section>
 
       {/* SECTION 7: INFRASTRUCTURE PREVIEW */}
-      <section className="py-16 lg:py-24 bg-gray-50">
+      <section className="py-12 lg:py-10 bg-gray-50">
          <div className="container-custom">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 min-h-[500px] lg:min-h-[600px]">
                <div className="lg:col-span-8 relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden group shadow-2xl h-[400px] lg:h-auto">
@@ -350,7 +352,7 @@ const About = () => {
       </section>
 
       {/* SECTION 8: GLOBAL OUTREACH */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
                <div className="relative order-2 lg:order-1">
@@ -386,7 +388,7 @@ const About = () => {
       </section>
 
       {/* SECTION 9: FINAL CTA */}
-      <section className="py-16 lg:py-24 bg-brand-dark relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-brand-dark relative overflow-hidden">
          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
             <div className="absolute top-1/4 left-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-primary-600 rounded-full blur-[100px] lg:blur-[150px]" />
             <div className="absolute bottom-1/4 right-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-cyan-600 rounded-full blur-[100px] lg:blur-[150px]" />

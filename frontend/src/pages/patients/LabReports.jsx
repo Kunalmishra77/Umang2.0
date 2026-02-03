@@ -54,7 +54,7 @@ const LabReports = () => {
           <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px]" />
         </div>
 
-        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto py-20">
+        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto py-12 lg:py-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

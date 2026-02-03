@@ -79,7 +79,7 @@ const PatientStories = () => {
           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-pink-500/10 rounded-full blur-[120px]" />
         </div>
 
-        <div className="container-custom relative z-10 py-20">
+        <div className="container-custom relative z-10 py-12 lg:py-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -162,7 +162,7 @@ const PatientStories = () => {
       </section>
 
       {/* 3. Stats of Success */}
-      <section className="py-16 bg-gradient-to-b from-pink-50 to-white">
+      <section className="py-12 lg:py-10 bg-gradient-to-b from-pink-50 to-white">
          <div className="container-custom">
             <div className="grid md:grid-cols-4 gap-12 text-center divide-x divide-pink-200">
                {[
@@ -219,7 +219,7 @@ const PatientStories = () => {
       </section>
 
       {/* 5. Support Community */}
-      <section className="py-16 bg-[#0f172a] text-white relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-[#0f172a] text-white relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
          <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -260,7 +260,7 @@ const PatientStories = () => {
       </section>
 
       {/* 6. Share Your Story CTA */}
-      <section id="share-story" className="py-16 bg-white text-center border-t border-gray-100">
+      <section id="share-story" className="py-12 lg:py-10 bg-white text-center border-t border-gray-100">
          <div className="container-custom max-w-3xl">
             <Star className="w-12 h-12 text-yellow-400 mx-auto mb-6 fill-current animate-spin-slow" />
             <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Your Story Can Inspire Others</h2>

@@ -24,7 +24,7 @@ const itemVariants = {
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-16 lg:py-24 bg-gray-50 relative overflow-hidden">
+    <section className="py-12 lg:py-10 bg-gray-50 relative overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(#005580 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -58,9 +58,17 @@ const WhyChooseUs = () => {
           {/* Card 1: The Infrastructure (Large) */}
           <motion.div 
             variants={itemVariants}
-            className="md:col-span-2 bg-brand-dark rounded-[3rem] p-10 relative overflow-hidden group shadow-2xl min-h-[320px] transform transition-transform hover:-translate-y-2 duration-500"
+            className="md:col-span-2 relative rounded-[3rem] p-10 overflow-hidden group shadow-2xl min-h-[320px] transform transition-transform hover:-translate-y-2 duration-500"
           >
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-600/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+            {/* Blurred Background Image */}
+            <div className="absolute inset-0 z-0">
+              <img 
+                src={ASSETS.HOSPITAL_EXTERIOR} 
+                alt="Hospital Infrastructure" 
+                className="w-full h-full object-cover blur-[2px] scale-110 group-hover:scale-105 transition-transform duration-1000" 
+              />
+              <div className="absolute inset-0 bg-brand-dark/80 mix-blend-multiply" />
+            </div>
             
             <div className="relative z-10 h-full flex flex-col justify-between">
               <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/10 mb-8 md:mb-0 shadow-lg">
@@ -68,20 +76,11 @@ const WhyChooseUs = () => {
               </div>
               <div className="max-w-xl">
                 <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">150-Bedded Superspeciality</h3>
-                <p className="text-blue-100/80 text-lg leading-relaxed font-light">
+                <p className="text-blue-50 text-lg leading-relaxed font-light drop-shadow-md">
                   Gurugram's premium healthcare facility featuring 28 ICU beds, 8 SICU, 7 CCU, and 3 state-of-the-art modular operation theatres.
                 </p>
               </div>
             </div>
-            
-            <ParallaxImage 
-               src={ASSETS.HOSPITAL_EXTERIOR} 
-               containerClassName="absolute right-0 bottom-0 w-full md:w-[60%] h-full"
-               className="opacity-30 mix-blend-luminosity group-hover:scale-100 transition-transform duration-1000" 
-               alt="Hospital Building"
-               offset={40}
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-transparent pointer-events-none" />
           </motion.div>
 
           {/* Card 2: 24/7 Support */}

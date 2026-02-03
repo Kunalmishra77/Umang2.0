@@ -49,7 +49,7 @@ const InquiryHub = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a]/60 via-transparent to-[#0f172a]" />
         </div>
 
-        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto py-20">
+        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto py-12 lg:py-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

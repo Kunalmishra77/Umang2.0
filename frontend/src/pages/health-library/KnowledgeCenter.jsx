@@ -65,7 +65,7 @@ const KnowledgeCenter = () => {
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-[100px]" />
         </div>
 
-        <div className="container-custom relative z-10 py-20">
+        <div className="container-custom relative z-10 py-12 lg:py-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ const KnowledgeCenter = () => {
       </section>
 
       {/* 2. Resource Library */}
-      <section className="py-16 bg-gray-50 border-b border-gray-200">
+      <section className="py-12 lg:py-10 bg-gray-50 border-b border-gray-200">
          <div className="container-custom">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                <div>
@@ -159,7 +159,7 @@ const KnowledgeCenter = () => {
       </section>
 
       {/* 3. Upcoming CME */}
-      <section className="py-16 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative">
                <div className="absolute inset-0 bg-blue-50 rounded-[3rem] -rotate-2" />
@@ -214,7 +214,7 @@ const KnowledgeCenter = () => {
       </section>
 
       {/* 4. Academic Partners */}
-      <section className="py-20 bg-blue-50 text-center">
+      <section className="py-12 lg:py-10 bg-blue-50 text-center">
          <div className="container-custom">
             <h3 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-10">In Collaboration With</h3>
             <div className="flex flex-wrap justify-center gap-12 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">

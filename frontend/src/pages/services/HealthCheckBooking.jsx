@@ -76,7 +76,7 @@ const HealthCheckBooking = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/80 to-transparent" />
         </div>
 
-        <div className="container-custom relative z-10 py-20">
+        <div className="container-custom relative z-10 py-12 lg:py-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -373,7 +373,7 @@ const HealthCheckBooking = () => {
       </section>
 
       {/* 7. Footer Banner */}
-      <section className="py-16 bg-[#0f172a] text-white overflow-hidden relative">
+      <section className="py-12 lg:py-10 bg-[#0f172a] text-white overflow-hidden relative">
          <div className="container-custom relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="max-w-2xl">
                <h2 className="text-4xl font-serif font-bold mb-4">Healthy Living Starts Here.</h2>

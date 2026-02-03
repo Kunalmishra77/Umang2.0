@@ -50,7 +50,7 @@ const Emergency = () => {
       </Helmet>
 
       {/* 1. High-Urgency Hero Section */}
-      <section className="relative min-h-[750px] overflow-hidden flex items-center bg-[#0f172a] py-20">
+      <section className="relative min-h-[750px] overflow-hidden flex items-center bg-[#0f172a] py-12 lg:py-10">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1516574187841-693018f33663?auto=format&fit=crop&q=80&w=2000" 
@@ -93,7 +93,7 @@ const Emergency = () => {
       </section>
 
       {/* 2. Critical Services Grid */}
-      <section className="py-16 bg-white relative -mt-20 z-30">
+      <section className="py-12 lg:py-10 bg-white relative -mt-20 z-30">
          <div className="container-custom">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                {emergencyServices.map((service, i) => (
@@ -117,7 +117,7 @@ const Emergency = () => {
       </section>
 
       {/* 3. Triage & Protocol Info */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 lg:py-10 bg-gray-50">
          <div className="container-custom grid lg:grid-cols-2 gap-16 items-center">
             <div>
                <span className="text-red-600 font-bold uppercase tracking-widest text-sm mb-4 block">Our Protocol</span>
@@ -171,7 +171,7 @@ const Emergency = () => {
       </section>
 
       {/* 4. When to Visit ER */}
-      <section className="py-16 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-16">When to visit the ER?</h2>
             
@@ -197,7 +197,7 @@ const Emergency = () => {
       </section>
 
       {/* 5. First Aid Guide */}
-      <section className="py-16 bg-gray-900 text-white">
+      <section className="py-12 lg:py-10 bg-gray-900 text-white">
         <div className="container-custom">
           <h2 className="text-3xl font-serif font-bold mb-12 text-center">Quick First Aid Guide</h2>
           <div className="grid lg:grid-cols-3 gap-8">

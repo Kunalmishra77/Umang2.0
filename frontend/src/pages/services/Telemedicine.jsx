@@ -104,7 +104,7 @@ const Telemedicine = () => {
       </section>
 
       {/* 2. Instant Consultation Specialties */}
-      <section className="py-16 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-12 text-center">Consult for Common Symptoms</h2>
             
@@ -128,7 +128,7 @@ const Telemedicine = () => {
       </section>
 
       {/* 3. Available Doctors */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 lg:py-10 bg-gray-50">
          <div className="container-custom">
             <div className="flex justify-between items-end mb-12">
                <div>
@@ -170,7 +170,7 @@ const Telemedicine = () => {
       </section>
 
       {/* 4. Features & Benefits */}
-      <section className="py-16 bg-white relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-white relative overflow-hidden">
          <div className="container-custom">
             <div className="bg-[#0f172a] rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden">
                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-green-500/10 rounded-full blur-[100px] pointer-events-none" />
@@ -228,7 +228,7 @@ const Telemedicine = () => {
       </section>
 
       {/* 5. Patient Stories */}
-      <section className="py-16 bg-green-50">
+      <section className="py-12 lg:py-10 bg-green-50">
         <div className="container-custom">
           <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-16">Patient Stories</h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -254,7 +254,7 @@ const Telemedicine = () => {
       </section>
 
       {/* 6. Technical Help */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      <section className="py-12 lg:py-10 bg-white border-t border-gray-100">
         <div className="container-custom text-center">
           <h3 className="text-xl font-bold text-gray-900 mb-8">Technical Requirements</h3>
           <div className="flex flex-wrap justify-center gap-8 text-gray-500 text-sm">

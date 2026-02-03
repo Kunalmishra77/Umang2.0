@@ -246,7 +246,7 @@ const ElderCare = () => {
       </section>
 
       {/* 5. CTA Section */}
-      <section className="py-16 bg-[#0f172a] text-white text-center">
+      <section className="py-12 lg:py-10 bg-[#0f172a] text-white text-center">
          <div className="container-custom max-w-4xl">
             <h2 className="text-4xl font-serif font-bold mb-6">Not sure what's best for your parent?</h2>
             <p className="text-xl text-gray-400 font-light mb-10">

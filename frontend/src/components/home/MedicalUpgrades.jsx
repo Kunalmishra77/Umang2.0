@@ -34,7 +34,7 @@ const MedicalUpgrades = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <section ref={containerRef} className="py-16 lg:py-24 bg-brand-dark text-white overflow-hidden relative border-t border-white/5">
+    <section ref={containerRef} className="py-12 lg:py-10 bg-brand-dark text-white overflow-hidden relative border-t border-white/5">
       {/* Background elements */}
       <motion.div style={{ y }} className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-[20%] -left-[10%] w-[600px] h-[600px] bg-primary-900/20 rounded-full blur-[120px]" />

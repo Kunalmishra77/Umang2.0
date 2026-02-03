@@ -12,7 +12,7 @@ const slides = [
     id: 1,
     tag: "NABH Accredited",
     title: "World-Class Healthcare",
-    subtitle: "Gurugram's leading 150-bedded super-speciality facility.",
+    subtitle: "Gurugram's leading 100-bedded super-speciality facility.",
     image: ASSETS.HOSPITAL_EXTERIOR,
     color: "from-[#005580] to-[#0f172a]",
     accent: "text-blue-400"

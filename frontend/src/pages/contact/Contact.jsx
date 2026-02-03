@@ -226,7 +226,7 @@ const Contact = () => {
       </section>
 
       {/* 4. Specialized Department Contacts */}
-      <section className="py-16 lg:py-24 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
             <h2 className="text-3xl font-serif font-bold text-brand-dark mb-16 text-center">Specific Assistance</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -329,7 +329,7 @@ const Contact = () => {
       </section>
 
       {/* 7. Post-Visit Feedback CTA */}
-      <section className="py-16 bg-brand-dark text-white overflow-hidden relative">
+      <section className="py-12 lg:py-10 bg-brand-dark text-white overflow-hidden relative">
          <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[120px] pointer-events-none" />
          <div className="container-custom relative z-10 text-center">
             <MessageCircle className="w-16 h-16 text-primary-400 mx-auto mb-8 animate-bounce" />

@@ -62,7 +62,7 @@ const DynamicSubPage = () => {
         </div>
       </div>
 
-      <div className="container-custom py-16 md:py-16">
+      <div className="container-custom py-12 lg:py-10 md:py-12 lg:py-10">
         <div className="grid lg:grid-cols-12 gap-12">
           
           {/* Main Content */}

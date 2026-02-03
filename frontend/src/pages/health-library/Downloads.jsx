@@ -75,7 +75,7 @@ const Downloads = () => {
       </section>
 
       {/* 2. Downloads Library */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 lg:py-10 bg-gray-50">
          <div className="container-custom">
             <div className="flex flex-wrap gap-4 justify-center mb-16">
                {categories.map((cat) => (
@@ -125,7 +125,7 @@ const Downloads = () => {
       </section>
 
       {/* 3. Insurance Partners */}
-      <section className="py-16 bg-white border-t border-gray-100">
+      <section className="py-12 lg:py-10 bg-white border-t border-gray-100">
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div>
                <div className="inline-flex items-center gap-2 text-[#005580] font-bold uppercase tracking-widest text-xs mb-6">

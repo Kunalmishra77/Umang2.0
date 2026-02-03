@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Calendar, Clock, User, Phone, Mail, CreditCard, CheckCircle, 
   ArrowLeft, ArrowRight, ShieldCheck, Star, MapPin, Video, 
-  Info, Bell, Smartphone, HelpCircle, FileText, MessageSquare
+  Info, Bell, Smartphone, HelpCircle, FileText, MessageSquare, Lock, Wallet
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 
@@ -30,11 +30,40 @@ const BookingPage = () => {
   const { id } = useParams();
   const [activeTab, setActiveTab] = useState('book'); // 'book' or 'callback'
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({ name: '', phone: '', date: '', slot: '', message: '' });
+  const [formData, setFormData] = useState({ 
+    name: '', phone: '', date: '', slot: '', message: '', 
+    cardNumber: '', cardName: '', cardExpiry: '', cardCvv: '' 
+  });
+  const [paymentMethod, setPaymentMethod] = useState('card');
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const [callbackSubmitted, setCallbackSubmitted] = useState(false);
+  const [callbackTime, setCallbackTime] = useState('Immediately');
 
-  const nextStep = () => setStep(step + 1);
+  const callbackTimeOptions = [
+    { label: 'Immediately', icon: Bell, desc: 'Within 15 mins' },
+    { label: 'Morning', icon: Clock, desc: '9 AM - 12 PM' },
+    { label: 'Afternoon', icon: Smartphone, desc: '12 PM - 4 PM' },
+    { label: 'Evening', icon: MessageSquare, desc: '4 PM - 8 PM' }
+  ];
+
+  const nextStep = () => {
+      if (step === 3) {
+          handlePayment();
+      } else {
+          setStep(step + 1);
+      }
+  };
+  
   const prevStep = () => setStep(step - 1);
+
+  const handlePayment = () => {
+      setIsProcessingPayment(true);
+      // Simulate payment processing
+      setTimeout(() => {
+          setIsProcessingPayment(false);
+          setStep(4); // Move to confirmation
+      }, 2000);
+  };
 
   const handleCallbackSubmit = (e) => {
     e.preventDefault();
@@ -48,7 +77,7 @@ const BookingPage = () => {
       </Helmet>
 
       {/* 1. Booking Hero - Spacious & Reassuring */}
-      <section className="bg-[#023e8a] text-white py-20 relative overflow-hidden">
+      <section className="bg-[#023e8a] text-white py-12 lg:py-10 relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
          <div className="container-custom relative z-10">
             <Link to="/doctors" className="inline-flex items-center gap-2 text-blue-200 hover:text-white mb-8 font-medium transition-colors">
@@ -133,13 +162,14 @@ const BookingPage = () => {
                  <div className="absolute top-[68px] left-0 w-full h-1.5 bg-gray-100">
                     <motion.div 
                       initial={{ width: 0 }} 
-                      animate={{ width: `${(step / 3) * 100}%` }} 
+                      animate={{ width: `${(step / 4) * 100}%` }} 
                       className="h-full bg-[#023e8a]" 
                     />
                  </div>
 
                  <div className="flex-1 p-8 lg:p-16 overflow-y-auto">
                     <AnimatePresence mode="wait">
+                       {/* STEP 1: Patient Details */}
                        {step === 1 && (
                           <motion.div
                              key="step1"
@@ -184,6 +214,7 @@ const BookingPage = () => {
                           </motion.div>
                        )}
 
+                       {/* STEP 2: Schedule Slot */}
                        {step === 2 && (
                           <motion.div
                              key="step2"
@@ -237,9 +268,106 @@ const BookingPage = () => {
                           </motion.div>
                        )}
 
+                       {/* STEP 3: Payment (NEW) */}
                        {step === 3 && (
                           <motion.div
                              key="step3"
+                             initial={{ opacity: 0, x: 20 }}
+                             animate={{ opacity: 1, x: 0 }}
+                             exit={{ opacity: 0, x: -20 }}
+                             className="space-y-8"
+                          >
+                             <div>
+                                <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Secure Payment</h2>
+                                <p className="text-gray-500">Complete the payment to confirm your appointment slot.</p>
+                             </div>
+
+                             <div className="grid md:grid-cols-2 gap-8">
+                                {/* Order Summary */}
+                                <div className="bg-blue-50 rounded-2xl p-6 border border-blue-100 h-fit">
+                                    <h3 className="font-black text-[#0f172a] text-sm uppercase tracking-widest mb-4">Order Summary</h3>
+                                    <div className="space-y-3 mb-6">
+                                        <div className="flex justify-between text-sm">
+                                            <span className="text-gray-500">Doctor Fee</span>
+                                            <span className="font-bold text-[#0f172a]">{doctor.fee}</span>
+                                        </div>
+                                        <div className="flex justify-between text-sm">
+                                            <span className="text-gray-500">Service Charge</span>
+                                            <span className="font-bold text-[#0f172a]">₹0</span>
+                                        </div>
+                                        <div className="border-t border-blue-200 pt-3 flex justify-between">
+                                            <span className="font-black text-[#0f172a]">Total Payable</span>
+                                            <span className="font-black text-[#023e8a] text-xl">{doctor.fee}</span>
+                                        </div>
+                                    </div>
+                                    <div className="flex items-center gap-2 text-[10px] font-bold text-gray-500 bg-white p-3 rounded-lg">
+                                        <Lock className="w-3 h-3 text-green-500" />
+                                        Your transaction is secured with 256-bit encryption.
+                                    </div>
+                                </div>
+
+                                {/* Payment Method */}
+                                <div className="space-y-6">
+                                    <div className="flex gap-4">
+                                        <button 
+                                            onClick={() => setPaymentMethod('card')}
+                                            className={`flex-1 p-4 rounded-xl border-2 flex flex-col items-center gap-2 transition-all ${paymentMethod === 'card' ? 'border-[#023e8a] bg-blue-50/50 text-[#023e8a]' : 'border-gray-100 hover:border-gray-200 text-gray-400'}`}
+                                        >
+                                            <CreditCard className="w-6 h-6" />
+                                            <span className="text-xs font-black uppercase">Card</span>
+                                        </button>
+                                        <button 
+                                            onClick={() => setPaymentMethod('upi')}
+                                            className={`flex-1 p-4 rounded-xl border-2 flex flex-col items-center gap-2 transition-all ${paymentMethod === 'upi' ? 'border-[#023e8a] bg-blue-50/50 text-[#023e8a]' : 'border-gray-100 hover:border-gray-200 text-gray-400'}`}
+                                        >
+                                            <Smartphone className="w-6 h-6" />
+                                            <span className="text-xs font-black uppercase">UPI / Wallet</span>
+                                        </button>
+                                    </div>
+
+                                    {paymentMethod === 'card' ? (
+                                        <div className="space-y-4">
+                                            <div className="space-y-2">
+                                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Card Number</label>
+                                                <div className="relative">
+                                                    <CreditCard className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" />
+                                                    <input type="text" placeholder="0000 0000 0000 0000" className="w-full h-12 pl-10 pr-4 rounded-xl border-2 border-gray-100 focus:border-[#023e8a] outline-none font-bold text-sm transition-all" />
+                                                </div>
+                                            </div>
+                                            <div className="grid grid-cols-2 gap-4">
+                                                <div className="space-y-2">
+                                                    <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Expiry</label>
+                                                    <input type="text" placeholder="MM/YY" className="w-full h-12 px-4 rounded-xl border-2 border-gray-100 focus:border-[#023e8a] outline-none font-bold text-sm transition-all" />
+                                                </div>
+                                                <div className="space-y-2">
+                                                    <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">CVV</label>
+                                                    <div className="relative">
+                                                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" />
+                                                        <input type="password" placeholder="123" className="w-full h-12 pl-10 pr-4 rounded-xl border-2 border-gray-100 focus:border-[#023e8a] outline-none font-bold text-sm transition-all" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Card Holder Name</label>
+                                                <input type="text" placeholder="e.g. Rajesh Kumar" className="w-full h-12 px-4 rounded-xl border-2 border-gray-100 focus:border-[#023e8a] outline-none font-bold text-sm transition-all" />
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div className="bg-gray-50 rounded-xl p-8 text-center border-2 border-dashed border-gray-200">
+                                            <Smartphone className="w-12 h-12 text-gray-300 mx-auto mb-4" />
+                                            <p className="text-gray-500 font-medium text-sm mb-4">Scan QR code or enter UPI ID to pay</p>
+                                            <button className="text-[#023e8a] font-bold text-sm hover:underline">Click to generate QR</button>
+                                        </div>
+                                    )}
+                                </div>
+                             </div>
+                          </motion.div>
+                       )}
+
+                       {/* STEP 4: Confirmation (Old Step 3) */}
+                       {step === 4 && (
+                          <motion.div
+                             key="step4"
                              initial={{ opacity: 0, scale: 0.9 }}
                              animate={{ opacity: 1, scale: 1 }}
                              className="flex flex-col items-center text-center justify-center h-full py-12"
@@ -263,19 +391,27 @@ const BookingPage = () => {
                                       <span className="font-black text-[#0f172a]">{doctor.dept}</span>
                                    </div>
                                    <div className="flex justify-between items-center pt-4 border-t border-gray-200">
-                                      <span className="text-gray-400 font-bold text-xs uppercase">Fee</span>
-                                      <span className="font-black text-[#0f172a] text-2xl">{doctor.fee}</span>
+                                      <span className="text-gray-400 font-bold text-xs uppercase">Paid Amount</span>
+                                      <span className="font-black text-green-600 text-2xl">{doctor.fee}</span>
                                    </div>
                                 </div>
                              </div>
-                             <Link to="/" className="h-14 px-12 bg-[#023e8a] text-white rounded-xl font-black text-lg hover:bg-[#002855] transition-all shadow-xl">Return Home</Link>
+                             
+                             <div className="flex flex-col md:flex-row gap-4 w-full justify-center">
+                                <Link to="/" className="h-14 px-8 rounded-xl font-bold text-gray-500 border-2 border-gray-200 hover:border-gray-400 hover:text-gray-700 transition-all flex items-center justify-center">
+                                    Return to Home
+                                </Link>
+                                <Link to="/appointments" className="h-14 px-12 bg-[#023e8a] text-white rounded-xl font-black text-lg hover:bg-[#002855] transition-all shadow-xl flex items-center justify-center">
+                                    View My Appointments
+                                </Link>
+                             </div>
                           </motion.div>
                        )}
                     </AnimatePresence>
                  </div>
 
                  {/* Footer Actions */}
-                 {step < 3 && (
+                 {step < 4 && (
                     <div className="p-10 border-t border-gray-100 bg-gray-50/50 flex justify-between items-center">
                        {step > 1 ? (
                           <button onClick={prevStep} className="font-black text-xs uppercase tracking-widest text-gray-400 hover:text-[#0f172a] transition-all flex items-center gap-2">
@@ -289,12 +425,15 @@ const BookingPage = () => {
                          whileHover={{ scale: 1.05 }}
                          whileTap={{ scale: 0.95 }}
                          onClick={nextStep} 
-                         disabled={step === 1 && !formData.name}
+                         disabled={(step === 1 && !formData.name) || isProcessingPayment}
                          className={`h-14 px-10 rounded-xl font-black text-lg text-white flex items-center gap-3 shadow-xl transition-all ${
-                            step === 1 && !formData.name ? 'bg-gray-300 cursor-not-allowed' : 'bg-[#023e8a] hover:bg-[#002855]'
+                            (step === 1 && !formData.name) || isProcessingPayment ? 'bg-gray-300 cursor-not-allowed' : 'bg-[#023e8a] hover:bg-[#002855]'
                          }`}
                        >
-                          {step === 2 ? 'Confirm Booking' : 'Continue'} <ArrowRight className="w-5 h-5" />
+                          {step === 3 
+                              ? (isProcessingPayment ? 'Processing...' : 'Pay & Confirm') 
+                              : 'Continue'} 
+                          {!isProcessingPayment && <ArrowRight className="w-5 h-5" />}
                        </motion.button>
                     </div>
                  )}
@@ -322,6 +461,30 @@ const BookingPage = () => {
                              <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest block">Phone Number</label>
                              <input type="tel" required className="w-full h-14 bg-gray-50 rounded-xl px-6 border-2 border-gray-100 focus:border-[#023e8a] outline-none font-bold text-lg transition-all" />
                           </div>
+                       </div>
+
+                       <div className="space-y-4">
+                           <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest block">Preferred Time for Callback</label>
+                           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                              {callbackTimeOptions.map((opt) => (
+                                 <button
+                                    key={opt.label}
+                                    type="button"
+                                    onClick={() => setCallbackTime(opt.label)}
+                                    className={`p-4 rounded-2xl border-2 transition-all text-left flex flex-col gap-2 ${
+                                       callbackTime === opt.label 
+                                       ? 'border-[#023e8a] bg-blue-50/50 ring-4 ring-blue-50' 
+                                       : 'border-gray-100 hover:border-gray-200 bg-white'
+                                    }`}
+                                 >
+                                    <opt.icon className={`w-5 h-5 ${callbackTime === opt.label ? 'text-[#023e8a]' : 'text-gray-300'}`} />
+                                    <div>
+                                       <p className={`font-bold text-sm ${callbackTime === opt.label ? 'text-[#023e8a]' : 'text-gray-900'}`}>{opt.label}</p>
+                                       <p className="text-[10px] text-gray-400 font-medium">{opt.desc}</p>
+                                    </div>
+                                 </button>
+                              ))}
+                           </div>
                        </div>
                        
                        <div className="space-y-3">
@@ -400,7 +563,7 @@ const BookingPage = () => {
       </section>
 
       {/* 4. Insurance Assistance */}
-      <section className="py-16 bg-[#023e8a] text-white">
+      <section className="py-12 lg:py-10 bg-[#023e8a] text-white">
          <div className="container-custom flex flex-col md:flex-row items-center justify-between gap-12">
             <div>
                <h2 className="text-4xl font-serif font-bold mb-4">Cashless Treatment Assistance</h2>
@@ -479,7 +642,7 @@ const BookingPage = () => {
       </section>
 
       {/* 7. Contact Support */}
-      <section className="py-16 bg-gray-50 border-t border-gray-100">
+      <section className="py-12 lg:py-10 bg-gray-50 border-t border-gray-100">
          <div className="container-custom text-center max-w-4xl">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12">Need Assistance with Booking?</h2>
             <div className="grid md:grid-cols-2 gap-8">

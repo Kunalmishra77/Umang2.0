@@ -185,47 +185,70 @@ export const specialitiesData = {
   },
   'pain-management': {
     title: "Pain Management",
-    subtitle: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
-    desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    subtitle: "Relief & Rehabilitation",
+    desc: "Chronic pain can significantly impact quality of life. Our Pain Management clinic offers multidisciplinary care to diagnose, treat, and manage chronic pain conditions using advanced interventional techniques and holistic therapies.",
     img: "/assets/images/hospital-reception.jpg",
     procedures: [
-      "[CONTENT REQUIRED FROM UMANG HOSPITAL]"
+      "Interventional Pain Procedures",
+      "Nerve Blocks & Epidural Injections",
+      "Radiofrequency Ablation",
+      "Spinal Cord Stimulation",
+      "Myofascial Trigger Point Therapy",
+      "Cancer Pain Management"
     ],
     tech: [
-      { title: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+      { title: "C-Arm Fluoroscopy", desc: "Real-time imaging for precise injection placement." },
+      { title: "Radiofrequency Generator", desc: "For targeted nerve ablation therapy." }
     ],
     faq: [
-      { q: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", a: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+      { q: "What conditions do you treat?", a: "We treat back pain, neck pain, sciatica, arthritis, neuropathic pain, and cancer-related pain." },
+      { q: "Is pain management surgery?", a: "Most treatments are minimally invasive procedures or non-surgical therapies, distinct from major surgery." }
     ]
   },
   'gynecology': {
-    title: "Gynecology",
-    subtitle: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
-    desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    title: "Gynecology & Obstetrics",
+    subtitle: "Women's Health Excellence",
+    desc: "Comprehensive care for women at every stage of life. From adolescence to menopause, our expert gynecologists provide personalized treatment for reproductive health, maternity care, and gynecological surgeries.",
     img: "/assets/images/doctor-consultation.jpg",
     procedures: [
-      "[CONTENT REQUIRED FROM UMANG HOSPITAL]"
+      "Normal & High-Risk Delivery",
+      "Laparoscopic Hysterectomy",
+      "Infertility Treatment",
+      "PCOS/PCOD Management",
+      "Menopause Clinic",
+      "Gynecological Oncology Screening"
     ],
     tech: [
-      { title: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+      { title: "4D Ultrasound", desc: "Detailed imaging for fetal monitoring and diagnostics." },
+      { title: "Colposcopy", desc: "For early detection of cervical cancer." },
+      { title: "Laparoscopic Suite", desc: "Minimally invasive gynecological surgeries." }
     ],
     faq: [
-      { q: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", a: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+      { q: "Do you handle high-risk pregnancies?", a: "Yes, our team is equipped to manage complex pregnancies with a fully backed NICU." },
+      { q: "What is minimally invasive hysterectomy?", a: "It involves removing the uterus through small incisions, leading to less pain and faster recovery compared to open surgery." }
     ]
   },
   'physiotherapy': {
-    title: "Physiotherapy",
-    subtitle: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
-    desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    title: "Physiotherapy & Rehabilitation",
+    subtitle: "Restoring Movement & Strength",
+    desc: "Our physiotherapy department works closely with orthopedics and neurology teams to help patients recover faster. We offer customized rehabilitation programs for post-surgery recovery, sports injuries, and chronic mobility issues.",
     img: "/assets/images/service-homecare.jpg",
     procedures: [
-      "[CONTENT REQUIRED FROM UMANG HOSPITAL]"
+      "Post-Operative Rehabilitation",
+      "Sports Injury Management",
+      "Neuro-Rehabilitation (Stroke/Spine)",
+      "Manual Therapy",
+      "Electrotherapy",
+      "Geriatric Rehabilitation"
     ],
     tech: [
-      { title: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", desc: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+      { title: "Laser Therapy Unit", desc: "Advanced laser for pain relief and tissue healing." },
+      { title: "Ultrasound Therapy", desc: "For treating deep tissue injuries." },
+      { title: "Gait Training Lab", desc: "Specialized equipment to improve walking and balance." }
     ],
     faq: [
-      { q: "[CONTENT REQUIRED FROM UMANG HOSPITAL]", a: "[CONTENT REQUIRED FROM UMANG HOSPITAL]" }
+      { q: "Do I need a referral for physiotherapy?", a: "While a referral is helpful, you can also consult our physiotherapists directly for assessment." },
+      { q: "How long is a typical session?", a: "Sessions usually last between 45 to 60 minutes, depending on the personalized treatment plan." }
     ]
   }
 };

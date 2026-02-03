@@ -77,7 +77,7 @@ const Specialities = () => {
       </section>
 
       {/* 2. Main Layout (Sidebar + Grid) */}
-      <section className="py-16">
+      <section className="py-12 lg:py-10">
          <div className="container-custom">
             <div className="flex flex-col lg:flex-row gap-12">
                

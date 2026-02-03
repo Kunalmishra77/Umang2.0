@@ -68,7 +68,7 @@ const Events = () => {
           <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-pink-500/20 rounded-full blur-[100px]" />
         </div>
 
-        <div className="container-custom relative z-10 py-20">
+        <div className="container-custom relative z-10 py-12 lg:py-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -96,7 +96,7 @@ const Events = () => {
       </section>
 
       {/* 2. Upcoming Events */}
-      <section id="upcoming" className="py-16 bg-gray-50">
+      <section id="upcoming" className="py-12 lg:py-10 bg-gray-50">
          <div className="container-custom">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                <div>
@@ -159,7 +159,7 @@ const Events = () => {
       </section>
 
       {/* 3. Past Events Gallery */}
-      <section className="py-16 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12 text-center">Past Highlights</h2>
             <div className="grid md:grid-cols-3 gap-8">
@@ -182,7 +182,7 @@ const Events = () => {
       </section>
 
       {/* 4. Newsletter CTA */}
-      <section className="py-20 bg-pink-50 text-center">
+      <section className="py-12 lg:py-10 bg-pink-50 text-center">
          <div className="container-custom max-w-2xl">
             <Heart className="w-12 h-12 text-pink-500 mx-auto mb-6" />
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-4">Never Miss an Update</h2>

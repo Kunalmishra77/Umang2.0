@@ -173,7 +173,7 @@ const MediaCenter = () => {
       </section>
 
       {/* 4. Contact CTA */}
-      <section className="py-24 bg-[#0f172a] text-white relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-[#0f172a] text-white relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5" />
          <div className="container-custom relative z-10 text-center">
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">For Media Inquiries</h2>

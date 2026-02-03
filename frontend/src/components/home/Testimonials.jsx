@@ -26,7 +26,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-16 lg:py-24 bg-gray-50 overflow-hidden relative">
+    <section className="py-12 lg:py-10 bg-gray-50 overflow-hidden relative">
       {/* Decorative Background */}
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.4] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none mix-blend-multiply" />
       

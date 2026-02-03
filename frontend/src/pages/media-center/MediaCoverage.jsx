@@ -53,7 +53,7 @@ const MediaCoverage = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/60 to-transparent" />
         </div>
 
-        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto py-20">
+        <div className="container-custom relative z-10 text-center max-w-4xl mx-auto py-12 lg:py-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -136,7 +136,7 @@ const MediaCoverage = () => {
       </section>
 
       {/* 3. Media Mentions Slider Placeholder */}
-      <section className="py-16 bg-white border-y border-gray-100">
+      <section className="py-12 lg:py-10 bg-white border-y border-gray-100">
          <div className="container-custom">
             <h3 className="text-center text-sm font-bold text-gray-400 uppercase tracking-[0.3em] mb-12">Recognized By</h3>
             <div className="flex flex-wrap justify-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
@@ -211,7 +211,7 @@ const MediaCoverage = () => {
       </section>
 
       {/* 6. Social Media Buzz */}
-      <section className="py-16 bg-white">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom text-center">
             <Radio className="w-12 h-12 text-[#005580] mx-auto mb-6" />
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-4">Stay Connected</h2>

@@ -52,6 +52,17 @@
     @apply font-sans text-brand-dark antialiased bg-white selection:bg-primary-500 selection:text-white leading-relaxed;
     font-size: 16px;
   }
+
+  /* Global Pointer Cursor for Interactive Elements */
+  a, 
+  button, 
+  [role="button"],
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  select {
+    cursor: pointer;
+  }
   
   /* High-end Heading Treatments */
   h1, h2, h3, h4, h5, h6 {
@@ -64,7 +75,7 @@
 
 @layer components {
   .section-padding {
-    @apply py-16 lg:py-24;
+    @apply py-12 lg:py-10;
   }
 
   .container-custom {

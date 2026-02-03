@@ -85,13 +85,20 @@ export const pageContent = {
     category: "Services",
     icon: Activity,
     heroImage: "/assets/images/infrastructure-icu.jpg",
-    description: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    description: "Advanced critical care units staffed by 24/7 intensivists and specialized nursing teams.",
     features: [
-      "[CONTENT REQUIRED FROM UMANG HOSPITAL]"
+      "Medical & Surgical ICU",
+      "Neonatal ICU (NICU)",
+      "Pediatric ICU (PICU)",
+      "Isolation Units",
+      "Advanced Ventilatory Support"
     ],
     content: `
-      <h3>[CONTENT REQUIRED FROM UMANG HOSPITAL]</h3>
-      <p>[CONTENT REQUIRED FROM UMANG HOSPITAL]</p>
+      <h3>Intensive Care Excellence</h3>
+      <p>Our critical care department is the backbone of Umang Hospital. We provide round-the-clock monitoring and life support for patients with life-threatening conditions. Our multidisciplinary team ensures the best possible chance of recovery.</p>
+      
+      <h3>Specialized Units</h3>
+      <p>We have dedicated units for different needs: NICU for newborns requiring special care, PICU for critically ill children, and specialized Cardiac and Neuro ICUs for adult patients.</p>
     `
   },
   'ipd-opd': {
@@ -99,13 +106,20 @@ export const pageContent = {
     category: "Services",
     icon: Home,
     heroImage: "/assets/images/hospital-reception.jpg",
-    description: "[CONTENT REQUIRED FROM UMANG HOSPITAL]",
+    description: "Comprehensive care facilities ranging from daily consultations to comfortable hospital stays.",
     features: [
-      "[CONTENT REQUIRED FROM UMANG HOSPITAL]"
+      "Specialty Clinics",
+      "Deluxe & Private Rooms",
+      "Day Care Surgery",
+      "Dietary Services",
+      "Patient Counseling"
     ],
     content: `
-      <h3>[CONTENT REQUIRED FROM UMANG HOSPITAL]</h3>
-      <p>[CONTENT REQUIRED FROM UMANG HOSPITAL]</p>
+      <h3>Outpatient Department (OPD)</h3>
+      <p>Our OPD services run daily across all specialties. We have designed our appointment system to minimize waiting times and ensure you get ample time with your doctor for a thorough consultation.</p>
+      
+      <h3>Inpatient Department (IPD)</h3>
+      <p>For patients requiring hospitalization, we offer a range of room categories from general wards to deluxe suites. All rooms are designed for comfort and hygiene, ensuring a restful environment for recovery.</p>
     `
   },
 

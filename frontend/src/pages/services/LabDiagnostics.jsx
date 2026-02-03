@@ -161,7 +161,7 @@ const LabDiagnostics = () => {
       </section>
 
       {/* 3. Popular Packages (Filtered) */}
-      <section id="results-section" className="py-16 bg-white">
+      <section id="results-section" className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16">
                <div className="max-w-xl">
@@ -231,7 +231,7 @@ const LabDiagnostics = () => {
 
       {/* 4. Departments & Modalities (Filtered) */}
       {filteredDepartments.length > 0 && (
-        <section className="py-16 bg-gray-50">
+        <section className="py-12 lg:py-10 bg-gray-50">
            <div className="container-custom">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-12 text-center">Diagnostic Modalities</h2>
               
@@ -265,7 +265,7 @@ const LabDiagnostics = () => {
       )}
 
       {/* 5. Home Collection CTA */}
-      <section className="py-16 bg-white relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-white relative overflow-hidden">
          <div className="container-custom">
             <div className="bg-[#005580] rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-12">
                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />

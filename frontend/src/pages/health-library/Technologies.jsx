@@ -169,7 +169,7 @@ const Technologies = () => {
       </section>
 
       {/* 3. Innovation Stats */}
-      <section className="py-16 bg-[#005580] text-white relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-[#005580] text-white relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10" />
          <div className="container-custom relative z-10">
             <div className="grid md:grid-cols-4 gap-12 text-center divide-x divide-white/10">

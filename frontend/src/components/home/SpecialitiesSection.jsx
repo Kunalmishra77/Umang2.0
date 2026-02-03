@@ -31,7 +31,7 @@ const item = {
 
 const SpecialitiesSection = () => {
   return (
-    <section className="py-16 lg:py-24 bg-gray-50 overflow-hidden">
+    <section className="py-12 lg:py-10 bg-gray-50 overflow-hidden">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16">
           <motion.div 
