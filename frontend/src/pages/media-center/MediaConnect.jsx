@@ -38,7 +38,7 @@ const MediaConnect = () => {
       <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=2000" 
+            src="/assets/images/localized/media-connect-hero.jpg" 
             alt="Media Room" 
             className="w-full h-full object-cover opacity-20" 
           />
@@ -66,14 +66,14 @@ const MediaConnect = () => {
             <div className="flex flex-wrap gap-6">
                <motion.a 
                   whileHover={{ scale: 1.05, y: -2 }}
-                  href="mailto:pr@umanghospitals.in" 
+                  href="mailto:Umanghospitalgurugram@gmail.com" 
                   className="h-16 px-10 rounded-full bg-white text-[#0f172a] font-bold text-lg transition-all flex items-center gap-3 shadow-xl"
                >
-                  <Mail className="w-6 h-6 text-blue-600" /> pr@umanghospitals.in
+                  <Mail className="w-6 h-6 text-blue-600" /> Umanghospitalgurugram@gmail.com
                </motion.a>
                <motion.a 
                   whileHover={{ scale: 1.05, y: -2 }}
-                  href="tel:+911244567895" 
+                  href="tel:+918929733550" 
                   className="h-16 px-10 rounded-full bg-blue-500 text-white font-bold text-lg hover:bg-blue-600 transition-all flex items-center gap-3 shadow-xl"
                >
                   <Phone className="w-6 h-6" /> +91 124 456 7895
@@ -183,7 +183,7 @@ const MediaConnect = () => {
          <div className="container-custom grid lg:grid-cols-2 gap-24 items-center">
             <div className="relative group">
                <div className="absolute inset-0 bg-blue-500/20 rounded-[4rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-               <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=1000" alt="Press Event" className="relative rounded-[4rem] shadow-2xl w-full h-[600px] object-cover transition-transform duration-1000 group-hover:scale-[1.02]" />
+               <img src="/assets/images/localized/press-event-thumb.jpg" alt="Press Event" className="relative rounded-[4rem] shadow-2xl w-full h-[600px] object-cover transition-transform duration-1000 group-hover:scale-[1.02]" />
                <div className="absolute -bottom-10 -right-10 bg-white p-10 rounded-[3rem] shadow-2xl border border-gray-100 hidden xl:block">
                   <p className="text-4xl font-serif font-black text-[#005580]">Feb 04</p>
                   <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mt-1">Next Briefing</p>

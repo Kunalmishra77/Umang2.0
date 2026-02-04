@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Card, Row, Col, Form, Button, ProgressBar, Badge, Alert, Image } from 'react-bootstrap';
 import { FaUserMd, FaCalendarAlt, FaClock, FaCheck, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import api from '../../services/api';
+import { doctors as allDoctors } from '../../utils/doctorsData';
 
 const BookAppointmentPatient = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -41,13 +42,14 @@ const BookAppointmentPatient = () => {
 
   const fetchSpecialities = async () => {
     try {
-      // Mock data - replace with API call
+      // Updated to match available doctor data keys
       const mockSpecialities = [
-        { id: 1, name: 'Cardiology' },
-        { id: 2, name: 'Dermatology' },
-        { id: 3, name: 'Neurology' },
-        { id: 4, name: 'Orthopedics' },
-        { id: 5, name: 'Pediatrics' },
+        { id: 'cardiac', name: 'Cardiology' },
+        { id: 'neuro', name: 'Neurology' },
+        { id: 'ortho', name: 'Orthopedics' },
+        { id: 'surgery', name: 'General Surgery' },
+        { id: 'ent', name: 'E.N.T' },
+        { id: 'general-medicine', name: 'General Medicine' },
       ];
       setSpecialities(mockSpecialities);
     } catch (error) {
@@ -58,13 +60,9 @@ const BookAppointmentPatient = () => {
   const fetchDoctorsBySpeciality = async (specialityId) => {
     setLoading(true);
     try {
-      // Mock data - replace with API call
-      const mockDoctors = [
-        { id: 1, name: 'Dr. Sarah Johnson', experience: '10 years', rating: 4.8 },
-        { id: 2, name: 'Dr. Michael Chen', experience: '8 years', rating: 4.6 },
-        { id: 3, name: 'Dr. Emily Davis', experience: '12 years', rating: 4.9 },
-      ];
-      setDoctors(mockDoctors);
+      // Filter doctors from the real data
+      const filteredDoctors = allDoctors.filter(doc => doc.specialtyId === specialityId);
+      setDoctors(filteredDoctors);
     } catch (error) {
       console.error('Error fetching doctors:', error);
     } finally {
@@ -218,7 +216,7 @@ const BookAppointmentPatient = () => {
                       <Card.Body className="p-4">
                         <div className="d-flex align-items-center">
                           <Image
-                            src="https://via.placeholder.com/60"
+                            src={doctor.image}
                             roundedCircle
                             width={60}
                             height={60}
@@ -226,7 +224,7 @@ const BookAppointmentPatient = () => {
                           />
                           <div className="flex-grow-1">
                             <h6 className="mb-1 fw-bold">{doctor.name}</h6>
-                            <p className="mb-1 text-muted small">{doctor.experience} experience</p>
+                            <p className="mb-1 text-muted small">{doctor.exp} experience</p>
                             <div className="d-flex align-items-center">
                               <Badge bg="warning" text="dark" className="me-2">
                                 ★ {doctor.rating}

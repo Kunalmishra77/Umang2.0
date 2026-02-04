@@ -285,7 +285,7 @@ const LabDiagnostics = () => {
                         <Home className="w-4 h-4" /> Book Home Visit
                      </Link>
                      <button className="h-14 px-8 rounded-full bg-transparent border border-white/30 text-white font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
-                        <Phone className="w-4 h-4" /> Call +91 89297 33551
+                        <Phone className="w-4 h-4" /> Call +91 89297 33550
                      </button>
                   </div>
                </div>

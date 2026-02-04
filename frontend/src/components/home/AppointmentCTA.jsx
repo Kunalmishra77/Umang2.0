@@ -67,13 +67,13 @@ const AppointmentCTA = () => {
                 </Link>
                 
                 <a 
-                  href="tel:+918929733551" 
+                  href="tel:+918929733550" 
                   className="px-10 py-5 rounded-full border border-white/20 text-white font-bold text-lg hover:bg-white/10 hover:border-white/40 transition-all flex items-center gap-3 backdrop-blur-sm group"
                 >
                    <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Phone className="w-4 h-4 fill-current" />
                    </div>
-                   <span>+91 8929733551</span>
+                   <span>+91 89297 33550</span>
                 </a>
              </div>
 

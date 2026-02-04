@@ -11,11 +11,10 @@ import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 
 const depts = [
-  { title: "International Patients", icon: Globe, email: "international@umanghospitals.in", phone: "+91 98765 43210" },
-  { title: "TPA & Insurance", icon: FileText, email: "tpa@umanghospitals.in", phone: "+91 124 456 7891" },
-  { title: "Careers / HR", icon: Briefcase, email: "hr@umanghospitals.in", phone: "+91 124 456 7892" },
-  { title: "Emergency", icon: Ambulance, email: "emergency@umanghospitals.in", phone: "+91 89297 33551" },
-];
+  { title: "International Patients", icon: Globe, email: "Umanghospitalgurugram@gmail.com", phone: "+91 89297 33550" },
+              { title: "TPA & Insurance", icon: FileText, email: "Umanghospitalgurugram@gmail.com", phone: "+91 89297 33550" },
+              { title: "Careers / HR", icon: Briefcase, email: "Umanghospitalgurugram@gmail.com", phone: "+91 89297 33550" },
+              { title: "Emergency", icon: Ambulance, email: "Umanghospitalgurugram@gmail.com", phone: "+91 89297 33550" },];
 
 const faqs = [
   { q: "What are the visiting hours for general wards?", a: "Visiting hours are from 4:00 PM to 7:00 PM daily. Only two visitors are allowed at a time." },
@@ -107,7 +106,7 @@ const Contact = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-red-400">Emergency Call</h3>
                   <p className="text-gray-400 group-hover:text-white transition-colors mb-8 leading-relaxed">Immediate critical care assistance available 24 hours a day, 7 days a week.</p>
-                  <a href="tel:+918929733551" className="text-3xl font-serif font-black tracking-tighter hover:text-red-400 transition-colors">+91 89297 33551</a>
+                  <a href="tel:+918929733550" className="text-3xl font-serif font-black tracking-tighter hover:text-red-400 transition-colors">+91 89297 33550</a>
                </motion.div>
             </div>
          </div>
@@ -153,13 +152,13 @@ const Contact = () => {
                      <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-3xl -mr-10 -mt-10" />
                      <h4 className="text-xl font-bold mb-8">Connect Digitally</h4>
                      <div className="space-y-5">
-                        <a href="mailto:info@umanghospitals.in" className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
+                        <a href="mailto:Umanghospitalgurugram@gmail.com" className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
                            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary-600 transition-colors">
                               <Mail className="w-5 h-5" />
                            </div>
-                           info@umanghospitals.in
+                           <span className="group-hover:translate-x-2 transition-transform">Umanghospitalgurugram@gmail.com</span>
                         </a>
-                        <a href="tel:+911244567890" className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
+                        <a href="tel:+918929733550" className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
                            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary-600 transition-colors">
                               <Phone className="w-5 h-5" />
                            </div>
@@ -191,7 +190,7 @@ const Contact = () => {
                         </div>
                         <div className="space-y-2">
                            <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
-                           <input type="email" required className="w-full h-14 bg-gray-50 rounded-2xl px-6 border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark placeholder:text-gray-300" placeholder="john@example.com" />
+                           <input type="email" required className="w-full h-14 bg-gray-50 rounded-2xl px-6 border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark placeholder:text-gray-300" placeholder="Umanghospitalgurugram@gmail.com" />
                         </div>
                      </div>
 
@@ -343,7 +342,7 @@ const Contact = () => {
 
       {/* Sticky Quick Contact */}
       <div className="fixed bottom-10 right-10 flex flex-col gap-4 z-50">
-         <a href="https://wa.me/918929733551" target="_blank" rel="noreferrer" className="w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 group relative">
+         <a href="https://wa.me/918929733550" target="_blank" rel="noreferrer" className="w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 group relative">
             <div className="absolute right-full mr-4 bg-white text-brand-dark px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-gray-100">WhatsApp Us</div>
             <MessageCircle className="w-8 h-8 fill-current" />
          </a>

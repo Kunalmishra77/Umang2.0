@@ -365,7 +365,7 @@ const LabReports = () => {
                   <div className="w-16 h-16 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center mb-6"><Mail className="w-8 h-8" /></div>
                   <h4 className="font-bold text-[#0f172a] text-xl mb-2">Email Desk</h4>
                   <p className="text-gray-500 mb-6 text-sm">Typically responds in 4 hours.</p>
-                  <p className="text-lg font-black text-[#005580]">reports@umanghospitals.in</p>
+                  <p className="text-lg font-black text-[#005580]">Umanghospitalgurugram@gmail.com</p>
                </div>
                <div className="bg-gray-50 p-10 rounded-[3rem] border border-gray-100 flex flex-col items-center group hover:bg-white hover-lift transition-all">
                   <div className="w-16 h-16 rounded-2xl bg-green-100 text-green-600 flex items-center justify-center mb-6"><Phone className="w-8 h-8" /></div>

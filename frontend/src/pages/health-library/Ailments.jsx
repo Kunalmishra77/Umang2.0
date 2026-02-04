@@ -239,7 +239,7 @@ const Ailments = () => {
             <div className="order-1 lg:order-2 relative">
                <div className="absolute inset-0 bg-green-50 rounded-[3rem] rotate-3" />
                <img 
-                  src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=1000" 
+                  src="/assets/images/localized/ailments-hero.jpg" 
                   alt="Wellness" 
                   className="relative rounded-[3rem] shadow-2xl w-full object-cover"
                />

@@ -249,7 +249,7 @@ export const pageContent = {
     title: "Newsletters",
     category: "Media Center",
     icon: Mail,
-    heroImage: "/assets/images/hospital-building-exterior.jpg",
+    heroImage: "/assets/images/corrected/hospital-building.jpg",
     description: "Our monthly health digest delivered to your inbox.",
     features: ["Monthly Editions", "Health Tips", "Doctor Columns", "Event Recaps", "Subscription"],
     content: `<h3>Umang Pulse</h3><p>Subscribe to our monthly newsletter, 'Umang Pulse'. It's packed with seasonal health tips, updates from our departments, and inspiring stories from our community.</p>`

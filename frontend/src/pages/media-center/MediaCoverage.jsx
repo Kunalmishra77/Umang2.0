@@ -46,7 +46,7 @@ const MediaCoverage = () => {
       <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=2000" 
+            src="/assets/images/localized/press-conference.jpg" 
             alt="Hospital News" 
             className="w-full h-full object-cover opacity-20" 
           />
@@ -152,7 +152,7 @@ const MediaCoverage = () => {
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative">
                <div className="absolute inset-0 bg-blue-100 rounded-[3rem] rotate-3" />
-               <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=1000" alt="Doctor Interview" className="relative rounded-[3rem] shadow-2xl w-full object-cover" />
+               <img src="/assets/images/localized/doctor-interview.jpg" alt="Doctor Interview" className="relative rounded-[3rem] shadow-2xl w-full object-cover" />
                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-red-600 text-white rounded-full flex items-center justify-center shadow-2xl animate-pulse cursor-pointer">
                   <Play className="w-8 h-8 fill-current ml-1" />
                </div>

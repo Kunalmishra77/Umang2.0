@@ -78,7 +78,7 @@ const TelemedicineConsult = () => {
             <div className="bg-white/5 p-6 rounded-3xl border border-white/10 text-left mb-8">
               <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Next Available Doctor</h4>
               <div className="flex items-center gap-4">
-                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=200" alt="Doctor" className="w-16 h-16 rounded-2xl object-cover" />
+                <img src="/assets/images/localized/doctor-thumbnail.jpg" alt="Doctor" className="w-16 h-16 rounded-2xl object-cover" />
                 <div>
                   <p className="text-xl font-bold">Dr. Rahul Sharma</p>
                   <p className="text-gray-400 text-sm">Senior General Physician</p>

@@ -150,9 +150,8 @@ const DynamicSubPage = () => {
                 </div>
                 <h5 className="font-bold text-gray-900 mb-2">Need Assistance?</h5>
                 <p className="text-sm text-gray-500 mb-4">Our support team is available 24/7 to help you.</p>
-                <a href="tel:+918929733551" className="text-[#005580] font-bold text-lg hover:underline">
-                  +91 89297 33551
-                </a>
+                <a href="tel:+918929733550" className="text-[#005580] font-bold text-lg hover:underline">
+                                        +91 89297 33550                </a>
               </div>
             </div>
           </div>

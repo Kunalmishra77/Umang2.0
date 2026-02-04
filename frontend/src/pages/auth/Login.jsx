@@ -14,7 +14,7 @@ const Login = () => {
       {/* LEFT: Cinematic Branding */}
       <div className="lg:w-1/2 bg-[#0f172a] relative overflow-hidden hidden lg:flex flex-col justify-center p-20 text-white">
          <div className="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover opacity-20" alt="Hospital" />
+            <img src="/assets/images/localized/hospital-hallway.jpg" className="w-full h-full object-cover opacity-20" alt="Hospital" />
             <div className="absolute inset-0 bg-gradient-to-br from-[#005580] via-[#0f172a] to-transparent" />
          </div>
          
@@ -66,7 +66,7 @@ const Login = () => {
                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                      <input 
                        type="email" 
-                       placeholder="name@company.com" 
+                       placeholder="Umanghospitalgurugram@gmail.com" 
                        className="w-full h-14 pl-12 pr-4 rounded-2xl border border-gray-200 focus:border-[#005580] focus:ring-4 focus:ring-blue-50 outline-none transition-all"
                      />
                   </div>

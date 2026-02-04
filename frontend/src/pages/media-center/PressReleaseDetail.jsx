@@ -76,7 +76,7 @@ const PressReleaseDetail = () => {
                 <p className="text-gray-400">For further information and interview requests.</p>
              </div>
              <div className="flex gap-4">
-                <a href="mailto:pr@umanghospitals.in" className="h-14 px-8 rounded-xl bg-blue-600 text-white font-bold flex items-center gap-2 hover:bg-blue-700 transition-all">
+                <a href="mailto:Umanghospitalgurugram@gmail.com" className="h-14 px-8 rounded-xl bg-blue-600 text-white font-bold flex items-center gap-2 hover:bg-blue-700 transition-all">
                    <Download className="w-4 h-4" /> Download PDF
                 </a>
                 <Link to="/media-center/media-connect" className="h-14 px-8 rounded-xl bg-white/10 text-white font-bold flex items-center gap-2 hover:bg-white/20 transition-all border border-white/10">

@@ -34,7 +34,7 @@ const Terms = () => {
 
           <section>
             <h2 className="text-xl font-bold text-[#0f172a] mb-3">5. Contact Us</h2>
-            <p>If you have any questions about these Terms, please contact us at info@umanghospitals.in.</p>
+            <p>If you have any questions about these Terms, please contact us at Umanghospitalgurugram@gmail.com.</p>
           </section>
         </div>
       </div>

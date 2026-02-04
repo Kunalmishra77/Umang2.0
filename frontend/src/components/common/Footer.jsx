@@ -20,7 +20,7 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-gray-400 mb-8 leading-relaxed font-light text-lg">
-              Umang Hospital is a 150-bedded super speciality hospital in Gurugram, where care and expertise unite. 
+              Umang Hospital is a 100-bedded super speciality hospital in Gurugram, where care and expertise unite. 
               We're committed to your well-being with world-class healthcare facilities.
             </p>
             <div className="flex gap-4">
@@ -94,20 +94,20 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-white font-medium mb-1">Umang Hospital</p>
-                  <p className="text-sm text-gray-400 leading-relaxed">Sector 55, Sushant Lok II,<br /> Gurugram, Haryana 122003</p>
+                  <p className="text-sm text-gray-400 leading-relaxed">Saraswati Enclave, Sector 10B, Sector 37,<br /> Gurugram, Haryana 122004</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-primary-500/20 transition-colors">
                    <Phone className="w-5 h-5 text-primary-400" />
                 </div>
-                <p className="text-white font-bold tracking-wide">+91 8929733551</p>
+                <p className="text-white font-bold tracking-wide">+91 89297 33550</p>
               </div>
               <div className="flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 group-hover:bg-primary-500/20 transition-colors">
                    <Mail className="w-5 h-5 text-primary-400" />
                 </div>
-                <p className="text-gray-300 hover:text-white transition-colors">info@umanghospitals.in</p>
+                <p className="text-gray-300 hover:text-white transition-colors">Umanghospitalgurugram@gmail.com</p>
               </div>
             </div>
           </div>

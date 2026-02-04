@@ -32,7 +32,7 @@ const Careers = () => {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-[#0f172a] overflow-hidden">
          <div className="absolute inset-0 z-0">
             <img 
-              src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2500" 
+              src="/assets/images/localized/careers-team.jpg" 
               alt="Medical Team" 
               className="w-full h-full object-cover opacity-30 mix-blend-luminosity" 
             />
@@ -157,7 +157,7 @@ const Careers = () => {
             <p className="text-blue-100 max-w-xl mx-auto mb-10 text-lg">
                We are always looking for talent. Drop your CV at our HR desk, and we will get back to you.
             </p>
-            <a href="mailto:hr@umanghospitals.in" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#005580] rounded-full font-bold shadow-xl hover:bg-blue-50 transition-all">
+            <a href="mailto:Umanghospitalgurugram@gmail.com" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#005580] rounded-full font-bold shadow-xl hover:bg-blue-50 transition-all">
                Email Your Resume <ArrowRight className="w-4 h-4" />
             </a>
          </div>

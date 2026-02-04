@@ -71,7 +71,7 @@ const HomeCare = () => {
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 w-2/3 h-full bg-[#e0f2fe] rounded-bl-[10rem] z-0" />
           <img 
-            src="https://images.unsplash.com/photo-1584515933487-9dca71d603a1?auto=format&fit=crop&q=80&w=2000" 
+            src="/assets/images/service-homecare.jpg" 
             alt="Nurse with Patient" 
             className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[80%] object-cover rounded-l-[3rem] shadow-2xl z-10 hidden lg:block"
           />
@@ -227,7 +227,7 @@ const HomeCare = () => {
                </div>
                <h3 className="text-2xl font-bold text-[#0f172a] mb-4">Need immediate assistance?</h3>
                <p className="text-gray-600 mb-8 max-w-lg mx-auto">Our Home Care coordinators are available 24/7 to answer your queries and arrange urgent care.</p>
-               <a href="tel:+918929733551" className="inline-flex items-center gap-2 px-8 py-4 bg-[#005580] text-white rounded-full font-bold shadow-xl hover-lift hover:-translate-y-1 transition-all">
+               <a href="tel:+918929733550" className="inline-flex items-center gap-2 px-8 py-4 bg-[#005580] text-white rounded-full font-bold shadow-xl hover-lift hover:-translate-y-1 transition-all">
                   Call Support Team
                </a>
             </div>

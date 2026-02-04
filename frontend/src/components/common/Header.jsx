@@ -197,8 +197,8 @@ const Header = () => {
         <div className={`bg-brand-dark text-white transition-all duration-500 hidden sm:block overflow-hidden ${isScrolled ? 'max-h-0 opacity-0' : 'max-h-10 opacity-100'}`}>
            <div className="container-custom h-10 flex items-center justify-between text-[10px] font-bold tracking-wider">
               <div className="flex items-center gap-4">
-                 <a href="tel:+918929733551" className="flex items-center gap-1.5 hover:text-primary-300 transition-colors"><Phone className="w-3 h-3" /> Emergency: +91 89297 33551</a>
-                 <a href="mailto:info@umanghospitals.in" className="hidden lg:flex items-center gap-1.5 opacity-70 hover:opacity-100 transition-opacity"><Mail className="w-3 h-3" /> info@umanghospitals.in</a>
+                 <a href="tel:+918929733550" className="flex items-center gap-1.5 hover:text-primary-300 transition-colors"><Phone className="w-3 h-3" /> Emergency: +91 89297 33550</a>
+                 <a href="mailto:Umanghospitalgurugram@gmail.com" className="hidden lg:flex items-center gap-1.5 opacity-70 hover:opacity-100 transition-opacity"><Mail className="w-3 h-3" /> Umanghospitalgurugram@gmail.com</a>
               </div>
               <div className="flex items-center gap-4">
                  <Link to="/doctors" className="hover:text-primary-300 transition-colors uppercase tracking-tighter">Find a Doctor</Link>
@@ -278,7 +278,7 @@ const Header = () => {
                </div>
                <div className="pt-6 border-t border-gray-100 space-y-3 mt-4">
                   <Link to="/doctors" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-primary-600 text-white font-bold text-sm shadow-lg shadow-primary-600/20">Book Appointment</Link>
-                  <a href="tel:+918929733551" className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl border-2 border-brand-dark text-brand-dark font-bold text-sm">Emergency Call</a>
+                  <a href="tel:+918929733550" className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl border-2 border-brand-dark text-brand-dark font-bold text-sm">Emergency Call</a>
                </div>
             </motion.div>
           </>

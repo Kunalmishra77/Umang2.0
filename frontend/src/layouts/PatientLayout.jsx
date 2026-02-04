@@ -24,7 +24,7 @@ const PatientLayout = () => {
               <div className="widget-profile pro-widget-content p-4 text-center border-bottom">
                 <div className="profile-info-widget mb-3">
                   <Link to="#" className="booking-doc-img d-inline-block position-relative">
-                    <Image src="https://via.placeholder.com/150" roundedCircle style={{ width: '120px', height: '120px', border: '5px solid #f8f9fa' }} />
+                    <Image src="/assets/images/specific/personal-care.jpg" roundedCircle style={{ width: '120px', height: '120px', border: '5px solid #f8f9fa' }} />
                   </Link>
                   <div className="profile-det-info mt-3">
                     <h5 className="fw-bold mb-1">Richard Wilson</h5>

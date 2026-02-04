@@ -71,9 +71,9 @@ const About = () => {
                 Guided by <span className="text-primary-600">Vision,</span> <br />Driven by Mission.
               </h2>
               <p className="text-gray-500 text-lg lg:text-xl font-light leading-relaxed mb-12">
-                Umang Superspeciality Hospital is a 100-bedded healthcare facility dedicated to providing advanced, patient-centric medical care. Equipped with modern infrastructure, including modular operation theaters, fully equipped ICUs, and comprehensive diagnostic services, the hospital offers expertise across specialties like Cardiology, Neurology, Orthopedics, Oncology, and more.
+                We are a 100-bedded super speciality hospital in Gurugram, where care and expertise unite. We're committed to your well-being. Trust Umang Hospital for comprehensive care that makes a difference.
                 <br /><br />
-                With a team of highly skilled doctors and compassionate staff, Umang Hospital ensures personalized treatment and exceptional outcomes. Committed to innovation, community outreach, and preventive care, it strives to set new standards in healthcare excellence.
+                It is a modern 150-bedded healthcare facility with world-class Intensive Care Units, including 28 ICU beds, 8 SICU and 7 CCU (Cardiac Care beds). The hospital features 3 modular operation theaters, an advanced critical care and dialysis unit, a state-of-the-art CT scan, and ultrasound, and cutting-edge Cath Labs, making it one of the best medical centre in Gurugram.   
               </p>
               
               <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
@@ -82,14 +82,14 @@ const About = () => {
                     <Eye className="w-7 h-7" />
                   </div>
                   <h4 className="text-xl font-bold text-brand-dark mb-3">Our Vision</h4>
-                  <p className="text-gray-500 text-sm leading-relaxed">To be the most trusted global destination for advanced superspeciality care.</p>
+                  <p className="text-gray-500 text-sm leading-relaxed">We seek to be a leader in providing high-quality services to our patients and define the standards of excellence for healthcare in India.</p>
                 </div>
                 <div className="p-8 rounded-[2.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover-lift transition-all duration-500">
                   <div className="w-14 h-14 bg-cyan-500 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg shadow-cyan-200">
                     <Target className="w-7 h-7" />
                   </div>
                   <h4 className="text-xl font-bold text-brand-dark mb-3">Our Mission</h4>
-                  <p className="text-gray-500 text-sm leading-relaxed">To provide ethically grounded, high-tech medical solutions with compassion.</p>
+                  <p className="text-gray-500 text-sm leading-relaxed">To provide a premium and holistic patient care experience and develop an internal community of trust and respect.</p>
                 </div>
               </div>
             </motion.div>
@@ -317,7 +317,7 @@ const About = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent" />
                   <div className="absolute bottom-8 left-8 lg:bottom-12 lg:left-12 max-w-xl pr-8">
                      <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[10px] mb-3 lg:mb-4 block">Medical Hub</span>
-                     <h3 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight">150-Bedded Elite Facility</h3>
+                     <h3 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight">100-Bedded Elite Facility</h3>
                      <Link to="/infrastructure" className="inline-flex items-center gap-3 px-6 py-3 lg:px-8 lg:py-4 bg-white text-brand-dark rounded-full font-bold text-xs lg:text-sm hover:bg-primary-50 transition-all">
                         Virtual Tour <ArrowRight className="w-4 h-4" />
                      </Link>
@@ -402,7 +402,7 @@ const About = () => {
                   <Link to="/doctors" className="px-8 py-4 lg:px-10 lg:py-5 bg-white text-brand-dark rounded-full font-bold text-base lg:text-lg shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-3">
                      Book an Appointment <Calendar className="w-5 h-5" />
                   </Link>
-                  <a href="tel:+918929733551" className="px-8 py-4 lg:px-10 lg:py-5 border border-white/20 text-white rounded-full font-bold text-base lg:text-lg backdrop-blur-md hover:bg-white/10 transition-all flex items-center justify-center gap-3">
+                  <a href="tel:+918929733550" className="px-8 py-4 lg:px-10 lg:py-5 border border-white/20 text-white rounded-full font-bold text-base lg:text-lg backdrop-blur-md hover:bg-white/10 transition-all flex items-center justify-center gap-3">
                      Call 24/7 Helpline <Phone className="w-5 h-5" />
                   </a>
                </div>

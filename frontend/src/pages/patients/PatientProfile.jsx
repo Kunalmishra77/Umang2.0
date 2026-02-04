@@ -19,7 +19,7 @@ const PatientProfile = () => {
                     <Col md={12}>
                         <div className="change-avatar d-flex align-items-center mb-4">
                             <div className="profile-img me-3">
-                                <Image src="https://via.placeholder.com/150" rounded className="shadow-sm" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
+                                <Image src="/assets/images/specific/personal-care.jpg" rounded className="shadow-sm" style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
                             </div>
                             <div className="upload-img">
                                 <div className="change-photo-btn btn btn-primary px-4 py-2 mb-2">
@@ -66,7 +66,7 @@ const PatientProfile = () => {
                     <Col md={6}>
                         <Form.Group className="mb-3">
                             <Form.Label className="fw-bold small text-muted">Email ID</Form.Label>
-                            <Form.Control type="email" defaultValue="richard@example.com" className="py-2 bg-light border-0 shadow-none" />
+                            <Form.Control type="email" defaultValue="Umanghospitalgurugram@gmail.com" className="py-2 bg-light border-0 shadow-none" />
                         </Form.Group>
                     </Col>
                     <Col md={6}>

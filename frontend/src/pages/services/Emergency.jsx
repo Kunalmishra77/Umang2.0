@@ -53,7 +53,7 @@ const Emergency = () => {
       <section className="relative min-h-[750px] overflow-hidden flex items-center bg-[#0f172a] py-12 lg:py-10">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1516574187841-693018f33663?auto=format&fit=crop&q=80&w=2000" 
+            src="/assets/images/service-ambulance.jpg" 
             alt="Emergency Room" 
             className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
           />
@@ -81,7 +81,7 @@ const Emergency = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 mb-12">
-              <a href="tel:+918929733551" className="h-16 px-8 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 hover-lift hover:shadow-red-900/50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
+              <a href="tel:+918929733550" className="h-16 px-8 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 hover-lift hover:shadow-red-900/50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
                 <Phone className="w-6 h-6 animate-wiggle" /> Call Ambulance: 89297 33551
               </a>
               <a href="https://maps.google.com/?q=Umang+Hospital+Gurugram" target="_blank" rel="noreferrer" className="h-16 px-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
@@ -151,7 +151,7 @@ const Emergency = () => {
             <div className="relative">
                <div className="absolute inset-0 bg-red-500/10 rounded-3xl transform rotate-3" />
                <img 
-                  src="https://images.unsplash.com/photo-1587351021759-3e566b9a44fd?auto=format&fit=crop&q=80&w=800" 
+                  src="/assets/images/infrastructure-icu.jpg" 
                   alt="Ambulance" 
                   className="relative rounded-3xl shadow-2xl w-full object-cover"
                />
@@ -226,7 +226,7 @@ const Emergency = () => {
                <p className="text-xs font-bold text-red-200 uppercase">Emergency?</p>
                <p className="font-bold text-lg">Tap to Call</p>
             </div>
-            <a href="tel:+918929733551" className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+            <a href="tel:+918929733550" className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center shadow-lg animate-pulse">
                <Phone className="w-6 h-6 fill-current" />
             </a>
          </div>

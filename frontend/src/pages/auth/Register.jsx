@@ -14,7 +14,7 @@ const Register = () => {
       {/* LEFT: Cinematic Branding */}
       <div className="lg:w-5/12 bg-[#0f172a] relative overflow-hidden hidden lg:flex flex-col justify-center p-20 text-white">
          <div className="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1516549655169-df83a0833860?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover opacity-20" alt="Hospital" />
+            <img src="/assets/images/corrected/hospital-building.jpg" className="w-full h-full object-cover opacity-20" alt="Hospital" />
             <div className="absolute inset-0 bg-gradient-to-br from-[#005580] via-[#0f172a] to-transparent" />
          </div>
          
@@ -61,7 +61,7 @@ const Register = () => {
                   <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Phone Number</label>
                   <div className="relative">
                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                     <input type="tel" placeholder="+91 98765 43210" className="w-full h-14 pl-12 pr-4 rounded-2xl border border-gray-200 focus:border-[#005580] outline-none" />
+                     <input type="tel" placeholder="+91 89297 33550" className="w-full h-14 pl-12 pr-4 rounded-2xl border border-gray-200 focus:border-[#005580] outline-none" />
                   </div>
                </div>
 
@@ -69,7 +69,7 @@ const Register = () => {
                   <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Email Address</label>
                   <div className="relative">
                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                     <input type="email" placeholder="john@example.com" className="w-full h-14 pl-12 pr-4 rounded-2xl border border-gray-200 focus:border-[#005580] outline-none" />
+                     <input type="email" placeholder="Umanghospitalgurugram@gmail.com" className="w-full h-14 pl-12 pr-4 rounded-2xl border border-gray-200 focus:border-[#005580] outline-none" />
                   </div>
                </div>
 

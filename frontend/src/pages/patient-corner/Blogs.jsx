@@ -33,7 +33,7 @@ const generateBlogs = () => {
       category: base.cat,
       readTime: `${5 + (i % 5)} min read`,
       img: base.img,
-      summary: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      summary: "Simple lifestyle adjustments can significantly boost your immune system. Learn about the power of nutrition, sleep, and stress management."
     });
   }
   return allBlogs;

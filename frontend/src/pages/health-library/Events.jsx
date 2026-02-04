@@ -60,7 +60,7 @@ const Events = () => {
       <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?auto=format&fit=crop&q=80&w=2000" 
+            src="/assets/images/localized/health-camp-event.jpg" 
             alt="Community Event" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay"
           />

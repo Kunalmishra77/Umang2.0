@@ -69,7 +69,7 @@ const HealthCheckBooking = () => {
       <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=2000" 
+            src="/assets/images/localized/health-checkup-hero.jpg" 
             alt="Health Check" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay" 
           />
@@ -206,7 +206,7 @@ const HealthCheckBooking = () => {
             <div className="grid lg:grid-cols-2 gap-20 items-center">
                <div className="relative group">
                   <div className="absolute inset-0 bg-blue-500/10 rounded-[4rem] blur-[80px] group-hover:bg-blue-500/20 transition-all duration-700" />
-                  <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=1000" alt="Lab" className="relative rounded-[4rem] shadow-2xl w-full h-[600px] object-cover" />
+                  <img src="/assets/images/localized/lab-technician.jpg" alt="Lab" className="relative rounded-[4rem] shadow-2xl w-full h-[600px] object-cover" />
                   <div className="absolute top-10 left-10 bg-white/90 backdrop-blur p-8 rounded-[3rem] shadow-2xl border border-white/20">
                      <div className="flex items-center gap-4 mb-4">
                         <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-600"><ShieldCheck className="w-6 h-6" /></div>
@@ -307,7 +307,7 @@ const HealthCheckBooking = () => {
                            </div>
                            <div className="space-y-2">
                               <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Phone Number</label>
-                              <input type="tel" required className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent" placeholder="+91 98765 43210" />
+                              <input type="tel" required className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent" placeholder="+91 89297 33550" />
                            </div>
                            <div className="space-y-2">
                               <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Preferred Date</label>
@@ -379,7 +379,7 @@ const HealthCheckBooking = () => {
                <h2 className="text-4xl font-serif font-bold mb-4">Healthy Living Starts Here.</h2>
                <p className="text-blue-200 text-lg opacity-80">Join 50,000+ individuals who trust Umang for their annual health screenings.</p>
             </div>
-            <a href="tel:+918929733551" className="h-16 px-10 rounded-xl bg-white text-[#0f172a] font-black text-lg hover:bg-blue-50 transition-all flex items-center gap-3 shadow-2xl">
+            <a href="tel:+918929733550" className="h-16 px-10 rounded-xl bg-white text-[#0f172a] font-black text-lg hover:bg-blue-50 transition-all flex items-center gap-3 shadow-2xl">
                <Smartphone className="w-6 h-6" /> Call for Assistance
             </a>
          </div>

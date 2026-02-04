@@ -260,7 +260,7 @@ const DoctorSearch = () => {
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative">
                <div className="absolute inset-0 bg-blue-100 rounded-[3rem] rotate-3" />
-               <img src="https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80&w=1000" alt="Consultation" className="relative rounded-[3rem] shadow-2xl w-full h-[500px] object-cover" />
+               <img src="/assets/images/hospital-reception.jpg" alt="Consultation" className="relative rounded-[3rem] shadow-2xl w-full h-[500px] object-cover" />
             </div>
             <div>
                <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-8">How to Choose the Right Specialist?</h2>

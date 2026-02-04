@@ -42,7 +42,7 @@ const InquiryHub = () => {
       <section className="relative min-h-[500px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=2000" 
+            src="/assets/images/localized/inquiry-hero.jpg" 
             alt="Customer Support" 
             className="w-full h-full object-cover opacity-10" 
           />
@@ -107,7 +107,7 @@ const InquiryHub = () => {
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative">
                <div className="absolute inset-0 bg-blue-100 rounded-[4rem] rotate-3" />
-               <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000" alt="Corporate" className="relative rounded-[4rem] shadow-2xl w-full h-[500px] object-cover" />
+               <img src="/assets/images/localized/corporate-office.jpg" alt="Corporate" className="relative rounded-[4rem] shadow-2xl w-full h-[500px] object-cover" />
                <div className="absolute bottom-10 right-10 bg-[#005580] text-white p-8 rounded-[3rem] shadow-2xl max-w-[250px]">
                   <h4 className="text-3xl font-serif font-bold mb-2">500+</h4>
                   <p className="text-sm opacity-80">Corporates already empanelled with Umang Group.</p>
@@ -227,7 +227,7 @@ const InquiryHub = () => {
             </div>
             <div className="order-1 lg:order-2 relative group">
                <div className="absolute inset-0 bg-blue-500/10 rounded-full blur-[100px] scale-150 animate-pulse" />
-               <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1000" alt="Concierge" className="relative rounded-[4rem] shadow-2xl w-full h-[600px] object-cover" />
+               <img src="/assets/images/localized/media-connect-hero.jpg" alt="Concierge" className="relative rounded-[4rem] shadow-2xl w-full h-[600px] object-cover" />
             </div>
          </div>
       </section>
@@ -240,14 +240,14 @@ const InquiryHub = () => {
                <div>
                   <Phone className="w-12 h-12 text-blue-400 mx-auto mb-6" />
                   <h4 className="text-xl font-bold mb-4">Voice Desk</h4>
-                  <p className="text-blue-200/60 mb-2">Emergency: +91 89297 33551</p>
+                  <p className="text-blue-200/60 mb-2">Emergency: +91 89297 33550</p>
                   <p className="text-blue-200/60">OPD Hub: +91 124 456 7890</p>
                </div>
                <div>
                   <Mail className="w-12 h-12 text-blue-400 mx-auto mb-6" />
                   <h4 className="text-xl font-bold mb-4">Email Assistance</h4>
-                  <p className="text-blue-200/60 mb-2">Inquiry: info@umanghospitals.in</p>
-                  <p className="text-blue-200/60">Corporate: b2b@umanghospitals.in</p>
+                  <p className="text-blue-200/60 mb-2">Inquiry: Umanghospitalgurugram@gmail.com</p>
+                  <p className="text-blue-200/60">Corporate: Umanghospitalgurugram@gmail.com</p>
                </div>
                <div>
                   <MapPin className="w-12 h-12 text-blue-400 mx-auto mb-6" />

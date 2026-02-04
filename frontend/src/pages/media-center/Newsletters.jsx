@@ -41,7 +41,7 @@ const Newsletters = () => {
       <section className="relative min-h-[650px] flex items-center bg-[#005580] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&q=80&w=2000" 
+            src="/assets/images/localized/newsletter-hero.jpg" 
             alt="Newsletter" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay" 
           />
@@ -104,7 +104,7 @@ const Newsletters = () => {
           >
              <div className="relative z-10 bg-white rounded-[3rem] shadow-2xl p-4 border border-white/10 group cursor-pointer overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=800" 
+                  src="/assets/images/localized/lab-technician.jpg" 
                   alt="Magazine" 
                   className="rounded-[2.5rem] shadow-lg w-full h-[550px] object-cover transition-transform duration-1000 group-hover:scale-105" 
                 />
@@ -282,7 +282,7 @@ const Newsletters = () => {
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div className="order-2 lg:order-1">
                <img 
-                  src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=1000" 
+                  src="/assets/images/localized/healthy-lifestyle.jpg" 
                   alt="Community" 
                   className="rounded-[3rem] shadow-2xl w-full h-[500px] object-cover"
                />

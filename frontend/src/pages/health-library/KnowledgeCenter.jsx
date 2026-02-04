@@ -57,7 +57,7 @@ const KnowledgeCenter = () => {
       <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80&w=2000" 
+            src="/assets/images/knowledge-center-cme.jpg" 
             alt="Medical Library" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay" 
           />

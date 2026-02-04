@@ -67,7 +67,7 @@ const HealthCheckup = () => {
       <section className="relative min-h-[650px] flex items-center bg-[#005580] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=2000" 
+            src="/assets/images/localized/health-checkup-hero.jpg" 
             alt="Health Checkup" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay"
           />
@@ -116,7 +116,7 @@ const HealthCheckup = () => {
              {/* Decorative Abstract Shapes */}
              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[80px]" />
              <img 
-               src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&q=80&w=800" 
+               src="/assets/images/localized/lab-technician.jpg" 
                alt="Doctor Reviewing Reports" 
                className="relative z-10 rounded-[3rem] shadow-2xl border-8 border-white/5 rotate-2 hover:rotate-0 transition-transform duration-700" 
              />
@@ -195,7 +195,7 @@ const HealthCheckup = () => {
                <div className="relative">
                   <div className="absolute inset-0 bg-blue-50 rounded-[3rem] -rotate-3" />
                   <img 
-                     src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=1000" 
+                     src="/assets/images/localized/stethoscope-desk.jpg" 
                      alt="Lab Process" 
                      className="relative rounded-[3rem] shadow-2xl w-full object-cover"
                   />

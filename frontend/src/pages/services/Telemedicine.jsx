@@ -6,22 +6,17 @@ import {
   MessageSquare, Mic, FileText, CheckCircle, ArrowRight, Star, Phone, HelpCircle, Laptop
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ASSETS, getRandomDoctor } from '../../utils/imageAssets';
+import { doctors as allDoctors } from '../../utils/doctorsData';
 
-const specialties = [
-  { name: "General Medicine", icon: "🩺", waiting: "10 mins" },
-  { name: "Pediatrics", icon: "👶", waiting: "15 mins" },
-  { name: "Dermatology", icon: "🧬", waiting: "20 mins" },
-  { name: "Gynaecology", icon: "👩‍⚕️", waiting: "12 mins" },
-  { name: "Psychiatry", icon: "🧠", waiting: "30 mins" },
-  { name: "Nutrition", icon: "🥗", waiting: "On Appt" }
-];
-
-const doctors = [
-  { id: 1, name: "Dr. Anjali Gupta", spec: "General Physician", exp: "12 Yrs", rating: 4.9, img: getRandomDoctor('female'), online: true },
-  { id: 2, name: "Dr. Rahul Sharma", spec: "Dermatologist", exp: "8 Yrs", rating: 4.8, img: getRandomDoctor('male'), online: true },
-  { id: 3, name: "Dr. Priya Singh", spec: "Pediatrician", exp: "15 Yrs", rating: 5.0, img: getRandomDoctor('female'), online: false },
-];
+const doctors = allDoctors.slice(0, 3).map(doc => ({
+  id: doc.id,
+  name: doc.name,
+  spec: doc.specialty,
+  exp: doc.exp,
+  rating: doc.rating,
+  img: doc.image,
+  online: doc.id % 2 !== 0 // Mock online status
+}));
 
 const testimonials = [
   { name: "Riya Kapoor", text: "The video quality was amazing, and Dr. Anjali listened to all my concerns patiently. Got the prescription instantly!", rating: 5 },

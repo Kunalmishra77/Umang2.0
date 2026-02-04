@@ -55,7 +55,7 @@ const PressRelease = () => {
       <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=2000" 
+            src="/assets/images/localized/press-conference.jpg" 
             alt="Press Conference" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay" 
           />
@@ -214,7 +214,7 @@ const PressRelease = () => {
             </h2>
             <div className="flex flex-col items-center">
                <div className="w-16 h-16 rounded-full overflow-hidden mb-4 shadow-lg border-2 border-white">
-                  <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=200" alt="CEO" className="w-full h-full object-cover" />
+                  <img src="/assets/images/localized/doctor-thumbnail.jpg" alt="CEO" className="w-full h-full object-cover" />
                </div>
                <h4 className="font-bold text-[#0f172a]">Dr. Vikram Sethi</h4>
                <p className="text-sm text-gray-400 uppercase tracking-widest font-bold">Group Medical Director</p>
@@ -233,7 +233,7 @@ const PressRelease = () => {
                   </p>
                   <div className="space-y-4">
                      <div className="flex items-center gap-4 text-gray-700 font-bold">
-                        <Mail className="w-5 h-5 text-blue-500" /> pr@umanghospitals.in
+                        <Mail className="w-5 h-5 text-blue-500" /> Umanghospitalgurugram@gmail.com
                      </div>
                      <div className="flex items-center gap-4 text-gray-700 font-bold">
                         <Phone className="w-5 h-5 text-blue-500" /> +91 124 456 7895

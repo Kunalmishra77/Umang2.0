@@ -34,7 +34,7 @@ const GeneralAppointment = () => {
                   <label className="text-sm font-bold text-gray-700 flex items-center gap-2">
                     <Phone className="w-4 h-4 text-primary-500" /> Phone Number
                   </label>
-                  <input type="tel" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all" placeholder="+91 98765 43210" />
+                  <input type="tel" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all" placeholder="+91 89297 33550" />
                 </div>
               </div>
 
@@ -43,7 +43,7 @@ const GeneralAppointment = () => {
                   <label className="text-sm font-bold text-gray-700 flex items-center gap-2">
                     <Mail className="w-4 h-4 text-primary-500" /> Email Address
                   </label>
-                  <input type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all" placeholder="john@example.com" />
+                  <input type="email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-200 outline-none transition-all" placeholder="Umanghospitalgurugram@gmail.com" />
                 </div>
                 <div className="space-y-2">
                   <label className="text-sm font-bold text-gray-700 flex items-center gap-2">
