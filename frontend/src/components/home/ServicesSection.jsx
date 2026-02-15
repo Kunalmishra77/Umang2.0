@@ -8,10 +8,10 @@ import SpotlightCard from '../common/SpotlightCard';
 import MaskText from '../common/MaskText';
 
 const services = [
-  { icon: Home, title: "Home Care", slug: "home-care", desc: "Nursing, physiotherapy, and elderly care at your doorstep.", color: "bg-blue-50 text-blue-600", img: ASSETS.NURSE_CARE },
-  { icon: Video, title: "Telemedicine", slug: "telemedicine", desc: "Connect with top specialists via secure video calls.", color: "bg-green-50 text-green-600", img: ASSETS.TELEMEDICINE },
-  { icon: Pill, title: "Pharmacy", slug: "buy-medicines", desc: "24/7 online pharmacy with genuine medicine delivery.", color: "bg-purple-50 text-purple-600", img: ASSETS.PHARMACY },
-  { icon: Activity, title: "Health Checkup", slug: "health-checkup", desc: "Comprehensive custom preventive packages.", color: "bg-orange-50 text-orange-600", img: ASSETS.HEALTH_CHECKUP }
+  { icon: Home, title: "Home Care", path: "/services/home-care", desc: "Nursing, physiotherapy, and elderly care at your doorstep.", color: "bg-blue-50 text-blue-600", img: ASSETS.NURSE_CARE },
+  { icon: Video, title: "Telemedicine", path: "/services/telemedicine", desc: "Connect with top specialists via secure video calls.", color: "bg-green-50 text-green-600", img: ASSETS.TELEMEDICINE },
+  { icon: Pill, title: "Pharmacy", path: "/pharmacy", desc: "24/7 online pharmacy with genuine medicine delivery.", color: "bg-purple-50 text-purple-600", img: ASSETS.PHARMACY },
+  { icon: Activity, title: "Health Checkup", path: "/services/health-checkup", desc: "Comprehensive custom preventive packages.", color: "bg-orange-50 text-orange-600", img: ASSETS.HEALTH_CHECKUP }
 ];
 
 const containerVariants = {
@@ -43,7 +43,7 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <motion.div key={index} variants={cardVariants} className="relative min-h-[400px] lg:min-h-[450px]">
               <SpotlightCard className="h-full rounded-[2rem] bg-gray-50 border border-gray-100 shadow-sm hover-lift transition-all duration-500 group overflow-hidden">
-                <Link to={`/services/${service.slug}`} className="absolute inset-0 z-20" />
+                <Link to={service.path} className="absolute inset-0 z-20" />
                 
                 <div className="h-48 lg:h-[220px] overflow-hidden relative bg-gray-200">
                    <div className="absolute inset-0 bg-primary-900/10 z-10 group-hover:opacity-0 transition-opacity" />
