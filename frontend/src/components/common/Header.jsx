@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, Calendar, Activity, Mail, ArrowRight, ShieldCheck, MapPin, Clock, Plus, Minus, Heart, Star, Award, Stethoscope } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Calendar, Activity, Mail, ArrowRight, ShieldCheck, MapPin, Clock, Plus, Minus, Heart, Star, Award, Stethoscope, Video, Pill, Info, BookOpen, Users, Smartphone, MessageSquare } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
@@ -34,7 +34,6 @@ const Header = () => {
       width: 'md:w-[750px]',
       content: (
         <div className="flex flex-col md:flex-row gap-0 overflow-hidden">
-          {/* Featured Section */}
           <div className="w-full md:w-[35%] bg-primary-50/50 p-8 border-r border-gray-100 flex flex-col justify-between">
              <div>
                 <div className="flex items-center gap-2 text-primary-600 font-black uppercase tracking-[0.3em] text-[9px] mb-6">
@@ -49,14 +48,13 @@ const Header = () => {
                          <h4 className="font-bold text-lg">Cardiac Sciences</h4>
                       </div>
                    </div>
-                   <p className="text-xs text-gray-500 leading-relaxed mb-4">Advanced Cath Labs & Heart Surgery facilities with 24/7 critical care support.</p>
+                   <p className="text-xs text-gray-500 leading-relaxed mb-4 font-medium">Advanced Cath Labs & Heart Surgery facilities with 24/7 critical care support.</p>
                 </Link>
              </div>
              <Link to="/specialities" className="flex items-center text-[10px] font-black text-primary-600 uppercase tracking-widest gap-2 hover:gap-3 transition-all">
                 All Departments <ArrowRight className="w-3.5 h-3.5" />
              </Link>
           </div>
-          {/* Links Grid */}
           <div className="w-full md:w-[65%] p-8 bg-white">
              <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
                 <ShieldCheck className="w-3.5 h-3.5" /> Major Specialities
@@ -84,105 +82,246 @@ const Header = () => {
         </div>
       ),
       links: [
-        { name: "Cardiac Sciences", id: 'cardiac' }, 
-        { name: "Neuro Sciences", id: 'neuro' }, 
-        { name: "Orthopaedics", id: 'ortho' }, 
-        { name: "Gastroenterology", id: 'gastro' }, 
-        { name: "Pulmonology", id: 'pulmonology' }, 
-        { name: "Urology", id: 'urology' },
-        { name: "General Surgery", id: 'surgery' },
-        { name: "Oncology", id: 'oncology' }
+        { name: "Cardiac Sciences", id: 'cardiac' }, { name: "Neuro Sciences", id: 'neuro' }, 
+        { name: "Orthopaedics", id: 'ortho' }, { name: "Gastroenterology", id: 'gastro' }, 
+        { name: "Pulmonology", id: 'pulmonology' }, { name: "Urology", id: 'urology' },
+        { name: "General Surgery", id: 'surgery' }, { name: "Oncology", id: 'oncology' }
       ]
     },
     {
       name: 'Services',
       path: '/services',
       type: 'dropdown',
-      width: 'w-[300px]',
+      width: 'md:w-[700px]',
       content: (
-         <div className="p-4 bg-white overflow-hidden">
-            <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4 ml-4">Hospital Services</div>
-            <div className="space-y-1">
+        <div className="flex flex-col md:flex-row gap-0 overflow-hidden">
+          <div className="w-full md:w-[35%] bg-blue-50/50 p-8 border-r border-gray-100 flex flex-col justify-between">
+             <div>
+                <div className="flex items-center gap-2 text-[#005580] font-black uppercase tracking-[0.3em] text-[9px] mb-6">
+                   <Clock className="w-3 h-3" /> 24/7 Response
+                </div>
+                <Link to="/services/emergency" className="block group">
+                   <div className="aspect-[16/10] rounded-2xl overflow-hidden mb-4 relative shadow-xl">
+                      <img src="/assets/Home/hero2.png" alt="Emergency" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      <div className="absolute inset-0 bg-red-900/20 group-hover:bg-transparent transition-colors" />
+                      <div className="absolute top-4 left-4">
+                         <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-red-600 shadow-lg">
+                            <Phone className="w-4 h-4 fill-current" />
+                         </div>
+                      </div>
+                   </div>
+                   <h4 className="font-bold text-lg text-brand-dark mb-1">Emergency & Trauma</h4>
+                   <p className="text-xs text-gray-500 leading-relaxed font-medium mb-4 text-left">Advanced life support ambulances and a dedicated trauma team ready 24/7.</p>
+                </Link>
+             </div>
+             <Link to="/services" className="flex items-center text-[10px] font-black text-primary-600 uppercase tracking-widest gap-2 hover:gap-3 transition-all">
+                Explore All Services <ArrowRight className="w-3.5 h-3.5" />
+             </Link>
+          </div>
+          <div className="w-full md:w-[65%] p-8 bg-white">
+             <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                <Activity className="w-3.5 h-3.5" /> Support Services
+             </div>
+             <div className="grid grid-cols-2 gap-x-8 gap-y-2">
                {[
-                  { name: "Diagnostics & Labs", slug: "lab-test-diagnostic", color: "bg-blue-50 text-blue-600" },
-                  { name: "24/7 Pharmacy", slug: "buy-medicines", color: "bg-purple-50 text-purple-600" },
-                  { name: "Emergency & Trauma", slug: "emergency", color: "bg-red-50 text-red-600" },
-                  { name: "Health Checkups", slug: "health-checkup", color: "bg-emerald-50 text-emerald-600" },
-                  { name: "ICU Infrastructure", path: "/infrastructure/icu", color: "bg-cyan-50 text-cyan-600" },
-                  { name: "Cashless Insurance", path: "/cashless-insurance", color: "bg-amber-50 text-amber-600" }
+                 { name: "Diagnostics & Labs", slug: "lab-test-diagnostic", icon: Activity },
+                 { name: "24/7 Pharmacy", slug: "buy-medicines", icon: Pill },
+                 { name: "Emergency Care", slug: "emergency", icon: Phone },
+                 { name: "Health Checkups", slug: "health-checkup", icon: ShieldCheck },
+                 { name: "ICU Facility", path: "/infrastructure/icu", icon: Activity },
+                 { name: "Cashless Help", path: "/cashless-insurance", icon: Award },
+                 { name: "Telemedicine", path: "/services/telemedicine", icon: Video },
+                 { name: "Home Care", path: "/services/ipd-opd", icon: Info }
                ].map((item, i) => (
-                  <Link key={i} to={item.path || `/services/${item.slug}`} className="flex items-center justify-between px-4 py-3 text-[13px] font-bold text-gray-600 hover:bg-gray-50 hover:text-primary-600 rounded-xl transition-all group">
-                     <div className="flex items-center gap-3">
-                        <div className={`w-2 h-2 rounded-full ${item.color.split(' ')[0]}`} />
-                        {item.name}
-                     </div>
-                     <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
-                  </Link>
+                 <Link key={i} to={item.path || `/services/${item.slug}`} className="flex items-center gap-3 py-2.5 text-[13px] font-bold text-gray-600 hover:text-primary-600 transition-all group">
+                    <div className="w-8 h-8 rounded-lg bg-gray-50 group-hover:bg-primary-50 flex items-center justify-center text-gray-400 group-hover:text-primary-500 transition-colors">
+                       <item.icon className="w-4 h-4" />
+                    </div>
+                    {item.name}
+                 </Link>
                ))}
-            </div>
-         </div>
+             </div>
+          </div>
+        </div>
       ),
       links: [
-        { name: "Diagnostics & Labs", slug: "lab-test-diagnostic" },
-        { name: "24/7 Pharmacy", slug: "buy-medicines" },
-        { name: "Emergency & Trauma", slug: "emergency" },
-        { name: "Health Checkups", slug: "health-checkup" },
-        { name: "ICU Infrastructure", path: "/infrastructure/icu" },
-        { name: "Cashless Insurance", path: "/cashless-insurance" }
+        { name: "Diagnostics & Labs", slug: "lab-test-diagnostic" }, { name: "24/7 Pharmacy", slug: "buy-medicines" },
+        { name: "Emergency & Trauma", slug: "emergency" }, { name: "Health Checkups", slug: "health-checkup" },
+        { name: "ICU Infrastructure", path: "/infrastructure/icu" }, { name: "Cashless Insurance", path: "/cashless-insurance" }
       ]
     },
     {
       name: 'Library',
       path: '/health-library',
       type: 'dropdown',
+      width: 'md:w-[650px]',
+      content: (
+        <div className="flex flex-col md:flex-row gap-0 overflow-hidden">
+          <div className="w-full md:w-[40%] bg-emerald-50/50 p-8 border-r border-gray-100">
+             <div className="text-[9px] font-black text-emerald-600 uppercase tracking-[0.3em] mb-6">Educational Resources</div>
+             <Link to="/health-library/ailments" className="block group">
+                <div className="aspect-square rounded-2xl overflow-hidden mb-4 relative shadow-lg">
+                   <img src="/assets/Home/Health-Checkup.jpg" alt="Checkup" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                   <div className="absolute inset-0 bg-emerald-900/20 group-hover:bg-transparent transition-colors" />
+                </div>
+                <h4 className="font-bold text-lg text-brand-dark mb-1">Health Ailments</h4>
+                <p className="text-xs text-gray-500 leading-relaxed font-medium text-left">Comprehensive encyclopedia of medical conditions and symptoms.</p>
+             </Link>
+          </div>
+          <div className="w-full md:w-[60%] p-8 bg-white grid grid-cols-1 gap-2">
+             {[
+               { name: "Medical Treatments", path: "/health-library/treatments", icon: Stethoscope },
+               { name: "Advanced Technologies", path: "/health-library/technologies", icon: Zap },
+               { name: "Health Events", path: "/health-library/events", icon: Calendar },
+               { name: "Knowledge Center", path: "/health-library/knowledge-center", icon: GraduationCap },
+               { name: "Patient Downloads", path: "/health-library/downloads", icon: FileText }
+             ].map((item, i) => (
+               <Link key={i} to={item.path} className="flex items-center justify-between p-3 rounded-xl hover:bg-emerald-50 text-gray-600 hover:text-emerald-700 transition-all font-bold group">
+                  <div className="flex items-center gap-3">
+                     <item.icon className="w-5 h-5 opacity-40 group-hover:opacity-100" />
+                     <span className="text-sm">{item.name}</span>
+                  </div>
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+               </Link>
+             ))}
+          </div>
+        </div>
+      ),
       links: [
-        { name: "Treatments", path: "/health-library/treatments" },
-        { name: "Technologies", path: "/health-library/technologies" },
-        { name: "Ailments", path: "/health-library/ailments" },
-        { name: "Knowledge Center", path: "/health-library/knowledge-center" },
+        { name: "Treatments", path: "/health-library/treatments" }, { name: "Technologies", path: "/health-library/technologies" },
+        { name: "Ailments", path: "/health-library/ailments" }, { name: "Knowledge Center", path: "/health-library/knowledge-center" },
         { name: "Events", path: "/health-library/events" }
-      ],
-      width: 'w-[240px]'
+      ]
     },
     {
       name: 'Team',
       path: '/team',
       type: 'dropdown',
+      width: 'md:w-[600px]',
+      content: (
+        <div className="flex flex-col md:flex-row gap-0 overflow-hidden">
+          <div className="w-full md:w-[45%] bg-indigo-50/50 p-8 border-r border-gray-100">
+             <div className="text-[9px] font-black text-indigo-600 uppercase tracking-[0.3em] mb-6">Expert Faculty</div>
+             <Link to="/doctors" className="block group">
+                <div className="aspect-[4/5] rounded-2xl overflow-hidden mb-4 relative shadow-lg">
+                   <img src="/doctors-images/dr-manmohan.svg" alt="Doctor" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                   <div className="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors" />
+                </div>
+                <h4 className="font-bold text-lg text-brand-dark mb-1">Meet Our Doctors</h4>
+                <p className="text-xs text-gray-500 leading-relaxed font-medium text-left">Over 100+ board certified specialists across 25+ departments.</p>
+             </Link>
+          </div>
+          <div className="w-full md:w-[55%] p-8 bg-white flex flex-col justify-center gap-3">
+             {[
+               { name: "Our Specialists", path: "/doctors", icon: Users, desc: "Search doctor directory" },
+               { name: "Leadership Team", path: "/team", icon: Award, desc: "Our board & management" },
+               { name: "Nursing Staff", path: "/team", icon: Heart, desc: "Compassionate care team" },
+               { name: "Join Our Team", path: "/careers", icon: Briefcase, desc: "Explore career opportunities" }
+             ].map((item, i) => (
+               <Link key={i} to={item.path} className="flex items-center gap-4 p-4 rounded-2xl hover:bg-indigo-50 transition-all group">
+                  <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-indigo-400 group-hover:text-indigo-600 transition-colors border border-gray-100">
+                     <item.icon className="w-5 h-5" />
+                  </div>
+                  <div>
+                     <p className="text-sm font-bold text-gray-900 leading-none mb-1">{item.name}</p>
+                     <p className="text-[10px] text-gray-400 font-medium">{item.desc}</p>
+                  </div>
+               </Link>
+             ))}
+          </div>
+        </div>
+      ),
       links: [
-        { name: "Our Doctors", path: "/doctors" },
-        { name: "Leadership", path: "/team" },
-        { name: "Careers", path: "/careers" }
-      ],
-      width: 'w-[240px]'
+        { name: "Our Doctors", path: "/doctors" }, { name: "Leadership", path: "/team" }, { name: "Careers", path: "/careers" }
+      ]
     },
     {
        name: 'Patients',
        path: '/patient-corner',
        type: 'dropdown',
+       width: 'md:w-[650px]',
+       content: (
+        <div className="flex flex-col md:flex-row gap-0 overflow-hidden">
+          <div className="w-full md:w-[40%] bg-amber-50/50 p-8 border-r border-gray-100 flex flex-col justify-between">
+             <div className="space-y-6">
+                <div className="text-[9px] font-black text-amber-600 uppercase tracking-[0.3em]">Patient Portal</div>
+                <div className="p-6 bg-white rounded-2xl shadow-xl border border-amber-100 text-center">
+                   <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 mx-auto mb-4">
+                      <Smartphone className="w-6 h-6" />
+                   </div>
+                   <h5 className="font-bold text-sm text-gray-900 mb-2">Digital Reports</h5>
+                   <p className="text-[10px] text-gray-500 font-medium mb-4">Access your lab results and medical records online.</p>
+                   <Link to="/login" className="text-[10px] font-black text-amber-600 uppercase tracking-widest border-b border-amber-200 hover:border-amber-600 transition-all">Login Now</Link>
+                </div>
+             </div>
+             <Link to="/patient-experience" className="text-[10px] font-black text-gray-400 uppercase tracking-widest hover:text-amber-600 transition-colors">Patient Rights & Policy</Link>
+          </div>
+          <div className="w-full md:w-[60%] p-8 bg-white grid grid-cols-1 gap-2">
+             {[
+                { name: "Patient Experience", path: "/patient-experience", icon: Star },
+                { name: "Success Stories", path: "/patient-corner/patient-stories", icon: Heart },
+                { name: "Health Blogs", path: "/patient-corner/blogs", icon: PenTool },
+                { name: "Health Podcasts", path: "/patient-corner/blogs", icon: Mic },
+                { name: "Patient Literature", path: "/patient-corner/patient-information-literature", icon: Info }
+             ].map((item, i) => (
+               <Link key={i} to={item.path} className="flex items-center justify-between p-4 rounded-2xl hover:bg-amber-50 text-gray-600 hover:text-amber-700 transition-all font-bold group">
+                  <div className="flex items-center gap-4">
+                     <item.icon className="w-5 h-5 opacity-40 group-hover:opacity-100" />
+                     <span className="text-sm">{item.name}</span>
+                  </div>
+                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+               </Link>
+             ))}
+          </div>
+        </div>
+       ),
        links: [
-          { name: "Patient Experience", path: "/patient-experience" },
-          { name: "Patient Stories", path: "/patient-corner/patient-stories" },
-          { name: "Health Blogs", path: "/patient-corner/blogs" },
-          { name: "Patient Literatur", path: "/patient-corner/patient-information-literature" }
-       ],
-       width: 'w-[240px]'
+          { name: "Patient Experience", path: "/patient-experience" }, { name: "Patient Stories", path: "/patient-corner/patient-stories" },
+          { name: "Health Blogs", path: "/patient-corner/blogs" }, { name: "Patient Literatur", path: "/patient-corner/patient-information-literature" }
+       ]
     },
     {
       name: 'Contact',
       path: '/contact',
       type: 'dropdown',
+      width: 'w-[320px]',
+      content: (
+        <div className="p-6 bg-white space-y-4">
+           <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2 ml-2">Quick Support</div>
+           <div className="space-y-2">
+              <a href="tel:+918929733550" className="flex items-center gap-4 p-4 rounded-2xl bg-red-50 text-red-700 group transition-all">
+                 <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                    <Phone className="w-5 h-5 fill-current" />
+                 </div>
+                 <div>
+                    <p className="text-[10px] font-black uppercase tracking-widest opacity-60 mb-0.5">Emergency 24/7</p>
+                    <p className="text-sm font-black">+91 89297 33550</p>
+                 </div>
+              </a>
+              {[
+                 { name: "General Inquiry", path: "/contact", icon: MessageSquare, color: "text-blue-600 bg-blue-50" },
+                 { name: "Inquiry Hub", path: "/contact/inquiry-hub", icon: HelpCircle, color: "text-amber-600 bg-amber-50" },
+                 { name: "Media Center", path: "/media-center", icon: Radio, color: "text-purple-600 bg-purple-50" }
+              ].map((item, i) => (
+                 <Link key={i} to={item.path} className="flex items-center gap-4 p-4 rounded-2xl hover:bg-gray-50 transition-all group">
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${item.color.split(' ')[1]} ${item.color.split(' ')[0]}`}>
+                       <item.icon className="w-5 h-5" />
+                    </div>
+                    <span className="text-sm font-bold text-gray-700">{item.name}</span>
+                 </Link>
+              ))}
+           </div>
+        </div>
+      ),
       links: [
-         { name: "Get in Touch", path: "/contact" },
-         { name: "Inquiry Hub", path: "/contact/inquiry-hub" },
-         { name: "Media Center", path: "/media-center" }
-      ],
-      width: 'w-[240px]'
+         { name: "Get in Touch", path: "/contact" }, { name: "Inquiry Hub", path: "/contact/inquiry-hub" }, { name: "Media Center", path: "/media-center" }
+      ]
     },
   ];
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'shadow-xl' : ''}`}>
+      <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'shadow-2xl' : ''}`}>
         {/* TOP BAR */}
         <div className={`bg-[#0f172a] text-white transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0' : 'max-h-12 lg:max-h-10'}`}>
            <div className="container-custom h-12 lg:h-10 flex items-center justify-between text-[10px] lg:text-[11px] font-semibold tracking-wide px-4">
@@ -221,18 +360,7 @@ const Header = () => {
                     {activeDropdown === link.name && link.type === 'dropdown' && (
                       <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className={`absolute top-[80%] left-1/2 -translate-x-1/2 pt-5 z-[110] ${link.width}`}>
                          <div className="bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden">
-                            {link.content ? link.content : (
-                               <div className="p-4">
-                                  <div className="grid grid-cols-1 gap-1">
-                                     {link.links.map((sub) => (
-                                       <Link key={sub.name} to={sub.path || (link.path === '/specialities' ? `/specialities/${sub.id}` : `${link.path}/${sub.slug}`)} state={sub.id ? { category: sub.id } : undefined} className="flex items-center justify-between px-4 py-3 text-[13px] font-bold text-gray-600 hover:bg-primary-50 hover:text-primary-600 rounded-xl transition-all group/sub">
-                                          {sub.name}
-                                          <ArrowRight className="w-4 h-4 opacity-0 group-hover/sub:opacity-100 transition-all -translate-x-2 group-hover/sub:translate-x-0" />
-                                       </Link>
-                                     ))}
-                                  </div>
-                               </div>
-                            )}
+                            {link.content}
                          </div>
                       </motion.div>
                     )}

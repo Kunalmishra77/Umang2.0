@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Zap, Clock, Award, CheckCircle2, MoveRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 import CountUp from '../../components/common/CountUp';
 
@@ -22,9 +23,46 @@ const itemVariants = {
 };
 
 const WhyChooseUs = () => {
+  const chooseItems = [
+    {
+      title: "150-Bed Infrastructure",
+      desc: "A massive facility featuring 28 ICU beds, Modular OTs, and specialized units for rapid recovery.",
+      icon: ShieldCheck,
+      img: ASSETS.HOSPITAL_EXTERIOR,
+      span: "md:col-span-2",
+      path: "/infrastructure",
+      features: ["Modular OTs", "28 ICU Beds", "Smart Wards"]
+    },
+    {
+      title: "24/7 Critical Support",
+      desc: "Round-the-clock emergency trauma care and fully stocked digital pharmacy.",
+      icon: Clock,
+      img: ASSETS.AMBULANCE,
+      span: "col-span-1",
+      path: "/services/emergency",
+      accent: "text-red-500"
+    },
+    {
+      title: "Modern Technology",
+      desc: "Equipped with 128 Slice CT, 3 Tesla MRI, and precision diagnostic labs.",
+      icon: Zap,
+      img: ASSETS.CT_SCAN,
+      span: "col-span-1",
+      path: "/health-library/technologies"
+    },
+    {
+      title: "Clinical Excellence",
+      desc: "NABH accredited standards ensuring world-class safety and clinical outcomes.",
+      icon: Award,
+      img: ASSETS.GASTRO,
+      span: "md:col-span-2",
+      path: "/about",
+      stat: "52+"
+    }
+  ];
+
   return (
     <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
-      {/* Background Tech Accents */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-50/50 rounded-full blur-[120px] -mr-100 -mt-100 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[100px] -ml-80 -mb-80 pointer-events-none" />
 
@@ -64,66 +102,34 @@ const WhyChooseUs = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
-          
-          {[
-            {
-              title: "150-Bed Infrastructure",
-              desc: "A massive facility featuring 28 ICU beds, Modular OTs, and specialized units for rapid recovery.",
-              icon: ShieldCheck,
-              img: ASSETS.HOSPITAL_EXTERIOR,
-              span: "md:col-span-2",
-              features: ["Modular OTs", "28 ICU Beds", "Smart Wards"]
-            },
-            {
-              title: "24/7 Critical Support",
-              desc: "Round-the-clock emergency trauma care and fully stocked digital pharmacy.",
-              icon: Clock,
-              img: ASSETS.AMBULANCE,
-              span: "col-span-1",
-              accent: "text-red-500"
-            },
-            {
-              title: "Modern Technology",
-              desc: "Equipped with 128 Slice CT, 3 Tesla MRI, and precision diagnostic labs.",
-              icon: Zap,
-              img: ASSETS.CT_SCAN,
-              span: "col-span-1"
-            },
-            {
-              title: "Clinical Excellence",
-              desc: "NABH accredited standards ensuring world-class safety and clinical outcomes.",
-              icon: Award,
-              img: ASSETS.GASTRO,
-              span: "md:col-span-2",
-              stat: "52+"
-            }
-          ].map((item, i) => (
+          {chooseItems.map((item, i) => (
             <motion.div 
               key={i}
               variants={itemVariants}
-              className={`${item.span} relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden group shadow-2xl transition-all duration-700 hover:-translate-y-3 flex flex-col justify-end min-h-[350px] lg:min-h-[400px] border border-gray-100`}
+              className={`${item.span} relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden group shadow-2xl transition-all duration-700 hover:-translate-y-3 border border-gray-100`}
             >
-              {/* Image with Enhanced Overlay System */}
+              <Link to={item.path} className="absolute inset-0 z-20"></Link>
+              
               <div className="absolute inset-0 z-0">
                 <img 
                   src={item.img} 
                   alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 brightness-[0.85]" 
+                  className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 brightness-[0.7]" 
                 />
-                {/* Multi-layered Gradients for Deep Contrast */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
-                <div className="absolute inset-0 bg-primary-900/10 mix-blend-overlay" />
+                {/* DARKER OVERLAY FOR PREMIUM FEEL */}
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/60 to-transparent opacity-95 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-primary-950/20 mix-blend-overlay" />
               </div>
               
-              <div className="relative z-10 p-8 lg:p-12 w-full">
+              <div className="relative z-10 p-8 lg:p-12 w-full h-full flex flex-col justify-end min-h-[350px] lg:min-h-[400px]">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
                   <div className="text-left flex-1">
                     <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-xl flex items-center justify-center border border-white/20 mb-6 shadow-2xl group-hover:bg-primary-500/20 group-hover:border-primary-500/40 transition-all duration-500">
                       <item.icon className={`w-7 h-7 ${item.accent || 'text-primary-400'}`} strokeWidth={1.5} />
                     </div>
                     
-                    <h3 className="text-2xl lg:text-4xl font-bold text-white mb-4 tracking-tight">{item.title}</h3>
-                    <p className="text-gray-300 text-base lg:text-lg leading-relaxed font-light mb-6 opacity-0 h-0 group-hover:opacity-100 group-hover:h-auto transition-all duration-500 ease-in-out">
+                    <h3 className="text-2xl lg:text-4xl font-bold text-white mb-4 tracking-tight leading-tight">{item.title}</h3>
+                    <p className="text-gray-300 text-base lg:text-lg font-light mb-6 opacity-0 h-0 group-hover:opacity-100 group-hover:h-auto transition-all duration-500 ease-in-out">
                       {item.desc}
                     </p>
 
@@ -146,9 +152,8 @@ const WhyChooseUs = () => {
                   )}
                 </div>
                 
-                {/* Interaction Indicator */}
                 <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between group-hover:border-white/10 transition-colors">
-                   <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 group-hover:text-primary-400 transition-colors">View Details</span>
+                   <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 group-hover:text-primary-400 transition-colors">View Details</span>
                    <MoveRight className="w-5 h-5 text-white/20 group-hover:text-primary-400 group-hover:translate-x-2 transition-all" />
                 </div>
               </div>
