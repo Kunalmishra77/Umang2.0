@@ -125,13 +125,12 @@ const HeroSection = () => {
             </motion.p>
 
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-12">
-              <motion.a 
-                href="/doctors"
-                whileHover={{ scale: 1.02 }}
-                className="h-16 px-10 flex items-center justify-center bg-white text-brand-dark rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-2xl w-full sm:w-auto"
+              <Link 
+                to="/doctors"
+                className="h-16 px-10 flex items-center justify-center bg-white text-brand-dark rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-2xl w-full sm:w-auto hover:scale-105 active:scale-95"
               >
-                Book Appointment <ArrowUpRight className="w-4 h-4 ml-3" />
-              </motion.a>
+                Book Appointment <ArrowRight className="w-4 h-4 ml-3" />
+              </Link>
 
               <motion.a 
                 href="tel:+918929733551"
