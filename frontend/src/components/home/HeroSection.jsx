@@ -63,7 +63,7 @@ const HeroSection = () => {
       className="relative min-h-[90svh] lg:h-screen lg:min-h-[850px] w-full overflow-hidden bg-[#020617] text-white flex items-center py-12 lg:py-0"
       onMouseMove={handleMouseMove}
     >
-      {/* 1. LIGHTER BACKGROUND ENGINE */}
+      {/* 1. BALANCED BACKGROUND ENGINE */}
       <motion.div style={{ x: bgX, y: bgY, scale: 1.05 }} className="absolute inset-0 z-0">
         <AnimatePresence mode="popLayout">
           <motion.div
@@ -76,19 +76,19 @@ const HeroSection = () => {
           >
             <img 
               src={HERO_IMAGES[index]} 
-              className="w-full h-full object-cover opacity-[0.6] lg:opacity-[0.55] brightness-[1.1] saturate-[1.1]"
+              className="w-full h-full object-cover opacity-[0.45] lg:opacity-[0.4] brightness-[0.75] contrast-[1.1]"
               alt=""
             />
           </motion.div>
         </AnimatePresence>
         
-        {/* Lighter dynamic glows */}
-        <div className="absolute top-1/4 -left-20 w-[300px] lg:w-[600px] h-[300px] lg:h-[600px] bg-primary-500/10 rounded-full blur-[80px] lg:blur-[120px]" />
+        {/* Subtle dynamic glow */}
+        <div className="absolute top-1/4 -left-20 w-[300px] lg:w-[600px] h-[300px] lg:h-[600px] bg-primary-500/10 rounded-full blur-[100px]" />
       </motion.div>
 
-      {/* LIGHTER GRADIENTS - Now using more transparency */}
-      <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-[#020617]/60 via-[#020617]/30 to-transparent z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/80 via-transparent to-transparent z-10" />
+      {/* REFINED GRADIENTS - Improved contrast for text */}
+      <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-[#020617]/80 via-[#020617]/40 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10" />
 
       {/* 2. CONTENT LAYER */}
       <div className="container-custom relative z-30 w-full">
@@ -100,9 +100,9 @@ const HeroSection = () => {
               animate={{ opacity: 1, y: 0 }}
               className="mb-6 flex justify-center lg:justify-start"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/20 rounded-full backdrop-blur-md">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full backdrop-blur-md">
                 <Activity className="w-3 h-3 text-primary-400 animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Advanced Superspeciality Care</span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/90">Advanced Superspeciality Care</span>
               </div>
             </motion.div>
 
@@ -118,7 +118,7 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-lg lg:text-2xl text-white/80 max-w-[45ch] mb-10 font-medium leading-relaxed tracking-tight mx-auto lg:mx-0 drop-shadow-lg"
+              className="text-lg lg:text-2xl text-white/70 max-w-[45ch] mb-10 font-medium leading-relaxed tracking-tight mx-auto lg:mx-0"
             >
               A 150-bed beacon of medical excellence in Gurugram, <br className="hidden lg:block" />
               where advanced tech meets human compassion.
@@ -135,28 +135,27 @@ const HeroSection = () => {
 
               <motion.a 
                 href="tel:+918929733551"
-                className="h-16 px-10 flex items-center justify-center rounded-2xl border-2 border-white/30 backdrop-blur-md hover:bg-white/10 transition-all text-xs font-black uppercase tracking-widest w-full sm:w-auto"
+                className="h-16 px-10 flex items-center justify-center rounded-2xl border-2 border-white/20 backdrop-blur-md hover:bg-white/10 transition-all text-xs font-black uppercase tracking-widest w-full sm:w-auto"
               >
                 Emergency Support
               </motion.a>
             </div>
 
-            {/* Feature Badges - Always visible, better layout */}
             <div className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-12 border-t border-white/10 pt-10">
                {[
                  { label: "NABH Accredited", icon: ShieldCheck },
                  { label: "150+ Smart Beds", icon: Award },
                  { label: "24/7 Response", icon: Clock }
                ].map((s, i) => (
-                 <div key={i} className="flex items-center gap-2 group">
+                 <div key={i} className="flex items-center gap-2">
                     <s.icon className="w-5 h-5 text-primary-400" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/70">{s.label}</span>
+                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">{s.label}</span>
                  </div>
                ))}
             </div>
           </div>
 
-          {/* FORM: Hidden on small screens, shown only on Desktop (lg and up) */}
+          {/* FORM: Desktop only */}
           <div className="hidden lg:block lg:col-span-5 xl:col-span-4 relative">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -169,7 +168,7 @@ const HeroSection = () => {
               <div className={`absolute -bottom-1 -left-1 border-b border-l ${HUD_CORNER}`} />
               <div className={`absolute -bottom-1 -right-1 border-b border-r ${HUD_CORNER}`} />
 
-              <div className="bg-white/[0.03] border border-white/10 backdrop-blur-3xl p-10 rounded-3xl relative overflow-hidden transition-all duration-500 group-hover:bg-white/[0.05]">
+              <div className="bg-white/[0.03] border border-white/10 backdrop-blur-3xl p-10 rounded-3xl relative overflow-hidden">
                 <div className="flex items-center justify-between mb-10">
                   <div className="flex items-center gap-4">
                     <HeartPulse className="w-6 h-6 text-primary-400" />
@@ -230,7 +229,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* FOOTER: Fixed for better contrast and spacing */}
       <div className="absolute bottom-6 left-0 w-full px-6 lg:px-12 flex justify-between items-center z-40">
         <div className="flex gap-2">
           {HERO_IMAGES.map((_, i) => (
@@ -239,7 +237,7 @@ const HeroSection = () => {
             </button>
           ))}
         </div>
-        <div className="flex items-center gap-4 text-[9px] font-black uppercase tracking-[0.3em] text-white/40">
+        <div className="flex items-center gap-4 text-[9px] font-black uppercase tracking-[0.3em] text-white/30">
           <Globe className="w-3 h-3" /> <span className="hidden sm:inline">Gurugram Sector 46</span>
         </div>
       </div>
