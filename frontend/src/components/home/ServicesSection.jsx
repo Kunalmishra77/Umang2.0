@@ -8,9 +8,9 @@ import SpotlightCard from '../common/SpotlightCard';
 import MaskText from '../common/MaskText';
 
 const services = [
-  { icon: Home, title: "Home Care", path: "/services/home-care", desc: "Nursing, physiotherapy, and elderly care at your doorstep.", color: "bg-blue-50 text-blue-600", img: ASSETS.NURSE_CARE },
+  { icon: Home, title: "Home Care", path: "/services/ipd-opd", desc: "Nursing, physiotherapy, and elderly care at your doorstep.", color: "bg-blue-50 text-blue-600", img: ASSETS.NURSE_CARE },
   { icon: Video, title: "Telemedicine", path: "/services/telemedicine", desc: "Connect with top specialists via secure video calls.", color: "bg-green-50 text-green-600", img: ASSETS.TELEMEDICINE },
-  { icon: Pill, title: "Pharmacy", path: "/pharmacy", desc: "24/7 online pharmacy with genuine medicine delivery.", color: "bg-purple-50 text-purple-600", img: ASSETS.PHARMACY },
+  { icon: Pill, title: "Pharmacy", path: "/services/buy-medicines", desc: "24/7 online pharmacy with genuine medicine delivery.", color: "bg-purple-50 text-purple-600", img: ASSETS.PHARMACY },
   { icon: Activity, title: "Health Checkup", path: "/services/health-checkup", desc: "Comprehensive custom preventive packages.", color: "bg-orange-50 text-orange-600", img: ASSETS.HEALTH_CHECKUP }
 ];
 
