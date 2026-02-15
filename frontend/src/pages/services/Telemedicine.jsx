@@ -210,7 +210,7 @@ const Telemedicine = () => {
                         </div>
                         <div className="flex items-center justify-between pt-6 border-t border-gray-100">
                            <div className="flex items-center gap-2">
-                              <img src="/umang.jpg" alt="Logo" className="h-6 w-auto opacity-50" />
+                              <img src="/umang.svg" alt="Logo" className="h-6 w-auto opacity-50" />
                               <span className="text-xs font-bold text-gray-400">Signed Digitally</span>
                            </div>
                            <CheckCircle className="w-5 h-5 text-green-500" />

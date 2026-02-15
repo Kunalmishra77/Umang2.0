@@ -1,9 +1,11 @@
+import { ASSETS } from '../utils/imageAssets';
+
 export const specialitiesData = {
   'cardiac': {
     title: "Cardiac Sciences (Cardiology & Cardiothoracic Care)",
     subtitle: "Advanced Heart Care Center",
     desc: "Our Centre of Excellence for Cardiac Sciences is renowned for its comprehensive care, from prevention to advanced interventional procedures. We treat the most complex heart conditions with precision and compassion.",
-    img: "/assets/images/specialty-cardiac.jpg",
+    img: ASSETS.CARDIAC,
     procedures: [
       "Angiography & Angioplasty (PTCA)",
       "Coronary Artery Bypass Graft (CABG)",
@@ -26,7 +28,7 @@ export const specialitiesData = {
     title: "Neuro Sciences (Neurology & Neurosurgery)",
     subtitle: "Brain & Spine Excellence",
     desc: "Dedicated to the diagnosis and treatment of complex neurological disorders. Our team of neurosurgeons and neurologists provides world-class care for brain tumors, stroke, and spine conditions.",
-    img: "/assets/images/specialty-neuro.jpg",
+    img: ASSETS.NEURO,
     procedures: [
       "Brain Tumor Excision",
       "Stroke Management (Thrombolysis)",
@@ -49,7 +51,7 @@ export const specialitiesData = {
     title: "Orthopaedics & Joint Replacement",
     subtitle: "Joint & Bone Care",
     desc: "Restoring mobility and quality of life. Our Orthopaedics department specializes in joint replacements, sports injuries, and complex trauma management using the latest robotic-assisted techniques.",
-    img: "/assets/images/specialty-ortho.jpg",
+    img: ASSETS.ORTHO,
     procedures: [
       "Total Knee Replacement (TKR)",
       "Total Hip Replacement (THR)",
@@ -72,7 +74,7 @@ export const specialitiesData = {
     title: "Gastroenterology",
     subtitle: "Digestive & Liver Care",
     desc: "Comprehensive care for digestive, liver, and pancreatic disorders. We offer advanced endoscopic procedures and hepatobiliary surgeries.",
-    img: "/assets/images/specialty-gastro.jpg",
+    img: ASSETS.GASTRO,
     procedures: [
       "Endoscopy & Colonoscopy",
       "ERCP (Stone Removal)",
@@ -95,7 +97,7 @@ export const specialitiesData = {
     title: "Pulmonology",
     subtitle: "Respiratory Care",
     desc: "Expert care for all respiratory conditions. From asthma and COPD to interstitial lung diseases and sleep disorders, our pulmonologists help you breathe easier.",
-    img: "/assets/images/specialty-pulmonology.jpg",
+    img: ASSETS.PULMONOLOGY,
     procedures: [
       "Bronchoscopy",
       "Thoracoscopy",
@@ -118,7 +120,7 @@ export const specialitiesData = {
     title: "General & Laparoscopic Surgery",
     subtitle: "Minimally Invasive Surgery",
     desc: "Our General Surgery department performs a wide range of procedures, focusing on laparoscopic and minimally invasive techniques for faster recovery and minimal scarring.",
-    img: "/assets/images/infrastructure-ot.jpg",
+    img: ASSETS.OT,
     procedures: [
       "Laparoscopic Cholecystectomy (Gallbladder)",
       "Hernia Repair",
@@ -141,7 +143,7 @@ export const specialitiesData = {
     title: "Urology",
     subtitle: "Kidney & Urinary Care",
     desc: "Specialized care for urinary tract and reproductive health. We treat kidney stones, prostate issues, and urological cancers with advanced laser and robotic techniques.",
-    img: "/assets/images/specialty-urology.jpg",
+    img: ASSETS.UROLOGY,
     procedures: [
       "Laser Lithotripsy (Kidney Stones)",
       "TURP (Prostate Surgery)",
@@ -164,7 +166,7 @@ export const specialitiesData = {
     title: "Nephrology",
     subtitle: "Kidney Health & Dialysis",
     desc: "Dedicated to the prevention, diagnosis, and treatment of kidney diseases. Our state-of-the-art dialysis unit and transplant program offer hope and healing.",
-    img: "/assets/images/department-nephrology.jpg",
+    img: ASSETS.DIALYSIS,
     procedures: [
       "Hemodialysis",
       "Peritoneal Dialysis",
@@ -187,7 +189,7 @@ export const specialitiesData = {
     title: "Pain Management",
     subtitle: "Relief & Rehabilitation",
     desc: "Chronic pain can significantly impact quality of life. Our Pain Management clinic offers multidisciplinary care to diagnose, treat, and manage chronic pain conditions using advanced interventional techniques and holistic therapies.",
-    img: "/assets/images/hospital-reception.jpg",
+    img: ASSETS.RECEPTION,
     procedures: [
       "Interventional Pain Procedures",
       "Nerve Blocks & Epidural Injections",
@@ -209,7 +211,7 @@ export const specialitiesData = {
     title: "Gynecology & Obstetrics",
     subtitle: "Women's Health Excellence",
     desc: "Comprehensive care for women at every stage of life. From adolescence to menopause, our expert gynecologists provide personalized treatment for reproductive health, maternity care, and gynecological surgeries.",
-    img: "/assets/images/doctor-consultation.jpg",
+    img: ASSETS.CONSULTATION,
     procedures: [
       "Normal & High-Risk Delivery",
       "Laparoscopic Hysterectomy",
@@ -232,7 +234,7 @@ export const specialitiesData = {
     title: "Physiotherapy & Rehabilitation",
     subtitle: "Restoring Movement & Strength",
     desc: "Our physiotherapy department works closely with orthopedics and neurology teams to help patients recover faster. We offer customized rehabilitation programs for post-surgery recovery, sports injuries, and chronic mobility issues.",
-    img: "/assets/images/service-homecare.jpg",
+    img: ASSETS.NURSE_CARE,
     procedures: [
       "Post-Operative Rehabilitation",
       "Sports Injury Management",

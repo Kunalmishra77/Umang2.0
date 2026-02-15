@@ -68,9 +68,9 @@ const LabDiagnostics = () => {
   );
 
   const filteredDepartments = [
-    { title: "Radiology & Imaging", items: ["3 Tesla MRI", "128 Slice CT Scan", "Digital X-Ray", "Ultrasound / Doppler", "Mammography"], img: ASSETS.RADIOLOGY },
-    { title: "Pathology", items: ["Hematology", "Biochemistry", "Microbiology", "Histopathology", "Clinical Pathology"], img: ASSETS.LAB },
-    { title: "Cardiology Diagnostics", items: ["ECG / ECHO", "TMT / Stress Test", "Holter Monitoring", "Angiography (Cath Lab)", "Doppler Study"], img: ASSETS.CARDIAC }
+    { title: "Radiology & Imaging", items: ["3 Tesla MRI", "128 Slice CT Scan", "Digital X-Ray", "Ultrasound / Doppler", "Mammography"], img: ASSETS.SVC_RADIOLOGY_IMAGING },
+    { title: "Pathology", items: ["Hematology", "Biochemistry", "Microbiology", "Histopathology", "Clinical Pathology"], img: ASSETS.SVC_PATHOLOGY },
+    { title: "Cardiology Diagnostics", items: ["ECG / ECHO", "TMT / Stress Test", "Holter Monitoring", "Angiography (Cath Lab)", "Doppler Study"], img: ASSETS.SVC_CARDIOLOGY_DIAGNOSTICS }
   ].filter(dept => 
     dept.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
     dept.items.some(item => item.toLowerCase().includes(searchTerm.toLowerCase()))

@@ -21,7 +21,7 @@ const Register = () => {
          <div className="relative z-10">
             <Link to="/" className="flex items-center gap-3 mb-16">
                <div className="p-2 bg-white rounded-xl shadow-lg">
-                  <img src="/umang.jpg" alt="Logo" className="h-10 w-auto object-contain mix-blend-multiply" />
+                  <img src="/umang.svg" alt="Logo" className="h-10 w-auto object-contain" />
                </div>
                <span className="text-3xl font-serif font-bold">Umang</span>
             </Link>

@@ -6,6 +6,7 @@ import {
   ArrowRight, FileText, Smartphone, Calendar 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const packages = [
   {
@@ -67,7 +68,7 @@ const HealthCheckup = () => {
       <section className="relative min-h-[650px] flex items-center bg-[#005580] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/assets/images/localized/health-checkup-hero.jpg" 
+            src={ASSETS.SVC_INVEST_HEALTH} 
             alt="Health Checkup" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay"
           />
@@ -116,7 +117,7 @@ const HealthCheckup = () => {
              {/* Decorative Abstract Shapes */}
              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[80px]" />
              <img 
-               src="/assets/images/localized/lab-technician.jpg" 
+               src={ASSETS.HEALTH_CHECKUP} 
                alt="Doctor Reviewing Reports" 
                className="relative z-10 rounded-[3rem] shadow-2xl border-8 border-white/5 rotate-2 hover:rotate-0 transition-transform duration-700" 
              />
@@ -195,7 +196,7 @@ const HealthCheckup = () => {
                <div className="relative">
                   <div className="absolute inset-0 bg-blue-50 rounded-[3rem] -rotate-3" />
                   <img 
-                     src="/assets/images/localized/stethoscope-desk.jpg" 
+                     src={ASSETS.SVC_LAB_PROCESS} 
                      alt="Lab Process" 
                      className="relative rounded-[3rem] shadow-2xl w-full object-cover"
                   />

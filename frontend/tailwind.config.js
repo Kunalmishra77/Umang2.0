@@ -33,7 +33,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'], // We might need to import a nice font
+        sans: ['Montserrat', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

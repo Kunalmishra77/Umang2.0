@@ -50,8 +50,9 @@ const Footer = () => {
               {[
                 { name: 'Find a Doctor', path: '/doctors' },
                 { name: 'Book Appointment', path: '/appointments/request' },
-                { name: 'Patient Portal', path: '/login' },
-                { name: 'Health Checkups', path: '/services/health-checkup' },
+                { name: 'Cashless Insurance', path: '/cashless-insurance' },
+                { name: 'ICU Infrastructure', path: '/infrastructure/icu' },
+                { name: 'Patient Experience', path: '/patient-experience' },
                 { name: 'Patient Stories', path: '/patient-corner/patient-stories' },
               ].map((link) => (
                 <li key={link.name}>
@@ -114,12 +115,12 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm text-gray-500 flex items-center gap-1">
-            &copy; 2025 Umang Hospital. Made with <Heart className="w-3 h-3 text-red-500 fill-current animate-pulse" /> in India.
+          <p className="text-sm text-gray-500 flex items-center gap-1 flex-wrap justify-center">
+            &copy; 2026 Umang Hospital. Developed by <span className="text-primary-400 font-bold ml-1">AI AGENTiX</span>. Made with <Heart className="w-3 h-3 text-red-500 fill-current animate-pulse mx-1" /> in India.
           </p>
           <div className="flex flex-wrap justify-center gap-8 text-sm font-medium">
             <Link to="/terms" className="text-gray-500 hover:text-primary-400 transition-colors">Terms of Service</Link>
-            <Link to="/privacy" className="text-gray-500 hover:text-primary-400 transition-colors">Privacy Policy</Link>
+            <Link to="/privacy-policy" className="text-gray-500 hover:text-primary-400 transition-colors">Privacy Policy</Link>
             <Link to="/sitemap" className="text-gray-500 hover:text-primary-400 transition-colors">Sitemap</Link>
           </div>
         </div>

@@ -4,6 +4,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\AppointmentController;
+use App\Http\Controllers\Api\CmsController;
+
+// CMS Public Routes
+Route::get('/pages/{slug}', [CmsController::class, 'getPage']);
+Route::get('/stats', [CmsController::class, 'getStats']);
+Route::get('/icu', [CmsController::class, 'getIcuUnits']);
+Route::get('/icu-units/{slug}', [CmsController::class, 'getIcuUnitBySlug']);
+Route::get('/insurance-companies', [CmsController::class, 'getInsuranceCompanies']);
+Route::get('/tpas', [CmsController::class, 'getTpas']);
+Route::get('/site-notices', [CmsController::class, 'getAllSiteNotices']);
+Route::get('/site-notices/{key}', [CmsController::class, 'getSiteNotice']);
+Route::post('/insurance-inquiry', [CmsController::class, 'storeInquiry']);
 
 Route::get('/doctors', [DoctorController::class, 'index']);
 Route::get('/doctors/{id}', [DoctorController::class, 'show']);
@@ -24,6 +36,14 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/appointments', [AppointmentController::class, 'store']);
     Route::delete('/appointments/{id}', [AppointmentController::class, 'destroy']);
     
+    // Admin CMS Routes
+    Route::prefix('admin')->group(function () {
+        Route::put('/pages/{id}', [CmsController::class, 'updatePage']);
+        Route::put('/stats', [CmsController::class, 'updateStats']);
+        Route::put('/icu', [CmsController::class, 'updateIcu']);
+        // Add more admin routes as needed
+    });
+
     Route::get('/patient/profile', function (Request $request) {
         return response()->json([
             'firstName' => 'John',

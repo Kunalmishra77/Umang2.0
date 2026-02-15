@@ -24,6 +24,7 @@ const About = () => {
     <div 
       ref={containerRef} 
       className="bg-white overflow-hidden relative font-sans"
+      style={{ position: 'relative' }}
     >
       <Helmet>
         <title>Our Story & Legacy | Umang Superspeciality Hospital</title>
@@ -103,7 +104,7 @@ const About = () => {
               <div className="absolute inset-0 bg-primary-600 rotate-3 transform translate-x-4 translate-y-4 rounded-[3rem]" />
               <div className="relative h-full w-full rounded-[3rem] overflow-hidden">
                 <ParallaxImage 
-                  src={ASSETS.NURSE_CARE} 
+                  src={ASSETS.ABOUT_MAIN} 
                   alt="Care" 
                   className="w-full h-full object-cover" 
                   offset={40}
@@ -182,8 +183,15 @@ const About = () => {
               <div className="lg:col-span-5 order-1 lg:order-2">
                 <div className="relative group rounded-[3rem] overflow-hidden">
                   <div className="absolute inset-0 bg-primary-200 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-1000" />
-                  <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white aspect-square">
-                    <img src={ASSETS.DIRECTOR} alt="Director" className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" />
+                  <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white aspect-square bg-brand-dark">
+                    <video 
+                      src={ASSETS.UMANG_VIDEO} 
+                      autoPlay 
+                      muted 
+                      loop 
+                      playsInline 
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                    />
                   </div>
                 </div>
               </div>
@@ -258,9 +266,9 @@ const About = () => {
                <div className="space-y-24 lg:space-y-32">
                   {[ 
                     { year: '2010', title: 'The Foundation', desc: 'Umang opens its doors as a 50-bed focused care unit. Driven by a mission to bring accessible, world-class healthcare to Gurugram.', align: 'left', img: ASSETS.HOSPITAL_EXTERIOR },
-                    { year: '2015', title: 'Technological Leap', desc: 'A major upgrade to a 100-bed facility. We installed the region\'s first 128-slice CT scan and inaugurated our advanced 24/7 Pathology Lab.', align: 'right', img: ASSETS.LAB },
-                    { year: '2020', title: 'Super Speciality Beacon', desc: 'Launch of dedicated Cardiac and Neuro Sciences wings. In the very first year, our team successfully performed over 1,000 procedures.', align: 'left', img: ASSETS.OT },
-                    { year: '2024', title: 'NABH Gold Standard', desc: 'Expanding to 150 beds with state-of-the-art Robotic OT suites and high-clearance 3T MRI. Achieving the highest national accreditation.', align: 'right', img: ASSETS.RECEPTION },
+                    { year: '2015', title: 'Technological Leap', desc: 'A major upgrade to a 100-bed facility. We installed the region\'s first 128-slice CT scan and inaugurated our advanced 24/7 Pathology Lab.', align: 'right', img: ASSETS.ABOUT_LEAP },
+                    { year: '2020', title: 'Super Speciality Beacon', desc: 'Launch of dedicated Cardiac and Neuro Sciences wings. In the very first year, our team successfully performed over 1,000 procedures.', align: 'left', img: ASSETS.ABOUT_BEACON },
+                    { year: '2024', title: 'NABH Gold Standard', desc: 'Expanding to 150 beds with state-of-the-art Robotic OT suites and high-clearance 3T MRI. Achieving the highest national accreditation.', align: 'right', img: ASSETS.ABOUT_NABH },
                   ].map((item, i) => (
                      <motion.div 
                         key={i} 
@@ -313,7 +321,7 @@ const About = () => {
          <div className="container-custom">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 min-h-[500px] lg:min-h-[600px]">
                <div className="lg:col-span-8 relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden group shadow-2xl h-[400px] lg:h-auto">
-                  <img src={ASSETS.RECEPTION} alt="OT" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                  <img src={ASSETS.ABOUT_100_BEDS} alt="OT" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent" />
                   <div className="absolute bottom-8 left-8 lg:bottom-12 lg:left-12 max-w-xl pr-8">
                      <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[10px] mb-3 lg:mb-4 block">Medical Hub</span>
@@ -325,7 +333,7 @@ const About = () => {
                </div>
                <div className="lg:col-span-4 flex flex-col gap-6 lg:gap-8">
                   <div className="flex-1 relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden group shadow-xl h-[250px] lg:h-auto">
-                     <img src={ASSETS.ICU} alt="ICU" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                     <img src={ASSETS.ABOUT_ICU} alt="ICU" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                      <div className="absolute inset-0 bg-primary-900/60 mix-blend-multiply" />
                      <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center p-8">
                         <Activity className="w-10 h-10 lg:w-12 lg:h-12 mb-3 lg:mb-4 text-primary-300" />
@@ -358,7 +366,7 @@ const About = () => {
                <div className="relative order-2 lg:order-1">
                   <div className="absolute -inset-10 bg-primary-50 rounded-full blur-3xl opacity-60" />
                   <div className="relative z-10 rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden shadow-2xl">
-                    <img src={ASSETS.INTERNATIONAL} alt="International Patients" className="w-full h-full object-cover" />
+                    <img src={ASSETS.ABOUT_GLOBAL} alt="International Patients" className="w-full h-full object-cover" />
                   </div>
                   <div className="absolute top-6 right-6 lg:top-10 lg:right-10 bg-brand-dark text-white p-6 lg:p-8 rounded-[2rem] shadow-2xl z-20 max-w-[140px] lg:max-w-none text-center lg:text-left">
                      <h4 className="text-3xl lg:text-4xl font-serif font-bold mb-1">30+</h4>
@@ -388,7 +396,7 @@ const About = () => {
       </section>
 
       {/* SECTION 9: FINAL CTA */}
-      <section className="py-12 lg:py-10 bg-brand-dark relative overflow-hidden">
+      <section className="py-20 lg:py-24 bg-brand-dark relative overflow-hidden">
          <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
             <div className="absolute top-1/4 left-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-primary-600 rounded-full blur-[100px] lg:blur-[150px]" />
             <div className="absolute bottom-1/4 right-1/4 w-64 h-64 lg:w-96 lg:h-96 bg-cyan-600 rounded-full blur-[100px] lg:blur-[150px]" />
@@ -396,17 +404,17 @@ const About = () => {
          
          <div className="container-custom relative z-10 text-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
-               <Star className="w-12 h-12 lg:w-16 lg:h-16 text-yellow-400 fill-current mx-auto mb-8 lg:mb-10 animate-pulse" />
-               <h2 className="text-4xl md:text-6xl lg:text-8xl font-serif font-bold text-white mb-8 lg:mb-10 tracking-tighter leading-tight">Ready to experience <br />the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300 italic">Umang difference?</span></h2>
+               <Star className="w-10 h-10 lg:w-12 lg:h-12 text-yellow-400 fill-current mx-auto mb-6 lg:mb-8 animate-pulse" />
+               <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-8 lg:mb-10 tracking-tighter leading-tight">Ready to experience <br />the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300 italic">Umang difference?</span></h2>
                <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
-                  <Link to="/doctors" className="px-8 py-4 lg:px-10 lg:py-5 bg-white text-brand-dark rounded-full font-bold text-base lg:text-lg shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-3">
+                  <Link to="/doctors" className="px-8 py-4 lg:px-10 lg:py-5 bg-white text-brand-dark rounded-full font-bold text-sm lg:text-base shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-3">
                      Book an Appointment <Calendar className="w-5 h-5" />
                   </Link>
-                  <a href="tel:+918929733550" className="px-8 py-4 lg:px-10 lg:py-5 border border-white/20 text-white rounded-full font-bold text-base lg:text-lg backdrop-blur-md hover:bg-white/10 transition-all flex items-center justify-center gap-3">
+                  <a href="tel:+918929733550" className="px-8 py-4 lg:px-10 lg:py-5 border border-white/20 text-white rounded-full font-bold text-sm lg:text-base backdrop-blur-md hover:bg-white/10 transition-all flex items-center justify-center gap-3">
                      Call 24/7 Helpline <Phone className="w-5 h-5" />
                   </a>
                </div>
-               <p className="mt-12 lg:mt-16 text-gray-500 font-bold uppercase tracking-widest text-[10px] lg:text-xs">Certified by NABH • NABL • JCI Standards</p>
+               <p className="mt-10 lg:mt-12 text-gray-500 font-bold uppercase tracking-widest text-[10px] lg:text-xs">Certified by NABH • NABL • JCI Standards</p>
             </motion.div>
          </div>
       </section>

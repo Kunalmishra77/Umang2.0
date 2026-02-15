@@ -21,6 +21,24 @@ const testimonials = [
     text: 'The emergency team saved my father\'s life during a critical hour. Their rapid response and advanced ICU facilities are truly life-saving. Forever grateful.', 
     loc: 'Noida',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200'
+  },
+  {
+    name: 'Suresh Raina',
+    text: 'Highly professional doctors and staff. The knee replacement surgery was successful and I was back on my feet much sooner than expected.',
+    loc: 'Gurugram',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200'
+  },
+  {
+    name: 'Meena Gupta',
+    text: 'The home care service is excellent. The physiotherapist is very patient and knowledgeable. Greatly helped in my recovery post-spine surgery.',
+    loc: 'Faridabad',
+    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200'
+  },
+  {
+    name: 'Rahul Verma',
+    text: 'Modern facilities and very efficient lab services. Got my reports on WhatsApp within hours. Definitely the best in Gurugram.',
+    loc: 'Gurugram',
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200'
   }
 ];
 
@@ -61,41 +79,46 @@ const Testimonials = () => {
           </motion.div>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-8">
-          {testimonials.map((item, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.15 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-xl shadow-gray-200/50 flex flex-col justify-between relative group transition-all duration-500 hover-lift hover:shadow-primary-500/10"
-            >
-              <div className="absolute top-8 right-8 text-gray-100 group-hover:text-primary-50 transition-colors duration-500">
-                <Quote className="w-20 h-20 fill-current transform rotate-180" />
-              </div>
-              
-              <div className="relative z-10">
-                <div className="flex gap-1 mb-6">
-                  {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
+        <div className="relative">
+          <motion.div 
+            className="flex gap-8"
+            animate={{ x: [0, -1920] }}
+            transition={{ 
+              duration: 40, 
+              repeat: Infinity, 
+              ease: "linear" 
+            }}
+          >
+            {[...testimonials, ...testimonials].map((item, idx) => (
+              <div 
+                key={idx}
+                className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-xl shadow-gray-200/50 flex flex-col justify-between relative group transition-all duration-500 hover-lift hover:shadow-primary-500/10 shrink-0 w-[400px]"
+              >
+                <div className="absolute top-8 right-8 text-gray-100 group-hover:text-primary-50 transition-colors duration-500">
+                  <Quote className="w-20 h-20 fill-current transform rotate-180" />
                 </div>
-                <p className="text-gray-600 text-lg leading-relaxed italic mb-8 font-light relative">
-                  "{item.text}"
-                </p>
-              </div>
+                
+                <div className="relative z-10">
+                  <div className="flex gap-1 mb-6">
+                    {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
+                  </div>
+                  <p className="text-gray-600 text-lg leading-relaxed italic mb-8 font-light relative">
+                    "{item.text}"
+                  </p>
+                </div>
 
-              <div className="flex items-center gap-5 relative z-10 pt-6 border-t border-gray-100">
-                 <div className="w-14 h-14 rounded-full overflow-hidden shadow-md border-2 border-white ring-2 ring-gray-100 group-hover:ring-primary-200 transition-all">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                 </div>
-                 <div>
-                    <h4 className="font-bold text-lg text-brand-dark group-hover:text-primary-700 transition-colors">{item.name}</h4>
-                    <p className="text-xs text-primary-500 font-bold uppercase tracking-widest">{item.loc}</p>
-                 </div>
+                <div className="flex items-center gap-5 relative z-10 pt-6 border-t border-gray-100">
+                   <div className="w-14 h-14 rounded-full overflow-hidden shadow-md border-2 border-white ring-2 ring-gray-100 group-hover:ring-primary-200 transition-all">
+                      <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                   </div>
+                   <div>
+                      <h4 className="font-bold text-lg text-brand-dark group-hover:text-primary-700 transition-colors">{item.name}</h4>
+                      <p className="text-xs text-primary-500 font-bold uppercase tracking-widest">{item.loc}</p>
+                   </div>
+                </div>
               </div>
-            </motion.div>
-          ))}
+            ))}
+          </motion.div>
         </div>
 
         <div className="mt-16 text-center md:hidden">

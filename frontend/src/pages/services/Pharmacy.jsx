@@ -10,19 +10,19 @@ import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 
 const categories = [
-  { name: "Prescription", slug: "prescription", img: ASSETS.PHARMACY },
-  { name: "Diabetes Care", slug: "diabetes-care", img: ASSETS.DIABETIC_CARE },
-  { name: "Cardiac Care", slug: "cardiac-care", img: ASSETS.BP_MONITOR },
-  { name: "Mother & Baby", slug: "mother-baby", img: ASSETS.NURSE_CARE },
-  { name: "Devices", slug: "devices", img: ASSETS.BP_MONITOR },
-  { name: "Personal Care", slug: "personal-care", img: ASSETS.PERSONAL_CARE }
+  { name: "Prescription", slug: "prescription", img: ASSETS.PHARMA_PRESCRIPTION },
+  { name: "Diabetes Care", slug: "diabetes-care", img: ASSETS.PHARMA_DIABETES },
+  { name: "Cardiac Care", slug: "cardiac-care", img: ASSETS.PHARMA_CARDIAC },
+  { name: "Mother & Baby", slug: "mother-baby", img: ASSETS.PHARMA_MOTHER_BABY },
+  { name: "Devices", slug: "devices", img: ASSETS.PHARMA_DEVICES },
+  { name: "Personal Care", slug: "personal-care", img: ASSETS.PHARMA_PERSONAL_CARE }
 ];
 
 const bestSellers = [
-  { id: 1, name: "Accu-Chek Active Strips", pack: "50 Strips", price: 850, oldPrice: 975, img: ASSETS.DIABETIC_CARE },
-  { id: 2, name: "Omron BP Monitor", pack: "1 Unit", price: 2100, oldPrice: 2400, img: ASSETS.BP_MONITOR },
-  { id: 3, name: "Multivitamin Complex", pack: "60 Tabs", price: 499, oldPrice: 650, img: ASSETS.MULTIVITAMIN },
-  { id: 4, name: "N95 Face Masks", pack: "Pack of 5", price: 299, oldPrice: 400, img: ASSETS.PERSONAL_CARE }
+  { id: 1, name: "Accu-Chek Active Strips", pack: "50 Strips", price: 850, oldPrice: 975, img: ASSETS.PROD_ACCU_CHEK },
+  { id: 2, name: "Omron BP Monitor", pack: "1 Unit", price: 2100, oldPrice: 2400, img: ASSETS.PHARMA_DEVICES },
+  { id: 3, name: "Multivitamin Complex", pack: "60 Tabs", price: 499, oldPrice: 650, img: ASSETS.PROD_MULTIVITAMIN },
+  { id: 4, name: "N95 Face Masks", pack: "Pack of 5", price: 299, oldPrice: 400, img: ASSETS.PROD_N95_MASK }
 ];
 
 const faqs = [
@@ -202,9 +202,9 @@ const Pharmacy = () => {
           <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12">Health Essentials</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Vitamin D: Why you need it", category: "Nutrition", img: ASSETS.BLOG_FOOD },
-              { title: "Managing Diabetes at Home", category: "Chronic Care", img: ASSETS.DIABETIC_CARE },
-              { title: "Best Skincare Routine", category: "Wellness", img: ASSETS.PERSONAL_CARE }
+              { title: "Vitamin D: Why you need it", category: "Nutrition", img: ASSETS.BLOG_VITAMIN_D },
+              { title: "Managing Diabetes at Home", category: "Chronic Care", img: ASSETS.BLOG_DIABETES_HOME },
+              { title: "Best Skincare Routine", category: "Wellness", img: ASSETS.BLOG_SKINCARE }
             ].map((article, i) => (
               <Link to="/patient-corner/blogs" key={i} className="group cursor-pointer">
                 <div className="h-64 rounded-2xl overflow-hidden mb-4 relative">
@@ -299,7 +299,7 @@ const Pharmacy = () => {
           <div className="flex justify-center relative">
             <div className="absolute inset-0 bg-blue-500/20 blur-[80px] rounded-full" />
             <img 
-              src={ASSETS.TELEMEDICINE} 
+              src={ASSETS.PHARMA_ORDER_FASTER} 
               alt="Mobile App" 
               className="relative z-10 rounded-3xl border-8 border-[#1e293b] shadow-2xl rotate-[-5deg] hover:rotate-0 transition-all duration-500" 
             />

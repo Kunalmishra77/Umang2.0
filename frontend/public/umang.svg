@@ -1,0 +1,21 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Yellow Circular Emblem -->
+  <circle cx="250" cy="160" r="100" fill="#FBBF24"/>
+  <path d="M250 100C210 100 180 130 180 170C180 210 250 240 250 240C250 240 320 210 320 170C320 130 290 100 250 100ZM250 190C235 190 225 175 225 160C225 145 235 130 250 130C265 130 275 145 275 160C275 175 265 190 250 190Z" fill="white"/>
+  
+  <!-- UMANG Text -->
+  <g font-family="Arial, sans-serif" font-weight="900" font-size="90">
+    <text x="50" y="350" fill="#005580">U</text>
+    <text x="135" y="350" fill="#FBBF24">M</text>
+    <text x="235" y="350" fill="#10B981">A</text>
+    <text x="320" y="350" fill="#1E293B">N</text>
+    <text x="405" y="350" fill="#EF4444">G</text>
+  </g>
+  
+  <!-- Dark Banner -->
+  <rect x="50" y="375" width="400" height="40" fill="#0F172A" rx="4"/>
+  <text x="250" y="402" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="white" text-anchor="middle">Superspeciality Hospital</text>
+  
+  <!-- Tagline -->
+  <text x="250" y="445" font-family="Arial, sans-serif" font-weight="500" font-size="20" fill="#1E293B" text-anchor="middle" letter-spacing="4">CARE WITH PASSION</text>
+</svg>

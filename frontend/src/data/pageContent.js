@@ -1,4 +1,5 @@
 import { Stethoscope, Activity, Home, Pill, Video, Phone, ShieldCheck, Heart, BookOpen, Cpu, GraduationCap, Calendar, Download, User, PenTool, Mic, Lightbulb, Newspaper, Radio, FileText, Mail } from 'lucide-react';
+import { ASSETS } from '../utils/imageAssets';
 
 export const pageContent = {
   // SERVICES - VERIFIED & AUDITED
@@ -6,7 +7,7 @@ export const pageContent = {
     title: "Diagnostics, Imaging & Pathology",
     category: "Services",
     icon: Activity,
-    heroImage: "/assets/images/lab-diagnostics-mri.jpg",
+    heroImage: ASSETS.SVC_PATHOLOGY,
     description: "Precision diagnostics powered by advanced technology. Accurate results, delivered quickly.",
     features: [
       "NABL Accredited Labs",
@@ -27,7 +28,7 @@ export const pageContent = {
     title: "Pharmacy",
     category: "Services",
     icon: Pill,
-    heroImage: "/assets/images/service-pharmacy.jpg",
+    heroImage: ASSETS.PHARMA_PERSONAL_CARE,
     description: "Genuine medicines from trusted sources, delivered 24/7 to your doorstep.",
     features: [
       "24/7 Availability",
@@ -45,7 +46,7 @@ export const pageContent = {
     title: "Emergency & Trauma (24/7)",
     category: "Services",
     icon: Phone,
-    heroImage: "/assets/images/service-ambulance.jpg",
+    heroImage: ASSETS.AMBULANCE,
     description: "Round-the-clock emergency care backed by rapid response teams and advanced life support.",
     features: [
       "24/7 ACLS Ambulances",
@@ -66,7 +67,7 @@ export const pageContent = {
     title: "Preventive Health Check-ups",
     category: "Services",
     icon: ShieldCheck,
-    heroImage: "/assets/images/service-health-checkup.jpg",
+    heroImage: ASSETS.HEALTH_CHECKUP,
     description: "Invest in your health today for a better tomorrow with our comprehensive screening packages.",
     features: [
       "Customized Packages",
@@ -84,7 +85,7 @@ export const pageContent = {
     title: "ICU / NICU / PICU",
     category: "Services",
     icon: Activity,
-    heroImage: "/assets/images/infrastructure-icu.jpg",
+    heroImage: ASSETS.SVC_ICU_ADVANCE,
     description: "Advanced critical care units staffed by 24/7 intensivists and specialized nursing teams.",
     features: [
       "Medical & Surgical ICU",

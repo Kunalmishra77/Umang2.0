@@ -116,7 +116,7 @@ const ServicesSection = () => {
                       src={service.img} 
                       alt={service.title} 
                       containerClassName="w-full h-full"
-                      className="transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                      className="transition-transform duration-700 group-hover:scale-110"
                       offset={30}
                    />
                 </div>

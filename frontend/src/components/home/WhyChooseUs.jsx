@@ -86,38 +86,69 @@ const WhyChooseUs = () => {
           {/* Card 2: 24/7 Support */}
           <motion.div 
             variants={itemVariants}
-            className="bg-white rounded-[3rem] p-10 flex flex-col justify-between hover-lift hover:shadow-red-500/10 transition-all duration-500 border border-gray-100 group min-h-[280px]"
+            className="relative rounded-[3rem] p-10 overflow-hidden group shadow-2xl min-h-[280px] transform transition-transform hover:-translate-y-2 duration-500"
           >
-            <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center shadow-sm text-red-500 group-hover:bg-red-500 group-hover:text-white transition-all duration-500 mb-8 md:mb-0">
-               <Clock className="w-8 h-8" />
+            <div className="absolute inset-0 z-0">
+              <img 
+                src={ASSETS.AMBULANCE} 
+                alt="24/7 Support" 
+                className="w-full h-full object-cover blur-[1px] opacity-20 group-hover:scale-110 transition-transform duration-1000" 
+              />
+              <div className="absolute inset-0 bg-white group-hover:bg-red-50 transition-colors duration-500" />
             </div>
-            <div>
-               <h3 className="text-2xl font-bold text-brand-dark mb-3 group-hover:text-red-600 transition-colors">24/7 Support</h3>
-               <p className="text-gray-500 leading-relaxed">Emergency trauma care, fully stocked pharmacy, and diagnostic services available round-the-clock.</p>
+            
+            <div className="relative z-10 h-full flex flex-col justify-between">
+              <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center shadow-sm text-red-500 group-hover:bg-red-500 group-hover:text-white transition-all duration-500 mb-8 md:mb-0">
+                 <Clock className="w-8 h-8" />
+              </div>
+              <div>
+                 <h3 className="text-2xl font-bold text-brand-dark mb-3 group-hover:text-red-600 transition-colors">24/7 Support</h3>
+                 <p className="text-gray-500 leading-relaxed font-medium">Emergency trauma care, fully stocked pharmacy, and diagnostic services available round-the-clock.</p>
+              </div>
             </div>
           </motion.div>
 
           {/* Card 3: Advanced Tech */}
           <motion.div 
             variants={itemVariants}
-            className="bg-white rounded-[3rem] p-10 flex flex-col justify-between hover-lift hover:shadow-primary-500/10 transition-all duration-500 border border-gray-100 group min-h-[280px]"
+            className="relative rounded-[3rem] p-10 overflow-hidden group shadow-2xl min-h-[280px] transform transition-transform hover:-translate-y-2 duration-500"
           >
-            <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center shadow-sm text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 mb-8 md:mb-0">
-               <Zap className="w-8 h-8" />
+            <div className="absolute inset-0 z-0">
+              <img 
+                src={ASSETS.CT_SCAN} 
+                alt="Modern Tech" 
+                className="w-full h-full object-cover blur-[1px] opacity-20 group-hover:scale-110 transition-transform duration-1000" 
+              />
+              <div className="absolute inset-0 bg-white group-hover:bg-primary-50 transition-colors duration-500" />
             </div>
-            <div>
-               <h3 className="text-2xl font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors">Modern Tech</h3>
-               <p className="text-gray-500 leading-relaxed">Cutting-edge Cath Labs, 128 Slice CT, 3 Tesla MRI, and 4D Ultrasound technology.</p>
+
+            <div className="relative z-10 h-full flex flex-col justify-between">
+              <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center shadow-sm text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 mb-8 md:mb-0">
+                 <Zap className="w-8 h-8" />
+              </div>
+              <div>
+                 <h3 className="text-2xl font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors">Modern Tech</h3>
+                 <p className="text-gray-500 leading-relaxed font-medium">Cutting-edge Cath Labs, 128 Slice CT, 3 Tesla MRI, and 4D Ultrasound technology.</p>
+              </div>
             </div>
           </motion.div>
 
           {/* Card 4: Clinical Excellence (Wide) */}
           <motion.div 
             variants={itemVariants}
-            className="md:col-span-2 bg-primary-900 rounded-[3rem] p-10 relative overflow-hidden shadow-2xl group min-h-[320px] transform transition-transform hover:-translate-y-2 duration-500"
+            className="md:col-span-2 relative rounded-[3rem] p-10 overflow-hidden shadow-2xl group min-h-[320px] transform transition-transform hover:-translate-y-2 duration-500"
           >
-             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
-             <div className="absolute right-0 top-0 w-[60%] h-full bg-gradient-to-l from-black/20 to-transparent z-0" />
+             {/* Background Image */}
+             <div className="absolute inset-0 z-0">
+                <img 
+                  src={ASSETS.GASTRO} 
+                  alt="Clinical Excellence" 
+                  className="w-full h-full object-cover blur-[1px] opacity-40 group-hover:scale-110 transition-transform duration-1000" 
+                />
+                <div className="absolute inset-0 bg-primary-950/90 mix-blend-multiply" />
+             </div>
+
+             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 z-0" />
              
              <div className="relative z-10 flex flex-col md:flex-row items-center h-full gap-10">
                 <div className="flex-1">
@@ -132,7 +163,7 @@ const WhyChooseUs = () => {
                 
                 <div className="hidden lg:flex w-56 h-56 bg-white/5 backdrop-blur-xl rounded-[2.5rem] items-center justify-center border border-white/10 shadow-2xl shrink-0 group-hover:scale-105 transition-transform duration-500">
                    <div className="text-center">
-                      <p className="text-6xl font-bold text-white mb-2 tracking-tighter"><CountUp to={50} />+</p>
+                      <p className="text-6xl font-bold text-white mb-2 tracking-tighter"><CountUp to={52} />+</p>
                       <p className="text-primary-200 text-sm font-bold uppercase tracking-widest">Top Specialists</p>
                    </div>
                 </div>

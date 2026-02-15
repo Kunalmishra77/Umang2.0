@@ -1,0 +1,228 @@
+{
+  "hospital_header": {
+    "name": "UMANG SUPERSPECIALITY HOSPITAL",
+    "address": "Opp. Radha Swami Satsang, Main Pataudi Road, Gurugram",
+    "email": "umanghospitalgurugram@gmail.com",
+    "mobile": "8929733550"
+  },
+  "insurance_companies": [
+    {
+      "name": "Aditya Birla Health Insurance Co.",
+      "is_group": false
+    },
+    {
+      "name": "Care Health Insurance Ltd. (only corporate policy)",
+      "is_group": false
+    },
+    {
+      "name": "ACKO General Insurance",
+      "is_group": false
+    },
+    {
+      "name": "Bajaj General Insurance Limited",
+      "is_group": false
+    },
+    {
+      "name": "Generali Central Insurance (Future Generali)",
+      "is_group": false
+    },
+    {
+      "name": "HDFC ERGO General Insurance",
+      "is_group": false
+    },
+    {
+      "name": "ICICI Lombard General Insurance Company",
+      "is_group": false
+    },
+    {
+      "name": "Liberty General Insurance",
+      "is_group": false
+    },
+    {
+      "name": "Magma General Insurance Limited",
+      "is_group": false
+    },
+    {
+      "name": "Navi General Insurance Limited",
+      "is_group": false
+    },
+    {
+      "name": "SBI General Insurance",
+      "is_group": false
+    },
+    {
+      "name": "Universal Sompo General Insurance",
+      "is_group": false
+    },
+    {
+      "name": "Zuno General Insurance",
+      "is_group": false
+    },
+    {
+      "name": "Zurich Kotak General Insurance",
+      "is_group": false
+    },
+    {
+      "name": "GIPSA PPN",
+      "is_group": true,
+      "members": [
+        "Oriental Insurance",
+        "National Insurance",
+        "The New India Assurance",
+        "United India Insurance"
+      ]
+    }
+  ],
+  "gipsa_ppn_members": [
+    "Oriental Insurance",
+    "National Insurance",
+    "The New India Assurance",
+    "United India Insurance"
+  ],
+  "insurance_note": "This data has been obtained from signed (MOUs) and official insurance company websites regarding cashless hospital list. Kindly verify the details at the time of patient admission with their respective policy card.",
+  "tpas": [
+    {
+      "no": 1,
+      "name": "Medi Assist TPA",
+      "associations": [
+        "GIPSA PPN (Oriental, National, The New India, United)"
+      ]
+    },
+    {
+      "no": 2,
+      "name": "MD India TPA",
+      "associations": [
+        "GIPSA PPN (Oriental, National, The New India, United)"
+      ]
+    },
+    {
+      "no": 3,
+      "name": "Paramount TPA",
+      "associations": [
+        "GIPSA PPN (Oriental, National, The New India, United)"
+      ]
+    },
+    {
+      "no": 4,
+      "name": "Family Health Plan Insurance TPA Limited (FHPL)",
+      "associations": [
+        "GIPSA PPN (Oriental, National, The New India, United)",
+        "Zurich Kotak General",
+        "--- Page 2 ---",
+        "UMANG SUPERSPECIALITY HOSPITAL",
+        "Opp. Radha Swami Satsang, Main Pataudi Road, Gurugram",
+        "Email:  umanghospitalgurugram@gmail.com",
+        "Mob: 8929733550",
+        "Bajaj General Insurance Limited",
+        "Care Health Insurance",
+        "Generali Central Insurance (Future Generali)",
+        "Go Digit General Insurance",
+        "HDFC Ergo General",
+        "ICICI Lombard General Insurance",
+        "IFFCO Tokio General",
+        "Liberty General Insurance",
+        "Magma General Insurance",
+        "Manipal Cigna",
+        "Acko Health Insurance",
+        "Royal Sundaram",
+        "SBI General Insurance",
+        "Universal Sompo General Insurance",
+        "Zuno General Insurance"
+      ]
+    },
+    {
+      "no": 5,
+      "name": "Vidal Health TPA",
+      "associations": [
+        "GIPSA PPN (Oriental, National, The New India, United)",
+        "Bajaj General Insurance Limited",
+        "Zurich Kotak General",
+        "Care Health",
+        "Generali Central Insurance (Future Generali)",
+        "Go Digit General Insurance",
+        "HDFC Ergo",
+        "HDFC Life Insurance",
+        "ICICI Lombard General Insurance",
+        "IFFCO Tokio General",
+        "Liberty General Insurance",
+        "Magma General Insurance",
+        "Manipal Cigna",
+        "Aditya Birla Health Insurance Co",
+        "Reliance General",
+        "Royal Sundaram",
+        "Universal Sompo",
+        "Zuno General Insurance"
+      ]
+    },
+    {
+      "no": 6,
+      "name": "Volo Health TPA (EAST WEST TPA)",
+      "associations": [
+        "GIPSA PPN (Oriental, National, The New India, United)"
+      ]
+    },
+    {
+      "no": 7,
+      "name": "Genins India Insurance TPA",
+      "associations": [
+        "GIPSA PPN (Oriental, National, The New India, United)",
+        "Bajaj General Insurance Limited",
+        "Zurich Kotak General",
+        "--- Page 3 ---",
+        "UMANG SUPERSPECIALITY HOSPITAL",
+        "Opp. Radha Swami Satsang, Main Pataudi Road, Gurugram",
+        "Email:  umanghospitalgurugram@gmail.com",
+        "Mob: 8929733550",
+        "Care Health",
+        "Generali Central Insurance (Future Generali)",
+        "Go Digit General Insurance",
+        "HDFC Ergo",
+        "HDFC Life Insurance",
+        "ICICI Lombard General Insurance",
+        "IFFCO Tokio General",
+        "Liberty General Insurance",
+        "Magma General Insurance",
+        "Manipal Cigna",
+        "Aditya Birla Health Insurance Co",
+        "Reliance General",
+        "Royal Sundaram",
+        "Universal Sompo",
+        "Zuno General Insurance"
+      ]
+    },
+    {
+      "no": 8,
+      "name": "Health India TPA",
+      "associations": [
+        "GIPSA PPN (Oriental, National, The New India, United)"
+      ]
+    },
+    {
+      "no": 9,
+      "name": "Health Assist TPA (Safeway TPA)",
+      "associations": [
+        "GIPSA PPN (Oriental, National, The New India, United)"
+      ]
+    },
+    {
+      "no": 10,
+      "name": "Ericson TPA",
+      "associations": [
+        "GIPSA PPN (Oriental, National, The New India, United)"
+      ]
+    },
+    {
+      "no": 11,
+      "name": "HERITAGE HEALTH INSURANCE TPA",
+      "associations": [
+        "GIPSA PPN (Oriental, National, The New India, United)",
+        "Note: This data has been obtained from the official websites of insurance\\TPA companies regarding",
+        "cashless hospital for the listed TPAs. Kindly verify the data with the patient’s policy card at the",
+        "time of admission. Please be aware that special pre-authorization requests (non-Panel) for cashless",
+        "treatment and cashless everywhere requests (non-Panel) are subject to or depend on approval by",
+        "the respective insurance company through the TPAs."
+      ]
+    }
+  ],
+  "tpa_note": "This data has been obtained from the official websites of insurance\\TPA companies regarding cashless hospital for the listed TPAs. Kindly verify the data with the patient’s policy card at the time of admission. Please be aware that special pre-authorization requests (non-Panel) for cashless treatment and cashless everywhere requests (non-Panel) are subject to or depend on approval by the respective insurance company through the TPAs."
+}

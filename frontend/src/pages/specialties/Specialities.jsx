@@ -17,34 +17,34 @@ const categories = [
 
 const services = {
   cardiac: [
-    { title: 'Interventional Cardiology', desc: 'Minimally invasive catheter-based treatment for heart diseases.', img: ASSETS.CARDIAC },
-    { title: 'Cardiothoracic Surgery', desc: 'Complex surgical procedures of the heart, lungs, and chest.', img: ASSETS.HEART_TRANSPLANT },
-    { title: 'Electrophysiology', desc: 'Diagnosis and treatment of heart rhythm disorders.', img: ASSETS.CARDIAC },
+    { title: 'Interventional Cardiology', desc: 'Minimally invasive catheter-based treatment for heart diseases.', img: ASSETS.SVC_INTERVENTIONAL_CARDIOLOGY },
+    { title: 'Cardiothoracic Surgery', desc: 'Complex surgical procedures of the heart, lungs, and chest.', img: ASSETS.SVC_CARDIOTHORACIC_SURGERY },
+    { title: 'Electrophysiology', desc: 'Diagnosis and treatment of heart rhythm disorders.', img: ASSETS.SVC_ELECTROPHYSIOLOGY },
   ],
   neuro: [
-    { title: 'Neuro Surgery', desc: 'Advanced surgical care for brain and spine disorders.', img: ASSETS.NEURO },
-    { title: 'Neurology', desc: 'Comprehensive management of neurological conditions.', img: ASSETS.NEURO },
-    { title: 'Stroke Care', desc: '24/7 rapid response for acute stroke management.', img: ASSETS.ICU },
+    { title: 'Neuro Surgery', desc: 'Advanced surgical care for brain and spine disorders.', img: ASSETS.SVC_NEURO_SURGERY },
+    { title: 'Neurology', desc: 'Comprehensive management of neurological conditions.', img: ASSETS.SVC_NEUROLOGY },
+    { title: 'Stroke Care', desc: '24/7 rapid response for acute stroke management.', img: ASSETS.SVC_STROKE_CARE },
   ],
   ortho: [
-    { title: 'Joint Replacement', desc: 'Total knee and hip replacement using robotic precision.', img: ASSETS.ORTHO_KNEE },
-    { title: 'Sports Medicine', desc: 'Treatment for sports-related injuries and rehabilitation.', img: ASSETS.ORTHO },
-    { title: 'Trauma Surgery', desc: 'Emergency surgical care for fractures and dislocations.', img: ASSETS.ORTHO },
+    { title: 'Joint Replacement', desc: 'Total knee and hip replacement using robotic precision.', img: ASSETS.SVC_JOINT_REPLACEMENT },
+    { title: 'Sports Medicine', desc: 'Treatment for sports-related injuries and rehabilitation.', img: ASSETS.SVC_SPORTS_MEDICINE },
+    { title: 'Trauma Surgery', desc: 'Emergency surgical care for fractures and dislocations.', img: ASSETS.SVC_TRAUMA_SURGERY },
   ],
   gastro: [
-    { title: 'Medical Gastroenterology', desc: 'Diagnosis and treatment of digestive tract and liver disorders.', img: ASSETS.GASTRO },
-    { title: 'Surgical Gastroenterology', desc: 'Advanced surgical interventions for complex GI conditions.', img: ASSETS.SURGERY_TEAM },
-    { title: 'Hepatology', desc: 'Specialized care for liver, gallbladder, and pancreas diseases.', img: ASSETS.GASTRO },
+    { title: 'Medical Gastroenterology', desc: 'Diagnosis and treatment of digestive tract and liver disorders.', img: ASSETS.SVC_MEDICAL_GASTRO },
+    { title: 'Surgical Gastroenterology', desc: 'Advanced surgical interventions for complex GI conditions.', img: ASSETS.SVC_SURGICAL_GASTRO },
+    { title: 'Hepatology', desc: 'Specialized care for liver, gallbladder, and pancreas diseases.', img: ASSETS.SVC_HEPATOLOGY },
   ],
   surgery: [
-    { title: 'Laparoscopic Surgery', desc: 'Minimally invasive surgery for faster recovery and less pain.', img: ASSETS.ROBOTIC_SURGERY },
-    { title: 'General Surgery', desc: 'Comprehensive surgical care for a wide range of conditions.', img: ASSETS.OT },
-    { title: 'Bariatric Surgery', desc: 'Weight loss surgery for obesity and metabolic disorders.', img: ASSETS.OT },
+    { title: 'Laparoscopic Surgery', desc: 'Minimally invasive surgery for faster recovery and less pain.', img: ASSETS.SVC_LAPAROSCOPIC_SURGERY },
+    { title: 'General Surgery', desc: 'Comprehensive surgical care for a wide range of conditions.', img: ASSETS.SVC_GENERAL_SURGERY },
+    { title: 'Bariatric Surgery', desc: 'Weight loss surgery for obesity and metabolic disorders.', img: ASSETS.SVC_BARIATRIC_SURGERY },
   ],
   internal: [
-    { title: 'General Medicine', desc: 'Comprehensive care for adult health and common illnesses.', img: ASSETS.CONSULTATION },
-    { title: 'Infectious Diseases', desc: 'Diagnosis and management of complex infections.', img: ASSETS.LAB },
-    { title: 'Geriatrics', desc: 'Specialized healthcare for the elderly population.', img: ASSETS.GERIATRICS },
+    { title: 'General Medicine', desc: 'Comprehensive care for adult health and common illnesses.', img: ASSETS.SVC_GENERAL_MEDICINE },
+    { title: 'Infectious Diseases', desc: 'Diagnosis and management of complex infections.', img: ASSETS.SVC_INFECTIOUS_DISEASES },
+    { title: 'Geriatrics', desc: 'Specialized healthcare for the elderly population.', img: ASSETS.SVC_GERIATRICS },
   ]
 };
 

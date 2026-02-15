@@ -5,6 +5,7 @@ import {
   Phone, Ambulance, Heart, Activity, Clock, MapPin, 
   ShieldCheck, AlertCircle, ArrowRight, Zap, ChevronDown, Plus
 } from 'lucide-react';
+import { ASSETS } from '../../utils/imageAssets';
 
 const emergencyServices = [
   {
@@ -53,7 +54,7 @@ const Emergency = () => {
       <section className="relative min-h-[750px] overflow-hidden flex items-center bg-[#0f172a] py-12 lg:py-10">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/assets/images/service-ambulance.jpg" 
+            src={ASSETS.AMBULANCE} 
             alt="Emergency Room" 
             className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
           />
@@ -151,7 +152,7 @@ const Emergency = () => {
             <div className="relative">
                <div className="absolute inset-0 bg-red-500/10 rounded-3xl transform rotate-3" />
                <img 
-                  src="/assets/images/infrastructure-icu.jpg" 
+                  src={ASSETS.SVC_ADVANCED_LIFE_SUPPORT} 
                   alt="Ambulance" 
                   className="relative rounded-3xl shadow-2xl w-full object-cover"
                />

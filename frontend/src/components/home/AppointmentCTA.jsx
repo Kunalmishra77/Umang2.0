@@ -15,7 +15,7 @@ const AppointmentCTA = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <section ref={ref} className="py-32 lg:py-40 bg-brand-dark relative overflow-hidden flex items-center justify-center min-h-[600px]">
+    <section ref={ref} className="py-20 lg:py-24 bg-brand-dark relative overflow-hidden flex items-center justify-center min-h-[500px]">
        {/* Parallax Background */}
        <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
           <img 
@@ -47,7 +47,7 @@ const AppointmentCTA = () => {
                <span>Ready to Serve 24/7</span>
              </motion.div>
 
-             <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 leading-[1.1] tracking-tight">
+             <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-8 leading-[1.1] tracking-tight">
                 Your Health, <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300">Our Priority.</span>
              </h2>

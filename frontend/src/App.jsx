@@ -65,6 +65,13 @@ import GeneralAppointment from './pages/appointments/GeneralAppointment';
 import LabReports from './pages/patients/LabReports';
 import InquiryHub from './pages/contact/InquiryHub';
 
+import CashlessInsurance from './pages/legal/CashlessInsurance';
+import GenericCmsPage from './pages/legal/GenericCmsPage';
+import Sitemap from './pages/legal/Sitemap';
+
+import IcuPage from './pages/infrastructure/IcuPage';
+import IcuUnitDetail from './pages/infrastructure/IcuUnitDetail';
+
 function App() {
   return (
     <>
@@ -74,6 +81,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="infrastructure" element={<Infrastructure />} />
+          <Route path="infrastructure/icu" element={<IcuPage />} />
+          <Route path="infrastructure/icu/:slug" element={<IcuUnitDetail />} />
           <Route path="careers" element={<Careers />} />
           <Route path="specialities" element={<Specialities />} />
           <Route path="specialities/:id" element={<SpecialityDetail />} />
@@ -81,25 +90,23 @@ function App() {
           <Route path="team" element={<Team />} />
           
           <Route path="services" element={<Services />} />
-          <Route path="services/second-opinion" element={<SecondOpinion />} />
           <Route path="services/lab-test-diagnostic" element={<LabDiagnostics />} />
-          <Route path="services/home-care" element={<HomeCare />} />
           
           <Route path="services/buy-medicines" element={<Pharmacy />} />
           <Route path="services/buy-medicines/category/:slug" element={<PharmacyCategory />} />
           <Route path="services/buy-medicines/all-products" element={<PharmacyCategory />} />
           <Route path="services/buy-medicines/prescription-upload" element={<PrescriptionUpload />} />
           
-          <Route path="services/telemedicine" element={<Telemedicine />} />
-          <Route path="services/telemedicine/consult" element={<TelemedicineConsult />} />
           <Route path="services/emergency" element={<Emergency />} />
           <Route path="services/health-checkup" element={<HealthCheckup />} />
           <Route path="services/health-checkup/book" element={<HealthCheckBooking />} />
-          <Route path="services/elder-care" element={<ElderCare />} />
           
           <Route path="services/booking/:serviceType" element={<ServiceBooking />} />
           
           <Route path="services/:slug" element={<DynamicSubPage />} />
+          
+          <Route path="cms/:slug" element={<GenericCmsPage />} />
+          <Route path="cashless-insurance" element={<CashlessInsurance />} />
           
           <Route path="health-library" element={<HealthLibrary />} />
           <Route path="health-library/treatments" element={<Treatments />} />
@@ -144,8 +151,11 @@ function App() {
           <Route path="pharmacy" element={<Pharmacy />} />
           <Route path="contact" element={<Contact />} />
           <Route path="contact/inquiry-hub" element={<InquiryHub />} />
-          <Route path="terms" element={<Terms />} />
-          <Route path="privacy" element={<Privacy />} />
+          <Route path="terms" element={<GenericCmsPage slug="terms-of-service" />} />
+          <Route path="privacy-policy" element={<GenericCmsPage slug="privacy-policy" />} />
+          <Route path="cms/legal-and-compliance" element={<GenericCmsPage slug="legal-and-compliance" />} />
+          <Route path="patient-experience" element={<GenericCmsPage slug="patient-experience" />} />
+          <Route path="sitemap" element={<Sitemap />} />
         </Route>
         
         <Route path="/login" element={<Login />} />

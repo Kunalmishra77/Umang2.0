@@ -1,0 +1,165 @@
+{
+  "meta": "LIVE WEBSITE AUDIT REPORT\nHospital: Umang Hospital\nWebsite: https://umanghospitals.in/\n------------------------------------------------",
+  "pages": {
+    "1": {
+      "title": "Project overview & admin",
+      "items": [
+        "✔ Hospital legal name – Available",
+        "✔  Website display name – Available",
+        "✘ Main contact for web content – Niharika-8377082838 {Refer current website (for additional details, provide list)}"
+      ]
+    },
+    "2": {
+      "title": "Homepage content",
+      "items": [
+        "✔ Homepage & hero section – Available",
+        "✔ Appointment CTA – Available",
+        "✔ Address & contact – Available",
+        "✘ Accreditation badges – NABH Awaited",
+        "✘ Key stats (beds, doctors, ER etc) – 100 bedded, 15 Superspecialists, 24*7 emergency medical care (details also available on current website, pls review)",
+        "✘ Value pillars – Not Available – content for this is also there on website, if anything specific required, then mention points",
+        "✘ SEO meta – Linked to social media pages. Sharing excel with SEO topics that previous team worked on."
+      ]
+    },
+    "3": {
+      "title": "About Us",
+      "items": [
+        "✔ About page – Available",
+        "✔ Short hospital summary – Available",
+        "✘ Long hospital story – Not Available – you are required to develop these 2 points",
+        "✘ Leadership bios & timeline – Not Available",
+        "✘ Awards, CSR, reports – Not Available - none"
+      ]
+    },
+    "4": {
+      "title": "Specialties & Departments",
+      "items": [
+        "✔ Specialty listing pages – Available",
+        "✘ Detailed specialty content – Not Available available on website. Editing or revising to be done by your team",
+        "✘ Procedures, diagnostics, outcomes – Not Available – not required on website",
+        "✘ Protocols, FAQs, photos – Not Available – pls develop"
+      ]
+    },
+    "5": {
+      "title": "Doctors & Clinicians",
+      "items": [
+        "✔ Doctors listed – Available",
+        "✘ Detailed profiles – Not Available – check website. We only need to talk about their years of experience which more than 15 years of each specialist",
+        "✘ OPD timings, teleconsult, publications – Not Available – on-call (throughout the day)",
+        "✘ Filters & search – Not Available – please specify"
+      ]
+    },
+    "6": {
+      "title": "Diagnostics & Radiology",
+      "items": [
+        "✘ Tests list & turnaround times – Not Available -not required for website",
+        "✘ Radiology modalities – Not Available – USG, CT Scan, X-Ray, Cath Lab available",
+        "✘ Lab accreditation – Not Available – Outsourced pathology so not applicable"
+      ]
+    },
+    "7": {
+      "title": "Emergency & ICU",
+      "items": [
+        "✔ 24x7 Emergency mentioned – Available",
+        "✘ ICU details, volumes, photos – Not Available – 12 bed Advance ICU; 4 bed SICU; 4 bed CCU, photos shared already in the group"
+      ]
+    },
+    "8": {
+      "title": "Surgery & OT",
+      "items": [
+        "✘ OT details, volumes, safety protocols – Not Available- 2 Advance Ots, 1 Cath Lab available. Other details need not go on website"
+      ]
+    },
+    "9": {
+      "title": "Maternity & Women’s Health",
+      "items": [
+        "✘ Delivery types, NICU, packages – Not Available – All deliveries available, NICU facility not available, packages need not go on website"
+      ]
+    },
+    "10": {
+      "title": "Patient Experience",
+      "items": [
+        "✘ Patient journey, amenities, education – Not Available- what is required under this. Content you will have to develop. We can provide patient feedback videos and same can also be retrieved from google reviews"
+      ]
+    },
+    "11": {
+      "title": "Pricing & Billing",
+      "items": [
+        "✘ Packages, payments, insurance list – Not Available – Packages need not go on website. TPA list sharing as separate excel"
+      ]
+    },
+    "12": {
+      "title": "Quality & Accreditation",
+      "items": [
+        "✘ NABH / NABL / ISO certificates – Not Available – answered above",
+        "✘ Governance policies – Not Available"
+      ]
+    },
+    "13": {
+      "title": "Research & CSR",
+      "items": [
+        "✘ Trials, teaching, CSR programs – Not Available – not applicable"
+      ]
+    },
+    "14": {
+      "title": "Testimonials & Case Studies",
+      "items": [
+        "✔ Basic testimonials – Available",
+        "✘ Case studies, videos, press – Not Available refer above"
+      ]
+    },
+    "15": {
+      "title": "Careers",
+      "items": [
+        "✘ Jobs, HR contact, internships – Not Available – will have to be regularly updated. For application, contact: 9599406068 and mail: umanghospitalgurugram@gmail.com"
+      ]
+    },
+    "16": {
+      "title": "Media & Events",
+      "items": [
+        "✘ Press releases, CME, events – Not Available- not upcoming. 1 CME done an year ago"
+      ]
+    },
+    "17": {
+      "title": "Legal & Compliance",
+      "items": [
+        "✘ Privacy policy – Not Available – create one",
+        "✘ Consent & data retention policies – Not Available"
+      ]
+    },
+    "18": {
+      "title": "Visual & Media Assets",
+      "items": [
+        "✔ Doctor images – Partially Available",
+        "✘ Facility images, videos – Not Available – Same as above"
+      ]
+    },
+    "19": {
+      "title": "UX & Technical Features - no",
+      "items": [
+        "✘ Online payments, telemedicine, portal – Not Available",
+        "✘ WhatsApp chat, CRM, analytics – Not Available"
+      ]
+    },
+    "20": {
+      "title": "SEO & Content- answered above",
+      "items": [
+        "✘ SEO keywords, blog strategy – Not Available"
+      ]
+    },
+    "21": {
+      "title": "Sitemap & Priority – not available",
+      "items": [
+        "✔ Basic sitemap/menu – Available",
+        "✘ Phase■wise priorities – Not Available"
+      ]
+    },
+    "22": {
+      "title": "Files & Approvals – logo you have.",
+      "items": [
+        "✘ Logos, certificates, policies – Not Available",
+        "END OF LIVE WEBSITE AUDIT REPORT"
+      ]
+    }
+  }
+}

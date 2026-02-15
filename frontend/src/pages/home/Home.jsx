@@ -30,7 +30,7 @@ const Home = () => {
         style={{ scaleX }}
       />
 
-      <main className="overflow-x-hidden">
+      <main className="overflow-x-hidden relative">
         <HeroSection />
         <SpecialitiesSection />
         <ServicesSection />

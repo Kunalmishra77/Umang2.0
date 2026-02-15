@@ -23,7 +23,7 @@ const upgrades = [
     title: "Robotic OT Suite",
     desc: "Modular operation theatres with advanced robotic-assisted surgery systems.",
     icon: Zap,
-    image: ASSETS.OT,
+    image: ASSETS.ROBOTIC_SURGERY,
     tag: "Surgical"
   }
 ];
