@@ -24,23 +24,23 @@ const itemVariants = {
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-12 lg:py-10 bg-gray-50 relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-gray-50 relative overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
            style={{ backgroundImage: 'radial-gradient(#005580 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
       <div className="container-custom relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-12 lg:mb-20 gap-8">
           <motion.div 
              initial={{ opacity: 0, x: -50 }}
              whileInView={{ opacity: 1, x: 0 }}
              transition={{ duration: 0.8 }}
              viewport={{ once: true }}
-             className="max-w-3xl"
+             className="max-w-3xl text-center lg:text-left"
           >
             <span className="section-subtitle">Medical Excellence</span>
             <h2 className="section-title">Why Patients <span className="text-primary-600">Trust Umang</span></h2>
-            <p className="text-xl text-gray-500 font-light leading-relaxed">
+            <p className="text-base lg:text-xl text-gray-500 font-light leading-relaxed mx-auto lg:mx-0">
               Providing Gurugram with a world-class healing ecosystem since 2010. 
               We combine high-tech infrastructure with deep human compassion.
             </p>
@@ -52,13 +52,13 @@ const WhyChooseUs = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 md:auto-rows-[340px]"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           
           {/* Card 1: The Infrastructure (Large) */}
           <motion.div 
             variants={itemVariants}
-            className="md:col-span-2 relative rounded-[3rem] p-10 overflow-hidden group shadow-2xl min-h-[320px] transform transition-transform hover:-translate-y-2 duration-500"
+            className="md:col-span-2 relative rounded-[2.5rem] lg:rounded-[3rem] p-8 lg:p-10 overflow-hidden group shadow-2xl min-h-[300px] lg:min-h-[340px] transform transition-transform hover:-translate-y-2 duration-500"
           >
             {/* Blurred Background Image */}
             <div className="absolute inset-0 z-0">
@@ -71,12 +71,12 @@ const WhyChooseUs = () => {
             </div>
             
             <div className="relative z-10 h-full flex flex-col justify-between">
-              <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/10 mb-8 md:mb-0 shadow-lg">
-                <ShieldCheck className="w-8 h-8 text-primary-300" />
+              <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/10 mb-8 shadow-lg">
+                <ShieldCheck className="w-7 h-7 lg:w-8 lg:h-8 text-primary-300" />
               </div>
               <div className="max-w-xl">
-                <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">150-Bedded Superspeciality</h3>
-                <p className="text-blue-50 text-lg leading-relaxed font-light drop-shadow-md">
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-3 lg:mb-4 tracking-tight">150-Bedded Superspeciality</h3>
+                <p className="text-blue-50 text-base lg:text-lg leading-relaxed font-light drop-shadow-md">
                   Gurugram's premium healthcare facility featuring 28 ICU beds, 8 SICU, 7 CCU, and 3 state-of-the-art modular operation theatres.
                 </p>
               </div>
@@ -86,7 +86,7 @@ const WhyChooseUs = () => {
           {/* Card 2: 24/7 Support */}
           <motion.div 
             variants={itemVariants}
-            className="relative rounded-[3rem] p-10 overflow-hidden group shadow-2xl min-h-[280px] transform transition-transform hover:-translate-y-2 duration-500"
+            className="relative rounded-[2.5rem] lg:rounded-[3rem] p-8 lg:p-10 overflow-hidden group shadow-2xl min-h-[280px] lg:min-h-[340px] transform transition-transform hover:-translate-y-2 duration-500"
           >
             <div className="absolute inset-0 z-0">
               <img 
@@ -98,12 +98,12 @@ const WhyChooseUs = () => {
             </div>
             
             <div className="relative z-10 h-full flex flex-col justify-between">
-              <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center shadow-sm text-red-500 group-hover:bg-red-500 group-hover:text-white transition-all duration-500 mb-8 md:mb-0">
-                 <Clock className="w-8 h-8" />
+              <div className="w-14 h-14 lg:w-16 lg:h-16 bg-red-50 rounded-2xl flex items-center justify-center shadow-sm text-red-500 group-hover:bg-red-500 group-hover:text-white transition-all duration-500 mb-8">
+                 <Clock className="w-7 h-7 lg:w-8 lg:h-8" />
               </div>
               <div>
-                 <h3 className="text-2xl font-bold text-brand-dark mb-3 group-hover:text-red-600 transition-colors">24/7 Support</h3>
-                 <p className="text-gray-500 leading-relaxed font-medium">Emergency trauma care, fully stocked pharmacy, and diagnostic services available round-the-clock.</p>
+                 <h3 className="text-xl lg:text-2xl font-bold text-brand-dark mb-3 group-hover:text-red-600 transition-colors">24/7 Support</h3>
+                 <p className="text-gray-500 text-sm lg:text-base leading-relaxed font-medium">Emergency trauma care, fully stocked pharmacy, and diagnostic services available round-the-clock.</p>
               </div>
             </div>
           </motion.div>
@@ -111,7 +111,7 @@ const WhyChooseUs = () => {
           {/* Card 3: Advanced Tech */}
           <motion.div 
             variants={itemVariants}
-            className="relative rounded-[3rem] p-10 overflow-hidden group shadow-2xl min-h-[280px] transform transition-transform hover:-translate-y-2 duration-500"
+            className="relative rounded-[2.5rem] lg:rounded-[3rem] p-8 lg:p-10 overflow-hidden group shadow-2xl min-h-[280px] lg:min-h-[340px] transform transition-transform hover:-translate-y-2 duration-500"
           >
             <div className="absolute inset-0 z-0">
               <img 
@@ -123,12 +123,12 @@ const WhyChooseUs = () => {
             </div>
 
             <div className="relative z-10 h-full flex flex-col justify-between">
-              <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center shadow-sm text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 mb-8 md:mb-0">
-                 <Zap className="w-8 h-8" />
+              <div className="w-14 h-14 lg:w-16 lg:h-16 bg-primary-50 rounded-2xl flex items-center justify-center shadow-sm text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 mb-8">
+                 <Zap className="w-7 h-7 lg:w-8 lg:h-8" />
               </div>
               <div>
-                 <h3 className="text-2xl font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors">Modern Tech</h3>
-                 <p className="text-gray-500 leading-relaxed font-medium">Cutting-edge Cath Labs, 128 Slice CT, 3 Tesla MRI, and 4D Ultrasound technology.</p>
+                 <h3 className="text-xl lg:text-2xl font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors">Modern Tech</h3>
+                 <p className="text-gray-500 text-sm lg:text-base leading-relaxed font-medium">Cutting-edge Cath Labs, 128 Slice CT, 3 Tesla MRI, and 4D Ultrasound technology.</p>
               </div>
             </div>
           </motion.div>
@@ -136,7 +136,7 @@ const WhyChooseUs = () => {
           {/* Card 4: Clinical Excellence (Wide) */}
           <motion.div 
             variants={itemVariants}
-            className="md:col-span-2 relative rounded-[3rem] p-10 overflow-hidden shadow-2xl group min-h-[320px] transform transition-transform hover:-translate-y-2 duration-500"
+            className="md:col-span-2 relative rounded-[2.5rem] lg:rounded-[3rem] p-8 lg:p-10 overflow-hidden shadow-2xl group min-h-[300px] lg:min-h-[340px] transform transition-transform hover:-translate-y-2 duration-500"
           >
              {/* Background Image */}
              <div className="absolute inset-0 z-0">
@@ -150,22 +150,24 @@ const WhyChooseUs = () => {
 
              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 z-0" />
              
-             <div className="relative z-10 flex flex-col md:flex-row items-center h-full gap-10">
+             <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center h-full gap-8 lg:gap-10">
                 <div className="flex-1">
-                   <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/10 mb-8">
-                      <Award className="w-8 h-8 text-primary-200" />
+                   <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/10 mb-6 lg:mb-8">
+                      <Award className="w-7 h-7 lg:w-8 lg:h-8 text-primary-200" />
                    </div>
-                   <h3 className="text-3xl font-bold text-white mb-4 tracking-tight">Clinical Outcomes</h3>
-                   <p className="text-primary-100/80 text-lg leading-relaxed font-light">
+                   <h3 className="text-2xl lg:text-3xl font-bold text-white mb-3 lg:mb-4 tracking-tight">Clinical Outcomes</h3>
+                   <p className="text-primary-100/80 text-base lg:text-lg leading-relaxed font-light">
                       Our commitment to medical ethics and quality is reflected in our NABH accreditation and high patient recovery rates.
                    </p>
                 </div>
                 
-                <div className="hidden lg:flex w-56 h-56 bg-white/5 backdrop-blur-xl rounded-[2.5rem] items-center justify-center border border-white/10 shadow-2xl shrink-0 group-hover:scale-105 transition-transform duration-500">
-                   <div className="text-center">
-                      <p className="text-6xl font-bold text-white mb-2 tracking-tighter"><CountUp to={52} />+</p>
-                      <p className="text-primary-200 text-sm font-bold uppercase tracking-widest">Top Specialists</p>
-                   </div>
+                <div className="w-full md:w-auto flex justify-center">
+                  <div className="flex w-40 h-40 lg:w-52 lg:h-52 bg-white/5 backdrop-blur-xl rounded-[2rem] lg:rounded-[2.5rem] items-center justify-center border border-white/10 shadow-2xl shrink-0 group-hover:scale-105 transition-transform duration-500">
+                     <div className="text-center">
+                        <p className="text-4xl lg:text-6xl font-bold text-white mb-1 lg:mb-2 tracking-tighter"><CountUp to={52} />+</p>
+                        <p className="text-primary-200 text-[10px] lg:text-sm font-bold uppercase tracking-widest">Top Specialists</p>
+                     </div>
+                  </div>
                 </div>
              </div>
           </motion.div>
