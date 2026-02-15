@@ -61,7 +61,7 @@ const PremiumDoctors = () => {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12" ref={spotlightRef}>
            
            {/* Interactive List Area - Mobile First (stacks below on small screens) */}
-           <div className="lg:col-span-4 order-2 lg:order-1 flex flex-col gap-3 max-h-[400px] lg:max-h-[700px] overflow-y-auto pr-2 custom-scrollbar">
+           <div className="lg:col-span-4 order-2 lg:order-1 flex flex-col gap-3 max-h-[400px] lg:max-h-[700px] overflow-y-auto pr-2 no-scrollbar">
               <p className="text-primary-400 text-[10px] font-black uppercase tracking-[0.2em] mb-2 lg:hidden sticky top-0 bg-brand-dark py-2 z-10">Select a specialist:</p>
               {spotlightDoctors.map((doc) => (
                  <motion.div 
