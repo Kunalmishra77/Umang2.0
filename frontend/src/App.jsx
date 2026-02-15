@@ -103,6 +103,8 @@ function App() {
           
           <Route path="services/booking/:serviceType" element={<ServiceBooking />} />
           
+          <Route path="services/ipd-opd" element={<DynamicSubPage />} />
+          <Route path="services/telemedicine" element={<DynamicSubPage />} />
           <Route path="services/:slug" element={<DynamicSubPage />} />
           
           <Route path="cms/:slug" element={<GenericCmsPage />} />
