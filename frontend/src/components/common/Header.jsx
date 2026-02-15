@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, Calendar, Activity, Mail, ArrowRight, ShieldCheck, MapPin, Clock, Plus, Minus, Heart, Star, Award, Stethoscope, Video, Pill, Info, BookOpen, Users, Smartphone, MessageSquare } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Calendar, Activity, Mail, ArrowRight, ShieldCheck, MapPin, Clock, Plus, Minus, Heart, Star, Award, Stethoscope, Video, Pill, Info, BookOpen, Users, Smartphone, MessageSquare, Zap, GraduationCap, Briefcase, Radio, PenTool, Mic, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
