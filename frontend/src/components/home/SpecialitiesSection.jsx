@@ -41,30 +41,30 @@ const SpecialitiesSection = () => {
           </Link>
         </div>
 
-        {/* Reverted to grid-cols-1 for mobile as requested */}
         <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 auto-rows-[280px] lg:auto-rows-[350px]">
           {departments.map((dept) => (
-            <motion.div key={dept.id} variants={item} className={`group relative rounded-[2rem] lg:rounded-[3.5rem] overflow-hidden cursor-pointer ${dept.col === 'md:col-span-2' ? 'sm:col-span-2' : 'col-span-1'}`}>
-              <Link to={`/specialities/${dept.id}`} className="absolute inset-0 z-30"></Link>
-              <div className="absolute inset-0 overflow-hidden">
-                <ParallaxImage src={dept.img} alt={dept.name} containerClassName="w-full h-full" className="transition-transform duration-1000 group-hover:scale-110" offset={20} />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-              
-              <div className="absolute inset-0 p-8 lg:p-10 flex flex-col justify-end">
-                <div className="relative z-10 transform transition-transform duration-500 group-hover:-translate-y-2">
-                   <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 lg:mb-6 border border-white/20">
-                     <dept.icon className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
-                   </div>
-                   <h3 className="text-xl lg:text-3xl font-serif font-bold text-white mb-2 leading-tight">{dept.name}</h3>
-                   <div className="hidden lg:block h-0 overflow-hidden group-hover:h-auto transition-all duration-500 opacity-0 group-hover:opacity-100">
-                     <p className="text-gray-200 text-sm font-light mb-6 border-l-2 border-primary-400 pl-3">{dept.desc}</p>
-                     <div className="flex items-center gap-3 text-white font-bold tracking-wider text-sm uppercase">
-                       <span>Explore</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                     </div>
-                   </div>
+            <motion.div key={dept.id} variants={item} className={`${dept.col === 'md:col-span-2' ? 'sm:col-span-2' : 'col-span-1'}`}>
+              <Link to={`/specialities/${dept.id}`} className="block h-full group relative rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2">
+                <div className="absolute inset-0 overflow-hidden">
+                  <ParallaxImage src={dept.img} alt={dept.name} containerClassName="w-full h-full" className="transition-transform duration-1000 group-hover:scale-110" offset={20} />
                 </div>
-              </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                
+                <div className="absolute inset-0 p-8 lg:p-10 flex flex-col justify-end">
+                  <div className="relative z-10 transform transition-transform duration-500 group-hover:-translate-y-2">
+                    <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 lg:mb-6 border border-white/20">
+                      <dept.icon className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl lg:text-3xl font-serif font-bold text-white mb-2 leading-tight">{dept.name}</h3>
+                    <div className="hidden lg:block h-0 overflow-hidden group-hover:h-auto transition-all duration-500 opacity-0 group-hover:opacity-100">
+                      <p className="text-gray-200 text-sm font-light mb-6 border-l-2 border-primary-400 pl-3">{dept.desc}</p>
+                      <div className="flex items-center gap-3 text-white font-bold tracking-wider text-sm uppercase">
+                        <span>Explore</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
