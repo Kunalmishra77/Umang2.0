@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/frontend/public/assets/$1"
+    },
+    {
+      "src": "/doctors-images/(.*)",
+      "dest": "/frontend/public/doctors-images/$1"
+    },
+    {
+      "src": "/umang.svg",
+      "dest": "/frontend/public/umang.svg"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/index.html"
+    }
+  ]
+}
