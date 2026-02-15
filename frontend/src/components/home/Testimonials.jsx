@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote, MessageCircle, ArrowRight } from 'lucide-react';
+import { Star, Quote, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const testimonials = [
@@ -18,113 +18,82 @@ const testimonials = [
   },
   { 
     name: 'Vikram Mehta', 
-    text: 'The emergency team saved my father\'s life during a critical hour. Their rapid response and advanced ICU facilities are truly life-saving. Forever grateful.', 
+    text: 'The emergency team saved my father\'s life during a critical hour. Their rapid response and advanced ICU facilities are truly life-saving.', 
     loc: 'Noida',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200'
-  },
-  {
-    name: 'Suresh Raina',
-    text: 'Highly professional doctors and staff. The knee replacement surgery was successful and I was back on my feet much sooner than expected.',
-    loc: 'Gurugram',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200'
-  },
-  {
-    name: 'Meena Gupta',
-    text: 'The home care service is excellent. The physiotherapist is very patient and knowledgeable. Greatly helped in my recovery post-spine surgery.',
-    loc: 'Faridabad',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200'
-  },
-  {
-    name: 'Rahul Verma',
-    text: 'Modern facilities and very efficient lab services. Got my reports on WhatsApp within hours. Definitely the best in Gurugram.',
-    loc: 'Gurugram',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200'
   }
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-12 lg:py-10 bg-gray-50 overflow-hidden relative">
-      {/* Decorative Background */}
+    <section className="py-16 lg:py-24 bg-gray-50 overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-full opacity-[0.4] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] pointer-events-none mix-blend-multiply" />
       
-      <div className="container-custom relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+      <div className="container-custom relative z-10 px-6 sm:px-10 lg:px-16">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-12 lg:mb-20 gap-8 text-center lg:text-left">
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="max-w-3xl"
           >
             <span className="section-subtitle">Voice of Our Patients</span>
             <h2 className="section-title">Stories of <span className="text-primary-600">Hope & Healing</span></h2>
-            <p className="text-gray-500 mt-6 text-xl font-light leading-relaxed">
+            <p className="text-gray-500 mt-4 lg:mt-6 text-base lg:text-xl font-light leading-relaxed">
               Nothing speaks louder than the experiences of those who have walked through our doors and returned home with a smile.
             </p>
           </motion.div>
           
-          <motion.div
-             initial={{ opacity: 0, x: 50 }}
-             whileInView={{ opacity: 1, x: 0 }}
-             transition={{ duration: 0.8 }}
-             viewport={{ once: true }}
+          <Link 
+            to="/patient-corner/patient-stories" 
+            className="hidden lg:flex btn-outline group py-4 px-8 rounded-full font-black uppercase tracking-widest text-xs"
           >
-             <Link 
-              to="/patient-corner/patient-stories" 
-              className="hidden md:flex btn-outline group"
-             >
-                View All Stories <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-             </Link>
-          </motion.div>
+            View All Stories <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
-        <div className="relative">
-          <motion.div 
-            className="flex gap-8"
-            animate={{ x: [0, -1920] }}
-            transition={{ 
-              duration: 40, 
-              repeat: Infinity, 
-              ease: "linear" 
-            }}
-          >
-            {[...testimonials, ...testimonials].map((item, idx) => (
-              <div 
-                key={idx}
-                className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-xl shadow-gray-200/50 flex flex-col justify-between relative group transition-all duration-500 hover-lift hover:shadow-primary-500/10 shrink-0 w-[400px]"
-              >
-                <div className="absolute top-8 right-8 text-gray-100 group-hover:text-primary-50 transition-colors duration-500">
-                  <Quote className="w-20 h-20 fill-current transform rotate-180" />
-                </div>
-                
-                <div className="relative z-10">
-                  <div className="flex gap-1 mb-6">
-                    {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />)}
-                  </div>
-                  <p className="text-gray-600 text-lg leading-relaxed italic mb-8 font-light relative">
-                    "{item.text}"
-                  </p>
-                </div>
-
-                <div className="flex items-center gap-5 relative z-10 pt-6 border-t border-gray-100">
-                   <div className="w-14 h-14 rounded-full overflow-hidden shadow-md border-2 border-white ring-2 ring-gray-100 group-hover:ring-primary-200 transition-all">
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                   </div>
-                   <div>
-                      <h4 className="font-bold text-lg text-brand-dark group-hover:text-primary-700 transition-colors">{item.name}</h4>
-                      <p className="text-xs text-primary-500 font-bold uppercase tracking-widest">{item.loc}</p>
-                   </div>
-                </div>
+        {/* Responsive Grid instead of infinite scroll for better mobile control */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {testimonials.map((item, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-[2rem] lg:rounded-[2.5rem] p-8 lg:p-10 border border-gray-100 shadow-xl shadow-gray-200/50 flex flex-col justify-between relative group transition-all duration-500 hover:-translate-y-2"
+            >
+              <div className="absolute top-6 lg:top-8 right-6 lg:right-8 text-gray-100 group-hover:text-primary-50 transition-colors duration-500">
+                <Quote className="w-12 h-12 lg:w-20 lg:h-20 fill-current transform rotate-180" />
               </div>
-            ))}
-          </motion.div>
+              
+              <div className="relative z-10">
+                <div className="flex gap-1 mb-6">
+                  {[1,2,3,4,5].map(i => <Star key={i} className="w-3.5 h-3.5 lg:w-4 lg:h-4 fill-yellow-400 text-yellow-400" />)}
+                </div>
+                <p className="text-gray-600 text-base lg:text-lg leading-relaxed italic mb-8 font-light relative">
+                  "{item.text}"
+                </p>
+              </div>
+
+              <div className="flex items-center gap-4 lg:gap-5 relative z-10 pt-6 border-t border-gray-100">
+                 <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full overflow-hidden shadow-md border-2 border-white ring-2 ring-gray-100 group-hover:ring-primary-200 transition-all">
+                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                 </div>
+                 <div>
+                    <h4 className="font-bold text-base lg:text-lg text-brand-dark group-hover:text-primary-700 transition-colors">{item.name}</h4>
+                    <p className="text-[10px] lg:text-xs text-primary-500 font-bold uppercase tracking-widest">{item.loc}</p>
+                 </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        <div className="mt-16 text-center md:hidden">
+        <div className="mt-12 text-center lg:hidden">
            <Link 
             to="/patient-corner/patient-stories" 
-            className="btn-outline w-full justify-center"
+            className="btn-outline w-full justify-center py-4 rounded-2xl text-xs uppercase font-black tracking-widest"
            >
               View All Stories
            </Link>
