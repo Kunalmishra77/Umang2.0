@@ -121,12 +121,13 @@ const About = () => {
 
 
       {/* SECTION 3: CORE VALUES GRID */}
-      <section className="section-padding bg-brand-dark text-white overflow-hidden">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
-            <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[12px] mb-4 block">The Umang Ethos</span>
+      <section className="section-padding bg-gray-50 text-brand-dark overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
+        <div className="container-custom relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+            <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] mb-4 block">The Umang Ethos</span>
             <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Our Core Values</h2>
-            <p className="text-gray-400 text-lg lg:text-xl font-light">The pillars that support our clinical excellence and patient trust.</p>
+            <p className="text-gray-500 text-lg lg:text-xl font-light">The pillars that support our clinical excellence and patient trust.</p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
@@ -142,15 +143,15 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-md border border-white/10 p-7 lg:p-9 rounded-[1.75rem] hover:bg-white hover:text-brand-dark transition-all duration-500 group hover:-translate-y-2 h-full flex flex-col justify-between"
+                className="bg-white border border-gray-100 p-8 lg:p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 group hover:-translate-y-2 h-full flex flex-col justify-between"
               >
                 <div>
-                  <div className={`w-11 h-11 ${val.color} rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                    <val.icon className="w-5 h-5" />
+                  <div className={`w-14 h-14 ${val.color} rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform shadow-lg`}>
+                    <val.icon className="w-7 h-7" />
                   </div>
-                  <h4 className="text-xl font-bold mb-3">{val.title}</h4>
+                  <h4 className="text-2xl font-bold mb-4">{val.title}</h4>
                 </div>
-                <p className="opacity-70 group-hover:opacity-100 text-[12px] lg:text-[14px] leading-relaxed transition-opacity">{val.desc}</p>
+                <p className="text-gray-500 text-sm lg:text-base leading-relaxed transition-opacity">{val.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -158,15 +159,15 @@ const About = () => {
       </section>
 
       {/* SECTION 4: CLINICAL EXCELLENCE & SAFETY */}
-      <section className="section-padding bg-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-primary-50 rounded-full blur-3xl -mr-32 -mt-32 opacity-50" />
+      <section className="section-padding bg-brand-dark relative overflow-hidden text-white">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-900/20 rounded-full blur-3xl -mr-32 -mt-32 opacity-50" />
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="lg:col-span-7">
-              <span className="section-subtitle">Safety First</span>
-              <h2 className="text-3xl md:text-5xl font-serif font-bold text-brand-dark mb-10 leading-tight">
+              <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[12px] mb-4 block">Safety First</span>
+              <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-10 leading-tight">
                 Premium Standards, <br/>
-                <span className="text-primary-600 italic">Global Protocols.</span>
+                <span className="text-primary-400 italic">Global Protocols.</span>
               </h2>
               <div className="grid sm:grid-cols-2 gap-6 lg:gap-10">
                 {[
@@ -181,12 +182,12 @@ const About = () => {
                     className="group cursor-pointer"
                   >
                     <Link to={item.path} className="flex flex-col gap-4">
-                      <div className="w-12 h-12 rounded-xl bg-gray-50 shadow-sm flex items-center justify-center text-primary-600 border border-gray-100 group-hover:bg-primary-600 group-hover:text-white transition-all duration-300">
+                      <div className="w-12 h-12 rounded-xl bg-white/5 shadow-sm flex items-center justify-center text-primary-400 border border-white/10 group-hover:bg-primary-500 group-hover:text-white transition-all duration-300">
                         <item.icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <h4 className="text-lg lg:text-xl font-bold text-brand-dark mb-2 group-hover:text-primary-600 transition-colors">{item.title}</h4>
-                        <p className="text-sm lg:text-base text-gray-500 leading-relaxed">{item.desc}</p>
+                        <h4 className="text-lg lg:text-xl font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">{item.title}</h4>
+                        <p className="text-sm lg:text-base text-gray-400 leading-relaxed">{item.desc}</p>
                       </div>
                     </Link>
                   </motion.div>

@@ -63,11 +63,11 @@ const WhyChooseUs = () => {
 
   return (
     <section className="section-padding bg-gray-50 relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-50/30 rounded-full blur-[120px] -mr-100 -mt-100 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[100px] -ml-80 -mb-80 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-100/20 rounded-full blur-[120px] -mr-100 -mt-100 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-100/30 rounded-full blur-[100px] -ml-80 -mb-80 pointer-events-none" />
 
       <div className="container-custom relative z-10">
-        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-10 lg:mb-14 gap-8">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-12 lg:mb-16 gap-8">
           <motion.div 
              initial={{ opacity: 0, x: -30 }}
              whileInView={{ opacity: 1, x: 0 }}
@@ -79,7 +79,7 @@ const WhyChooseUs = () => {
                <span className="w-10 h-[2px] bg-primary-500 rounded-full" />
                <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px]">Excellence in Care</span>
             </div>
-            <h2 className="text-2xl md:text-4xl font-serif font-bold text-gray-900 leading-tight">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">
               The Gold Standard of <span className="hero-gradient-text italic font-medium">Healthcare in Gurugram</span>
             </h2>
           </motion.div>
@@ -88,7 +88,7 @@ const WhyChooseUs = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-gray-500 text-sm lg:text-base font-light leading-relaxed max-w-sm text-left lg:text-right"
+            className="text-gray-500 text-base lg:text-lg font-light leading-relaxed max-w-sm text-left lg:text-right"
           >
             Leading the way in medical innovation with a patient-first approach since 2010.
           </motion.p>

@@ -3,15 +3,14 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Heart, Brain, Bone, Activity, Scissors, Wind } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
-import ParallaxImage from '../common/ParallaxImage';
 
 const departments = [
-  { id: 'cardiac', name: 'Cardiac Sciences', icon: Heart, desc: 'Advanced Cath Labs', img: ASSETS.CARDIAC, col: 'md:col-span-2' },
-  { id: 'neuro', name: 'Neuro Sciences', icon: Brain, desc: 'Brain & Spine Care', img: ASSETS.NEURO, col: 'md:col-span-1' },
-  { id: 'ortho', name: 'Orthopaedics', icon: Bone, desc: 'Joint Replacement', img: ASSETS.ORTHO, col: 'md:col-span-1' },
-  { id: 'gastro', name: 'Gastroenterology', icon: Activity, desc: 'Digestive Health', img: ASSETS.GASTRO, col: 'md:col-span-2' },
-  { id: 'pulmonology', name: 'Pulmonology', icon: Wind, desc: 'Respiratory Care', img: ASSETS.PULMONOLOGY, col: 'md:col-span-1' },
-  { id: 'surgery', name: 'General Surgery', icon: Scissors, desc: 'Laparoscopic Care', img: ASSETS.OT, col: 'md:col-span-1' },
+  { id: 'cardiac', name: 'Cardiac Sciences', icon: Heart, desc: 'Advanced Cath Labs', img: ASSETS.CARDIAC },
+  { id: 'neuro', name: 'Neuro Sciences', icon: Brain, desc: 'Brain & Spine Care', img: ASSETS.NEURO },
+  { id: 'ortho', name: 'Orthopaedics', icon: Bone, desc: 'Joint Replacement', img: ASSETS.ORTHO },
+  { id: 'gastro', name: 'Gastroenterology', icon: Activity, desc: 'Digestive Health', img: ASSETS.GASTRO },
+  { id: 'pulmonology', name: 'Pulmonology', icon: Wind, desc: 'Respiratory Care', img: ASSETS.PULMONOLOGY },
+  { id: 'surgery', name: 'General Surgery', icon: Scissors, desc: 'Laparoscopic Care', img: ASSETS.OT },
 ];
 
 const container = {
@@ -28,7 +27,7 @@ const SpecialitiesSection = () => {
   return (
     <section className="section-padding bg-gray-50 overflow-hidden">
       <div className="container-custom">
-        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-10 lg:mb-12 gap-6 text-center lg:text-left">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-12 lg:mb-16 gap-8 text-center lg:text-left">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
             <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] lg:text-sm mb-3 block">Clinical Excellence</span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Centres of Excellence</h2>
@@ -41,12 +40,12 @@ const SpecialitiesSection = () => {
           </Link>
         </div>
 
-        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[280px] lg:auto-rows-[340px]">
+        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 auto-rows-[280px] lg:auto-rows-[320px]">
           {departments.map((dept) => (
             <motion.div 
               key={dept.id} 
               variants={item} 
-              className={`${dept.col === 'md:col-span-2' ? 'sm:col-span-2 lg:col-span-1' : 'col-span-1'}`}
+              className="col-span-1"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
@@ -61,9 +60,9 @@ const SpecialitiesSection = () => {
                     <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-5 lg:mb-8 border border-white/20 group-hover:bg-primary-500/20 group-hover:border-primary-500/40 transition-all duration-500">
                       <dept.icon className="w-7 h-7 lg:w-8 lg:h-8 text-white" />
                     </div>
-                    <h3 className="text-2xl lg:text-3xl font-serif font-bold text-white mb-2 leading-tight">{dept.name}</h3>
-                    <div className="flex items-center gap-3 text-primary-300 font-bold tracking-widest text-xs lg:text-sm uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                        <span>Explore Excellence</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <h3 className="text-xl lg:text-2xl font-serif font-bold text-white mb-2 leading-tight">{dept.name}</h3>
+                    <div className="flex items-center gap-3 text-primary-300 font-bold tracking-widest text-[11px] lg:text-xs uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                        <span>Explore</span> <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>

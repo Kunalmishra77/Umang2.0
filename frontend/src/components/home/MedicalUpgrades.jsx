@@ -34,11 +34,11 @@ const MedicalUpgrades = () => {
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <section ref={containerRef} className="section-padding bg-[#020617] text-white overflow-hidden relative border-t border-white/5">
+    <section ref={containerRef} className="section-padding bg-white overflow-hidden relative border-t border-gray-100">
       {/* Background elements */}
       <motion.div style={{ y }} className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-40">
-        <div className="absolute top-[20%] -left-[10%] w-[600px] h-[600px] bg-primary-900/20 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[20%] -right-[10%] w-[600px] h-[600px] bg-cyan-900/20 rounded-full blur-[120px]" />
+        <div className="absolute top-[20%] -left-[10%] w-[600px] h-[600px] bg-primary-100/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[20%] -right-[10%] w-[600px] h-[600px] bg-cyan-100/20 rounded-full blur-[120px]" />
       </motion.div>
 
       <div className="container-custom relative z-10">
@@ -50,11 +50,11 @@ const MedicalUpgrades = () => {
             viewport={{ once: true }}
             className="max-w-2xl text-left"
           >
-            <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[12px] mb-4 block">Clinical Infrastructure</span>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold leading-[1.1]">
+            <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] mb-4 block">Clinical Infrastructure</span>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold leading-[1.1] text-brand-dark">
               Built for <span className="hero-gradient-text italic">Precision.</span>
             </h2>
-            <p className="text-white/70 mt-6 text-sm lg:text-lg font-light leading-relaxed max-w-[55ch]">
+            <p className="text-gray-500 mt-6 text-sm lg:text-lg font-light leading-relaxed max-w-[55ch]">
               Experience Gurugram's most advanced 100-bedded superspeciality facility, engineered for clinical excellence.
             </p>
           </motion.div>
@@ -64,7 +64,7 @@ const MedicalUpgrades = () => {
              transition={{ duration: 0.8 }}
              viewport={{ once: true }}
           >
-            <Link to="/infrastructure" className="group flex items-center gap-3 px-8 py-4 rounded-full border border-white/10 bg-white/5 hover:bg-white hover:text-brand-dark transition-all duration-500 font-bold text-[11px] uppercase tracking-widest backdrop-blur-sm">
+            <Link to="/infrastructure" className="group flex items-center gap-3 px-8 py-4 rounded-full border border-gray-200 bg-white hover:bg-brand-dark hover:text-white transition-all duration-500 font-bold text-[11px] uppercase tracking-widest shadow-sm">
               Explore Infrastructure <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </motion.div>
@@ -79,7 +79,7 @@ const MedicalUpgrades = () => {
               transition={{ delay: idx * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ y: -10, scale: 1.01 }}
-              className="group relative bg-[#0f172a]/60 backdrop-blur-3xl rounded-[2rem] overflow-hidden shadow-2xl border border-white/10 flex flex-col hover:border-primary-500/40 transition-all duration-500"
+              className="group relative bg-gray-50 rounded-[2rem] overflow-hidden shadow-lg border border-gray-100 flex flex-col hover:border-primary-500/40 transition-all duration-500"
             >
               <Link to="/infrastructure" className="absolute inset-0 z-30" aria-label={item.title} />
               
@@ -92,21 +92,21 @@ const MedicalUpgrades = () => {
                     e.currentTarget.src = ASSETS.HOSPITAL_EXTERIOR;
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-30" />
-                <div className="absolute top-4 left-4 px-3 py-1 bg-black/50 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-black text-white uppercase tracking-widest shadow-lg">
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-30" />
+                <div className="absolute top-4 left-4 px-3 py-1 bg-[#005580] backdrop-blur-md border border-white/10 rounded-full text-[10px] font-black text-white uppercase tracking-widest shadow-lg">
                   {item.tag}
                 </div>
               </div>
               
               <div className="p-6 lg:p-8 pt-5 flex-1 flex flex-col items-start text-left">
-                <div className="w-10 h-10 rounded-xl bg-primary-500/5 flex items-center justify-center border border-white/10 mb-6 group-hover:border-primary-500/30 group-hover:bg-primary-500/10 transition-all duration-500 shadow-xl">
-                   <item.icon className="w-5 h-5 text-primary-400" />
+                <div className="w-14 h-14 rounded-2xl bg-white flex items-center justify-center border border-gray-100 mb-6 group-hover:border-primary-500/30 group-hover:bg-primary-50 transition-all duration-500 shadow-sm">
+                   <item.icon className="w-7 h-7 text-primary-600" />
                 </div>
                 
-                <h4 className="text-lg lg:text-[1.3rem] font-serif font-bold mb-3 tracking-tight text-white group-hover:text-primary-300 transition-colors leading-tight">{item.title}</h4>
-                <p className="text-white/60 text-[11px] lg:text-[13px] leading-relaxed font-light mb-6 line-clamp-2 group-hover:text-white/90 transition-colors">{item.desc}</p>
+                <h4 className="text-xl lg:text-2xl font-serif font-bold mb-3 tracking-tight text-brand-dark group-hover:text-primary-600 transition-colors leading-tight">{item.title}</h4>
+                <p className="text-gray-500 text-sm lg:text-base leading-relaxed font-light mb-6 line-clamp-2 group-hover:text-gray-700 transition-colors">{item.desc}</p>
                 
-                <div className="mt-auto flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-primary-400 transition-all group-hover:gap-3">
+                <div className="mt-auto flex items-center gap-2 text-[11px] font-black uppercase tracking-widest text-primary-600 transition-all group-hover:gap-3">
                    Learn more <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </div>
