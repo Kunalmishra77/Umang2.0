@@ -41,16 +41,16 @@ const SpecialitiesSection = () => {
           </Link>
         </div>
 
-        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[260px] lg:auto-rows-[300px]">
+        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-[280px] lg:auto-rows-[340px]">
           {departments.map((dept) => (
             <motion.div 
               key={dept.id} 
               variants={item} 
-              className={`${dept.col === 'md:col-span-2' ? 'sm:col-span-2' : 'col-span-1'}`}
+              className={`${dept.col === 'md:col-span-2' ? 'sm:col-span-2 lg:col-span-1' : 'col-span-1'}`}
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <Link to={`/specialities/${dept.id}`} className="block h-full group relative rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
+              <Link to="/specialities" state={{ category: dept.id }} className="block h-full group relative rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
                 <div className="absolute inset-0 overflow-hidden">
                   <img src={dept.img} alt={dept.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 </div>
@@ -58,12 +58,12 @@ const SpecialitiesSection = () => {
                 
                 <div className="absolute inset-0 p-8 lg:p-10 flex flex-col justify-end">
                   <div className="relative z-10 transform transition-transform duration-500 group-hover:-translate-y-2">
-                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 lg:mb-6 border border-white/20 group-hover:bg-primary-500/20 group-hover:border-primary-500/40 transition-all duration-500">
-                      <dept.icon className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
+                    <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-5 lg:mb-8 border border-white/20 group-hover:bg-primary-500/20 group-hover:border-primary-500/40 transition-all duration-500">
+                      <dept.icon className="w-7 h-7 lg:w-8 lg:h-8 text-white" />
                     </div>
-                    <h3 className="text-xl lg:text-2xl font-serif font-bold text-white mb-2 leading-tight">{dept.name}</h3>
-                    <div className="flex items-center gap-2 text-primary-300 font-bold tracking-widest text-[11px] lg:text-xs uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
-                        <span>Explore Excellence</span> <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                    <h3 className="text-2xl lg:text-3xl font-serif font-bold text-white mb-2 leading-tight">{dept.name}</h3>
+                    <div className="flex items-center gap-3 text-primary-300 font-bold tracking-widest text-xs lg:text-sm uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                        <span>Explore Excellence</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>

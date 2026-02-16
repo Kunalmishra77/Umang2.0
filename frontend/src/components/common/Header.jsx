@@ -433,7 +433,7 @@ const Header = () => {
                                     </div>
                                   )}
                                   {link.links.map((sub) => (
-                                    <Link key={sub.name} to={sub.path || (link.path === '/specialities' ? `/specialities/${sub.id}` : `${link.path}/${sub.slug}`)} state={sub.id ? { category: sub.id } : undefined} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-[13px] font-semibold text-gray-600 hover:text-primary-600 flex items-center gap-3">
+                                    <Link key={sub.name} to="/specialities" state={{ category: sub.id }} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-[14px] font-semibold text-gray-600 hover:text-primary-600 flex items-center gap-3">
                                       <div className="w-1.5 h-1.5 rounded-full bg-primary-300" /> {sub.name}
                                     </Link>
                                   ))}

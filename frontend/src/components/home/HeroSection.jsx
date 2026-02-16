@@ -167,7 +167,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          <div className="lg:col-span-5 xl:col-span-4 w-full max-w-[340px] mx-auto lg:max-w-[380px]">
+          <div className="hidden lg:block lg:col-span-5 xl:col-span-4 w-full max-w-[340px] mx-auto lg:max-w-[380px]">
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }} 
               animate={{ opacity: 1, scale: 1 }} 
