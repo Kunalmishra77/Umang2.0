@@ -59,7 +59,7 @@ const DoctorProfile = () => {
                   <div className="absolute -bottom-4 -right-4 bg-white text-brand-dark px-4 py-2 rounded-xl shadow-lg z-20 flex items-center gap-2">
                      <Star className="w-4 h-4 text-yellow-500 fill-current" />
                      <span className="font-bold">{doctorData.rating}</span>
-                     <span className="text-xs text-gray-400">({doctorData.reviews} Reviews)</span>
+                     <span className="text-sm text-gray-400">({doctorData.reviews} Reviews)</span>
                   </div>
                </motion.div>
 
@@ -69,13 +69,13 @@ const DoctorProfile = () => {
                  animate={{ opacity: 1, x: 0 }}
                  className="text-center md:text-left text-white"
                >
-                  <span className="inline-block px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs font-bold uppercase tracking-widest mb-4">
+                  <span className="inline-block px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-[11px] lg:text-sm font-bold uppercase tracking-widest mb-4">
                      {doctorData.dept}
                   </span>
                   <h1 className="text-4xl md:text-6xl font-serif font-bold mb-4">{doctorData.name}</h1>
-                  <p className="text-xl text-gray-300 mb-6 font-light">{doctorData.role}</p>
+                  <p className="text-xl lg:text-2xl text-gray-300 mb-6 font-light">{doctorData.role}</p>
                   
-                  <div className="flex flex-wrap justify-center md:justify-start gap-6 text-sm font-medium text-gray-400">
+                  <div className="flex flex-wrap justify-center md:justify-start gap-6 text-base font-medium text-gray-400">
                      <div className="flex items-center gap-2">
                         <Clock className="w-5 h-5 text-blue-400" /> {doctorData.exp} Experience
                      </div>
@@ -104,10 +104,10 @@ const DoctorProfile = () => {
                   <p className="text-gray-600 leading-relaxed text-lg">{doctorData.about}</p>
                   
                   <div className="mt-8">
-                     <h4 className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">Specializations</h4>
+                     <h4 className="text-base font-bold text-gray-400 uppercase tracking-widest mb-4">Specializations</h4>
                      <div className="flex flex-wrap gap-2">
                         {doctorData.specializations.map((spec, i) => (
-                           <span key={i} className="px-4 py-2 bg-blue-50 text-[#005580] rounded-lg text-sm font-bold">
+                           <span key={i} className="px-4 py-2 bg-blue-50 text-[#005580] rounded-lg text-base font-bold">
                               {spec}
                            </span>
                         ))}
@@ -122,9 +122,9 @@ const DoctorProfile = () => {
                      {doctorData.timeline.map((item, i) => (
                         <div key={i} className="relative pl-8 group">
                            <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-blue-500 group-hover:scale-125 transition-transform" />
-                           <span className="text-sm font-bold text-blue-500 mb-1 block">{item.year}</span>
-                           <h4 className="text-lg font-bold text-gray-900">{item.title}</h4>
-                           <p className="text-gray-500 text-sm">{item.desc}</p>
+                           <span className="text-base font-bold text-blue-500 mb-1 block">{item.year}</span>
+                           <h4 className="text-lg lg:text-xl font-bold text-gray-900">{item.title}</h4>
+                           <p className="text-gray-500 text-base">{item.desc}</p>
                         </div>
                      ))}
                   </div>
@@ -151,21 +151,21 @@ const DoctorProfile = () => {
                                 : 'border-gray-200 text-gray-600 hover:border-blue-300'
                            }`}
                         >
-                           <span className="block text-xs opacity-80 mb-1">{d.day}</span>
-                           <span className="block font-bold">{d.date}</span>
+                           <span className="block text-sm opacity-80 mb-1">{d.day}</span>
+                           <span className="block font-bold text-sm lg:text-base">{d.date}</span>
                         </button>
                      ))}
                   </div>
 
                   {/* Slot Grid */}
                   <div className="mb-8">
-                     <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3">Available Slots</p>
+                     <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-3">Available Slots</p>
                      <div className="grid grid-cols-3 gap-2">
                         {doctorData.slots.map((slot, i) => (
                            <button 
                               key={i}
                               onClick={() => setSelectedSlot(i)}
-                              className={`py-2 rounded-lg text-xs font-bold transition-all ${
+                              className={`py-2 rounded-lg text-sm font-bold transition-all ${
                                  selectedSlot === i 
                                    ? 'bg-green-100 text-green-700 border border-green-200' 
                                    : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
@@ -184,7 +184,7 @@ const DoctorProfile = () => {
                   >
                      Confirm Booking <ChevronRight className="w-4 h-4" />
                   </Link>
-                  <p className="text-center text-xs text-gray-400 mt-4">
+                  <p className="text-center text-sm text-gray-400 mt-4">
                      No payment required for booking. Pay at clinic.
                   </p>
                </div>

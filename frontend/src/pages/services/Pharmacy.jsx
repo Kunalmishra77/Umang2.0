@@ -54,7 +54,7 @@ const Pharmacy = () => {
         
         <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="flex items-center gap-2 text-cyan-300 font-bold uppercase tracking-widest text-xs mb-6">
+            <div className="flex items-center gap-2 text-cyan-300 font-bold uppercase tracking-widest text-sm mb-6">
               <ShieldCheck className="w-4 h-4" />
               <span>100% Genuine Medicines</span>
             </div>
@@ -62,11 +62,11 @@ const Pharmacy = () => {
               Your Health Delivered <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200">Safely & Quickly.</span>
             </h1>
-            <p className="text-xl text-blue-100 font-light leading-relaxed mb-10">
+            <p className="text-xl lg:text-2xl text-blue-100 font-light leading-relaxed mb-10">
               Skip the pharmacy queue. Upload your prescription, and our pharmacists will verify and dispatch your medicines instantly.
             </p>
             
-            <div className="flex gap-8 text-sm font-medium">
+            <div className="flex gap-8 text-base font-medium">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
                   <Clock className="w-4 h-4 text-cyan-300" />
@@ -86,7 +86,7 @@ const Pharmacy = () => {
           <div className="bg-white text-gray-900 rounded-[2.5rem] p-8 shadow-2xl relative">
             <div className="flex justify-between items-center mb-6">
               <h3 className="text-2xl font-bold text-[#0f172a]">Quick Order</h3>
-              <div className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+              <div className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
                 <CheckCircle className="w-3 h-3" /> Flat 15% OFF
               </div>
             </div>
@@ -95,13 +95,13 @@ const Pharmacy = () => {
               <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm mb-3 group-hover:scale-110 transition-transform">
                 <Upload className="w-5 h-5 text-[#005580]" />
               </div>
-              <p className="font-bold text-gray-600 group-hover:text-[#005580]">Upload Prescription</p>
-              <p className="text-xs text-gray-400 mt-1">PDF, JPG, or PNG (Max 5MB)</p>
+              <p className="font-bold text-gray-600 group-hover:text-[#005580] text-lg">Upload Prescription</p>
+              <p className="text-sm text-gray-400 mt-1">PDF, JPG, or PNG (Max 5MB)</p>
             </Link>
 
             <div className="mt-6 flex items-center gap-4">
               <div className="h-[1px] flex-1 bg-gray-200"></div>
-              <span className="text-xs font-bold text-gray-400 uppercase">OR</span>
+              <span className="text-sm font-bold text-gray-400 uppercase">OR</span>
               <div className="h-[1px] flex-1 bg-gray-200"></div>
             </div>
 
@@ -110,7 +110,7 @@ const Pharmacy = () => {
               <input 
                 type="text" 
                 placeholder="Search medicines (e.g. Paracetamol)" 
-                className="w-full h-12 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-[#005580] outline-none font-medium"
+                className="w-full h-12 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-[#005580] outline-none font-medium text-base"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -133,7 +133,7 @@ const Pharmacy = () => {
                 <div className="w-20 h-20 rounded-full overflow-hidden mb-3 border-2 border-transparent group-hover:border-[#005580] transition-all">
                   <img src={cat.img} alt={cat.name} className="w-full h-full object-cover" />
                 </div>
-                <span className="text-sm font-bold text-gray-600 group-hover:text-[#005580] transition-colors">{cat.name}</span>
+                <span className="text-base font-bold text-gray-600 group-hover:text-[#005580] transition-colors">{cat.name}</span>
               </Link>
             ))}
           </div>
@@ -145,7 +145,7 @@ const Pharmacy = () => {
         <div className="flex justify-between items-end mb-12">
           <div>
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Best Sellers</h2>
-            <p className="text-gray-500">Most popular health products chosen by our patients.</p>
+            <p className="text-gray-500 text-lg">Most popular health products chosen by our patients.</p>
           </div>
           <Link to="/services/buy-medicines/all-products" className="text-[#005580] font-bold flex items-center gap-2 hover:gap-3 transition-all">
             View All <ArrowRight className="w-4 h-4" />
@@ -163,14 +163,14 @@ const Pharmacy = () => {
               </div>
               
               <div className="space-y-1">
-                <h3 className="font-bold text-gray-900 line-clamp-1">{product.name}</h3>
-                <p className="text-xs text-gray-500">{product.pack}</p>
+                <h3 className="font-bold text-gray-900 line-clamp-1 text-base lg:text-lg">{product.name}</h3>
+                <p className="text-sm text-gray-500">{product.pack}</p>
               </div>
               
               <div className="flex items-end justify-between mt-4">
                 <div>
-                  <span className="text-xs text-gray-400 line-through">₹{product.oldPrice}</span>
-                  <p className="text-lg font-bold text-[#0f172a]">₹{product.price}</p>
+                  <span className="text-sm text-gray-400 line-through">₹{product.oldPrice}</span>
+                  <p className="text-xl font-bold text-[#0f172a]">₹{product.price}</p>
                 </div>
                 <button 
                   onClick={addToCart}

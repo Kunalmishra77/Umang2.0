@@ -28,6 +28,7 @@
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   --animate-scroll: scroll 40s linear infinite;
+  --animate-marquee: marquee 28s linear infinite;
   --animate-shimmer: shimmer 2s linear infinite;
 
   @keyframes float {
@@ -40,6 +41,11 @@
     100% { transform: translateX(-100%); }
   }
 
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
   @keyframes shimmer {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
@@ -47,6 +53,27 @@
 }
 
 @layer base {
+  :root {
+    --header-h: 92px;
+    --section-py: clamp(24px, 3vw, 54px);
+    --section-gap: clamp(10px, 1.5vw, 18px);
+    --card-p: clamp(14px, 1.8vw, 24px);
+    --overlay-from: rgba(15, 23, 42, 0.68);
+    --overlay-mid: rgba(15, 23, 42, 0.4);
+    --overlay-to: rgba(15, 23, 42, 0.18);
+    --overlay-soft-from: rgba(15, 23, 42, 0.5);
+    --overlay-soft-to: rgba(15, 23, 42, 0.12);
+    --motion-fast: 180ms;
+    --motion-med: 240ms;
+    --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (max-width: 1024px) {
+    :root {
+      --header-h: 80px;
+    }
+  }
+
   body {
     /* Refined body text for premium feel */
     @apply font-sans text-brand-dark antialiased bg-white selection:bg-primary-500 selection:text-white leading-relaxed;
@@ -69,17 +96,17 @@
     @apply tracking-tight font-bold;
   }
 
-  h1 { @apply text-5xl md:text-7xl lg:text-8xl; }
-  h2 { @apply text-3xl md:text-5xl lg:text-6xl; }
+  h1 { @apply text-4xl md:text-6xl lg:text-7xl; }
+  h2 { @apply text-2xl md:text-4xl lg:text-5xl; }
 }
 
 @layer components {
   .section-padding {
-    @apply py-12 lg:py-10;
+    padding-block: var(--section-py);
   }
 
   .container-custom {
-    @apply container mx-auto px-6 sm:px-10 lg:px-16 max-w-[100rem];
+    @apply container mx-auto px-6 sm:px-10 lg:px-12 max-w-[96rem];
   }
   
   .glass-panel {
@@ -95,15 +122,84 @@
   }
 
   .hover-card {
-    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.1)];
+    @apply hover:-translate-y-1 hover:shadow-[0_16px_28px_-16px_rgba(0,0,0,0.18)];
+    transition: transform var(--motion-med) var(--motion-ease), box-shadow var(--motion-med) var(--motion-ease), border-color var(--motion-fast) var(--motion-ease), background-color var(--motion-fast) var(--motion-ease);
   }
 
   .section-title {
-    @apply text-4xl md:text-6xl font-serif font-bold mb-6 text-brand-dark leading-tight;
+    @apply font-serif font-bold mb-6 text-brand-dark leading-tight;
+    font-size: clamp(1.65rem, 3.2vw, 3.8rem);
   }
   
   .section-subtitle {
-    @apply text-primary-600 font-bold uppercase tracking-[0.3em] text-[10px] md:text-xs mb-4 block;
+    @apply text-primary-600 font-bold uppercase tracking-[0.3em] text-[13px] md:text-sm mb-4 block;
+  }
+}
+
+.panel-fit {
+  height: 100vh;
+  height: 100svh;
+  max-height: 100vh;
+  max-height: 100svh;
+  overflow: hidden;
+}
+
+.panel-inner-gap {
+  gap: var(--section-gap);
+}
+
+.card-pad {
+  padding: var(--card-p);
+}
+
+.overlay-base {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, var(--overlay-from), var(--overlay-mid) 55%, var(--overlay-to));
+}
+
+.overlay-soft {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, var(--overlay-soft-from), transparent 45%, var(--overlay-soft-to));
+}
+
+.hero-gradient-text {
+  color: #7dd3fc;
+  text-shadow: 0 1px 16px rgba(2, 132, 199, 0.22);
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero-gradient-text {
+    background-image: linear-gradient(120deg, #e0f2fe 5%, #7dd3fc 38%, #38bdf8 72%, #bae6fd 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 1px 10px rgba(15, 23, 42, 0.3);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: var(--animate-marquee);
+}
+
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .marquee-track {
+    animation: none;
+    transform: none;
   }
 }
 

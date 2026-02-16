@@ -105,7 +105,7 @@ const GenericCmsPage = ({ slug: propSlug }) => {
             </section>
 
             {/* 2. CORE CONTENT AREA */}
-            <section className="py-24 lg:py-32 bg-white relative">
+            <section className="section-padding bg-white relative">
                 <div className="container-custom">
                     <div className="grid lg:grid-cols-12 gap-16 lg:gap-24">
                         

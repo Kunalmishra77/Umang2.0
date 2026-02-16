@@ -152,7 +152,7 @@ const LabDiagnostics = () => {
                      </div>
                      <div>
                         <h4 className="font-bold text-[#0f172a] mb-1">{feat.title}</h4>
-                        <p className="text-xs text-gray-500 leading-relaxed">{feat.desc}</p>
+                        <p className="text-sm text-gray-500 leading-relaxed">{feat.desc}</p>
                      </div>
                   </div>
                ))}
@@ -184,13 +184,13 @@ const LabDiagnostics = () => {
                        className="bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all overflow-hidden relative flex flex-col"
                     >
                        {pkg.popular && (
-                          <div className="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider z-10">
+                          <div className="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-[12px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider z-10">
                              Bestseller
                           </div>
                        )}
                        <div className={`p-6 ${pkg.color} bg-opacity-20`}>
                           <h3 className="text-xl font-bold text-gray-900 mb-1">{pkg.title}</h3>
-                          <span className={`inline-block px-2 py-1 rounded-lg text-xs font-bold ${pkg.color} bg-white bg-opacity-60`}>
+                          <span className={`inline-block px-2 py-1 rounded-lg text-sm font-bold ${pkg.color} bg-white bg-opacity-60`}>
                              {pkg.tests}
                           </span>
                        </div>
@@ -198,17 +198,17 @@ const LabDiagnostics = () => {
                        <div className="p-6 flex-1 flex flex-col">
                           <div className="space-y-3 mb-8 flex-1">
                              {pkg.includes.map((item, idx) => (
-                                <div key={idx} className="flex items-start gap-2 text-sm text-gray-600">
+                                <div key={idx} className="flex items-start gap-2 text-base text-gray-600">
                                    <CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
                                    <span className={item.toLowerCase().includes(searchTerm.toLowerCase()) ? "bg-yellow-100" : ""}>{item}</span>
                                 </div>
                              ))}
-                             {pkg.includes.length < 5 && <div className="text-xs text-gray-400 italic">+ more parameters</div>}
+                             {pkg.includes.length < 5 && <div className="text-sm text-gray-400 italic">+ more parameters</div>}
                           </div>
 
                           <div className="border-t border-gray-100 pt-4 flex items-center justify-between">
                              <div>
-                                <span className="text-xs text-gray-400 line-through block">{pkg.originalPrice}</span>
+                                <span className="text-sm text-gray-400 line-through block">{pkg.originalPrice}</span>
                                 <span className="text-2xl font-bold text-[#0f172a]">{pkg.price}</span>
                              </div>
                              <Link to="/services/booking/lab-test" className="h-10 px-4 rounded-xl bg-[#005580] text-white text-sm font-bold hover:bg-[#004466] transition-all shadow-lg flex items-center justify-center">
@@ -223,7 +223,7 @@ const LabDiagnostics = () => {
               <div className="text-center py-12 bg-gray-50 rounded-2xl border border-gray-100">
                 <Search className="w-12 h-12 text-gray-300 mx-auto mb-4" />
                 <h3 className="text-xl font-bold text-gray-500">No packages found matching "{searchTerm}"</h3>
-                <p className="text-sm text-gray-400 mt-2">Try searching for specific tests like "Thyroid" or "Kidney".</p>
+                <p className="text-base text-gray-400 mt-2">Try searching for specific tests like "Thyroid" or "Kidney".</p>
               </div>
             )}
          </div>
@@ -247,13 +247,13 @@ const LabDiagnostics = () => {
                        <div className="p-6">
                           <ul className="space-y-3">
                              {dept.items.map((item, idx) => (
-                                <li key={idx} className="flex items-center gap-3 text-sm text-gray-600 group-hover:text-gray-900 transition-colors">
+                                <li key={idx} className="flex items-center gap-3 text-base text-gray-600 group-hover:text-gray-900 transition-colors">
                                    <div className="w-1.5 h-1.5 rounded-full bg-[#005580]"></div>
                                    <span className={item.toLowerCase().includes(searchTerm.toLowerCase()) ? "bg-yellow-100" : ""}>{item}</span>
                                 </li>
                              ))}
                           </ul>
-                          <div className="mt-6 w-full py-3 rounded-xl border border-gray-200 text-gray-600 font-bold text-sm group-hover:bg-blue-50 group-hover:text-[#005580] group-hover:border-blue-200 transition-all flex items-center justify-center gap-2">
+                          <div className="mt-6 w-full py-3 rounded-xl border border-gray-200 text-gray-600 font-bold text-base group-hover:bg-blue-50 group-hover:text-[#005580] group-hover:border-blue-200 transition-all flex items-center justify-center gap-2">
                              View All Tests <ChevronRight className="w-4 h-4" />
                           </div>
                        </div>
@@ -271,7 +271,7 @@ const LabDiagnostics = () => {
                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
                
                <div className="md:w-1/2 relative z-10">
-                  <span className="bg-white/20 text-white px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 inline-block backdrop-blur-md">
+                  <span className="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-widest mb-6 inline-block backdrop-blur-md">
                      Safe & Hygienic
                   </span>
                   <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight">

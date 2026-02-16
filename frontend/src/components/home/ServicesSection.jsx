@@ -33,45 +33,45 @@ const cardVariants = {
 
 const ServicesSection = () => {
   return (
-    <section className="py-16 lg:py-24 bg-white overflow-hidden">
-      <div className="container-custom px-6 sm:px-10 lg:px-16">
-        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-12 lg:mb-20 gap-8 text-center lg:text-left">
-          <div className="max-w-3xl mx-auto lg:mx-0">
-            <MaskText><span className="section-subtitle">Comprehensive Care</span></MaskText>
-            <MaskText delay={0.1}><h2 className="section-title">Beyond Clinical Excellence</h2></MaskText>
-            <MaskText delay={0.2}><p className="text-gray-600 mt-6 text-lg lg:text-xl font-light leading-relaxed">Widest range of supportive services for your comfort and convenience.</p></MaskText>
+    <section className="section-padding bg-white overflow-hidden">
+      <div className="container-custom">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-10 lg:mb-12 gap-8 text-center lg:text-left">
+          <div className="max-w-2xl">
+            <MaskText><span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[13px] mb-3 block">Comprehensive Care</span></MaskText>
+            <MaskText delay={0.1}><h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Beyond Clinical Excellence</h2></MaskText>
+            <MaskText delay={0.2}><p className="text-gray-500 mt-4 text-base lg:text-lg font-light leading-relaxed">Widest range of supportive services for your comfort and convenience.</p></MaskText>
           </div>
-          <Link to="/services" className="hidden lg:flex btn-outline group py-4 px-8 rounded-full font-black">
-            View All Services <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <Link to="/services" className="hidden lg:flex items-center gap-3 px-6 py-3 rounded-full border border-gray-300 hover:border-primary-600 hover:bg-white text-brand-dark transition-all font-bold text-[12px] uppercase tracking-widest group h-12">
+            View All Services <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <motion.div key={index} variants={cardVariants} className="relative min-h-[400px] lg:min-h-[450px]">
+            <motion.div key={index} variants={cardVariants} className="relative">
               <Link to={service.path} className="block h-full group">
-                <SpotlightCard className="h-full rounded-[2rem] bg-gray-50 border border-gray-100 shadow-sm hover-lift transition-all duration-500 overflow-hidden">
+                <SpotlightCard className="h-full rounded-[1.5rem] lg:rounded-[2rem] bg-gray-50/50 border border-gray-100 shadow-sm hover:bg-white hover:shadow-xl hover:shadow-primary-900/5 transition-all duration-500 overflow-hidden">
                   
-                  <div className="h-48 lg:h-[220px] overflow-hidden relative bg-gray-200">
+                  <div className="h-40 lg:h-[180px] overflow-hidden relative">
                     <div className="absolute inset-0 bg-primary-900/10 z-10 group-hover:opacity-0 transition-opacity" />
-                    <ParallaxImage src={service.img} alt={service.title} containerClassName="w-full h-full" className="transition-transform duration-700 group-hover:scale-110" offset={15} />
+                    <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                   </div>
 
-                  <div className="p-8 relative">
-                    <div className="absolute -top-10 right-8">
-                        <div className={`w-16 h-16 lg:w-20 lg:h-20 rounded-2xl ${service.color} flex items-center justify-center shadow-lg border-4 border-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}>
-                          <service.icon className="w-8 h-8 lg:w-9 lg:h-9" />
+                  <div className="p-6 lg:p-8 relative">
+                    <div className="absolute -top-8 right-6 lg:right-8">
+                        <div className={`w-14 h-14 lg:w-16 lg:h-16 rounded-xl ${service.color} flex items-center justify-center shadow-lg border-4 border-white transition-all duration-500 group-hover:scale-110`}>
+                          <service.icon className="w-6 h-6 lg:w-7 lg:h-7" />
                         </div>
                     </div>
 
-                    <div className="mt-6 lg:mt-8">
-                      <h3 className="text-2xl font-serif font-bold text-gray-900 mb-3 group-hover:text-primary-700 transition-colors">{service.title}</h3>
-                      <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">{service.desc}</p>
+                    <div className="mt-4 lg:mt-6">
+                      <h3 className="text-xl lg:text-2xl font-serif font-bold text-brand-dark mb-2 group-hover:text-primary-600 transition-colors">{service.title}</h3>
+                      <p className="text-gray-500 text-sm lg:text-base leading-relaxed line-clamp-2">{service.desc}</p>
                     </div>
 
-                    <div className="flex items-center gap-2 text-primary-600 font-bold text-sm tracking-wide uppercase mt-6">
-                        <span className="group-hover:underline decoration-2 underline-offset-4">Learn More</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <div className="flex items-center gap-2 text-primary-600 font-bold text-[11px] tracking-widest uppercase mt-6">
+                        <span>Learn More</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </SpotlightCard>
@@ -81,7 +81,7 @@ const ServicesSection = () => {
         </motion.div>
         
         <div className="lg:hidden mt-10 text-center">
-           <Link to="/services" className="btn-outline w-full justify-center py-4 rounded-2xl text-xs uppercase tracking-widest font-black">All Services</Link>
+           <Link to="/services" className="btn-outline w-full justify-center py-4 rounded-2xl text-[12px] uppercase tracking-widest font-black">All Services</Link>
         </div>
       </div>
     </section>

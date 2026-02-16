@@ -27,13 +27,13 @@ const SpecialityDetail = () => {
         
         <div className="container-custom relative z-10 pt-12">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-            <div className="flex items-center gap-2 text-blue-300 font-bold uppercase tracking-widest text-xs mb-4">
+            <div className="flex items-center gap-2 text-blue-300 font-bold uppercase tracking-widest text-[11px] lg:text-sm mb-4">
               <Link to="/specialities" className="hover:text-white">Centres of Excellence</Link>
               <ChevronRight className="w-3 h-3" />
               <span>{data.title}</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6">{data.title}</h1>
-            <p className="text-xl text-gray-300 max-w-2xl font-light leading-relaxed">{data.desc}</p>
+            <p className="text-xl lg:text-2xl text-gray-300 max-w-2xl font-light leading-relaxed">{data.desc}</p>
           </motion.div>
         </div>
       </section>
@@ -50,7 +50,7 @@ const SpecialityDetail = () => {
                 {data.procedures.map((item, i) => (
                   <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 border border-gray-100 hover:bg-blue-50 transition-colors">
                     <CheckCircle className="w-5 h-5 text-green-500" />
-                    <span className="font-bold text-gray-700">{item}</span>
+                    <span className="font-bold text-gray-700 text-sm lg:text-base">{item}</span>
                   </div>
                 ))}
               </div>
@@ -60,7 +60,7 @@ const SpecialityDetail = () => {
                 {data.tech.map((item, i) => (
                   <div key={i} className="bg-white p-6 rounded-2xl shadow-lg shadow-blue-900/5 border border-gray-100">
                     <h4 className="text-lg font-bold text-[#005580] mb-2">{item.title}</h4>
-                    <p className="text-gray-500 text-sm">{item.desc}</p>
+                    <p className="text-gray-500 text-sm lg:text-base">{item.desc}</p>
                   </div>
                 ))}
               </div>
@@ -70,10 +70,10 @@ const SpecialityDetail = () => {
               <div className="space-y-4">
                 {data.faq.map((item, i) => (
                   <div key={i} className="border border-gray-200 rounded-xl p-6">
-                    <h4 className="font-bold text-gray-900 flex items-center gap-3 mb-2">
+                    <h4 className="font-bold text-gray-900 flex items-center gap-3 mb-2 text-sm lg:text-base">
                       <HelpCircle className="w-5 h-5 text-blue-500" /> {item.q}
                     </h4>
-                    <p className="text-gray-600 pl-8">{item.a}</p>
+                    <p className="text-gray-600 pl-8 text-sm lg:text-base">{item.a}</p>
                   </div>
                 ))}
               </div>
@@ -85,8 +85,8 @@ const SpecialityDetail = () => {
                 <div className="bg-[#005580] rounded-[2rem] p-8 text-white relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl" />
                   <h3 className="text-2xl font-bold mb-4">Need a Consultation?</h3>
-                  <p className="text-blue-100 mb-8 text-sm">Book an appointment with our expert {data.title.toLowerCase().includes('surgery') ? 'surgeons' : 'specialists'} today.</p>
-                  <Link to="/doctors" className="w-full bg-white text-[#005580] py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-blue-50 transition-colors">
+                  <p className="text-blue-100 mb-8 text-sm lg:text-base">Book an appointment with our expert {data.title.toLowerCase().includes('surgery') ? 'surgeons' : 'specialists'} today.</p>
+                  <Link to="/doctors" className="w-full bg-white text-[#005580] py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-blue-50 transition-colors text-sm lg:text-base">
                     Find a Doctor <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>

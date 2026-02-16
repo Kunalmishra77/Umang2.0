@@ -64,6 +64,7 @@ import PressReleaseDetail from './pages/media-center/PressReleaseDetail';
 import GeneralAppointment from './pages/appointments/GeneralAppointment';
 import LabReports from './pages/patients/LabReports';
 import InquiryHub from './pages/contact/InquiryHub';
+import WhatsAppFloating from './components/common/WhatsAppFloating';
 
 import CashlessInsurance from './pages/legal/CashlessInsurance';
 import GenericCmsPage from './pages/legal/GenericCmsPage';
@@ -76,6 +77,7 @@ function App() {
   return (
     <>
       <ScrollToTop />
+      <WhatsAppFloating />
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
@@ -103,8 +105,9 @@ function App() {
           
           <Route path="services/booking/:serviceType" element={<ServiceBooking />} />
           
-          <Route path="services/ipd-opd" element={<DynamicSubPage />} />
-          <Route path="services/telemedicine" element={<DynamicSubPage />} />
+          <Route path="services/ipd-opd" element={<HomeCare />} />
+          <Route path="services/home-care" element={<HomeCare />} />
+          <Route path="services/telemedicine" element={<Telemedicine />} />
           <Route path="services/:slug" element={<DynamicSubPage />} />
           
           <Route path="cms/:slug" element={<GenericCmsPage />} />

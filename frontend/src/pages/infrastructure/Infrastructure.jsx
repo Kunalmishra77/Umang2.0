@@ -103,7 +103,7 @@ const Infrastructure = () => {
           <ParallaxImage 
             src={ASSETS.OT} 
             alt="Hero" 
-            className="w-full h-full object-cover opacity-30 mix-blend-luminosity" 
+            className="w-full h-full object-cover opacity-50 mix-blend-luminosity" 
             offset={100}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent" />
@@ -115,19 +115,19 @@ const Infrastructure = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           >
-            <div className="inline-flex items-center gap-2 lg:gap-3 px-4 py-2 lg:px-6 lg:py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-xl text-primary-200 text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] mb-6 lg:mb-8">
+            <div className="inline-flex items-center gap-2 lg:gap-3 px-4 py-2 lg:px-6 lg:py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-xl text-primary-200 text-[12px] lg:text-sm font-bold uppercase tracking-[0.2em] mb-6 lg:mb-8">
               <span className="w-2 h-2 rounded-full bg-primary-400 animate-pulse" />
               World Class Facility
             </div>
             <h1 className="text-4xl md:text-7xl lg:text-[9rem] font-serif font-bold text-white mb-6 lg:mb-8 leading-[1.1] lg:leading-[0.9] tracking-tighter">
               Medical <br /><span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-primary-200">Excellence</span>
             </h1>
-            <p className="text-lg lg:text-xl text-primary-100/80 max-w-2xl mx-auto mb-10 lg:mb-12 font-light leading-relaxed px-4 lg:px-0">
+            <p className="text-lg lg:text-2xl text-primary-100/90 max-w-2xl mx-auto mb-10 lg:mb-12 font-light leading-relaxed px-4 lg:px-0">
               Experience a hospital designed around the patient. From advanced modular OTs to luxury recovery suites.
             </p>
             
             <div className="flex justify-center gap-6">
-               <button onClick={() => document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })} className="h-12 lg:h-14 px-6 lg:px-8 rounded-full bg-white text-brand-dark font-bold text-xs lg:text-sm hover:bg-primary-50 transition-all flex items-center gap-2 shadow-lg hover:-translate-y-1">
+               <button onClick={() => document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })} className="h-12 lg:h-14 px-6 lg:px-8 rounded-full bg-white text-brand-dark font-bold text-[12px] lg:text-base hover:bg-primary-50 transition-all flex items-center gap-2 shadow-lg hover:-translate-y-1">
                   Explore Facilities <ChevronDown className="w-4 h-4" />
                </button>
             </div>
@@ -141,7 +141,7 @@ const Infrastructure = () => {
             <div className="text-center mb-12 lg:mb-16">
                <span className="section-subtitle">Precision Engineering</span>
                <h2 className="section-title">Technological <span className="text-primary-600">Mastery</span></h2>
-               <p className="text-gray-500 text-base lg:text-lg px-4">Tap on the markers to explore our advanced OT technology.</p>
+               <p className="text-gray-600 text-lg lg:text-xl px-4">Tap on the markers to explore our advanced OT technology.</p>
             </div>
 
             <div className="relative rounded-[2rem] lg:rounded-[3rem] overflow-hidden shadow-2xl h-[400px] md:h-[500px] lg:h-[600px] group border-4 border-white bg-gray-100">
@@ -180,8 +180,8 @@ const Infrastructure = () => {
                               className="absolute top-12 lg:top-14 left-1/2 -translate-x-1/2 w-48 lg:w-64 bg-white/95 backdrop-blur-xl p-4 lg:p-6 rounded-xl lg:rounded-2xl shadow-2xl z-20 border border-white/20 text-center"
                            >
                               <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-3 h-3 lg:w-4 lg:h-4 bg-white rotate-45 border-t border-l border-white/20" />
-                              <h4 className="font-bold text-brand-dark text-base lg:text-lg mb-1 lg:mb-2">{spot.title}</h4>
-                              <p className="text-[10px] lg:text-sm text-gray-500 leading-relaxed">{spot.desc}</p>
+                              <h4 className="font-bold text-brand-dark text-lg lg:text-xl mb-1 lg:mb-2">{spot.title}</h4>
+                              <p className="text-[12px] lg:text-base text-gray-600 leading-relaxed">{spot.desc}</p>
                            </motion.div>
                         )}
                      </AnimatePresence>
@@ -210,7 +210,7 @@ const Infrastructure = () => {
                         <ParallaxImage src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" offset={40} />
                         <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-80" />
                         <div className="absolute bottom-8 left-8">
-                           <span className="text-primary-300 text-xs font-bold uppercase tracking-wider mb-2 block">{item.category}</span>
+                           <span className="text-primary-300 text-sm font-bold uppercase tracking-wider mb-2 block">{item.category}</span>
                            <h3 className="text-3xl font-serif font-bold text-white">{item.title}</h3>
                         </div>
                         <div className="absolute top-6 right-6 w-12 h-12 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0">
@@ -218,8 +218,8 @@ const Infrastructure = () => {
                         </div>
                      </motion.div>
                      <div className="p-10">
-                        <p className="text-gray-500 text-lg mb-6 leading-relaxed">{item.short}</p>
-                        <div className="flex items-center text-primary-600 font-bold text-sm gap-2 group-hover:gap-4 transition-all uppercase tracking-wider">
+                        <p className="text-gray-600 text-xl mb-6 leading-relaxed">{item.short}</p>
+                        <div className="flex items-center text-primary-600 font-bold text-base gap-2 group-hover:gap-4 transition-all uppercase tracking-wider">
                            View Technical Specs
                         </div>
                      </div>
@@ -258,7 +258,7 @@ const Infrastructure = () => {
                            <ParallaxImage src={item.img} alt={item.title} className="w-full h-full object-cover" offset={60} />
                            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-90" />
                            <div className="absolute bottom-12 left-12">
-                              <span className="text-primary-300 text-sm font-bold uppercase tracking-widest mb-3 block">{item.category}</span>
+                              <span className="text-primary-300 text-base font-bold uppercase tracking-widest mb-3 block">{item.category}</span>
                               <h2 className="text-5xl md:text-6xl font-serif font-bold text-white mb-4 leading-none">{item.title}</h2>
                            </div>
                         </motion.div>
@@ -273,8 +273,8 @@ const Infrastructure = () => {
                                     <div className="space-y-5">
                                        {item.details.specs.map((spec, i) => (
                                           <div key={i} className="flex justify-between items-center border-b border-gray-200 pb-4 last:border-0 last:pb-0">
-                                             <span className="text-gray-500 font-medium">{spec.label}</span>
-                                             <span className="text-brand-dark font-bold text-lg">{spec.value}</span>
+                                             <span className="text-gray-600 font-medium text-base">{spec.label}</span>
+                                             <span className="text-brand-dark font-bold text-lg lg:text-xl">{spec.value}</span>
                                           </div>
                                        ))}
                                     </div>
@@ -291,7 +291,7 @@ const Infrastructure = () => {
                                           <div className="w-6 h-6 rounded-full bg-primary-50 flex items-center justify-center shrink-0 mt-1">
                                              <div className="w-2.5 h-2.5 rounded-full bg-primary-600" />
                                           </div>
-                                          <span className="text-gray-600 text-lg leading-relaxed">{feat}</span>
+                                          <span className="text-gray-700 text-lg lg:text-xl leading-relaxed">{feat}</span>
                                        </li>
                                     ))}
                                  </ul>
@@ -299,10 +299,10 @@ const Infrastructure = () => {
                                  <div className="p-8 bg-brand-dark rounded-3xl text-white relative overflow-hidden">
                                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary-600 rounded-full blur-3xl opacity-20 -mr-16 -mt-16" />
                                     <h5 className="font-bold text-xl mb-3 relative z-10">Patient Safety First</h5>
-                                    <p className="text-primary-100/80 text-sm mb-6 leading-relaxed relative z-10">
+                                    <p className="text-primary-100/90 text-base mb-6 leading-relaxed relative z-10">
                                        All our facilities undergo rigorous daily sterilization protocols and regular maintenance audits.
                                     </p>
-                                    <Link to="/contact" className="inline-block bg-white text-brand-dark px-8 py-4 rounded-xl text-sm font-bold hover:bg-primary-50 transition-colors relative z-10 uppercase tracking-wider">
+                                    <Link to="/contact" className="inline-block bg-white text-brand-dark px-8 py-4 rounded-xl text-base font-bold hover:bg-primary-50 transition-colors relative z-10 uppercase tracking-wider">
                                        Book a Facility Tour
                                     </Link>
                                  </div>

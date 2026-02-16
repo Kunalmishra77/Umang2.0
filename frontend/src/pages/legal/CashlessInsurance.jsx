@@ -114,7 +114,7 @@ const CashlessInsurance = () => {
             </section>
 
             {/* 2. SEARCH & LISTING */}
-            <section className="py-20 lg:py-24 bg-white relative">
+            <section className="section-padding bg-white relative">
                 <div className="container-custom">
                     <div className="max-w-4xl mx-auto mb-20">
                         <div className="bg-gray-50 rounded-[2.5rem] p-4 lg:p-6 border border-gray-100 shadow-sm relative z-10">
@@ -315,7 +315,7 @@ const CashlessInsurance = () => {
             </AnimatePresence>
 
             {/* 3. DISCLAIMER & INFO */}
-            <section className="py-20 lg:py-24 bg-gray-50">
+            <section className="section-padding bg-gray-50">
                 <div className="container-custom">
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
                         <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-brand-dark rounded-[3rem] p-10 lg:p-16 text-white relative overflow-hidden flex flex-col justify-center group shadow-2xl">

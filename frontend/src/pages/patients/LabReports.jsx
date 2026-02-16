@@ -60,14 +60,14 @@ const LabReports = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-cyan-300 font-bold uppercase tracking-widest text-[10px] mb-8">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-cyan-300 font-bold uppercase tracking-widest text-[12px] mb-8">
               <FileText className="w-4 h-4" /> Digital Health Records
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
               Your Reports <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200">Simplified.</span>
             </h1>
-            <p className="text-xl text-blue-100 font-light leading-relaxed mb-12">
+            <p className="text-xl lg:text-2xl text-blue-100 font-light leading-relaxed mb-12">
               Securely access, download, and share your diagnostic results anytime, anywhere. Your health data is now just a tap away.
             </p>
             
@@ -108,21 +108,21 @@ const LabReports = () => {
                   <div className="bg-gray-50 p-6 flex justify-between items-center border-b border-gray-200">
                      <div className="flex items-center gap-3">
                         <FileText className="w-6 h-6 text-[#005580]" />
-                        <h3 className="font-bold text-[#0f172a]">Digital Report Preview</h3>
+                        <h3 className="font-bold text-[#0f172a] text-lg">Digital Report Preview</h3>
                      </div>
-                     <button onClick={() => setShowSample(false)} className="text-gray-400 hover:text-gray-600 font-bold uppercase text-xs">Close</button>
+                     <button onClick={() => setShowSample(false)} className="text-gray-400 hover:text-gray-600 font-bold uppercase text-sm">Close</button>
                   </div>
                   
                   <div className="flex-1 overflow-y-auto p-12 bg-white font-serif">
                      <div className="flex justify-between border-b-4 border-[#005580] pb-8 mb-12">
                         <div className="text-3xl font-black text-[#005580]">UMANG HOSPITAL</div>
-                        <div className="text-right text-xs">
+                        <div className="text-right text-sm">
                            <p>Sector 55, Gurugram, 122011</p>
                            <p>NABL Accredited Facility</p>
                         </div>
                      </div>
 
-                     <div className="grid grid-cols-2 gap-12 mb-12 text-sm">
+                     <div className="grid grid-cols-2 gap-12 mb-12 text-base">
                         <div className="space-y-1">
                            <p><span className="font-bold">Patient Name:</span> Rajesh Kumar</p>
                            <p><span className="font-bold">Age/Sex:</span> 45 / Male</p>
@@ -136,16 +136,16 @@ const LabReports = () => {
                      </div>
 
                      <div className="mb-12">
-                        <h4 className="font-bold text-center border-y border-gray-200 py-2 mb-8 bg-gray-50">CLINICAL PATHOLOGY</h4>
+                        <h4 className="font-bold text-center border-y border-gray-200 py-2 mb-8 bg-gray-50 text-base">CLINICAL PATHOLOGY</h4>
                         <table className="w-full text-left">
                            <thead>
-                              <tr className="border-b-2 border-gray-100 text-xs uppercase text-gray-400">
+                              <tr className="border-b-2 border-gray-100 text-sm uppercase text-gray-400">
                                  <th className="py-4">Parameter</th>
                                  <th className="py-4">Result</th>
                                  <th className="py-4">Reference Range</th>
                               </tr>
                            </thead>
-                           <tbody className="text-sm">
+                           <tbody className="text-base">
                               <tr className="border-b border-gray-50">
                                  <td className="py-4 font-bold">Haemoglobin</td>
                                  <td className="py-4">14.5 g/dL</td>
@@ -166,14 +166,14 @@ const LabReports = () => {
                      </div>
 
                      <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-12">
-                        <p className="text-xs font-bold text-blue-800 mb-2">CLINICAL REMARKS:</p>
-                        <p className="text-sm text-blue-900/70 italic leading-relaxed">Blood sugar levels are borderline high. Recommended follow-up with a clinical nutritionist and regular lipid panel monitoring.</p>
+                        <p className="text-sm font-bold text-blue-800 mb-2">CLINICAL REMARKS:</p>
+                        <p className="text-base text-blue-900/70 italic leading-relaxed">Blood sugar levels are borderline high. Recommended follow-up with a clinical nutritionist and regular lipid panel monitoring.</p>
                      </div>
 
                      <div className="flex justify-end gap-12 pt-12 border-t border-gray-100">
                         <div className="text-center">
-                           <div className="w-24 h-12 border border-dashed border-gray-200 mb-2 flex items-center justify-center text-[8px] text-gray-300 uppercase">Hospital Seal</div>
-                           <p className="text-[10px] font-bold">Digital Signature</p>
+                           <div className="w-24 h-12 border border-dashed border-gray-200 mb-2 flex items-center justify-center text-[10px] text-gray-300 uppercase">Hospital Seal</div>
+                           <p className="text-[12px] font-bold">Digital Signature</p>
                         </div>
                      </div>
                   </div>
@@ -194,17 +194,17 @@ const LabReports = () => {
          <div className="container-custom">
             <div className="bg-white rounded-[4rem] p-12 md:p-24 shadow-2xl border border-gray-100 flex flex-col lg:flex-row gap-20 items-center">
                <div className="lg:w-5/12">
-                  <span className="text-[#005580] font-black text-[10px] uppercase tracking-[0.3em] mb-6 block">Real-Time Updates</span>
+                  <span className="text-[#005580] font-black text-[12px] uppercase tracking-[0.3em] mb-6 block">Real-Time Updates</span>
                   <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-8">Track Your <br />Report Status.</h2>
-                  <p className="text-gray-500 text-lg leading-relaxed mb-10">Enter your Registration ID or Bill Number to see exactly where your samples are in the clinical process.</p>
+                  <p className="text-gray-600 text-xl leading-relaxed mb-10">Enter your Registration ID or Bill Number to see exactly where your samples are in the clinical process.</p>
                   <div className="space-y-4">
-                     <div className="flex items-center gap-4 text-sm font-bold text-gray-700">
+                     <div className="flex items-center gap-4 text-base font-bold text-gray-700">
                         <CheckCircle className="w-5 h-5 text-green-500" /> Sample Collection Done
                      </div>
-                     <div className="flex items-center gap-4 text-sm font-bold text-gray-700">
+                     <div className="flex items-center gap-4 text-base font-bold text-gray-700">
                         <CheckCircle className="w-5 h-5 text-green-500" /> Laboratory Processing
                      </div>
-                     <div className="flex items-center gap-4 text-sm font-bold text-gray-400">
+                     <div className="flex items-center gap-4 text-base font-bold text-gray-400">
                         <div className="w-5 h-5 rounded-full border-2 border-gray-200" /> Doctor Validation
                      </div>
                   </div>
@@ -225,7 +225,7 @@ const LabReports = () => {
                               <h3 className="text-white text-2xl font-bold mb-8">Instant Status Check</h3>
                               <div className="space-y-6">
                                  <div className="space-y-3">
-                                    <label className="text-[10px] font-black text-blue-300 uppercase tracking-widest">Bill / ID Number</label>
+                                    <label className="text-[12px] font-black text-blue-300 uppercase tracking-widest">Bill / ID Number</label>
                                     <input 
                                        type="text" 
                                        required
@@ -239,7 +239,7 @@ const LabReports = () => {
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     disabled={isTracking} 
-                                    className="w-full h-16 bg-blue-500 text-white rounded-2xl font-black text-lg hover:bg-blue-600 transition-all flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl shadow-blue-900/50"
+                                    className="w-full h-16 bg-blue-500 text-white rounded-2xl font-black text-xl hover:bg-blue-600 transition-all flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl shadow-blue-900/50"
                                  >
                                     {isTracking ? <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin" /> : <>Track My Samples <Search className="w-6 h-6" /></>}
                                  </motion.button>
@@ -255,21 +255,21 @@ const LabReports = () => {
                            >
                               <div className="flex justify-between items-start mb-10 pb-10 border-b border-white/10">
                                  <div>
-                                    <p className="text-blue-400 font-bold text-xs uppercase mb-2">Patient Name</p>
+                                    <p className="text-blue-400 font-bold text-sm uppercase mb-2">Patient Name</p>
                                     <h4 className="text-3xl font-serif font-bold">{trackResult.patient}</h4>
                                  </div>
-                                 <div className="bg-yellow-500/20 text-yellow-400 px-4 py-2 rounded-xl text-sm font-black border border-yellow-500/30">
+                                 <div className="bg-yellow-500/20 text-yellow-400 px-4 py-2 rounded-xl text-base font-black border border-yellow-500/30">
                                     {trackResult.status}
                                  </div>
                               </div>
                               <div className="grid grid-cols-2 gap-8 mb-12">
                                  <div>
-                                    <p className="text-white/40 font-bold text-[10px] uppercase mb-1 tracking-widest">Billing Date</p>
-                                    <p className="font-bold">{trackResult.date}</p>
+                                    <p className="text-white/40 font-bold text-[12px] uppercase mb-1 tracking-widest">Billing Date</p>
+                                    <p className="font-bold text-lg">{trackResult.date}</p>
                                  </div>
                                  <div>
-                                    <p className="text-white/40 font-bold text-[10px] uppercase mb-1 tracking-widest">Estimated Ready By</p>
-                                    <p className="font-bold">{trackResult.eta}</p>
+                                    <p className="text-white/40 font-bold text-[12px] uppercase mb-1 tracking-widest">Estimated Ready By</p>
+                                    <p className="font-bold text-lg">{trackResult.eta}</p>
                                  </div>
                               </div>
                               <div className="flex flex-col sm:flex-row gap-4">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import HeroSection from '../../components/home/HeroSection';
+import HospitalVideoSection from '../../components/home/HospitalVideoSection';
 import SpecialitiesSection from '../../components/home/SpecialitiesSection';
 import ServicesSection from '../../components/home/ServicesSection';
 import WhyChooseUs from '../../components/home/WhyChooseUs';
@@ -32,6 +33,7 @@ const Home = () => {
 
       <main className="overflow-x-hidden relative">
         <HeroSection />
+        <HospitalVideoSection />
         <SpecialitiesSection />
         <ServicesSection />
         <WhyChooseUs />

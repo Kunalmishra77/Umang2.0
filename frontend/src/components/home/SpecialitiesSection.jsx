@@ -26,41 +26,44 @@ const item = {
 
 const SpecialitiesSection = () => {
   return (
-    <section className="py-16 lg:py-24 bg-gray-50 overflow-hidden">
-      <div className="container-custom px-6 sm:px-10 lg:px-16">
-        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-12 lg:mb-16 gap-6 text-center lg:text-left">
+    <section className="section-padding bg-gray-50 overflow-hidden">
+      <div className="container-custom">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-10 lg:mb-12 gap-6 text-center lg:text-left">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
-            <span className="section-subtitle">Clinical Excellence</span>
-            <h2 className="section-title">Centres of Excellence</h2>
+            <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] lg:text-sm mb-3 block">Clinical Excellence</span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Centres of Excellence</h2>
             <p className="text-gray-600 max-w-xl text-base lg:text-lg font-light leading-relaxed mx-auto lg:mx-0">
               Leading specialized departments utilizing cutting-edge technology for superior patient outcomes.
             </p>
           </motion.div>
-          <Link to="/specialities" className="hidden lg:flex items-center gap-3 px-8 py-4 rounded-full border border-gray-300 hover:border-primary-600 hover:bg-primary-50 text-brand-dark transition-all font-semibold group">
-            View All Departments <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          <Link to="/specialities" className="hidden lg:flex items-center gap-3 px-8 py-4 rounded-full border border-gray-300 hover:border-primary-600 hover:bg-white text-brand-dark transition-all font-bold text-[12px] uppercase tracking-widest group h-14 shadow-sm hover:shadow-lg">
+            View All Departments <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 auto-rows-[280px] lg:auto-rows-[350px]">
+        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[260px] lg:auto-rows-[300px]">
           {departments.map((dept) => (
-            <motion.div key={dept.id} variants={item} className={`${dept.col === 'md:col-span-2' ? 'sm:col-span-2' : 'col-span-1'}`}>
-              <Link to={`/specialities/${dept.id}`} className="block h-full group relative rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-xl transition-all duration-500 hover:-translate-y-2">
+            <motion.div 
+              key={dept.id} 
+              variants={item} 
+              className={`${dept.col === 'md:col-span-2' ? 'sm:col-span-2' : 'col-span-1'}`}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
+            >
+              <Link to={`/specialities/${dept.id}`} className="block h-full group relative rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
                 <div className="absolute inset-0 overflow-hidden">
-                  <ParallaxImage src={dept.img} alt={dept.name} containerClassName="w-full h-full" className="transition-transform duration-1000 group-hover:scale-110" offset={20} />
+                  <img src={dept.img} alt={dept.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
                 
                 <div className="absolute inset-0 p-8 lg:p-10 flex flex-col justify-end">
                   <div className="relative z-10 transform transition-transform duration-500 group-hover:-translate-y-2">
-                    <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 lg:mb-6 border border-white/20">
-                      <dept.icon className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
+                    <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 lg:mb-6 border border-white/20 group-hover:bg-primary-500/20 group-hover:border-primary-500/40 transition-all duration-500">
+                      <dept.icon className="w-6 h-6 lg:w-7 lg:h-7 text-white" />
                     </div>
-                    <h3 className="text-xl lg:text-3xl font-serif font-bold text-white mb-2 leading-tight">{dept.name}</h3>
-                    <div className="hidden lg:block h-0 overflow-hidden group-hover:h-auto transition-all duration-500 opacity-0 group-hover:opacity-100">
-                      <p className="text-gray-200 text-sm font-light mb-6 border-l-2 border-primary-400 pl-3">{dept.desc}</p>
-                      <div className="flex items-center gap-3 text-white font-bold tracking-wider text-sm uppercase">
-                        <span>Explore</span> <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                      </div>
+                    <h3 className="text-xl lg:text-2xl font-serif font-bold text-white mb-2 leading-tight">{dept.name}</h3>
+                    <div className="flex items-center gap-2 text-primary-300 font-bold tracking-widest text-[11px] lg:text-xs uppercase opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0">
+                        <span>Explore Excellence</span> <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>
@@ -69,8 +72,8 @@ const SpecialitiesSection = () => {
           ))}
         </motion.div>
         
-        <div className="mt-10 lg:hidden text-center">
-          <Link to="/specialities" className="btn-outline w-full justify-center py-4 rounded-2xl text-xs uppercase tracking-widest font-black">All Departments</Link>
+        <div className="mt-12 lg:hidden text-center">
+          <Link to="/specialities" className="btn-outline w-full justify-center py-5 rounded-2xl text-sm uppercase tracking-widest font-black">All Departments</Link>
         </div>
       </div>
     </section>

@@ -72,7 +72,7 @@ const Services = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-dark">
+      <section className="relative h-[52vh] min-h-[420px] flex items-center justify-center overflow-hidden bg-brand-dark">
         <div className="absolute inset-0 z-0">
            <img 
              src={ASSETS.HOSPITAL_EXTERIOR} 
@@ -100,9 +100,9 @@ const Services = () => {
       </section>
 
       {/* 2. Service Categories Grid */}
-      <section className="py-12 lg:py-10 bg-gray-50">
+      <section className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -113,18 +113,18 @@ const Services = () => {
               >
                 <Link 
                   to={`/services/${service.slug}`}
-                  className="block h-full bg-white p-8 rounded-[2.5rem] shadow-sm hover-lift transition-all duration-500 border border-gray-100 group hover:-translate-y-2"
+                  className="block h-full bg-white card-pad rounded-[2rem] shadow-sm hover-card border border-gray-100 group"
                 >
                   <div className={`w-16 h-16 rounded-2xl ${service.color} flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500 shadow-sm`}>
                     <service.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold text-brand-dark mb-4 group-hover:text-primary-600 transition-colors">
+                  <h3 className="text-lg lg:text-xl font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors leading-tight">
                     {service.title}
                   </h3>
-                  <p className="text-gray-500 leading-relaxed text-sm mb-6">
+                  <p className="text-gray-500 leading-relaxed text-sm lg:text-base mb-6">
                     {service.desc}
                   </p>
-                  <div className="flex items-center text-primary-600 font-bold text-xs uppercase tracking-widest gap-2 opacity-60 group-hover:opacity-100 transition-all">
+                  <div className="flex items-center text-primary-600 font-bold text-sm uppercase tracking-widest gap-2 opacity-60 group-hover:opacity-100 transition-all">
                      Explore <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </Link>

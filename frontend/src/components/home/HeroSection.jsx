@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, AnimatePresence, useSpring, useMotionValue, useTransform } from 'framer-motion';
-import { Phone, ArrowUpRight, ArrowRight, User, Send, ChevronDown, Activity, HeartPulse, Clock, Globe, Award, ShieldCheck } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Phone, ArrowRight, User, Send, ChevronDown, Activity, HeartPulse, Clock, Award, ShieldCheck } from 'lucide-react';
 import { ASSETS } from '../../utils/imageAssets';
 
 const HERO_IMAGES = [
@@ -14,40 +14,35 @@ const HERO_IMAGES = [
   ASSETS.SVC_LAPAROSCOPIC_SURGERY
 ].filter(Boolean);
 
-const HUD_CORNER = "w-3 h-3 border-primary-500/20";
+const specialties = [
+  'Cardiac Sciences',
+  'Neuro Sciences',
+  'Orthopaedics',
+  'Gastroenterology',
+  'General Surgery',
+  'Urology',
+  'Pulmonology'
+];
 
 const HeroSection = () => {
   const [index, setIndex] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [selectedSpecialty, setSelectedSpecialty] = useState("Select Specialty");
+  const [selectedSpecialty, setSelectedSpecialty] = useState('Select Specialty');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const smoothX = useSpring(mouseX, { stiffness: 50, damping: 20 });
-  const smoothY = useSpring(mouseY, { stiffness: 50, damping: 20 });
-
-  const bgX = useTransform(smoothX, [-500, 500], [10, -10]);
-  const bgY = useTransform(smoothY, [-500, 500], [10, -10]);
-
-  const specialties = [
-    "Cardiac Sciences", "Neuro Sciences", "Orthopaedics", 
-    "Gastroenterology", "General Surgery", "Urology", "Pulmonology"
+  // Combine video and images for the loop
+  const mediaItems = [
+    { type: 'video', src: ASSETS.UMANG_VIDEO },
+    ...HERO_IMAGES.map(img => ({ type: 'image', src: img }))
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setIndex(prev => (prev + 1) % HERO_IMAGES.length);
-    }, 7000);
+      setIndex((prev) => (prev + 1) % mediaItems.length);
+    }, mediaItems[index]?.type === 'video' ? 12000 : 6000); // Longer duration for video
     return () => clearInterval(timer);
-  }, []);
-
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    mouseX.set(clientX - window.innerWidth / 2);
-    mouseY.set(clientY - window.innerHeight / 2);
-  };
+  }, [index]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,157 +50,191 @@ const HeroSection = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1500);
+      setTimeout(() => setIsSubmitted(false), 2500);
+    }, 1200);
   };
 
   return (
-    <section 
-      className="relative min-h-[90svh] lg:h-screen lg:min-h-[850px] w-full overflow-hidden bg-[#020617] text-white flex items-center py-12 lg:py-0"
-      onMouseMove={handleMouseMove}
+    <section
+      className="relative w-full bg-[#020617] text-white overflow-hidden flex items-center"
+      style={{ height: 'calc(100svh - var(--header-h))' }}
     >
-      {/* 1. BALANCED BACKGROUND ENGINE */}
-      <motion.div style={{ x: bgX, y: bgY, scale: 1.05 }} className="absolute inset-0 z-0">
-        <AnimatePresence mode="popLayout">
+      <div className="absolute inset-0 z-0">
+        <AnimatePresence mode="wait">
           <motion.div
             key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
             className="absolute inset-0"
           >
-            <img 
-              src={HERO_IMAGES[index]} 
-              className="w-full h-full object-cover opacity-[0.45] lg:opacity-[0.4] brightness-[0.75] contrast-[1.1]"
-              alt=""
-            />
+            {mediaItems[index]?.type === 'video' ? (
+              <video
+                src={mediaItems[index].src}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover opacity-55"
+              />
+            ) : (
+              <img
+                src={mediaItems[index].src}
+                className="w-full h-full object-cover opacity-50"
+                alt=""
+              />
+            )}
           </motion.div>
         </AnimatePresence>
-        
-        {/* Subtle dynamic glow */}
-        <div className="absolute top-1/4 -left-20 w-[300px] lg:w-[600px] h-[300px] lg:h-[600px] bg-primary-500/10 rounded-full blur-[100px]" />
-      </motion.div>
+      </div>
 
-      {/* REFINED GRADIENTS - Improved contrast for text */}
-      <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-[#020617]/80 via-[#020617]/40 to-transparent z-10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/90 via-transparent to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/70 via-[#020617]/30 to-transparent z-10" />
+      <div className="overlay-soft z-10 opacity-20" />
 
-      {/* 2. CONTENT LAYER */}
-      <div className="container-custom relative z-30 w-full">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
-          
-          <div className="lg:col-span-7 xl:col-span-8 text-center lg:text-left">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mb-6 flex justify-center lg:justify-start"
+      <div className="container-custom relative z-20 w-full py-4 lg:py-0">
+        <div className="grid lg:grid-cols-12 panel-inner-gap items-center">
+          <div className="lg:col-span-7 xl:col-span-8 text-center lg:text-left flex flex-col justify-center">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="mb-3 flex justify-center lg:justify-start"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/5 border border-white/10 rounded-full backdrop-blur-md">
-                <Activity className="w-3 h-3 text-primary-400 animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/90">Advanced Superspeciality Care</span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 border border-white/20 rounded-full backdrop-blur-sm">
+                <Activity className="w-3.5 h-3.5 text-primary-300" />
+                <span className="text-[12px] font-black uppercase tracking-[0.2em] text-white">Advanced Superspeciality Care</span>
               </div>
             </motion.div>
 
-            <h1 className="font-sans font-black tracking-tighter leading-[1.1] lg:leading-[0.9] mb-6"
-                style={{ fontSize: 'clamp(42px, 9vw, 92px)' }}>
-              Precision <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-cyan-200 to-white italic">
-                Healthcare.
-              </span>
-            </h1>
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="font-sans font-black tracking-tight leading-[0.9] mb-4" 
+              style={{ fontSize: 'clamp(2.5rem, 6vw, 5.2rem)' }}
+            >
+              Precision
+              <br />
+              <span className="hero-gradient-text italic">Healthcare.</span>
+            </motion.h1>
 
-            <motion.p
+            <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="text-lg lg:text-2xl text-white/70 max-w-[45ch] mb-10 font-medium leading-relaxed tracking-tight mx-auto lg:mx-0"
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-[15px] md:text-[1.1rem] text-white/80 max-w-[60ch] mb-8 lg:mb-10 font-medium leading-relaxed mx-auto lg:mx-0"
             >
-              A 150-bed beacon of medical excellence in Gurugram, <br className="hidden lg:block" />
-              where advanced tech meets human compassion.
+              A 100-bed beacon of medical excellence in Gurugram, where advanced technology meets human compassion.
             </motion.p>
 
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-12">
-              <Link 
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-10"
+            >
+              <Link
                 to="/doctors"
-                className="h-16 px-10 flex items-center justify-center bg-white text-brand-dark rounded-2xl font-black uppercase tracking-widest text-xs transition-all shadow-2xl w-full sm:w-auto hover:scale-105 active:scale-95"
+                className="h-12 lg:h-13 px-8 flex items-center justify-center bg-white text-brand-dark rounded-xl font-black uppercase tracking-[0.15em] text-[12px] transition-all shadow-2xl hover:bg-primary-50 hover:-translate-y-1"
               >
-                Book Appointment <ArrowRight className="w-4 h-4 ml-3" />
+                Book Appointment <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
-
-              <motion.a 
-                href="tel:+918929733551"
-                className="h-16 px-10 flex items-center justify-center rounded-2xl border-2 border-white/20 backdrop-blur-md hover:bg-white/10 transition-all text-xs font-black uppercase tracking-widest w-full sm:w-auto"
+              <a
+                href="tel:+918929733550"
+                className="h-12 lg:h-13 px-8 flex items-center justify-center rounded-xl border-2 border-white/25 backdrop-blur-md hover:bg-white/10 transition-all text-[12px] font-black uppercase tracking-[0.15em]"
               >
                 Emergency Support
-              </motion.a>
-            </div>
+              </a>
+            </motion.div>
 
-            <div className="flex flex-wrap justify-center lg:justify-start gap-6 lg:gap-12 border-t border-white/10 pt-10">
-               {[
-                 { label: "NABH Accredited", icon: ShieldCheck },
-                 { label: "150+ Smart Beds", icon: Award },
-                 { label: "24/7 Response", icon: Clock }
-               ].map((s, i) => (
-                 <div key={i} className="flex items-center gap-2">
-                    <s.icon className="w-5 h-5 text-primary-400" />
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">{s.label}</span>
-                 </div>
-               ))}
-            </div>
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.8 }}
+              className="flex flex-wrap justify-center lg:justify-start gap-6 border-t border-white/15 pt-5 opacity-80"
+            >
+              {[
+                { label: 'NABH Accredited', icon: ShieldCheck },
+                { label: '100+ Smart Beds', icon: Award },
+                { label: '24/7 Response', icon: Clock }
+              ].map((s) => (
+                <div key={s.label} className="flex items-center gap-2.5">
+                  <s.icon className="w-4 h-4 text-primary-300" />
+                  <span className="text-[11.5px] font-black uppercase tracking-[0.2em] text-white/85">{s.label}</span>
+                </div>
+              ))}
+            </motion.div>
           </div>
 
-          {/* FORM: Desktop only */}
-          <div className="hidden lg:block lg:col-span-5 xl:col-span-4 relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4 }}
-              className="relative group"
+          <div className="lg:col-span-5 xl:col-span-4 w-full max-w-[340px] mx-auto lg:max-w-[380px]">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }} 
+              animate={{ opacity: 1, scale: 1 }} 
+              transition={{ duration: 0.8, delay: 0.5 }} 
+              className="relative"
             >
-              <div className={`absolute -top-1 -left-1 border-t border-l ${HUD_CORNER}`} />
-              <div className={`absolute -top-1 -right-1 border-t border-r ${HUD_CORNER}`} />
-              <div className={`absolute -bottom-1 -left-1 border-b border-l ${HUD_CORNER}`} />
-              <div className={`absolute -bottom-1 -right-1 border-b border-r ${HUD_CORNER}`} />
-
-              <div className="bg-white/[0.03] border border-white/10 backdrop-blur-3xl p-10 rounded-3xl relative overflow-hidden">
-                <div className="flex items-center justify-between mb-10">
-                  <div className="flex items-center gap-4">
-                    <HeartPulse className="w-6 h-6 text-primary-400" />
-                    <h3 className="text-xl font-black text-white uppercase tracking-tighter">Inquiry</h3>
+              <div className="rounded-[2.5rem] border border-white/10 bg-[#0f172a]/30 backdrop-blur-2xl shadow-[0_40px_100px_-20px_rgba(0,0,0,0.6)] p-7 lg:p-9">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="flex items-center gap-3">
+                    <HeartPulse className="w-5 h-5 text-primary-400" />
+                    <h3 className="text-sm font-black text-white uppercase tracking-[0.2em]">Inquiry</h3>
                   </div>
-                  <div className="h-[1px] flex-1 bg-gradient-to-r from-primary-500/30 to-transparent ml-6" />
+                  <div className="h-px flex-1 bg-white/10" />
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="relative group/input">
-                    <User className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20 group-focus-within/input:text-primary-400 transition-colors" />
-                    <input required type="text" placeholder="PATIENT NAME" className="w-full bg-transparent border-b border-white/10 py-4 pl-8 pr-4 text-[11px] font-bold tracking-widest outline-none focus:border-primary-500 transition-all placeholder:text-white/10 uppercase text-white" />
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="relative group">
+                    <User className="absolute left-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/20 group-focus-within:text-primary-300 transition-colors" />
+                    <input
+                      required
+                      type="text"
+                      placeholder="PATIENT NAME"
+                      className="w-full bg-transparent border-b border-white/10 py-3.5 pl-7 pr-2 text-[12.5px] font-black uppercase tracking-widest outline-none focus:border-primary-300 placeholder:text-white/20 text-white transition-all"
+                    />
                   </div>
 
-                  <div className="relative group/input">
-                    <Phone className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-white/20 group-focus-within/input:text-primary-400 transition-colors" />
-                    <input required type="tel" placeholder="MOBILE NUMBER" className="w-full bg-transparent border-b border-white/10 py-4 pl-8 pr-4 text-[11px] font-bold tracking-widest outline-none focus:border-primary-500 transition-all placeholder:text-white/10 uppercase text-white" />
+                  <div className="relative group">
+                    <Phone className="absolute left-0 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-white/20 group-focus-within:text-primary-300 transition-colors" />
+                    <input
+                      required
+                      type="tel"
+                      placeholder="MOBILE NUMBER"
+                      className="w-full bg-transparent border-b border-white/10 py-3.5 pl-7 pr-2 text-[12.5px] font-black uppercase tracking-widest outline-none focus:border-primary-300 placeholder:text-white/20 text-white transition-all"
+                    />
                   </div>
 
                   <div className="relative">
                     <button
                       type="button"
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className={`w-full bg-transparent border-b ${isDropdownOpen ? 'border-primary-500' : 'border-white/10'} py-4 pl-0 text-[11px] font-bold tracking-widest outline-none transition-all flex items-center justify-between uppercase text-white`}
+                      className={`w-full bg-transparent border-b ${isDropdownOpen ? 'border-primary-300' : 'border-white/10'} py-3.5 text-[12.5px] font-black uppercase tracking-widest outline-none transition-all flex items-center justify-between text-white/90`}
                     >
-                      <span className={selectedSpecialty === "Select Specialty" ? "text-white/20" : "text-white"}>{selectedSpecialty}</span>
-                      <ChevronDown className={`w-4 h-4 text-white/20 transition-transform ${isDropdownOpen ? 'rotate-180 text-primary-400' : ''}`} />
+                      <span className={selectedSpecialty === 'Select Specialty' ? 'text-white/20' : 'text-white'}>{selectedSpecialty.toUpperCase()}</span>
+                      <ChevronDown className={`w-3.5 h-3.5 text-white/20 transition-transform ${isDropdownOpen ? 'rotate-180 text-primary-300' : ''}`} />
                     </button>
+
                     <AnimatePresence>
                       {isDropdownOpen && (
                         <motion.div
-                          initial={{ opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 5 }}
-                          className="absolute top-full left-0 right-0 mt-2 bg-[#020617]/95 border border-white/10 z-50 backdrop-blur-3xl p-1 shadow-2xl rounded-xl"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          className="absolute bottom-full left-0 right-0 mb-4 bg-[#0f172a]/95 border border-white/10 z-30 backdrop-blur-2xl rounded-2xl overflow-hidden shadow-2xl"
                         >
-                          <div className="max-h-[180px] overflow-y-auto no-scrollbar">
+                          <div className="max-h-[180px] overflow-y-auto custom-scrollbar p-2">
                             {specialties.map((s) => (
-                              <div key={s} onClick={() => { setSelectedSpecialty(s); setIsDropdownOpen(false); }} className="px-5 py-3.5 text-[10px] font-bold tracking-widest text-white/40 hover:text-white hover:bg-white/5 transition-all cursor-pointer uppercase">{s}</div>
+                              <button
+                                key={s}
+                                type="button"
+                                onClick={() => {
+                                  setSelectedSpecialty(s);
+                                  setIsDropdownOpen(false);
+                                }}
+                                className="w-full text-left px-4 py-3 text-[11px] font-black uppercase tracking-widest text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-all"
+                              >
+                                {s}
+                              </button>
                             ))}
                           </div>
                         </motion.div>
@@ -213,32 +242,18 @@ const HeroSection = () => {
                     </AnimatePresence>
                   </div>
 
-                  <button 
+                  <button
                     disabled={isSubmitting || isSubmitted}
-                    className={`w-full h-16 font-black uppercase tracking-[0.3em] text-[10px] flex items-center justify-center gap-4 transition-all mt-6 rounded-xl ${
-                      isSubmitted ? 'bg-emerald-500 text-white' : 'bg-primary-600 hover:bg-primary-500 text-white shadow-lg'
+                    className={`w-full h-12 font-black uppercase tracking-[0.2em] text-[11px] flex items-center justify-center gap-3 transition-all mt-4 rounded-xl shadow-2xl ${
+                      isSubmitted ? 'bg-emerald-500 text-white' : 'bg-primary-600 hover:bg-primary-500 text-white hover:shadow-primary-500/25'
                     }`}
                   >
-                    {isSubmitting ? <Activity className="w-5 h-5 animate-spin" /> : isSubmitted ? "SUCCESS" : <>REQUEST CALLBACK <Send className="w-4 h-4" /></>}
+                    {isSubmitting ? <Activity className="w-4 h-4 animate-spin" /> : isSubmitted ? 'Request Sent' : <>Request Callback <Send className="w-3.5 h-3.5" /></>}
                   </button>
                 </form>
               </div>
             </motion.div>
           </div>
-
-        </div>
-      </div>
-
-      <div className="absolute bottom-6 left-0 w-full px-6 lg:px-12 flex justify-between items-center z-40">
-        <div className="flex gap-2">
-          {HERO_IMAGES.map((_, i) => (
-            <button key={i} onClick={() => setIndex(i)} className="p-1 transition-all">
-              <div className={`h-[3px] rounded-full transition-all duration-700 ${index === i ? 'w-10 bg-primary-500 shadow-[0_0_8px_rgba(14,165,233,0.8)]' : 'w-3 bg-white/20'}`} />
-            </button>
-          ))}
-        </div>
-        <div className="flex items-center gap-4 text-[9px] font-black uppercase tracking-[0.3em] text-white/30">
-          <Globe className="w-3 h-3" /> <span className="hidden sm:inline">Gurugram Sector 46</span>
         </div>
       </div>
     </section>

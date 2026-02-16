@@ -6,6 +6,7 @@ import {
   Phone, Calendar, CheckCircle, ArrowRight, Star, ChevronDown 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 
 const services = [
   {
@@ -60,20 +61,20 @@ const HomeCare = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen pt-12">
+    <div className="bg-white min-h-screen">
       <Helmet>
         <title>Home Care Services | Umang Hospital</title>
         <meta name="description" content="Professional hospital-like care at home. ICU setup, nursing, physiotherapy, and medical equipment rental services." />
       </Helmet>
 
       {/* 1. Hero Section */}
-      <section className="relative h-[650px] overflow-hidden flex items-center bg-[#f0f9ff]">
+      <section className="relative section-padding overflow-hidden flex items-center bg-[#f0f9ff]">
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 w-2/3 h-full bg-[#e0f2fe] rounded-bl-[10rem] z-0" />
-          <img 
-            src="/assets/images/service-homecare.jpg" 
+          <img
+            src={ASSETS.NURSE_CARE}
             alt="Nurse with Patient" 
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[80%] object-cover rounded-l-[3rem] shadow-2xl z-10 hidden lg:block"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-[74%] object-cover rounded-l-[3rem] shadow-2xl z-10 hidden lg:block"
           />
         </div>
 
@@ -84,24 +85,24 @@ const HomeCare = () => {
             transition={{ duration: 0.8 }}
             className="max-w-xl"
           >
-            <div className="flex items-center gap-2 text-[#005580] font-bold uppercase tracking-widest text-xs mb-6">
+            <div className="flex items-center gap-2 text-[#005580] font-bold uppercase tracking-widest text-sm mb-6">
               <Home className="w-4 h-4" />
               <span>Hospital Expertise at Home</span>
             </div>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-[#0f172a] mb-6 leading-tight">
+            <h1 className="font-serif font-bold text-[#0f172a] mb-4 leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
               Healing begins where the <br />
               <span className="text-[#005580]">Heart belongs.</span>
             </h1>
-            <p className="text-xl text-gray-600 font-light leading-relaxed mb-10">
+            <p className="text-lg lg:text-xl text-gray-600 font-light leading-relaxed mb-7">
               Bring world-class medical care to the comfort of your home. From ICU setups to compassionate nursing, we are by your side.
             </p>
             
-            <div className="bg-white p-6 rounded-2xl shadow-xl border border-gray-100 max-w-md">
-               <h3 className="font-bold text-[#0f172a] mb-4">Request a Call Back</h3>
+            <div className="bg-white card-pad rounded-2xl shadow-xl border border-gray-100 max-w-md">
+               <h3 className="font-bold text-[#0f172a] mb-4 text-lg">Request a Call Back</h3>
                <div className="space-y-4">
-                  <input type="text" placeholder="Patient Name" className="w-full h-12 px-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-[#005580] outline-none" />
-                  <input type="tel" placeholder="Phone Number" className="w-full h-12 px-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-[#005580] outline-none" />
-                  <Link to="/services/booking/home-care" className="w-full h-12 bg-[#005580] text-white rounded-xl font-bold hover:bg-[#004466] transition-all shadow-lg flex items-center justify-center gap-2">
+                  <input type="text" placeholder="Patient Name" className="w-full h-11 px-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-[#005580] outline-none text-base" />
+                  <input type="tel" placeholder="Phone Number" className="w-full h-11 px-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-[#005580] outline-none text-base" />
+                  <Link to="/services/booking/home-care" className="w-full h-12 bg-[#005580] text-white rounded-xl font-bold hover:bg-[#004466] transition-all shadow-lg flex items-center justify-center gap-2 text-base">
                      Get Free Consultation <ArrowRight className="w-4 h-4" />
                   </Link>
                </div>
@@ -111,11 +112,11 @@ const HomeCare = () => {
       </section>
 
       {/* 2. Services Grid */}
-      <section className="py-12 lg:py-10 bg-white">
+      <section className="section-padding bg-white">
          <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto mb-16">
                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-4">Comprehensive Home Care</h2>
-               <p className="text-gray-500 text-lg"> tailored medical services designed to promote recovery and well-being in a familiar environment.</p>
+               <p className="text-gray-500 text-lg lg:text-xl"> Tailored medical services designed to promote recovery and well-being in a familiar environment.</p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -128,11 +129,11 @@ const HomeCare = () => {
                      <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#005580] flex items-center justify-center mb-6 group-hover:bg-[#005580] group-hover:text-white transition-colors">
                         <service.icon className="w-7 h-7" />
                      </div>
-                     <h3 className="text-xl font-bold text-[#0f172a] mb-3">{service.title}</h3>
-                     <p className="text-gray-500 text-sm leading-relaxed mb-6">{service.desc}</p>
+                     <h3 className="text-xl lg:text-2xl font-bold text-[#0f172a] mb-3">{service.title}</h3>
+                     <p className="text-gray-600 text-base leading-relaxed mb-6">{service.desc}</p>
                      <ul className="space-y-2">
                         {service.features.map((feat, idx) => (
-                           <li key={idx} className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-wide">
+                           <li key={idx} className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-wide">
                               <CheckCircle className="w-3 h-3 text-green-500" /> {feat}
                            </li>
                         ))}
@@ -144,7 +145,7 @@ const HomeCare = () => {
       </section>
 
       {/* 3. Why Choose Us (Stats) */}
-      <section className="py-12 lg:py-10 bg-[#005580] text-white relative overflow-hidden">
+      <section className="section-padding bg-[#005580] text-white relative overflow-hidden">
          <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
          <div className="container-custom relative z-10">
             <div className="grid md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
@@ -156,7 +157,7 @@ const HomeCare = () => {
                ].map((stat, i) => (
                   <div key={i} className="p-4">
                      <h3 className="text-4xl md:text-5xl font-serif font-bold mb-2">{stat.val}</h3>
-                     <p className="text-blue-200 font-medium uppercase tracking-widest text-xs">{stat.label}</p>
+                     <p className="text-blue-200 font-medium uppercase tracking-widest text-sm">{stat.label}</p>
                   </div>
                ))}
             </div>
@@ -164,7 +165,7 @@ const HomeCare = () => {
       </section>
 
       {/* 4. Process Steps */}
-      <section className="py-12 lg:py-10 bg-gray-50">
+      <section className="section-padding bg-gray-50">
          <div className="container-custom">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-16 text-center">How It Works</h2>
             
@@ -181,8 +182,8 @@ const HomeCare = () => {
                      <div className="w-16 h-16 rounded-full bg-white border-4 border-blue-100 flex items-center justify-center text-xl font-bold text-[#005580] mx-auto mb-6 shadow-sm relative z-10">
                         {i + 1}
                      </div>
-                     <h4 className="text-lg font-bold text-[#0f172a] mb-2">{step.title}</h4>
-                     <p className="text-sm text-gray-500 px-4">{step.desc}</p>
+                     <h4 className="text-xl font-bold text-[#0f172a] mb-2">{step.title}</h4>
+                     <p className="text-base text-gray-500 px-4">{step.desc}</p>
                   </div>
                ))}
             </div>
@@ -190,7 +191,7 @@ const HomeCare = () => {
       </section>
 
       {/* 5. FAQ & CTA */}
-      <section className="py-12 lg:py-10 bg-white">
+      <section className="section-padding bg-white">
          <div className="container-custom max-w-4xl">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-12">Common Questions</h2>
             <div className="space-y-4 mb-16">
@@ -198,10 +199,10 @@ const HomeCare = () => {
                   <div key={i} className="border border-gray-200 rounded-2xl overflow-hidden bg-gray-50/50">
                      <button 
                         onClick={() => toggleAccordion(i)}
-                        className="w-full flex items-center justify-between p-6 text-left hover:bg-white transition-colors"
+                        className="w-full flex items-center justify-between p-6 text-left hover:bg-white transition-colors text-lg"
                      >
                         <span className="font-bold text-[#0f172a]">{faq.q}</span>
-                        <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${activeAccordion === i ? 'rotate-180' : ''}`} />
+                        <ChevronDown className="w-5 h-5 text-gray-400 transition-transform" />
                      </button>
                      <AnimatePresence>
                         {activeAccordion === i && (
@@ -211,7 +212,7 @@ const HomeCare = () => {
                               exit={{ height: 0, opacity: 0 }}
                               className="overflow-hidden"
                            >
-                              <div className="p-6 pt-0 text-gray-600 text-sm leading-relaxed border-t border-gray-100 bg-white">
+                              <div className="p-6 pt-0 text-gray-600 text-base lg:text-lg leading-relaxed border-t border-gray-100 bg-white">
                                  {faq.a}
                               </div>
                            </motion.div>

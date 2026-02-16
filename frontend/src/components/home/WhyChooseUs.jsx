@@ -62,26 +62,25 @@ const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-32 bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-50/50 rounded-full blur-[120px] -mr-100 -mt-100 pointer-events-none" />
+    <section className="section-padding bg-gray-50 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-50/30 rounded-full blur-[120px] -mr-100 -mt-100 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[100px] -ml-80 -mb-80 pointer-events-none" />
 
-      <div className="container-custom relative z-10 px-6 sm:px-10 lg:px-16">
-        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-16 lg:mb-24 gap-8">
+      <div className="container-custom relative z-10">
+        <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-10 lg:mb-14 gap-8">
           <motion.div 
              initial={{ opacity: 0, x: -30 }}
              whileInView={{ opacity: 1, x: 0 }}
              transition={{ duration: 0.8 }}
              viewport={{ once: true }}
-             className="max-w-3xl text-left"
+             className="max-w-2xl text-left"
           >
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-3 mb-3">
                <span className="w-10 h-[2px] bg-primary-500 rounded-full" />
-               <span className="text-primary-600 font-black uppercase tracking-[0.3em] text-[10px] lg:text-xs">Excellence in Care</span>
+               <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px]">Excellence in Care</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-serif font-bold text-gray-900 leading-[1.1]">
-              The Gold Standard of <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-blue-400 italic font-medium">Healthcare in Gurugram</span>
+            <h2 className="text-2xl md:text-4xl font-serif font-bold text-gray-900 leading-tight">
+              The Gold Standard of <span className="hero-gradient-text italic font-medium">Healthcare in Gurugram</span>
             </h2>
           </motion.div>
           
@@ -89,7 +88,7 @@ const WhyChooseUs = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            className="text-gray-500 text-lg lg:text-xl font-light leading-relaxed max-w-sm text-left lg:text-right"
+            className="text-gray-500 text-sm lg:text-base font-light leading-relaxed max-w-sm text-left lg:text-right"
           >
             Leading the way in medical innovation with a patient-first approach since 2010.
           </motion.p>
@@ -100,13 +99,13 @@ const WhyChooseUs = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {chooseItems.map((item, i) => (
             <motion.div 
               key={i}
               variants={itemVariants}
-              className={`${item.span} relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden group shadow-2xl transition-all duration-700 hover:-translate-y-3 border border-gray-100`}
+              className={`${item.span} relative rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden group shadow-2xl transition-all duration-700 hover:-translate-y-2 border border-gray-50`}
             >
               <Link to={item.path} className="absolute inset-0 z-20"></Link>
               
@@ -114,30 +113,28 @@ const WhyChooseUs = () => {
                 <img 
                   src={item.img} 
                   alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 brightness-[0.7]" 
+                  className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 brightness-[0.8]" 
                 />
-                {/* DARKER OVERLAY FOR PREMIUM FEEL */}
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/60 to-transparent opacity-95 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-primary-950/20 mix-blend-overlay" />
+                <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/40 to-transparent opacity-85 group-hover:opacity-90 transition-opacity duration-500" />
               </div>
               
-              <div className="relative z-10 p-8 lg:p-12 w-full h-full flex flex-col justify-end min-h-[350px] lg:min-h-[400px]">
-                <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
+              <div className="relative z-10 p-6 lg:p-7 w-full h-full flex flex-col justify-end min-h-[260px] lg:min-h-[280px]">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                   <div className="text-left flex-1">
-                    <div className="w-14 h-14 rounded-2xl bg-white/10 backdrop-blur-xl flex items-center justify-center border border-white/20 mb-6 shadow-2xl group-hover:bg-primary-500/20 group-hover:border-primary-500/40 transition-all duration-500">
-                      <item.icon className={`w-7 h-7 ${item.accent || 'text-primary-400'}`} strokeWidth={1.5} />
+                    <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-xl flex items-center justify-center border border-white/20 mb-4 shadow-2xl group-hover:bg-primary-500/20 group-hover:border-primary-500/40 transition-all duration-500">
+                      <item.icon className={`w-5 h-5 ${item.accent || 'text-primary-400'}`} strokeWidth={2} />
                     </div>
                     
-                    <h3 className="text-2xl lg:text-4xl font-bold text-white mb-4 tracking-tight leading-tight">{item.title}</h3>
-                    <p className="text-gray-300 text-base lg:text-lg font-light mb-6 opacity-0 h-0 group-hover:opacity-100 group-hover:h-auto transition-all duration-500 ease-in-out">
+                    <h3 className="text-lg lg:text-[1.4rem] font-bold text-white mb-2 tracking-tight leading-tight">{item.title}</h3>
+                    <p className="text-gray-200 text-[11px] lg:text-[13px] font-light mb-4 opacity-0 h-0 group-hover:opacity-100 group-hover:h-auto transition-all duration-500 ease-in-out line-clamp-2">
                       {item.desc}
                     </p>
 
                     {item.features && (
-                      <div className="flex flex-wrap gap-3 mt-4">
+                      <div className="flex flex-wrap gap-2 mt-2">
                         {item.features.map(f => (
-                          <span key={f} className="px-3 py-1 bg-white/5 backdrop-blur-md rounded-full text-[10px] font-bold text-primary-200 border border-white/10 flex items-center gap-1.5">
-                            <CheckCircle2 className="w-3 h-3 text-primary-400" /> {f}
+                          <span key={f} className="px-2 py-0.5 bg-white/5 backdrop-blur-md rounded-full text-[10px] font-bold text-primary-200 border border-white/10 flex items-center gap-1">
+                            <CheckCircle2 className="w-2.5 h-2.5 text-primary-400" /> {f}
                           </span>
                         ))}
                       </div>
@@ -145,16 +142,16 @@ const WhyChooseUs = () => {
                   </div>
 
                   {item.stat && (
-                    <div className="shrink-0 flex flex-col items-center justify-center p-8 bg-white/5 backdrop-blur-2xl rounded-[2.5rem] border border-white/10 shadow-2xl min-w-[150px] group-hover:bg-primary-500/10 transition-colors">
-                      <span className="text-5xl lg:text-6xl font-black text-white tracking-tighter mb-1"><CountUp to={52} />+</span>
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-400">Specialists</span>
+                    <div className="shrink-0 flex flex-col items-center justify-center p-4 lg:p-6 bg-white/5 backdrop-blur-2xl rounded-[1.5rem] border border-white/10 shadow-2xl min-w-[110px] group-hover:bg-primary-500/10 transition-colors">
+                      <span className="text-2xl lg:text-3xl font-black text-white tracking-tighter mb-0.5"><CountUp to={52} />+</span>
+                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-400">Doctors</span>
                     </div>
                   )}
                 </div>
                 
-                <div className="mt-8 pt-6 border-t border-white/5 flex items-center justify-between group-hover:border-white/10 transition-colors">
+                <div className="mt-5 pt-4 border-t border-white/5 flex items-center justify-between group-hover:border-white/10 transition-colors">
                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 group-hover:text-primary-400 transition-colors">View Details</span>
-                   <MoveRight className="w-5 h-5 text-white/20 group-hover:text-primary-400 group-hover:translate-x-2 transition-all" />
+                   <MoveRight className="w-4 h-4 text-white/20 group-hover:text-primary-400 group-hover:translate-x-1 transition-all" />
                 </div>
               </div>
             </motion.div>

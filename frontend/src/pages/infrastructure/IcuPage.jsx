@@ -102,7 +102,7 @@ const IcuPage = () => {
             </div>
 
             {/* 3. UNITS & FACILITIES */}
-            <section className="py-24 lg:py-32 bg-white">
+            <section className="section-padding bg-white">
                 <div className="container-custom">
                     <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                         <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
@@ -188,7 +188,7 @@ const IcuPage = () => {
             </section>
 
             {/* 4. CTA */}
-            <section className="py-20 bg-brand-dark relative overflow-hidden">
+            <section className="section-padding bg-brand-dark relative overflow-hidden">
                 <div className="absolute inset-0 bg-primary-900/10 pointer-events-none" />
                 <div className="container-custom relative z-10 text-center">
                     <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Prepared for the <span className="text-primary-400 italic">Unexpected.</span></h2>

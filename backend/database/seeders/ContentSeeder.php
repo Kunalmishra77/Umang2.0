@@ -111,7 +111,7 @@ class ContentSeeder extends Seeder
                 'beds' => 12, 
                 'description' => 'Our flagship multi-disciplinary unit for critically ill patients requiring continuous hemodynamic and respiratory support.',
                 'image' => '/assets/images/infrastructure-icu.jpg',
-                'details' => json_encode([
+                'details' => [
                     'technology' => [
                         ['title' => 'Advanced Ventilators', 'desc' => 'High-end invasive & non-invasive mechanical ventilation systems.'],
                         ['title' => 'Central Monitoring', 'desc' => '24/7 centralized patient monitoring station with real-time alerts.'],
@@ -124,7 +124,7 @@ class ContentSeeder extends Seeder
                         '1:1 Nursing for critical cases'
                     ],
                     'protocols' => 'Strict Hand Hygiene, VAP Bundle compliance, and Daily medical audits.'
-                ]),
+                ],
                 'sort_order' => 1
             ],
             [
@@ -133,7 +133,7 @@ class ContentSeeder extends Seeder
                 'beds' => 4, 
                 'description' => 'Specialized post-operative care unit focused on recovery from major neuro, ortho, and abdominal surgeries.',
                 'image' => '/assets/images/infrastructure-ot.jpg',
-                'details' => json_encode([
+                'details' => [
                     'technology' => [
                         ['title' => 'Pain Management', 'desc' => 'Patient-controlled analgesia and nerve block monitoring.'],
                         ['title' => 'Rapid Recovery', 'desc' => 'Enhanced recovery after surgery (ERAS) protocols.'],
@@ -146,7 +146,7 @@ class ContentSeeder extends Seeder
                         'Neurological monitoring suites'
                     ],
                     'protocols' => 'Post-surgical pain management and specialized nursing care.'
-                ]),
+                ],
                 'sort_order' => 2
             ],
             [
@@ -155,7 +155,7 @@ class ContentSeeder extends Seeder
                 'beds' => 4, 
                 'description' => 'A dedicated Cardiac Care Unit for acute cardiac emergencies, including heart attacks, arrhythmias, and post-cardiac interventions.',
                 'image' => '/assets/images/department-nephrology.jpg',
-                'details' => json_encode([
+                'details' => [
                     'technology' => [
                         ['title' => 'Cath Lab Sync', 'desc' => 'Seamless integration with the Cardiac Cath Lab for immediate transfers.'],
                         ['title' => 'IABP & ECMO', 'desc' => 'Intra-aortic balloon pump and ECMO support systems.'],
@@ -168,7 +168,7 @@ class ContentSeeder extends Seeder
                         '24/7 Cardiac intervention readiness'
                     ],
                     'protocols' => 'Door-to-balloon time optimization and acute stroke management bundles.'
-                ]),
+                ],
                 'sort_order' => 3
             ],
         ];

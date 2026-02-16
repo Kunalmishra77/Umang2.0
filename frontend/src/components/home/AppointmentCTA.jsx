@@ -15,81 +15,66 @@ const AppointmentCTA = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <section ref={ref} className="py-20 lg:py-24 bg-brand-dark relative overflow-hidden flex items-center justify-center min-h-[500px]">
+    <section ref={ref} className="section-padding bg-[#020617] relative overflow-hidden flex items-center justify-center min-h-[380px]">
        {/* Parallax Background */}
        <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
           <img 
             src={ASSETS.HOSPITAL_EXTERIOR} 
             alt="Hospital Building" 
-            className="w-full h-full object-cover opacity-30 mix-blend-luminosity"
+            className="w-full h-full object-cover opacity-20 mix-blend-luminosity"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/90 to-brand-dark/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-[#020617]/80 to-transparent" />
        </motion.div>
 
        {/* Decorative Elements */}
-       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-600/20 rounded-full blur-[120px] pointer-events-none" />
+       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[120px] pointer-events-none" />
        
        <div className="container-custom relative z-10 text-center">
           <motion.div
-             initial={{ opacity: 0, y: 40 }}
+             initial={{ opacity: 0, y: 30 }}
              whileInView={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.8 }}
              viewport={{ once: true }}
-             className="max-w-4xl mx-auto"
+             className="max-w-3xl mx-auto"
           >
              <motion.div 
-               initial={{ scale: 0.8, opacity: 0 }}
+               initial={{ scale: 0.9, opacity: 0 }}
                whileInView={{ scale: 1, opacity: 1 }}
                transition={{ delay: 0.2, duration: 0.5 }}
-               className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 text-white text-xs font-bold uppercase tracking-[0.2em] mb-8 shadow-2xl"
+               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-white text-[12px] font-black uppercase tracking-[0.2em] mb-6 shadow-2xl"
              >
-               <Clock className="w-3 h-3 text-primary-400" />
+               <Clock className="w-3.5 h-3.5 text-primary-400" />
                <span>Ready to Serve 24/7</span>
              </motion.div>
 
-             <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-8 leading-[1.1] tracking-tight">
+             <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight tracking-tight">
                 Your Health, <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300">Our Priority.</span>
+                <span className="hero-gradient-text italic">Our Priority.</span>
              </h2>
              
-             <p className="text-xl md:text-2xl text-blue-100/70 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+             <p className="text-base md:text-xl text-blue-100/60 mb-10 max-w-xl mx-auto font-light leading-relaxed">
                 Experience world-class healthcare with a personal touch. Schedule your consultation with our leading specialists today.
              </p>
              
-             <div className="flex flex-col sm:flex-row justify-center gap-6 items-center">
+             <div className="flex flex-col sm:flex-row justify-center gap-4 items-center">
                 <Link 
                   to="/appointments/request" 
-                  className="group relative px-10 py-5 bg-white text-brand-dark rounded-full overflow-hidden flex items-center gap-3 font-bold text-lg shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_-10px_rgba(255,255,255,0.5)] transition-all transform hover:-translate-y-1"
+                  className="group relative px-8 py-4 bg-white text-brand-dark rounded-xl overflow-hidden flex items-center gap-3 font-bold text-sm shadow-xl hover:shadow-primary-500/20 transition-all transform hover:-translate-y-1"
                 >
-                   <span className="relative z-10">Book Appointment Now</span>
-                   <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+                   <span className="relative z-10">Book Appointment</span>
+                   <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
                    <div className="absolute inset-0 bg-primary-50 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
                 </Link>
                 
                 <a 
                   href="tel:+918929733550" 
-                  className="px-10 py-5 rounded-full border border-white/20 text-white font-bold text-lg hover:bg-white/10 hover:border-white/40 transition-all flex items-center gap-3 backdrop-blur-sm group"
+                  className="px-8 py-4 rounded-xl border-2 border-white/10 text-white font-bold text-sm hover:bg-white/10 hover:border-white/20 transition-all flex items-center gap-3 backdrop-blur-sm group"
                 >
-                   <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Phone className="w-4 h-4 fill-current" />
+                   <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Phone className="w-3.5 h-3.5 fill-current" />
                    </div>
                    <span>+91 89297 33550</span>
                 </a>
-             </div>
-
-             <div className="mt-16 pt-10 border-t border-white/10 flex flex-wrap justify-center gap-8 md:gap-16 opacity-60">
-                <div className="flex items-center gap-3">
-                   <CalendarCheck className="w-6 h-6 text-primary-400" />
-                   <span className="text-sm font-bold uppercase tracking-wider text-white">Easy Scheduling</span>
-                </div>
-                <div className="flex items-center gap-3">
-                   <Phone className="w-6 h-6 text-primary-400" />
-                   <span className="text-sm font-bold uppercase tracking-wider text-white">Instant Support</span>
-                </div>
-                <div className="flex items-center gap-3">
-                   <ArrowRight className="w-6 h-6 text-primary-400" />
-                   <span className="text-sm font-bold uppercase tracking-wider text-white">Walk-ins Welcome</span>
-                </div>
              </div>
           </motion.div>
        </div>

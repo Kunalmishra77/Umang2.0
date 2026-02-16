@@ -92,5 +92,7 @@ class DatabaseSeeder extends Seeder
                 'reviews_count' => rand(50, 150),
             ]);
         }
+
+        $this->call(ContentSeeder::class);
     }
 }
