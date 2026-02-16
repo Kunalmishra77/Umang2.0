@@ -94,8 +94,8 @@ export const specialitiesData = {
     ]
   },
   'pulmonology': {
-    title: "Pulmonology",
-    subtitle: "Respiratory Care",
+    title: "Pulmonology & Respiratory Medicine",
+    subtitle: "Breath of Life",
     desc: "Expert care for all respiratory conditions. From asthma and COPD to interstitial lung diseases and sleep disorders, our pulmonologists help you breathe easier.",
     img: ASSETS.PULMONOLOGY,
     procedures: [
@@ -140,7 +140,7 @@ export const specialitiesData = {
     ]
   },
   'urology': {
-    title: "Urology",
+    title: "Urology & Andrology",
     subtitle: "Kidney & Urinary Care",
     desc: "Specialized care for urinary tract and reproductive health. We treat kidney stones, prostate issues, and urological cancers with advanced laser and robotic techniques.",
     img: ASSETS.UROLOGY,
@@ -160,6 +160,52 @@ export const specialitiesData = {
     faq: [
       { q: "What is the treatment for kidney stones?", a: "Small stones may pass with medication. Larger stones are treated with laser lithotripsy or shockwave therapy." },
       { q: "Do you treat male infertility?", a: "Yes, we offer comprehensive evaluation and treatment for male reproductive health." }
+    ]
+  },
+  'oncology': {
+    title: "Medical & Surgical Oncology",
+    subtitle: "Cancer Care Excellence",
+    desc: "Our Oncology department provides comprehensive cancer care, including chemotherapy, targeted therapy, and precision surgical oncology, with a focus on holistic healing.",
+    img: ASSETS.RADIOLOGY,
+    procedures: [
+      "Chemotherapy & Immunotherapy",
+      "Surgical Tumor Excision",
+      "Breast Cancer Surgery",
+      "GI & Hepato-biliary Oncology",
+      "Preventive Screening",
+      "Palliative Oncology"
+    ],
+    tech: [
+      { title: "Day Care Chemotherapy", desc: "Comfortable environment for infusion therapy." },
+      { title: "Precision Histopathology", desc: "Accurate tumor staging and molecular analysis." },
+      { title: "Robotic Surgical Oncology", desc: "Minimally invasive cancer surgeries." }
+    ],
+    faq: [
+      { q: "What is immunotherapy?", a: "It is a type of cancer treatment that helps your immune system fight cancer." },
+      { q: "Do you offer cancer screening?", a: "Yes, we have specialized screening packages for breast, cervical, and oral cancers." }
+    ]
+  },
+  'internal': {
+    title: "Internal Medicine",
+    subtitle: "Comprehensive Adult Care",
+    desc: "The foundation of healthcare at Umang. Our Internal Medicine department manages chronic illnesses, infectious diseases, and complex multi-system disorders with a preventive approach.",
+    img: ASSETS.SVC_GENERAL_MEDICINE,
+    procedures: [
+      "Management of Diabetes & Hypertension",
+      "Infectious Disease Treatment",
+      "Geriatric (Elderly) Care",
+      "Preventive Health Checkups",
+      "Critical Care Consultation",
+      "Lifestyle Counseling"
+    ],
+    tech: [
+      { title: "Point-of-Care Diagnostics", desc: "Rapid bedside testing for immediate results." },
+      { title: "Digital Vitals Monitoring", desc: "Real-time tracking of patient health parameters." },
+      { title: "Advanced Pathology Lab", desc: "24/7 NABL certified diagnostic support." }
+    ],
+    faq: [
+      { q: "How often should I get a health checkup?", a: "Adults above 30 should get a comprehensive health screening at least once a year." },
+      { q: "Do you manage chronic lifestyle diseases?", a: "Yes, we specialize in long-term management of diabetes, thyroid disorders, and hypertension." }
     ]
   },
   'nephrology': {
@@ -254,4 +300,5 @@ export const specialitiesData = {
     ]
   }
 };
+
 

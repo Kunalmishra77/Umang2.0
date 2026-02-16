@@ -72,6 +72,8 @@ import Sitemap from './pages/legal/Sitemap';
 
 import IcuPage from './pages/infrastructure/IcuPage';
 import IcuUnitDetail from './pages/infrastructure/IcuUnitDetail';
+import PatientLayout from './layouts/PatientLayout';
+import NotFound from './pages/utils/NotFound';
 
 function App() {
   return (
@@ -108,6 +110,7 @@ function App() {
           <Route path="services/ipd-opd" element={<HomeCare />} />
           <Route path="services/home-care" element={<HomeCare />} />
           <Route path="services/telemedicine" element={<Telemedicine />} />
+          <Route path="services/telemedicine/consult" element={<TelemedicineConsult />} />
           <Route path="services/:slug" element={<DynamicSubPage />} />
           
           <Route path="cms/:slug" element={<GenericCmsPage />} />
@@ -148,11 +151,16 @@ function App() {
           <Route path="booking" element={<Navigate to="/doctors" replace />} />
           <Route path="booking/:id" element={<BookingPage />} />
           <Route path="appointments/request" element={<GeneralAppointment />} />
-          <Route path="patients" element={<PatientDashboard />} />
-          <Route path="patients/lab-reports" element={<LabReports />} />
-          <Route path="patients/appointments" element={<PatientAppointments />} />
-          <Route path="patients/profile" element={<PatientProfile />} />
-          <Route path="patients/book-appointment" element={<BookAppointmentPatient />} />
+          
+          {/* Patient Portal Routes with Sidebar */}
+          <Route path="patients" element={<PatientLayout />}>
+            <Route index element={<PatientDashboard />} />
+            <Route path="lab-reports" element={<LabReports />} />
+            <Route path="appointments" element={<PatientAppointments />} />
+            <Route path="profile" element={<PatientProfile />} />
+            <Route path="book-appointment" element={<BookAppointmentPatient />} />
+          </Route>
+
           <Route path="pharmacy" element={<Pharmacy />} />
           <Route path="contact" element={<Contact />} />
           <Route path="contact/inquiry-hub" element={<InquiryHub />} />
@@ -161,6 +169,7 @@ function App() {
           <Route path="cms/legal-and-compliance" element={<GenericCmsPage slug="legal-and-compliance" />} />
           <Route path="patient-experience" element={<GenericCmsPage slug="patient-experience" />} />
           <Route path="sitemap" element={<Sitemap />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
         
         <Route path="/login" element={<Login />} />

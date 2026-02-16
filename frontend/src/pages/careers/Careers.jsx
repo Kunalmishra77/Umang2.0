@@ -72,13 +72,13 @@ const Careers = () => {
                   <motion.div 
                      key={i}
                      whileHover={{ y: -5 }}
-                     className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 hover:border-blue-200 transition-all"
+                     className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 hover:border-blue-200 transition-all h-full"
                   >
-                     <div className="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-[#005580] mb-6">
-                        <perk.icon className="w-6 h-6" />
+                     <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-[#005580] mb-6 shadow-sm">
+                        <perk.icon className="w-7 h-7" />
                      </div>
-                     <h3 className="text-lg font-bold text-[#0f172a] mb-2">{perk.title}</h3>
-                     <p className="text-sm text-gray-500">{perk.desc}</p>
+                     <h3 className="text-xl font-bold text-[#0f172a] mb-3">{perk.title}</h3>
+                     <p className="text-base text-gray-500 leading-relaxed">{perk.desc}</p>
                   </motion.div>
                ))}
             </div>
@@ -88,33 +88,33 @@ const Careers = () => {
       {/* 3. Job Board */}
       <section id="openings" className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                <div>
                   <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-2">Current Openings</h2>
-                  <p className="text-gray-500">We are currently hiring for the following positions.</p>
+                  <p className="text-gray-500 text-lg">We are currently hiring for the following positions.</p>
                </div>
-               <div className="hidden md:block text-sm font-bold text-gray-400">
+               <div className="hidden md:block text-sm font-black text-gray-400 uppercase tracking-widest">
                   Showing {jobs.length} Positions
                </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-6">
                {jobs.map((job) => (
-                  <div key={job.id} className="border border-gray-200 rounded-2xl overflow-hidden transition-all hover:border-blue-300 hover:shadow-lg bg-white">
+                  <div key={job.id} className="border border-gray-200 rounded-3xl overflow-hidden transition-all hover:border-blue-300 hover:shadow-xl bg-white group">
                      <div 
-                        className="p-6 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-4"
+                        className="p-8 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
                         onClick={() => setActiveJob(activeJob === job.id ? null : job.id)}
                      >
                         <div>
-                           <h3 className="text-xl font-bold text-[#0f172a]">{job.title}</h3>
-                           <div className="flex flex-wrap gap-4 mt-2 text-sm text-gray-500">
-                              <span className="flex items-center gap-1"><Briefcase className="w-4 h-4 text-blue-500" /> {job.type}</span>
-                              <span className="flex items-center gap-1"><Users className="w-4 h-4 text-green-500" /> {job.exp}</span>
-                              <span className="flex items-center gap-1"><MapPin className="w-4 h-4 text-red-500" /> {job.loc}</span>
+                           <h3 className="text-2xl font-bold text-[#0f172a] group-hover:text-primary-600 transition-colors">{job.title}</h3>
+                           <div className="flex flex-wrap gap-6 mt-4 text-sm font-bold text-gray-500 uppercase tracking-wider">
+                              <span className="flex items-center gap-2"><Briefcase className="w-4.5 h-4.5 text-blue-500" /> {job.type}</span>
+                              <span className="flex items-center gap-2"><Users className="w-4.5 h-4.5 text-green-500" /> {job.exp}</span>
+                              <span className="flex items-center gap-2"><MapPin className="w-4.5 h-4.5 text-red-500" /> {job.loc}</span>
                            </div>
                         </div>
-                        <div className={`w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center transition-transform ${activeJob === job.id ? 'rotate-180 bg-gray-100' : ''}`}>
-                           <ChevronDown className="w-5 h-5 text-gray-600" />
+                        <div className={`w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center transition-all ${activeJob === job.id ? 'rotate-180 bg-primary-600 border-primary-600 text-white shadow-lg' : 'group-hover:border-primary-300 group-hover:text-primary-600'}`}>
+                           <ChevronDown className="w-6 h-6" />
                         </div>
                      </div>
                      
@@ -126,19 +126,27 @@ const Careers = () => {
                               exit={{ height: 0, opacity: 0 }}
                               className="bg-gray-50 border-t border-gray-100"
                            >
-                              <div className="p-6 md:p-8">
-                                 <h4 className="font-bold text-[#0f172a] mb-2">Job Description</h4>
-                                 <p className="text-gray-600 mb-6">{job.desc}</p>
+                              <div className="p-8 md:p-12">
+                                 <h4 className="text-lg font-bold text-[#0f172a] mb-4 uppercase tracking-widest">Job Description</h4>
+                                 <p className="text-gray-600 mb-8 text-lg leading-relaxed">{job.desc}</p>
                                  
-                                 <h4 className="font-bold text-[#0f172a] mb-2">Requirements</h4>
-                                 <ul className="list-disc list-inside text-gray-600 mb-8 space-y-1">
-                                    <li>Relevant degree/certification in the field.</li>
-                                    <li>Excellent communication and interpersonal skills.</li>
-                                    <li>Commitment to patient safety and care.</li>
+                                 <h4 className="text-lg font-bold text-[#0f172a] mb-4 uppercase tracking-widest">Requirements</h4>
+                                 <ul className="list-none space-y-4 mb-10">
+                                    {[
+                                        "Relevant degree/certification from a recognized institution.",
+                                        "Minimum " + job.exp + " of hands-on experience in a superspeciality hospital.",
+                                        "Excellent communication and interpersonal skills.",
+                                        "Commitment to patient safety and quality care protocols."
+                                    ].map((req, ridx) => (
+                                        <li key={ridx} className="flex items-center gap-3 text-gray-600 text-lg">
+                                            <div className="w-2 h-2 rounded-full bg-primary-500 shrink-0" />
+                                            {req}
+                                        </li>
+                                    ))}
                                  </ul>
 
-                                 <button className="px-8 py-3 rounded-xl bg-[#005580] text-white font-bold text-sm hover:bg-[#004466] transition-all shadow-lg flex items-center gap-2">
-                                    Apply for this Role <ArrowRight className="w-4 h-4" />
+                                 <button className="h-14 px-10 rounded-xl bg-[#005580] text-white font-black text-sm uppercase tracking-widest hover:bg-[#004466] transition-all shadow-xl flex items-center gap-3">
+                                    Apply for this Role <ArrowRight className="w-5 h-5" />
                                  </button>
                               </div>
                            </motion.div>
