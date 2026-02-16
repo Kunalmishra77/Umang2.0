@@ -1,0 +1,9 @@
+node_modules
+frontend/node_modules
+backend/vendor
+.git
+.vercel
+dist
+frontend/dist
+storage
+backend/storage
