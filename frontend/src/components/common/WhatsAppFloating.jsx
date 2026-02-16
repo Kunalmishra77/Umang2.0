@@ -7,9 +7,9 @@ const WhatsAppFloating = () => {
       {/* Premium Tooltip */}
       <div 
         role="tooltip"
-        className="absolute right-full mr-3 px-3 py-2 bg-[#0f172a]/95 backdrop-blur-md text-white text-[12px] font-bold rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap hidden md:block border border-white/10"
+        className="absolute right-full mr-4 px-4 py-2 bg-[#0f172a] text-white text-[11px] font-black uppercase tracking-widest rounded-xl shadow-2xl opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap hidden md:block border border-white/10"
       >
-        Chat with us
+        WhatsApp Us
         {/* Caret */}
         <div className="absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-[#0f172a] rotate-45 border-t border-r border-white/10" />
       </div>
@@ -18,11 +18,12 @@ const WhatsAppFloating = () => {
         href="https://wa.me/918588072727"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp"
+        aria-label="WhatsApp Us"
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        whileHover={{ y: -3, scale: 1.05 }}
-        className="w-11 h-11 md:w-13 md:h-13 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_10px_25px_-5px_rgba(37,211,102,0.4)] hover:shadow-[0_20px_35px_-5px_rgba(37,211,102,0.5)] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#25D366]/50"
+        whileHover={{ y: -5, scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        className="w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-[0_15px_35px_-5px_rgba(37,211,102,0.5)] hover:shadow-[0_25px_45px_-5px_rgba(37,211,102,0.6)] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#25D366]/50"
       >
         <svg 
           viewBox="0 0 24 24" 

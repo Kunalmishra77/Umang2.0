@@ -76,12 +76,12 @@ const HeroSection = () => {
                 muted
                 loop
                 playsInline
-                className="w-full h-full object-cover opacity-55"
+                className="w-full h-full object-cover opacity-75"
               />
             ) : (
               <img
                 src={mediaItems[index].src}
-                className="w-full h-full object-cover opacity-50"
+                className="w-full h-full object-cover opacity-70"
                 alt=""
               />
             )}
@@ -89,8 +89,8 @@ const HeroSection = () => {
         </AnimatePresence>
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/70 via-[#020617]/30 to-transparent z-10" />
-      <div className="overlay-soft z-10 opacity-20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/50 via-[#020617]/20 to-transparent z-10" />
+      <div className="overlay-soft z-10 opacity-10" />
 
       <div className="container-custom relative z-20 w-full py-4 lg:py-0">
         <div className="grid lg:grid-cols-12 panel-inner-gap items-center">
@@ -217,12 +217,12 @@ const HeroSection = () => {
                     <AnimatePresence>
                       {isDropdownOpen && (
                         <motion.div
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 10 }}
-                          className="absolute bottom-full left-0 right-0 mb-4 bg-[#0f172a]/95 border border-white/10 z-30 backdrop-blur-2xl rounded-2xl overflow-hidden shadow-2xl"
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          className="absolute bottom-full left-0 right-0 mb-4 bg-[#0f172a]/98 border border-white/10 z-30 backdrop-blur-3xl rounded-2xl overflow-hidden shadow-[0_20px_50px_-10px_rgba(0,0,0,0.7)]"
                         >
-                          <div className="max-h-[180px] overflow-y-auto custom-scrollbar p-2">
+                          <div className="max-h-[220px] overflow-y-auto custom-scrollbar p-2">
                             {specialties.map((s) => (
                               <button
                                 key={s}
@@ -231,7 +231,11 @@ const HeroSection = () => {
                                   setSelectedSpecialty(s);
                                   setIsDropdownOpen(false);
                                 }}
-                                className="w-full text-left px-4 py-3 text-[11px] font-black uppercase tracking-widest text-white/60 hover:text-white hover:bg-white/5 rounded-lg transition-all"
+                                className={`w-full text-left px-5 py-3.5 text-[11.5px] font-black uppercase tracking-widest rounded-xl transition-all ${
+                                  selectedSpecialty === s 
+                                    ? 'bg-primary-600 text-white shadow-lg' 
+                                    : 'text-white/60 hover:text-white hover:bg-white/5'
+                                }`}
                               >
                                 {s}
                               </button>

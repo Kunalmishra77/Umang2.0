@@ -45,34 +45,34 @@ const Testimonials = () => {
         </div>
       </div>
 
-      <div className="relative flex overflow-hidden group py-4">
-        <div className="flex gap-6 animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] transition-all">
+      <div className="relative flex overflow-hidden group py-8">
+        <div className="flex gap-6 animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] group-active:[animation-play-state:paused] transition-all">
           {track.map((item, idx) => (
             <article
               key={`${item.name}-${idx}`}
-              className="inline-block w-[280px] md:w-[360px] whitespace-normal"
+              className="flex-shrink-0 w-[85vw] md:w-[380px] whitespace-normal"
             >
-              <div className="h-full bg-white rounded-[1.5rem] p-6 lg:p-8 border border-gray-100 shadow-lg shadow-gray-200/10 relative group transition-all duration-500 hover:border-primary-200">
-                <div className="absolute top-5 right-6 text-gray-100/50">
-                  <Quote className="w-8 h-8 fill-current transform rotate-180" />
+              <div className="h-full bg-white rounded-[2rem] p-7 md:p-10 border border-gray-100 shadow-[0_15px_40px_-12px_rgba(0,0,0,0.08)] relative group transition-all duration-500 hover:border-primary-200 hover:shadow-2xl hover:shadow-primary-900/5 flex flex-col">
+                <div className="absolute top-6 right-8 text-gray-100/80">
+                  <Quote className="w-10 h-10 fill-current transform rotate-180" />
                 </div>
 
-                <div className="relative z-10">
-                  <div className="flex gap-1 mb-4">
+                <div className="relative z-10 flex-1">
+                  <div className="flex gap-1.5 mb-6">
                     {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="w-3 h-3 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-gray-600 text-sm lg:text-base leading-relaxed italic mb-6 min-h-[80px]">"{item.text}"</p>
+                  <p className="text-gray-600 text-base md:text-lg leading-relaxed italic mb-8 font-medium">"{item.text}"</p>
                 </div>
 
-                <div className="flex items-center gap-3 relative z-10 pt-5 border-t border-gray-100">
-                  <div className="w-10 h-10 rounded-full overflow-hidden shadow-md border-2 border-white ring-2 ring-gray-50">
+                <div className="flex items-center gap-4 relative z-10 pt-6 border-t border-gray-50 mt-auto">
+                  <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg border-2 border-white ring-4 ring-gray-50/50">
                     <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm lg:text-base text-brand-dark">{item.name}</h4>
-                    <p className="text-[11px] text-primary-500 font-black uppercase tracking-widest">{item.loc}</p>
+                    <h4 className="font-bold text-base md:text-lg text-brand-dark leading-none mb-1.5">{item.name}</h4>
+                    <p className="text-[11px] text-primary-600 font-black uppercase tracking-[0.15em]">{item.loc}</p>
                   </div>
                 </div>
               </div>
@@ -83,7 +83,7 @@ const Testimonials = () => {
 
       <style dangerouslySetInnerHTML={{ __html: `
         .animate-marquee {
-          animation: marquee 45s linear infinite;
+          animation: marquee 50s linear infinite;
           display: flex;
           width: max-content;
         }
@@ -91,10 +91,19 @@ const Testimonials = () => {
           0% { transform: translateX(0); }
           100% { transform: translateX(-33.33%); }
         }
+        @media (max-width: 768px) {
+          .animate-marquee {
+            animation-duration: 30s;
+          }
+        }
         @media (prefers-reduced-motion: reduce) {
           .animate-marquee {
             animation: none !important;
             overflow-x: auto !important;
+            scrollbar-width: none;
+          }
+          .animate-marquee::-webkit-scrollbar {
+            display: none;
           }
         }
       `}} />

@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 
 const departments = [
-  { id: 'cardiac', name: 'Cardiac Sciences', icon: Heart, desc: 'Advanced Cath Labs', img: ASSETS.CARDIAC },
-  { id: 'neuro', name: 'Neuro Sciences', icon: Brain, desc: 'Brain & Spine Care', img: ASSETS.NEURO },
-  { id: 'ortho', name: 'Orthopaedics', icon: Bone, desc: 'Joint Replacement', img: ASSETS.ORTHO },
-  { id: 'gastro', name: 'Gastroenterology', icon: Activity, desc: 'Digestive Health', img: ASSETS.GASTRO },
-  { id: 'pulmonology', name: 'Pulmonology', icon: Wind, desc: 'Respiratory Care', img: ASSETS.PULMONOLOGY },
-  { id: 'surgery', name: 'General Surgery', icon: Scissors, desc: 'Laparoscopic Care', img: ASSETS.OT },
+  { id: 'cardiac', name: 'Cardiac Sciences', icon: Heart, desc: 'Advanced Cath Labs', img: ASSETS.CARDIAC, colSpan: 'xl:col-span-2' },
+  { id: 'neuro', name: 'Neuro Sciences', icon: Brain, desc: 'Brain & Spine Care', img: ASSETS.NEURO, colSpan: 'xl:col-span-1' },
+  { id: 'ortho', name: 'Orthopaedics', icon: Bone, desc: 'Joint Replacement', img: ASSETS.ORTHO, colSpan: 'xl:col-span-1' },
+  { id: 'gastro', name: 'Gastroenterology', icon: Activity, desc: 'Digestive Health', img: ASSETS.GASTRO, colSpan: 'xl:col-span-1' },
+  { id: 'pulmonology', name: 'Pulmonology', icon: Wind, desc: 'Respiratory Care', img: ASSETS.PULMONOLOGY, colSpan: 'xl:col-span-1' },
+  { id: 'surgery', name: 'General Surgery', icon: Scissors, desc: 'Laparoscopic Care', img: ASSETS.OT, colSpan: 'xl:col-span-2' },
 ];
 
 const container = {
@@ -40,13 +40,13 @@ const SpecialitiesSection = () => {
           </Link>
         </div>
 
-        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8 auto-rows-[280px] lg:auto-rows-[320px]">
+        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 auto-rows-[280px] lg:auto-rows-[320px]">
           {departments.map((dept) => (
             <motion.div 
               key={dept.id} 
               variants={item} 
-              className="col-span-1"
-              whileHover={{ scale: 1.02 }}
+              className={`col-span-1 ${dept.colSpan || ''}`}
+              whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.3 }}
             >
               <Link to="/specialities" state={{ category: dept.id }} className="block h-full group relative rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">

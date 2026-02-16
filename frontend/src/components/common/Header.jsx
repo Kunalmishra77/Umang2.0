@@ -378,8 +378,14 @@ const Header = () => {
                   </NavLink>
                   <AnimatePresence>
                     {activeDropdown === link.name && link.type === 'dropdown' && (
-                      <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className={`absolute top-[80%] left-1/2 -translate-x-1/2 pt-5 z-[110] ${link.width}`}>
-                         <div className="bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden">
+                      <motion.div 
+                        initial={{ opacity: 0, y: 15, scale: 0.98 }} 
+                        animate={{ opacity: 1, y: 0, scale: 1 }} 
+                        exit={{ opacity: 0, y: 10, scale: 0.98 }} 
+                        transition={{ duration: 0.3, ease: "easeOut" }}
+                        className={`absolute top-[90%] left-1/2 -translate-x-1/2 pt-6 z-[110] ${link.width}`}
+                      >
+                         <div className="bg-white rounded-[2.5rem] shadow-[0_30px_90px_-20px_rgba(0,0,0,0.2)] border border-gray-100/50 overflow-hidden backdrop-blur-xl">
                             {link.content}
                          </div>
                       </motion.div>

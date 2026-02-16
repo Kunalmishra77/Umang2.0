@@ -339,14 +339,6 @@ const Contact = () => {
             </button>
          </div>
       </section>
-
-      {/* Sticky Quick Contact */}
-      <div className="fixed bottom-10 right-10 flex flex-col gap-4 z-50">
-         <a href="https://wa.me/918929733550" target="_blank" rel="noreferrer" className="w-16 h-16 bg-[#25D366] text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300 group relative">
-            <div className="absolute right-full mr-4 bg-white text-brand-dark px-4 py-2 rounded-xl text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-gray-100">WhatsApp Us</div>
-            <MessageCircle className="w-8 h-8 fill-current" />
-         </a>
-      </div>
     </div>
   );
 };
