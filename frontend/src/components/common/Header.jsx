@@ -67,10 +67,6 @@ const Header = () => {
                  { name: "Orthopaedics", id: 'ortho', icon: Award }, 
                  { name: "Gastroenterology", id: 'gastro', icon: Activity }, 
                  { name: "Pulmonology", id: 'pulmonology', icon: Wind }, 
-                 { name: "Urology", id: 'urology', icon: Zap },
-                 { name: "General Surgery", id: 'surgery', icon: Scissors },
-                 { name: "Oncology", id: 'oncology', icon: ShieldCheck },
-                 { name: "Internal Medicine", id: 'internal', icon: Stethoscope }
                ].map((item, i) => (
                  <Link key={i} to="/specialities" state={{ category: item.id }} className="flex items-center gap-4 py-2.5 text-[15px] font-bold text-gray-700 hover:text-primary-600 transition-all group">
                     <div className="w-10 h-10 rounded-xl bg-gray-50 group-hover:bg-primary-50 flex items-center justify-center text-gray-400 group-hover:text-primary-500 transition-all duration-300 shadow-sm group-hover:shadow-md">
@@ -79,6 +75,12 @@ const Header = () => {
                     {item.name}
                  </Link>
                ))}
+               <Link to="/specialities" className="flex items-center gap-4 py-2.5 text-[15px] font-bold text-primary-600 hover:text-primary-700 transition-all group">
+                  <div className="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 shadow-sm group-hover:shadow-md">
+                     <Plus className="w-5 h-5" />
+                  </div>
+                  See More
+               </Link>
              </div>
           </div>
         </div>
@@ -439,7 +441,13 @@ const Header = () => {
                                     </div>
                                   )}
                                   {link.links.map((sub) => (
-                                    <Link key={sub.name} to="/specialities" state={{ category: sub.id }} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-[14px] font-semibold text-gray-600 hover:text-primary-600 flex items-center gap-3">
+                                    <Link 
+                                      key={sub.name} 
+                                      to={sub.path || `/specialities`} 
+                                      state={sub.id ? { category: sub.id } : undefined} 
+                                      onClick={() => setIsMobileMenuOpen(false)} 
+                                      className="px-4 py-3 text-[14px] font-semibold text-gray-600 hover:text-primary-600 flex items-center gap-3"
+                                    >
                                       <div className="w-1.5 h-1.5 rounded-full bg-primary-300" /> {sub.name}
                                     </Link>
                                   ))}

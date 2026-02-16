@@ -15,7 +15,13 @@ import {
   Star,
   Phone,
   HelpCircle,
-  Laptop
+  Laptop,
+  Thermometer,
+  Heart,
+  Brain,
+  Bone,
+  Wind,
+  Activity
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { doctors as allDoctors } from '../../utils/doctorsData';
@@ -32,12 +38,12 @@ const doctors = allDoctors.slice(0, 3).map((doc) => ({
 }));
 
 const specialties = [
-  { name: 'General Fever', icon: '🌡️', waiting: '7 min' },
-  { name: 'Heart Symptoms', icon: '❤️', waiting: '10 min' },
-  { name: 'Neuro Consult', icon: '🧠', waiting: '12 min' },
-  { name: 'Joint Pain', icon: '🦴', waiting: '9 min' },
-  { name: 'Respiratory', icon: '🫁', waiting: '8 min' },
-  { name: 'Digestive Care', icon: '🩺', waiting: '11 min' }
+  { name: 'General Fever', icon: Thermometer, waiting: '7 min', color: 'bg-orange-50 text-orange-600' },
+  { name: 'Heart Symptoms', icon: Heart, waiting: '10 min', color: 'bg-red-50 text-red-600' },
+  { name: 'Neuro Consult', icon: Brain, waiting: '12 min', color: 'bg-purple-50 text-purple-600' },
+  { name: 'Joint Pain', icon: Bone, waiting: '9 min', color: 'bg-blue-50 text-blue-600' },
+  { name: 'Respiratory', icon: Wind, waiting: '8 min', color: 'bg-cyan-50 text-cyan-600' },
+  { name: 'Digestive Care', icon: Activity, waiting: '11 min', color: 'bg-emerald-50 text-emerald-600' }
 ];
 
 const testimonials = [
@@ -61,23 +67,23 @@ const Telemedicine = () => {
 
         <div className="container-custom relative z-20 grid lg:grid-cols-2 panel-inner-gap items-center">
           <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5 }}>
-            <div className="flex items-center gap-2 text-[#005580] font-bold uppercase tracking-widest text-xs mb-4">
+            <div className="flex items-center gap-2 text-primary-600 font-bold uppercase tracking-widest text-xs mb-4">
               <Wifi className="w-4 h-4 animate-pulse" />
               <span>Live Video Consultation</span>
             </div>
-            <h1 className="font-serif font-bold text-[#0f172a] mb-4 leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 4.3rem)' }}>
+            <h1 className="font-serif font-bold text-brand-dark mb-4 leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 4.3rem)' }}>
               Expert Care, <br />
-              <span className="text-[#005580]">Anytime, Anywhere.</span>
+              <span className="text-primary-600">Anytime, Anywhere.</span>
             </h1>
             <p className="text-base lg:text-lg text-gray-600 font-light leading-relaxed mb-7 max-w-2xl">
               Skip travel and waiting room delays. Connect with Umang specialists through secure HD video for consultation, guidance, and follow-up.
             </p>
 
             <div className="flex flex-wrap gap-3">
-              <Link to="/services/telemedicine/consult" className="h-11 px-6 rounded-xl bg-[#005580] text-white font-bold hover:brightness-110 transition-all flex items-center gap-2">
+              <Link to="/services/telemedicine/consult" className="h-11 px-6 rounded-xl bg-primary-600 text-white font-bold hover:bg-primary-700 transition-all flex items-center gap-2 shadow-lg shadow-primary-900/10">
                 <Video className="w-4 h-4" /> Start Consultation
               </Link>
-              <button className="h-11 px-6 rounded-xl bg-white border border-blue-100 text-[#005580] font-bold hover:bg-blue-50 transition-all flex items-center gap-2">
+              <button className="h-11 px-6 rounded-xl bg-white border border-primary-100 text-primary-600 font-bold hover:bg-primary-50 transition-all flex items-center gap-2">
                 <Calendar className="w-4 h-4" /> Book for Later
               </button>
             </div>
@@ -87,21 +93,21 @@ const Telemedicine = () => {
             <div className="relative z-10 bg-white rounded-[2rem] shadow-2xl p-4 border border-gray-100 max-w-md mx-auto hover-card">
               <div className="relative h-[420px] rounded-[1.5rem] overflow-hidden">
                 <img src={ASSETS.TELEMEDICINE} alt="Doctor on call" className="w-full h-full object-cover object-top" />
-                <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs flex items-center gap-2">
-                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-                  Live Consultation
+                <div className="absolute bottom-4 left-4 bg-brand-dark/80 backdrop-blur-md text-white px-4 py-2 rounded-full text-xs flex items-center gap-2 border border-white/10">
+                  <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+                  Live Consultation Active
                 </div>
               </div>
               <div className="pt-4 flex justify-between items-center">
                 <div>
-                  <h3 className="font-bold text-lg text-[#0f172a]">Telemedicine Desk</h3>
+                  <h3 className="font-bold text-lg text-brand-dark">Telemedicine Desk</h3>
                   <p className="text-xs text-gray-500">Secure consultation flow</p>
                 </div>
                 <div className="flex gap-2">
                   <div className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-600">
                     <Mic className="w-4 h-4" />
                   </div>
-                  <div className="w-9 h-9 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg shadow-red-200">
+                  <div className="w-9 h-9 rounded-full bg-red-600 flex items-center justify-center text-white shadow-lg shadow-red-200">
                     <Phone className="w-4 h-4" />
                   </div>
                 </div>
@@ -113,14 +119,16 @@ const Telemedicine = () => {
 
       <section className="section-padding bg-white">
         <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-8 text-center">Consult for Common Symptoms</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-10 text-center">Consult for Common Symptoms</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {specialties.map((spec) => (
               <Link to="/services/telemedicine/consult" key={spec.name} className="group">
-                <div className="bg-white card-pad rounded-2xl border border-gray-100 shadow-sm hover-card text-center h-full">
-                  <div className="text-3xl mb-2 group-hover:scale-110 transition-transform inline-block">{spec.icon}</div>
-                  <h3 className="font-bold text-[#0f172a] mb-1 text-sm">{spec.name}</h3>
-                  <p className="text-[10px] font-bold text-green-600 bg-green-50 inline-block px-2 py-0.5 rounded-full">Wait: {spec.waiting}</p>
+                <div className="bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:border-primary-100 transition-all text-center h-full flex flex-col items-center">
+                  <div className={`w-14 h-14 rounded-2xl ${spec.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm`}>
+                     <spec.icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="font-bold text-brand-dark mb-2 text-sm lg:text-base">{spec.name}</h3>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 inline-block px-3 py-1 rounded-full mt-auto">Wait: {spec.waiting}</p>
                 </div>
               </Link>
             ))}
@@ -132,7 +140,7 @@ const Telemedicine = () => {
         <div className="container-custom">
           <div className="flex justify-between items-end mb-8 gap-3">
             <div>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-2">Available Doctors</h2>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-2">Available Doctors</h2>
               <p className="text-gray-500">Connect with specialists currently available online.</p>
             </div>
             <Link to="/doctors" className="text-[#005580] font-bold hidden md:flex items-center gap-2 hover:gap-3 transition-all">
@@ -227,7 +235,7 @@ const Telemedicine = () => {
 
       <section className="section-padding bg-blue-50">
         <div className="container-custom">
-          <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-8">Patient Stories</h2>
+          <h2 className="text-3xl font-serif font-bold text-brand-dark text-center mb-8">Patient Stories</h2>
           <div className="grid md:grid-cols-2 gap-5">
             {testimonials.map((test) => (
               <div key={test.name} className="bg-white card-pad rounded-2xl shadow-sm border border-blue-100 relative">

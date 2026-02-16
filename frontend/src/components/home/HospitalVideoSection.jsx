@@ -32,18 +32,18 @@ const HospitalVideoSection = () => {
                 muted
                 loop
                 playsInline
-                className="w-full h-full object-cover opacity-80"
+                className="w-full h-full object-cover opacity-90"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent" />
               
               {/* Right-aligned overlay text */}
               <div className="absolute bottom-6 right-6 text-right max-w-[200px]">
                 <p className="text-white font-bold text-sm lg:text-base leading-tight mb-1">Patient-First <br/><span className="text-primary-300 italic">Facility</span></p>
-                <p className="text-white/70 text-[11px] font-black uppercase tracking-widest">Gurugram</p>
+                <p className="text-white/80 text-[11px] font-black uppercase tracking-widest">Gurugram</p>
               </div>
 
               <div className="absolute top-4 left-4">
-                <div className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20">
+                <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20">
                    <CheckCircle2 className="w-5 h-5 text-primary-300" />
                 </div>
               </div>

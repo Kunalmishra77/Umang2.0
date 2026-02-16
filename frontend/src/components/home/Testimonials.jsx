@@ -46,13 +46,18 @@ const Testimonials = () => {
       </div>
 
       <div className="relative flex overflow-hidden group py-8">
-        <div className="flex gap-6 animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] group-active:[animation-play-state:paused] transition-all">
+        <div 
+          className="flex gap-6 animate-marquee whitespace-nowrap group-hover:[animation-play-state:paused] group-active:[animation-play-state:paused] transition-all"
+          onTouchStart={(e) => { e.currentTarget.style.animationPlayState = 'paused'; }}
+          onTouchEnd={(e) => { e.currentTarget.style.animationPlayState = 'running'; }}
+        >
           {track.map((item, idx) => (
             <article
               key={`${item.name}-${idx}`}
-              className="flex-shrink-0 w-[85vw] md:w-[380px] whitespace-normal"
+              className="flex-shrink-0 w-[85vw] md:w-[380px] whitespace-normal cursor-pointer"
+              onClick={() => { /* Potential for detail modal */ }}
             >
-              <div className="h-full bg-white rounded-[2rem] p-7 md:p-10 border border-gray-100 shadow-[0_15px_40px_-12px_rgba(0,0,0,0.08)] relative group transition-all duration-500 hover:border-primary-200 hover:shadow-2xl hover:shadow-primary-900/5 flex flex-col">
+              <div className="h-full bg-white rounded-[2rem] p-7 md:p-10 border border-gray-100 shadow-[0_15px_40px_-12px_rgba(0,0,0,0.08)] relative group transition-all duration-500 hover:border-primary-200 hover:shadow-2xl hover:shadow-primary-900/5 flex flex-col pointer-events-auto">
                 <div className="absolute top-6 right-8 text-gray-100/80">
                   <Quote className="w-10 h-10 fill-current transform rotate-180" />
                 </div>
