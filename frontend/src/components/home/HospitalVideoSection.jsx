@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Activity } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 
@@ -24,7 +24,7 @@ const HospitalVideoSection = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative rounded-[2rem] overflow-hidden border-4 lg:border-8 border-white shadow-2xl bg-brand-dark aspect-video lg:aspect-[4/3] max-h-[400px]"
+              className="relative rounded-[2.5rem] overflow-hidden border-4 lg:border-[12px] border-white shadow-2xl bg-[#0f172a] aspect-video lg:aspect-[4/3] group"
             >
               <video
                 src={ASSETS.UMANG_VIDEO}
@@ -32,20 +32,23 @@ const HospitalVideoSection = () => {
                 muted
                 loop
                 playsInline
-                className="w-full h-full object-cover opacity-90"
+                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent opacity-60" />
               
-              {/* Right-aligned overlay text */}
-              <div className="absolute bottom-6 right-6 text-right max-w-[200px]">
-                <p className="text-white font-bold text-sm lg:text-base leading-tight mb-1">Patient-First <br/><span className="text-primary-300 italic">Facility</span></p>
-                <p className="text-white/80 text-[11px] font-black uppercase tracking-widest">Gurugram</p>
+              {/* Play Indicator Overlay - Shrunk and Top-Left */}
+              <div className="absolute top-6 left-6 z-20 pointer-events-none">
+                 <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-primary-600/30 backdrop-blur-md border border-white/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
+                    <div className="w-7 h-7 lg:w-8 lg:h-8 rounded-full bg-primary-600 flex items-center justify-center text-white shadow-xl shadow-primary-900/40">
+                       <Activity className="w-3.5 h-3.5 lg:w-4 lg:h-4 animate-pulse" />
+                    </div>
+                 </div>
               </div>
 
-              <div className="absolute top-4 left-4">
-                <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20">
-                   <CheckCircle2 className="w-5 h-5 text-primary-300" />
-                </div>
+              {/* Right-aligned overlay text */}
+              <div className="absolute bottom-8 right-8 text-right">
+                <p className="text-white font-black text-lg lg:text-xl leading-tight mb-1 uppercase tracking-tight">Umang <span className="text-primary-400 italic">Campus</span></p>
+                <p className="text-white/60 text-[10px] lg:text-[12px] font-black uppercase tracking-[0.3em]">Gurugram, India</p>
               </div>
             </motion.div>
 
@@ -62,8 +65,7 @@ const HospitalVideoSection = () => {
             >
               <span className="section-subtitle mb-4">The Umang Experience</span>
               <h2 className="section-title mb-8">
-                Healing with a <br/>
-                <span className="text-primary-600 italic font-medium">Human Touch.</span>
+                Next-Gen Infrastructure with a <span className="text-primary-600 italic font-medium">Human Touch.</span>
               </h2>
               
               <div className="space-y-8 mb-10">
@@ -84,10 +86,10 @@ const HospitalVideoSection = () => {
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <Link to="/about" className="h-14 px-8 bg-brand-dark text-white rounded-xl flex items-center gap-3 font-bold text-sm hover:bg-primary-900 transition-all shadow-xl">
+                <Link to="/about" className="h-14 px-8 bg-primary-600 text-white rounded-xl flex items-center gap-3 font-bold text-sm hover:bg-primary-500 transition-all shadow-[0_15px_30px_-5px_rgba(2,132,199,0.4)] active:scale-95">
                   Explore Hospital <ArrowRight className="w-5 h-5" />
                 </Link>
-                <Link to="/team" className="h-14 px-8 border-2 border-brand-dark/10 text-brand-dark rounded-xl flex items-center gap-3 font-bold text-sm hover:bg-gray-50 transition-all">
+                <Link to="/team" className="h-14 px-8 border-2 border-brand-dark/10 text-brand-dark rounded-xl flex items-center gap-3 font-bold text-sm hover:bg-gray-50 transition-all active:scale-95">
                   Our Leadership
                 </Link>
               </div>

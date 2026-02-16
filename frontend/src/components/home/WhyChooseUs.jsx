@@ -80,7 +80,7 @@ const WhyChooseUs = () => {
                <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px]">Excellence in Care</span>
             </div>
             <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">
-              The Gold Standard of <span className="hero-gradient-text italic font-medium">Healthcare in Gurugram</span>
+              Trusted Care in <span className="text-primary-600 italic font-medium">Gurugram</span>
             </h2>
           </motion.div>
           

@@ -52,7 +52,7 @@ const MedicalUpgrades = () => {
           >
             <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] mb-4 block">Clinical Infrastructure</span>
             <h2 className="text-3xl md:text-5xl font-serif font-bold leading-[1.1] text-brand-dark">
-              Built for <span className="hero-gradient-text italic">Precision.</span>
+              Built for <span className="text-primary-600 italic">Precision.</span>
             </h2>
             <p className="text-gray-500 mt-6 text-sm lg:text-lg font-light leading-relaxed max-w-[55ch]">
               Experience Gurugram's most advanced 100-bedded superspeciality facility, engineered for clinical excellence.

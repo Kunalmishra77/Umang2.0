@@ -114,6 +114,7 @@ export const ASSETS = {
   ABOUT_100_BEDS: '/assets/About/100-Beds.jpg',
   ABOUT_DIRECTOR: '/assets/About/Dr. Rakesh Gupta.png',
   UMANG_VIDEO: '/assets/About/Umang.mp4',
+  UMANG_HERO_VIDEO: '/assets/Home/Umang_hero.mp4',
 
   // Doctors Lists
   DOCTORS_MALE: [

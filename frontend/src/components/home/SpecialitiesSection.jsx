@@ -30,7 +30,7 @@ const SpecialitiesSection = () => {
         <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-12 lg:mb-16 gap-8 text-center lg:text-left">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }}>
             <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] lg:text-sm mb-3 block">Clinical Excellence</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Centres of Excellence</h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Centres of <span className="text-primary-600 italic">Excellence</span></h2>
             <p className="text-gray-600 max-w-xl text-base lg:text-lg font-light leading-relaxed mx-auto lg:mx-0">
               Leading specialized departments utilizing cutting-edge technology for superior patient outcomes.
             </p>

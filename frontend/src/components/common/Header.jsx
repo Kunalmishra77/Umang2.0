@@ -211,7 +211,7 @@ const Header = () => {
              <div className="text-[9px] font-black text-indigo-600 uppercase tracking-[0.3em] mb-6">Expert Faculty</div>
              <Link to="/doctors" className="block group">
                 <div className="aspect-[4/5] rounded-2xl overflow-hidden mb-4 relative shadow-lg">
-                   <img src="/doctors-images/dr-manmohan.svg" alt="Doctor" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                   <img src={ASSETS.ABOUT_BEACON} alt="Doctor" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                    <div className="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors" />
                 </div>
                 <h4 className="font-bold text-lg text-brand-dark mb-1">Meet Our Doctors</h4>
@@ -241,7 +241,7 @@ const Header = () => {
       links: [
         { name: "Our Doctors", path: "/doctors" }, { name: "Leadership", path: "/team" }, { name: "Careers", path: "/careers" }
       ],
-      mobileFeature: { img: ASSETS.DIRECTOR, title: "Expert Faculty", desc: "Meet our specialists and leadership team." }
+      mobileFeature: { img: ASSETS.ABOUT_BEACON, title: "Expert Faculty", desc: "Meet our specialists and leadership team." }
     },
     {
        name: 'Patients',
@@ -255,7 +255,7 @@ const Header = () => {
                 <div className="text-[9px] font-black text-amber-600 uppercase tracking-[0.3em] mb-6">Patient Portal</div>
                 <Link to="/patient-corner/patient-stories" className="block group">
                   <div className="aspect-[16/10] rounded-2xl overflow-hidden mb-4 relative shadow-xl">
-                    <img src={ASSETS.INTERNATIONAL} alt="Patient services" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                    <img src={ASSETS.HEALTH_CHECKUP} alt="Patient services" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent" />
                     <div className="absolute bottom-4 left-4 text-white">
                       <p className="text-[10px] font-bold uppercase tracking-widest opacity-80">Patient Support</p>
@@ -373,8 +373,8 @@ const Header = () => {
             <nav className="hidden xl:flex items-center gap-0.5">
               {navLinks.map((link) => (
                 <div key={link.name} className="relative group h-full flex items-center" onMouseEnter={() => link.type === 'dropdown' && setActiveDropdown(link.name)} onMouseLeave={() => link.type === 'dropdown' && setActiveDropdown(null)}>
-                  <NavLink to={link.path} className={({ isActive }) => `px-2 lg:px-2.5 py-1.5 text-[12.5px] lg:text-[14px] font-bold rounded-xl transition-all ${isActive ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'}`}>
-                    <span className="flex items-center gap-0.5">
+                  <NavLink to={link.path} className={({ isActive }) => `px-2 lg:px-3 py-1.5 text-[9px] lg:text-[11px] font-black uppercase tracking-wider rounded-lg transition-all ${isActive ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'}`}>
+                    <span className="flex items-center gap-1">
                        {link.name} {link.type === 'dropdown' && <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : 'opacity-40'}`} />}
                     </span>
                   </NavLink>
@@ -398,8 +398,8 @@ const Header = () => {
             </nav>
 
             <div className="flex items-center gap-3">
-               <Link to="/doctors" className={`h-9 lg:h-10 px-4 lg:px-6 rounded-lg lg:rounded-xl flex items-center gap-2 text-[10.5px] lg:text-[12.5px] font-black uppercase tracking-widest transition-all ${isScrolled ? 'bg-primary-600 text-white shadow-lg' : 'bg-gray-900 text-white'}`}>
-                 <Calendar className="w-3.5 h-3.5" /> <span className="hidden sm:inline">Appointment</span><span className="sm:hidden text-[9px]">BOOK</span>
+               <Link to="/doctors" className={`h-9 lg:h-10 px-4 lg:px-6 rounded-lg lg:rounded-xl flex items-center gap-2 text-[10px] lg:text-[11px] font-black uppercase tracking-widest transition-all ${isScrolled ? 'bg-gray-900 text-white shadow-lg' : 'bg-primary-600 text-white shadow-lg shadow-primary-600/20'}`}>
+                 <Calendar className="w-3 h-3 lg:w-3.5 lg:h-3.5" /> <span className="hidden sm:inline">Appointment</span><span className="sm:hidden text-[9px]">BOOK</span>
                </Link>
                <button className="xl:hidden w-9 lg:w-11 h-9 lg:h-11 flex items-center justify-center rounded-lg bg-gray-50 text-gray-700 border border-gray-100" onClick={() => setIsMobileMenuOpen(true)}>
                  <Menu className="w-5 h-5" />
@@ -444,11 +444,14 @@ const Header = () => {
                                     <Link 
                                       key={sub.name} 
                                       to={sub.path || `/specialities`} 
-                                      state={sub.id ? { category: sub.id } : undefined} 
-                                      onClick={() => setIsMobileMenuOpen(false)} 
-                                      className="px-4 py-3 text-[14px] font-semibold text-gray-600 hover:text-primary-600 flex items-center gap-3"
+                                      state={sub.id ? { category: sub.id } : (sub.slug ? { category: sub.slug } : undefined)} 
+                                      onClick={() => {
+                                        setIsMobileMenuOpen(false);
+                                        window.scrollTo({ top: 0, behavior: 'instant' });
+                                      }} 
+                                      className="px-4 py-4 text-[15px] font-bold text-gray-700 active:text-primary-600 flex items-center gap-4 active:bg-primary-50 rounded-xl transition-all"
                                     >
-                                      <div className="w-1.5 h-1.5 rounded-full bg-primary-300" /> {sub.name}
+                                      <div className="w-1.5 h-1.5 rounded-full bg-primary-400" /> {sub.name}
                                     </Link>
                                   ))}
                                 </div>
@@ -457,7 +460,16 @@ const Header = () => {
                           </AnimatePresence>
                         </>
                       ) : (
-                        <NavLink to={link.path} onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `block px-4 py-4 rounded-xl text-sm font-bold transition-all ${isActive ? 'bg-primary-50 text-primary-600' : 'text-gray-700 hover:bg-gray-50'}`}>{link.name}</NavLink>
+                        <NavLink 
+                          to={link.path} 
+                          onClick={() => {
+                            setIsMobileMenuOpen(false);
+                            window.scrollTo({ top: 0, behavior: 'instant' });
+                          }} 
+                          className={({ isActive }) => `block px-4 py-4 rounded-xl text-sm font-bold transition-all ${isActive ? 'bg-primary-50 text-primary-600' : 'text-gray-700 hover:bg-gray-50'}`}
+                        >
+                          {link.name}
+                        </NavLink>
                       )}
                     </div>
                   ))}

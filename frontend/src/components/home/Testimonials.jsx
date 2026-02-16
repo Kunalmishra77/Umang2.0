@@ -35,7 +35,7 @@ const Testimonials = () => {
         <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-8 lg:mb-10 gap-6 text-center lg:text-left">
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="max-w-2xl">
             <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] mb-3 block">Patient Voices</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Stories of <span className="hero-gradient-text italic">Hope.</span></h2>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Stories of <span className="text-primary-600 italic">Hope.</span></h2>
             <p className="text-gray-500 mt-2 text-base lg:text-lg font-light">Real recovery journeys from those who trusted Umang.</p>
           </motion.div>
 

@@ -103,10 +103,10 @@ const Infrastructure = () => {
           <ParallaxImage 
             src={ASSETS.OT} 
             alt="Hero" 
-            className="w-full h-full object-cover opacity-50 mix-blend-luminosity" 
+            className="w-full h-full object-cover opacity-70" 
             offset={100}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/50 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-brand-dark/20" />
         </motion.div>
         
         <div className="container-custom relative z-10 text-center pt-20 lg:pt-12">
@@ -115,14 +115,14 @@ const Infrastructure = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           >
-            <div className="inline-flex items-center gap-2 lg:gap-3 px-4 py-2 lg:px-6 lg:py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-xl text-primary-200 text-[12px] lg:text-sm font-bold uppercase tracking-[0.2em] mb-6 lg:mb-8">
+            <div className="inline-flex items-center gap-2 lg:gap-3 px-4 py-2 lg:px-6 lg:py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl text-primary-200 text-[12px] lg:text-sm font-bold uppercase tracking-[0.2em] mb-6 lg:mb-8">
               <span className="w-2 h-2 rounded-full bg-primary-400 animate-pulse" />
               World Class Facility
             </div>
-            <h1 className="text-4xl md:text-7xl lg:text-[9rem] font-serif font-bold text-white mb-6 lg:mb-8 leading-[1.1] lg:leading-[0.9] tracking-tighter">
+            <h1 className="text-4xl md:text-7xl lg:text-[9rem] font-serif font-bold text-white mb-6 lg:mb-8 leading-[1.1] lg:leading-[0.9] tracking-tighter drop-shadow-[0_15px_40px_rgba(0,0,0,0.8)]">
               Medical <br /><span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-primary-200">Excellence</span>
             </h1>
-            <p className="text-lg lg:text-2xl text-primary-100/90 max-w-2xl mx-auto mb-10 lg:mb-12 font-light leading-relaxed px-4 lg:px-0">
+            <p className="text-lg lg:text-2xl text-white max-w-2xl mx-auto mb-10 lg:mb-12 font-medium leading-relaxed px-4 lg:px-0 drop-shadow-[0_5px_20px_rgba(0,0,0,0.8)]">
               Experience a hospital designed around the patient. From advanced modular OTs to luxury recovery suites.
             </p>
             

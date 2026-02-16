@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
   ChevronRight, Target, Eye, Quote, ShieldCheck, Heart, Users, 
-  Award, ArrowRight, Activity, Phone, Calendar, CheckCircle2, Star, Microscope
+  Award, ArrowRight, Activity, Phone, Calendar, CheckCircle2, Star, Microscope, Zap
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
@@ -34,20 +34,20 @@ const About = () => {
       {/* SECTION 1: CINEMATIC HERO */}
       <section className="relative h-[60vh] lg:h-[70vh] flex items-center justify-center overflow-hidden bg-brand-dark">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <img src={ASSETS.HOSPITAL_EXTERIOR} alt="Hospital Building" className="w-full h-full object-cover opacity-50 scale-110 mix-blend-luminosity" />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/90 via-transparent to-brand-dark" />
+          <img src={ASSETS.HOSPITAL_EXTERIOR} alt="Hospital Building" className="w-full h-full object-cover opacity-70 scale-110" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-transparent to-brand-dark/60" />
         </motion.div>
         
         <div className="container-custom relative z-10 text-center">
           <motion.div initial="hidden" animate="visible" variants={fadeIn}>
-            <span className="inline-flex items-center gap-2 px-3 py-1 lg:px-4 lg:py-1.5 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-[11px] lg:text-[13px] font-bold uppercase tracking-[0.3em] mb-6">
+            <span className="inline-flex items-center gap-2 px-3 py-1 lg:px-4 lg:py-1.5 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-[11px] lg:text-[13px] font-bold uppercase tracking-[0.3em] mb-6 backdrop-blur-md">
               <span className="w-1.5 h-1.5 rounded-full bg-primary-500 animate-pulse" /> Established 2010
             </span>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-5 tracking-tighter leading-[0.85]">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-5 tracking-tighter leading-[0.85] drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
               Legacy of <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-cyan-200 to-primary-400 italic">Excellence.</span>
             </h1>
-            <p className="text-base md:text-lg text-primary-100/90 max-w-3xl mx-auto mb-8 font-light leading-relaxed px-4">
+            <p className="text-base md:text-lg text-white max-w-3xl mx-auto mb-8 font-medium leading-relaxed px-4 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
               More than a hospital, Umang is a sanctuary of healing where medical science meets deep human compassion.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -196,46 +196,67 @@ const About = () => {
             </motion.div>
             
             <div className="lg:col-span-5 relative">
-               <div className="grid grid-cols-2 gap-6">
-                  <div className="space-y-6 pt-8 lg:pt-16">
-                     <motion.div 
-                        whileHover={{ scale: 1.02 }}
-                        className="aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white"
-                     >
-                        <img src={ASSETS.OT} alt="OT" className="w-full h-full object-cover" />
-                     </motion.div>
-                     <motion.div 
-                        whileHover={{ scale: 1.02 }}
-                        className="aspect-square rounded-[2rem] bg-primary-600 p-8 flex flex-col justify-end text-white shadow-xl shadow-primary-200"
-                     >
-                        <h4 className="text-3xl lg:text-4xl font-black mb-1">100+</h4>
-                        <p className="text-[12px] font-bold uppercase tracking-widest opacity-90">Specialists</p>
-                     </motion.div>
-                  </div>
-                  <div className="space-y-6">
-                     <motion.div 
-                        whileHover={{ scale: 1.02 }}
-                        className="aspect-square rounded-[2rem] bg-brand-dark p-8 flex flex-col justify-end text-white shadow-2xl"
-                     >
-                        <h4 className="text-3xl lg:text-4xl font-black mb-1">03</h4>
-                        <p className="text-[12px] font-bold uppercase tracking-widest opacity-90">Modular OTs</p>
-                     </motion.div>
-                     <motion.div 
-                        whileHover={{ scale: 1.02 }}
-                        className="aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white"
-                     >
-                        <img src={ASSETS.ABOUT_ICU} alt="ICU" className="w-full h-full object-cover" />
-                     </motion.div>
-                  </div>
+               <div className="grid grid-cols-2 gap-4 lg:gap-6">
+                  {/* Image 1: Advanced OT */}
+                  <motion.div 
+                    whileHover={{ y: -5 }}
+                    className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 relative group"
+                  >
+                    <img src={ASSETS.ROBOTIC_SURGERY} alt="Robotic Surgery" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-60" />
+                    <div className="absolute bottom-6 left-6 right-6">
+                       <p className="text-[10px] font-black text-primary-400 uppercase tracking-widest mb-1">Infrastructure</p>
+                       <h4 className="text-white font-bold text-lg">Robotic OT</h4>
+                    </div>
+                  </motion.div>
+
+                  {/* Stat 1: Modular OTs */}
+                  <motion.div 
+                    whileHover={{ y: -5 }}
+                    className="aspect-square rounded-[2.5rem] bg-gradient-to-br from-brand-dark to-[#1e293b] p-8 lg:p-10 flex flex-col justify-center items-center text-center text-white shadow-xl border border-white/5 relative overflow-hidden"
+                  >
+                    <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary-600/10 rounded-full blur-3xl" />
+                    <Zap className="w-8 h-8 text-primary-400 mb-4 opacity-50" />
+                    <h4 className="text-4xl lg:text-5xl font-black mb-2 tracking-tighter text-primary-400">03</h4>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] opacity-80">Modular OTs</p>
+                  </motion.div>
+
+                  {/* Stat 2: Specialists */}
+                  <motion.div 
+                    whileHover={{ y: -5 }}
+                    className="aspect-square rounded-[2.5rem] bg-primary-600 p-8 lg:p-10 flex flex-col justify-center items-center text-center text-white shadow-xl relative overflow-hidden"
+                  >
+                    <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white/10 rounded-full blur-3xl" />
+                    <Users className="w-8 h-8 text-white/40 mb-4" />
+                    <h4 className="text-4xl lg:text-5xl font-black mb-2 tracking-tighter">100+</h4>
+                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] opacity-90">Specialists</p>
+                  </motion.div>
+
+                  {/* Image 2: High-End Facility */}
+                  <motion.div 
+                    whileHover={{ y: -5 }}
+                    className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 relative group"
+                  >
+                    <img src={ASSETS.ABOUT_ICU} alt="ICU Facility" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-60" />
+                    <div className="absolute bottom-6 left-6 right-6">
+                       <p className="text-[10px] font-black text-primary-400 uppercase tracking-widest mb-1">Critical Care</p>
+                       <h4 className="text-white font-bold text-lg">Smart ICU</h4>
+                    </div>
+                  </motion.div>
                </div>
-               {/* Decorative floating badge */}
+
+               {/* Refined NABH Floating Badge */}
                <motion.div 
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 lg:w-32 lg:h-32 bg-white rounded-full shadow-[0_20px_50px_-10px_rgba(0,0,0,0.2)] flex flex-col items-center justify-center text-center p-4 border-4 border-gray-50 z-20"
+                  animate={{ y: [0, -12, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
                >
-                  <Star className="w-6 h-6 text-yellow-400 fill-current mb-1" />
-                  <span className="text-[10px] font-black text-brand-dark uppercase tracking-tighter leading-tight">NABH GOLD<br/>ACCREDITED</span>
+                  <div className="w-28 h-28 lg:w-36 lg:h-36 bg-white/95 backdrop-blur-xl rounded-full shadow-[0_30px_60px_-12px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center text-center p-5 border-4 border-primary-50">
+                    <Star className="w-6 h-6 lg:w-8 lg:h-8 text-yellow-400 fill-current mb-2" />
+                    <span className="text-[9px] lg:text-[11px] font-black text-brand-dark uppercase tracking-tighter leading-none">NABH GOLD<br/>STANDARDS</span>
+                    <div className="mt-2 w-8 h-1 bg-primary-600 rounded-full" />
+                  </div>
                </motion.div>
             </div>
           </div>

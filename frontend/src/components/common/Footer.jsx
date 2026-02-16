@@ -106,7 +106,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-white font-bold text-base mb-0.5">Emergency Line</p>
-                  <p className="text-primary-400 font-black tracking-wide text-lg">+91 89297 33550</p>
+                  <p className="text-gray-400 font-medium text-sm lg:text-base">+91 89297 33550</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
@@ -124,7 +124,7 @@ const Footer = () => {
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-sm text-gray-500 flex items-center gap-1 flex-wrap justify-center font-medium">
-            &copy; 2026 Umang Hospital. Developed by <span className="text-primary-400 font-bold ml-1">AI AGENTiX</span>. Made with <Heart className="w-3.5 h-3.5 text-red-500 fill-current animate-pulse mx-1" /> in India.
+            &copy; 2026 Umang Hospital. Developed by <a href="https://ai-agentix.com/" target="_blank" rel="noopener noreferrer" className="text-primary-400 font-bold ml-1 hover:text-primary-300 transition-colors">AI AGENTiX</a>. Made with <Heart className="w-3.5 h-3.5 text-red-500 fill-current animate-pulse mx-1" /> in India.
           </p>
           <div className="flex flex-wrap justify-center gap-6 lg:gap-8 text-[12px] font-bold uppercase tracking-widest">
             <Link to="/terms" className="text-gray-500 hover:text-primary-400 transition-colors">Terms</Link>

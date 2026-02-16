@@ -85,50 +85,57 @@ const Specialities = () => {
 
       {/* 1. Page Header */}
       <section className="bg-[#0f172a] pt-24 pb-24 relative overflow-hidden">
-         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
+         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20" />
+         <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/80 via-transparent to-[#0f172a]/80" />
          <div className="container-custom relative z-10">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-8 tracking-tight">Centres of Excellence</h1>
-            <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl font-light leading-relaxed">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-8 tracking-tight drop-shadow-2xl">Centres of Excellence</h1>
+            <p className="text-xl lg:text-2xl text-gray-200 max-w-3xl font-medium leading-relaxed drop-shadow-lg">
                Combining specialized medical expertise with cutting-edge technology to deliver superior clinical outcomes across all major healthcare domains.
             </p>
          </div>
       </section>
 
       {/* 2. Main Layout (Sidebar + Grid) */}
-      <section className="py-16 lg:py-20">
+      <section className="py-12 lg:py-20">
          <div className="container-custom">
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
                
-               {/* Left: Sticky Sidebar */}
+               {/* Left: Sticky Sidebar / Mobile Scroller */}
                <div className="lg:w-1/4">
-                  <div className="sticky top-32 space-y-3 bg-white p-6 rounded-[2rem] shadow-xl border border-gray-100">
-                     <h3 className="text-xs lg:text-sm font-black text-gray-400 uppercase tracking-[0.2em] px-4 py-2 mb-4 border-b border-gray-50">Clinical Departments</h3>
+                  <div className="sticky top-24 lg:top-32 bg-white p-4 lg:p-6 rounded-[2rem] shadow-xl border border-gray-100 flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible no-scrollbar pb-4 lg:pb-6">
+                     <h3 className="hidden lg:block text-xs font-black text-gray-400 uppercase tracking-[0.2em] px-4 py-2 mb-4 border-b border-gray-50">Clinical Departments</h3>
                      {categories.map((cat) => (
                         <button
                            key={cat.id}
-                           onClick={() => setActiveCategory(cat.id)}
-                           className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all duration-300 group ${
+                           onClick={() => {
+                              setActiveCategory(cat.id);
+                              if (window.innerWidth < 1024) {
+                                 // On mobile, scroll to content after selection
+                                 document.getElementById('specialty-content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                              }
+                           }}
+                           className={`shrink-0 lg:w-full flex items-center gap-3 lg:gap-4 px-4 lg:px-5 py-3 lg:py-4 rounded-xl lg:rounded-2xl transition-all duration-300 group whitespace-nowrap ${
                               activeCategory === cat.id 
-                                ? 'bg-[#005580] text-white shadow-lg shadow-blue-900/20' 
-                                : 'hover:bg-blue-50 text-gray-600 hover:text-[#005580]'
+                                ? 'bg-primary-600 text-white shadow-lg shadow-primary-900/20' 
+                                : 'bg-gray-50 lg:bg-transparent text-gray-600 hover:bg-primary-50 hover:text-primary-600'
                            }`}
                         >
-                           <cat.icon className={`w-5 h-5 lg:w-6 lg:h-6 ${activeCategory === cat.id ? 'text-white' : 'text-gray-400 group-hover:text-[#005580]'}`} />
-                           <span className="font-bold text-base lg:text-lg text-left">{cat.name}</span>
-                           {activeCategory === cat.id && <ChevronRight className="w-5 h-5 ml-auto" />}
+                           <cat.icon className={`w-4 h-4 lg:w-6 lg:h-6 ${activeCategory === cat.id ? 'text-white' : 'text-gray-400 group-hover:text-primary-600'}`} />
+                           <span className="font-bold text-sm lg:text-lg">{cat.name}</span>
+                           <ChevronRight className={`hidden lg:block w-5 h-5 ml-auto transition-transform ${activeCategory === cat.id ? 'translate-x-0' : '-translate-x-2 opacity-0 group-hover:opacity-40'}`} />
                         </button>
                      ))}
                   </div>
                </div>
 
                {/* Right: Dynamic Service Cards */}
-                <div className="lg:w-3/4 min-h-[600px]">
+                <div id="specialty-content" className="lg:w-3/4 min-h-[600px] scroll-mt-32">
                   <AnimatePresence mode="wait">
                      <motion.div
                         key={activeCategory}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -20 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.4 }}
                         className="grid md:grid-cols-2 xl:grid-cols-3 gap-6"
                      >
@@ -139,24 +146,24 @@ const Specialities = () => {
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: idx * 0.1 }}
                               whileHover={{ y: -8 }}
-                              className="group bg-white rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 overflow-hidden flex flex-col"
+                              className="group bg-white rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden flex flex-col"
                            >
                               <Link to={`/specialities/${activeCategory}`} className="flex flex-col h-full">
                                  {/* Image Container */}
-                                 <div className="relative h-48 overflow-hidden shrink-0">
+                                 <div className="relative h-52 overflow-hidden shrink-0">
                                     <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-primary-900/60 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity" />
                                  </div>
 
                                  {/* Content */}
-                                 <div className="p-6 flex-1 flex flex-col">
-                                    <h3 className="text-lg lg:text-xl font-serif font-bold text-[#0f172a] mb-3 group-hover:text-[#005580] transition-colors leading-tight">{service.title}</h3>
-                                    <p className="text-gray-500 text-sm leading-relaxed mb-6 line-clamp-3">
+                                 <div className="p-8 flex-1 flex flex-col">
+                                    <h3 className="text-xl lg:text-2xl font-serif font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors leading-tight">{service.title}</h3>
+                                    <p className="text-gray-500 text-sm lg:text-base leading-relaxed mb-8 line-clamp-3 font-medium">
                                        {service.desc}
                                     </p>
                                     
-                                    <div className="mt-auto flex items-center gap-2 text-xs font-black text-[#005580] group-hover:gap-3 transition-all uppercase tracking-widest">
-                                       <span>Learn More</span> <ArrowRight className="w-4 h-4" />
+                                    <div className="mt-auto flex items-center gap-3 text-[11px] font-black text-primary-600 group-hover:gap-4 transition-all uppercase tracking-[0.2em]">
+                                       <span>Learn More</span> <ArrowRight className="w-5 h-5" />
                                     </div>
                                  </div>
                               </Link>
