@@ -19,15 +19,40 @@ const HeroSection = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedSpecialty, setSelectedSpecialty] = useState('Select Specialty');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [index, setIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
   const videoRef = useRef(null);
 
+  const mediaItems = [
+    { type: 'video', src: ASSETS.UMANG_BANNER_VIDEO },
+    { type: 'image', src: ASSETS.HOSPITAL_EXTERIOR },
+    { type: 'image', src: ASSETS.ABOUT_BEACON },
+    { type: 'video', src: ASSETS.UMANG_ABOUT_VIDEO },
+    { type: 'image', src: ASSETS.ROBOTIC_SURGERY },
+  ];
+
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(error => {
-        console.error("Video autoplay failed:", error);
-      });
-    }
+    const handleResize = () => setIsMobile(window.innerWidth < 1024);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  useEffect(() => {
+    if (!isMobile) {
+      if (videoRef.current) {
+        videoRef.current.play().catch(error => console.error("Video autoplay failed:", error));
+      }
+      return;
+    }
+
+    const currentItem = mediaItems[index];
+    const duration = currentItem?.type === 'video' ? 10000 : 5000;
+    
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % mediaItems.length);
+    }, duration); 
+    return () => clearInterval(timer);
+  }, [index, isMobile]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,20 +69,54 @@ const HeroSection = () => {
       className="relative w-full bg-[#020617] text-white overflow-hidden flex items-center justify-center lg:justify-start"
       style={{ height: 'calc(100svh - var(--header-h))', minHeight: '480px' }}
     >
-      {/* BACKGROUND MEDIA CONTAINER - PREMIUM VIDEO */}
+      {/* BACKGROUND MEDIA CONTAINER */}
       <div className="absolute inset-0 z-0 bg-[#020617]">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster={ASSETS.HOSPITAL_EXTERIOR}
-          className="w-full h-full object-cover opacity-70 brightness-[0.85]"
-        >
-          <source src="/assets/Home/umang-banner.MP4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {!isMobile ? (
+          /* Desktop: Single High-Quality Video */
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={ASSETS.HOSPITAL_EXTERIOR}
+            className="w-full h-full object-cover opacity-70 brightness-[0.85]"
+          >
+            <source src="/assets/Home/umang-banner.MP4" type="video/mp4" />
+          </video>
+        ) : (
+          /* Mobile: Cinematic Loop (Video + Photo) */
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.02 }}
+              transition={{ 
+                opacity: { duration: 1.5, ease: "easeInOut" },
+                scale: { duration: 10, ease: "linear" } 
+              }}
+              className="absolute inset-0 w-full h-full"
+            >
+              {mediaItems[index]?.type === 'video' ? (
+                <video
+                  src={mediaItems[index].src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover opacity-70 brightness-[0.85]"
+                />
+              ) : (
+                <img
+                  src={mediaItems[index].src}
+                  className="w-full h-full object-cover opacity-70 brightness-[0.85]"
+                  alt=""
+                />
+              )}
+            </motion.div>
+          </AnimatePresence>
+        )}
       </div>
 
       {/* GRADIENTS FOR CONTENT FOCUS */}
