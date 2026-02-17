@@ -186,7 +186,7 @@ const DoctorSearch = () => {
             <div className="bg-white lg:rounded-[3rem] lg:shadow-2xl overflow-hidden lg:border border-gray-100 flex flex-col lg:grid lg:grid-cols-12 h-auto lg:h-[760px]">
                
                {/* List Section */}
-               <div className="lg:col-span-5 lg:border-r border-gray-100 flex flex-col bg-white overflow-hidden h-[560px] lg:h-full">
+               <div className="lg:col-span-5 lg:border-r border-gray-100 flex flex-col bg-white overflow-hidden h-[500px] sm:h-[600px] lg:h-full">
                   <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
                      <h3 className="font-bold text-[#0f172a] text-sm lg:text-base text-left">Doctors ({filteredDoctors.length})</h3>
                      <div className="flex items-center gap-4 text-xs font-bold text-gray-400">

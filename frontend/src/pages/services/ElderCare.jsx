@@ -80,7 +80,7 @@ const ElderCare = () => {
       </Helmet>
 
       {/* 1. Hero Section - Warm & Reassuring */}
-      <section className="relative min-h-[700px] flex items-center bg-[#fff7ed] overflow-hidden">
+      <section className="relative min-h-[500px] lg:min-h-[700px] flex items-center bg-[#fff7ed] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 w-3/4 h-full bg-[#ffedd5] rounded-bl-[15rem] z-0" />
           <img 
@@ -101,7 +101,7 @@ const ElderCare = () => {
               <Heart className="w-4 h-4 fill-current" />
               <span>Geriatric Excellence</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold text-[#0f172a] mb-8 leading-tight">
+            <h1 className="text-4xl md:text-7xl font-serif font-bold text-[#0f172a] mb-8 leading-tight">
               Aging with <br />
               <span className="text-orange-500">Dignity & Grace.</span>
             </h1>

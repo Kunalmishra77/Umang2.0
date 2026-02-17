@@ -348,7 +348,7 @@ const Header = () => {
         <div className={`bg-[#0f172a] text-white transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0' : 'max-h-10 lg:max-h-8'}`}>
            <div className="container-custom h-10 lg:h-8 flex items-center justify-between text-[10px] lg:text-[11px] font-semibold tracking-wide px-4">
               <a href="tel:+918929733550" className="flex items-center gap-2 hover:text-primary-400 transition-colors">
-                 <Phone className="w-3 h-3" /> <span className="hidden xs:inline">Emergency:</span> +91 89297 33550
+                 <Phone className="w-3 h-3" /> <span className="inline">Emergency:</span> +91 89297 33550
               </a>
               <div className="flex items-center gap-4">
                  <div className="hidden md:flex items-center gap-2 text-emerald-400 font-bold"><ShieldCheck className="w-3 h-3" /> NABH ACCREDITED</div>

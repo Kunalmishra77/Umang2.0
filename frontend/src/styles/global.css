@@ -55,9 +55,9 @@
 @layer base {
   :root {
     --header-h: 92px;
-    --section-py: clamp(24px, 3vw, 54px);
-    --section-gap: clamp(10px, 1.5vw, 18px);
-    --card-p: clamp(14px, 1.8vw, 24px);
+    --section-py: clamp(40px, 8vw, 100px);
+    --section-gap: clamp(16px, 3vw, 32px);
+    --card-p: clamp(16px, 4vw, 40px);
     --overlay-from: rgba(15, 23, 42, 0.68);
     --overlay-mid: rgba(15, 23, 42, 0.4);
     --overlay-to: rgba(15, 23, 42, 0.18);
@@ -71,6 +71,14 @@
   @media (max-width: 1024px) {
     :root {
       --header-h: 80px;
+      --section-py: clamp(32px, 6vw, 80px);
+    }
+  }
+
+  @media (max-width: 640px) {
+    :root {
+      --header-h: 72px;
+      --section-py: clamp(24px, 5vw, 60px);
     }
   }
 
@@ -96,8 +104,8 @@
     @apply tracking-tight font-bold;
   }
 
-  h1 { @apply text-4xl md:text-6xl lg:text-7xl; }
-  h2 { @apply text-2xl md:text-4xl lg:text-5xl; }
+  h1 { @apply text-3xl md:text-6xl lg:text-7xl; }
+  h2 { @apply text-xl md:text-4xl lg:text-5xl; }
 }
 
 @layer components {
@@ -106,7 +114,7 @@
   }
 
   .container-custom {
-    @apply container mx-auto px-6 sm:px-10 lg:px-12 max-w-[96rem];
+    @apply container mx-auto px-4 sm:px-8 lg:px-12 max-w-[96rem];
   }
   
   .glass-panel {

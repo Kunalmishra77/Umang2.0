@@ -29,6 +29,7 @@ const WhyChooseUs = () => {
       desc: "A massive facility featuring 28 ICU beds, Modular OTs, and specialized units for rapid recovery.",
       icon: ShieldCheck,
       img: ASSETS.HOSPITAL_EXTERIOR,
+      video: "/assets/Home/150 bed .mp4",
       span: "md:col-span-2",
       path: "/infrastructure",
       features: ["Modular OTs", "28 ICU Beds", "Smart Wards"]
@@ -38,6 +39,7 @@ const WhyChooseUs = () => {
       desc: "Round-the-clock emergency trauma care and fully stocked digital pharmacy.",
       icon: Clock,
       img: ASSETS.AMBULANCE,
+      video: "/assets/Home/247 Critical support.mp4",
       span: "col-span-1",
       path: "/services/emergency",
       accent: "text-red-500"
@@ -47,6 +49,7 @@ const WhyChooseUs = () => {
       desc: "Equipped with 128 Slice CT, 3 Tesla MRI, and precision diagnostic labs.",
       icon: Zap,
       img: ASSETS.CT_SCAN,
+      video: "/assets/Home/moder technology.mp4",
       span: "col-span-1",
       path: "/health-library/technologies"
     },
@@ -55,6 +58,7 @@ const WhyChooseUs = () => {
       desc: "NABH accredited standards ensuring world-class safety and clinical outcomes.",
       icon: Award,
       img: ASSETS.GASTRO,
+      video: "/assets/Home/clinical excelence.mp4",
       span: "md:col-span-2",
       path: "/about",
       stat: "52+"
@@ -110,15 +114,26 @@ const WhyChooseUs = () => {
               <Link to={item.path} className="absolute inset-0 z-20"></Link>
               
               <div className="absolute inset-0 z-0">
-                <img 
-                  src={item.img} 
-                  alt={item.title} 
-                  className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 brightness-[0.8]" 
-                />
+                {item.video ? (
+                  <video 
+                    src={item.video} 
+                    autoPlay 
+                    muted 
+                    loop 
+                    playsInline 
+                    className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 brightness-[0.8]"
+                  />
+                ) : (
+                  <img 
+                    src={item.img} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110 brightness-[0.8]" 
+                  />
+                )}
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/40 to-transparent opacity-85 group-hover:opacity-90 transition-opacity duration-500" />
               </div>
               
-              <div className="relative z-10 p-6 lg:p-7 w-full h-full flex flex-col justify-end min-h-[260px] lg:min-h-[280px]">
+              <div className="relative z-10 p-6 lg:p-7 w-full h-full flex flex-col justify-end min-h-[220px] md:min-h-[260px] lg:min-h-[280px]">
                 <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                   <div className="text-left flex-1">
                     <div className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-xl flex items-center justify-center border border-white/20 mb-4 shadow-2xl group-hover:bg-primary-500/20 group-hover:border-primary-500/40 transition-all duration-500">

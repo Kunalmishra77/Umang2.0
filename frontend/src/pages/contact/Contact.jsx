@@ -61,7 +61,7 @@ const Contact = () => {
                <span className="inline-flex items-center gap-2 bg-primary-500/10 px-4 py-2 rounded-full border border-primary-500/20 text-primary-300 font-bold uppercase tracking-widest text-[10px] mb-8">
                   <Headset className="w-4 h-4" /> 24/7 Patient Support
                </span>
-               <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6">How can we <span className="text-primary-400 italic">help?</span></h1>
+               <h1 className="text-4xl md:text-7xl font-serif font-bold text-white mb-6">How can we <span className="text-primary-400 italic">help?</span></h1>
                <p className="text-xl text-primary-100/70 max-w-2xl mx-auto font-light leading-relaxed">
                   From critical emergencies to routine checkups, our dedicated assistance team is just a call or click away.
                </p>
@@ -70,7 +70,7 @@ const Contact = () => {
       </section>
 
       {/* 2. Quick Action Section - Functional Subsections */}
-      <section className="container-custom -mt-20 relative z-20 mb-32">
+      <section className="container-custom -mt-12 md:-mt-20 relative z-20 mb-32">
          <div className="grid md:grid-cols-3 gap-8">
             <Link to="/appointments/request" className="group">
                <motion.div whileHover={{ y: -10 }} className="bg-white p-10 rounded-[3rem] shadow-xl border border-gray-100 h-full transition-all hover:bg-brand-dark hover:text-white group">
@@ -176,7 +176,7 @@ const Contact = () => {
                </div>
 
                {/* RIGHT: Form */}
-               <div className="lg:col-span-7 bg-white rounded-[3rem] p-10 md:p-16 shadow-2xl border border-gray-100">
+               <div className="lg:col-span-7 bg-white rounded-[2rem] lg:rounded-[3rem] p-6 sm:p-10 md:p-16 shadow-2xl border border-gray-100">
                   <div className="mb-10">
                      <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-4">Send an Inquiry</h2>
                      <p className="text-gray-500">For non-emergency feedback, corporate tie-ups, or hospital visits.</p>

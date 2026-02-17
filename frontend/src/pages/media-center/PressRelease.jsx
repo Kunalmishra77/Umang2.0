@@ -52,7 +52,7 @@ const PressRelease = () => {
       </Helmet>
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
+      <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="/assets/images/localized/press-conference.jpg" 
@@ -72,7 +72,7 @@ const PressRelease = () => {
             <div className="inline-flex items-center gap-2 bg-blue-500/20 px-4 py-2 rounded-full border border-blue-500/30 text-blue-300 font-bold uppercase tracking-widest text-xs mb-8">
               <Newspaper className="w-4 h-4" /> Official Newsroom
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
+            <h1 className="text-4xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
               Latest from <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Umang Hospital.</span>
             </h1>
@@ -179,7 +179,7 @@ const PressRelease = () => {
       <section className="py-12 lg:py-10 bg-[#0f172a] text-white relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
          <div className="container-custom relative z-10">
-            <div className="bg-white/5 backdrop-blur-md rounded-[3rem] p-12 md:p-20 border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div className="bg-white/5 backdrop-blur-md rounded-[3rem] p-6 sm:p-12 md:p-20 border border-white/10 flex flex-col lg:flex-row items-center justify-between gap-12">
                <div className="max-w-xl">
                   <h2 className="text-4xl font-serif font-bold mb-6">Media Kit for Journalists</h2>
                   <p className="text-blue-200 text-lg mb-8 leading-relaxed">

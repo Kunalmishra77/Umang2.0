@@ -24,7 +24,7 @@ const Team = () => {
       </Helmet>
 
       {/* SECTION 1: HERO - THE VISIONARIES */}
-      <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
+      <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src={ASSETS.SURGERY_TEAM} 
@@ -44,7 +44,7 @@ const Team = () => {
             <span className="inline-block px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 font-bold uppercase tracking-[0.3em] text-xs mb-6">
               World-Class Faculty
             </span>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
+            <h1 className="text-4xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
               The Minds Behind <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">The Miracles.</span>
             </h1>
@@ -225,9 +225,9 @@ const Team = () => {
               <img 
                 src={ASSETS.NURSE_CARE} 
                 alt="Nursing Staff" 
-                className="relative z-10 rounded-[3rem] shadow-2xl w-full object-cover object-top h-[500px]" 
+                className="relative z-10 rounded-[3rem] shadow-2xl w-full object-cover object-top h-[400px] sm:h-[500px]" 
               />
-              <div className="absolute -bottom-8 -left-8 bg-white text-[#0f172a] p-8 rounded-2xl shadow-xl z-20 max-w-xs">
+              <div className="absolute -bottom-8 left-4 sm:-left-8 bg-white text-[#0f172a] p-6 sm:p-8 rounded-2xl shadow-xl z-20 max-w-[280px] sm:max-w-xs">
                 <Quote className="w-8 h-8 text-rose-400 mb-4 fill-current" />
                 <p className="font-bold italic">"Compassion is the only language we speak fluently."</p>
                 <p className="text-xs font-bold text-gray-400 mt-2 uppercase">- Sister Mary, Head Nurse</p>

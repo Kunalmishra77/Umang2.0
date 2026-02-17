@@ -98,7 +98,7 @@ const Infrastructure = () => {
       </Helmet>
 
       {/* 1. Hero Section */}
-      <section className="relative h-[80vh] lg:h-[90vh] min-h-[600px] lg:min-h-[800px] flex items-center justify-center overflow-hidden bg-brand-dark">
+      <section className="relative min-h-[500px] md:h-[80vh] lg:h-[90vh] lg:min-h-[800px] flex items-center justify-center overflow-hidden bg-brand-dark">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <ParallaxImage 
             src={ASSETS.OT} 

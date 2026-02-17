@@ -32,9 +32,18 @@ const About = () => {
       </Helmet>
 
       {/* SECTION 1: CINEMATIC HERO */}
-      <section className="relative h-[60vh] lg:h-[70vh] flex items-center justify-center overflow-hidden bg-brand-dark">
+      <section className="relative min-h-[500px] md:h-[60vh] lg:h-[70vh] flex items-center justify-center overflow-hidden bg-brand-dark">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <img src={ASSETS.HOSPITAL_EXTERIOR} alt="Hospital Building" className="w-full h-full object-cover opacity-70 scale-110" />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={ASSETS.ABOUT_BANNER}
+            className="w-full h-full object-cover opacity-70 scale-110"
+          >
+            <source src={ASSETS.ABOUT_BANNER_VIDEO} type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-transparent to-brand-dark/60" />
         </motion.div>
         
@@ -99,7 +108,7 @@ const About = () => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="lg:col-span-5 relative h-[400px] lg:h-[480px] w-full rounded-[2rem] shadow-2xl z-0"
+              className="lg:col-span-5 relative h-[300px] sm:h-[400px] lg:h-[480px] w-full rounded-[2rem] shadow-2xl z-0"
             >
               <div className="absolute inset-0 bg-primary-600 rotate-2 transform translate-x-3 translate-y-3 rounded-[2rem]" />
               <div className="relative h-full w-full rounded-[2rem] overflow-hidden">

@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 
 const departments = [
-  { id: 'cardiac', name: 'Cardiac Sciences', icon: Heart, desc: 'Advanced Cath Labs', img: ASSETS.CARDIAC, colSpan: 'xl:col-span-2' },
-  { id: 'neuro', name: 'Neuro Sciences', icon: Brain, desc: 'Brain & Spine Care', img: ASSETS.NEURO, colSpan: 'xl:col-span-1' },
-  { id: 'ortho', name: 'Orthopaedics', icon: Bone, desc: 'Joint Replacement', img: ASSETS.ORTHO, colSpan: 'xl:col-span-1' },
-  { id: 'gastro', name: 'Gastroenterology', icon: Activity, desc: 'Digestive Health', img: ASSETS.GASTRO, colSpan: 'xl:col-span-1' },
-  { id: 'pulmonology', name: 'Pulmonology', icon: Wind, desc: 'Respiratory Care', img: ASSETS.PULMONOLOGY, colSpan: 'xl:col-span-1' },
-  { id: 'surgery', name: 'General Surgery', icon: Scissors, desc: 'Laparoscopic Care', img: ASSETS.OT, colSpan: 'xl:col-span-2' },
+  { id: 'cardiac', name: 'Cardiac Sciences', icon: Heart, desc: 'Advanced Cath Labs', img: ASSETS.CARDIAC, video: "/assets/Home/cardiac-sciences.mp4", colSpan: 'xl:col-span-2' },
+  { id: 'neuro', name: 'Neuro Sciences', icon: Brain, desc: 'Brain & Spine Care', img: ASSETS.NEURO, video: "/assets/Home/neuro-sciences.mp4", colSpan: 'xl:col-span-1' },
+  { id: 'ortho', name: 'Orthopaedics', icon: Bone, desc: 'Joint Replacement', img: ASSETS.ORTHO, video: "/assets/Home/orthopaedics-joint-replacement.mp4", colSpan: 'xl:col-span-1' },
+  { id: 'gastro', name: 'Gastroenterology', icon: Activity, desc: 'Digestive Health', img: ASSETS.GASTRO, video: "/assets/Home/gastroenterology.mp4", colSpan: 'xl:col-span-1' },
+  { id: 'pulmonology', name: 'Pulmonology', icon: Wind, desc: 'Respiratory Care', img: ASSETS.PULMONOLOGY, video: "/assets/Home/pulmonology.mp4", colSpan: 'xl:col-span-1' },
+  { id: 'surgery', name: 'General Surgery', icon: Scissors, desc: 'Laparoscopic Care', img: ASSETS.OT, video: "/assets/Home/general-surgery.mp4", colSpan: 'xl:col-span-2' },
 ];
 
 const container = {
@@ -40,7 +40,7 @@ const SpecialitiesSection = () => {
           </Link>
         </div>
 
-        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 auto-rows-[280px] lg:auto-rows-[320px]">
+        <motion.div variants={container} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-100px" }} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 auto-rows-[240px] sm:auto-rows-[280px] lg:auto-rows-[320px]">
           {departments.map((dept) => (
             <motion.div 
               key={dept.id} 
@@ -51,7 +51,21 @@ const SpecialitiesSection = () => {
             >
               <Link to="/specialities" state={{ category: dept.id }} className="block h-full group relative rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500">
                 <div className="absolute inset-0 overflow-hidden">
-                  <img src={dept.img} alt={dept.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                  {dept.video ? (
+                    <video 
+                      autoPlay 
+                      muted 
+                      loop 
+                      playsInline 
+                      preload="none"
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+                    >
+                      <source src={dept.video} type="video/mp4" />
+                      <img src={dept.img} alt={dept.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                    </video>
+                  ) : (
+                    <img src={dept.img} alt={dept.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                  )}
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/10 to-transparent opacity-70 group-hover:opacity-60 transition-opacity" />
                 

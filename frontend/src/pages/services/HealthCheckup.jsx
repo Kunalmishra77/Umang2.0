@@ -65,7 +65,7 @@ const HealthCheckup = () => {
       </Helmet>
 
       {/* 1. Hero Section - Full Width & Spacious */}
-      <section className="relative min-h-[650px] flex items-center bg-[#005580] overflow-hidden">
+      <section className="relative min-h-[500px] lg:min-h-[650px] flex items-center bg-[#005580] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src={ASSETS.SVC_INVEST_HEALTH} 
@@ -84,7 +84,7 @@ const HealthCheckup = () => {
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-cyan-300 font-bold uppercase tracking-widest text-xs mb-8">
               <Activity className="w-4 h-4" /> Preventive Care
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
+            <h1 className="text-4xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
               Invest in your <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200">Future Self.</span>
             </h1>

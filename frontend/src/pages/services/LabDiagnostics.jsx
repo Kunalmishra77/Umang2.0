@@ -88,7 +88,7 @@ const LabDiagnostics = () => {
       </Helmet>
 
       {/* 1. Hero Section */}
-      <section className="relative h-[550px] overflow-hidden flex items-center bg-[#0f172a]">
+      <section className="relative min-h-[500px] lg:h-[550px] overflow-hidden flex items-center bg-[#0f172a]">
         <div className="absolute inset-0 z-0">
           <img 
             src={ASSETS.LAB} 
@@ -109,7 +109,7 @@ const LabDiagnostics = () => {
               <FlaskConical className="w-4 h-4" />
               <span>Diagnostic Excellence</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-7xl font-serif font-bold mb-6 leading-tight">
               Precision in <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200">Every Result.</span>
             </h1>
@@ -267,7 +267,7 @@ const LabDiagnostics = () => {
       {/* 5. Home Collection CTA */}
       <section className="py-12 lg:py-10 bg-white relative overflow-hidden">
          <div className="container-custom">
-            <div className="bg-[#005580] rounded-[3rem] p-12 md:p-20 text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-12">
+            <div className="bg-[#005580] rounded-[2.5rem] lg:rounded-[3rem] p-6 sm:p-12 md:p-20 text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-12">
                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
                
                <div className="md:w-1/2 relative z-10">

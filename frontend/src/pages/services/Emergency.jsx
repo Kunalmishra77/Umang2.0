@@ -51,7 +51,7 @@ const Emergency = () => {
       </Helmet>
 
       {/* 1. High-Urgency Hero Section */}
-      <section className="relative min-h-[750px] overflow-hidden flex items-center bg-[#0f172a] py-12 lg:py-10">
+      <section className="relative min-h-[550px] lg:min-h-[750px] overflow-hidden flex items-center bg-[#0f172a] py-12 lg:py-10">
         <div className="absolute inset-0 z-0">
           <img 
             src={ASSETS.AMBULANCE} 
@@ -73,7 +73,7 @@ const Emergency = () => {
             <div className="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-1.5 rounded-full font-bold uppercase tracking-widest text-xs mb-8 animate-bounce">
               <AlertCircle className="w-4 h-4" /> 24/7 Emergency Active
             </div>
-            <h1 className="text-6xl md:text-8xl font-serif font-bold mb-8 leading-none tracking-tight">
+            <h1 className="text-4xl md:text-8xl font-serif font-bold mb-8 leading-none tracking-tight">
               Every Second <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Counts.</span>
             </h1>

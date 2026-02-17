@@ -27,13 +27,16 @@ const HospitalVideoSection = () => {
               className="relative rounded-[2.5rem] overflow-hidden border-4 lg:border-[12px] border-white shadow-2xl bg-[#0f172a] aspect-video lg:aspect-[4/3] group"
             >
               <video
-                src={ASSETS.UMANG_VIDEO}
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="auto"
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
-              />
+              >
+                <source src="/assets/Home/umange-about.MP4" type="video/mp4" />
+                <img src={ASSETS.HOSPITAL_EXTERIOR} alt="Hospital" className="w-full h-full object-cover" />
+              </video>
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent opacity-60" />
               
               {/* Play Indicator Overlay - Shrunk and Top-Left */}

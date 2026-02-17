@@ -35,7 +35,7 @@ const MediaConnect = () => {
       </Helmet>
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
+      <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="/assets/images/localized/media-connect-hero.jpg" 
@@ -55,7 +55,7 @@ const MediaConnect = () => {
             <div className="inline-flex items-center gap-2 bg-blue-500/20 px-4 py-2 rounded-full border border-blue-500/30 text-blue-300 font-bold uppercase tracking-widest text-xs mb-8">
               <Radio className="w-4 h-4" /> Press Relations
             </div>
-            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
+            <h1 className="text-4xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
               Let's Tell the <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Future of Care.</span>
             </h1>
@@ -229,7 +229,7 @@ const MediaConnect = () => {
       {/* 6. Media Request Form */}
       <section className="py-32 bg-white">
          <div className="container-custom">
-            <div className="bg-[#005580] rounded-[5rem] p-12 md:p-24 text-white relative overflow-hidden flex flex-col lg:flex-row gap-20">
+            <div className="bg-[#005580] rounded-[3rem] lg:rounded-[5rem] p-6 sm:p-12 md:p-24 text-white relative overflow-hidden flex flex-col lg:flex-row gap-12 lg:gap-20">
                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
                
                <div className="lg:w-5/12 relative z-10">

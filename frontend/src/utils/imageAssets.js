@@ -8,7 +8,7 @@ export const ASSETS = {
   TWIN_SHARING: '/assets/images/specific/twin-sharing.jpg',
   
   // Services & Departments
-  PHARMACY: '/assets/Home/pharmacy.jpg',
+  PHARMACY: '/assets/Home/pharmacy.jpeg',
   AMBULANCE: '/assets/Home/hero2.png',
   LAB: '/assets/images/corrected/service-lab.jpg',
   DIALYSIS: '/assets/images/department-nephrology.jpg',
@@ -36,7 +36,7 @@ export const ASSETS = {
   DIRECTOR: '/assets/images/director-profile.jpg',
   NURSE_CARE: '/assets/Home/home-care.jpg',
   CONSULTATION: '/assets/images/doctor-consultation.jpg',
-  TELEMEDICINE: '/assets/Home/telemedicene.jpg',
+  TELEMEDICINE: '/assets/Home/telemedicene.jpeg',
   HEALTH_CHECKUP: '/assets/Home/Health-Checkup.jpg',
   INTERNATIONAL: '/assets/images/international-patients.jpg',
   GERIATRICS: '/assets/Specialities/Geriatrics.png',
@@ -113,8 +113,18 @@ export const ASSETS = {
   ABOUT_LEAP: '/assets/About/technological-leap.png',
   ABOUT_100_BEDS: '/assets/About/100-Beds.jpg',
   ABOUT_DIRECTOR: '/assets/About/Dr. Rakesh Gupta.png',
+  ABOUT_BANNER: '/assets/About/about-banner.jpeg',
+  ABOUT_BANNER_VIDEO: '/assets/About/about-banner.mp4',
   UMANG_VIDEO: '/assets/About/Umang.mp4',
   UMANG_HERO_VIDEO: '/assets/Home/Umang_hero.mp4',
+  UMANG_BANNER_VIDEO: '/assets/Home/umang-banner.MP4',
+  UMANG_ABOUT_VIDEO: '/assets/Home/umange-about.MP4',
+  CARDIAC_VIDEO: '/assets/Home/cardiac-sciences.mp4',
+  GASTRO_VIDEO: '/assets/Home/gastroenterology.mp4',
+  SURGERY_VIDEO: '/assets/Home/general-surgery.mp4',
+  NEURO_VIDEO: '/assets/Home/neuro-sciences.mp4',
+  ORTHO_VIDEO: '/assets/Home/orthopaedics-joint-replacement.mp4',
+  PULMONOLOGY_VIDEO: '/assets/Home/pulmonology.mp4',
 
   // Doctors Lists
   DOCTORS_MALE: [

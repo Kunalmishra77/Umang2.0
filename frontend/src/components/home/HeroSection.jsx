@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, ArrowRight, User, Send, ChevronDown, Activity, HeartPulse, Clock, Award, ShieldCheck } from 'lucide-react';
 import { ASSETS } from '../../utils/imageAssets';
-
-const HERO_IMAGES = [
-  ASSETS.HOSPITAL_EXTERIOR,
-  ASSETS.ROBOTIC_SURGERY,
-  ASSETS.SVC_RADIOLOGY_IMAGING,
-  ASSETS.SVC_ICU_ADVANCE_CARE,
-  ASSETS.SVC_INTERVENTIONAL_CARDIOLOGY,
-  ASSETS.CARDIAC_HERO,
-  ASSETS.ABOUT_NABH,
-].filter(Boolean);
 
 const specialties = [
   'Cardiac Sciences',
@@ -25,32 +15,19 @@ const specialties = [
 ];
 
 const HeroSection = () => {
-  const [index, setIndex] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedSpecialty, setSelectedSpecialty] = useState('Select Specialty');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  // Combine video and images for a cinematic loop
-  const mediaItems = [
-    { type: 'video', src: ASSETS.UMANG_HERO_VIDEO },
-    { type: 'image', src: HERO_IMAGES[0] },
-    { type: 'image', src: ASSETS.ABOUT_BEACON },
-    { type: 'image', src: HERO_IMAGES[1] },
-    { type: 'video', src: ASSETS.UMANG_VIDEO },
-    { type: 'image', src: HERO_IMAGES[2] },
-    { type: 'image', src: HERO_IMAGES[3] },
-  ];
+  const videoRef = useRef(null);
 
   useEffect(() => {
-    const currentItem = mediaItems[index];
-    const duration = currentItem?.type === 'video' ? 12000 : 6000;
-    
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % mediaItems.length);
-    }, duration); 
-    return () => clearInterval(timer);
-  }, [index, mediaItems.length]);
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Video autoplay failed:", error);
+      });
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -65,45 +42,27 @@ const HeroSection = () => {
   return (
     <section
       className="relative w-full bg-[#020617] text-white overflow-hidden flex items-center justify-center lg:justify-start"
-      style={{ height: 'calc(100svh - var(--header-h))', minHeight: '600px' }}
+      style={{ height: 'calc(100svh - var(--header-h))', minHeight: '480px' }}
     >
-      {/* BACKGROUND MEDIA CONTAINER - PREMIUM CROSS-FADE */}
+      {/* BACKGROUND MEDIA CONTAINER - PREMIUM VIDEO */}
       <div className="absolute inset-0 z-0 bg-[#020617]">
-        <AnimatePresence initial={false}>
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.02 }}
-            transition={{ 
-              opacity: { duration: 2, ease: "easeInOut" },
-              scale: { duration: 12, ease: "linear" } 
-            }}
-            className="absolute inset-0 w-full h-full"
-          >
-            {mediaItems[index]?.type === 'video' ? (
-              <video
-                src={mediaItems[index].src}
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-cover opacity-80 brightness-[0.95]"
-              />
-            ) : (
-              <img
-                src={mediaItems[index].src}
-                className="w-full h-full object-cover opacity-75 brightness-[0.95]"
-                alt=""
-              />
-            )}
-          </motion.div>
-        </AnimatePresence>
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={ASSETS.HOSPITAL_EXTERIOR}
+          className="w-full h-full object-cover opacity-70 brightness-[0.85]"
+        >
+          <source src="/assets/Home/umang-banner.MP4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
-      {/* ULTRA-LIGHT GRADIENTS FOR MAXIMUM MEDIA VISIBILITY */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/20 via-transparent to-[#020617]/40 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/40 via-transparent to-transparent z-10 hidden lg:block" />
+      {/* GRADIENTS FOR CONTENT FOCUS */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/40 via-[#020617]/20 to-[#020617]/60 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/60 via-transparent to-transparent z-10 hidden lg:block" />
 
       <div className="container-custom relative z-20 w-full">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">

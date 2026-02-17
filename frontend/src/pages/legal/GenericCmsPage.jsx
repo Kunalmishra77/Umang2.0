@@ -88,7 +88,7 @@ const GenericCmsPage = ({ slug: propSlug }) => {
                         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-primary-300 text-[10px] font-black uppercase tracking-[0.4em] mb-8">
                            <Scale className="w-4 h-4" /> Legal Framework
                         </div>
-                        <h1 className="text-5xl md:text-8xl font-serif font-bold text-white mb-8 tracking-tighter leading-tight">
+                        <h1 className="text-3xl md:text-8xl font-serif font-bold text-white mb-8 tracking-tighter leading-tight">
                             {page.title.split(' ').map((word, i) => (
                                 <span key={i} className={i % 2 !== 0 ? "text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-cyan-200 italic" : ""}>
                                     {word}{' '}
@@ -205,7 +205,7 @@ const GenericCmsPage = ({ slug: propSlug }) => {
             <section className="py-24 bg-gray-50 relative overflow-hidden">
                 <div className="absolute inset-0 bg-brand-dark/[0.02] mix-blend-multiply" />
                 <div className="container-custom relative z-10">
-                    <div className="bg-white rounded-[4rem] p-12 lg:p-20 shadow-2xl border border-white flex flex-col lg:flex-row items-center justify-between gap-12">
+                    <div className="bg-white rounded-[2.5rem] lg:rounded-[4rem] p-6 sm:p-12 lg:p-20 shadow-2xl border border-white flex flex-col lg:flex-row items-center justify-between gap-12">
                         <div className="max-w-2xl text-center lg:text-left">
                             <h2 className="text-3xl md:text-5xl font-serif font-bold text-brand-dark mb-6 leading-tight">Patient Safety & <span className="text-primary-600">Rights Hub.</span></h2>
                             <p className="text-gray-500 text-lg font-light">Explore our comprehensive guide to patient amenities, rights, and the care journey at Umang.</p>
