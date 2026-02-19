@@ -442,20 +442,23 @@ const Header = () => {
                                       </div>
                                     </div>
                                   )}
-                                  {link.links.map((sub) => (
-                                    <Link 
-                                      key={sub.name} 
-                                      to={sub.path || `/specialities`} 
-                                      state={sub.id ? { category: sub.id } : (sub.slug ? { category: sub.slug } : undefined)} 
-                                      onClick={() => {
-                                        setIsMobileMenuOpen(false);
-                                        window.scrollTo({ top: 0, behavior: 'instant' });
-                                      }} 
-                                      className="px-4 py-4 text-[15px] font-bold text-gray-700 active:text-primary-600 flex items-center gap-4 active:bg-primary-50 rounded-xl transition-all"
-                                    >
-                                      <div className="w-1.5 h-1.5 rounded-full bg-primary-400" /> {sub.name}
-                                    </Link>
-                                  ))}
+                                  {link.links.map((sub) => {
+                                    const targetPath = sub.path || (sub.slug ? `/services/${sub.slug}` : `/specialities`);
+                                    return (
+                                      <Link 
+                                        key={sub.name} 
+                                        to={targetPath} 
+                                        state={sub.id ? { category: sub.id } : (sub.slug ? { category: sub.slug } : undefined)} 
+                                        onClick={() => {
+                                          setIsMobileMenuOpen(false);
+                                          window.scrollTo({ top: 0, behavior: 'instant' });
+                                        }} 
+                                        className="px-4 py-4 text-[15px] font-bold text-gray-700 active:text-primary-600 flex items-center gap-4 active:bg-primary-50 rounded-xl transition-all"
+                                      >
+                                        <div className="w-1.5 h-1.5 rounded-full bg-primary-400" /> {sub.name}
+                                      </Link>
+                                    );
+                                  })}
                                 </div>
                               </motion.div>
                             )}
