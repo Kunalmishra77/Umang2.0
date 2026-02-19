@@ -125,19 +125,31 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="mb-8 flex justify-center lg:justify-start w-full lg:w-auto"
+              className="mb-5 flex justify-center lg:justify-start w-full lg:w-auto"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-600/30 border border-white/20 rounded-full backdrop-blur-2xl">
-                <Activity className="w-3 h-3 text-primary-300" />
-                <span className="text-[10px] md:text-[12px] font-black uppercase tracking-[0.4em] text-white/90">Precision Healthcare.</span>
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-primary-600/30 border border-white/20 rounded-full backdrop-blur-2xl">
+                <Activity className="w-2.5 h-2.5 text-primary-300" />
+                <span className="text-[7.5px] md:text-[8.5px] font-black uppercase tracking-[0.4em] text-white/90">{siteConfig.tagline}</span>
               </div>
             </motion.div>
+
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="font-sans font-black tracking-tight leading-[1.1] mb-6 drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]" 
+              style={{ fontSize: 'clamp(2.2rem, 8vw, 4.2rem)' }}
+            >
+              <span className="text-white">Care with</span>
+              <br />
+              <span className="text-primary-400 italic">Passion.</span>
+            </motion.h1>
 
             <motion.p 
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-[16px] md:text-[20px] text-white/95 max-w-[42ch] mb-9 font-medium leading-relaxed px-4 lg:px-0 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
+              className="text-[14px] md:text-[17px] text-white/90 max-w-[42ch] mb-9 font-medium leading-relaxed px-4 lg:px-0 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
             >
               A {siteConfig.stats.beds}-bed beacon of <span className="text-primary-300 font-black">medical excellence in Gurugram</span>, where advanced technology meets human compassion.
             </motion.p>
