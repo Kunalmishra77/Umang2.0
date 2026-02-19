@@ -1,23 +1,23 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Plus, Filter } from 'lucide-react';
+import { Plus, Filter, MessageSquare, ArrowRight } from 'lucide-react';
 import { Container, Section, Card } from '../../components/ui/Layout';
 import { siteConfig } from '../../config/siteConfig';
 
 // Mock Data for demonstration
 const productsData = {
   'prescription': [
-    { id: 101, name: "Amoxycillin 500mg", pack: "Strip of 10", price: 120, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=400" },
-    { id: 102, name: "Paracetamol 650mg", pack: "Strip of 15", price: 30, img: "https://images.unsplash.com/photo-1616671285410-09502197946a?auto=format&fit=crop&q=80&w=400" },
-    { id: 103, name: "Atorvastatin 10mg", pack: "Strip of 10", price: 180, img: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=400" },
+    { id: 101, name: "Amoxycillin 500mg", pack: "Strip of 10", img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=400" },
+    { id: 102, name: "Paracetamol 650mg", pack: "Strip of 15", img: "https://images.unsplash.com/photo-1616671285410-09502197946a?auto=format&fit=crop&q=80&w=400" },
+    { id: 103, name: "Atorvastatin 10mg", pack: "Strip of 10", img: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=400" },
   ],
   'diabetes-care': [
-    { id: 201, name: "Accu-Chek Active", pack: "50 Strips", price: 850, img: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=400" },
-    { id: 202, name: "Sugar Free Gold", pack: "500 Pellets", price: 280, img: "https://images.unsplash.com/photo-1616671285410-09502197946a?auto=format&fit=crop&q=80&w=400" },
+    { id: 201, name: "Accu-Chek Active", pack: "50 Strips", img: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=400" },
+    { id: 202, name: "Sugar Free Gold", pack: "500 Pellets", img: "https://images.unsplash.com/photo-1616671285410-09502197946a?auto=format&fit=crop&q=80&w=400" },
   ],
   'cardiac-care': [
-    { id: 301, name: "Omron BP Monitor", pack: "HEM-7120", price: 2100, img: "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&q=80&w=400" },
+    { id: 301, name: "Omron BP Monitor", pack: "HEM-7120", img: "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&q=80&w=400" },
   ]
 };
 
@@ -29,7 +29,7 @@ const PharmacyCategory = () => {
     : 'Pharmacy Category';
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-slate-50 min-h-screen pt-12">
       <Helmet>
         <title>{categoryName} | {siteConfig.shortName} Pharmacy</title>
       </Helmet>
@@ -43,20 +43,19 @@ const PharmacyCategory = () => {
           </div>
 
           <div className="flex flex-col lg:flex-row gap-12">
-            {/* Sidebar Filters */}
+            {/* Sidebar Information */}
             <div className="w-full lg:w-1/4">
               <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-soft sticky top-32">
                 <div className="flex items-center gap-3 mb-8 text-brand-dark font-bold border-b border-slate-50 pb-4">
-                  <Filter size={18} className="text-primary-600" /> Filters
+                  <MessageSquare size={18} className="text-primary-600" /> Availability
                 </div>
-                <div className="space-y-8">
-                  <div>
-                    <h4 className="text-xs font-bold uppercase tracking-widest mb-4">Price Range</h4>
-                    <div className="space-y-3 text-sm text-slate-600 font-medium">
-                      <label className="flex items-center gap-3 cursor-pointer group"><input type="checkbox" className="rounded border-slate-300 text-primary-600 focus:ring-primary-500" /> Under ₹100</label>
-                      <label className="flex items-center gap-3 cursor-pointer group"><input type="checkbox" className="rounded border-slate-300 text-primary-600 focus:ring-primary-500" /> ₹100 - ₹500</label>
-                      <label className="flex items-center gap-3 cursor-pointer group"><input type="checkbox" className="rounded border-slate-300 text-primary-600 focus:ring-primary-500" /> ₹500 - ₹1000</label>
-                    </div>
+                <div className="space-y-6">
+                  <p className="text-sm text-gray-500 leading-relaxed">
+                    All listed products are available 24/7 at Umang Hospital pharmacy. For home delivery, please contact our help desk.
+                  </p>
+                  <div className="pt-4 border-t border-gray-50">
+                    <h4 className="text-xs font-bold uppercase tracking-widest mb-4">Contact Desk</h4>
+                    <p className="font-bold text-primary-600">{siteConfig.contacts.main}</p>
                   </div>
                 </div>
               </div>
@@ -78,11 +77,10 @@ const PharmacyCategory = () => {
                       <p className="text-xs text-slate-500 font-semibold">{product.pack}</p>
                     </div>
                     
-                    <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-50">
-                      <p className="text-xl font-bold text-brand-dark">₹{product.price}</p>
-                      <button className="w-11 h-11 bg-primary-600 text-white rounded-xl flex items-center justify-center hover:bg-primary-700 active:scale-95 transition-all shadow-md shadow-primary-900/10">
-                        <Plus size={20} />
-                      </button>
+                    <div className="mt-8 pt-6 border-t border-slate-50">
+                      <Link to="/contact" className="w-full h-12 bg-primary-600 text-white rounded-xl flex items-center justify-center gap-2 hover:bg-primary-700 active:scale-95 transition-all shadow-md font-bold text-sm">
+                        Enquire Now <ArrowRight size={16} />
+                      </Link>
                     </div>
                   </Card>
                 ))}

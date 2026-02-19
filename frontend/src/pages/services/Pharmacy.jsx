@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { 
   Pill, Search, ShoppingBag, Clock, ShieldCheck, 
   Truck, ArrowRight, Phone, MessageCircle, ChevronRight,
-  HeartPulse, Thermometer, User, Filter, X, Zap, Upload
+  HeartPulse, Thermometer, User, Filter, X, Zap, Upload, Activity
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
