@@ -121,18 +121,6 @@ const HeroSection = () => {
       <div className="container-custom relative z-20 w-full">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-center lg:items-start text-center lg:text-left">
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="mb-5 flex justify-center lg:justify-start w-full lg:w-auto"
-            >
-              <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-primary-600/30 border border-white/20 rounded-full backdrop-blur-2xl">
-                <Activity className="w-2.5 h-2.5 text-primary-300" />
-                <span className="text-[7.5px] md:text-[8.5px] font-black uppercase tracking-[0.4em] text-white/90">{siteConfig.tagline}</span>
-              </div>
-            </motion.div>
-
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
