@@ -1,9 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLocation } from 'react-router-dom';
+import { siteConfig } from '../../config/siteConfig';
 
 const WhatsAppFloating = () => {
+  const location = useLocation();
+  const isEmergencyPage = location.pathname === '/services/emergency';
+
   return (
-    <div className="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-[9999] flex items-center group">
+    <div 
+      className={`fixed right-5 md:bottom-6 md:right-6 z-[9999] flex items-center group transition-all duration-500 ${
+        isEmergencyPage ? 'bottom-24 md:bottom-6' : 'bottom-5 md:bottom-6'
+      }`}
+    >
       {/* Premium Tooltip */}
       <div 
         role="tooltip"
@@ -15,7 +24,7 @@ const WhatsAppFloating = () => {
       </div>
 
       <motion.a
-        href="https://wa.me/918588072727"
+        href={`https://wa.me/${siteConfig.contacts.whatsapp.replace(/\D/g, '')}`}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp Us"
