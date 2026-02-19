@@ -1,193 +1,196 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useLocation, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, Brain, Bone, Activity, Stethoscope, Microscope, ChevronRight, ArrowRight, ShieldCheck, Wind, Zap, Scissors, HelpCircle } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
-import { Link, useLocation } from 'react-router-dom';
+import { 
+  Heart, Brain, Bone, Activity, Stethoscope, Microscope, 
+  ShieldCheck, Wind, Zap, Scissors, Search, 
+  Phone, MessageSquare, AlertTriangle, Users, Award, 
+  CheckCircle2, Clock, HelpCircle, ChevronRight, ArrowRight
+} from 'lucide-react';
+import SeoHead from '../../components/common/SeoHead';
+import { siteConfig } from '../../config/siteConfig';
 import { ASSETS } from '../../utils/imageAssets';
+import { specialitiesData } from '../../data/specialitiesData';
+import { Container, Section, SectionHeading, Card, Badge } from '../../components/ui/Layout';
+import { VARIANTS } from '../../design/system/index';
 
-// Data Structure
-const categories = [
-  { id: 'cardiac', name: 'Cardiac Sciences', icon: Heart },
-  { id: 'neuro', name: 'Neuro Sciences', icon: Brain },
-  { id: 'ortho', name: 'Orthopaedics', icon: Bone },
-  { id: 'gastro', name: 'Gastroenterology', icon: Activity },
-  { id: 'pulmonology', name: 'Pulmonology', icon: Wind },
-  { id: 'urology', name: 'Urology', icon: Zap },
-  { id: 'surgery', name: 'General Surgery', icon: Scissors },
-  { id: 'oncology', name: 'Oncology', icon: ShieldCheck },
-  { id: 'internal', name: 'Internal Medicine', icon: Stethoscope },
+const CATEGORIES = [
+  { id: 'all', name: 'All Specialties' },
+  { id: 'surgical', name: 'Surgical' },
+  { id: 'medical', name: 'Medical' },
+  { id: 'diagnostics', name: 'Diagnostics' }
 ];
 
-const services = {
-  cardiac: [
-    { title: 'Interventional Cardiology', desc: 'Minimally invasive catheter-based treatment for heart diseases.', img: ASSETS.SVC_INTERVENTIONAL_CARDIOLOGY },
-    { title: 'Cardiothoracic Surgery', desc: 'Complex surgical procedures of the heart, lungs, and chest.', img: ASSETS.SVC_CARDIOTHORACIC_SURGERY },
-    { title: 'Electrophysiology', desc: 'Diagnosis and treatment of heart rhythm disorders.', img: ASSETS.SVC_ELECTROPHYSIOLOGY },
-  ],
-  neuro: [
-    { title: 'Neuro Surgery', desc: 'Advanced surgical care for brain and spine disorders.', img: ASSETS.SVC_NEURO_SURGERY },
-    { title: 'Neurology', desc: 'Comprehensive management of neurological conditions.', img: ASSETS.SVC_NEUROLOGY },
-    { title: 'Stroke Care', desc: '24/7 rapid response for acute stroke management.', img: ASSETS.SVC_STROKE_CARE },
-  ],
-  ortho: [
-    { title: 'Joint Replacement', desc: 'Total knee and hip replacement using robotic precision.', img: ASSETS.SVC_JOINT_REPLACEMENT },
-    { title: 'Sports Medicine', desc: 'Treatment for sports-related injuries and rehabilitation.', img: ASSETS.SVC_SPORTS_MEDICINE },
-    { title: 'Trauma Surgery', desc: 'Emergency surgical care for fractures and dislocations.', img: ASSETS.SVC_TRAUMA_SURGERY },
-  ],
-  gastro: [
-    { title: 'Medical Gastroenterology', desc: 'Diagnosis and treatment of digestive tract and liver disorders.', img: ASSETS.SVC_MEDICAL_GASTRO },
-    { title: 'Surgical Gastroenterology', desc: 'Advanced surgical interventions for complex GI conditions.', img: ASSETS.SVC_SURGICAL_GASTRO },
-    { title: 'Hepatology', desc: 'Specialized care for liver, gallbladder, and pancreas diseases.', img: ASSETS.SVC_HEPATOLOGY },
-  ],
-  pulmonology: [
-    { title: 'Respiratory Medicine', desc: 'Expert care for asthma, COPD, and lung infections.', img: ASSETS.PULMONOLOGY },
-    { title: 'Sleep Medicine', desc: 'Diagnosis and treatment of sleep apnea and snoring.', img: ASSETS.SLEEP_STUDY },
-    { title: 'Critical Care Pulmonology', desc: 'Advanced respiratory support for ICU patients.', img: ASSETS.ABOUT_ICU },
-  ],
-  urology: [
-    { title: 'Endourology', desc: 'Laser treatment for kidney stones and prostate issues.', img: ASSETS.UROLOGY },
-    { title: 'Uro-Oncology', desc: 'Specialized care for kidney, bladder, and prostate cancers.', img: ASSETS.SVC_LAPAROSCOPIC_SURGERY },
-    { title: 'Andrology', desc: 'Comprehensive treatment for male reproductive health.', img: ASSETS.CONSULTATION },
-  ],
-  surgery: [
-    { title: 'Laparoscopic Surgery', desc: 'Minimally invasive surgery for faster recovery and less pain.', img: ASSETS.SVC_LAPAROSCOPIC_SURGERY },
-    { title: 'General Surgery', desc: 'Comprehensive surgical care for a wide range of conditions.', img: ASSETS.SVC_GENERAL_SURGERY },
-    { title: 'Bariatric Surgery', desc: 'Weight loss surgery for obesity and metabolic disorders.', img: ASSETS.SVC_BARIATRIC_SURGERY },
-  ],
-  oncology: [
-    { title: 'Medical Oncology', desc: 'Advanced chemotherapy and targeted cancer therapies.', img: ASSETS.RADIOLOGY },
-    { title: 'Surgical Oncology', desc: 'Precision surgical removal of tumors and cancerous tissues.', img: ASSETS.SVC_GENERAL_SURGERY },
-    { title: 'Preventive Oncology', desc: 'Early detection and cancer screening programs.', img: ASSETS.HEALTH_CHECKUP },
-  ],
-  internal: [
-    { title: 'General Medicine', desc: 'Comprehensive care for adult health and common illnesses.', img: ASSETS.SVC_GENERAL_MEDICINE },
-    { title: 'Infectious Diseases', desc: 'Diagnosis and management of complex infections.', img: ASSETS.SVC_INFECTIOUS_DISEASES },
-    { title: 'Geriatrics', desc: 'Specialized healthcare for the elderly population.', img: ASSETS.SVC_GERIATRICS },
-  ]
-};
+const SYMPTOM_NAV = [
+  { label: 'Chest pain / Heart', id: 'cardiac', icon: Heart },
+  { label: 'Stroke / Spine', id: 'neuro', icon: Brain },
+  { label: 'Fracture / Joint', id: 'ortho', icon: Bone },
+  { label: 'Pregnancy / Women', id: 'gynecology', icon: Users }
+];
 
 const Specialities = () => {
   const location = useLocation();
-  const [activeCategory, setActiveCategory] = useState('cardiac');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeFilter, setActiveFilter] = useState('all');
 
   useEffect(() => {
     if (location.state?.category) {
-      setActiveCategory(location.state.category);
+      setSearchQuery(location.state.category);
     }
   }, [location.state]);
 
+  const allSpecialties = useMemo(() => {
+    return Object.entries(specialitiesData).map(([id, data]) => ({
+      id,
+      name: data.title.split(' (')[0],
+      bullets: data.bullets,
+      img: data.img,
+      path: `/specialities/${id}`,
+      type: data.category || 'medical',
+      icon: id === 'cardiac' ? Heart : id === 'neuro' ? Brain : id === 'ortho' ? Bone : id === 'gastro' ? Activity : id === 'pulmonology' ? Wind : id === 'urology' ? Zap : id === 'surgery' ? Scissors : id === 'oncology' ? ShieldCheck : id === 'internal' ? Stethoscope : id === 'nephrology' ? Activity : id === 'pain-management' ? Activity : id === 'gynecology' ? Users : Activity
+    }));
+  }, []);
+
+  const filteredSpecialties = useMemo(() => {
+    return allSpecialties.filter(s => {
+      const matchesSearch = s.name.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchesFilter = activeFilter === 'all' || s.type === activeFilter;
+      return matchesSearch && matchesFilter;
+    });
+  }, [allSpecialties, searchQuery, activeFilter]);
+
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <Helmet>
-        <title>Centres of Excellence | Umang Superspeciality Hospital</title>
-        <meta name="description" content="Explore our specialized centres of excellence for Cardiac, Neuro, Orthopaedics and more." />
-      </Helmet>
+    <div className="bg-white min-h-screen">
+      <SeoHead 
+        title="Clinical Specialities" 
+        description="Explore 52+ specialized departments including Cardiology, Neurology, and Orthopaedics at Umang Hospital Gurugram."
+        canonical="/specialities"
+      />
 
-      {/* 1. Page Header */}
-      <section className="bg-[#0f172a] pt-24 pb-24 relative overflow-hidden">
-         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20" />
-         <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/80 via-transparent to-[#0f172a]/80" />
-         <div className="container-custom relative z-10">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-8 tracking-tight drop-shadow-2xl">Centres of Excellence</h1>
-            <p className="text-xl lg:text-2xl text-gray-200 max-w-3xl font-medium leading-relaxed drop-shadow-lg">
-               Combining specialized medical expertise with cutting-edge technology to deliver superior clinical outcomes across all major healthcare domains.
+      {/* Hero */}
+      <section className="relative pt-32 pb-20 bg-brand-dark text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img src={ASSETS.OT} alt="OT" className="w-full h-full object-cover opacity-20" />
+          <div className="hero-overlay-radial" />
+        </div>
+        <Container className="relative z-20">
+          <motion.div variants={VARIANTS.fadeIn} initial="hidden" animate="visible">
+            <h1 className="text-white mb-6">Centres of <span className="text-primary-400 italic">Excellence.</span></h1>
+            <p className="text-lg text-slate-200 max-w-2xl leading-relaxed">
+              Serving Gurugram & NCR with 52+ specialized departments and advanced clinical protocols.
             </p>
-         </div>
+          </motion.div>
+        </Container>
       </section>
 
-      {/* 2. Main Layout (Sidebar + Grid) */}
-      <section className="py-12 lg:py-20">
-         <div className="container-custom">
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
-               
-               {/* Left: Sticky Sidebar / Mobile Scroller */}
-               <div className="lg:w-1/4">
-                  <div className="sticky top-24 lg:top-32 bg-white p-4 lg:p-6 rounded-[2rem] shadow-xl border border-gray-100 flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible no-scrollbar pb-4 lg:pb-6">
-                     <h3 className="hidden lg:block text-xs font-black text-gray-400 uppercase tracking-[0.2em] px-4 py-2 mb-4 border-b border-gray-50">Clinical Departments</h3>
-                     {categories.map((cat) => (
-                        <button
-                           key={cat.id}
-                           onClick={() => {
-                              setActiveCategory(cat.id);
-                              if (window.innerWidth < 1024) {
-                                 // On mobile, scroll to content after selection
-                                 document.getElementById('specialty-content')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                              }
-                           }}
-                           className={`shrink-0 lg:w-full flex items-center gap-3 lg:gap-4 px-4 lg:px-5 py-3 lg:py-4 rounded-xl lg:rounded-2xl transition-all duration-300 group whitespace-nowrap ${
-                              activeCategory === cat.id 
-                                ? 'bg-primary-600 text-white shadow-lg shadow-primary-900/20' 
-                                : 'bg-gray-50 lg:bg-transparent text-gray-600 hover:bg-primary-50 hover:text-primary-600'
-                           }`}
-                        >
-                           <cat.icon className={`w-4 h-4 lg:w-6 lg:h-6 ${activeCategory === cat.id ? 'text-white' : 'text-gray-400 group-hover:text-primary-600'}`} />
-                           <span className="font-bold text-sm lg:text-lg">{cat.name}</span>
-                           <ChevronRight className={`hidden lg:block w-5 h-5 ml-auto transition-transform ${activeCategory === cat.id ? 'translate-x-0' : '-translate-x-2 opacity-0 group-hover:opacity-40'}`} />
-                        </button>
-                     ))}
+      {/* Symptom Nav */}
+      <Section className="bg-slate-50">
+        <Container>
+          <SectionHeading title="Match symptoms to specialist care" eyebrow="Symptom Navigator" centered />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+            {SYMPTOM_NAV.map((item) => (
+              <Link key={item.id} to={`/specialities/${item.id}`}>
+                <Card className="text-center group hover:bg-white hover:shadow-hover p-8">
+                  <div className="w-14 h-14 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all">
+                    <item.icon size={28} />
                   </div>
-               </div>
+                  <h4 className="text-sm font-bold text-brand-dark">{item.label}</h4>
+                </Card>
+              </Link>
+            ))}
+          </div>
 
-               {/* Right: Dynamic Service Cards */}
-                <div id="specialty-content" className="lg:w-3/4 min-h-[600px] scroll-mt-32">
-                  <AnimatePresence mode="wait">
-                     <motion.div
-                        key={activeCategory}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.4 }}
-                        className="grid md:grid-cols-2 xl:grid-cols-3 gap-6"
-                     >
-                        {(services[activeCategory] || []).map((service, idx) => (
-                           <motion.div
-                              key={idx}
-                              initial={{ opacity: 0, y: 20 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: idx * 0.1 }}
-                              whileHover={{ y: -8 }}
-                              className="group bg-white rounded-[2.5rem] shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden flex flex-col"
-                           >
-                              <Link to={`/specialities/${activeCategory}`} className="flex flex-col h-full">
-                                 {/* Image Container */}
-                                 <div className="relative h-52 overflow-hidden shrink-0">
-                                    <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-primary-900/60 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity" />
-                                 </div>
-
-                                 {/* Content */}
-                                 <div className="p-8 flex-1 flex flex-col">
-                                    <h3 className="text-xl lg:text-2xl font-serif font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors leading-tight">{service.title}</h3>
-                                    <p className="text-gray-500 text-sm lg:text-base leading-relaxed mb-8 line-clamp-3 font-medium">
-                                       {service.desc}
-                                    </p>
-                                    
-                                    <div className="mt-auto flex items-center gap-3 text-[11px] font-black text-primary-600 group-hover:gap-4 transition-all uppercase tracking-[0.2em]">
-                                       <span>Learn More</span> <ArrowRight className="w-5 h-5" />
-                                    </div>
-                                 </div>
-                              </Link>
-                           </motion.div>
-                        ))}
-                        
-                        {/* Empty State / CTA Card */}
-                        <div className="bg-blue-50/50 rounded-[2rem] p-8 flex flex-col justify-center items-center text-center border-2 border-dashed border-blue-100 group hover:bg-white hover:border-solid hover:border-[#005580] transition-all duration-500">
-                           <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-[#005580] mb-4 shadow-md group-hover:scale-110 transition-transform">
-                              <HelpCircle className="w-6 h-6" />
-                           </div>
-                           <h4 className="text-lg font-bold text-[#005580] mb-2">Need Assistance?</h4>
-                           <p className="text-xs text-gray-500 mb-6 leading-relaxed">Our medical coordinators are here to help you.</p>
-                           <Link to="/contact" className="w-full py-3 bg-[#005580] text-white rounded-xl text-xs font-bold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all uppercase tracking-widest">
-                              Contact Support
-                           </Link>
-                        </div>
-                     </motion.div>
-                  </AnimatePresence>
-               </div>
-
+          <Card className="!bg-red-50 !border-red-100 !p-12 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="flex items-center gap-8 relative z-10">
+              <div className="w-16 h-16 rounded-2xl bg-red-600 flex items-center justify-center text-white shrink-0 animate-pulse">
+                <AlertTriangle size={32} />
+              </div>
+              <div className="text-center md:text-left">
+                <h3 className="text-red-900 mb-2 font-bold">Life-threatening symptoms?</h3>
+                <p className="text-red-700 font-medium leading-relaxed">Severe chest pain, stroke signs, or breathing difficulty? Call Helpline immediately.</p>
+              </div>
             </div>
-         </div>
-      </section>
+            <a href={`tel:${siteConfig.contacts.emergency}`} className="btn-primary !bg-red-600 hover:!bg-red-700 !shadow-none py-4 px-10 relative z-10 text-sm font-bold">
+              Call Emergency: {siteConfig.contacts.emergency}
+            </a>
+          </Card>
+        </Container>
+      </Section>
+
+      {/* Search & Filter */}
+      <Section>
+        <Container>
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-12 mb-16 border-b border-slate-100 pb-10">
+            <div className="relative w-full lg:max-w-md">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+              <input 
+                type="text" 
+                placeholder="Search departments..." 
+                className="w-full pl-12 pr-4 py-3 rounded-xl border border-slate-200 focus:border-primary-500 outline-none font-medium"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
+              {CATEGORIES.map(cat => (
+                <button
+                  key={cat.id}
+                  onClick={() => setActiveFilter(cat.id)}
+                  className={`px-6 py-3 rounded-xl text-[10px] font-bold uppercase tracking-widest transition-all ${
+                    activeFilter === cat.id 
+                      ? 'bg-brand-dark text-white shadow-soft scale-105' 
+                      : 'bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-brand-dark'
+                  }`}
+                >
+                  {cat.name}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <AnimatePresence mode="popLayout">
+              {filteredSpecialties.map((s) => (
+                <motion.div
+                  key={s.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                >
+                  <Link to={s.path} className="block h-full group">
+                    <Card className="h-full !p-0 overflow-hidden flex flex-col group-hover:border-primary-200 transition-all duration-500 shadow-soft hover:shadow-premium">
+                      <div className="h-48 overflow-hidden relative">
+                        <img src={s.img} alt={s.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                        <div className="absolute top-4 left-4">
+                          <Badge className="bg-white/90 backdrop-blur-sm border-none">{s.type}</Badge>
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 to-transparent" />
+                        <div className="absolute bottom-4 left-4 text-white">
+                           <s.icon size={24} className="text-primary-400" />
+                        </div>
+                      </div>
+                      <div className="p-8 flex-1 flex flex-col">
+                        <h4 className="mb-4 group-hover:text-primary-600 transition-colors font-bold text-xl">{s.name}</h4>
+                        <ul className="space-y-3 mb-8 flex-1">
+                          {s.bullets?.slice(0, 3).map((bullet, i) => (
+                            <li key={i} className="flex items-center gap-3 text-xs text-slate-500 font-medium">
+                              <CheckCircle2 size={14} className="text-primary-500 shrink-0" /> {bullet}
+                            </li>
+                          ))}
+                        </ul>
+                        <div className="text-[10px] font-bold text-primary-600 uppercase tracking-widest flex items-center gap-2 mt-auto">
+                          Explore Department <ArrowRight size={12} />
+                        </div>
+                      </div>
+                    </Card>
+                  </Link>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+        </Container>
+      </Section>
     </div>
   );
 };

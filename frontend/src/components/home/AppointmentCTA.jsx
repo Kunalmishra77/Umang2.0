@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, Phone, CalendarCheck, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
+import { siteConfig } from '../../config/siteConfig';
 
 const AppointmentCTA = () => {
   const ref = useRef(null);
@@ -67,13 +68,13 @@ const AppointmentCTA = () => {
                 </Link>
                 
                 <a 
-                  href="tel:+918929733550" 
+                  href={`tel:${siteConfig.contacts.main.replace(/\s/g, '')}`} 
                   className="px-8 py-4 rounded-xl border-2 border-white/10 text-white font-bold text-sm hover:bg-white/10 hover:border-white/20 transition-all flex items-center gap-3 backdrop-blur-sm group"
                 >
                    <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                       <Phone className="w-3.5 h-3.5 fill-current" />
                    </div>
-                   <span>+91 89297 33550</span>
+                   <span>{siteConfig.contacts.main}</span>
                 </a>
              </div>
           </motion.div>

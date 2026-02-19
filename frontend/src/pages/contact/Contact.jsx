@@ -4,17 +4,21 @@ import {
   MapPin, Phone, Mail, Clock, Send, Facebook, Twitter, Linkedin, 
   Instagram, Plus, Globe, Briefcase, FileText, Ambulance, 
   MessageCircle, ArrowRight, Calendar, Search, 
-  ShieldCheck, Headset, CheckCircle
+  ShieldCheck, Headset, CheckCircle, Loader2
 } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
+import { siteConfig } from '../../config/siteConfig';
+import { useLeadForm } from '../../hooks/useLeadForm';
+import SeoHead from '../../components/common/SeoHead';
 
 const depts = [
-  { title: "International Patients", icon: Globe, email: "Umanghospitalgurugram@gmail.com", phone: "+91 89297 33550" },
-              { title: "TPA & Insurance", icon: FileText, email: "Umanghospitalgurugram@gmail.com", phone: "+91 89297 33550" },
-              { title: "Careers / HR", icon: Briefcase, email: "Umanghospitalgurugram@gmail.com", phone: "+91 89297 33550" },
-              { title: "Emergency", icon: Ambulance, email: "Umanghospitalgurugram@gmail.com", phone: "+91 89297 33550" },];
+  { title: "International Patients", icon: Globe, email: siteConfig.contacts.email, phone: siteConfig.contacts.main },
+  { title: "TPA & Insurance", icon: FileText, email: siteConfig.contacts.email, phone: siteConfig.contacts.main },
+  { title: "Careers / HR", icon: Briefcase, email: siteConfig.contacts.email, phone: siteConfig.contacts.main },
+  { title: "Emergency", icon: Ambulance, email: siteConfig.contacts.email, phone: siteConfig.contacts.emergency },
+];
 
 const faqs = [
   { q: "What are the visiting hours for general wards?", a: "Visiting hours are from 4:00 PM to 7:00 PM daily. Only two visitors are allowed at a time." },
@@ -25,26 +29,43 @@ const faqs = [
 
 const Contact = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
-  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: 'General Inquiry',
+    message: ''
+  });
+
+  const { submitForm, loading, success, error, reset } = useLeadForm('contact');
 
   const toggleAccordion = (index) => {
     setActiveAccordion(activeAccordion === index ? null : index);
   };
 
-  const handleSubmit = (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      alert("Thank you for your message. Our team will contact you shortly.");
-    }, 2000);
+    await submitForm({
+      name: formData.name,
+      email: formData.email,
+      phone: '', // Optional in this form but schema has it
+      inquiry_type: formData.subject,
+      message: formData.message,
+      source_page: 'Contact Us'
+    });
   };
 
   return (
     <div className="bg-white min-h-screen">
-      <Helmet>
-        <title>Contact & Support | Umang Superspeciality Hospital</title>
-      </Helmet>
+      <SeoHead 
+        title="Contact & Support" 
+        description="Get in touch with Umang Superspeciality Hospital Gurugram. 24/7 emergency contact, appointment booking, and specialized department assistance."
+        canonical="/contact"
+      />
 
       {/* 1. Hero Section - Cinematic */}
       <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center bg-brand-dark pt-20 pb-24 overflow-hidden">
@@ -91,7 +112,7 @@ const Contact = () => {
                      <Search className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold mb-4">Find a Doctor</h3>
-                  <p className="text-gray-500 group-hover:text-gray-300 transition-colors mb-8 leading-relaxed">Search through our directory of 100+ expert medical consultants.</p>
+                  <p className="text-gray-500 group-hover:text-gray-300 transition-colors mb-8 leading-relaxed">Search through our directory of {siteConfig.stats.superspecialists} expert medical consultants.</p>
                   <span className="inline-flex items-center gap-2 font-bold text-primary-600 group-hover:text-white uppercase tracking-wider text-sm">
                      Search Directory <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                   </span>
@@ -106,7 +127,7 @@ const Contact = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-4 text-red-400">Emergency Call</h3>
                   <p className="text-gray-400 group-hover:text-white transition-colors mb-8 leading-relaxed">Immediate critical care assistance available 24 hours a day, 7 days a week.</p>
-                  <a href="tel:+918929733550" className="text-3xl font-serif font-black tracking-tighter hover:text-red-400 transition-colors">+91 89297 33550</a>
+                  <a href={`tel:${siteConfig.contacts.emergency.replace(/\s/g, '')}`} className="text-3xl font-serif font-black tracking-tighter hover:text-red-400 transition-colors">{siteConfig.contacts.emergency}</a>
                </motion.div>
             </div>
          </div>
@@ -131,8 +152,8 @@ const Contact = () => {
                            </div>
                            <div>
                               <h4 className="font-bold text-lg text-brand-dark mb-1">Hospital Location</h4>
-                              <p className="text-gray-500 text-sm leading-relaxed mb-3">Sector 55, Golf Course Road,<br />Gurugram, Haryana 122011</p>
-                              <a href="https://maps.google.com" target="_blank" rel="noreferrer" className="text-primary-600 font-bold text-xs uppercase tracking-widest inline-block border-b border-primary-200 hover:border-primary-600 transition-all">Get Directions</a>
+                              <p className="text-gray-500 text-sm leading-relaxed mb-3">{siteConfig.locations.main.address}</p>
+                              <a href={`https://www.google.com/maps/search/${encodeURIComponent(siteConfig.locations.main.googleMapsSearch)}`} target="_blank" rel="noreferrer" className="text-primary-600 font-bold text-xs uppercase tracking-widest inline-block border-b border-primary-200 hover:border-primary-600 transition-all">Get Directions</a>
                            </div>
                         </div>
 
@@ -142,7 +163,7 @@ const Contact = () => {
                            </div>
                            <div>
                               <h4 className="font-bold text-lg text-brand-dark mb-1">Operational Hours</h4>
-                              <p className="text-gray-500 text-sm leading-relaxed">Emergency: 24/7 (All Days)<br />OPD: Mon - Sat (9 AM - 8 PM)</p>
+                              <p className="text-gray-500 text-sm leading-relaxed">Emergency: {siteConfig.timings.emergency} (All Days)<br />OPD: {siteConfig.timings.opd.days} ({siteConfig.timings.opd.morning} & {siteConfig.timings.opd.evening})</p>
                            </div>
                         </div>
                      </div>
@@ -152,17 +173,17 @@ const Contact = () => {
                      <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full blur-3xl -mr-10 -mt-10" />
                      <h4 className="text-xl font-bold mb-8">Connect Digitally</h4>
                      <div className="space-y-5">
-                        <a href="mailto:Umanghospitalgurugram@gmail.com" className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
+                        <a href={`mailto:${siteConfig.contacts.email}`} className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
                            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary-600 transition-colors">
                               <Mail className="w-5 h-5" />
                            </div>
-                           <span className="group-hover:translate-x-2 transition-transform">Umanghospitalgurugram@gmail.com</span>
+                           <span className="group-hover:translate-x-2 transition-transform">{siteConfig.contacts.email}</span>
                         </a>
-                        <a href="tel:+918929733550" className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
+                        <a href={`tel:${siteConfig.contacts.main.replace(/\s/g, '')}`} className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors group">
                            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-primary-600 transition-colors">
                               <Phone className="w-5 h-5" />
                            </div>
-                           +91 124 456 7890
+                           {siteConfig.contacts.main}
                         </a>
                      </div>
                      <div className="mt-10 flex gap-4 border-t border-white/10 pt-8">
@@ -177,47 +198,101 @@ const Contact = () => {
 
                {/* RIGHT: Form */}
                <div className="lg:col-span-7 bg-white rounded-[2rem] lg:rounded-[3rem] p-6 sm:p-10 md:p-16 shadow-2xl border border-gray-100">
-                  <div className="mb-10">
-                     <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-4">Send an Inquiry</h2>
-                     <p className="text-gray-500">For non-emergency feedback, corporate tie-ups, or hospital visits.</p>
-                  </div>
+                  {success ? (
+                    <div className="text-center py-12">
+                      <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
+                        <CheckCircle className="w-10 h-10" />
+                      </div>
+                      <h3 className="text-3xl font-serif font-bold text-brand-dark mb-4">Inquiry Submitted</h3>
+                      <p className="text-gray-500 mb-8">Thank you for your message. Our team will contact you shortly.</p>
+                      <button 
+                        onClick={() => { reset(); setFormData({ name: '', email: '', subject: 'General Inquiry', message: '' }); }}
+                        className="px-8 py-4 bg-brand-dark text-white rounded-xl font-bold"
+                      >
+                        Send Another Message
+                      </button>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="mb-10">
+                         <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-4">Send an Inquiry</h2>
+                         <p className="text-gray-500">For non-emergency feedback, corporate tie-ups, or hospital visits.</p>
+                      </div>
 
-                  <form className="space-y-6" onSubmit={handleSubmit}>
-                     <div className="grid md:grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                           <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Your Name</label>
-                           <input type="text" required className="w-full h-14 bg-gray-50 rounded-2xl px-6 border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark placeholder:text-gray-300" placeholder="John Doe" />
-                        </div>
-                        <div className="space-y-2">
-                           <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
-                           <input type="email" required className="w-full h-14 bg-gray-50 rounded-2xl px-6 border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark placeholder:text-gray-300" placeholder="Umanghospitalgurugram@gmail.com" />
-                        </div>
-                     </div>
+                      <form className="space-y-6" onSubmit={handleSubmit}>
+                         <div className="grid md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                               <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Your Name</label>
+                               <input 
+                                 name="name"
+                                 value={formData.name}
+                                 onChange={handleInputChange}
+                                 type="text" 
+                                 required 
+                                 className="w-full h-14 bg-gray-50 rounded-2xl px-6 border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark placeholder:text-gray-300" 
+                                 placeholder="John Doe" 
+                               />
+                            </div>
+                            <div className="space-y-2">
+                               <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Email Address</label>
+                               <input 
+                                 name="email"
+                                 value={formData.email}
+                                 onChange={handleInputChange}
+                                 type="email" 
+                                 required 
+                                 className="w-full h-14 bg-gray-50 rounded-2xl px-6 border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark placeholder:text-gray-300" 
+                                 placeholder={siteConfig.contacts.email} 
+                               />
+                            </div>
+                         </div>
 
-                     <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Subject</label>
-                        <select className="w-full h-14 bg-gray-50 rounded-2xl px-6 border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark appearance-none cursor-pointer">
-                           <option>General Inquiry</option>
-                           <option>Corporate Partnership</option>
-                           <option>Billing & Insurance</option>
-                           <option>Feedback / Compliment</option>
-                        </select>
-                     </div>
+                         <div className="space-y-2">
+                            <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Subject</label>
+                            <select 
+                              name="subject"
+                              value={formData.subject}
+                              onChange={handleInputChange}
+                              className="w-full h-14 bg-gray-50 rounded-2xl px-6 border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark appearance-none cursor-pointer"
+                            >
+                               <option>General Inquiry</option>
+                               <option>Corporate Partnership</option>
+                               <option>Billing & Insurance</option>
+                               <option>Feedback / Compliment</option>
+                            </select>
+                         </div>
 
-                     <div className="space-y-2">
-                        <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Your Message</label>
-                        <textarea rows="4" required className="w-full p-6 bg-gray-50 rounded-[2rem] border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark resize-none placeholder:text-gray-300" placeholder="How can we assist you today?"></textarea>
-                     </div>
+                         <div className="space-y-2">
+                            <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest ml-1">Your Message</label>
+                            <textarea 
+                              name="message"
+                              value={formData.message}
+                              onChange={handleInputChange}
+                              rows="4" 
+                              required 
+                              className="w-full p-6 bg-gray-50 rounded-[2rem] border border-gray-200 focus:border-primary-500 focus:bg-white focus:ring-4 focus:ring-primary-500/10 outline-none transition-all font-semibold text-brand-dark resize-none placeholder:text-gray-300" 
+                              placeholder="How can we assist you today?"
+                            ></textarea>
+                         </div>
 
-                     <motion.button 
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        disabled={submitted}
-                        className={`w-full h-16 bg-brand-dark text-white rounded-2xl font-bold text-lg hover:bg-primary-600 transition-all shadow-xl flex items-center justify-center gap-3 ${submitted ? 'opacity-70 cursor-wait' : ''}`}
-                     >
-                        {submitted ? 'Sending...' : 'Submit Request'} <Send className="w-5 h-5" />
-                     </motion.button>
-                  </form>
+                         {error && (
+                           <div className="text-red-500 text-sm font-bold">
+                             {error}
+                           </div>
+                         )}
+
+                         <motion.button 
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            disabled={loading}
+                            className={`w-full h-16 bg-brand-dark text-white rounded-2xl font-bold text-lg hover:bg-primary-600 transition-all shadow-xl flex items-center justify-center gap-3 disabled:opacity-50`}
+                         >
+                            {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Submit Request'} 
+                            {!loading && <Send className="w-5 h-5" />}
+                         </motion.button>
+                      </form>
+                    </>
+                  )}
                </div>
 
             </div>
@@ -299,7 +374,7 @@ const Contact = () => {
                            </li>
                         ))}
                      </ul>
-                     <Link to="/privacy" className="text-primary-600 font-black uppercase tracking-widest text-xs border-b-2 border-primary-100 hover:border-primary-600 transition-all pb-1">Read Privacy Policy</Link>
+                     <Link to="/privacy-policy" className="text-primary-600 font-black uppercase tracking-widest text-xs border-b-2 border-primary-100 hover:border-primary-600 transition-all pb-1">Read Privacy Policy</Link>
                   </div>
                </div>
             </div>
@@ -323,7 +398,7 @@ const Contact = () => {
                <span className="text-xs font-bold uppercase tracking-wider text-gray-500">Open Now</span>
             </div>
             <h4 className="font-bold text-brand-dark text-xl mb-2">Find Us on the Map</h4>
-            <p className="text-gray-500 text-sm leading-relaxed font-light">Our center is conveniently located near the Sector 55-56 Metro Station, Gurugram.</p>
+            <p className="text-gray-500 text-sm leading-relaxed font-light">Our center is conveniently located opposite Radha Swami Satsang Bhawan, Pataudi Road.</p>
          </div>
       </section>
 
@@ -334,7 +409,10 @@ const Contact = () => {
             <MessageCircle className="w-16 h-16 text-primary-400 mx-auto mb-8 animate-bounce" />
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 tracking-tight">Help us improve your experience.</h2>
             <p className="text-primary-100 text-xl max-w-2xl mx-auto mb-12 opacity-80 font-light">We value your feedback. Whether it's a compliment or a suggestion for improvement, we are listening.</p>
-            <button className="h-16 px-12 rounded-full bg-white text-brand-dark font-bold text-lg hover:bg-primary-50 transition-all shadow-xl hover-lift hover:-translate-y-1">
+            <button 
+              onClick={() => { window.scrollTo({ top: document.getElementById('inquiry-form')?.offsetTop - 100, behavior: 'smooth' }); }}
+              className="h-16 px-12 rounded-full bg-white text-brand-dark font-bold text-lg hover:bg-primary-50 transition-all shadow-xl hover-lift hover:-translate-y-1"
+            >
                Share Your Feedback
             </button>
          </div>

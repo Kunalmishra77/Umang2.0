@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, Mail, ArrowRight, Heart } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, Mail, Heart } from 'lucide-react';
+import { siteConfig } from '../../config/siteConfig';
 
 const Footer = () => {
   return (
     <footer className="bg-[#0f172a] text-gray-400 pt-16 lg:pt-28 pb-10 border-t border-white/5 relative overflow-hidden">
-      {/* Decorative Background - Adjusted for mobile */}
+      {/* Decorative Background */}
       <div className="absolute top-0 left-1/4 w-[300px] lg:w-[600px] h-[300px] lg:h-[600px] bg-primary-900/10 rounded-full blur-[80px] lg:blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[300px] lg:w-[600px] h-[300px] lg:h-[600px] bg-cyan-900/10 rounded-full blur-[80px] lg:blur-[120px] pointer-events-none" />
 
@@ -16,12 +17,11 @@ const Footer = () => {
           <div className="lg:col-span-4 lg:pr-12 text-center sm:text-left">
             <Link to="/" className="inline-block mb-6 lg:mb-8 group">
               <span className="text-2xl lg:text-3xl font-serif font-bold text-white tracking-tight">
-                Umang<span className="text-primary-500">Hospital</span>
+                {siteConfig.shortName.split(' ')[0]}<span className="text-primary-500">{siteConfig.shortName.split(' ')[1]}</span>
               </span>
             </Link>
             <p className="text-gray-300 mb-8 leading-relaxed font-light text-base lg:text-lg max-w-md mx-auto sm:mx-0">
-              Umang Hospital is a 150-bedded super speciality hospital in Gurugram, where care and expertise unite. 
-              Committed to your well-being with world-class facilities.
+              {siteConfig.name} is a {siteConfig.stats.beds}-bedded super speciality hospital in Gurugram, {siteConfig.marketingMessage.toLowerCase()}.
             </p>
             <div className="flex justify-center sm:justify-start gap-4">
               {[
@@ -96,8 +96,8 @@ const Footer = () => {
                    <MapPin className="w-5 h-5 text-primary-400" />
                 </div>
                 <div>
-                  <p className="text-white font-bold text-base mb-1">Main Campus</p>
-                  <p className="text-sm lg:text-base text-gray-400 leading-relaxed max-w-[280px]">Saraswati Enclave, Sector 10B, Sector 37, Gurugram, Haryana 122004</p>
+                  <p className="text-white font-bold text-base mb-1">{siteConfig.locations.main.title}</p>
+                  <p className="text-sm lg:text-base text-gray-400 leading-relaxed max-w-[280px]">{siteConfig.locations.main.address}</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
@@ -106,7 +106,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-white font-bold text-base mb-0.5">Emergency Line</p>
-                  <p className="text-gray-400 font-medium text-sm lg:text-base">+91 89297 33550</p>
+                  <p className="text-gray-400 font-medium text-sm lg:text-base">{siteConfig.contacts.emergency}</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
@@ -115,7 +115,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-white font-bold text-base mb-0.5">Support Email</p>
-                  <p className="text-sm lg:text-base text-gray-300 hover:text-white transition-colors truncate max-w-[250px] lg:max-w-none">Umanghospitalgurugram@gmail.com</p>
+                  <p className="text-sm lg:text-base text-gray-300 hover:text-white transition-colors truncate max-w-[250px] lg:max-w-none">{siteConfig.contacts.email}</p>
                 </div>
               </div>
             </div>
@@ -124,7 +124,7 @@ const Footer = () => {
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-sm text-gray-500 flex items-center gap-1 flex-wrap justify-center font-medium">
-            &copy; 2026 Umang Hospital. Developed by <a href="https://ai-agentix.com/" target="_blank" rel="noopener noreferrer" className="text-primary-400 font-bold ml-1 hover:text-primary-300 transition-colors">AI AGENTiX</a>. Made with <Heart className="w-3.5 h-3.5 text-red-500 fill-current animate-pulse mx-1" /> in India.
+            &copy; 2026 {siteConfig.shortName}. Developed by <a href="https://ai-agentix.com/" target="_blank" rel="noopener noreferrer" className="text-primary-400 font-bold ml-1 hover:text-primary-300 transition-colors">AI AGENTiX</a>. Made with <Heart className="w-3.5 h-3.5 text-red-500 fill-current animate-pulse mx-1" /> in India.
           </p>
           <div className="flex flex-wrap justify-center gap-6 lg:gap-8 text-[12px] font-bold uppercase tracking-widest">
             <Link to="/terms" className="text-gray-500 hover:text-primary-400 transition-colors">Terms</Link>

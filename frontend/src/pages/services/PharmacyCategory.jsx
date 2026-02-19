@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ShoppingBag, Plus, ArrowLeft, Filter } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Plus, Filter } from 'lucide-react';
+import { Container, Section, Card } from '../../components/ui/Layout';
+import { siteConfig } from '../../config/siteConfig';
 
 // Mock Data for demonstration
 const productsData = {
@@ -22,81 +23,74 @@ const productsData = {
 
 const PharmacyCategory = () => {
   const { slug } = useParams();
-  const products = productsData[slug] || productsData['prescription']; // Fallback
-  const categoryName = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  const products = slug ? (productsData[slug] || productsData['prescription']) : productsData['prescription'];
+  const categoryName = slug 
+    ? slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+    : 'Pharmacy Category';
 
   return (
-    <div className="bg-gray-50 min-h-screen pt-16 pb-12">
+    <div className="bg-slate-50 min-h-screen">
       <Helmet>
-        <title>{categoryName} | Umang Pharmacy</title>
+        <title>{categoryName} | {siteConfig.shortName} Pharmacy</title>
       </Helmet>
 
-      <div className="container-custom">
-        <div className="flex items-center gap-2 text-sm text-gray-500 mb-8">
-          <Link to="/services/buy-medicines" className="hover:text-[#005580]">Pharmacy</Link>
-          <span>/</span>
-          <span className="font-bold text-[#0f172a]">{categoryName}</span>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar Filters */}
-          <div className="w-full lg:w-1/4">
-            <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm sticky top-24">
-              <div className="flex items-center gap-2 mb-6 text-[#0f172a] font-bold border-b border-gray-100 pb-4">
-                <Filter className="w-5 h-5" /> Filters
-              </div>
-              <div className="space-y-6">
-                <div>
-                  <h4 className="text-sm font-bold mb-3">Price Range</h4>
-                  <div className="space-y-2 text-sm text-gray-600">
-                    <label className="flex items-center gap-2"><input type="checkbox" className="rounded" /> Under ₹100</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="rounded" /> ₹100 - ₹500</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="rounded" /> ₹500 - ₹1000</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="rounded" /> Above ₹1000</label>
-                  </div>
-                </div>
-                <div>
-                  <h4 className="text-sm font-bold mb-3">Brand</h4>
-                  <div className="space-y-2 text-sm text-gray-600">
-                    <label className="flex items-center gap-2"><input type="checkbox" className="rounded" /> Abbott</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="rounded" /> Sun Pharma</label>
-                    <label className="flex items-center gap-2"><input type="checkbox" className="rounded" /> Cipla</label>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <Section className="relative">
+        <Container>
+          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400 mb-8">
+            <Link to="/services/buy-medicines" className="hover:text-primary-600 transition-colors">Pharmacy</Link>
+            <span>/</span>
+            <span className="text-slate-600">{categoryName}</span>
           </div>
 
-          {/* Product Grid */}
-          <div className="w-full lg:w-3/4">
-            <h1 className="text-3xl font-serif font-bold text-[#0f172a] mb-6">{categoryName}</h1>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {products.map((product) => (
-                <div key={product.id} className="bg-white p-4 rounded-2xl border border-gray-100 hover:shadow-xl transition-all group">
-                  <div className="h-48 relative bg-gray-50 rounded-xl overflow-hidden mb-4 p-6 flex items-center justify-center">
-                    <img src={product.img} alt={product.name} className="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  
-                  <div className="space-y-1">
-                    <h3 className="font-bold text-gray-900 line-clamp-1">{product.name}</h3>
-                    <p className="text-xs text-gray-500">{product.pack}</p>
-                  </div>
-                  
-                  <div className="flex items-end justify-between mt-4">
-                    <div>
-                      <p className="text-lg font-bold text-[#0f172a]">₹{product.price}</p>
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Sidebar Filters */}
+            <div className="w-full lg:w-1/4">
+              <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-soft sticky top-32">
+                <div className="flex items-center gap-3 mb-8 text-brand-dark font-bold border-b border-slate-50 pb-4">
+                  <Filter size={18} className="text-primary-600" /> Filters
+                </div>
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="text-xs font-bold uppercase tracking-widest mb-4">Price Range</h4>
+                    <div className="space-y-3 text-sm text-slate-600 font-medium">
+                      <label className="flex items-center gap-3 cursor-pointer group"><input type="checkbox" className="rounded border-slate-300 text-primary-600 focus:ring-primary-500" /> Under ₹100</label>
+                      <label className="flex items-center gap-3 cursor-pointer group"><input type="checkbox" className="rounded border-slate-300 text-primary-600 focus:ring-primary-500" /> ₹100 - ₹500</label>
+                      <label className="flex items-center gap-3 cursor-pointer group"><input type="checkbox" className="rounded border-slate-300 text-primary-600 focus:ring-primary-500" /> ₹500 - ₹1000</label>
                     </div>
-                    <button className="w-10 h-10 bg-[#005580] text-white rounded-xl flex items-center justify-center hover:bg-[#004466] active:scale-95 transition-all shadow-lg">
-                      <Plus className="w-5 h-5" />
-                    </button>
                   </div>
                 </div>
-              ))}
+              </div>
+            </div>
+
+            {/* Product Grid */}
+            <div className="w-full lg:w-3/4">
+              <h1 className="text-3xl md:text-4xl font-bold text-brand-dark mb-10">{categoryName}</h1>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {products.map((product) => (
+                  <Card key={product.id} className="group hover:border-primary-100 flex flex-col h-full">
+                    <div className="h-48 relative bg-slate-50 rounded-2xl overflow-hidden mb-6 p-6 flex items-center justify-center">
+                      <img src={product.img} alt={product.name} className="max-h-full max-w-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-700" />
+                    </div>
+                    
+                    <div className="space-y-2 flex-1">
+                      <h3 className="text-lg font-bold text-brand-dark leading-tight line-clamp-2">{product.name}</h3>
+                      <p className="text-xs text-slate-500 font-semibold">{product.pack}</p>
+                    </div>
+                    
+                    <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-50">
+                      <p className="text-xl font-bold text-brand-dark">₹{product.price}</p>
+                      <button className="w-11 h-11 bg-primary-600 text-white rounded-xl flex items-center justify-center hover:bg-primary-700 active:scale-95 transition-all shadow-md shadow-primary-900/10">
+                        <Plus size={20} />
+                      </button>
+                    </div>
+                  </Card>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </Container>
+      </Section>
     </div>
   );
 };

@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, ArrowRight, User, Send, ChevronDown, Activity, HeartPulse, Clock, Award, ShieldCheck } from 'lucide-react';
+import { Phone, ArrowRight, User, Send, ChevronDown, Activity, HeartPulse, Clock, Award, ShieldCheck, Loader2 } from 'lucide-react';
 import { ASSETS } from '../../utils/imageAssets';
+import { siteConfig } from '../../config/siteConfig';
+import { useLeadForm } from '../../hooks/useLeadForm';
 
 const specialties = [
   'Cardiac Sciences',
@@ -15,19 +17,17 @@ const specialties = [
 ];
 
 const HeroSection = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedSpecialty, setSelectedSpecialty] = useState('Select Specialty');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
   const videoRef = useRef(null);
 
+  const { submitForm, loading, success: isSubmitted, reset } = useLeadForm('callback');
+
   const mediaItems = [
-    { type: 'video', src: ASSETS.UMANG_BANNER_VIDEO },
     { type: 'image', src: ASSETS.HOSPITAL_EXTERIOR },
     { type: 'image', src: ASSETS.ABOUT_BEACON },
-    { type: 'video', src: ASSETS.UMANG_ABOUT_VIDEO },
     { type: 'image', src: ASSETS.ROBOTIC_SURGERY },
   ];
 
@@ -45,23 +45,28 @@ const HeroSection = () => {
       return;
     }
 
-    const currentItem = mediaItems[index];
-    const duration = currentItem?.type === 'video' ? 10000 : 5000;
-    
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % mediaItems.length);
-    }, duration); 
+    }, 5000); 
     return () => clearInterval(timer);
   }, [index, isMobile]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 2500);
-    }, 1200);
+    const name = e.target.elements[0].value;
+    const phone = e.target.elements[1].value;
+    
+    await submitForm({
+      name,
+      phone,
+      speciality: selectedSpecialty !== 'Select Specialty' ? selectedSpecialty : '',
+      source_page: 'Home Hero'
+    });
+    
+    if (!loading) {
+      e.target.reset();
+      setSelectedSpecialty('Select Specialty');
+    }
   };
 
   return (
@@ -85,7 +90,7 @@ const HeroSection = () => {
             <source src="/assets/Home/umang-banner.MP4" type="video/mp4" />
           </video>
         ) : (
-          /* Mobile: Cinematic Loop (Video + Photo) */
+          /* Mobile: Cinematic Image Loop (NO VIDEO FOR PERF) */
           <AnimatePresence initial={false}>
             <motion.div
               key={index}
@@ -98,22 +103,12 @@ const HeroSection = () => {
               }}
               className="absolute inset-0 w-full h-full"
             >
-              {mediaItems[index]?.type === 'video' ? (
-                <video
-                  src={mediaItems[index].src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover opacity-70 brightness-[0.85]"
-                />
-              ) : (
-                <img
-                  src={mediaItems[index].src}
-                  className="w-full h-full object-cover opacity-70 brightness-[0.85]"
-                  alt=""
-                />
-              )}
+              <img
+                src={mediaItems[index].src}
+                className="w-full h-full object-cover opacity-70 brightness-[0.85]"
+                alt=""
+                loading={index === 0 ? "eager" : "lazy"}
+              />
             </motion.div>
           </AnimatePresence>
         )}
@@ -134,7 +129,7 @@ const HeroSection = () => {
             >
               <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-primary-600/30 border border-white/20 rounded-full backdrop-blur-2xl">
                 <Activity className="w-2.5 h-2.5 text-primary-300" />
-                <span className="text-[7.5px] md:text-[8.5px] font-black uppercase tracking-[0.4em] text-white/90">Advanced Superspeciality Care</span>
+                <span className="text-[7.5px] md:text-[8.5px] font-black uppercase tracking-[0.4em] text-white/90">{siteConfig.tagline}</span>
               </div>
             </motion.div>
 
@@ -156,7 +151,7 @@ const HeroSection = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-[14px] md:text-[17px] text-white/90 max-w-[42ch] mb-9 font-medium leading-relaxed px-4 lg:px-0 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
             >
-              A 100-bed beacon of <span className="text-primary-300 font-black">medical excellence in Gurugram</span>, where advanced technology meets human compassion.
+              A {siteConfig.stats.beds}-bed beacon of <span className="text-primary-300 font-black">medical excellence in Gurugram</span>, where advanced technology meets human compassion.
             </motion.p>
 
             <motion.div 
@@ -172,7 +167,7 @@ const HeroSection = () => {
                 Book Appointment <ArrowRight className="w-3.5 h-3.5 ml-2" />
               </Link>
               <a
-                href="tel:+918929733550"
+                href={`tel:${siteConfig.contacts.emergency.replace(/\s/g, '')}`}
                 className="h-10 px-6 w-full sm:w-auto flex items-center justify-center rounded-xl border border-white/20 backdrop-blur-md hover:bg-white/10 hover:border-white/40 transition-all text-[10px] font-bold uppercase tracking-[0.15em] active:scale-95"
               >
                 Emergency
@@ -187,8 +182,8 @@ const HeroSection = () => {
             >
               {[
                 { label: 'NABH Accredited', icon: ShieldCheck },
-                { label: '100+ Smart Beds', icon: Award },
-                { label: '24/7 Response', icon: Clock }
+                { label: `${siteConfig.stats.beds}+ Smart Beds`, icon: Award },
+                { label: `${siteConfig.timings.emergency} Response`, icon: Clock }
               ].map((s) => (
                 <div key={s.label} className="flex items-center gap-3">
                   <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center backdrop-blur-sm border border-white/10">
@@ -222,78 +217,96 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="relative group">
-                    <User className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 text-white/30 group-focus-within:text-primary-400 transition-colors" />
-                    <input
-                      required
-                      type="text"
-                      placeholder="YOUR NAME"
-                      className="w-full bg-transparent border-b border-white/10 py-2 pl-6 pr-2 text-[10px] font-bold uppercase tracking-[0.12em] outline-none focus:border-primary-400 placeholder:text-white/20 text-white transition-all"
-                    />
-                  </div>
-
-                  <div className="relative group">
-                    <Phone className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 text-white/30 group-focus-within:text-primary-400 transition-colors" />
-                    <input
-                      required
-                      type="tel"
-                      placeholder="PHONE NUMBER"
-                      className="w-full bg-transparent border-b border-white/10 py-2 pl-6 pr-2 text-[10px] font-bold uppercase tracking-[0.12em] outline-none focus:border-primary-400 placeholder:text-white/20 text-white transition-all"
-                    />
-                  </div>
-
-                  <div className="relative">
-                    <button
-                      type="button"
-                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className={`w-full bg-transparent border-b ${isDropdownOpen ? 'border-primary-400' : 'border-white/10'} py-2 text-[10px] font-bold uppercase tracking-[0.12em] outline-none transition-all flex items-center justify-between text-white/80 hover:text-white`}
-                    >
-                      <span className={selectedSpecialty === 'Select Specialty' ? 'text-white/20' : 'text-white'}>{selectedSpecialty.toUpperCase()}</span>
-                      <ChevronDown className={`w-3 h-3 text-white/20 transition-transform ${isDropdownOpen ? 'rotate-180 text-primary-400' : ''}`} />
-                    </button>
-
-                    <AnimatePresence>
-                      {isDropdownOpen && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -5 }}
-                          className="absolute top-full left-0 right-0 mt-2 bg-[#0f172a]/95 border border-white/10 z-30 backdrop-blur-3xl rounded-2xl overflow-hidden shadow-2xl"
-                        >
-                          <div className="p-1 grid grid-cols-1">
-                            {specialties.map((s) => (
-                              <button
-                                key={s}
-                                type="button"
-                                onClick={() => {
-                                  setSelectedSpecialty(s);
-                                  setIsDropdownOpen(false);
-                                }}
-                                className={`w-full text-left px-4 py-2 text-[9px] font-bold uppercase tracking-wider rounded-xl transition-all ${
-                                  selectedSpecialty === s 
-                                    ? 'bg-primary-600 text-white' 
-                                    : 'text-white/50 hover:text-white hover:bg-white/5'
-                                }`}
-                              >
-                                {s}
-                              </button>
-                            ))}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  <button
-                    disabled={isSubmitting || isSubmitted}
-                    className={`w-full h-10 font-bold uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-2 transition-all mt-4 rounded-xl shadow-xl ${
-                      isSubmitted ? 'bg-emerald-500 text-white' : 'bg-primary-600 hover:bg-primary-500 text-white'
-                    } active:scale-95`}
+                {isSubmitted ? (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center py-8"
                   >
-                    {isSubmitting ? <Activity className="w-4 h-4 animate-spin" /> : isSubmitted ? 'Sent' : <>Callback <Send className="w-3 h-3" /></>}
-                  </button>
-                </form>
+                    <CheckCircle className="w-12 h-12 text-green-400 mx-auto mb-4" />
+                    <h4 className="text-white font-bold text-sm mb-2">Request Sent!</h4>
+                    <p className="text-white/60 text-[10px] mb-6">Our team will call you shortly.</p>
+                    <button 
+                      onClick={reset}
+                      className="text-primary-400 text-[9px] font-bold uppercase tracking-widest"
+                    >
+                      New Request
+                    </button>
+                  </motion.div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                    <div className="relative group">
+                      <User className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 text-white/30 group-focus-within:text-primary-400 transition-colors" />
+                      <input
+                        required
+                        name="name"
+                        type="text"
+                        placeholder="YOUR NAME"
+                        className="w-full bg-transparent border-b border-white/10 py-2 pl-6 pr-2 text-[10px] font-bold uppercase tracking-[0.12em] outline-none focus:border-primary-400 placeholder:text-white/20 text-white transition-all"
+                      />
+                    </div>
+
+                    <div className="relative group">
+                      <Phone className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 text-white/30 group-focus-within:text-primary-400 transition-colors" />
+                      <input
+                        required
+                        name="phone"
+                        type="tel"
+                        placeholder="PHONE NUMBER"
+                        className="w-full bg-transparent border-b border-white/10 py-2 pl-6 pr-2 text-[10px] font-bold uppercase tracking-[0.12em] outline-none focus:border-primary-400 placeholder:text-white/20 text-white transition-all"
+                      />
+                    </div>
+
+                    <div className="relative">
+                      <button
+                        type="button"
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        className={`w-full bg-transparent border-b ${isDropdownOpen ? 'border-primary-400' : 'border-white/10'} py-2 text-[10px] font-bold uppercase tracking-[0.12em] outline-none transition-all flex items-center justify-between text-white/80 hover:text-white`}
+                      >
+                        <span className={selectedSpecialty === 'Select Specialty' ? 'text-white/20' : 'text-white'}>{selectedSpecialty.toUpperCase()}</span>
+                        <ChevronDown className={`w-3 h-3 text-white/20 transition-transform ${isDropdownOpen ? 'rotate-180 text-primary-400' : ''}`} />
+                      </button>
+
+                      <AnimatePresence>
+                        {isDropdownOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -5 }}
+                            className="absolute top-full left-0 right-0 mt-2 bg-[#0f172a]/95 border border-white/10 z-30 backdrop-blur-3xl rounded-2xl overflow-hidden shadow-2xl"
+                          >
+                            <div className="p-1 grid grid-cols-1">
+                              {specialties.map((s) => (
+                                <button
+                                  key={s}
+                                  type="button"
+                                  onClick={() => {
+                                    setSelectedSpecialty(s);
+                                    setIsDropdownOpen(false);
+                                  }}
+                                  className={`w-full text-left px-4 py-2 text-[9px] font-bold uppercase tracking-wider rounded-xl transition-all ${
+                                    selectedSpecialty === s 
+                                      ? 'bg-primary-600 text-white' 
+                                      : 'text-white/50 hover:text-white hover:bg-white/5'
+                                  }`}
+                                >
+                                  {s}
+                                </button>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+
+                    <button
+                      disabled={loading}
+                      className={`w-full h-10 font-bold uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-2 transition-all mt-4 rounded-xl shadow-xl bg-primary-600 hover:bg-primary-500 text-white disabled:opacity-50 active:scale-95`}
+                    >
+                      {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Callback <Send className="w-3 h-3" /></>}
+                    </button>
+                  </form>
+                )}
               </div>
             </motion.div>
           </div>

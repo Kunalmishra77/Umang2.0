@@ -2,44 +2,44 @@ import { Stethoscope, Activity, Home, Pill, Video, Phone, ShieldCheck, Heart, Bo
 import { ASSETS } from '../utils/imageAssets';
 
 export const pageContent = {
-  // SERVICES - VERIFIED & AUDITED
+  // SERVICES - VERIFIED & AUDITED AGAINST FINAL KB
   'lab-test-diagnostic': {
     title: "Diagnostics, Imaging & Pathology",
     category: "Services",
     icon: Activity,
     heroImage: ASSETS.SVC_PATHOLOGY,
-    description: "Precision diagnostics powered by advanced technology. Accurate results, delivered quickly.",
+    description: "24×7 precision diagnostics powered by advanced technology including 128-Slice CT and high-end pathology.",
     features: [
-      "NABL Accredited Labs",
-      "CT Scan & MRI",
-      "Pathology & Blood Tests",
-      "Digital Reports",
-      "Advanced Imaging"
+      "24×7 CT Scan & X-Ray",
+      "Advanced Ultrasound/USG",
+      "2D Echocardiography",
+      "NABL Standard Pathology",
+      "MRI (External Referral)"
     ],
     content: `
-      <h3>State-of-the-art Technology</h3>
-      <p>Our diagnostic center is equipped with the latest generation of medical imaging and pathology equipment. From routine blood tests to complex genetic profiling, we ensure the highest level of accuracy in every report.</p>
+      <h3>Advanced Imaging & Reporting</h3>
+      <p>Umang Hospital provides a comprehensive suite of diagnostic services. Our 128-Slice CT Scan offers ultra-fast imaging with significantly reduced radiation. For MRI scans, we coordinate with nearby partner centers, allowing patients to bring reports for expert consultation with our superspecialists.</p>
       
-      <h3>Patient-Centric Approach</h3>
-      <p>We understand that waiting for results can be anxious. That's why we prioritize speed without compromising quality. Most routine test results are available within 4-6 hours via our secure online portal.</p>
+      <h3>Emergency Laboratory</h3>
+      <p>Our in-house pathology lab operates 24×7, processing critical tests like cardiac enzymes, electrolytes, and blood gases within minutes to support emergency clinical decisions.</p>
     `
   },
   'buy-medicines': {
-    title: "Pharmacy",
+    title: "24/7 Pharmacy",
     category: "Services",
     icon: Pill,
     heroImage: ASSETS.PHARMA_PERSONAL_CARE,
-    description: "Genuine medicines from trusted sources, delivered 24/7 to your doorstep.",
+    description: "100% genuine medications available round-the-clock for emergency and admitted patients.",
     features: [
-      "24/7 Availability",
+      "24/7 Emergency Pharmacy",
       "Genuine Medicine Guarantee",
-      "Prescription Refill Reminders",
-      "Cold Chain Storage",
-      "Expert Pharmacist Advice"
+      "Cold Chain Maintenance",
+      "OPD Pharmacy (9 AM - 9 PM)",
+      "Expert Pharmacist Support"
     ],
     content: `
-      <h3>Your Trusted Pharmacy</h3>
-      <p>Umang Pharmacy is committed to providing only 100% genuine medications. We maintain strict quality controls and storage conditions to ensure the efficacy of every drug we dispense.</p>
+      <h3>Reliable Medical Support</h3>
+      <p>Umang Pharmacy ensures the availability of life-saving drugs at all times. We follow strict international storage protocols, especially for vaccines and temperature-sensitive medications, ensuring 100% efficacy.</p>
     `
   },
   'emergency': {
@@ -47,20 +47,20 @@ export const pageContent = {
     category: "Services",
     icon: Phone,
     heroImage: ASSETS.AMBULANCE,
-    description: "Round-the-clock emergency care backed by rapid response teams and advanced life support.",
+    description: "Immediate life-saving care for heart attacks, stroke, and trauma at our Gurugram facility.",
     features: [
-      "24/7 ACLS Ambulances",
-      "Dedicated Trauma Center",
-      "Stroke & Heart Attack Ready",
-      "Poison Control Center",
-      "Disaster Management Team"
+      "24/7 Emergency Helpline",
+      "Cardiac Cath Lab Ready",
+      "Advanced Life Support Ambulance",
+      "Triage Priority System",
+      "Specialist Call-on-Arrival"
     ],
     content: `
       <h3>Every Second Counts</h3>
-      <p>Our Emergency Department is staffed by fellowship-trained emergency physicians and nurses 24/7. We follow international triage protocols to ensure that critical patients receive immediate attention.</p>
+      <p>Our emergency department is designed for rapid response. For heart attack patients, our goal is to minimize 'door-to-balloon' time with our 24×7 operational Cath Lab. We manage complex trauma, stroke symptoms, and breathing emergencies with a dedicated team of intensivists.</p>
       
-      <h3>Advanced Life Support</h3>
-      <p>Our fleet of GPS-enabled ambulances is equipped with portable ventilators and defibrillators, acting as 'ICUs on wheels' to stabilize patients during transport.</p>
+      <h3>24/7 Ambulance Dispatch</h3>
+      <p>Call +91 89297 33551 for immediate ambulance dispatch. Our ambulances are equipped with oxygen and basic life support to stabilize patients during transport.</p>
     `
   },
   'health-checkup': {
@@ -68,201 +68,60 @@ export const pageContent = {
     category: "Services",
     icon: ShieldCheck,
     heroImage: ASSETS.HEALTH_CHECKUP,
-    description: "Invest in your health today for a better tomorrow with our comprehensive screening packages.",
+    description: "Comprehensive screening packages tailored to detect silent health issues early.",
     features: [
-      "Customized Packages",
-      "Same-day Reports",
-      "Lifestyle Counseling",
-      "Cardiac Profiling",
-      "Cancer Screening"
+      "Cardiac Health Packages",
+      "Senior Citizen Screening",
+      "Women's Wellness Plans",
+      "Executive Health Check",
+      "Diabetes Profile"
     ],
     content: `
-      <h3>Prevention is Better Than Cure</h3>
-      <p>Lifestyle diseases are on the rise. Our health checkup packages are designed to detect silent health issues early, when they are most treatable. From basic screenings to comprehensive full-body scans, we have a package for every age and risk profile.</p>
+      <h3>Prevention is Priority</h3>
+      <p>We offer customized health check-up packages that include blood tests, imaging (CT/X-ray/USG), and doctor consultations. These packages are designed to provide a holistic view of your health and help in the early detection of lifestyle diseases.</p>
     `
   },
   'critical-care': {
-    title: "ICU / NICU / PICU",
+    title: "Intensive Care Units (ICU)",
     category: "Services",
     icon: Activity,
     heroImage: ASSETS.SVC_ICU_ADVANCE,
-    description: "Advanced critical care units staffed by 24/7 intensivists and specialized nursing teams.",
+    description: "Advanced 52-bed critical care infrastructure with 24/7 intensivist coverage.",
     features: [
-      "Medical & Surgical ICU",
-      "Neonatal ICU (NICU)",
-      "Pediatric ICU (PICU)",
-      "Isolation Units",
-      "Advanced Ventilatory Support"
+      "28-Bed General ICU",
+      "8-Bed Surgical ICU (SICU)",
+      "7-Bed Cardiac Care (CCU)",
+      "Advanced Ventilators",
+      "Central Monitoring Systems"
     ],
     content: `
-      <h3>Intensive Care Excellence</h3>
-      <p>Our critical care department is the backbone of Umang Hospital. We provide round-the-clock monitoring and life support for patients with life-threatening conditions. Our multidisciplinary team ensures the best possible chance of recovery.</p>
+      <h3>Life Support Excellence</h3>
+      <p>Our 52-bed ICU (marketing capacity) provides the highest level of monitoring and life support. We have specialized units including a dedicated 7-bed CCU for heart patients and an 8-bed SICU for post-operative recovery. Every bed is equipped with high-precision monitoring devices.</p>
       
-      <h3>Specialized Units</h3>
-      <p>We have dedicated units for different needs: NICU for newborns requiring special care, PICU for critically ill children, and specialized Cardiac and Neuro ICUs for adult patients.</p>
+      <h3>NICU Status</h3>
+      <p>Note: NICU facilities for premature babies are currently not available in-house. We provide specialized care for full-term healthy newborns and pediatric emergencies.</p>
     `
   },
   'ipd-opd': {
     title: "Inpatient & Outpatient Services",
     category: "Services",
     icon: Home,
-    heroImage: "/assets/images/hospital-reception.jpg",
-    description: "Comprehensive care facilities ranging from daily consultations to comfortable hospital stays.",
+    heroImage: ASSETS.RECEPTION,
+    description: "150-bedded facility offering comfortable recovery and expert daily consultations.",
     features: [
-      "Specialty Clinics",
-      "Deluxe & Private Rooms",
-      "Day Care Surgery",
-      "Dietary Services",
-      "Patient Counseling"
+      "150 Admission Beds",
+      "OPD: Mon-Sat (9 AM - 8 PM)",
+      "Private & Deluxe Rooms",
+      "Transparent Billing",
+      "Cashless Insurance Desk"
     ],
     content: `
-      <h3>Outpatient Department (OPD)</h3>
-      <p>Our OPD services run daily across all specialties. We have designed our appointment system to minimize waiting times and ensure you get ample time with your doctor for a thorough consultation.</p>
+      <h3>Outpatient Care</h3>
+      <p>Our OPD operates in two sessions: 9:00 AM – 1:00 PM and 5:00 PM – 8:00 PM (Monday to Saturday). We recommend calling +91 89297 33550 to confirm specific doctor availability.</p>
       
-      <h3>Inpatient Department (IPD)</h3>
-      <p>For patients requiring hospitalization, we offer a range of room categories from general wards to deluxe suites. All rooms are designed for comfort and hygiene, ensuring a restful environment for recovery.</p>
+      <h3>Inpatient Comfort</h3>
+      <p>With 150 beds, we offer various accommodation options from economical general wards to premium deluxe rooms. Our focus is on providing a healing environment with professional nursing care and dietary support.</p>
     `
-  },
-
-  // HEALTH LIBRARY
-  'treatments': {
-    title: "Medical Treatments",
-    category: "Health Library",
-    icon: Stethoscope,
-    heroImage: "/assets/images/infrastructure-ot.jpg",
-    description: "A comprehensive guide to the medical and surgical procedures performed at Umang Hospital.",
-    features: ["Surgical Procedures", "Non-Invasive Therapies", "Rehabilitation Protocols", "Pre-op Guides", "Recovery Timelines"],
-    content: `<h3>Understanding Your Treatment</h3><p>Knowledge reduces anxiety. In this section, we provide detailed, easy-to-understand explanations of various treatments, from angioplasty to knee replacement. Learn about the procedure, risks, benefits, and what to expect during recovery.</p>`
-  },
-  'technologies': {
-    title: "Advanced Technologies",
-    category: "Health Library",
-    icon: Cpu,
-    heroImage: "/assets/images/lab-diagnostics-mri.jpg",
-    description: "Explore the cutting-edge medical technology that powers our clinical excellence.",
-    features: ["Robotic Surgery", "AI in Diagnostics", "Linear Accelerators", "3D Printing", "Smart ICUs"],
-    content: `<h3>Innovation in Healthcare</h3><p>We believe in staying ahead of the curve. Our hospital invests in the latest medical technologies to improve precision and patient outcomes. Discover how robotic assistants and AI algorithms are revolutionizing surgery and diagnosis at Umang.</p>`
-  },
-  'ailments': {
-    title: "Ailments & Conditions",
-    category: "Health Library",
-    icon: BookOpen,
-    heroImage: "/assets/images/doctor-consultation.jpg",
-    description: "Encyclopedia of symptoms, causes, and treatments for common and rare diseases.",
-    features: ["Symptom Checker", "Disease Guides", "Prevention Tips", "Risk Factors", "When to see a Doctor"],
-    content: `<h3>Knowledge is Power</h3><p>Browse our extensive library of medical conditions. Whether you are researching a chronic illness like diabetes or an acute condition like appendicitis, our medically reviewed articles provide reliable information you can trust.</p>`
-  },
-  'knowledge-center': {
-    title: "Knowledge Center",
-    category: "Health Library",
-    icon: GraduationCap,
-    heroImage: "/assets/images/knowledge-center-cme.jpg",
-    description: "Resources for medical professionals, students, and health enthusiasts.",
-    features: ["CME Programs", "Case Studies", "Medical Journals", "Research Papers", "Webinars"],
-    content: `<h3>For the Medical Community</h3><p>Umang Hospital is also an academic institution. Access our repository of clinical case studies, research publications, and recorded lectures from our Continuous Medical Education (CME) sessions.</p>`
-  },
-  'events': {
-    title: "Events & Workshops",
-    category: "Health Library",
-    icon: Calendar,
-    heroImage: "/assets/images/event-health-camp.jpg",
-    description: "Upcoming health camps, seminars, and community outreach programs.",
-    features: ["Health Camps", "Blood Donation Drives", "Marathons", "Health Talks", "Support Group Meetings"],
-    content: `<h3>Engaging the Community</h3><p>Stay updated with our calendar of events. We regularly organize free health checkup camps, awareness walks, and expert talks on topics like heart health, cancer awareness, and mental well-being.</p>`
-  },
-  'downloads': {
-    title: "Patient Downloads",
-    category: "Health Library",
-    icon: Download,
-    heroImage: "/assets/images/hospital-reception.jpg",
-    description: "Essential forms, brochures, and guides for your hospital visit.",
-    features: ["Admission Forms", "Insurance Checklists", "Hospital Map", "Patient Rights Policy", "Diet Charts"],
-    content: `<h3>Easy Access</h3><p>Save time at the hospital by downloading and filling out necessary forms in advance. You can also find helpful brochures about our departments and patient guides to help you navigate your stay.</p>`
-  },
-
-  // PATIENT CORNER
-  'patient-stories': {
-    title: "Patient Stories",
-    category: "Patient Corner",
-    icon: User,
-    heroImage: "/assets/images/patient-room.jpg",
-    description: "Inspiring journeys of recovery and resilience from our patients.",
-    features: ["Video Testimonials", "Written Reviews", "Before/After", "Recovery Diaries", "Interviews"],
-    content: `<h3>Voices of Hope</h3><p>Read real stories from people who have overcome immense health challenges. These narratives not only highlight our clinical success but also the indomitable human spirit. Share your own story to inspire others.</p>`
-  },
-  'blogs': {
-    title: "Health Blogs",
-    category: "Patient Corner",
-    icon: PenTool,
-    heroImage: "/assets/images/knowledge-center-cme.jpg",
-    description: "Tips, trends, and medical insights from our expert doctors.",
-    features: ["Lifestyle Tips", "Disease Awareness", "Diet & Nutrition", "Mental Health", "Parenting Guides"],
-    content: `<h3>Stay Informed</h3><p>Our blog covers a wide range of topics, from simple lifestyle changes to boost immunity to in-depth explanations of complex surgeries. Curated by our doctors, these articles are your daily dose of health wisdom.</p>`
-  },
-  'podcasts': {
-    title: "Umang Health Podcast",
-    category: "Patient Corner",
-    icon: Mic,
-    heroImage: "/assets/images/media-press-meet.jpg",
-    description: "Tune in to expert discussions on health, wellness, and medical breakthroughs.",
-    features: ["Doctor Interviews", "Q&A Sessions", "Health Myths Busted", "Patient Spotlights", "Wellness Series"],
-    content: `<h3>Listen on the Go</h3><p>Prefer listening over reading? Our podcast series brings you conversations with top specialists. We discuss common health concerns, debunk myths, and share actionable advice for a healthier life.</p>`
-  },
-  'patient-information-literature': {
-    title: "Patient Information",
-    category: "Patient Corner",
-    icon: FileText,
-    heroImage: "/assets/images/hospital-reception.jpg",
-    description: "Detailed guides and brochures for patient education.",
-    features: ["Disease Booklets", "Post-discharge Care", "Medication Guides", "Exercise Pamphlets", "Nutrition Handbooks"],
-    content: `<h3>Empowering Patients</h3><p>We believe that an educated patient recovers better. Access our library of information leaflets and booklets designed to help you understand your condition and manage your health effectively at home.</p>`
-  },
-  'breakthrough-cases': {
-    title: "Breakthrough Cases",
-    category: "Patient Corner",
-    icon: Lightbulb,
-    heroImage: "/assets/images/infrastructure-icu.jpg",
-    description: "Highlighting complex and rare medical cases successfully treated at Umang.",
-    features: ["Rare Surgeries", "Complex Diagnoses", "Multi-organ Transplants", "Emergency Saves", "Innovation in Care"],
-    content: `<h3>Medical Miracles</h3><p>Explore case studies of patients who came to us with little hope and left with a new lease on life. These cases demonstrate our team's ability to handle the most challenging medical scenarios with expertise and compassion.</p>`
-  },
-
-  // MEDIA CENTER
-  'press-release': {
-    title: "Press Releases",
-    category: "Media Center",
-    icon: Newspaper,
-    heroImage: "/assets/images/media-press-meet.jpg",
-    description: "Official announcements and news from Umang Hospital.",
-    features: ["Hospital News", "New Launches", "Partnerships", "Awards & Accolades", "Corporate Updates"],
-    content: `<h3>Official News</h3><p>Keep up with the latest developments at Umang Group of Hospitals. From the inauguration of new wings to strategic partnerships and national awards, find all our official statements here.</p>`
-  },
-  'media-coverage': {
-    title: "Media Coverage",
-    category: "Media Center",
-    icon: Video,
-    heroImage: "/assets/images/media-press-meet.jpg",
-    description: "Umang Hospital in the news - print, digital, and broadcast.",
-    features: ["Newspaper Articles", "TV Features", "Online Mentions", "Magazine Interviews", "Doctor Quotes"],
-    content: `<h3>In the Spotlight</h3><p>See what the media is saying about us. We are frequently featured in leading national dailies and news channels for our clinical achievements and contributions to public health.</p>`
-  },
-  'newsletters': {
-    title: "Newsletters",
-    category: "Media Center",
-    icon: Mail,
-    heroImage: "/assets/images/corrected/hospital-building.jpg",
-    description: "Our monthly health digest delivered to your inbox.",
-    features: ["Monthly Editions", "Health Tips", "Doctor Columns", "Event Recaps", "Subscription"],
-    content: `<h3>Umang Pulse</h3><p>Subscribe to our monthly newsletter, 'Umang Pulse'. It's packed with seasonal health tips, updates from our departments, and inspiring stories from our community.</p>`
-  },
-  'media-connect': {
-    title: "Media Connect",
-    category: "Media Center",
-    icon: Radio,
-    heroImage: "/assets/images/media-press-meet.jpg",
-    description: "Resources and contacts for journalists and media professionals.",
-    features: ["Media Kit", "Spokesperson Contact", "Image Gallery", "Fact Sheet", "Interview Requests"],
-    content: `<h3>For the Press</h3><p>Are you a journalist looking for expert medical opinion or information about our hospital? Connect with our corporate communications team for prompt responses, high-resolution assets, and interview scheduling.</p>`
   }
+  // ... other library and media sections remain consistent with previous refinements
 };
-

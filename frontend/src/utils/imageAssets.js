@@ -1,31 +1,31 @@
 export const ASSETS = {
   // Infrastructure
-  HOSPITAL_EXTERIOR: '/assets/Home/hero1.png',
-  RECEPTION: '/assets/images/corrected/reception.jpg',
+  HOSPITAL_EXTERIOR: '/assets/Home/hero11.jpeg',
+  RECEPTION: '/assets/About/about-main.png', 
   OT: '/assets/Home/general-surgery.png',
-  ICU: '/assets/images/corrected/infrastructure-icu.jpg',
-  PATIENT_ROOM: '/assets/images/corrected/infrastructure-icu.jpg',
-  TWIN_SHARING: '/assets/images/specific/twin-sharing.jpg',
+  ICU: '/assets/services/icu-infrastructure/Advance ICU.png',
+  PATIENT_ROOM: '/assets/About/100-Beds.jpg',
+  TWIN_SHARING: '/assets/About/100-Beds.jpg',
   
   // Services & Departments
   PHARMACY: '/assets/Home/pharmacy.jpeg',
-  AMBULANCE: '/assets/Home/hero2.png',
-  LAB: '/assets/images/corrected/service-lab.jpg',
-  DIALYSIS: '/assets/images/department-nephrology.jpg',
-  HOME_COLLECTION: '/assets/images/specific/home-collection.jpg',
-  UPLOAD_REPORT: '/assets/images/specific/upload-report.jpg',
+  AMBULANCE: '/assets/services/advanced-life-support.png',
+  LAB: '/assets/services/diagnostic-lab/pathology.png',
+  DIALYSIS: '/assets/Specialities/Hepatology.png', 
+  HOME_COLLECTION: '/assets/Home/home-care.jpg',
+  UPLOAD_REPORT: '/assets/services/lab-process.png',
   
   // Specialties
   CARDIAC: '/assets/Home/cardiac-sciences.png',
   NEURO: '/assets/Home/neuro-sciences.png',
   ORTHO: '/assets/Home/orthopaedics-joint-replacement.png',
-  ORTHO_KNEE: '/assets/images/specific/ortho-knee.jpg',
+  ORTHO_KNEE: '/assets/Specialities/Joint Replacement.png',
   GASTRO: '/assets/Home/gastroenterology.png',
   PULMONOLOGY: '/assets/Home/pulmonology.png',
-  CARDIAC_HERO: '/assets/Home/hero3.png',
-  SLEEP_STUDY: '/assets/images/specific/sleep-study.jpg',
-  UROLOGY: '/assets/images/corrected/specialty-urology.jpg',
-  RADIOLOGY: '/assets/images/specific/radiology.jpg',
+  CARDIAC_HERO: '/assets/Home/cardiac-sciences.png',
+  SLEEP_STUDY: '/assets/services/icu-infrastructure/Advance ICU care.jpeg',
+  UROLOGY: '/assets/Specialities/Laparoscopic Surgery.png', 
+  RADIOLOGY: '/assets/services/diagnostic-lab/Radiology & Imaging.png',
   
   // Technology
   CT_SCAN: '/assets/Home/128-Slice CT Scan.jpg',
@@ -33,14 +33,14 @@ export const ASSETS = {
   ROBOTIC_SURGERY: '/assets/Home/robotic-OT-suite.webp',
   
   // People & Interaction
-  DIRECTOR: '/assets/images/director-profile.jpg',
+  DIRECTOR: '/assets/About/Dr. Rakesh Gupta.png',
   NURSE_CARE: '/assets/Home/home-care.jpg',
-  CONSULTATION: '/assets/images/doctor-consultation.jpg',
+  CONSULTATION: '/assets/Home/telemedicene.jpeg',
   TELEMEDICINE: '/assets/Home/telemedicene.jpeg',
   HEALTH_CHECKUP: '/assets/Home/Health-Checkup.jpg',
-  INTERNATIONAL: '/assets/images/international-patients.jpg',
+  INTERNATIONAL: '/assets/About/a-global-medical.png',
   GERIATRICS: '/assets/Specialities/Geriatrics.png',
-  SURGERY_TEAM: '/assets/images/specific/surgery-team.jpg',
+  SURGERY_TEAM: '/assets/Home/general-surgery.png',
   HEART_TRANSPLANT: '/assets/Specialities/Cardiothoracic Surgery.png',
   
   // Specialty Services
@@ -109,7 +109,6 @@ export const ASSETS = {
   ABOUT_ICU: '/assets/About/advanced-icu.png',
   ABOUT_NABH: '/assets/About/nabh-gold-standard.png',
   ABOUT_BEACON: '/assets/About/super-speciality-beacon.png',
-  ABOUT_BEACON: '/assets/About/super-speciality-beacon.png',
   ABOUT_LEAP: '/assets/About/technological-leap.png',
   ABOUT_100_BEDS: '/assets/About/100-Beds.jpg',
   ABOUT_DIRECTOR: '/assets/About/Dr. Rakesh Gupta.png',
@@ -126,16 +125,19 @@ export const ASSETS = {
   ORTHO_VIDEO: '/assets/Home/orthopaedics-joint-replacement.mp4',
   PULMONOLOGY_VIDEO: '/assets/Home/pulmonology.mp4',
 
-  // Doctors Lists
+  // Doctors Lists (Fallback SVGs)
   DOCTORS_MALE: [
-    '/assets/images/corrected/dr-male-1.jpg',
-    '/assets/images/corrected/dr-male-2.jpg',
-    '/assets/images/corrected/dr-male-3.jpg'
+    '/doctors-images/dr-manmohan.svg',
+    '/doctors-images/dr-nitin.svg',
+    '/doctors-images/dr-rohit.svg',
+    '/doctors-images/dr-rukmaji.svg',
+    '/doctors-images/dr-sahil.svg',
+    '/doctors-images/dr-mayank.svg',
+    '/doctors-images/dr-anuj.svg'
   ],
   DOCTORS_FEMALE: [
-    '/assets/images/corrected/dr-female-1.jpg',
-    '/assets/images/corrected/dr-female-2.jpg',
-    '/assets/images/corrected/dr-female-3.jpg'
+    '/doctors-images/dr-manmohan.svg', // Placeholder
+    '/doctors-images/dr-rukmaji.svg'   // Placeholder
   ]
 };
 

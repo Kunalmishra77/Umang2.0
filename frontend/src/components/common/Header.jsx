@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, Calendar, Activity, Mail, ArrowRight, ShieldCheck, MapPin, Clock, Plus, Minus, Heart, Star, Award, Stethoscope, Video, Pill, Info, BookOpen, Users, Smartphone, MessageSquare, Zap, GraduationCap, Briefcase, Radio, PenTool, Mic, FileText, HelpCircle, Wind, Scissors } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, Calendar, Activity, Mail, ArrowRight, ShieldCheck, MapPin, Clock, Plus, Minus, Heart, Star, Award, Stethoscope, Video, Pill, Info, BookOpen, Users, Smartphone, MessageSquare, Zap, GraduationCap, Briefcase, Radio, PenTool, Mic, FileText, HelpCircle, Wind, Scissors, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ASSETS } from '../../utils/imageAssets';
+import { siteConfig } from '../../config/siteConfig';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,7 +14,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
@@ -156,6 +157,7 @@ const Header = () => {
       ],
       mobileFeature: { img: ASSETS.AMBULANCE, title: "Emergency & Trauma", desc: "24/7 rapid response and critical support services." }
     },
+    // ... other links kept as is
     {
       name: 'Library',
       path: '/health-library',
@@ -215,14 +217,14 @@ const Header = () => {
                    <div className="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors" />
                 </div>
                 <h4 className="font-bold text-lg text-brand-dark mb-1">Meet Our Doctors</h4>
-                <p className="text-xs text-gray-500 leading-relaxed font-medium text-left">Over 100+ board certified specialists across 25+ departments.</p>
+                <p className="text-xs text-gray-500 leading-relaxed font-medium text-left">Over {siteConfig.stats.superspecialists} board certified specialists with {siteConfig.stats.experience} years experience.</p>
              </Link>
           </div>
           <div className="w-full md:w-[55%] p-8 bg-white flex flex-col justify-center gap-3">
              {[
                { name: "Our Specialists", path: "/doctors", icon: Users, desc: "Search doctor directory" },
-               { name: "Leadership Team", path: "/team", icon: Award, desc: "Our board & management" },
-               { name: "Nursing Staff", path: "/team", icon: Heart, desc: "Compassionate care team" },
+               { name: "Leadership Team", path: "/team/leadership", icon: Award, desc: "Our board & management" },
+               { name: "Nursing Staff", path: "/team/nursing", icon: Heart, desc: "Compassionate care team" },
                { name: "Join Our Team", path: "/careers", icon: Briefcase, desc: "Explore career opportunities" }
              ].map((item, i) => (
                <Link key={i} to={item.path} className="flex items-center gap-4 p-4 rounded-2xl hover:bg-indigo-50 transition-all group">
@@ -239,7 +241,7 @@ const Header = () => {
         </div>
       ),
       links: [
-        { name: "Our Doctors", path: "/doctors" }, { name: "Leadership", path: "/team" }, { name: "Careers", path: "/careers" }
+        { name: "Our Doctors", path: "/doctors" }, { name: "Leadership", path: "/team/leadership" }, { name: "Nursing Staff", path: "/team/nursing" }, { name: "Careers", path: "/careers" }
       ],
       mobileFeature: { img: ASSETS.ABOUT_BEACON, title: "Expert Faculty", desc: "Meet our specialists and leadership team." }
     },
@@ -311,8 +313,8 @@ const Header = () => {
                 <h4 className="font-bold text-lg">Get in Touch</h4>
               </div>
             </div>
-            <a href="tel:+918929733550" className="flex items-center gap-3 text-rose-700 text-xs font-black uppercase tracking-wider">
-              <Phone className="w-4 h-4 fill-current" /> +91 89297 33550
+            <a href={`tel:${siteConfig.contacts.main}`} className="flex items-center gap-3 text-rose-700 text-xs font-black uppercase tracking-wider">
+              <Phone className="w-4 h-4 fill-current" /> {siteConfig.contacts.main}
             </a>
           </div>
           <div className="w-full md:w-[60%] p-8 bg-white space-y-2">
@@ -343,12 +345,12 @@ const Header = () => {
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled ? 'shadow-2xl' : ''}`}>
-        {/* TOP BAR */}
+      <header className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300">
+        {/* TOP BAR - Hidden on mobile if needed, but keeping for continuity */}
         <div className={`bg-[#0f172a] text-white transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0' : 'max-h-10 lg:max-h-8'}`}>
            <div className="container-custom h-10 lg:h-8 flex items-center justify-between text-[10px] lg:text-[11px] font-semibold tracking-wide px-4">
-              <a href="tel:+918929733550" className="flex items-center gap-2 hover:text-primary-400 transition-colors">
-                 <Phone className="w-3 h-3" /> <span className="inline">Emergency:</span> +91 89297 33550
+              <a href={`tel:${siteConfig.contacts.emergency.replace(/\s/g,'')}`} className="flex items-center gap-2 hover:text-primary-400 transition-colors">
+                 <AlertCircle className="w-3 h-3 text-red-500" /> <span className="inline">Emergency:</span> {siteConfig.contacts.emergency}
               </a>
               <div className="flex items-center gap-4">
                  <div className="hidden md:flex items-center gap-2 text-emerald-400 font-bold"><ShieldCheck className="w-3 h-3" /> NABH ACCREDITED</div>
@@ -357,23 +359,23 @@ const Header = () => {
            </div>
         </div>
 
-        {/* MAIN NAV */}
-        <div className={`bg-white transition-all duration-500 border-b border-gray-100 ${isScrolled ? 'py-1 lg:py-2' : 'py-2 lg:py-3'}`}>
-          <div className="container-custom flex items-center justify-between gap-4 px-4">
-            <Link to="/" className="flex items-center gap-2 shrink-0 group">
-               <div className={`transition-all duration-500 ${isScrolled ? 'h-7 lg:h-8' : 'h-8 lg:h-9'}`}>
+        {/* MAIN NAV - Solid height for better vertical centering */}
+        <div className={`bg-white transition-all duration-500 border-b border-gray-100 flex items-center ${isScrolled ? 'h-14 lg:h-16' : 'h-16 lg:h-20'}`}>
+          <div className="container-custom flex items-center justify-between gap-4 px-4 w-full h-full">
+            <Link to="/" className="flex items-center gap-2 shrink-0 group py-1">
+               <div className="h-8 lg:h-10 flex items-center">
                  <img src="/umang.svg" alt="Umang" className="h-full w-auto object-contain" />
                </div>
-               <div className="flex flex-col leading-none">
-                 <span className="text-base lg:text-xl font-bold tracking-tight text-gray-900 group-hover:text-primary-600 transition-colors">Umang<span className="text-primary-600">Hospital</span></span>
+               <div className="flex flex-col justify-center leading-none">
+                 <span className="text-base lg:text-xl font-bold tracking-tight text-gray-900 group-hover:text-primary-600 transition-colors">{siteConfig.shortName.split(' ')[0]}<span className="text-primary-600">{siteConfig.shortName.split(' ')[1]}</span></span>
                  <span className="text-[6px] lg:text-[7px] uppercase tracking-[0.25em] font-bold text-gray-400">Superspeciality</span>
                </div>
             </Link>
 
-            <nav className="hidden xl:flex items-center gap-0.5">
+            <nav className="hidden xl:flex items-center gap-0.5 h-full">
               {navLinks.map((link) => (
                 <div key={link.name} className="relative group h-full flex items-center" onMouseEnter={() => link.type === 'dropdown' && setActiveDropdown(link.name)} onMouseLeave={() => link.type === 'dropdown' && setActiveDropdown(null)}>
-                  <NavLink to={link.path} className={({ isActive }) => `px-2 lg:px-3 py-1.5 text-[9px] lg:text-[11px] font-black uppercase tracking-wider rounded-lg transition-all ${isActive ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'}`}>
+                  <NavLink to={link.path} className={({ isActive }) => `px-2 lg:px-4 py-2 text-[9px] lg:text-[11px] font-black uppercase tracking-wider rounded-lg transition-all ${isActive ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'}`}>
                     <span className="flex items-center gap-1">
                        {link.name} {link.type === 'dropdown' && <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : 'opacity-40'}`} />}
                     </span>
@@ -385,9 +387,9 @@ const Header = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }} 
                         exit={{ opacity: 0, y: 10, scale: 0.98 }} 
                         transition={{ duration: 0.3, ease: "easeOut" }}
-                        className={`absolute top-[90%] left-1/2 -translate-x-1/2 pt-6 z-[110] ${link.width}`}
+                        className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 z-[110] ${link.width}`}
                       >
-                         <div className="bg-white rounded-[2.5rem] shadow-[0_30px_90px_-20px_rgba(0,0,0,0.2)] border border-gray-100/50 overflow-hidden backdrop-blur-xl">
+                         <div className="bg-white rounded-[2rem] shadow-[0_30px_90px_-20px_rgba(0,0,0,0.2)] border border-gray-100/50 overflow-hidden backdrop-blur-xl">
                             {link.content}
                          </div>
                       </motion.div>
@@ -398,7 +400,7 @@ const Header = () => {
             </nav>
 
             <div className="flex items-center gap-3">
-               <Link to="/doctors" className={`h-9 lg:h-10 px-4 lg:px-6 rounded-lg lg:rounded-xl flex items-center gap-2 text-[10px] lg:text-[11px] font-black uppercase tracking-widest transition-all ${isScrolled ? 'bg-gray-900 text-white shadow-lg' : 'bg-primary-600 text-white shadow-lg shadow-primary-600/20'}`}>
+               <Link to="/doctors" className="h-9 lg:h-11 px-4 lg:px-6 rounded-lg lg:rounded-2xl flex items-center gap-2 text-[10px] lg:text-[11px] font-black uppercase tracking-widest transition-all bg-primary-600 text-white shadow-lg shadow-primary-600/20 hover:bg-primary-500 hover:-translate-y-0.5 active:scale-95">
                  <Calendar className="w-3 h-3 lg:w-3.5 lg:h-3.5" /> <span className="hidden sm:inline">Appointment</span><span className="sm:hidden text-[9px]">BOOK</span>
                </Link>
                <button className="xl:hidden w-9 lg:w-11 h-9 lg:h-11 flex items-center justify-center rounded-lg bg-gray-50 text-gray-700 border border-gray-100" onClick={() => setIsMobileMenuOpen(true)}>
@@ -416,7 +418,7 @@ const Header = () => {
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 bg-gray-900/60 backdrop-blur-sm z-[150]" onClick={() => setIsMobileMenuOpen(false)} />
             <motion.div initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }} transition={{ type: "spring", damping: 30, stiffness: 300 }} className="fixed inset-y-0 right-0 w-[85%] max-w-[400px] bg-white z-[160] p-6 flex flex-col shadow-2xl overflow-y-auto">
                <div className="flex justify-between items-center mb-8 pb-6 border-b border-gray-100 shrink-0">
-                  <span className="text-xl font-bold text-gray-900">Umang<span className="text-primary-600">Hospital</span></span>
+                  <span className="text-xl font-bold text-gray-900">{siteConfig.shortName.split(' ')[0]}<span className="text-primary-600">{siteConfig.shortName.split(' ')[1]}</span></span>
                   <button onClick={() => setIsMobileMenuOpen(false)} className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400"><X className="w-5 h-5" /></button>
                </div>
                <div className="flex-1 space-y-1 overflow-y-auto pr-2 custom-scrollbar">
@@ -476,7 +478,7 @@ const Header = () => {
                </div>
                <div className="pt-6 border-t border-gray-100 space-y-3 mt-4 shrink-0">
                   <Link to="/doctors" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-primary-600 text-white font-bold text-sm shadow-lg shadow-primary-600/20">Book Appointment</Link>
-                  <a href="tel:+918929733550" className="flex items-center justify-center gap-2 w-full py-4 rounded-xl border-2 border-gray-900 text-gray-900 font-bold text-sm">Emergency Call</a>
+                  <a href={`tel:${siteConfig.contacts.emergency.replace(/\s/g,'')}`} className="flex items-center justify-center gap-2 w-full py-4 rounded-xl border-2 border-gray-900 text-gray-900 font-bold text-sm">Emergency Call</a>
                </div>
             </motion.div>
           </>

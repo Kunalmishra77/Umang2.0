@@ -2,303 +2,229 @@ import { ASSETS } from '../utils/imageAssets';
 
 export const specialitiesData = {
   'cardiac': {
-    title: "Cardiac Sciences (Cardiology & Cardiothoracic Care)",
+    title: "Cardiology and Cardiac Sciences",
     subtitle: "Advanced Heart Care Center",
-    desc: "Our Centre of Excellence for Cardiac Sciences is renowned for its comprehensive care, from prevention to advanced interventional procedures. We treat the most complex heart conditions with precision and compassion.",
+    desc: "Comprehensive heart care with state-of-the-art cath lab, invasive and non-invasive cardiology, emergency cardiac care, and cardiac surgery coordination. Our facility is equipped for 24×7 life-saving interventional procedures.",
     img: ASSETS.CARDIAC,
+    category: "surgical",
     procedures: [
-      "Angiography & Angioplasty (PTCA)",
-      "Coronary Artery Bypass Graft (CABG)",
-      "Valve Replacement & Repair (TAVR/TAVI)",
-      "Pacemaker & ICD Implantation",
-      "Pediatric Cardiac Surgery",
-      "Heart Failure Management"
+      "Coronary Angiography (Diagnostic)",
+      "Angioplasty with Stenting (PTCA)",
+      "24×7 Emergency Angioplasty",
+      "Pacemaker Implantation",
+      "Heart Failure Management",
+      "Cardiac Surgery Coordination"
     ],
     tech: [
-      { title: "Philips Azurion 7 Cath Lab", desc: "For high-precision interventional procedures." },
-      { title: "3D Echocardiography", desc: "Real-time advanced cardiac imaging." },
-      { title: "ECMO Support", desc: "Extracorporeal Membrane Oxygenation for critical care." }
+      { title: "Super-Specialty Cath Lab", desc: "Equipped with advanced imaging for emergency stenting." },
+      { title: "2D Echocardiography", desc: "Detailed heart chamber and valve assessment." },
+      { title: "Treadmill Test (TMT)", desc: "Monitoring heart response to physical stress." }
     ],
+    bullets: ["24/7 Cath Lab", "Emergency Angioplasty", "Dedicated 7-bed CCU"],
+    emergencyCallout: "Severe chest pain, crushing sensation, or pain radiating to arm/jaw? Call +91 89297 33551 immediately.",
     faq: [
-      { q: "What is the golden hour in heart attack?", a: "The first hour after a heart attack is critical. Immediate treatment within this window significantly increases survival rates." },
-      { q: "Do you perform minimally invasive heart surgery?", a: "Yes, we specialize in minimally invasive cardiac surgeries (MICS) for faster recovery." }
+      { q: "Do you have heart specialists available 24/7?", a: "Yes, our cardiologists are available round-the-clock for emergency angioplasty and critical cardiac care." },
+      { q: "What is Angiography?", a: "It is a diagnostic test to check if heart arteries have blockages, typically taking 20-45 minutes." }
     ]
   },
   'neuro': {
-    title: "Neuro Sciences (Neurology & Neurosurgery)",
+    title: "Neurology and Neurosurgery",
     subtitle: "Brain & Spine Excellence",
-    desc: "Dedicated to the diagnosis and treatment of complex neurological disorders. Our team of neurosurgeons and neurologists provides world-class care for brain tumors, stroke, and spine conditions.",
+    desc: "Diagnosis and treatment of complex neurological disorders affecting the brain, spine, and nervous system. We follow rapid-response stroke protocols and provide 24×7 neuro-trauma care.",
     img: ASSETS.NEURO,
+    category: "surgical",
     procedures: [
       "Brain Tumor Excision",
       "Stroke Management (Thrombolysis)",
       "Spine Surgery (MISS)",
+      "Head Injury & Trauma Management",
       "Epilepsy Surgery",
-      "Deep Brain Stimulation (DBS)",
-      "Aneurysm Coiling & Clipping"
+      "Deep Brain Stimulation (DBS)"
     ],
     tech: [
-      { title: "Neuro-Navigation System", desc: "Precision guidance for brain surgeries." },
-      { title: "Advanced MRI (3T)", desc: "High-resolution brain and spine imaging." },
-      { title: "Stroke ICU", desc: "Dedicated intensive care for stroke patients." }
+      { title: "24×7 CT Scan", desc: "Rapid diagnostics for stroke and trauma." },
+      { title: "Neuro-Trauma ICU", desc: "Specialized monitoring for critical neuro patients." },
+      { title: "Operating Theatres", desc: "Equipped for complex brain and spine surgeries." }
     ],
+    bullets: ["24/7 Neuro-Trauma Care", "Stroke Protocol", "MISS Spine Surgery"],
     faq: [
-      { q: "What are the signs of a stroke?", a: "Remember FAST: Face drooping, Arm weakness, Speech difficulty, Time to call emergency." },
-      { q: "Do you treat migraines?", a: "Yes, we offer comprehensive management plans for chronic migraines and headaches." }
+      { q: "What are the signs of a stroke?", a: "Look for sudden weakness on one side, face drooping, or slurred speech. Call emergency immediately." },
+      { q: "Do you perform brain surgery?", a: "Yes, our neurosurgeons perform both elective and emergency brain and spine surgeries." }
     ]
   },
   'ortho': {
-    title: "Orthopaedics & Joint Replacement",
+    title: "Orthopedics and Trauma",
     subtitle: "Joint & Bone Care",
-    desc: "Restoring mobility and quality of life. Our Orthopaedics department specializes in joint replacements, sports injuries, and complex trauma management using the latest robotic-assisted techniques.",
+    desc: "Comprehensive bone, joint, and musculoskeletal care with advanced surgical capabilities and rehabilitation. We provide 24×7 trauma care for fractures and major accidents.",
     img: ASSETS.ORTHO,
+    category: "surgical",
     procedures: [
       "Total Knee Replacement (TKR)",
-      "Total Hip Replacement (THR)",
-      "Arthroscopic Sports Surgery",
-      "Complex Trauma Surgery",
-      "Spine Deformity Correction",
-      "Shoulder Replacement"
+      "Hip Replacement (THR)",
+      "Arthroscopic Joint Surgery",
+      "Complex Fracture Management",
+      "Spine Surgery",
+      "Sports Medicine"
     ],
     tech: [
-      { title: "Robotic Joint Replacement", desc: "Mako robotic arm for precision surgery." },
-      { title: "Computer Navigation", desc: "Ensures perfect alignment of implants." },
-      { title: "Bone Densitometry (DEXA)", desc: "For osteoporosis screening and management." }
+      { title: "Modular OT Suites", desc: "Modular theatres with laminar flow for infection control." },
+      { title: "Digital X-Ray", desc: "Instant high-clarity imaging for bone injuries." },
+      { title: "Physiotherapy Unit", desc: "Customized post-operative recovery programs." }
     ],
+    bullets: ["24/7 Trauma Surgery", "Robotic Joint Replacement", "Sports Injury Clinic"],
     faq: [
-      { q: "How long is the recovery after knee replacement?", a: "Most patients start walking with support the next day and return to normal activities within 4-6 weeks." },
-      { q: "Do you treat sports injuries?", a: "Yes, we have a specialized sports medicine division for athletes." }
+      { q: "Do you have emergency fracture care?", a: "Yes, orthopedic surgeons are available 24/7 for immediate stabilization and surgery." },
+      { q: "How long is recovery after TKR?", a: "Most patients start walking with support the next day and regain mobility within weeks." }
     ]
   },
   'gastro': {
     title: "Gastroenterology",
     subtitle: "Digestive & Liver Care",
-    desc: "Comprehensive care for digestive, liver, and pancreatic disorders. We offer advanced endoscopic procedures and hepatobiliary surgeries.",
+    desc: "Diagnosis and treatment of diseases affecting the digestive system, liver, and pancreas. We offer both medical and advanced surgical gastroenterology options.",
     img: ASSETS.GASTRO,
+    category: "medical",
     procedures: [
-      "Endoscopy & Colonoscopy",
-      "ERCP (Stone Removal)",
-      "Liver Transplant",
-      "Bariatric (Weight Loss) Surgery",
-      "GI Cancer Surgery",
-      "Hepatitis Management"
+      "UGI Endoscopy & Colonoscopy",
+      "Polypectomy",
+      "Laparoscopic Appendix Surgery",
+      "Surgery for Piles/Fissure/Fistula",
+      "Hepatitis & Liver Management",
+      "Bariatric Surgery (To Verify)"
     ],
     tech: [
-      { title: "SpyGlass Cholangioscopy", desc: "Direct visualization of bile ducts." },
-      { title: "FibroScan", desc: "Non-invasive liver stiffness measurement." },
-      { title: "High-Definition Endoscopy", desc: "For early cancer detection." }
+      { title: "High-Def Endoscopy", desc: "Advanced visualization for accurate biopsies." },
+      { title: "FibroScan", desc: "Non-invasive liver health assessment." },
+      { title: "Laparoscopic Suite", desc: "Minimally invasive GI surgeries." }
     ],
+    bullets: ["Endoscopy & Colonoscopy", "Liver Care Unit", "Laparoscopic GI Surgery"],
     faq: [
-      { q: "Is endoscopy painful?", a: "It is performed under sedation, so you will not feel any pain during the procedure." },
-      { q: "Do you treat fatty liver?", a: "Yes, we offer lifestyle counseling and medical management for fatty liver disease." }
+      { q: "Is endoscopy painful?", a: "The procedure is performed under sedation, ensuring zero pain and minimal discomfort." },
+      { q: "Do you treat jaundice?", a: "Yes, we provide comprehensive diagnosis and management for all types of liver diseases." }
     ]
   },
   'pulmonology': {
-    title: "Pulmonology & Respiratory Medicine",
-    subtitle: "Breath of Life",
-    desc: "Expert care for all respiratory conditions. From asthma and COPD to interstitial lung diseases and sleep disorders, our pulmonologists help you breathe easier.",
+    title: "Pulmonology",
+    subtitle: "Lung and Respiratory Care",
+    desc: "Expert care for respiratory conditions and lung diseases. Our department provides advanced diagnostics and critical respiratory support in our ICUs.",
     img: ASSETS.PULMONOLOGY,
+    category: "medical",
     procedures: [
+      "Spirometry (PFT)",
       "Bronchoscopy",
       "Thoracoscopy",
-      "Sleep Study (Polysomnography)",
-      "PFT (Pulmonary Function Test)",
-      "Lung Cancer Screening",
-      "Allergy Testing"
+      "Sleep Study (To Verify)",
+      "Post-COVID Lung Care",
+      "Ventilator Support"
     ],
     tech: [
-      { title: "EBUS (Endobronchial Ultrasound)", desc: "For minimally invasive staging of lung cancer." },
-      { title: "Sleep Lab", desc: "State-of-the-art facility for sleep disorder diagnosis." },
-      { title: "Advanced Ventilators", desc: "For critical respiratory support." }
+      { title: "Advanced Ventilators", desc: "Life support systems in our ICU units." },
+      { title: "Nebulization Unit", desc: "Rapid relief for asthma and COPD exacerbations." },
+      { title: "24/7 Emergency Imaging", desc: "Chest X-ray and CT for breathing emergencies." }
     ],
+    bullets: ["PFT & Bronchoscopy", "Asthma & COPD Clinic", "24/7 Oxygen Support"],
     faq: [
-      { q: "What is a sleep study?", a: "It monitors your sleep patterns, breathing, and oxygen levels overnight to diagnose sleep apnea." },
-      { q: "How do you treat COPD?", a: "We offer pulmonary rehabilitation, medication management, and oxygen therapy." }
-    ]
-  },
-  'surgery': {
-    title: "General & Laparoscopic Surgery",
-    subtitle: "Minimally Invasive Surgery",
-    desc: "Our General Surgery department performs a wide range of procedures, focusing on laparoscopic and minimally invasive techniques for faster recovery and minimal scarring.",
-    img: ASSETS.OT,
-    procedures: [
-      "Laparoscopic Cholecystectomy (Gallbladder)",
-      "Hernia Repair",
-      "Appendectomy",
-      "Thyroid Surgery",
-      "Breast Surgery",
-      "Trauma Surgery"
-    ],
-    tech: [
-      { title: "4K Laparoscopy System", desc: "Crystal clear visualization for safe surgery." },
-      { title: "Harmonic Scalpel", desc: "For precise cutting and coagulation." },
-      { title: "Laser Surgery", desc: "For piles, fissures, and fistulas." }
-    ],
-    faq: [
-      { q: "What is laparoscopic surgery?", a: "It is a keyhole surgery performed through small incisions, resulting in less pain and faster recovery." },
-      { q: "How long do I need to stay in the hospital?", a: "For most laparoscopic procedures, patients are discharged within 24-48 hours." }
+      { q: "When should I see a pulmonologist?", a: "Consult if you have chronic cough, shortness of breath, or suspected tuberculosis." },
+      { q: "Do you have ventilators?", a: "Yes, our ICUs are fully equipped with advanced mechanical ventilators." }
     ]
   },
   'urology': {
-    title: "Urology & Andrology",
+    title: "Urology and Nephrology",
     subtitle: "Kidney & Urinary Care",
-    desc: "Specialized care for urinary tract and reproductive health. We treat kidney stones, prostate issues, and urological cancers with advanced laser and robotic techniques.",
+    desc: "Comprehensive care for kidney, urinary tract, and male reproductive system disorders. We specialize in laser treatments for stones and prostate issues.",
     img: ASSETS.UROLOGY,
+    category: "surgical",
     procedures: [
-      "Laser Lithotripsy (Kidney Stones)",
+      "Laser Kidney Stone Removal (RIRS/URS)",
       "TURP (Prostate Surgery)",
-      "Uro-Oncology Surgery",
-      "Reconstructive Urology",
-      "Andrology & Infertility",
-      "Kidney Transplant"
+      "UTI & Kidney Infection Treatment",
+      "Dialysis (24×7 - To Verify)",
+      "Uro-Oncology",
+      "Urethroplasty"
     ],
     tech: [
-      { title: "Holmium Laser (100W)", desc: "Powerful laser for stone pulverization." },
-      { title: "Urodynamics Lab", desc: "For evaluating bladder function." },
-      { title: "Flexible Ureteroscopy", desc: "For accessing difficult stones." }
+      { title: "Holmium Laser", desc: "Precision laser for pulverizing stones." },
+      { title: "Cystoscopy", desc: "Direct visualization of the bladder and urethra." },
+      { title: "KUB Ultrasound", desc: "Specialized imaging for the renal system." }
     ],
+    bullets: ["Laser Stone Removal", "Prostate Clinic", "24/7 Dialysis Support"],
     faq: [
-      { q: "What is the treatment for kidney stones?", a: "Small stones may pass with medication. Larger stones are treated with laser lithotripsy or shockwave therapy." },
-      { q: "Do you treat male infertility?", a: "Yes, we offer comprehensive evaluation and treatment for male reproductive health." }
+      { q: "How are kidney stones treated?", a: "We offer minimally invasive laser treatments like RIRS for faster recovery." },
+      { q: "Do you treat prostate enlargement?", a: "Yes, we perform advanced TURP and laser prostatectomies." }
     ]
   },
-  'oncology': {
-    title: "Medical & Surgical Oncology",
-    subtitle: "Cancer Care Excellence",
-    desc: "Our Oncology department provides comprehensive cancer care, including chemotherapy, targeted therapy, and precision surgical oncology, with a focus on holistic healing.",
-    img: ASSETS.RADIOLOGY,
+  'surgery': {
+    title: "General and Laparoscopic Surgery",
+    subtitle: "Minimally Invasive Care",
+    desc: "Surgical treatment of abdominal, breast, thyroid, and soft tissue conditions using modern minimally invasive techniques for faster recovery.",
+    img: ASSETS.OT,
+    category: "surgical",
     procedures: [
-      "Chemotherapy & Immunotherapy",
-      "Surgical Tumor Excision",
-      "Breast Cancer Surgery",
-      "GI & Hepato-biliary Oncology",
-      "Preventive Screening",
-      "Palliative Oncology"
+      "Laparoscopic Gallbladder Removal",
+      "Hernia Repair (Mesh)",
+      "Appendectomy",
+      "Thyroid & Breast Surgery",
+      "Piles/Fissure/Fistula Surgery",
+      "24×7 Emergency Surgeries"
     ],
     tech: [
-      { title: "Day Care Chemotherapy", desc: "Comfortable environment for infusion therapy." },
-      { title: "Precision Histopathology", desc: "Accurate tumor staging and molecular analysis." },
-      { title: "Robotic Surgical Oncology", desc: "Minimally invasive cancer surgeries." }
+      { title: "Laminar Flow OTs", desc: "Ensuring zero-infection environments." },
+      { title: "HEPA Filtration", desc: "Highest standards of surgical safety." },
+      { title: "4K Laparoscopy", desc: "Ultra-high definition surgical visualization." }
     ],
+    bullets: ["Modular OTs", "Laparoscopic Expertise", "24/7 Emergency Surgery"],
     faq: [
-      { q: "What is immunotherapy?", a: "It is a type of cancer treatment that helps your immune system fight cancer." },
-      { q: "Do you offer cancer screening?", a: "Yes, we have specialized screening packages for breast, cervical, and oral cancers." }
-    ]
-  },
-  'internal': {
-    title: "Internal Medicine",
-    subtitle: "Comprehensive Adult Care",
-    desc: "The foundation of healthcare at Umang. Our Internal Medicine department manages chronic illnesses, infectious diseases, and complex multi-system disorders with a preventive approach.",
-    img: ASSETS.SVC_GENERAL_MEDICINE,
-    procedures: [
-      "Management of Diabetes & Hypertension",
-      "Infectious Disease Treatment",
-      "Geriatric (Elderly) Care",
-      "Preventive Health Checkups",
-      "Critical Care Consultation",
-      "Lifestyle Counseling"
-    ],
-    tech: [
-      { title: "Point-of-Care Diagnostics", desc: "Rapid bedside testing for immediate results." },
-      { title: "Digital Vitals Monitoring", desc: "Real-time tracking of patient health parameters." },
-      { title: "Advanced Pathology Lab", desc: "24/7 NABL certified diagnostic support." }
-    ],
-    faq: [
-      { q: "How often should I get a health checkup?", a: "Adults above 30 should get a comprehensive health screening at least once a year." },
-      { q: "Do you manage chronic lifestyle diseases?", a: "Yes, we specialize in long-term management of diabetes, thyroid disorders, and hypertension." }
-    ]
-  },
-  'nephrology': {
-    title: "Nephrology",
-    subtitle: "Kidney Health & Dialysis",
-    desc: "Dedicated to the prevention, diagnosis, and treatment of kidney diseases. Our state-of-the-art dialysis unit and transplant program offer hope and healing.",
-    img: ASSETS.DIALYSIS,
-    procedures: [
-      "Hemodialysis",
-      "Peritoneal Dialysis",
-      "Kidney Biopsy",
-      "Kidney Transplant Care",
-      "Critical Care Nephrology",
-      "Hypertension Management"
-    ],
-    tech: [
-      { title: "Online HDF Machines", desc: "For better toxin removal during dialysis." },
-      { title: "CRRT", desc: "Continuous Renal Replacement Therapy for critical patients." },
-      { title: "RO Water Plant", desc: "Ensures ultra-pure water for dialysis." }
-    ],
-    faq: [
-      { q: "What is dialysis?", a: "It is a procedure to remove waste and excess fluid from the blood when the kidneys stop working properly." },
-      { q: "How can I prevent kidney disease?", a: "Control blood pressure and diabetes, stay hydrated, and avoid over-the-counter painkillers." }
-    ]
-  },
-  'pain-management': {
-    title: "Pain Management",
-    subtitle: "Relief & Rehabilitation",
-    desc: "Chronic pain can significantly impact quality of life. Our Pain Management clinic offers multidisciplinary care to diagnose, treat, and manage chronic pain conditions using advanced interventional techniques and holistic therapies.",
-    img: ASSETS.RECEPTION,
-    procedures: [
-      "Interventional Pain Procedures",
-      "Nerve Blocks & Epidural Injections",
-      "Radiofrequency Ablation",
-      "Spinal Cord Stimulation",
-      "Myofascial Trigger Point Therapy",
-      "Cancer Pain Management"
-    ],
-    tech: [
-      { title: "C-Arm Fluoroscopy", desc: "Real-time imaging for precise injection placement." },
-      { title: "Radiofrequency Generator", desc: "For targeted nerve ablation therapy." }
-    ],
-    faq: [
-      { q: "What conditions do you treat?", a: "We treat back pain, neck pain, sciatica, arthritis, neuropathic pain, and cancer-related pain." },
-      { q: "Is pain management surgery?", a: "Most treatments are minimally invasive procedures or non-surgical therapies, distinct from major surgery." }
+      { q: "What are the benefits of laparoscopic surgery?", a: "Smaller incisions, less pain, faster discharge, and minimal scarring." },
+      { q: "Are emergency surgeries available?", a: "Yes, one operation theatre is reserved 24×7 for emergency surgical cases." }
     ]
   },
   'gynecology': {
-    title: "Gynecology & Obstetrics",
+    title: "Obstetrics and Gynecology",
     subtitle: "Women's Health Excellence",
-    desc: "Comprehensive care for women at every stage of life. From adolescence to menopause, our expert gynecologists provide personalized treatment for reproductive health, maternity care, and gynecological surgeries.",
+    desc: "Comprehensive reproductive health care and gynecological services. From high-risk pregnancy management to advanced laparoscopic surgeries.",
     img: ASSETS.CONSULTATION,
+    category: "medical",
     procedures: [
-      "Normal & High-Risk Delivery",
+      "Antenatal & Post-natal Care",
+      "Normal & C-Section Delivery",
+      "High-Risk Pregnancy Management",
       "Laparoscopic Hysterectomy",
-      "Infertility Treatment",
-      "PCOS/PCOD Management",
-      "Menopause Clinic",
-      "Gynecological Oncology Screening"
+      "PCOD/PCOS Management",
+      "Infertility Treatment (IUI)"
     ],
     tech: [
-      { title: "4D Ultrasound", desc: "Detailed imaging for fetal monitoring and diagnostics." },
-      { title: "Colposcopy", desc: "For early detection of cervical cancer." },
-      { title: "Laparoscopic Suite", desc: "Minimally invasive gynecological surgeries." }
+      { title: "4D Ultrasound", desc: "Advanced foetal monitoring and diagnostics." },
+      { title: "Colposcopy", desc: "Early detection of gynecological cancers." },
+      { title: "Foetal Medicine", desc: "Specialized monitoring for high-risk babies." }
     ],
+    bullets: ["Normal & High-Risk Delivery", "Laparoscopic Gynae Surgery", "Infertility Clinic"],
     faq: [
-      { q: "Do you handle high-risk pregnancies?", a: "Yes, our team is equipped to manage complex pregnancies with a fully backed NICU." },
-      { q: "What is minimally invasive hysterectomy?", a: "It involves removing the uterus through small incisions, leading to less pain and faster recovery compared to open surgery." }
+      { q: "Do you have a NICU?", a: "NICU status is currently being verified. For high-risk births, please discuss with our medical team." },
+      { q: "Do you handle menstrual problems?", a: "Yes, we provide specialized clinics for irregular periods, PCOD, and menopause." }
     ]
   },
-  'physiotherapy': {
-    title: "Physiotherapy & Rehabilitation",
-    subtitle: "Restoring Movement & Strength",
-    desc: "Our physiotherapy department works closely with orthopedics and neurology teams to help patients recover faster. We offer customized rehabilitation programs for post-surgery recovery, sports injuries, and chronic mobility issues.",
-    img: ASSETS.NURSE_CARE,
+  'icu': {
+    title: "Critical Care Medicine / ICU",
+    subtitle: "Intensive Monitoring & Life Support",
+    desc: "Advanced 52-bed ICU infrastructure bringing expertise and technology together for patients who need minute-by-minute observation and life support.",
+    img: ASSETS.SVC_ICU_ADVANCE,
+    category: "support",
     procedures: [
-      "Post-Operative Rehabilitation",
-      "Sports Injury Management",
-      "Neuro-Rehabilitation (Stroke/Spine)",
-      "Manual Therapy",
-      "Electrotherapy",
-      "Geriatric Rehabilitation"
+      "Ventilator Support",
+      "Multi-Organ Failure Management",
+      "Post-Major Surgery Recovery",
+      "Sepsis & Infection Control",
+      "Continuous Hemodynamic Monitoring",
+      "Emergency Resuscitation"
     ],
     tech: [
-      { title: "Laser Therapy Unit", desc: "Advanced laser for pain relief and tissue healing." },
-      { title: "Ultrasound Therapy", desc: "For treating deep tissue injuries." },
-      { title: "Gait Training Lab", desc: "Specialized equipment to improve walking and balance." }
+      { title: "High-End Ventilators", desc: "Precision respiratory support." },
+      { title: "Central Monitoring", desc: "Continuous vitals tracking for every bed." },
+      { title: "Intensivist Coverage", desc: "24×7 critical care doctor presence." }
     ],
+    bullets: ["52 ICU Beds", "24/7 Intensivist", "Advanced Ventilators"],
     faq: [
-      { q: "Do I need a referral for physiotherapy?", a: "While a referral is helpful, you can also consult our physiotherapists directly for assessment." },
-      { q: "How long is a typical session?", a: "Sessions usually last between 45 to 60 minutes, depending on the personalized treatment plan." }
+      { q: "What is the ICU visiting policy?", a: "Visiting is restricted to 2 short sessions per day to ensure patient safety and infection control." },
+      { q: "How many beds are in your ICU?", a: "We have a total of 52 ICU beds, including specialized SICU and CCU units." }
     ]
   }
 };
-
-

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Star, ArrowRight, ChevronRight, Award, ShieldCheck, Stethoscope } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { doctors } from '../../utils/doctorsData';
+import { siteConfig } from '../../config/siteConfig';
 import CountUp from '../../components/common/CountUp';
 
 const PremiumDoctors = () => {
@@ -50,7 +51,7 @@ const PremiumDoctors = () => {
              viewport={{ once: true }}
            >
              <Link to="/doctors" className="group flex items-center gap-4 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-[11px] font-bold text-white hover:bg-white hover:text-brand-dark transition-all duration-300 backdrop-blur-sm uppercase tracking-widest">
-                Explore <CountUp to={100} />+ Doctors <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+                Explore <CountUp to={parseInt(siteConfig.stats.superspecialists)} />+ Specialists <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
              </Link>
            </motion.div>
         </div>

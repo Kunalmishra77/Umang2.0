@@ -2,12 +2,13 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
   ChevronRight, Target, Eye, Quote, ShieldCheck, Heart, Users, 
-  Award, ArrowRight, Activity, Phone, Calendar, CheckCircle2, Star, Microscope, Zap
+  Award, ArrowRight, Activity, Phone, Calendar, Star, Microscope, Zap
 } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 import ParallaxImage from '../../components/common/ParallaxImage';
+import { siteConfig } from '../../config/siteConfig';
+import SeoHead from '../../components/common/SeoHead';
 
 const About = () => {
   const containerRef = useRef(null);
@@ -26,24 +27,20 @@ const About = () => {
       className="bg-white overflow-hidden relative font-sans"
       style={{ position: 'relative' }}
     >
-      <Helmet>
-        <title>Our Story & Legacy | Umang Superspeciality Hospital</title>
-        <meta name="description" content="Discover the legacy of Umang Hospital. 15+ years of clinical excellence, advanced infrastructure, and compassionate care in Gurugram." />
-      </Helmet>
+      <SeoHead 
+        title="Our Story & Legacy" 
+        description={`Discover the legacy of ${siteConfig.name}. 15+ years of clinical excellence, 150-bedded infrastructure, and compassionate care in Gurugram.`}
+        canonical="/about"
+      />
 
       {/* SECTION 1: CINEMATIC HERO */}
       <section className="relative min-h-[500px] md:h-[60vh] lg:h-[70vh] flex items-center justify-center overflow-hidden bg-brand-dark">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster={ASSETS.ABOUT_BANNER}
+          <img 
+            src={ASSETS.ABOUT_BANNER} 
+            alt="Umang Hospital Legacy" 
             className="w-full h-full object-cover opacity-70 scale-110"
-          >
-            <source src={ASSETS.ABOUT_BANNER_VIDEO} type="video/mp4" />
-          </video>
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-transparent to-brand-dark/60" />
         </motion.div>
         
@@ -57,7 +54,7 @@ const About = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-cyan-200 to-primary-400 italic">Excellence.</span>
             </h1>
             <p className="text-base md:text-lg text-white max-w-3xl mx-auto mb-8 font-medium leading-relaxed px-4 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
-              More than a hospital, Umang is a sanctuary of healing where medical science meets deep human compassion.
+              More than a hospital, {siteConfig.shortName} is a sanctuary of healing where medical science meets deep human compassion.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
                <button onClick={() => document.getElementById('purpose').scrollIntoView({ behavior: 'smooth' })} className="px-6 py-3 bg-white text-brand-dark rounded-full font-bold text-[12px] uppercase tracking-widest hover:bg-primary-50 transition-all shadow-2xl">
@@ -81,9 +78,9 @@ const About = () => {
                 Guided by <span className="text-primary-600">Vision,</span> <br />Driven by Mission.
               </h2>
               <p className="text-gray-600 text-sm lg:text-base font-light leading-relaxed mb-10 max-w-[65ch]">
-                We are a 100-bedded super speciality hospital in Gurugram, where care and expertise unite. We're committed to your well-being. Trust Umang Hospital for comprehensive care that makes a difference.
+                We are a {siteConfig.stats.beds}-bedded super speciality hospital in Gurugram, where care and expertise unite. {siteConfig.marketingMessage}. Trust {siteConfig.shortName} for comprehensive care that makes a difference.
                 <br /><br />
-                It is a modern 150-bedded healthcare facility with world-class Intensive Care Units, including 28 ICU beds, 8 SICU and 7 CCU (Cardiac Care beds). The hospital features 3 modular operation theaters, an advanced critical care and dialysis unit, a state-of-the-art CT scan, and ultrasound, and cutting-edge Cath Labs, making it one of the best medical centre in Gurugram.   
+                It is a modern {siteConfig.stats.beds}-bedded healthcare facility with world-class Intensive Care Units, including {siteConfig.stats.icuBedsMarketing} ICU beds ({siteConfig.stats.icuBreakdown.general} General, {siteConfig.stats.icuBreakdown.sicu} SICU and {siteConfig.stats.icuBreakdown.ccu} CCU). The hospital features {siteConfig.infrastructure.ots} modular operation theaters, an advanced critical care unit, a state-of-the-art CT scan, and cutting-edge Cath Labs.   
               </p>
               
               <div className="grid sm:grid-cols-2 gap-5 lg:gap-6">
@@ -99,7 +96,7 @@ const About = () => {
                     <Target className="w-5 h-5" />
                   </div>
                   <h4 className="text-lg font-bold text-brand-dark mb-2">Our Mission</h4>
-                  <p className="text-gray-500 text-[11px] lg:text-sm leading-relaxed">To provide a premium and holistic patient care experience and develop an internal community of trust and respect.</p>
+                  <p className="text-gray-500 text-[11px] lg:text-sm leading-relaxed">To provide advanced, ethical, and compassionate healthcare that is accessible and affordable, with personalized treatment and excellent outcomes.</p>
                 </div>
               </div>
             </motion.div>
@@ -141,10 +138,10 @@ const About = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[ 
-              { icon: Heart, title: "Compassion", desc: "Empathy at every touchpoint of care.", color: "bg-rose-500" },
-              { icon: ShieldCheck, title: "Integrity", desc: "Transparent billing and ethical trials.", color: "bg-primary-500" },
-              { icon: Users, title: "Teamwork", desc: "Multidisciplinary boards for complex cases.", color: "bg-cyan-500" },
-              { icon: Award, title: "Excellence", desc: "Continuous medical education and research.", color: "bg-yellow-500" },
+              { icon: Heart, title: "Compassion", desc: "Empathy at every touchpoint; dignity and respect for all patients.", color: "bg-rose-500" },
+              { icon: ShieldCheck, title: "Integrity", desc: "Transparent billing and clear communication about diagnosis and costs.", color: "bg-primary-500" },
+              { icon: Users, title: "Teamwork", desc: "Multidisciplinary collaboration across major medical specialties.", color: "bg-cyan-500" },
+              { icon: Award, title: "Excellence", desc: "High medical standards and continuous medical education.", color: "bg-yellow-500" },
             ].map((val, idx) => (
               <motion.div 
                 key={idx}
@@ -181,9 +178,9 @@ const About = () => {
               <div className="grid sm:grid-cols-2 gap-6 lg:gap-10">
                 {[
                   { title: "Zero Infection", desc: "Modular OTs with HEPA filters ensuring maximum surgical safety.", icon: ShieldCheck, path: "/infrastructure" },
-                  { title: "Patient Rights", desc: "Transparent care models aligned with NABH quality frameworks.", icon: Heart, path: "/patient-experience" },
-                  { title: "Smart Monitoring", desc: "1:1 nursing ratios in our 28-bed advanced ICU units.", icon: Activity, path: "/infrastructure/icu" },
-                  { title: "Quick Results", desc: "NABL certified labs delivering accurate diagnostics in 4-6 hours.", icon: Microscope, path: "/services/lab-test-diagnostic" }
+                  { title: "Patient Rights", desc: "Ethical care models aligned with NABH quality frameworks.", icon: Heart, path: "/patient-experience" },
+                  { title: "Critical Care", desc: `Large ${siteConfig.stats.icuBedsMarketing}-bed ICU capacity with 24/7 intensivist coverage.`, icon: Activity, path: "/infrastructure/icu" },
+                  { title: "24/7 Diagnostics", desc: "In-house lab and imaging delivering accurate results round-the-clock.", icon: Microscope, path: "/services/lab-test-diagnostic" }
                 ].map((item, i) => (
                   <motion.div 
                     key={i} 
@@ -237,7 +234,7 @@ const About = () => {
                   >
                     <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-white/10 rounded-full blur-3xl" />
                     <Users className="w-8 h-8 text-white/40 mb-4" />
-                    <h4 className="text-4xl lg:text-5xl font-black mb-2 tracking-tighter">100+</h4>
+                    <h4 className="text-4xl lg:text-5xl font-black mb-2 tracking-tighter">{siteConfig.stats.superspecialists}</h4>
                     <p className="text-[11px] font-bold uppercase tracking-[0.2em] opacity-90">Specialists</p>
                   </motion.div>
 
@@ -291,10 +288,10 @@ const About = () => {
                
                <div className="space-y-16 lg:space-y-32">
                   {[ 
-                    { year: '2010', title: 'The Foundation', desc: 'Umang opens its doors as a 50-bed focused care unit. Driven by a mission to bring accessible, world-class healthcare to Gurugram.', align: 'left', img: ASSETS.HOSPITAL_EXTERIOR },
-                    { year: '2015', title: 'Technological Leap', desc: 'A major upgrade to a 100-bed facility. We installed the region\'s first 128-slice CT scan and inaugurated our advanced 24/7 Pathology Lab.', align: 'right', img: ASSETS.ABOUT_LEAP },
+                    { year: '2010', title: 'The Foundation', desc: `Umang opens its doors as a 50-bed focused care unit. Driven by a mission to bring accessible, world-class healthcare to Gurugram.`, align: 'left', img: ASSETS.HOSPITAL_EXTERIOR },
+                    { year: '2015', title: 'Technological Leap', desc: `A major upgrade to a ${siteConfig.stats.beds}-bed facility. We installed the region's first 128-slice CT scan and inaugurated our advanced 24/7 Pathology Lab.`, align: 'right', img: ASSETS.ABOUT_LEAP },
                     { year: '2020', title: 'Super Speciality Beacon', desc: 'Launch of dedicated Cardiac and Neuro Sciences wings. In the very first year, our team successfully performed over 1,000 procedures.', align: 'left', img: ASSETS.ABOUT_BEACON },
-                    { year: '2024', title: 'NABH Gold Standard', desc: 'Expanding to 150 beds with state-of-the-art Robotic OT suites and high-clearance 3T MRI. Achieving the highest national accreditation.', align: 'right', img: ASSETS.ABOUT_NABH },
+                    { year: '2024', title: 'NABH Gold Standard', desc: `Expanding to ${siteConfig.stats.beds} beds with state-of-the-art Robotic OT suites and comprehensive critical care infrastructure. Achieving high national accreditation.`, align: 'right', img: ASSETS.ABOUT_NABH },
                   ].map((item, i) => (
                      <motion.div 
                         key={i} 
@@ -344,11 +341,11 @@ const About = () => {
          <div className="container-custom">
             <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 min-h-[460px] lg:min-h-[520px]">
                <div className="lg:col-span-8 relative rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden group shadow-2xl h-[400px] lg:h-auto">
-                  <img src={ASSETS.ABOUT_100_BEDS} alt="OT" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/20 to-transparent" />
+                  <img src={ASSETS.ABOUT_100_BEDS} alt="150-bedded Elite Facility" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent" />
                   <div className="absolute bottom-8 right-8 lg:bottom-10 lg:right-10 max-w-xl pl-8 text-right">
                      <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[12px] mb-3 lg:mb-4 block">Medical Hub</span>
-                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white mb-6 leading-tight">100-Bedded Elite Facility</h3>
+                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white mb-6 leading-tight">{siteConfig.stats.beds}-bedded Elite Facility</h3>
                      <Link to="/infrastructure" className="inline-flex items-center gap-3 px-6 py-3 lg:px-8 lg:py-4 bg-white text-brand-dark rounded-full font-bold text-[11px] lg:text-sm hover:bg-primary-50 transition-all ml-auto">
                         Virtual Tour <ArrowRight className="w-4 h-4" />
                      </Link>
@@ -368,9 +365,9 @@ const About = () => {
                      <div>
                         <h4 className="text-lg lg:text-xl font-bold mb-4 lg:mb-6">Quick Stats</h4>
                         <ul className="space-y-3 lg:space-y-4 text-gray-300 font-medium text-[12px] lg:text-sm">
-                           <li className="flex justify-between border-b border-white/10 pb-2 lg:pb-3"><span>ICU Beds</span> <span className="text-white font-bold">40+</span></li>
-                           <li className="flex justify-between border-b border-white/10 pb-2 lg:pb-3"><span>Modular OTs</span> <span className="text-white font-bold">03</span></li>
-                           <li className="flex justify-between border-b border-white/10 pb-2 lg:pb-3"><span>Specialists</span> <span className="text-white font-bold">100+</span></li>
+                           <li className="flex justify-between border-b border-white/10 pb-2 lg:pb-3"><span>ICU Beds</span> <span className="text-white font-bold">{siteConfig.stats.icuBedsMarketing}</span></li>
+                           <li className="flex justify-between border-b border-white/10 pb-2 lg:pb-3"><span>Modular OTs</span> <span className="text-white font-bold">{siteConfig.infrastructure.ots}</span></li>
+                           <li className="flex justify-between border-b border-white/10 pb-2 lg:pb-3"><span>Specialists</span> <span className="text-white font-bold">{siteConfig.stats.superspecialists}</span></li>
                         </ul>
                      </div>
                      <Link to="/doctors" className="flex items-center gap-2 text-primary-400 font-bold hover:gap-4 transition-all text-[11px] lg:text-sm uppercase tracking-wider mt-4">
@@ -400,7 +397,7 @@ const About = () => {
                   <span className="section-subtitle">Global Footprint</span>
                   <h2 className="text-2xl lg:text-4xl font-serif font-bold text-brand-dark mb-6 leading-tight">A Premier Medical <br /><span className="text-primary-600">Destination.</span></h2>
                   <p className="text-gray-600 text-sm lg:text-base font-light leading-relaxed mb-8">
-                     Umang Hospital is a preferred choice for international patients seeking high-quality surgical procedures. Our dedicated International Desk ensures a seamless journey from visa assistance to post-discharge care.
+                     {siteConfig.shortName} is a preferred choice for international patients seeking high-quality surgical procedures. Our dedicated International Desk ensures a seamless journey from visa assistance to post-discharge care.
                   </p>
                   <div className="grid sm:grid-cols-2 gap-4 mb-10">
                      {[ "International Desk", "Interpreter Services", "Concierge Care", "Global Follow-ups"].map((item, i) => (
@@ -428,12 +425,12 @@ const About = () => {
          <div className="container-custom relative z-10 text-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
                <Star className="w-10 h-10 lg:w-12 lg:h-12 text-yellow-400 fill-current mx-auto mb-6 lg:mb-8 animate-pulse" />
-               <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-8 lg:mb-10 tracking-tighter leading-tight">Ready to experience <br />the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300 italic">Umang difference?</span></h2>
+               <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-8 lg:mb-10 tracking-tighter leading-tight">Ready to experience <br />the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300 italic">{siteConfig.shortName.split(' ')[0]} difference?</span></h2>
                <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
                   <Link to="/doctors" className="px-8 py-4 lg:px-10 lg:py-5 bg-white text-brand-dark rounded-full font-bold text-sm lg:text-base shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-3">
                      Book an Appointment <Calendar className="w-5 h-5" />
                   </Link>
-                  <a href="tel:+918929733550" className="px-8 py-4 lg:px-10 lg:py-5 border border-white/20 text-white rounded-full font-bold text-sm lg:text-base backdrop-blur-md hover:bg-white/10 transition-all flex items-center justify-center gap-3">
+                  <a href={`tel:${siteConfig.contacts.emergency}`} className="px-8 py-4 lg:px-10 lg:py-5 border border-white/20 text-white rounded-full font-bold text-sm lg:text-base backdrop-blur-md hover:bg-white/10 transition-all flex items-center justify-center gap-3">
                      Call 24/7 Helpline <Phone className="w-5 h-5" />
                   </a>
                </div>

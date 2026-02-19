@@ -194,7 +194,7 @@ const IcuPage = () => {
                     <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Prepared for the <span className="text-primary-400 italic">Unexpected.</span></h2>
                     <div className="flex justify-center gap-6">
                         <a href="tel:+918929733550" className="px-10 py-5 bg-white text-brand-dark rounded-full font-bold text-sm uppercase tracking-widest hover:bg-primary-50 transition-all shadow-2xl active:scale-95 duration-300">
-                            Emergency: +91 89297 33550
+                            Emergency: +91 89297 33551
                         </a>
                     </div>
                 </div>

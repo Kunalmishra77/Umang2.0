@@ -26,6 +26,8 @@ import HealthLibrary from './pages/health-library/HealthLibrary';
 import PatientCorner from './pages/patient-corner/PatientCorner';
 import MediaCenter from './pages/media-center/MediaCenter';
 import Team from './pages/our-team/Team';
+import Leadership from './pages/our-team/Leadership';
+import NursingStaff from './pages/our-team/NursingStaff';
 import DynamicSubPage from './pages/services/DynamicSubPage';
 import SecondOpinion from './pages/services/SecondOpinion';
 import LabDiagnostics from './pages/services/LabDiagnostics';
@@ -92,6 +94,8 @@ function App() {
           <Route path="specialities/:id" element={<SpecialityDetail />} />
           <Route path="doctors" element={<DoctorSearch />} />
           <Route path="team" element={<Team />} />
+          <Route path="team/leadership" element={<Leadership />} />
+          <Route path="team/nursing" element={<NursingStaff />} />
           
           <Route path="services" element={<Services />} />
           <Route path="services/lab-test-diagnostic" element={<LabDiagnostics />} />

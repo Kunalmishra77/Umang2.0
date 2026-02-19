@@ -5,6 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\Api\CmsController;
+use App\Http\Controllers\Api\LeadController;
+
+// Lead Generation Routes
+Route::post('/callback', [LeadController::class, 'callback']);
+Route::post('/appointment-request', [LeadController::class, 'appointment']);
+Route::post('/contact-inquiry', [LeadController::class, 'contact']);
 
 // CMS Public Routes
 Route::get('/pages/{slug}', [CmsController::class, 'getPage']);

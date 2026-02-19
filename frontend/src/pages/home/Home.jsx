@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import HeroSection from '../../components/home/HeroSection';
 import HospitalVideoSection from '../../components/home/HospitalVideoSection';
 import SpecialitiesSection from '../../components/home/SpecialitiesSection';
@@ -21,10 +21,11 @@ const Home = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Umang Superspeciality Hospital | World-Class Healthcare in Gurugram</title>
-        <meta name="description" content="Umang Hospital offers advanced medical care with a patient-centric approach. Book appointments with top doctors in Cardiology, Neurology, and more." />
-      </Helmet>
+      <SeoHead 
+        title="Umang Superspeciality Hospital" 
+        description="World-class healthcare in Gurugram. 150-bedded facility with advanced Cardiology, Neurology, Orthopaedics, and 24/7 Emergency care."
+        canonical="/"
+      />
 
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-primary-500 origin-left z-[200]"

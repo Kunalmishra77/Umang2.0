@@ -55,7 +55,7 @@ const MedicalUpgrades = () => {
               Built for <span className="text-primary-600 italic">Precision.</span>
             </h2>
             <p className="text-gray-500 mt-6 text-sm lg:text-lg font-light leading-relaxed max-w-[55ch]">
-              Experience Gurugram's most advanced 100-bedded superspeciality facility, engineered for clinical excellence.
+              Experience Gurugram's most advanced 150-bedded superspeciality facility, engineered for clinical excellence.
             </p>
           </motion.div>
           <motion.div

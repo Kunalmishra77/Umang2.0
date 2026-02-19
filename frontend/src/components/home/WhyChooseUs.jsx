@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, Zap, Clock, Award, CheckCircle2, MoveRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
+import { siteConfig } from '../../config/siteConfig';
 import CountUp from '../../components/common/CountUp';
 
 const containerVariants = {
@@ -25,8 +26,8 @@ const itemVariants = {
 const WhyChooseUs = () => {
   const chooseItems = [
     {
-      title: "150-Bed Infrastructure",
-      desc: "A massive facility featuring 28 ICU beds, Modular OTs, and specialized units for rapid recovery.",
+      title: `${siteConfig.stats.beds}-Bed Infrastructure`,
+      desc: `A massive facility featuring ${siteConfig.stats.icuBedsMarketing} ICU beds, Modular OTs, and specialized units for rapid recovery.`,
       icon: ShieldCheck,
       img: ASSETS.HOSPITAL_EXTERIOR,
       video: "/assets/Home/150 bed .mp4",
@@ -57,7 +58,7 @@ const WhyChooseUs = () => {
       title: "Clinical Excellence",
       desc: "NABH accredited standards ensuring world-class safety and clinical outcomes.",
       icon: Award,
-      img: ASSETS.GASTRO,
+      img: ASSETS.ABOUT_NABH,
       video: "/assets/Home/clinical excelence.mp4",
       span: "md:col-span-2",
       path: "/about",
@@ -158,8 +159,8 @@ const WhyChooseUs = () => {
 
                   {item.stat && (
                     <div className="shrink-0 flex flex-col items-center justify-center p-4 lg:p-6 bg-white/5 backdrop-blur-2xl rounded-[1.5rem] border border-white/10 shadow-2xl min-w-[110px] group-hover:bg-primary-500/10 transition-colors">
-                      <span className="text-2xl lg:text-3xl font-black text-white tracking-tighter mb-0.5"><CountUp to={52} />+</span>
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-400">Doctors</span>
+                      <span className="text-2xl lg:text-3xl font-black text-white tracking-tighter mb-0.5"><CountUp to={parseInt(siteConfig.stats.superspecialists)} />+</span>
+                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-400">Specialists</span>
                     </div>
                   )}
                 </div>

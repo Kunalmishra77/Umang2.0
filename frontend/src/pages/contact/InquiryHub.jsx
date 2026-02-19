@@ -4,39 +4,56 @@ import { Helmet } from 'react-helmet-async';
 import { 
   Plus, MessageSquare, Briefcase, Globe, Ambulance, Heart, 
   ArrowRight, CheckCircle, Info, Phone, Mail, MapPin,
-  Smile, ShieldCheck, Clock, Download
+  Smile, ShieldCheck, Clock, Download, Loader2
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLeadForm } from '../../hooks/useLeadForm';
+import SeoHead from '../../components/common/SeoHead';
+import { siteConfig } from '../../config/siteConfig';
 
 const InquiryHub = () => {
   const [activeForm, setActiveForm] = useState('general'); // general, corporate, feedback
-  const [submitted, setSubmitted] = useState(false);
-  const [downloading, setDownloading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    contact: '',
+    message: ''
+  });
 
-  const handleDownload = () => {
-    setDownloading(true);
-    setTimeout(() => setDownloading(false), 2000);
-  };
+  const { submitForm, loading, success, error, reset } = useLeadForm(
+    activeForm === 'feedback' ? 'contact' : (activeForm === 'corporate' ? 'contact' : 'contact')
+  );
 
   const scrollToForm = (type) => {
     setActiveForm(type);
     document.getElementById('inquiry-form').scrollIntoView({ behavior: 'smooth' });
   };
 
-  const handleSubmit = (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      alert("Request Submitted. Our representative will contact you within 24 hours.");
-    }, 2000);
+    const payload = {
+      name: formData.name,
+      phone: formData.contact.includes('@') ? '' : formData.contact,
+      email: formData.contact.includes('@') ? formData.contact : '',
+      inquiry_type: activeForm,
+      message: formData.message,
+      source_page: 'Inquiry Hub'
+    };
+    
+    await submitForm(payload);
   };
 
   return (
     <div className="bg-white min-h-screen pt-12">
-      <Helmet>
-        <title>Specific Inquiries & Support | Umang Hospital</title>
-      </Helmet>
+      <SeoHead 
+        title="Specific Inquiries & Support" 
+        description="Dedicated desks for international patients, corporate wellness, and patient feedback at Umang Hospital."
+        canonical="/contact/inquiry-hub"
+      />
 
       {/* 1. Hero Section */}
       <section className="relative min-h-[500px] flex items-center bg-[#0f172a] overflow-hidden">
@@ -102,44 +119,6 @@ const InquiryHub = () => {
          </div>
       </section>
 
-      {/* 3. Corporate Tie-ups Section */}
-      <section className="py-32 bg-gray-50">
-         <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
-            <div className="relative">
-               <div className="absolute inset-0 bg-blue-100 rounded-[4rem] rotate-3" />
-               <img src="/assets/images/localized/corporate-office.jpg" alt="Corporate" className="relative rounded-[4rem] shadow-2xl w-full h-[500px] object-cover" />
-               <div className="absolute bottom-10 right-10 bg-[#005580] text-white p-8 rounded-[3rem] shadow-2xl max-w-[250px]">
-                  <h4 className="text-3xl font-serif font-bold mb-2">500+</h4>
-                  <p className="text-sm opacity-80">Corporates already empanelled with Umang Group.</p>
-               </div>
-            </div>
-            <div>
-               <span className="text-[#005580] font-black text-[10px] uppercase tracking-[0.3em] mb-6 block">B2B Partnerships</span>
-               <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-8 leading-tight">Partner with India's <br />Best for Healthcare.</h2>
-               <p className="text-gray-500 text-lg leading-relaxed mb-10">
-                  We offer end-to-end healthcare solutions for businesses, including pre-employment checkups, annual physicals, and specialized occupational health programs.
-               </p>
-               <div className="grid grid-cols-2 gap-6 mb-12">
-                  <div className="flex items-center gap-3 font-bold text-[#0f172a] text-sm">
-                     <CheckCircle className="w-5 h-5 text-green-500" /> Cashless Benefits
-                  </div>
-                  <div className="flex items-center gap-3 font-bold text-[#0f172a] text-sm">
-                     <CheckCircle className="w-5 h-5 text-green-500" /> On-site Camps
-                  </div>
-                  <div className="flex items-center gap-3 font-bold text-[#0f172a] text-sm">
-                     <CheckCircle className="w-5 h-5 text-green-500" /> Wellness Webinars
-                  </div>
-                  <div className="flex items-center gap-3 font-bold text-[#0f172a] text-sm">
-                     <CheckCircle className="w-5 h-5 text-green-500" /> Priority Booking
-                  </div>
-               </div>
-               <button onClick={() => scrollToForm('corporate')} className="h-16 px-10 rounded-full bg-[#0f172a] text-white font-black text-lg hover:bg-[#005580] transition-all shadow-xl">
-                  Contact Corporate Desk
-               </button>
-            </div>
-         </div>
-      </section>
-
       {/* 4. Inquiry & Feedback Hub Form */}
       <section id="inquiry-form" className="py-32 bg-white">
          <div className="container-custom">
@@ -156,7 +135,7 @@ const InquiryHub = () => {
                      ].map(tab => (
                         <button 
                            key={tab.id}
-                           onClick={() => setActiveForm(tab.id)}
+                           onClick={() => { setActiveForm(tab.id); reset(); }}
                            className={`w-full flex items-center justify-between p-6 rounded-3xl border-2 transition-all ${activeForm === tab.id ? 'bg-white text-[#005580] border-white shadow-xl' : 'bg-transparent text-white border-white/20 hover:bg-white/5'}`}
                         >
                            <span className="flex items-center gap-4 font-bold">
@@ -169,65 +148,85 @@ const InquiryHub = () => {
                </div>
 
                <div className="lg:w-7/12 relative z-10">
-                  <form onSubmit={handleSubmit} className="bg-white rounded-[3rem] p-10 shadow-2xl text-gray-900 grid grid-cols-1 md:grid-cols-2 gap-8">
-                     <div className="md:col-span-2">
-                        <h3 className="text-2xl font-serif font-bold text-[#0f172a] mb-2 capitalize">{activeForm} Request</h3>
-                        <p className="text-gray-500 text-sm">Please provide accurate information for a faster resolution.</p>
-                     </div>
-                     <div className="space-y-2">
-                        <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Full Name</label>
-                        <input type="text" required className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent" placeholder="John Doe" />
-                     </div>
-                     <div className="space-y-2">
-                        <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Phone / Email</label>
-                        <input type="text" required className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent" placeholder="+91 / mail@" />
-                     </div>
-                     <div className="md:col-span-2 space-y-2">
-                        <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Your Message</label>
-                        <textarea rows="3" required className="w-full border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent resize-none" placeholder="Describe your requirement..."></textarea>
-                     </div>
-                     <div className="md:col-span-2 pt-8">
-                        <button type="submit" className="w-full h-16 bg-[#0f172a] text-white rounded-2xl font-black text-lg hover:bg-[#005580] transition-all shadow-xl">
-                           Submit Inquiry Hub Request
-                        </button>
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-      </section>
+                  {success ? (
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="bg-white rounded-[3rem] p-16 shadow-2xl text-center text-gray-900"
+                    >
+                      <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
+                        <CheckCircle className="w-10 h-10" />
+                      </div>
+                      <h3 className="text-3xl font-serif font-bold text-[#0f172a] mb-4">Request Submitted</h3>
+                      <p className="text-gray-500 mb-8">Thank you for reaching out. Our representative will contact you shortly.</p>
+                      <button 
+                        onClick={() => { reset(); setFormData({ name: '', contact: '', message: '' }); }}
+                        className="px-8 py-4 bg-[#005580] text-white rounded-xl font-bold"
+                      >
+                        Send Another Request
+                      </button>
+                    </motion.div>
+                  ) : (
+                    <form onSubmit={handleSubmit} className="bg-white rounded-[3rem] p-10 shadow-2xl text-gray-900 grid grid-cols-1 md:grid-cols-2 gap-8">
+                       <div className="md:col-span-2">
+                          <h3 className="text-2xl font-serif font-bold text-[#0f172a] mb-2 capitalize">{activeForm} Request</h3>
+                          <p className="text-gray-500 text-sm">Please provide accurate information for a faster resolution.</p>
+                       </div>
+                       <div className="space-y-2">
+                          <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Full Name</label>
+                          <input 
+                            name="name"
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            type="text" 
+                            required 
+                            className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent" 
+                            placeholder="John Doe" 
+                          />
+                       </div>
+                       <div className="space-y-2">
+                          <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Phone / Email</label>
+                          <input 
+                            name="contact"
+                            value={formData.contact}
+                            onChange={handleInputChange}
+                            type="text" 
+                            required 
+                            className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent" 
+                            placeholder="+91 / mail@" 
+                          />
+                       </div>
+                       <div className="md:col-span-2 space-y-2">
+                          <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Your Message</label>
+                          <textarea 
+                            name="message"
+                            value={formData.message}
+                            onChange={handleInputChange}
+                            rows="3" 
+                            required 
+                            className="w-full border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent resize-none" 
+                            placeholder="Describe your requirement..."
+                          ></textarea>
+                       </div>
 
-      {/* 5. International Patient Desk */}
-      <section className="py-32 bg-gray-50 overflow-hidden">
-         <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
-            <div className="order-2 lg:order-1">
-               <span className="text-[#005580] font-black text-[10px] uppercase tracking-[0.3em] mb-6 block">Medical Tourism</span>
-               <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-8 leading-tight">Global Care, <br />Global Patients.</h2>
-               <p className="text-gray-500 text-lg leading-relaxed mb-10">
-                  Every year, thousands of patients from over 30 countries travel to Umang Hospital for advanced surgical procedures. Our International Patient Desk provides end-to-end concierge services.
-               </p>
-               <div className="space-y-6 mb-12">
-                  <motion.div 
-                     onClick={handleDownload}
-                     whileHover={{ scale: 1.02 }}
-                     className="flex items-center gap-4 p-6 bg-white rounded-3xl border border-gray-100 shadow-sm cursor-pointer group"
-                  >
-                     <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-[#005580] group-hover:text-white transition-all">
-                        {downloading ? <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" /> : <Download className="w-6 h-6" />}
-                     </div>
-                     <div>
-                        <h4 className="font-bold text-[#0f172a]">{downloading ? 'Preparing File...' : 'Patient Concierge Guide'}</h4>
-                        <p className="text-xs text-gray-400">Download PDF (1.2 MB)</p>
-                     </div>
-                  </motion.div>
+                       {error && (
+                         <div className="md:col-span-2 text-red-500 text-sm font-bold">
+                           {error}
+                         </div>
+                       )}
+
+                       <div className="md:col-span-2 pt-8">
+                          <button 
+                            disabled={loading}
+                            type="submit" 
+                            className="w-full h-16 bg-[#0f172a] text-white rounded-2xl font-black text-lg hover:bg-[#005580] transition-all shadow-xl flex items-center justify-center gap-3 disabled:opacity-50"
+                          >
+                             {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : 'Submit Inquiry Hub Request'}
+                          </button>
+                       </div>
+                    </form>
+                  )}
                </div>
-               <button onClick={() => scrollToForm('general')} className="h-16 px-10 rounded-full border-2 border-[#0f172a] text-[#0f172a] font-black text-lg hover:bg-[#0f172a] hover:text-white transition-all">
-                  Contact International Desk
-               </button>
-            </div>
-            <div className="order-1 lg:order-2 relative group">
-               <div className="absolute inset-0 bg-blue-500/10 rounded-full blur-[100px] scale-150 animate-pulse" />
-               <img src="/assets/images/localized/media-connect-hero.jpg" alt="Concierge" className="relative rounded-[4rem] shadow-2xl w-full h-[600px] object-cover" />
             </div>
          </div>
       </section>
@@ -240,20 +239,20 @@ const InquiryHub = () => {
                <div>
                   <Phone className="w-12 h-12 text-blue-400 mx-auto mb-6" />
                   <h4 className="text-xl font-bold mb-4">Voice Desk</h4>
-                  <p className="text-blue-200/60 mb-2">Emergency: +91 89297 33550</p>
-                  <p className="text-blue-200/60">OPD Hub: +91 124 456 7890</p>
+                  <p className="text-blue-200/60 mb-2">Emergency: {siteConfig.contacts.emergency}</p>
+                  <p className="text-blue-200/60">OPD Hub: {siteConfig.contacts.main}</p>
                </div>
                <div>
                   <Mail className="w-12 h-12 text-blue-400 mx-auto mb-6" />
                   <h4 className="text-xl font-bold mb-4">Email Assistance</h4>
-                  <p className="text-blue-200/60 mb-2">Inquiry: Umanghospitalgurugram@gmail.com</p>
-                  <p className="text-blue-200/60">Corporate: Umanghospitalgurugram@gmail.com</p>
+                  <p className="text-blue-200/60 mb-2">Inquiry: {siteConfig.contacts.email}</p>
+                  <p className="text-blue-200/60">Corporate: {siteConfig.contacts.email}</p>
                </div>
                <div>
                   <MapPin className="w-12 h-12 text-blue-400 mx-auto mb-6" />
                   <h4 className="text-xl font-bold mb-4">Main Campus</h4>
-                  <p className="text-blue-200/60 mb-2">Sector 55, Golf Course Ext.</p>
-                  <p className="text-blue-200/60">Gurugram, Haryana 122011</p>
+                  <p className="text-blue-200/60 mb-2">{siteConfig.locations.main.address.split(',')[0]}</p>
+                  <p className="text-blue-200/60">{siteConfig.locations.main.address.split(',').slice(1).join(',')}</p>
                </div>
             </div>
          </div>
