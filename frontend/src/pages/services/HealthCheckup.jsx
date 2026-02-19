@@ -14,8 +14,6 @@ const packages = [
     title: "Basic Health Check",
     subtitle: "Essential screening for young adults",
     tests: "40+ Parameters",
-    price: "₹1,499",
-    oldPrice: "₹2,500",
     color: "bg-blue-50 border-blue-100",
     icon: Activity,
     features: ["Complete Blood Count (CBC)", "Blood Sugar (Fasting)", "Lipid Profile (Cholesterol)", "Liver Function Test (LFT)", "Kidney Function Test (KFT)", "Urine Routine"]
@@ -25,8 +23,6 @@ const packages = [
     title: "Executive Full Body",
     subtitle: "Comprehensive analysis for 30+",
     tests: "75+ Parameters",
-    price: "₹3,999",
-    oldPrice: "₹6,000",
     color: "bg-green-50 border-green-100",
     icon: ShieldCheck,
     popular: true,
@@ -37,8 +33,6 @@ const packages = [
     title: "Premium Heart Check",
     subtitle: "Dedicated cardiac assessment",
     tests: "60+ Parameters",
-    price: "₹5,499",
-    oldPrice: "₹8,500",
     color: "bg-red-50 border-red-100",
     icon: Heart,
     features: ["All Executive Tests", "2D Echo / TMT", "Cardiac Risk Markers", "Homocysteine", "Pulmonary Function Test", "Cardiologist Consult"]
@@ -48,8 +42,6 @@ const packages = [
     title: "Senior Citizen Care",
     subtitle: "Specialized geriatric screening",
     tests: "85+ Parameters",
-    price: "₹4,499",
-    oldPrice: "₹7,000",
     color: "bg-orange-50 border-orange-100",
     icon: User,
     features: ["All Executive Tests", "Bone Health Profile", "Prostate / Pap Smear", "Eye & Dental Checkup", "Audiometry", "Geriatric Consult"]
@@ -61,7 +53,7 @@ const HealthCheckup = () => {
     <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Preventive Health Checkups | Umang Hospital</title>
-        <meta name="description" content="Book comprehensive full body checkups starting at ₹1499. Includes blood tests, cardiac screening, and doctor consultation." />
+        <meta name="description" content="Book comprehensive full body checkups. Includes blood tests, cardiac screening, and doctor consultation." />
       </Helmet>
 
       {/* 1. Hero Section - Full Width & Spacious */}
@@ -173,14 +165,11 @@ const HealthCheckup = () => {
 
                      <div className="bg-gray-50 p-8 border-t border-gray-100 flex items-center justify-between">
                         <div>
-                           <div className="flex items-center gap-3 mb-1">
-                              <span className="text-3xl font-bold text-[#0f172a]">{pkg.price}</span>
-                              <span className="text-lg text-gray-400 line-through font-medium">{pkg.oldPrice}</span>
-                           </div>
-                           <p className="text-green-600 text-sm font-bold">{pkg.tests}</p>
+                           <p className="text-green-600 text-lg font-bold">{pkg.tests}</p>
+                           <p className="text-gray-400 text-xs uppercase tracking-widest font-black">Comprehensive screening</p>
                         </div>
                         <Link to="/services/booking/health-checkup" className="h-14 px-8 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-[#005580] transition-all shadow-lg flex items-center gap-2">
-                           Book Now
+                           Enquire Now
                         </Link>
                      </div>
                   </motion.div>
@@ -242,8 +231,8 @@ const HealthCheckup = () => {
                </div>
                <div className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
                   <ShieldCheck className="w-10 h-10 text-cyan-300 mb-6" />
-                  <h4 className="text-xl font-bold mb-3">Lower Costs</h4>
-                  <p className="text-gray-400">Preventive care reduces long-term medical expenses.</p>
+                  <h4 className="text-xl font-bold mb-3">Long-term Wellness</h4>
+                  <p className="text-gray-400">Preventive care ensures sustained health and vitality.</p>
                </div>
                <div className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
                   <Heart className="w-10 h-10 text-cyan-300 mb-6" />

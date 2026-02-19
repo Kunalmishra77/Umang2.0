@@ -2,304 +2,238 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { 
-  Search, FlaskConical, Microscope, Clock, Home, Award, CheckCircle, 
-  ArrowRight, ShieldCheck, FileText, ChevronRight, Phone 
+  Activity, Microscope, TestTube, FlaskConical, Clock, 
+  CheckCircle2, ArrowRight, Download, Smartphone, Heart, 
+  ShieldCheck, Phone, MapPin, Search
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
+import { siteConfig } from '../../config/siteConfig';
 
 const packages = [
   {
     id: 1,
-    title: "Basic Health Checkup",
-    tests: "55+ Tests",
-    includes: ["Complete Hemogram", "Kidney Function Test", "Liver Function Test", "Blood Sugar"],
-    price: "₹999",
-    originalPrice: "₹1999",
-    color: "bg-blue-50 text-blue-700",
-    popular: false
+    title: "Basic Fever Profile",
+    desc: "Essential tests for persistent fever including CBC, Malaria, and Typhoid.",
+    tests: ["CBC with ESR", "Typhidot (IgM & IgG)", "Malaria Parasite (MP)", "Urine Routine"],
+    icon: Activity,
+    color: "bg-blue-50 border-blue-100"
   },
   {
     id: 2,
-    title: "Comprehensive Full Body",
-    tests: "85+ Tests",
-    includes: ["Thyroid Profile", "Iron Deficiency", "Lipid Profile", "Urine Analysis", "Vitamin D"],
-    price: "₹2499",
-    originalPrice: "₹4999",
-    color: "bg-purple-50 text-purple-700",
-    popular: true
+    title: "Healthy Heart Panel",
+    desc: "Complete cardiac risk assessment with lipid and inflammatory markers.",
+    tests: ["Lipid Profile", "HS-CRP", "Homocysteine", "ECG (In-hospital)"],
+    icon: Heart,
+    color: "bg-red-50 border-red-100"
   },
   {
     id: 3,
-    title: "Senior Citizen Care",
-    tests: "70+ Tests",
-    includes: ["HbA1c", "Bone Health", "Cardiac Risk Markers", "Electrolytes"],
-    price: "₹1899",
-    originalPrice: "₹3500",
-    color: "bg-green-50 text-green-700",
-    popular: false
+    title: "Diabetes Screening",
+    desc: "Advanced monitoring for blood glucose and long-term sugar levels.",
+    tests: ["HbA1c", "Glucose (Fasting/PP)", "Microalbuminuria", "Creatinine"],
+    icon: ShieldCheck,
+    color: "bg-green-50 border-green-100"
   },
   {
     id: 4,
-    title: "Women's Wellness",
-    tests: "60+ Tests",
-    includes: ["Hormonal Profile", "Calcium", "Iron Studies", "Pap Smear (Optional)"],
-    price: "₹2199",
-    originalPrice: "₹4200",
-    color: "bg-pink-50 text-pink-700",
-    popular: false
+    title: "Vitamin & Mineral",
+    desc: "Check for essential nutrient deficiencies for energy and immunity.",
+    tests: ["Vitamin D3", "Vitamin B12", "Iron Profile", "Calcium"],
+    icon: ShieldCheck,
+    color: "bg-orange-50 border-orange-100"
   }
-];
-
-const features = [
-  { icon: Home, title: "Home Collection", desc: "Free sample pickup from your doorstep by trained phlebotomists." },
-  { icon: Clock, title: "Smart Reports", desc: "Digital reports delivered within 6-12 hours via WhatsApp & Email." },
-  { icon: Award, title: "NABL Accredited", desc: "Highest quality standards ensuring 100% accurate results." },
-  { icon: Microscope, title: "Advanced Tech", desc: "Fully automated robotic labs for error-free processing." }
 ];
 
 const LabDiagnostics = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  // Filter Logic
-  const filteredPackages = packages.filter(pkg => 
-    pkg.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    pkg.includes.some(inc => inc.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
-
-  const filteredDepartments = [
-    { title: "Radiology & Imaging", items: ["3 Tesla MRI", "128 Slice CT Scan", "Digital X-Ray", "Ultrasound / Doppler", "Mammography"], img: ASSETS.SVC_RADIOLOGY_IMAGING },
-    { title: "Pathology", items: ["Hematology", "Biochemistry", "Microbiology", "Histopathology", "Clinical Pathology"], img: ASSETS.SVC_PATHOLOGY },
-    { title: "Cardiology Diagnostics", items: ["ECG / ECHO", "TMT / Stress Test", "Holter Monitoring", "Angiography (Cath Lab)", "Doppler Study"], img: ASSETS.SVC_CARDIOLOGY_DIAGNOSTICS }
-  ].filter(dept => 
-    dept.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    dept.items.some(item => item.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
-
-  const handleSearch = () => {
-    document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="bg-white min-h-screen pt-12">
       <Helmet>
-        <title>Lab Tests & Diagnostics | Umang Hospital</title>
-        <meta name="description" content="Book lab tests and health checkups with home collection. NABL accredited labs, accurate reports, and affordable packages." />
+        <title>Diagnostics & Pathology Lab | Umang Hospital</title>
+        <meta name="description" content="Book lab tests and health checkups with home collection. NABL accredited labs and accurate reports." />
       </Helmet>
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[500px] lg:h-[550px] overflow-hidden flex items-center bg-[#0f172a]">
+      <section className="relative min-h-[550px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src={ASSETS.LAB} 
-            alt="Lab Technology" 
-            className="w-full h-full object-cover opacity-40"
+            src={ASSETS.SVC_PATHOLOGY} 
+            alt="Lab Diagnostics" 
+            className="w-full h-full object-cover opacity-20" 
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#005580] via-[#005580]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/80 to-transparent" />
         </div>
 
-        <div className="container-custom relative z-10 text-white">
+        <div className="container-custom relative z-10 py-12 lg:py-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="max-w-2xl"
+            className="max-w-3xl"
           >
-            <div className="flex items-center gap-2 text-cyan-300 font-bold uppercase tracking-widest text-xs mb-4">
-              <FlaskConical className="w-4 h-4" />
-              <span>Diagnostic Excellence</span>
+            <div className="inline-flex items-center gap-2 bg-blue-500/20 px-4 py-2 rounded-full border border-blue-500/30 text-blue-300 font-bold uppercase tracking-widest text-[10px] mb-8">
+              <Microscope className="w-4 h-4" /> NABL Accredited Services
             </div>
-            <h1 className="text-4xl md:text-7xl font-serif font-bold mb-6 leading-tight">
+            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
               Precision in <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200">Every Result.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Every Drop.</span>
             </h1>
-            <p className="text-xl text-blue-100 font-light leading-relaxed mb-10">
-              State-of-the-art pathology and imaging services. Accurate diagnostics are the foundation of effective treatment.
+            <p className="text-xl text-blue-100 font-light leading-relaxed mb-12">
+              Advanced pathology and imaging powered by 128-Slice CT and AI-driven diagnostics for faster, more accurate results.
             </p>
             
-            {/* Search Bar */}
-            <div className="bg-white/10 backdrop-blur-md p-2 rounded-2xl border border-white/20 flex max-w-lg">
-               <div className="flex-1 flex items-center px-4">
-                  <Search className="w-5 h-5 text-gray-300 mr-3" />
-                  <input 
-                    type="text" 
-                    placeholder="Search for tests (e.g., CBC, Thyroid, MRI)" 
-                    className="w-full bg-transparent border-none outline-none text-white placeholder-gray-300 font-medium h-10"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                  />
-               </div>
-               <button 
-                  onClick={handleSearch}
-                  className="h-10 px-6 bg-white text-[#005580] rounded-xl font-bold text-sm hover:bg-blue-50 transition-all"
-               >
-                  Find Test
-               </button>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <Link to="/services/booking/lab-test" className="h-16 px-10 rounded-full bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 shadow-xl shadow-blue-900/20 transition-all flex items-center justify-center gap-3">
+                Book a Test <ArrowRight className="w-5 h-5" />
+              </Link>
+              <div className="flex items-center gap-4 text-white">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase text-blue-300">Report Turnaround</p>
+                  <p className="font-bold text-lg">Same Day (4-6 Hours)</p>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* 2. Features Grid */}
-      <section className="py-12 bg-gray-50 border-b border-gray-200">
+      {/* 2. Search & Popular Categories */}
+      <section className="py-20 bg-gray-50">
          <div className="container-custom">
-            <div className="grid md:grid-cols-4 gap-8">
-               {features.map((feat, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                     <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#005580] border border-gray-100 shrink-0">
-                        <feat.icon className="w-6 h-6" />
-                     </div>
-                     <div>
-                        <h4 className="font-bold text-[#0f172a] mb-1">{feat.title}</h4>
-                        <p className="text-sm text-gray-500 leading-relaxed">{feat.desc}</p>
-                     </div>
+            <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-xl -mt-32 relative z-20 border border-gray-100">
+               <div className="grid lg:grid-cols-3 gap-12 items-center">
+                  <div className="lg:col-span-1">
+                     <h3 className="text-2xl font-serif font-bold text-[#0f172a] mb-2">Find a Test</h3>
+                     <p className="text-gray-500 text-sm">Search from over 2000+ specialized lab tests.</p>
                   </div>
+                  <div className="lg:col-span-2 relative">
+                     <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />
+                     <input 
+                        type="text" 
+                        placeholder="Search tests (e.g. Thyroid, CBC, Lipid Profile...)"
+                        className="w-full h-16 pl-16 pr-8 rounded-2xl bg-gray-50 border border-gray-100 focus:border-blue-500 focus:bg-white outline-none font-bold text-lg transition-all"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                     />
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      {/* 3. Popular Test Packages */}
+      <section className="py-32 bg-white">
+         <div className="container-custom">
+            <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
+               <div className="max-w-2xl text-left">
+                  <span className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 block">Recommended for you</span>
+                  <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a]">Popular Health Packages</h2>
+               </div>
+               <Link to="/services/health-checkup" className="text-blue-600 font-bold flex items-center gap-2 hover:gap-3 transition-all border-b-2 border-blue-100 pb-1">
+                  View All Packages <ArrowRight className="w-5 h-5" />
+               </Link>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+               {packages.map((pkg) => (
+                  <motion.div 
+                     key={pkg.id}
+                     whileHover={{ y: -10 }}
+                     className={`p-10 rounded-[3rem] border ${pkg.color} hover:shadow-2xl transition-all flex flex-col`}
+                  >
+                     <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8">
+                        <pkg.icon className="w-8 h-8 text-[#0f172a]" />
+                     </div>
+                     <h3 className="text-xl font-bold text-[#0f172a] mb-4">{pkg.title}</h3>
+                     <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-1">{pkg.desc}</p>
+                     
+                     <div className="mb-8">
+                        <ul className="space-y-3">
+                           {pkg.tests.slice(0, 3).map((test, idx) => (
+                              <li key={idx} className="flex items-center gap-3 text-xs font-bold text-gray-600">
+                                 <CheckCircle2 className="w-4 h-4 text-green-500" /> {test}
+                              </li>
+                           ))}
+                        </ul>
+                     </div>
+
+                     <Link to="/services/booking/lab-test" className="w-full h-12 rounded-xl bg-[#0f172a] text-white font-bold flex items-center justify-center gap-2 hover:bg-blue-600 transition-all">
+                        Enquire Now
+                     </Link>
+                  </motion.div>
                ))}
             </div>
          </div>
       </section>
 
-      {/* 3. Popular Packages (Filtered) */}
-      <section id="results-section" className="py-12 lg:py-10 bg-white">
-         <div className="container-custom">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-               <div className="max-w-xl">
-                  <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-4">
-                    {searchTerm ? `Search Results for "${searchTerm}"` : "Curated Health Packages"}
-                  </h2>
-                  <p className="text-gray-500 text-lg">Comprehensive screening packages designed by our senior doctors for every stage of life.</p>
+      {/* 4. Home Collection Banner */}
+      <section className="py-12 lg:py-10 container-custom">
+         <div className="bg-[#005580] rounded-[4rem] p-12 md:p-24 text-white relative overflow-hidden flex flex-col lg:flex-row items-center gap-16">
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px]" />
+            
+            <div className="lg:w-1/2 relative z-10">
+               <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">Professional <br />Home Collection.</h2>
+               <p className="text-xl text-blue-100 mb-12 leading-relaxed">
+                  Skip the queue and stay safe. Our vaccinated and trained phlebotomists will collect samples from the comfort of your home.
+               </p>
+               <ul className="space-y-6 mb-12">
+                  <li className="flex items-center gap-4 font-bold text-lg">
+                     <CheckCircle2 className="w-6 h-6 text-cyan-400" /> Secure Sample Transport
+                  </li>
+                  <li className="flex items-center gap-4 font-bold text-lg">
+                     <CheckCircle2 className="w-6 h-6 text-cyan-400" /> Digital Reports on WhatsApp
+                  </li>
+                  <li className="flex items-center gap-4 font-bold text-lg">
+                     <CheckCircle2 className="w-6 h-6 text-cyan-400" /> Certified Phlebotomists
+                  </li>
+               </ul>
+               <div className="flex flex-wrap gap-6">
+                  <a href={`tel:${siteConfig.contacts.main.replace(/\s/g, '')}`} className="h-16 px-10 rounded-full bg-white text-[#005580] font-bold text-lg hover:bg-blue-50 transition-all flex items-center justify-center gap-3">
+                     <Phone className="w-6 h-6" /> Call +91 89297 33550
+                  </a>
                </div>
-               <Link to="#" className="hidden md:flex text-[#005580] font-bold items-center gap-2 hover:gap-3 transition-all">
-                  View All Packages <ArrowRight className="w-4 h-4" />
-               </Link>
             </div>
 
-            {filteredPackages.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                 {filteredPackages.map((pkg, i) => (
-                    <motion.div 
-                       key={pkg.id}
-                       whileHover={{ y: -10 }}
-                       className="bg-white rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all overflow-hidden relative flex flex-col"
-                    >
-                       {pkg.popular && (
-                          <div className="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-[12px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider z-10">
-                             Bestseller
-                          </div>
-                       )}
-                       <div className={`p-6 ${pkg.color} bg-opacity-20`}>
-                          <h3 className="text-xl font-bold text-gray-900 mb-1">{pkg.title}</h3>
-                          <span className={`inline-block px-2 py-1 rounded-lg text-sm font-bold ${pkg.color} bg-white bg-opacity-60`}>
-                             {pkg.tests}
-                          </span>
-                       </div>
-                       
-                       <div className="p-6 flex-1 flex flex-col">
-                          <div className="space-y-3 mb-8 flex-1">
-                             {pkg.includes.map((item, idx) => (
-                                <div key={idx} className="flex items-start gap-2 text-base text-gray-600">
-                                   <CheckCircle className="w-4 h-4 text-green-500 shrink-0 mt-0.5" />
-                                   <span className={item.toLowerCase().includes(searchTerm.toLowerCase()) ? "bg-yellow-100" : ""}>{item}</span>
-                                </div>
-                             ))}
-                             {pkg.includes.length < 5 && <div className="text-sm text-gray-400 italic">+ more parameters</div>}
-                          </div>
-
-                          <div className="border-t border-gray-100 pt-4 flex items-center justify-between">
-                             <div>
-                                <span className="text-sm text-gray-400 line-through block">{pkg.originalPrice}</span>
-                                <span className="text-2xl font-bold text-[#0f172a]">{pkg.price}</span>
-                             </div>
-                             <Link to="/services/booking/lab-test" className="h-10 px-4 rounded-xl bg-[#005580] text-white text-sm font-bold hover:bg-[#004466] transition-all shadow-lg flex items-center justify-center">
-                                Book Now
-                             </Link>
-                          </div>
-                       </div>
-                    </motion.div>
-                 ))}
-              </div>
-            ) : (
-              <div className="text-center py-12 bg-gray-50 rounded-2xl border border-gray-100">
-                <Search className="w-12 h-12 text-gray-300 mx-auto mb-4" />
-                <h3 className="text-xl font-bold text-gray-500">No packages found matching "{searchTerm}"</h3>
-                <p className="text-base text-gray-400 mt-2">Try searching for specific tests like "Thyroid" or "Kidney".</p>
-              </div>
-            )}
+            <div className="lg:w-1/2 relative">
+               <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-[80px]" />
+               <img 
+                  src={ASSETS.SVC_LAB_PROCESS} 
+                  alt="Home Collection" 
+                  className="relative z-10 rounded-[3rem] shadow-2xl rotate-3"
+               />
+            </div>
          </div>
       </section>
 
-      {/* 4. Departments & Modalities (Filtered) */}
-      {filteredDepartments.length > 0 && (
-        <section className="py-12 lg:py-10 bg-gray-50">
-           <div className="container-custom">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-12 text-center">Diagnostic Modalities</h2>
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                 {filteredDepartments.map((dept, i) => (
-                    <Link to="/services/booking/lab-test" key={i} className="block bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 group cursor-pointer hover:shadow-lg transition-all">
-                       <div className="h-48 relative overflow-hidden">
-                          <img src={dept.img} alt={dept.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-                             <h3 className="text-white text-xl font-bold">{dept.title}</h3>
-                          </div>
-                       </div>
-                       <div className="p-6">
-                          <ul className="space-y-3">
-                             {dept.items.map((item, idx) => (
-                                <li key={idx} className="flex items-center gap-3 text-base text-gray-600 group-hover:text-gray-900 transition-colors">
-                                   <div className="w-1.5 h-1.5 rounded-full bg-[#005580]"></div>
-                                   <span className={item.toLowerCase().includes(searchTerm.toLowerCase()) ? "bg-yellow-100" : ""}>{item}</span>
-                                </li>
-                             ))}
-                          </ul>
-                          <div className="mt-6 w-full py-3 rounded-xl border border-gray-200 text-gray-600 font-bold text-base group-hover:bg-blue-50 group-hover:text-[#005580] group-hover:border-blue-200 transition-all flex items-center justify-center gap-2">
-                             View All Tests <ChevronRight className="w-4 h-4" />
-                          </div>
-                       </div>
-                    </Link>
-                 ))}
-              </div>
-           </div>
-        </section>
-      )}
-
-      {/* 5. Home Collection CTA */}
-      <section className="py-12 lg:py-10 bg-white relative overflow-hidden">
+      {/* 5. Diagnostics Technology Grid */}
+      <section className="py-32 bg-white">
          <div className="container-custom">
-            <div className="bg-[#005580] rounded-[2.5rem] lg:rounded-[3rem] p-6 sm:p-12 md:p-20 text-white relative overflow-hidden flex flex-col md:flex-row items-center gap-12">
-               <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
-               
-               <div className="md:w-1/2 relative z-10">
-                  <span className="bg-white/20 text-white px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-widest mb-6 inline-block backdrop-blur-md">
-                     Safe & Hygienic
-                  </span>
-                  <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 leading-tight">
-                     Book a Home <br />Sample Collection
-                  </h2>
-                  <p className="text-blue-100 text-lg mb-8 leading-relaxed opacity-90">
-                     Skip the queue and stay safe. Our vaccinated and trained phlebotomists will collect samples from the comfort of your home at no extra cost.
-                  </p>
-                  <div className="flex flex-col sm:flex-row gap-4">
-                     <Link to="/services/booking/lab-test" className="h-14 px-8 rounded-full bg-white text-[#005580] font-bold hover:shadow-xl hover:scale-105 transition-all flex items-center justify-center gap-2">
-                        <Home className="w-4 h-4" /> Book Home Visit
-                     </Link>
-                     <button className="h-14 px-8 rounded-full bg-transparent border border-white/30 text-white font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-2">
-                        <Phone className="w-4 h-4" /> Call +91 89297 33550
-                     </button>
-                  </div>
-               </div>
+            <div className="text-center max-w-3xl mx-auto mb-20">
+               <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-6">Advanced Imaging</h2>
+               <p className="text-gray-500 text-lg leading-relaxed">
+                  Our radiology department is equipped with high-end machinery for precision reporting and rapid clinical decisions.
+               </p>
+            </div>
 
-               <div className="md:w-1/2 relative z-10 flex justify-center">
-                  <div className="relative">
-                     <div className="absolute inset-0 bg-blue-400 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-                     <img 
-                        src={ASSETS.HOME_COLLECTION} 
-                        alt="Home Collection" 
-                        className="relative rounded-3xl shadow-2xl border-4 border-white/10 rotate-3 hover:rotate-0 transition-transform duration-500 w-full max-w-sm" 
-                     />
+            <div className="grid md:grid-cols-3 gap-12">
+               {[
+                  { title: "128-Slice CT Scan", desc: "Ultra-fast cardiac and whole-body imaging with minimal radiation.", img: ASSETS.CT_SCAN },
+                  { title: "3 Tesla MRI", desc: "High-resolution neurological and musculoskeletal imaging.", img: ASSETS.MRI_SCAN },
+                  { title: "Digital X-Ray & USG", desc: "Instant high-clarity imaging for routine and emergency diagnostics.", img: ASSETS.SVC_RADIOLOGY_IMAGING }
+               ].map((tech, i) => (
+                  <div key={i} className="group">
+                     <div className="aspect-[4/3] rounded-[3rem] overflow-hidden mb-8 shadow-lg">
+                        <img src={tech.img} alt={tech.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                     </div>
+                     <h4 className="text-2xl font-bold text-[#0f172a] mb-4">{tech.title}</h4>
+                     <p className="text-gray-500 leading-relaxed">{tech.desc}</p>
                   </div>
-               </div>
+               ))}
             </div>
          </div>
       </section>

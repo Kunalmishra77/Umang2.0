@@ -124,7 +124,7 @@ const Footer = () => {
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-sm text-gray-500 flex items-center gap-1 flex-wrap justify-center font-medium">
-            &copy; 2026 {siteConfig.shortName}. Developed by <a href="https://ai-agentix.com/" target="_blank" rel="noopener noreferrer" className="text-primary-400 font-bold ml-1 hover:text-primary-300 transition-colors">AI AGENTiX</a>. Made with <Heart className="w-3.5 h-3.5 text-red-500 fill-current animate-pulse mx-1" /> in India.
+            &copy; 2026 {siteConfig.shortName}. Developed by <a href="https://ai-agentix.com/" target="_blank" rel="noopener noreferrer" className="text-orange-500 font-bold ml-1 hover:text-orange-400 transition-colors">AGENTiX</a>. Made with <Heart className="w-3.5 h-3.5 text-red-500 fill-current animate-pulse mx-1" /> in India.
           </p>
           <div className="flex flex-wrap justify-center gap-6 lg:gap-8 text-[12px] font-bold uppercase tracking-widest">
             <Link to="/terms" className="text-gray-500 hover:text-primary-400 transition-colors">Terms</Link>

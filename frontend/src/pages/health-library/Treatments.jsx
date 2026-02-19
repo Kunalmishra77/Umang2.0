@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { 
   Search, Stethoscope, Activity, Heart, Brain, Bone, Eye, 
-  ArrowRight, CheckCircle, Calendar, DollarSign, FileText, ChevronDown, Clock
+  ArrowRight, CheckCircle, Calendar, FileText, ChevronDown, Clock, MessageSquare
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
@@ -24,99 +24,99 @@ const categories = [
 
 const treatments = [
   // Cardiac
-  { id: 101, name: "Angiography & Angioplasty (PTCA)", category: "Cardiology", duration: "1-2 Hours", stay: "1-2 Days", cost: "₹1.5L - ₹2.5L", img: ASSETS.CARDIAC },
-  { id: 102, name: "Coronary Artery Bypass Graft (CABG)", category: "Cardiology", duration: "4-6 Hours", stay: "7-10 Days", cost: "₹3.0L - ₹5.0L", img: ASSETS.CARDIAC },
-  { id: 103, name: "Valve Replacement & Repair (TAVR/TAVI)", category: "Cardiology", duration: "3-4 Hours", stay: "5-7 Days", cost: "₹5.0L - ₹8.0L", img: ASSETS.CARDIAC },
-  { id: 104, name: "Pacemaker & ICD Implantation", category: "Cardiology", duration: "1-2 Hours", stay: "2 Days", cost: "₹2.0L - ₹4.0L", img: ASSETS.CARDIAC },
-  { id: 105, name: "Pediatric Cardiac Surgery", category: "Cardiology", duration: "3-5 Hours", stay: "7-14 Days", cost: "₹2.5L - ₹4.5L", img: ASSETS.CARDIAC },
-  { id: 106, name: "Heart Failure Management", category: "Cardiology", duration: "N/A", stay: "Varies", cost: "Consultation", img: ASSETS.CARDIAC },
+  { id: 101, name: "Angiography & Angioplasty (PTCA)", category: "Cardiology", duration: "1-2 Hours", stay: "1-2 Days", img: ASSETS.CARDIAC },
+  { id: 102, name: "Coronary Artery Bypass Graft (CABG)", category: "Cardiology", duration: "4-6 Hours", stay: "7-10 Days", img: ASSETS.CARDIAC },
+  { id: 103, name: "Valve Replacement & Repair (TAVR/TAVI)", category: "Cardiology", duration: "3-4 Hours", stay: "5-7 Days", img: ASSETS.CARDIAC },
+  { id: 104, name: "Pacemaker & ICD Implantation", category: "Cardiology", duration: "1-2 Hours", stay: "2 Days", img: ASSETS.CARDIAC },
+  { id: 105, name: "Pediatric Cardiac Surgery", category: "Cardiology", duration: "3-5 Hours", stay: "7-14 Days", img: ASSETS.CARDIAC },
+  { id: 106, name: "Heart Failure Management", category: "Cardiology", duration: "N/A", stay: "Varies", img: ASSETS.CARDIAC },
 
   // Neuro
-  { id: 201, name: "Brain Tumor Excision", category: "Neurology", duration: "4-8 Hours", stay: "7-10 Days", cost: "₹3.0L - ₹6.0L", img: ASSETS.NEURO },
-  { id: 202, name: "Stroke Management (Thrombolysis)", category: "Neurology", duration: "1 Hour", stay: "5-7 Days", cost: "₹1.0L - ₹2.5L", img: ASSETS.NEURO },
-  { id: 203, name: "Spine Surgery (MISS)", category: "Neurology", duration: "2-4 Hours", stay: "3-5 Days", cost: "₹2.5L - ₹4.0L", img: ASSETS.NEURO },
-  { id: 204, name: "Epilepsy Surgery", category: "Neurology", duration: "4-6 Hours", stay: "5-7 Days", cost: "₹3.0L - ₹5.0L", img: ASSETS.NEURO },
-  { id: 205, name: "Deep Brain Stimulation (DBS)", category: "Neurology", duration: "6-8 Hours", stay: "3-5 Days", cost: "₹10.0L+", img: ASSETS.NEURO },
-  { id: 206, name: "Aneurysm Coiling & Clipping", category: "Neurology", duration: "3-5 Hours", stay: "5-7 Days", cost: "₹4.0L - ₹7.0L", img: ASSETS.NEURO },
+  { id: 201, name: "Brain Tumor Excision", category: "Neurology", duration: "4-8 Hours", stay: "7-10 Days", img: ASSETS.NEURO },
+  { id: 202, name: "Stroke Management (Thrombolysis)", category: "Neurology", duration: "1 Hour", stay: "5-7 Days", img: ASSETS.NEURO },
+  { id: 203, name: "Spine Surgery (MISS)", category: "Neurology", duration: "2-4 Hours", stay: "3-5 Days", img: ASSETS.NEURO },
+  { id: 204, name: "Epilepsy Surgery", category: "Neurology", duration: "4-6 Hours", stay: "5-7 Days", img: ASSETS.NEURO },
+  { id: 205, name: "Deep Brain Stimulation (DBS)", category: "Neurology", duration: "6-8 Hours", stay: "3-5 Days", img: ASSETS.NEURO },
+  { id: 206, name: "Aneurysm Coiling & Clipping", category: "Neurology", duration: "3-5 Hours", stay: "5-7 Days", img: ASSETS.NEURO },
 
   // Ortho
-  { id: 301, name: "Total Knee Replacement (TKR)", category: "Orthopedics", duration: "2-3 Hours", stay: "4-5 Days", cost: "₹2.0L - ₹3.5L", img: ASSETS.ORTHO_KNEE },
-  { id: 302, name: "Total Hip Replacement (THR)", category: "Orthopedics", duration: "2-3 Hours", stay: "4-5 Days", cost: "₹2.5L - ₹4.0L", img: ASSETS.ORTHO_KNEE },
-  { id: 303, name: "Arthroscopic Sports Surgery", category: "Orthopedics", duration: "1-2 Hours", stay: "1-2 Days", cost: "₹1.0L - ₹2.0L", img: ASSETS.ORTHO_KNEE },
-  { id: 304, name: "Complex Trauma Surgery", category: "Orthopedics", duration: "Varies", stay: "Varies", cost: "Varies", img: ASSETS.ORTHO_KNEE },
-  { id: 305, name: "Spine Deformity Correction", category: "Orthopedics", duration: "4-6 Hours", stay: "7-10 Days", cost: "₹4.0L - ₹6.0L", img: ASSETS.ORTHO_KNEE },
-  { id: 306, name: "Shoulder Replacement", category: "Orthopedics", duration: "2-3 Hours", stay: "3-4 Days", cost: "₹2.5L - ₹3.5L", img: ASSETS.ORTHO_KNEE },
+  { id: 301, name: "Total Knee Replacement (TKR)", category: "Orthopedics", duration: "2-3 Hours", stay: "4-5 Days", img: ASSETS.ORTHO_KNEE },
+  { id: 302, name: "Total Hip Replacement (THR)", category: "Orthopedics", duration: "2-3 Hours", stay: "4-5 Days", img: ASSETS.ORTHO_KNEE },
+  { id: 303, name: "Arthroscopic Sports Surgery", category: "Orthopedics", duration: "1-2 Hours", stay: "1-2 Days", img: ASSETS.ORTHO_KNEE },
+  { id: 304, name: "Complex Trauma Surgery", category: "Orthopedics", duration: "Varies", stay: "Varies", img: ASSETS.ORTHO_KNEE },
+  { id: 305, name: "Spine Deformity Correction", category: "Orthopedics", duration: "4-6 Hours", stay: "7-10 Days", img: ASSETS.ORTHO_KNEE },
+  { id: 306, name: "Shoulder Replacement", category: "Orthopedics", duration: "2-3 Hours", stay: "3-4 Days", img: ASSETS.ORTHO_KNEE },
 
   // Gastro
-  { id: 401, name: "Endoscopy & Colonoscopy", category: "Gastroenterology", duration: "30-60 Mins", stay: "Day Care", cost: "₹5k - ₹15k", img: ASSETS.SURGERY_TEAM },
-  { id: 402, name: "ERCP (Stone Removal)", category: "Gastroenterology", duration: "1-2 Hours", stay: "1-2 Days", cost: "₹40k - ₹80k", img: ASSETS.SURGERY_TEAM },
-  { id: 403, name: "Liver Transplant", category: "Gastroenterology", duration: "8-12 Hours", stay: "15-21 Days", cost: "₹20.0L+", img: ASSETS.SURGERY_TEAM },
-  { id: 404, name: "Bariatric (Weight Loss) Surgery", category: "Gastroenterology", duration: "2-3 Hours", stay: "2-3 Days", cost: "₹3.0L - ₹5.0L", img: ASSETS.SURGERY_TEAM },
-  { id: 405, name: "GI Cancer Surgery", category: "Gastroenterology", duration: "4-6 Hours", stay: "7-10 Days", cost: "₹3.0L - ₹6.0L", img: ASSETS.SURGERY_TEAM },
-  { id: 406, name: "Hepatitis Management", category: "Gastroenterology", duration: "N/A", stay: "OPD", cost: "Consultation", img: ASSETS.SURGERY_TEAM },
+  { id: 401, name: "Endoscopy & Colonoscopy", category: "Gastroenterology", duration: "30-60 Mins", stay: "Day Care", img: ASSETS.SURGERY_TEAM },
+  { id: 402, name: "ERCP (Stone Removal)", category: "Gastroenterology", duration: "1-2 Hours", stay: "1-2 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 403, name: "Liver Transplant", category: "Gastroenterology", duration: "8-12 Hours", stay: "15-21 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 404, name: "Bariatric (Weight Loss) Surgery", category: "Gastroenterology", duration: "2-3 Hours", stay: "2-3 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 405, name: "GI Cancer Surgery", category: "Gastroenterology", duration: "4-6 Hours", stay: "7-10 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 406, name: "Hepatitis Management", category: "Gastroenterology", duration: "N/A", stay: "OPD", img: ASSETS.SURGERY_TEAM },
 
   // Pulmonology
-  { id: 501, name: "Bronchoscopy", category: "Pulmonology", duration: "30-45 Mins", stay: "Day Care", cost: "₹10k - ₹20k", img: ASSETS.NURSE_CARE },
-  { id: 502, name: "Thoracoscopy", category: "Pulmonology", duration: "1-2 Hours", stay: "2-3 Days", cost: "₹40k - ₹60k", img: ASSETS.NURSE_CARE },
-  { id: 503, name: "Sleep Study (Polysomnography)", category: "Pulmonology", duration: "Overnight", stay: "1 Night", cost: "₹15k - ₹25k", img: ASSETS.NURSE_CARE },
-  { id: 504, name: "PFT (Pulmonary Function Test)", category: "Pulmonology", duration: "30 Mins", stay: "OPD", cost: "₹1k - ₹2k", img: ASSETS.NURSE_CARE },
-  { id: 505, name: "Lung Cancer Screening", category: "Pulmonology", duration: "Varies", stay: "OPD", cost: "₹5k - ₹10k", img: ASSETS.NURSE_CARE },
-  { id: 506, name: "Allergy Testing", category: "Pulmonology", duration: "30 Mins", stay: "OPD", cost: "₹2k - ₹5k", img: ASSETS.NURSE_CARE },
+  { id: 501, name: "Bronchoscopy", category: "Pulmonology", duration: "30-45 Mins", stay: "Day Care", img: ASSETS.NURSE_CARE },
+  { id: 502, name: "Thoracoscopy", category: "Pulmonology", duration: "1-2 Hours", stay: "2-3 Days", img: ASSETS.NURSE_CARE },
+  { id: 503, name: "Sleep Study (Polysomnography)", category: "Pulmonology", duration: "Overnight", stay: "1 Night", img: ASSETS.NURSE_CARE },
+  { id: 504, name: "PFT (Pulmonary Function Test)", category: "Pulmonology", duration: "30 Mins", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 505, name: "Lung Cancer Screening", category: "Pulmonology", duration: "Varies", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 506, name: "Allergy Testing", category: "Pulmonology", duration: "30 Mins", stay: "OPD", img: ASSETS.NURSE_CARE },
 
   // Surgery (General)
-  { id: 601, name: "Laparoscopic Cholecystectomy", category: "General Surgery", duration: "1-2 Hours", stay: "1-2 Days", cost: "₹60k - ₹1.0L", img: ASSETS.SURGERY_TEAM },
-  { id: 602, name: "Hernia Repair", category: "General Surgery", duration: "1-2 Hours", stay: "1-2 Days", cost: "₹50k - ₹90k", img: ASSETS.SURGERY_TEAM },
-  { id: 603, name: "Appendectomy", category: "General Surgery", duration: "1 Hour", stay: "1-2 Days", cost: "₹40k - ₹70k", img: ASSETS.SURGERY_TEAM },
-  { id: 604, name: "Thyroid Surgery", category: "General Surgery", duration: "2-3 Hours", stay: "2-3 Days", cost: "₹80k - ₹1.2L", img: ASSETS.SURGERY_TEAM },
-  { id: 605, name: "Breast Surgery", category: "General Surgery", duration: "2-4 Hours", stay: "2-4 Days", cost: "₹1.0L - ₹2.0L", img: ASSETS.SURGERY_TEAM },
-  { id: 606, name: "Trauma Surgery", category: "General Surgery", duration: "Varies", stay: "Varies", cost: "Varies", img: ASSETS.SURGERY_TEAM },
+  { id: 601, name: "Laparoscopic Cholecystectomy", category: "General Surgery", duration: "1-2 Hours", stay: "1-2 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 602, name: "Hernia Repair", category: "General Surgery", duration: "1-2 Hours", stay: "1-2 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 603, name: "Appendectomy", category: "General Surgery", duration: "1 Hour", stay: "1-2 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 604, name: "Thyroid Surgery", category: "General Surgery", duration: "2-3 Hours", stay: "2-3 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 605, name: "Breast Surgery", category: "General Surgery", duration: "2-4 Hours", stay: "2-4 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 606, name: "Trauma Surgery", category: "General Surgery", duration: "Varies", stay: "Varies", img: ASSETS.SURGERY_TEAM },
 
   // Urology
-  { id: 701, name: "Laser Lithotripsy (Kidney Stones)", category: "Urology", duration: "1 Hour", stay: "1 Day", cost: "₹50k - ₹90k", img: ASSETS.SURGERY_TEAM },
-  { id: 702, name: "TURP (Prostate Surgery)", category: "Urology", duration: "1-2 Hours", stay: "2-3 Days", cost: "₹60k - ₹1.0L", img: ASSETS.SURGERY_TEAM },
-  { id: 703, name: "Uro-Oncology Surgery", category: "Urology", duration: "3-5 Hours", stay: "5-7 Days", cost: "₹2.0L - ₹4.0L", img: ASSETS.SURGERY_TEAM },
-  { id: 704, name: "Reconstructive Urology", category: "Urology", duration: "2-4 Hours", stay: "3-5 Days", cost: "₹1.5L - ₹3.0L", img: ASSETS.SURGERY_TEAM },
-  { id: 705, name: "Andrology & Infertility", category: "Urology", duration: "Varies", stay: "OPD/Day Care", cost: "Varies", img: ASSETS.SURGERY_TEAM },
-  { id: 706, name: "Kidney Transplant", category: "Urology", duration: "4-6 Hours", stay: "10-14 Days", cost: "₹6.0L - ₹10.0L", img: ASSETS.SURGERY_TEAM },
+  { id: 701, name: "Laser Lithotripsy (Kidney Stones)", category: "Urology", duration: "1 Hour", stay: "1 Day", img: ASSETS.SURGERY_TEAM },
+  { id: 702, name: "TURP (Prostate Surgery)", category: "Urology", duration: "1-2 Hours", stay: "2-3 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 703, name: "Uro-Oncology Surgery", category: "Urology", duration: "3-5 Hours", stay: "5-7 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 704, name: "Reconstructive Urology", category: "Urology", duration: "2-4 Hours", stay: "3-5 Days", img: ASSETS.SURGERY_TEAM },
+  { id: 705, name: "Andrology & Infertility", category: "Urology", duration: "Varies", stay: "OPD/Day Care", img: ASSETS.SURGERY_TEAM },
+  { id: 706, name: "Kidney Transplant", category: "Urology", duration: "4-6 Hours", stay: "10-14 Days", img: ASSETS.SURGERY_TEAM },
 
   // Nephrology
-  { id: 801, name: "Hemodialysis", category: "Nephrology", duration: "4 Hours", stay: "Day Care", cost: "₹2k - ₹4k/session", img: ASSETS.NURSE_CARE },
-  { id: 802, name: "Peritoneal Dialysis", category: "Nephrology", duration: "Varies", stay: "Home/OPD", cost: "Varies", img: ASSETS.NURSE_CARE },
-  { id: 803, name: "Kidney Biopsy", category: "Nephrology", duration: "30 Mins", stay: "Day Care", cost: "₹10k - ₹15k", img: ASSETS.NURSE_CARE },
-  { id: 804, name: "Kidney Transplant Care", category: "Nephrology", duration: "Long Term", stay: "OPD", cost: "Consultation", img: ASSETS.NURSE_CARE },
-  { id: 805, name: "Critical Care Nephrology", category: "Nephrology", duration: "Varies", stay: "ICU", cost: "Varies", img: ASSETS.ICU },
-  { id: 806, name: "Hypertension Management", category: "Nephrology", duration: "N/A", stay: "OPD", cost: "Consultation", img: ASSETS.NURSE_CARE },
+  { id: 801, name: "Hemodialysis", category: "Nephrology", duration: "4 Hours", stay: "Day Care", img: ASSETS.NURSE_CARE },
+  { id: 802, name: "Peritoneal Dialysis", category: "Nephrology", duration: "Varies", stay: "Home/OPD", img: ASSETS.NURSE_CARE },
+  { id: 803, name: "Kidney Biopsy", category: "Nephrology", duration: "30 Mins", stay: "Day Care", img: ASSETS.NURSE_CARE },
+  { id: 804, name: "Kidney Transplant Care", category: "Nephrology", duration: "Long Term", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 805, name: "Critical Care Nephrology", category: "Nephrology", duration: "Varies", stay: "ICU", img: ASSETS.ICU },
+  { id: 806, name: "Hypertension Management", category: "Nephrology", duration: "N/A", stay: "OPD", img: ASSETS.NURSE_CARE },
 
   // Pain Management
-  { id: 901, name: "Interventional Pain Procedures", category: "Pain Management", duration: "30-60 Mins", stay: "Day Care", cost: "₹10k - ₹30k", img: ASSETS.NURSE_CARE },
-  { id: 902, name: "Nerve Blocks & Epidural Injections", category: "Pain Management", duration: "30 Mins", stay: "Day Care", cost: "₹5k - ₹15k", img: ASSETS.NURSE_CARE },
-  { id: 903, name: "Radiofrequency Ablation", category: "Pain Management", duration: "1 Hour", stay: "Day Care", cost: "₹40k - ₹60k", img: ASSETS.NURSE_CARE },
-  { id: 904, name: "Spinal Cord Stimulation", category: "Pain Management", duration: "1-2 Hours", stay: "1 Day", cost: "₹5.0L+", img: ASSETS.NURSE_CARE },
-  { id: 905, name: "Myofascial Trigger Point Therapy", category: "Pain Management", duration: "30 Mins", stay: "OPD", cost: "₹2k - ₹4k", img: ASSETS.NURSE_CARE },
-  { id: 906, name: "Cancer Pain Management", category: "Pain Management", duration: "Varies", stay: "OPD/IPD", cost: "Varies", img: ASSETS.NURSE_CARE },
+  { id: 901, name: "Interventional Pain Procedures", category: "Pain Management", duration: "30-60 Mins", stay: "Day Care", img: ASSETS.NURSE_CARE },
+  { id: 902, name: "Nerve Blocks & Epidural Injections", category: "Pain Management", duration: "30 Mins", stay: "Day Care", img: ASSETS.NURSE_CARE },
+  { id: 903, name: "Radiofrequency Ablation", category: "Pain Management", duration: "1 Hour", stay: "Day Care", img: ASSETS.NURSE_CARE },
+  { id: 904, name: "Spinal Cord Stimulation", category: "Pain Management", duration: "1-2 Hours", stay: "1 Day", img: ASSETS.NURSE_CARE },
+  { id: 905, name: "Myofascial Trigger Point Therapy", category: "Pain Management", duration: "30 Mins", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 906, name: "Cancer Pain Management", category: "Pain Management", duration: "Varies", stay: "OPD/IPD", img: ASSETS.NURSE_CARE },
 
   // Gynecology
-  { id: 1001, name: "Normal & High-Risk Delivery", category: "Gynecology", duration: "Varies", stay: "2-4 Days", cost: "₹50k - ₹1.5L", img: ASSETS.NURSE_CARE },
-  { id: 1002, name: "Laparoscopic Hysterectomy", category: "Gynecology", duration: "1-2 Hours", stay: "2 Days", cost: "₹80k - ₹1.2L", img: ASSETS.NURSE_CARE },
-  { id: 1003, name: "Infertility Treatment", category: "Gynecology", duration: "Varies", stay: "OPD", cost: "Varies", img: ASSETS.NURSE_CARE },
-  { id: 1004, name: "PCOS/PCOD Management", category: "Gynecology", duration: "N/A", stay: "OPD", cost: "Consultation", img: ASSETS.NURSE_CARE },
-  { id: 1005, name: "Menopause Clinic", category: "Gynecology", duration: "N/A", stay: "OPD", cost: "Consultation", img: ASSETS.NURSE_CARE },
-  { id: 1006, name: "Gynecological Oncology Screening", category: "Gynecology", duration: "30 Mins", stay: "OPD", cost: "₹5k - ₹10k", img: ASSETS.NURSE_CARE },
+  { id: 1001, name: "Normal & High-Risk Delivery", category: "Gynecology", duration: "Varies", stay: "2-4 Days", img: ASSETS.NURSE_CARE },
+  { id: 1002, name: "Laparoscopic Hysterectomy", category: "Gynecology", duration: "1-2 Hours", stay: "2 Days", img: ASSETS.NURSE_CARE },
+  { id: 1003, name: "Infertility Treatment", category: "Gynecology", duration: "Varies", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 1004, name: "PCOS/PCOD Management", category: "Gynecology", duration: "N/A", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 1005, name: "Menopause Clinic", category: "Gynecology", duration: "N/A", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 1006, name: "Gynecological Oncology Screening", category: "Gynecology", duration: "30 Mins", stay: "OPD", img: ASSETS.NURSE_CARE },
 
   // Physiotherapy
-  { id: 1101, name: "Post-Operative Rehabilitation", category: "Physiotherapy", duration: "45-60 Mins", stay: "OPD", cost: "₹500 - ₹1000", img: ASSETS.NURSE_CARE },
-  { id: 1102, name: "Sports Injury Management", category: "Physiotherapy", duration: "45-60 Mins", stay: "OPD", cost: "₹500 - ₹1500", img: ASSETS.NURSE_CARE },
-  { id: 1103, name: "Neuro-Rehabilitation", category: "Physiotherapy", duration: "1 Hour", stay: "OPD", cost: "₹800 - ₹1200", img: ASSETS.NURSE_CARE },
-  { id: 1104, name: "Manual Therapy", category: "Physiotherapy", duration: "30-45 Mins", stay: "OPD", cost: "₹600 - ₹1000", img: ASSETS.NURSE_CARE },
-  { id: 1105, name: "Electrotherapy", category: "Physiotherapy", duration: "30 Mins", stay: "OPD", cost: "₹400 - ₹800", img: ASSETS.NURSE_CARE },
-  { id: 1106, name: "Geriatric Rehabilitation", category: "Physiotherapy", duration: "45 Mins", stay: "OPD", cost: "₹500 - ₹1000", img: ASSETS.NURSE_CARE },
+  { id: 1101, name: "Post-Operative Rehabilitation", category: "Physiotherapy", duration: "45-60 Mins", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 1102, name: "Sports Injury Management", category: "Physiotherapy", duration: "45-60 Mins", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 1103, name: "Neuro-Rehabilitation", category: "Physiotherapy", duration: "1 Hour", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 1104, name: "Manual Therapy", category: "Physiotherapy", duration: "30-45 Mins", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 1105, name: "Electrotherapy", category: "Physiotherapy", duration: "30 Mins", stay: "OPD", img: ASSETS.NURSE_CARE },
+  { id: 1106, name: "Geriatric Rehabilitation", category: "Physiotherapy", duration: "45 Mins", stay: "OPD", img: ASSETS.NURSE_CARE },
 ];
 
 const Treatments = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleCount, setVisibleCount] = useState(6);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Added state for dropdown
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   useEffect(() => {
     setVisibleCount(6);
@@ -127,17 +127,15 @@ const Treatments = () => {
     t.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Duplicate categories for seamless marquee loop
   const marqueeCategories = [...categories, ...categories];
 
   return (
     <div className="bg-white min-h-screen pt-12">
       <Helmet>
         <title>Medical Treatments & Procedures | Umang Hospital</title>
-        <meta name="description" content="Explore our comprehensive list of medical treatments, surgeries, and procedures. Get details on cost, duration, and recovery." />
+        <meta name="description" content="Explore our comprehensive list of medical treatments, surgeries, and procedures. Get details on recovery and stay." />
       </Helmet>
 
-      {/* CSS for Marquee Animation and Custom Scrollbar */}
       <style>{`
         @keyframes scroll {
           0% { transform: translateX(0); }
@@ -194,7 +192,7 @@ const Treatments = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-200">Compassionate Care.</span>
             </h1>
             <p className="text-xl text-blue-100 font-light leading-relaxed mb-12">
-              From minimally invasive procedures to complex robotic surgeries, we offer world-class treatment options tailored to your recovery.
+              From minimally invasive procedures to complex surgeries, we offer world-class treatment options tailored to your recovery.
             </p>
 
             {/* Search Bar */}
@@ -321,13 +319,9 @@ const Treatments = () => {
                               <span className="flex items-center gap-2"><Clock className="w-4 h-4 text-blue-400" /> Duration</span>
                               <span className="font-bold">{treatment.duration}</span>
                            </div>
-                           <div className="flex items-center justify-between text-sm text-gray-600 pb-3 border-b border-gray-50">
+                           <div className="flex items-center justify-between text-sm text-gray-600 pb-3">
                               <span className="flex items-center gap-2"><Calendar className="w-4 h-4 text-green-400" /> Hospital Stay</span>
                               <span className="font-bold">{treatment.stay}</span>
-                           </div>
-                           <div className="flex items-center justify-between text-sm text-gray-600">
-                              <span className="flex items-center gap-2"><DollarSign className="w-4 h-4 text-orange-400" /> Est. Cost</span>
-                              <span className="font-bold text-[#0f172a]">{treatment.cost}</span>
                            </div>
                         </div>
 
@@ -386,11 +380,11 @@ const Treatments = () => {
          <div className="container-custom max-w-4xl text-center">
             <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Need guidance on a procedure?</h2>
             <p className="text-xl text-gray-500 mb-10 leading-relaxed">
-               Our patient counselors are here to help you understand the treatment process, costs, and insurance coverage.
+               Our patient counselors are here to help you understand the treatment process and insurance coverage.
             </p>
             <div className="flex justify-center gap-6">
                <Link to="/contact" className="h-16 px-10 rounded-full bg-[#005580] text-white font-bold text-lg hover:bg-[#004466] shadow-xl hover-lift hover:-translate-y-1 transition-all flex items-center gap-3">
-                  <FileText className="w-5 h-5" /> Get Cost Estimate
+                  <MessageSquare className="w-5 h-5" /> Enquire Now
                </Link>
             </div>
          </div>

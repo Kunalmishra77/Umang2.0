@@ -50,20 +50,17 @@ const services = [
 const carePlans = [
   {
     title: "Basic Support",
-    price: "₹15,000 / mo",
     desc: "For seniors who need mild assistance.",
     features: ["Day Care (8 Hrs)", "Vitals Check", "Medication Reminder", "Companionship"]
   },
   {
     title: "Comprehensive Care",
-    price: "₹35,000 / mo",
     desc: "Full-time support for higher needs.",
     features: ["24/7 Live-in Caregiver", "Personal Hygiene", "Mobility Assistance", "Weekly Doctor Visit"],
     popular: true
   },
   {
     title: "Specialized ICU",
-    price: "₹60,000 / mo",
     desc: "Critical care setup at home.",
     features: ["ICU Nurse (24/7)", "Equipment Rental", "Daily Doctor Consult", "Physiotherapy"]
   }
@@ -180,10 +177,6 @@ const ElderCare = () => {
                      <h3 className="text-2xl font-bold mb-2">{plan.title}</h3>
                      <p className={`text-sm mb-8 ${plan.popular ? 'text-gray-400' : 'text-gray-500'}`}>{plan.desc}</p>
                      
-                     <div className="mb-10">
-                        <span className="text-4xl font-bold">{plan.price}</span>
-                     </div>
-
                      <ul className="space-y-5 mb-10">
                         {plan.features.map((feat, idx) => (
                            <li key={idx} className="flex items-center gap-4">
@@ -196,7 +189,7 @@ const ElderCare = () => {
                      </ul>
 
                      <Link to="/services/booking/elder-care" className={`w-full h-14 rounded-xl font-bold transition-all flex items-center justify-center ${plan.popular ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'bg-gray-100 hover:bg-gray-200 text-[#0f172a]'}`}>
-                        Choose Plan
+                        Enquire for Plan
                      </Link>
                   </motion.div>
                ))}

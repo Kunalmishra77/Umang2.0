@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'Umang Superspeciality Hospital',
   shortName: 'Umang Hospital',
   tagline: 'Care with Passion',
-  marketingMessage: 'Making Advanced Healthcare More Affordable',
+  marketingMessage: 'Advanced Healthcare for Everyone',
   type: 'Multi-specialty / superspeciality tertiary care hospital',
   
   stats: {
