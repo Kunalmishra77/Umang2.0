@@ -30,7 +30,6 @@ const WhyChooseUs = () => {
       desc: `A massive facility featuring ${siteConfig.stats.icuBedsMarketing} ICU beds, Modular OTs, and specialized units for rapid recovery.`,
       icon: ShieldCheck,
       img: ASSETS.HOSPITAL_EXTERIOR,
-      video: "/assets/Home/150 bed .mp4",
       span: "md:col-span-2",
       path: "/infrastructure",
       features: ["Modular OTs", "28 ICU Beds", "Smart Wards"]
@@ -40,7 +39,6 @@ const WhyChooseUs = () => {
       desc: "Round-the-clock emergency trauma care and fully stocked digital pharmacy.",
       icon: Clock,
       img: ASSETS.AMBULANCE,
-      video: "/assets/Home/247 Critical support.mp4",
       span: "col-span-1",
       path: "/services/emergency",
       accent: "text-red-500"
@@ -50,7 +48,6 @@ const WhyChooseUs = () => {
       desc: "Equipped with 128 Slice CT, 3 Tesla MRI, and precision diagnostic labs.",
       icon: Zap,
       img: ASSETS.CT_SCAN,
-      video: "/assets/Home/moder technology.mp4",
       span: "col-span-1",
       path: "/health-library/technologies"
     },
@@ -59,7 +56,6 @@ const WhyChooseUs = () => {
       desc: "NABH accredited standards ensuring world-class safety and clinical outcomes.",
       icon: Award,
       img: ASSETS.ABOUT_NABH,
-      video: "/assets/Home/clinical excelence.mp4",
       span: "md:col-span-2",
       path: "/about",
       stat: "52+"

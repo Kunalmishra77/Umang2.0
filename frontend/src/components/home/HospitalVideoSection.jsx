@@ -32,10 +32,11 @@ const HospitalVideoSection = () => {
                 loop
                 playsInline
                 preload="auto"
+                poster={ASSETS.HOSPITAL_EXTERIOR}
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
               >
                 <source src="/assets/Home/umange-about.MP4" type="video/mp4" />
-                <img src={ASSETS.HOSPITAL_EXTERIOR} alt="Hospital" className="w-full h-full object-cover" />
+                Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent opacity-60" />
               
