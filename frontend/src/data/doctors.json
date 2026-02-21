@@ -190,5 +190,53 @@
     "about": "Dr. Priya Varma is an expert in managing chronic respiratory conditions and sleep disorders with 15+ years of experience.",
     "tags": ["Asthma Expert", "Sleep Medicine"],
     "nextSlot": "Today"
+  },
+  {
+    "id": 13,
+    "name": "Dr. Sameer Khan",
+    "specialty": "Nephrology",
+    "specialtyId": "nephrology",
+    "gender": "Male",
+    "image": "/doctors-images/dr-rohit.svg",
+    "role": "Consultant",
+    "exp": "12+ Years",
+    "rating": "4.6",
+    "cases": 1500,
+    "loc": "Umang Hospital, Gurugram",
+    "about": "Dr. Sameer Khan specializes in renal replacement therapy and management of acute kidney injuries.",
+    "tags": ["Dialysis Expert", "Kidney Care"],
+    "nextSlot": "Today"
+  },
+  {
+    "id": 14,
+    "name": "Dr. Kavita Reddy",
+    "specialty": "Pediatrics",
+    "specialtyId": "pediatrics",
+    "gender": "Female",
+    "image": "/doctors-images/dr-rukmaji.svg",
+    "role": "Senior Consultant",
+    "exp": "14+ Years",
+    "rating": "4.8",
+    "cases": 3200,
+    "loc": "Umang Hospital, Gurugram",
+    "about": "Dr. Kavita Reddy is a dedicated pediatrician with expertise in neonatal care and childhood infectious diseases.",
+    "tags": ["Child Specialist", "Vaccination Expert"],
+    "nextSlot": "Today"
+  },
+  {
+    "id": 15,
+    "name": "Dr. Amit Bhalla",
+    "specialty": "Urology",
+    "specialtyId": "urology",
+    "gender": "Male",
+    "image": "/doctors-images/dr-sahil.svg",
+    "role": "Senior Consultant",
+    "exp": "19+ Years",
+    "rating": "4.7",
+    "cases": 2600,
+    "loc": "Umang Hospital, Gurugram",
+    "about": "Dr. Amit Bhalla is a leading urologist specializing in laser stone surgeries and prostate management.",
+    "tags": ["Laser Surgeon", "Urology"],
+    "nextSlot": "Tomorrow"
   }
 ]

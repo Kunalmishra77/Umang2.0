@@ -1,40 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { 
   Pill, Search, ShoppingBag, Clock, ShieldCheck, 
   Truck, ArrowRight, Phone, MessageCircle, ChevronRight,
-  HeartPulse, Thermometer, User, Filter, X, Zap, Upload, Activity
+  HeartPulse, Thermometer, User, Filter, X, Zap, Upload, Activity,
+  Smartphone, Award, HelpCircle, Star, CheckCircle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
+import api from '../../services/api';
+import { Container, Section, SectionHeading } from '../../components/ui/Layout';
 
-const categories = [
-  { id: 'cardiac', name: 'Cardiac Care', icon: HeartPulse, slug: 'cardiac-care', img: ASSETS.PHARMA_CARDIAC },
-  { id: 'diabetes', name: 'Diabetes', icon: Activity, slug: 'diabetes-care', img: ASSETS.PHARMA_DIABETES },
-  { id: 'personal', name: 'Personal Care', icon: User, slug: 'personal-care', img: ASSETS.PHARMA_PERSONAL_CARE },
-  { id: 'devices', name: 'Medical Devices', icon: Zap, slug: 'medical-devices', img: ASSETS.PHARMA_DEVICES },
-  { id: 'baby', name: 'Mother & Baby', icon: Pill, slug: 'mother-baby', img: ASSETS.PHARMA_MOTHER_BABY }
-];
-
-const featuredProducts = [
-  { id: 1, name: "Accu-Chek Active Strips", pack: "50 Strips", img: ASSETS.PROD_ACCU_CHEK },
-  { id: 2, name: "Omron BP Monitor", pack: "1 Unit", img: ASSETS.PHARMA_DEVICES },
-  { id: 3, name: "Multivitamin Complex", pack: "60 Tabs", img: ASSETS.PROD_MULTIVITAMIN },
-  { id: 4, name: "N95 Face Masks", pack: "Pack of 5", img: ASSETS.PROD_N95_MASK }
-];
+const iconMap = {
+  'cardiac-care': HeartPulse,
+  'diabetes-care': Activity,
+  'personal-care': User,
+  'medical-devices': Zap,
+  'mother-baby': Pill
+};
 
 const Pharmacy = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const [categories, setCategories] = useState([]);
+  const [featuredProducts, setFeaturedProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [catsRes, featRes] = await Promise.all([
+          api.get('/medicines/categories'),
+          api.get('/medicines/featured')
+        ]);
+        setCategories(catsRes.data);
+        setFeaturedProducts(featRes.data);
+      } catch (error) {
+        console.error("Failed to fetch pharmacy data", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="bg-white min-h-screen pt-12">
-      <Helmet>
-        <title>24/7 Pharmacy & Medical Store | Umang Hospital</title>
-        <meta name="description" content="100% genuine medications available round-the-clock. Doorstep delivery and professional pharmacist support." />
-      </Helmet>
+      <SeoHead 
+        title="24/7 Pharmacy & Medical Store" 
+        description="100% genuine medications available round-the-clock at Umang Hospital. Doorstep delivery and professional pharmacist support."
+        canonical="/services/buy-medicines"
+      />
 
-      {/* 1. Hero Section - Modern & Clean */}
+      {/* 1. Hero Section */}
       <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center bg-[#f8fafc] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 w-1/2 h-full bg-[#f1f5f9] -skew-x-12 translate-x-20" />
@@ -46,12 +64,7 @@ const Pharmacy = () => {
         </div>
 
         <div className="container-custom relative z-20">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
-          >
+          <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-8">
               <ShieldCheck className="w-4 h-4" /> 100% Genuine Medicines
             </div>
@@ -101,11 +114,11 @@ const Pharmacy = () => {
                ))}
             </div>
 
-            <div className="max-w-4xl mx-auto relative mb-32">
+            <div className="max-w-4xl mx-auto relative">
                <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />
                <input 
                   type="text" 
-                  placeholder="Search for medicines, wellness products or health devices..."
+                  placeholder="Search for medicines..."
                   className="w-full h-20 pl-16 pr-8 rounded-3xl bg-gray-50 border-2 border-transparent focus:border-blue-500 focus:bg-white outline-none font-bold text-xl transition-all shadow-lg"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -115,23 +128,23 @@ const Pharmacy = () => {
       </section>
 
       {/* 3. Shop by Category */}
-      <section className="py-32 bg-gray-50">
+      <section className="py-20 bg-gray-50 mt-20">
          <div className="container-custom">
-            <div className="flex justify-between items-end mb-16">
+            <div className="flex justify-between items-end mb-16 px-4">
                <h2 className="text-4xl font-serif font-bold text-[#0f172a]">Shop by Category</h2>
                <Link to="/services/buy-medicines/all-products" className="text-blue-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
                   View All <ArrowRight className="w-5 h-5" />
                </Link>
             </div>
 
-            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 px-4">
                {categories.map((cat) => (
                   <Link key={cat.id} to={`/services/buy-medicines/category/${cat.slug}`} className="group">
                      <motion.div whileHover={{ y: -10 }} className="bg-white rounded-[2.5rem] p-8 text-center shadow-sm hover:shadow-xl transition-all border border-gray-100">
                         <div className="w-full aspect-square rounded-2xl bg-gray-50 mb-6 overflow-hidden">
-                           <img src={cat.img} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                           <img src={cat.image || ASSETS.PHARMA_CARDIAC} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                         </div>
-                        <h4 className="font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors">{cat.name}</h4>
+                        <h4 className="font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors text-sm">{cat.name}</h4>
                      </motion.div>
                   </Link>
                ))}
@@ -140,10 +153,10 @@ const Pharmacy = () => {
       </section>
 
       {/* 4. Featured Products */}
-      <section className="py-32 bg-white">
+      <section className="py-20 bg-white">
          <div className="container-custom">
-            <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-16">Top Wellness Picks</h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-16 px-4">Top Wellness Picks</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
                {featuredProducts.map((product) => (
                   <motion.div 
                      key={product.id}
@@ -151,49 +164,151 @@ const Pharmacy = () => {
                      className="bg-white border border-gray-100 rounded-[2.5rem] p-6 shadow-sm hover:shadow-xl transition-all group"
                   >
                      <div className="w-full aspect-square bg-gray-50 rounded-[2rem] mb-6 overflow-hidden relative">
-                        <img src={product.img} alt={product.name} className="w-full h-full object-cover mix-blend-multiply p-4" />
+                        <img src={product.image || ASSETS.PROD_MULTIVITAMIN} alt={product.name} className="w-full h-full object-cover mix-blend-multiply p-4" />
                         <button className="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 transition-all">
                            <HeartPulse className="w-5 h-5" />
                         </button>
                      </div>
                      <h4 className="font-bold text-[#0f172a] mb-1 line-clamp-1">{product.name}</h4>
-                     <p className="text-xs text-gray-400 mb-6">{product.pack}</p>
-                     
-                     <div className="flex items-center justify-between">
-                        <button className="h-12 w-full rounded-xl bg-blue-50 text-blue-600 font-bold hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center gap-2">
-                           View Details
-                        </button>
-                     </div>
+                     <p className="text-xs text-gray-400 mb-6">{product.pack_size}</p>
+                     <button className="h-12 w-full rounded-xl bg-blue-50 text-blue-600 font-bold hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center gap-2">
+                        View Details
+                     </button>
                   </motion.div>
                ))}
             </div>
          </div>
       </section>
 
-      {/* 5. Quick Upload Banner */}
+      {/* 5. Process Section (NEW) */}
+      <Section className="bg-slate-50">
+        <Container>
+          <SectionHeading eyebrow="How it Works" title="3 Simple Steps to Get Your Meds" centered />
+          <div className="grid md:grid-cols-3 gap-12">
+            {[
+              { title: "Upload / Search", desc: "Upload your prescription or search for medicines directly.", icon: Search },
+              { title: "Expert Review", desc: "Our pharmacists verify the order and ensure right dosage.", icon: ShieldCheck },
+              { title: "Fast Delivery", desc: "Get your medicines delivered at your door within 4 hours.", icon: Truck }
+            ].map((step, i) => (
+              <div key={i} className="relative text-center">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg text-blue-600 border-4 border-blue-50">
+                  <step.icon size={32} />
+                </div>
+                <h4 className="text-2xl font-bold text-slate-900 mb-4">{step.title}</h4>
+                <p className="text-gray-500 leading-relaxed px-6">{step.desc}</p>
+                {i < 2 && <ArrowRight className="hidden lg:block absolute top-10 -right-6 text-gray-200" size={32} />}
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* 6. Specialized Medications (NEW) */}
+      <Section className="bg-white overflow-hidden">
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2 relative">
+              <div className="absolute inset-0 bg-blue-100 rounded-[4rem] rotate-3 -z-10" />
+              <img src={ASSETS.PHARMA_CARDIAC} alt="Specialized" className="rounded-[4rem] shadow-2xl w-full h-[500px] object-cover" />
+            </div>
+            <div className="lg:w-1/2">
+              <span className="section-subtitle">Critical Care Care</span>
+              <h2 className="section-title">Specialized Critical & <br />Chronic Medication.</h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
+                We maintain stock of life-saving emergency drugs, oncology medications, and specialized cardiac drugs that are often hard to find at local retail stores.
+              </p>
+              <div className="space-y-6">
+                {["Strict Cold Chain Maintenance", "Storage as per Global Standards", "Verified Manufacturer Sourcing"].map((item, i) => (
+                  <div key={i} className="flex items-center gap-4 font-bold text-slate-800">
+                    <CheckCircle className="text-green-500" size={20} /> {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 7. Quick Upload Banner */}
       <section className="py-12 lg:py-10 container-custom">
          <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-[4rem] p-12 md:p-24 text-white relative overflow-hidden flex flex-col lg:flex-row items-center gap-16">
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-[100px]" />
-            
             <div className="lg:w-1/2 relative z-10">
-               <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">Can't find your <br />medicine?</h2>
-               <p className="text-xl text-blue-100 mb-12 leading-relaxed">
-                  Just upload your prescription and our pharmacists will find it for you and arrange for delivery.
-               </p>
+               <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">Can't find your medicine?</h2>
+               <p className="text-xl text-blue-100 mb-12">Just upload your prescription and our pharmacists will find it for you.</p>
                <Link to="/services/buy-medicines/prescription-upload" className="h-16 px-10 rounded-2xl bg-white text-blue-600 font-bold text-lg hover:bg-blue-50 transition-all flex items-center justify-center gap-3 shadow-xl">
                   <Upload className="w-6 h-6" /> Upload & Order Now
                </Link>
             </div>
-
             <div className="lg:w-1/2 relative">
-               <img 
-                  src={ASSETS.PHARMA_ORDER_FASTER} 
-                  alt="Order Faster" 
-                  className="relative z-10 rounded-[3rem] shadow-2xl rotate-3 scale-110"
-               />
+               <img src={ASSETS.PHARMA_ORDER_FASTER} alt="Order" className="relative z-10 rounded-[3rem] shadow-2xl rotate-3 scale-110" />
             </div>
          </div>
       </section>
+
+      {/* 8. App Promo (NEW) */}
+      <Section className="bg-slate-900 text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-20" />
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-2/3">
+              <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Manage health on the go with <span className="text-blue-400">Umang Care App.</span></h2>
+              <p className="text-slate-400 text-xl font-light leading-relaxed mb-12">Refill prescriptions, track deliveries, and consult doctors—all from your smartphone.</p>
+              <div className="flex flex-wrap gap-6">
+                <button className="h-16 px-8 bg-white text-black rounded-2xl flex items-center gap-4 hover:scale-105 transition-all">
+                  <Smartphone /> <div><p className="text-[10px] font-bold opacity-60">GET IT ON</p><p className="text-lg font-bold leading-none">Google Play</p></div>
+                </button>
+                <button className="h-16 px-8 border border-white/20 rounded-2xl flex items-center gap-4 hover:bg-white/5 transition-all">
+                  <Smartphone /> <div><p className="text-[10px] font-bold opacity-60">DOWNLOAD ON</p><p className="text-lg font-bold leading-none">App Store</p></div>
+                </button>
+              </div>
+            </div>
+            <div className="lg:w-1/3 w-full">
+               <div className="p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] text-center">
+                  <Award size={48} className="text-blue-400 mx-auto mb-6" />
+                  <h4 className="text-2xl font-bold mb-2">99% Delivery Rate</h4>
+                  <p className="text-slate-400 text-sm">Successfully delivered 50,000+ orders across Gurugram last year.</p>
+               </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 9. FAQ Section (NEW) */}
+      <Section className="bg-white">
+        <Container className="max-w-4xl">
+          <SectionHeading eyebrow="Common Queries" title="Pharmacy FAQs" centered />
+          <div className="space-y-4">
+            {[
+              { q: "Is home delivery available for all medicines?", a: "Yes, we deliver all genuine medicines. Some critical or restricted drugs may require a physical prescription verification at the time of delivery." },
+              { q: "How long does the delivery take?", a: "Orders placed within Gurugram are typically delivered within 2-4 hours. Chronic medicine refills can also be scheduled." },
+              { q: "Do you maintain cold-chain for insulin?", a: "Absolutely. We use specialized insulated containers and cold-gel packs to ensure temperature-sensitive drugs remain effective." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-left">
+                <h4 className="font-bold text-slate-900 flex items-center gap-4 mb-4 text-lg">
+                  <HelpCircle size={20} className="text-blue-600" /> {faq.q}
+                </h4>
+                <p className="text-gray-600 pl-9 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* 10. Commitment CTA (NEW) */}
+      <Section className="bg-blue-600 text-white text-center">
+        <Container>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Trust Umang for your <br />clinical pharmacy needs.</h2>
+            <p className="text-blue-100 text-lg mb-12 max-w-2xl mx-auto">Our registered pharmacists are available 24/7 to guide you with the right dosage and usage information.</p>
+            <div className="flex justify-center gap-6">
+              <a href="tel:8929733550" className="px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-base shadow-xl flex items-center gap-3">
+                <Phone size={20} /> Speak to Pharmacist
+              </a>
+            </div>
+          </motion.div>
+        </Container>
+      </Section>
 
     </div>
   );

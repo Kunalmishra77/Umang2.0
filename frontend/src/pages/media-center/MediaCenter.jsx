@@ -2,11 +2,13 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
-import { Newspaper, Video, Mail, Radio, ArrowRight, ExternalLink } from 'lucide-react';
+import { Newspaper, Video, Mail, Radio, ArrowRight, ExternalLink, ShieldCheck as Shield, Award } from 'lucide-react';
 import ParallaxImage from '../../components/common/ParallaxImage';
 import SpotlightCard from '../../components/common/SpotlightCard';
 import MaskText from '../../components/common/MaskText';
 import { ASSETS } from '../../utils/imageAssets';
+import SeoHead from '../../components/common/SeoHead';
+import { Container, Section, SectionHeading, Card } from '../../components/ui/Layout';
 
 const MediaCenter = () => {
   const { scrollYProgress } = useScroll();
@@ -14,16 +16,17 @@ const MediaCenter = () => {
 
   return (
     <div className="bg-white min-h-screen pt-12 overflow-x-hidden">
-      <Helmet>
-        <title>Media Center - Umang Hospital</title>
-        <meta name="description" content="Stay informed with the latest press releases, media coverage, and newsletters from Umang Hospital." />
-      </Helmet>
+      <SeoHead 
+        title="Media Center" 
+        description="Stay informed with the latest press releases, media coverage, and newsletters from Umang Hospital."
+        canonical="/media-center"
+      />
 
       {/* 1. Cinematic Hero Section */}
       <section className="relative h-[60vh] lg:h-[70vh] min-h-[500px] lg:min-h-[600px] flex items-center justify-center overflow-hidden bg-[#0f172a]">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <ParallaxImage 
-            src={ASSETS.PRESS_EVENT} 
+            src={ASSETS.PRESS_EVENT || ASSETS.HOSPITAL_EXTERIOR} 
             alt="Media Center Hero" 
             containerClassName="w-full h-full"
             className="opacity-40 mix-blend-overlay"
@@ -54,29 +57,36 @@ const MediaCenter = () => {
             </p>
           </MaskText>
         </div>
-        
-        {/* Decorative Floating Elements */}
-        <motion.div 
-          animate={{ y: [0, -20, 0] }} 
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 left-[5%] lg:left-[10%] w-16 h-16 lg:w-24 lg:h-24 bg-blue-500/20 rounded-full blur-[30px] lg:blur-[40px] pointer-events-none" 
-        />
-        <motion.div 
-          animate={{ y: [0, 20, 0] }} 
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 right-[5%] lg:top-40 lg:right-[10%] w-20 h-20 lg:w-32 lg:h-32 bg-cyan-500/20 rounded-full blur-[40px] lg:blur-[60px] pointer-events-none" 
-        />
       </section>
 
+      {/* SECTION: MEDIA IMPACT STATS (NEW) */}
+      <div className="bg-primary-600 py-12 lg:py-16 text-white relative z-30">
+        <Container>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+            {[
+              { label: "Press Mentions", value: "500+" },
+              { label: "Reach", value: "10M+" },
+              { label: "News Features", value: "150+" },
+              { label: "Live Events", value: "25+" }
+            ].map((stat, i) => (
+              <div key={i}>
+                <p className="text-3xl lg:text-5xl font-black tracking-tighter mb-1">{stat.value}</p>
+                <p className="text-[10px] font-bold uppercase tracking-widest text-primary-100 opacity-80">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </div>
+
       {/* 2. Media Categories Grid */}
-      <section className="pt-0 pb-12 lg:pb-24 bg-gray-50 relative -mt-16 lg:-mt-20 z-20 rounded-t-[2.5rem] lg:rounded-t-[3rem]">
+      <section className="pt-12 pb-12 lg:pb-24 bg-gray-50 overflow-hidden">
         <div className="container-custom">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {[
-              { title: "Press Releases", slug: "press-release", icon: Newspaper, desc: "Official statements and launch announcements.", img: ASSETS.PRESS_EVENT, color: "text-blue-600" },
-              { title: "Media Coverage", slug: "media-coverage", icon: Video, desc: "Umang Hospital in national and global news.", img: ASSETS.NEWS_ANCHOR || ASSETS.PRESS_EVENT, color: "text-red-600" },
-              { title: "Newsletters", slug: "newsletters", icon: Mail, desc: "Monthly health digests and community updates.", img: ASSETS.NEWSLETTER || ASSETS.PRESS_EVENT, color: "text-green-600" },
-              { title: "Media Connect", slug: "media-connect", icon: Radio, desc: "Resources and contacts for journalists.", img: ASSETS.MICROPHONE || ASSETS.PRESS_EVENT, color: "text-purple-600" },
+              { title: "Press Releases", slug: "press-release", icon: Newspaper, desc: "Official statements and launch announcements.", color: "text-blue-600" },
+              { title: "Media Coverage", slug: "media-coverage", icon: Video, desc: "Umang Hospital in national and global news.", color: "text-red-600" },
+              { title: "Newsletters", slug: "newsletters", icon: Mail, desc: "Monthly health digests and community updates.", color: "text-green-600" },
+              { title: "Media Connect", slug: "media-connect", icon: Radio, desc: "Resources and contacts for journalists.", color: "text-purple-600" },
             ].map((item, i) => (
               <motion.div
                 key={i}
@@ -110,8 +120,39 @@ const MediaCenter = () => {
         </div>
       </section>
 
+      {/* SECTION: VIDEO NEWS ARCHIVE (NEW) */}
+      <Section className="bg-white">
+        <Container>
+          <SectionHeading 
+            eyebrow="Visual News" 
+            title="Umang in Focus" 
+            description="Watch our latest televised news features, expert interviews, and facility launch videos."
+          />
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Advanced Cardiology Launch", source: "Health News India" },
+              { title: "CSR Health Camp 2025", source: "Local News Network" },
+              { title: "Neuroscience Breakthrough", source: "Science Today" }
+            ].map((video, i) => (
+              <div key={i} className="group cursor-pointer">
+                <div className="relative aspect-video rounded-3xl overflow-hidden shadow-lg mb-6">
+                  <img src={ASSETS.SVC_PATHOLOGY} alt="Video" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center border border-white/50 group-hover:scale-110 transition-all">
+                      <Video className="w-6 h-6 text-white fill-current" />
+                    </div>
+                  </div>
+                </div>
+                <h4 className="text-lg font-bold text-brand-dark mb-1">{video.title}</h4>
+                <p className="text-xs font-bold text-primary-600 uppercase tracking-widest">{video.source}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
       {/* 3. Featured News & Updates */}
-      <section className="section-padding bg-white">
+      <section className="py-12 lg:py-24 bg-gray-50">
          <div className="container-custom">
             <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                <div className="max-w-2xl">
@@ -151,7 +192,7 @@ const MediaCenter = () => {
                      <motion.div 
                         key={idx}
                         whileHover={{ x: 10 }}
-                        className="flex-1 bg-gray-50 rounded-[2rem] p-8 flex flex-col justify-center border border-gray-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all cursor-pointer group"
+                        className="flex-1 bg-white rounded-[2rem] p-8 flex flex-col justify-center border border-gray-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all cursor-pointer group shadow-sm"
                      >
                         <div className="flex justify-between items-start mb-3">
                            <span className="text-blue-600 text-xs font-bold uppercase tracking-widest">{news.cat}</span>
@@ -159,18 +200,58 @@ const MediaCenter = () => {
                         </div>
                         <h4 className="text-xl font-bold text-brand-dark group-hover:text-blue-700 transition-colors leading-snug">{news.title}</h4>
                         <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-2 text-sm font-bold text-blue-600">
-                           Read More <ExternalLink className="w-3 h-3" />
+                           Read More <ExternalLink className="w-3.5 h-3.5" />
                         </div>
                      </motion.div>
                   ))}
                </div>
             </div>
-            
-            <div className="mt-12 text-center md:hidden">
-               <Link to="/media-center/press-release" className="btn-outline w-full justify-center">View All News</Link>
-            </div>
          </div>
       </section>
+
+      {/* SECTION: PRESS KIT (NEW) */}
+      <Section className="bg-white">
+        <Container>
+          <div className="bg-slate-900 rounded-[3rem] p-10 lg:p-16 text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary-600 rounded-full blur-[120px] opacity-10 -mr-32 -mt-32" />
+            <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+              <div>
+                <h3 className="text-3xl lg:text-4xl font-serif font-bold mb-6">Digital Press Kit</h3>
+                <p className="text-slate-400 text-lg font-light leading-relaxed mb-10">
+                  Download official high-resolution logos, leadership headshots, and hospital b-roll for editorial use.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { title: "Brand Identity", size: "15MB" },
+                    { title: "Fact Sheet 2026", size: "2MB" },
+                    { title: "Leadership Bios", size: "5MB" },
+                    { title: "Image Bank", size: "45MB" }
+                  ].map((item, i) => (
+                    <div key={i} className="p-4 bg-white/5 border border-white/10 rounded-2xl group hover:bg-white/10 transition-all cursor-pointer flex justify-between items-center">
+                      <div>
+                        <p className="font-bold text-sm">{item.title}</p>
+                        <p className="text-[10px] text-gray-500 uppercase font-black">{item.size} • PDF/ZIP</p>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-primary-400 opacity-0 group-hover:opacity-100 transition-all" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="lg:pl-12">
+                <Card className="!bg-white/5 border border-white/10 !p-10 backdrop-blur-xl">
+                  <h4 className="text-xl font-bold mb-6 text-primary-400">Media Accreditation</h4>
+                  <p className="text-sm text-slate-400 leading-relaxed mb-8">
+                    Registered journalists can request media access for special event coverage and one-on-one specialist interviews.
+                  </p>
+                  <Link to="/contact/media-connect" className="block w-full py-4 bg-primary-600 text-white text-center rounded-xl font-bold hover:bg-primary-500 transition-all uppercase tracking-widest text-xs">
+                    Apply for Access
+                  </Link>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
       {/* 4. Contact CTA */}
       <section className="py-12 lg:py-10 bg-[#0f172a] text-white relative overflow-hidden">

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { 
   Heart, UserCheck, Home, Smile, Activity, Clock, 
-  Phone, Calendar, CheckCircle, ArrowRight, Sun, Shield 
+  Phone, Calendar, CheckCircle, ArrowRight, Sun, Shield, HelpCircle 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
+import { Container, Section, SectionHeading } from '../../components/ui/Layout';
+import SeoHead from '../../components/common/SeoHead';
+import { siteConfig } from '../../config/siteConfig';
 
 const services = [
   {
@@ -71,10 +73,11 @@ const ElderCare = () => {
 
   return (
     <div className="bg-white min-h-screen pt-12">
-      <Helmet>
-        <title>Elder Care Services | Umang Hospital</title>
-        <meta name="description" content="Compassionate geriatric care for seniors. Assisted living, dementia care, and medical support at home." />
-      </Helmet>
+      <SeoHead 
+        title="Elder Care Services" 
+        description="Compassionate geriatric care for seniors. Assisted living, dementia care, and medical support at home."
+        canonical="/services/elder-care"
+      />
 
       {/* 1. Hero Section - Warm & Reassuring */}
       <section className="relative min-h-[500px] lg:min-h-[700px] flex items-center bg-[#fff7ed] overflow-hidden">
@@ -118,7 +121,28 @@ const ElderCare = () => {
         </div>
       </section>
 
+      {/* SECTION: GERIATRIC IMPACT STATS (NEW) */}
+      <div className="bg-orange-500 py-8 lg:py-10 text-white overflow-hidden relative border-y border-white/5">
+        <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <Container>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10">
+            {[
+              { label: "Seniors Cared For", value: "2,500+" },
+              { label: "Certified Staff", value: "150+" },
+              { label: "Avg Stay Home", value: "12 Mos" },
+              { label: "Response Time", value: "<15 Mins" }
+            ].map((stat, i) => (
+              <div key={i}>
+                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight mb-1">{stat.value}</p>
+                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-orange-100/70">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </div>
+
       {/* 2. Comprehensive Services Grid */}
+
       <section className="py-32 bg-white">
          <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto mb-24">
@@ -253,6 +277,77 @@ const ElderCare = () => {
          </div>
       </section>
 
+      {/* SECTION: CARE EQUIPMENT (NEW) */}
+      <Section className="bg-white">
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <span className="text-orange-600 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Support</span>
+              <h2 className="section-title">Home Care <br /><span className="text-orange-500">Equipment.</span></h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
+                We provide a range of medical equipment on rental or purchase to support senior care at home, ensuring a safe and clinical environment for your loved ones.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                {[
+                  { title: "Hospital Beds", desc: "Manual & Electric multi-function beds." },
+                  { title: "Oxygen Support", desc: "Concentrators and cylinders available 24/7." },
+                  { title: "Vitals Monitors", desc: "Digital devices for blood pressure and SpO2." },
+                  { title: "Mobility Aids", desc: "Wheelchairs, walkers, and support bars." }
+                ].map((item, i) => (
+                  <div key={i} className="p-6 bg-slate-50 rounded-2xl border border-gray-100 group hover:border-orange-200 transition-all">
+                    <h4 className="font-bold text-brand-dark mb-2">{item.title}</h4>
+                    <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              <img src={ASSETS.SVC_ICU_ADVANCE} alt="Equipment" className="rounded-[4rem] shadow-2xl w-full h-[450px] object-cover" />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION: GERIATRIC FAQ (NEW) */}
+      <Section className="bg-gray-50">
+        <Container className="max-w-4xl">
+          <SectionHeading 
+            eyebrow="Help Desk" 
+            title="Elder Care FAQ" 
+            centered
+          />
+          <div className="space-y-4">
+            {[
+              { q: "How do you select your caregivers?", a: "Every caregiver undergoes a multi-stage screening, including background verification, clinical skills assessment, and empathy-based interviewing." },
+              { q: "Can we get a replacement if we are not satisfied?", a: "Yes, we prioritize patient comfort. If there is a mismatch in compatibility, we provide a replacement within 24-48 hours." },
+              { q: "Do care plans include doctor visits?", a: "Our comprehensive care plans include weekly or bi-weekly home visits by a general physician to monitor progress." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 text-left hover:border-orange-300 transition-all">
+                <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
+                  <HelpCircle size={20} className="text-orange-500 shrink-0" /> {faq.q}
+                </h4>
+                <p className="text-slate-600 pl-9 text-base leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Final CTA */}
+      <section className="section-padding bg-brand-dark relative overflow-hidden">
+        <Container className="relative z-10 text-center">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Ready to provide the <br /><span className="text-orange-400 italic">best for your parents?</span></h2>
+          <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">Get expert guidance on our care packages and find the right support system for your family.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <Link to="/services/booking/elder-care" className="px-10 py-5 bg-orange-500 text-white rounded-full font-bold text-base shadow-xl hover:bg-orange-600 transition-all flex items-center justify-center gap-3">
+              Request a Consultation <ArrowRight size={20} />
+            </Link>
+            <a href={`tel:${siteConfig.contacts.main}`} className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-base hover:bg-white/5 transition-all flex items-center justify-center gap-3">
+              Talk to Expert: {siteConfig.contacts.main}
+            </a>
+          </div>
+        </Container>
+      </section>
     </div>
   );
 };

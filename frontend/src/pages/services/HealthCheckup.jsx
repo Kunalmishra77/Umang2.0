@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { 
-  Activity, Heart, ShieldCheck, Clock, User, CheckCircle, 
-  ArrowRight, FileText, Smartphone, Calendar 
+  Activity, Heart, Shield, Clock, User, CheckCircle, 
+  ArrowRight, FileText, Smartphone, Calendar, HelpCircle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
+import { Container, Section, SectionHeading } from '../../components/ui/Layout';
+import SeoHead from '../../components/common/SeoHead';
+import { siteConfig } from '../../config/siteConfig';
 
 const packages = [
   {
@@ -24,7 +26,7 @@ const packages = [
     subtitle: "Comprehensive analysis for 30+",
     tests: "75+ Parameters",
     color: "bg-green-50 border-green-100",
-    icon: ShieldCheck,
+    icon: Shield,
     popular: true,
     features: ["All Basic Tests", "Thyroid Profile (T3, T4, TSH)", "Vitamin D & B12", "HbA1c (3 Month Sugar)", "ECG & Chest X-Ray", "Doctor Consultation"]
   },
@@ -51,10 +53,11 @@ const packages = [
 const HealthCheckup = () => {
   return (
     <div className="bg-white min-h-screen pt-12">
-      <Helmet>
-        <title>Preventive Health Checkups | Umang Hospital</title>
-        <meta name="description" content="Book comprehensive full body checkups. Includes blood tests, cardiac screening, and doctor consultation." />
-      </Helmet>
+      <SeoHead 
+        title="Preventive Health Checkups" 
+        description="Book comprehensive full body checkups at Umang Hospital. Includes blood tests, cardiac screening, and expert doctor consultation."
+        canonical="/services/health-checkup"
+      />
 
       {/* 1. Hero Section - Full Width & Spacious */}
       <section className="relative min-h-[500px] lg:min-h-[650px] flex items-center bg-[#005580] overflow-hidden">
@@ -117,7 +120,28 @@ const HealthCheckup = () => {
         </div>
       </section>
 
+      {/* SECTION: SCREENING IMPACT STATS (NEW) */}
+      <div className="bg-primary-600 py-8 lg:py-10 text-white overflow-hidden relative border-y border-white/5">
+        <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <Container>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10">
+            {[
+              { label: "Annual Screenings", value: "25,000+" },
+              { label: "Early Detections", value: "1,200+" },
+              { label: "Satisfaction", value: "98.5%" },
+              { label: "Report Time", value: "24 Hrs" }
+            ].map((stat, i) => (
+              <div key={i}>
+                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight mb-1">{stat.value}</p>
+                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-primary-100/70">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </div>
+
       {/* 2. Packages Section - Spacious Grid */}
+
       <section id="packages" className="py-32 bg-gray-50">
          <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto mb-20">
@@ -230,7 +254,7 @@ const HealthCheckup = () => {
                   <p className="text-gray-400">Identify risk factors before they become complications.</p>
                </div>
                <div className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
-                  <ShieldCheck className="w-10 h-10 text-cyan-300 mb-6" />
+                  <Shield className="w-10 h-10 text-cyan-300 mb-6" />
                   <h4 className="text-xl font-bold mb-3">Long-term Wellness</h4>
                   <p className="text-gray-400">Preventive care ensures sustained health and vitality.</p>
                </div>
@@ -243,6 +267,46 @@ const HealthCheckup = () => {
          </div>
       </section>
 
+      {/* SECTION: SCREENING FAQ (NEW) */}
+      <Section className="bg-white">
+        <Container className="max-w-4xl">
+          <SectionHeading 
+            eyebrow="Help Desk" 
+            title="Screening Related FAQs" 
+            centered
+          />
+          <div className="space-y-4">
+            {[
+              { q: "Is home collection available for all packages?", a: "Yes, all our primary health checkup packages include the option for home sample collection by certified phlebotomists." },
+              { q: "How long should I fast before the tests?", a: "A minimum of 10-12 hours of overnight fasting is required for accurate blood sugar and lipid profile results." },
+              { q: "Can I customize a health package?", a: "Absolutely. You can add specific tests to any existing package based on your doctor's advice or personal health concerns." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-left">
+                <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
+                  <HelpCircle size={20} className="text-primary-600 shrink-0" /> {faq.q}
+                </h4>
+                <p className="text-slate-600 pl-9 text-base leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Final CTA */}
+      <section className="section-padding bg-brand-dark relative overflow-hidden">
+        <Container className="relative z-10 text-center">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Take charge of <br /><span className="text-primary-400 italic">your health today.</span></h2>
+          <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">Early screening is the first step towards a longer, healthier life. Book your package now and get a expert review.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <Link to="/services/booking/health-checkup" className="px-10 py-5 bg-primary-600 text-white rounded-full font-bold text-base shadow-xl hover:bg-primary-500 transition-all flex items-center justify-center gap-3">
+              Book Your Package <ArrowRight size={20} />
+            </Link>
+            <a href={`tel:${siteConfig.contacts.main}`} className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-base hover:bg-white/5 transition-all flex items-center justify-center gap-3">
+              {siteConfig.contacts.main}
+            </a>
+          </div>
+        </Container>
+      </section>
     </div>
   );
 };

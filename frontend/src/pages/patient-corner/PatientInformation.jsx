@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { 
   FileText, Shield, Info, Download, ChevronRight, 
   Search, Book, Phone, HelpCircle, ArrowRight, UserCheck, 
@@ -36,10 +36,11 @@ const PatientInformation = () => {
 
   return (
     <div className="bg-white min-h-screen pt-12">
-      <Helmet>
-        <title>Patient Information & Guides | Umang Hospital</title>
-        <meta name="description" content="Essential information for patients and visitors. Admission guides, insurance details, and hospital policies." />
-      </Helmet>
+      <SeoHead 
+        title="Patient Information & Guides" 
+        description="Essential information for patients and visitors at Umang Hospital. Admission guides, insurance details, and hospital policies."
+        canonical="/patient-corner/patient-information-literature"
+      />
 
       {/* 1. Hero Section */}
       <section className="relative min-h-[500px] flex items-center bg-[#005580] overflow-hidden">

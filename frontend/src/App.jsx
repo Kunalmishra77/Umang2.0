@@ -77,6 +77,8 @@ import IcuUnitDetail from './pages/infrastructure/IcuUnitDetail';
 import PatientLayout from './layouts/PatientLayout';
 import NotFound from './pages/utils/NotFound';
 
+import GenericPage from './pages/utils/GenericPage';
+
 function App() {
   return (
     <>
@@ -89,6 +91,15 @@ function App() {
           <Route path="infrastructure" element={<Infrastructure />} />
           <Route path="infrastructure/icu" element={<IcuPage />} />
           <Route path="infrastructure/icu/:slug" element={<IcuUnitDetail />} />
+          
+          <Route path="infrastructure/ot" element={<DynamicSubPage />} />
+          <Route path="infrastructure/rooms" element={<DynamicSubPage />} />
+          <Route path="infrastructure/radiology" element={<DynamicSubPage />} />
+          <Route path="infrastructure/cafeteria" element={<DynamicSubPage />} />
+          <Route path="infrastructure/ambulance" element={<DynamicSubPage />} />
+          <Route path="infrastructure/help-desk" element={<DynamicSubPage />} />
+          <Route path="infrastructure/parking" element={<DynamicSubPage />} />
+
           <Route path="careers" element={<Careers />} />
           <Route path="specialities" element={<Specialities />} />
           <Route path="specialities/:id" element={<SpecialityDetail />} />

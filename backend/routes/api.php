@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\Api\CmsController;
 use App\Http\Controllers\Api\LeadController;
+use App\Http\Controllers\Api\MedicineController;
+use App\Models\Speciality;
 
 // Lead Generation Routes
 Route::post('/callback', [LeadController::class, 'callback']);
@@ -26,15 +28,14 @@ Route::post('/insurance-inquiry', [CmsController::class, 'storeInquiry']);
 Route::get('/doctors', [DoctorController::class, 'index']);
 Route::get('/doctors/{id}', [DoctorController::class, 'show']);
 
+// Medicine Routes
+Route::get('/medicines', [MedicineController::class, 'index']);
+Route::get('/medicines/featured', [MedicineController::class, 'featured']);
+Route::get('/medicines/categories', [MedicineController::class, 'categories']);
+
 // Public routes for booking
 Route::get('/specialities', function () {
-    return response()->json([
-        ['id' => 1, 'name' => 'Cardiology'],
-        ['id' => 2, 'name' => 'Dermatology'],
-        ['id' => 3, 'name' => 'Neurology'],
-        ['id' => 4, 'name' => 'Orthopedics'],
-        ['id' => 5, 'name' => 'Pediatrics'],
-    ]);
+    return response()->json(Speciality::all(['id', 'name', 'slug', 'icon']));
 });
 
 Route::middleware('auth:sanctum')->group(function () {

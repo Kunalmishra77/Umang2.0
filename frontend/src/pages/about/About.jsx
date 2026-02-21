@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { 
-  ChevronRight, Target, Eye, Quote, ShieldCheck, Heart, Users, 
-  Award, ArrowRight, Activity, Phone, Calendar, Star, Microscope, Zap
+  ChevronRight, Target, Eye, Quote, Shield, Heart, Users, 
+  Award, ArrowRight, Activity, Phone, Calendar, Star, Microscope, Zap, CheckCircle
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
@@ -125,6 +125,163 @@ const About = () => {
         </div>
       </section>
 
+      {/* SECTION: LEADERSHIP MESSAGE */}
+      <section className="py-20 lg:py-32 bg-brand-dark text-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-600 rounded-full blur-[150px]" />
+        </div>
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} className="lg:col-span-5">
+              <div className="relative rounded-[3rem] overflow-hidden border-8 border-white/5 shadow-2xl aspect-[4/5]">
+                <img src={ASSETS.DIRECTOR} alt="Dr. Rakesh Gupta" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
+                <div className="absolute bottom-8 left-8">
+                  <h4 className="text-2xl font-bold text-white">Dr. Rakesh Gupta</h4>
+                  <p className="text-primary-400 font-bold uppercase tracking-widest text-xs">Medical Director</p>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:col-span-7">
+              <Quote className="w-12 h-12 text-primary-500 mb-8 opacity-50" />
+              <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8 leading-tight">A Message from <br /><span className="text-primary-400">Our Leadership</span></h2>
+              <div className="space-y-6 text-gray-300 text-lg font-light leading-relaxed">
+                <p>
+                  "At Umang Superspeciality Hospital, our journey has always been defined by a single-minded focus: to make world-class healthcare accessible to everyone. We believe that medical excellence is not just about advanced machines, but about the hands that operate them and the hearts that care for the patients."
+                </p>
+                <p>
+                  "We have invested in the finest medical talent and the most advanced infrastructure to ensure that when a patient walks through our doors, they receive care that is ethical, evidence-based, and deeply compassionate."
+                </p>
+              </div>
+              <div className="mt-10 pt-10 border-t border-white/10 flex items-center gap-6">
+                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-primary-500">
+                  <img src={ASSETS.DIRECTOR} alt="Signature" className="w-full h-full object-cover grayscale" />
+                </div>
+                <div>
+                  <h5 className="text-xl font-bold text-white">Indresh Mishra</h5>
+                  <p className="text-gray-500 text-sm">Managing Director, Umang Hospital</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: PATIENT CARE PHILOSOPHY */}
+      <section className="section-padding bg-white overflow-hidden relative">
+        <div className="container-custom">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2">
+              <span className="section-subtitle">Our Philosophy</span>
+              <h2 className="section-title">Patient-Centered <br /><span className="text-primary-600">Healing.</span></h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
+                We believe in a holistic healing approach where the patient is at the center of every decision we make. Our care model is built on empathy, transparency, and clinical brilliance.
+              </p>
+              <div className="space-y-8">
+                {[
+                  { title: "Empathetic Listening", desc: "Our doctors take the time to understand your concerns deeply.", icon: Heart },
+                  { title: "Evidence-Based Medicine", desc: "Treatment plans backed by the latest global medical research.", icon: Microscope },
+                  { title: "Family Involvement", desc: "We keep your loved ones informed and involved in the care journey.", icon: Users }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-6 group">
+                    <div className="w-12 h-12 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all">
+                      <item.icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-brand-dark mb-2">{item.title}</h4>
+                      <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+            <div className="lg:w-1/2 relative">
+              <div className="absolute inset-0 bg-primary-50 rounded-[4rem] rotate-3 -z-10" />
+              <img src={ASSETS.ABOUT_MAIN} alt="Philosophy" className="rounded-[4rem] shadow-2xl w-full h-[600px] object-cover" />
+              <div className="absolute -bottom-10 -left-10 bg-white p-10 rounded-[3rem] shadow-2xl border border-gray-100 hidden md:block">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center">
+                    <CheckCircle className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Trust Factor</p>
+                    <p className="text-2xl font-bold text-brand-dark">98% Satisfaction</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: QUALITY & SAFETY STANDARDS */}
+      <section className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+            <span className="section-subtitle">Clinical Excellence</span>
+            <h2 className="section-title">Global Quality Standards</h2>
+            <p className="text-gray-500 text-lg lg:text-xl font-light">Our clinical protocols are aligned with international benchmarks to ensure maximum patient safety.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {[
+              { title: "NABH Accredited", desc: "Highest national recognition for quality of care and patient safety.", icon: Award },
+              { title: "NABL Certified Lab", desc: "Ensuring 100% accuracy and precision in diagnostic reporting.", icon: Microscope },
+              { title: "Infection Control", desc: "Rigorous sterilization and zero-infection protocols across all zones.", icon: Shield },
+              { title: "Ethical Billing", desc: "Transparent, honest communication regarding all clinical costs.", icon: Shield }
+            ].map((std, i) => (
+              <div key={i} className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all group">
+                <div className="w-12 h-12 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all">
+                  <std.icon className="w-6 h-6" />
+                </div>
+                <h4 className="text-lg font-bold text-brand-dark mb-3">{std.title}</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">{std.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: COMMUNITY OUTREACH (CSR) */}
+      <section className="section-padding bg-white overflow-hidden relative">
+        <div className="container-custom">
+          <div className="flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-center">
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="lg:w-1/2">
+              <span className="section-subtitle">Beyond Medicine</span>
+              <h2 className="section-title">Community & <br /><span className="text-primary-600">Care.</span></h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
+                We are committed to making healthcare accessible to the underserved sections of society through our various community outreach programs.
+              </p>
+              <div className="grid gap-6">
+                {[
+                  { title: "Free Health Camps", desc: "Regular medical checkups organized in rural areas of Gurugram." },
+                  { title: "Awareness Webinars", desc: "Educational sessions on preventive health and lifestyle management." },
+                  { title: "Subsidized Surgery", desc: "Providing low-cost surgical options for economically weaker sections." }
+                ].map((csr, i) => (
+                  <div key={i} className="p-6 bg-gray-50 rounded-2xl border border-gray-100 flex gap-5 items-center group hover:bg-white hover:shadow-md transition-all">
+                    <div className="w-3 h-3 rounded-full bg-primary-500 shrink-0" />
+                    <div>
+                      <h4 className="font-bold text-brand-dark">{csr.title}</h4>
+                      <p className="text-sm text-gray-500">{csr.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+            <div className="lg:w-1/2 relative">
+              <div className="relative rounded-[4rem] overflow-hidden shadow-2xl h-[500px]">
+                <img src={ASSETS.ABOUT_GLOBAL} alt="CSR" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent" />
+                <div className="absolute bottom-10 left-10 text-white">
+                  <h4 className="text-3xl font-serif font-bold">10,000+</h4>
+                  <p className="text-sm uppercase tracking-widest font-black text-primary-400">Lives Touched Annually</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* SECTION 3: CORE VALUES GRID */}
       <section className="section-padding bg-gray-50 text-brand-dark overflow-hidden relative">
@@ -139,7 +296,7 @@ const About = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[ 
               { icon: Heart, title: "Compassion", desc: "Empathy at every touchpoint; dignity and respect for all patients.", color: "bg-rose-500" },
-              { icon: ShieldCheck, title: "Integrity", desc: "Transparent billing and clear communication about diagnosis and costs.", color: "bg-primary-500" },
+              { icon: Shield, title: "Integrity", desc: "Transparent billing and clear communication about diagnosis and costs.", color: "bg-primary-500" },
               { icon: Users, title: "Teamwork", desc: "Multidisciplinary collaboration across major medical specialties.", color: "bg-cyan-500" },
               { icon: Award, title: "Excellence", desc: "High medical standards and continuous medical education.", color: "bg-yellow-500" },
             ].map((val, idx) => (
@@ -177,7 +334,7 @@ const About = () => {
               </h2>
               <div className="grid sm:grid-cols-2 gap-6 lg:gap-10">
                 {[
-                  { title: "Zero Infection", desc: "Modular OTs with HEPA filters ensuring maximum surgical safety.", icon: ShieldCheck, path: "/infrastructure" },
+                  { title: "Zero Infection", desc: "Modular OTs with HEPA filters ensuring maximum surgical safety.", icon: Shield, path: "/infrastructure" },
                   { title: "Patient Rights", desc: "Ethical care models aligned with NABH quality frameworks.", icon: Heart, path: "/patient-experience" },
                   { title: "Critical Care", desc: `Large ${siteConfig.stats.icuBedsMarketing}-bed ICU capacity with 24/7 intensivist coverage.`, icon: Activity, path: "/infrastructure/icu" },
                   { title: "24/7 Diagnostics", desc: "In-house lab and imaging delivering accurate results round-the-clock.", icon: Microscope, path: "/services/lab-test-diagnostic" }

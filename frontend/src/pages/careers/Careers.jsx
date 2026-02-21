@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Briefcase, Users, Star, ArrowRight, ChevronDown, CheckCircle, Heart, Plus, MapPin } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import SeoHead from '../../components/common/SeoHead';
 
 const jobs = [
   { id: 1, title: "Senior Resident - Cardiology", type: "Full Time", loc: "Gurugram", exp: "3-5 Years", desc: "Looking for an experienced resident to manage OPD and IPD patients in the cardiology department." },
@@ -23,10 +23,11 @@ const Careers = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <Helmet>
-        <title>Careers | Umang Superspeciality Hospital</title>
-        <meta name="description" content="Join our team of medical professionals dedicated to saving lives. View current openings." />
-      </Helmet>
+      <SeoHead 
+        title="Careers" 
+        description="Join our team of medical professionals dedicated to saving lives. View current clinical and administrative openings at Umang Hospital."
+        canonical="/careers"
+      />
 
       {/* 1. Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-[#0f172a] overflow-hidden">
@@ -83,6 +84,35 @@ const Careers = () => {
                ))}
             </div>
          </div>
+      </section>
+
+      {/* SECTION: RECRUITMENT PROCESS */}
+      <section className="section-padding bg-white overflow-hidden relative">
+        <div className="container-custom">
+          <div className="text-center mb-16 lg:mb-20">
+            <span className="section-subtitle">Join the Team</span>
+            <h2 className="section-title">Our Recruitment Process</h2>
+            <p className="text-gray-500 text-lg font-light">A transparent, four-step journey to becoming part of Umang Hospital.</p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8 relative">
+            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-100 -z-10" />
+            {[
+              { title: "Application", desc: "Submit your updated CV through our portal or via email." },
+              { title: "Screening", desc: "Our HR team reviews profiles against role-specific benchmarks." },
+              { title: "Interview", desc: "Technical and behavioral rounds with department heads." },
+              { title: "Onboarding", desc: "A comprehensive induction to our culture and protocols." }
+            ].map((step, i) => (
+              <div key={i} className="text-center group">
+                <div className="w-20 h-20 rounded-full bg-white border-4 border-primary-500 flex items-center justify-center text-2xl font-black text-primary-600 mx-auto mb-8 shadow-xl group-hover:bg-primary-600 group-hover:text-white transition-all">
+                  {i + 1}
+                </div>
+                <h4 className="text-xl font-bold text-brand-dark mb-3">{step.title}</h4>
+                <p className="text-sm text-gray-500 leading-relaxed">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 3. Job Board */}
@@ -156,6 +186,30 @@ const Careers = () => {
                ))}
             </div>
          </div>
+      </section>
+
+      {/* SECTION: CAREERS FAQ */}
+      <section className="section-padding bg-gray-50 border-y border-gray-100">
+        <div className="container-custom max-w-4xl">
+          <div className="text-center mb-16">
+            <span className="section-subtitle">Candidate Support</span>
+            <h2 className="section-title">Careers FAQ</h2>
+          </div>
+          <div className="space-y-4">
+            {[
+              { q: "How long does the hiring process take?", a: "Typically, the process from application to offer takes 2-3 weeks, depending on the role and seniority." },
+              { q: "Do you offer accommodation for outstation candidates?", a: "We provide temporary transit accommodation assistance for senior medical and nursing staff joining from other cities." },
+              { q: "Is there a policy for internal growth?", a: "Yes, we prioritize internal promotions and have a robust performance-linked growth framework." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 text-left">
+                <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
+                  <div className="w-2 h-2 rounded-full bg-primary-500" /> {faq.q}
+                </h4>
+                <p className="text-gray-600 pl-6 text-base leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 4. CTA */}

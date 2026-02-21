@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { Plus, Filter, MessageSquare, ArrowRight } from 'lucide-react';
 import { Container, Section, Card } from '../../components/ui/Layout';
 import { siteConfig } from '../../config/siteConfig';
@@ -30,9 +30,11 @@ const PharmacyCategory = () => {
 
   return (
     <div className="bg-slate-50 min-h-screen pt-12">
-      <Helmet>
-        <title>{categoryName} | {siteConfig.shortName} Pharmacy</title>
-      </Helmet>
+      <SeoHead 
+        title={`${categoryName} | Pharmacy`} 
+        description={`Explore our wide range of 100% genuine products in the ${categoryName} category at Umang Hospital Pharmacy.`}
+        canonical={`/services/buy-medicines/category/${slug}`}
+      />
 
       <Section className="relative">
         <Container>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { Lightbulb, CheckCircle, ArrowRight, Activity, Heart, User, Star, Award, Microscope, Play, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
@@ -41,10 +41,11 @@ const cases = [
 const BreakthroughCases = () => {
   return (
     <div className="bg-white min-h-screen pt-12">
-      <Helmet>
-        <title>Breakthrough Cases | Umang Hospital</title>
-        <meta name="description" content="Explore our medical success stories and complex cases treated by expert doctors." />
-      </Helmet>
+      <SeoHead 
+        title="Breakthrough Cases" 
+        description="Explore our medical success stories and complex cases treated by expert doctors at Umang Hospital."
+        canonical="/patient-corner/breakthrough-cases"
+      />
 
       {/* 1. Hero Section */}
       <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
 import { 
   Phone, Ambulance, Heart, Activity, Clock, MapPin, 
-  ShieldCheck, AlertCircle, ArrowRight, Zap, ChevronDown, Plus
+  Shield, AlertCircle, ArrowRight, Zap, ChevronDown, Plus, HelpCircle
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
+import { siteConfig } from '../../config/siteConfig';
+import { Container } from '../../components/ui/Layout';
+import SeoHead from '../../components/common/SeoHead';
 
 const emergencyServices = [
   {
@@ -45,10 +48,11 @@ const Emergency = () => {
 
   return (
     <div className="bg-white min-h-screen pt-12">
-      <Helmet>
-        <title>Emergency & Trauma Care | Umang Hospital</title>
-        <meta name="description" content="24/7 Emergency Room and Trauma Center. Immediate care for heart attacks, strokes, and accidents. Call 89297 33551." />
-      </Helmet>
+      <SeoHead 
+        title="Emergency & Trauma Care" 
+        description="24/7 Emergency Room and Trauma Center. Immediate care for heart attacks, strokes, and accidents. Call 89297 33551."
+        canonical="/services/emergency"
+      />
 
       {/* 1. High-Urgency Hero Section */}
       <section className="relative min-h-[550px] lg:min-h-[750px] overflow-hidden flex items-center bg-[#0f172a] py-12 lg:py-10">
@@ -82,7 +86,7 @@ const Emergency = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 mb-12">
-              <a href="tel:+918929733550" className="h-16 px-8 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 hover-lift hover:shadow-red-900/50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
+              <a href="tel:+918929733551" className="h-16 px-8 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 hover-lift hover:shadow-red-900/50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
                 <Phone className="w-6 h-6 animate-wiggle" /> Call Ambulance: 89297 33551
               </a>
               <a href="https://maps.google.com/?q=Umang+Hospital+Gurugram" target="_blank" rel="noreferrer" className="h-16 px-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
@@ -93,8 +97,28 @@ const Emergency = () => {
         </div>
       </section>
 
+      {/* SECTION: EMERGENCY STATISTICS (NEW) */}
+      <div className="bg-red-600 py-8 lg:py-10 relative overflow-hidden border-y border-red-500/30">
+        <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <div className="container-custom relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
+            {[
+              { label: "Door-to-Balloon", value: "<60 Mins" },
+              { label: "Stroke Response", value: "24/7" },
+              { label: "Trauma Beds", value: "15+" },
+              { label: "Ambulance Hubs", value: "03" }
+            ].map((stat, i) => (
+              <div key={i} className="group transition-all duration-500">
+                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight mb-1">{stat.value}</p>
+                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-red-100/70">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* 2. Critical Services Grid */}
-      <section className="py-12 lg:py-10 bg-white relative -mt-20 z-30">
+      <section className="py-20 lg:py-24 bg-white relative z-30">
          <div className="container-custom">
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                {emergencyServices.map((service, i) => (
@@ -117,10 +141,44 @@ const Emergency = () => {
          </div>
       </section>
 
+      {/* SECTION: TRAUMA PROTOCOLS (NEW) */}
+      <section className="section-padding bg-slate-50 overflow-hidden relative">
+        <div className="container-custom">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+            <div className="lg:w-1/2">
+              <span className="text-red-600 font-bold uppercase tracking-widest text-sm mb-4 block">Clinical Mastery</span>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-8">Trauma Level 1 <br /><span className="text-red-600 italic">Response.</span></h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
+                Our trauma protocols are designed for speed. We have a dedicated multidisciplinary team comprising of trauma surgeons, intensivists, and neuro-specialists on standby 24/7.
+              </p>
+              <div className="space-y-6">
+                {[
+                  { title: "Stat CT Scan", desc: "Immediate imaging for trauma cases to identify internal injuries." },
+                  { title: "Ready-to-Go OTs", desc: "One operation theatre is permanently reserved for emergency surgeries." },
+                  { title: "In-house Blood Bank", desc: "24/7 availability of critical blood components for trauma patients." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-5 items-start">
+                    <div className="w-2 h-12 bg-red-100 rounded-full group-hover:bg-red-600 transition-colors" />
+                    <div>
+                      <h4 className="font-bold text-brand-dark mb-1">{item.title}</h4>
+                      <p className="text-sm text-gray-500">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:w-1/2 relative">
+              <div className="absolute inset-0 bg-red-100 rounded-[4rem] rotate-3 -z-10" />
+              <img src={ASSETS.OT} alt="Emergency OT" className="rounded-[4rem] shadow-2xl w-full h-[550px] object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. Triage & Protocol Info */}
-      <section className="py-12 lg:py-10 bg-gray-50">
+      <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom grid lg:grid-cols-2 gap-16 items-center">
-            <div>
+            <div className="order-2 lg:order-1">
                <span className="text-red-600 font-bold uppercase tracking-widest text-sm mb-4 block">Our Protocol</span>
                <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-6">Advanced Life Support</h2>
                <p className="text-gray-600 text-lg mb-8 leading-relaxed">
@@ -139,7 +197,7 @@ const Emergency = () => {
                   </div>
                   <div className="flex gap-4 items-start">
                      <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 mt-1 shrink-0">
-                        <ShieldCheck className="w-4 h-4" />
+                        <Shield className="w-4 h-4" />
                      </div>
                      <div>
                         <h4 className="font-bold text-[#0f172a]">Specialist Backup</h4>
@@ -149,26 +207,42 @@ const Emergency = () => {
                </div>
             </div>
             
-            <div className="relative">
-               <div className="absolute inset-0 bg-red-500/10 rounded-3xl transform rotate-3" />
+            <div className="order-1 lg:order-2 relative">
+               <div className="absolute inset-0 bg-red-500/10 rounded-3xl transform -rotate-3" />
                <img 
                   src={ASSETS.SVC_ADVANCED_LIFE_SUPPORT} 
                   alt="Ambulance" 
                   className="relative rounded-3xl shadow-2xl w-full object-cover"
                />
-               <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden md:block">
-                  <div className="flex items-center gap-4">
-                     <div className="w-12 h-12 bg-red-600 text-white rounded-full flex items-center justify-center animate-pulse">
-                        <Phone className="w-6 h-6" />
-                     </div>
-                     <div>
-                        <p className="text-xs font-bold text-gray-400 uppercase">Emergency Hotline</p>
-                        <p className="text-2xl font-bold text-[#0f172a]">89297 33551</p>
-                     </div>
-                  </div>
-               </div>
             </div>
          </div>
+      </section>
+
+      {/* SECTION: AMBULANCE WORKFLOW (NEW) */}
+      <section className="section-padding bg-slate-900 text-white overflow-hidden">
+        <Container>
+          <div className="text-center mb-16 lg:mb-24">
+            <span className="text-red-400 font-bold uppercase tracking-widest text-sm mb-4 block">Rapid Dispatch</span>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold">Ambulance Dispatch Path</h2>
+          </div>
+          <div className="grid md:grid-cols-4 gap-8 relative">
+            <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-white/10 -z-0" />
+            {[
+              { title: "Call Hub", desc: "Centralized emergency call center receives the alert." },
+              { title: "Triage", desc: "Dispatcher determines patient severity level." },
+              { title: "Dispatch", desc: "Closest ACLS ambulance is assigned instantly." },
+              { title: "Stabilize", desc: "Paramedics stabilize patient en route to hospital." }
+            ].map((step, i) => (
+              <div key={i} className="text-center relative z-10">
+                <div className="w-20 h-20 bg-[#0f172a] rounded-full border-4 border-red-600 flex items-center justify-center text-2xl font-black text-white mx-auto mb-8 shadow-[0_0_30px_rgba(220,38,38,0.3)]">
+                  {i + 1}
+                </div>
+                <h4 className="text-xl font-bold mb-3">{step.title}</h4>
+                <p className="text-slate-400 text-sm leading-relaxed px-4">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
       </section>
 
       {/* 4. When to Visit ER */}
@@ -195,6 +269,23 @@ const Emergency = () => {
                ))}
             </div>
          </div>
+      </section>
+
+      {/* SECTION: EMERGENCY HELPLINE CTA (NEW) */}
+      <section className="section-padding bg-brand-dark relative overflow-hidden">
+        <div className="absolute inset-0 bg-red-600/5" />
+        <Container className="relative z-10 text-center">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Save this Number. <br /><span className="text-red-500 italic">It Saves Lives.</span></h2>
+          <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">Our emergency response team is just one tap away. Bookmark our location or call us for immediate ACLS ambulance dispatch.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <a href="tel:+918929733551" className="px-10 py-5 bg-red-600 text-white rounded-full font-bold text-base shadow-xl hover:bg-red-700 transition-all flex items-center justify-center gap-3">
+              <Phone className="w-6 h-6 animate-pulse" /> Call 89297 33551
+            </a>
+            <Link to="/contact" className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-base hover:bg-white/5 transition-all flex items-center justify-center gap-3">
+              View Hospital Map <ArrowRight size={20} />
+            </Link>
+          </div>
+        </Container>
       </section>
 
       {/* 5. First Aid Guide */}

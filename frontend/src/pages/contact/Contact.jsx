@@ -12,6 +12,7 @@ import { ASSETS } from '../../utils/imageAssets';
 import { siteConfig } from '../../config/siteConfig';
 import { useLeadForm } from '../../hooks/useLeadForm';
 import SeoHead from '../../components/common/SeoHead';
+import { Container, Section } from '../../components/ui/Layout';
 
 const depts = [
   { title: "International Patients", icon: Globe, email: siteConfig.contacts.email, phone: siteConfig.contacts.main },
@@ -299,6 +300,33 @@ const Contact = () => {
          </div>
       </section>
 
+      {/* SECTION: OPERATIONAL HOURS GRID (NEW) */}
+      <Section className="bg-white border-y border-gray-100">
+        <Container>
+          <div className="text-center mb-16">
+            <span className="section-subtitle">Plan Your Visit</span>
+            <h2 className="section-title">Department Timings</h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { dept: "Emergency & Trauma", time: "24 Hours / 7 Days", status: "Open Now", color: "text-red-600" },
+              { dept: "OPD Consultations", time: "9:00 AM - 8:00 PM", status: "Mon - Sat", color: "text-blue-600" },
+              { dept: "Diagnostic Lab", time: "24 Hours / 7 Days", status: "Open Now", color: "text-green-600" },
+              { dept: "Pharmacy", time: "24 Hours / 7 Days", status: "Open Now", color: "text-orange-600" }
+            ].map((item, i) => (
+              <div key={i} className="p-8 bg-slate-50 rounded-3xl border border-gray-100 hover:shadow-lg transition-all group">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="font-bold text-brand-dark">{item.dept}</h4>
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                </div>
+                <p className={`text-xl font-black mb-1 ${item.color}`}>{item.time}</p>
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">{item.status}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
       {/* 4. Specialized Department Contacts */}
       <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom">
@@ -321,6 +349,73 @@ const Contact = () => {
             </div>
          </div>
       </section>
+
+      {/* SECTION: PATIENT HELPDESK INFO (NEW) */}
+      <Section className="bg-slate-50">
+        <Container>
+          <div className="bg-brand-dark rounded-[3rem] p-10 lg:p-16 text-white relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary-600 rounded-full blur-[120px] opacity-10 -mr-32 -mt-32" />
+            <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+              <div>
+                <h3 className="text-3xl lg:text-4xl font-serif font-bold mb-6">Patient Helpdesk</h3>
+                <p className="text-slate-400 text-lg font-light leading-relaxed mb-8">
+                  Need help with admission, billing, or insurance clearance? Our dedicated helpdesk team is located at the main reception to assist you with any administrative queries.
+                </p>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-primary-400">
+                    <CheckCircle className="w-5 h-5" /> Cashless Approvals
+                  </div>
+                  <div className="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-primary-400">
+                    <CheckCircle className="w-5 h-5" /> Medical Records
+                  </div>
+                  <div className="flex items-center gap-4 text-sm font-bold uppercase tracking-widest text-primary-400">
+                    <CheckCircle className="w-5 h-5" /> Billing Queries
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-xl">
+                <h4 className="text-xl font-bold mb-6">Direct Helpdesk Lines</h4>
+                <div className="space-y-6">
+                  <div className="flex justify-between items-center border-b border-white/5 pb-4">
+                    <span className="text-gray-400">Insurance Desk</span>
+                    <span className="font-bold text-primary-400">+91 89297 33550</span>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-white/5 pb-4">
+                    <span className="text-gray-400">Billing Counter</span>
+                    <span className="font-bold text-primary-400">Ext: 104</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-gray-400">Medical Reports</span>
+                    <span className="font-bold text-primary-400">Ext: 201</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION: CAMPUS VIRTUAL TOUR CTA (NEW) */}
+      <Section className="bg-white overflow-hidden">
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2 relative order-2 lg:order-1">
+              <div className="absolute inset-0 bg-primary-100 rounded-[4rem] -rotate-3 -z-10" />
+              <img src={ASSETS.HOSPITAL_EXTERIOR} alt="Hospital Tour" className="rounded-[4rem] shadow-2xl w-full h-[450px] object-cover" />
+            </div>
+            <div className="lg:w-1/2 order-1 lg:order-2">
+              <span className="section-subtitle">Experience Umang</span>
+              <h2 className="section-title">Take a Virtual <br /><span className="text-primary-600">Campus Tour.</span></h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
+                Explore our world-class facilities, modular OTs, and premium recovery suites from the comfort of your home. Get a 360-degree view of the healing environment we have built for you.
+              </p>
+              <Link to="/infrastructure" className="px-10 py-5 bg-[#0f172a] text-white rounded-full font-bold text-base hover:bg-primary-600 transition-all shadow-xl flex items-center justify-center gap-3 w-full sm:w-auto">
+                Explore Infrastructure <ArrowRight size={20} />
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
       {/* 5. Trust & FAQ Section */}
       <section className="py-32 bg-gray-50 border-y border-gray-100">

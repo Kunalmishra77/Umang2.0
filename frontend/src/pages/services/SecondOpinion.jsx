@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { 
-  FileText, Upload, Video, CheckCircle, ArrowRight, ShieldCheck, 
+  FileText, Upload, Video, CheckCircle, ArrowRight, Shield, 
   Activity, Clock, User, MessageCircle, ChevronDown, Plus 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { ASSETS } from '../../utils/imageAssets';
 
 const features = [
   {
-    icon: ShieldCheck,
+    icon: Shield,
     title: "Diagnostic Certainty",
     desc: "Confirm your diagnosis with our board of senior consultants to avoid misdiagnosis."
   },
@@ -44,10 +44,11 @@ const SecondOpinion = () => {
 
   return (
     <div className="bg-white min-h-screen pt-12">
-      <Helmet>
-        <title>Second Opinion | Umang Hospital</title>
-        <meta name="description" content="Get expert validation on your medical diagnosis and treatment plan from Umang Hospital's top specialists." />
-      </Helmet>
+      <SeoHead 
+        title="Second Opinion" 
+        description="Get expert validation on your medical diagnosis and treatment plan from Umang Hospital's top specialists."
+        canonical="/services/second-opinion"
+      />
 
       {/* 1. Cinematic Hero Section */}
       <section className="relative h-[600px] overflow-hidden flex items-center">
@@ -209,7 +210,7 @@ const SecondOpinion = () => {
               <div className="space-y-6">
                 <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
                   <div className="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">
-                    <ShieldCheck className="w-5 h-5" />
+                    <Shield className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="font-bold text-sm">100% Secure & Confidential</h4>

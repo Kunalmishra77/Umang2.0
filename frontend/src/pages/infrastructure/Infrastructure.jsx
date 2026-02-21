@@ -1,10 +1,12 @@
 import React, { useState, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
-import { X, Maximize2, Info, CheckCircle2, ChevronDown } from 'lucide-react';
+import { X, Maximize2, Info, CheckCircle2, ChevronDown, HelpCircle, Shield, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 import ParallaxImage from '../../components/common/ParallaxImage';
+import { Container, Section } from '../../components/ui/Layout';
+import SeoHead from '../../components/common/SeoHead';
+import { siteConfig } from '../../config/siteConfig';
 
 // --- Data ---
 const hotspots = [
@@ -93,9 +95,11 @@ const Infrastructure = () => {
       className="bg-white min-h-screen font-sans relative"
       style={{ position: 'relative' }}
     >
-      <Helmet>
-        <title>Infrastructure | Umang Superspeciality Hospital</title>
-      </Helmet>
+      <SeoHead 
+        title="Our Infrastructure" 
+        description="Explore the world-class medical infrastructure at Umang Superspeciality Hospital. Modular OTs, 3 Tesla MRI, and advanced critical care units."
+        canonical="/infrastructure"
+      />
 
       {/* 1. Hero Section */}
       <section className="relative min-h-[500px] md:h-[80vh] lg:h-[90vh] lg:min-h-[800px] flex items-center justify-center overflow-hidden bg-brand-dark">
@@ -132,6 +136,64 @@ const Infrastructure = () => {
                </button>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* SECTION: INFRASTRUCTURE STATS */}
+      <div className="bg-primary-600 py-8 lg:py-10 relative overflow-hidden border-y border-white/5">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <div className="container-custom relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
+            {[
+              { label: "Total Capacity", value: siteConfig.stats.beds + " Beds" },
+              { label: "ICU Management", value: siteConfig.stats.icuBedsMarketing + " Units" },
+              { label: "Modular OTs", value: siteConfig.infrastructure.ots + " Suites" },
+              { label: "Diagnostic Wings", value: "04 Zones" }
+            ].map((stat, i) => (
+              <div key={i}>
+                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight mb-1">{stat.value}</p>
+                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-primary-100/70">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* SECTION: PATIENT SAFETY STANDARDS */}
+      <section className="section-padding bg-gray-50 overflow-hidden relative">
+        <div className="container-custom">
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+            <div className="lg:w-1/2">
+              <span className="section-subtitle">Clinical Integrity</span>
+              <h2 className="section-title">Zero Infection <br /><span className="text-primary-600">Protocols.</span></h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
+                At Umang Hospital, infrastructure isn't just about build quality; it's about patient outcomes. We maintain the highest standards of sterilization and clinical safety.
+              </p>
+              <div className="grid gap-8">
+                {[
+                  { title: "HEPA Filtration", desc: "100% sterile air flow in all modular operation theatres." },
+                  { title: "Anti-Bacterial Cladding", desc: "Silver-ion infused walls to prevent microbial growth." },
+                  { title: "Smart Monitoring", desc: "Centralized nursing stations for real-time patient observation." }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-6 group">
+                    <div className="w-14 h-14 rounded-2xl bg-white text-primary-600 flex items-center justify-center shrink-0 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-all">
+                      <Shield className="w-7 h-7" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-brand-dark mb-2">{item.title}</h4>
+                      <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:w-1/2 relative">
+              <div className="relative rounded-[4rem] overflow-hidden shadow-2xl h-[550px] border-8 border-white">
+                <img src={ASSETS.ROBOTIC_SURGERY} alt="Safety" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-brand-dark/10" />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -316,6 +378,101 @@ const Infrastructure = () => {
          )}
       </AnimatePresence>
 
+      {/* SECTION: SMART TECHNOLOGY (NEW) */}
+      <Section className="bg-white">
+        <Container>
+          <div className="flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-center">
+            <div className="lg:w-1/2">
+              <span className="section-subtitle">Future of Medicine</span>
+              <h2 className="section-title">Smart Infrastructure <br /><span className="text-primary-600">for Smart Healing.</span></h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
+                We have integrated digital health systems across the campus, from paperless medical records to automated laboratory processing, reducing errors and saving time.
+              </p>
+              <div className="space-y-8">
+                {[
+                  { title: "AI-Assisted Imaging", desc: "Advanced software for early detection and high-resolution diagnostic reports.", icon: Zap },
+                  { title: "Centralized Monitoring", desc: "Real-time vitals tracking for every ICU bed monitored by a central intensivist station.", icon: Activity },
+                  { title: "Pneumatic Tube System", desc: "Instant transfer of lab samples and medications across hospital zones.", icon: ArrowRight }
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-6 group">
+                    <div className="w-14 h-14 rounded-2xl bg-slate-50 text-primary-600 flex items-center justify-center shrink-0 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-all">
+                      <item.icon size={24} />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-brand-dark mb-2">{item.title}</h4>
+                      <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:w-1/2 relative">
+              <div className="absolute inset-0 bg-primary-100 rounded-[4rem] -rotate-3 -z-10" />
+              <img src={ASSETS.MRI_SCAN} alt="Technology" className="rounded-[4rem] shadow-2xl w-full h-[550px] object-cover" />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION: CAMPUS FEATURES (NEW) */}
+      <Section className="bg-slate-50">
+        <Container>
+          <SectionHeading eyebrow="Patient Centric Design" title="Built for Comfort & Convenience" centered />
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Ample Parking", desc: "Dedicated multi-level parking for patients and emergency access.", icon: Clock },
+              { title: "Premium Cafeteria", desc: "Nutritious and hygienic food options for visitors and staff.", icon: Shield },
+              { title: "Prayer Room", desc: "Quiet zones for spiritual reflection and peace of mind.", icon: CheckCircle2 }
+            ].map((feat, i) => (
+              <Card key={i} className="p-10 text-center hover:bg-white transition-all border border-gray-100">
+                <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-8 text-primary-600">
+                  <feat.icon size={32} />
+                </div>
+                <h4 className="text-2xl font-bold text-slate-900 mb-4">{feat.title}</h4>
+                <p className="text-gray-500 leading-relaxed">{feat.desc}</p>
+              </Card>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION: SAFETY FAQ */}
+      <Section className="bg-white border-t border-gray-100">
+        <Container className="max-w-4xl">
+          <div className="text-center mb-16">
+            <span className="section-subtitle">Infrastructure Guide</span>
+            <h2 className="section-title">Facility & Safety FAQ</h2>
+          </div>
+          <div className="space-y-4">
+            {[
+              { q: "Is the hospital wheelchair accessible?", a: "Yes, our entire campus is designed with universal accessibility in mind, including ramps, wide elevators, and dedicated washrooms." },
+              { q: "How do you ensure power backup for critical equipment?", a: "We have dual-redundant industrial-grade generators and UPS systems that provide instantaneous power backup for OTs and ICUs." },
+              { q: "What are your water purification standards?", a: "The hospital uses a centralized RO and UV purification system, with regular lab testing to ensure zero contamination." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-left">
+                <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
+                  <HelpCircle size={20} className="text-primary-600 shrink-0" /> {faq.q}
+                </h4>
+                <p className="text-slate-600 pl-9 text-base leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION: CTA */}
+      <section className="section-padding bg-brand-dark relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary-600/5" />
+        <Container className="relative z-10 text-center">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Want to see our <br /><span className="text-primary-400">facility in person?</span></h2>
+          <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">We organize guided tours for corporate partners and community leaders to experience our world-class infrastructure.</p>
+          <div className="flex justify-center">
+            <Link to="/contact" className="px-10 py-5 bg-white text-brand-dark rounded-full font-bold text-base shadow-xl hover:bg-primary-50 transition-all flex items-center justify-center gap-3">
+              Request a Facility Visit <ArrowRight size={20} />
+            </Link>
+          </div>
+        </Container>
+      </section>
     </div>
   );
 };

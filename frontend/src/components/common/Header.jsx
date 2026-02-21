@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone, Calendar, Activity, Mail, ArrowRight, ShieldCheck, MapPin, Clock, Plus, Minus, Heart, Star, Award, Stethoscope, Video, Pill, Info, BookOpen, Users, Smartphone, MessageSquare, Zap, GraduationCap, Briefcase, Radio, PenTool, Mic, FileText, HelpCircle, Wind, Scissors, AlertCircle } from 'lucide-react';
+import { Menu, X, ChevronDown, Calendar, AlertCircle, Phone, Minus, Plus, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ASSETS } from '../../utils/imageAssets';
 import { siteConfig } from '../../config/siteConfig';
+import { navConfig } from '../../config/navConfig';
+import MegaMenuPanel from './MegaMenuPanel';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,342 +27,32 @@ const Header = () => {
     setMobileAccordion(null);
   }, [location]);
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { 
-      name: 'Specialties', 
-      path: '/specialities', 
-      type: 'dropdown',
-      width: 'md:w-[720px]',
-      content: (
-        <div className="flex flex-col md:flex-row gap-0 overflow-hidden">
-          <div className="w-full md:w-[38%] bg-primary-50/50 p-8 lg:p-10 border-r border-gray-100 flex flex-col justify-between">
-             <div>
-                <div className="flex items-center gap-2 text-primary-600 font-black uppercase tracking-[0.3em] text-[11px] mb-6">
-                   <Star className="w-3.5 h-3.5 animate-pulse" /> Top Rated Dept
-                </div>
-                <Link to="/specialities" state={{ category: 'cardiac' }} className="block group">
-                   <div className="aspect-[16/10] rounded-2xl overflow-hidden mb-5 relative shadow-xl">
-                      <img src={ASSETS.CARDIAC} alt="Cardiac" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary-900/70 via-primary-900/20 to-transparent" />
-                      <div className="absolute bottom-5 left-5 text-white">
-                         <p className="text-[11px] font-bold uppercase tracking-widest opacity-90 mb-1">Center of Excellence</p>
-                         <h4 className="font-bold text-xl lg:text-2xl">Cardiac Sciences</h4>
-                      </div>
-                   </div>
-                   <p className="text-sm text-gray-600 leading-relaxed mb-6 font-medium">Advanced Cath Labs & Heart Surgery facilities with 24/7 critical care support.</p>
-                </Link>
-             </div>
-             <Link to="/specialities" className="flex items-center text-[11px] font-black text-primary-600 uppercase tracking-widest gap-2 hover:gap-3 transition-all">
-                All Departments <ArrowRight className="w-4 h-4" />
-             </Link>
-          </div>
-          <div className="w-full md:w-[62%] p-8 lg:p-10 bg-white">
-             <div className="text-[11px] font-bold text-gray-400 uppercase tracking-widest mb-8 flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4" /> Major Specialities
-             </div>
-             <div className="grid grid-cols-2 gap-x-10 gap-y-3">
-               {[
-                 { name: "Cardiac Sciences", id: 'cardiac', icon: Heart }, 
-                 { name: "Neuro Sciences", id: 'neuro', icon: Activity }, 
-                 { name: "Orthopaedics", id: 'ortho', icon: Award }, 
-                 { name: "Gastroenterology", id: 'gastro', icon: Activity }, 
-                 { name: "Pulmonology", id: 'pulmonology', icon: Wind }, 
-               ].map((item, i) => (
-                 <Link key={i} to="/specialities" state={{ category: item.id }} className="flex items-center gap-4 py-2.5 text-[15px] font-bold text-gray-700 hover:text-primary-600 transition-all group">
-                    <div className="w-10 h-10 rounded-xl bg-gray-50 group-hover:bg-primary-50 flex items-center justify-center text-gray-400 group-hover:text-primary-500 transition-all duration-300 shadow-sm group-hover:shadow-md">
-                       <item.icon className="w-5 h-5" />
-                    </div>
-                    {item.name}
-                 </Link>
-               ))}
-               <Link to="/specialities" className="flex items-center gap-4 py-2.5 text-[15px] font-bold text-primary-600 hover:text-primary-700 transition-all group">
-                  <div className="w-10 h-10 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 shadow-sm group-hover:shadow-md">
-                     <Plus className="w-5 h-5" />
-                  </div>
-                  See More
-               </Link>
-             </div>
-          </div>
-        </div>
-      ),
-      links: [
-        { name: "Cardiac Sciences", id: 'cardiac' }, { name: "Neuro Sciences", id: 'neuro' }, 
-        { name: "Orthopaedics", id: 'ortho' }, { name: "Gastroenterology", id: 'gastro' }, 
-        { name: "Pulmonology", id: 'pulmonology' }, { name: "Urology", id: 'urology' },
-        { name: "General Surgery", id: 'surgery' }, { name: "Oncology", id: 'oncology' }
-      ],
-      mobileFeature: { img: ASSETS.CARDIAC, title: "Cardiac Sciences", desc: "Center of excellence with advanced cardiac care." }
-    },
-    {
-      name: 'Services',
-      path: '/services',
-      type: 'dropdown',
-      width: 'md:w-[640px]',
-      content: (
-        <div className="flex flex-col md:flex-row gap-0 overflow-hidden">
-          <div className="w-full md:w-[35%] bg-blue-50/50 p-8 border-r border-gray-100 flex flex-col justify-between">
-             <div>
-                <div className="flex items-center gap-2 text-[#005580] font-black uppercase tracking-[0.3em] text-[9px] mb-6">
-                   <Clock className="w-3 h-3" /> 24/7 Response
-                </div>
-                <Link to="/services/emergency" className="block group">
-                   <div className="aspect-[16/10] rounded-2xl overflow-hidden mb-4 relative shadow-xl">
-                      <img src={ASSETS.AMBULANCE} alt="Emergency" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                      <div className="absolute inset-0 bg-red-900/20 group-hover:bg-transparent transition-colors" />
-                      <div className="absolute top-4 left-4">
-                         <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center text-red-600 shadow-lg">
-                            <Phone className="w-4 h-4 fill-current" />
-                         </div>
-                      </div>
-                   </div>
-                   <h4 className="font-bold text-lg text-brand-dark mb-1">Emergency & Trauma</h4>
-                   <p className="text-xs text-gray-500 leading-relaxed font-medium mb-4 text-left">Advanced life support ambulances and a dedicated trauma team ready 24/7.</p>
-                </Link>
-             </div>
-             <Link to="/services" className="flex items-center text-[10px] font-black text-primary-600 uppercase tracking-widest gap-2 hover:gap-3 transition-all">
-                Explore All Services <ArrowRight className="w-3.5 h-3.5" />
-             </Link>
-          </div>
-          <div className="w-full md:w-[65%] p-8 bg-white">
-             <div className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6 flex items-center gap-2">
-                <Activity className="w-3.5 h-3.5" /> Support Services
-             </div>
-             <div className="grid grid-cols-2 gap-x-8 gap-y-2">
-               {[
-                 { name: "Diagnostics & Labs", slug: "lab-test-diagnostic", icon: Activity },
-                 { name: "24/7 Pharmacy", slug: "buy-medicines", icon: Pill },
-                 { name: "Emergency Care", slug: "emergency", icon: Phone },
-                 { name: "Health Checkups", slug: "health-checkup", icon: ShieldCheck },
-                 { name: "ICU Facility", path: "/infrastructure/icu", icon: Activity },
-                 { name: "Cashless Help", path: "/cashless-insurance", icon: Award },
-                 { name: "Telemedicine", path: "/services/telemedicine", icon: Video },
-                 { name: "Home Care", path: "/services/ipd-opd", icon: Info }
-               ].map((item, i) => (
-                 <Link key={i} to={item.path || `/services/${item.slug}`} className="flex items-center gap-3 py-2.5 text-[13px] font-bold text-gray-600 hover:text-primary-600 transition-all group">
-                    <div className="w-8 h-8 rounded-lg bg-gray-50 group-hover:bg-primary-50 flex items-center justify-center text-gray-400 group-hover:text-primary-500 transition-colors">
-                       <item.icon className="w-4 h-4" />
-                    </div>
-                    {item.name}
-                 </Link>
-               ))}
-             </div>
-          </div>
-        </div>
-      ),
-      links: [
-        { name: "Diagnostics & Labs", slug: "lab-test-diagnostic" }, { name: "24/7 Pharmacy", slug: "buy-medicines" },
-        { name: "Emergency & Trauma", slug: "emergency" }, { name: "Health Checkups", slug: "health-checkup" },
-        { name: "ICU Infrastructure", path: "/infrastructure/icu" }, { name: "Cashless Insurance", path: "/cashless-insurance" }
-      ],
-      mobileFeature: { img: ASSETS.AMBULANCE, title: "Emergency & Trauma", desc: "24/7 rapid response and critical support services." }
-    },
-    // ... other links kept as is
-    {
-      name: 'Library',
-      path: '/health-library',
-      type: 'dropdown',
-      width: 'md:w-[600px]',
-      content: (
-        <div className="flex flex-col md:flex-row gap-0 overflow-hidden">
-          <div className="w-full md:w-[40%] bg-emerald-50/50 p-8 border-r border-gray-100">
-             <div className="text-[9px] font-black text-emerald-600 uppercase tracking-[0.3em] mb-6">Educational Resources</div>
-             <Link to="/health-library/ailments" className="block group">
-                <div className="aspect-square rounded-2xl overflow-hidden mb-4 relative shadow-lg">
-                   <img src={ASSETS.HEALTH_CHECKUP} alt="Checkup" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                   <div className="absolute inset-0 bg-emerald-900/20 group-hover:bg-transparent transition-colors" />
-                </div>
-                <h4 className="font-bold text-lg text-brand-dark mb-1">Health Ailments</h4>
-                <p className="text-xs text-gray-500 leading-relaxed font-medium text-left">Comprehensive encyclopedia of medical conditions and symptoms.</p>
-             </Link>
-          </div>
-          <div className="w-full md:w-[60%] p-8 bg-white grid grid-cols-1 gap-2">
-             {[
-               { name: "Medical Treatments", path: "/health-library/treatments", icon: Stethoscope },
-               { name: "Advanced Technologies", path: "/health-library/technologies", icon: Zap },
-               { name: "Health Events", path: "/health-library/events", icon: Calendar },
-               { name: "Knowledge Center", path: "/health-library/knowledge-center", icon: GraduationCap },
-               { name: "Patient Downloads", path: "/health-library/downloads", icon: FileText }
-             ].map((item, i) => (
-               <Link key={i} to={item.path} className="flex items-center justify-between p-3 rounded-xl hover:bg-emerald-50 text-gray-600 hover:text-emerald-700 transition-all font-bold group">
-                  <div className="flex items-center gap-3">
-                     <item.icon className="w-5 h-5 opacity-40 group-hover:opacity-100" />
-                     <span className="text-sm">{item.name}</span>
-                  </div>
-                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
-               </Link>
-             ))}
-          </div>
-        </div>
-      ),
-      links: [
-        { name: "Treatments", path: "/health-library/treatments" }, { name: "Technologies", path: "/health-library/technologies" },
-        { name: "Ailments", path: "/health-library/ailments" }, { name: "Knowledge Center", path: "/health-library/knowledge-center" },
-        { name: "Events", path: "/health-library/events" }
-      ],
-      mobileFeature: { img: ASSETS.HEALTH_CHECKUP, title: "Health Ailments", desc: "Comprehensive encyclopedia of conditions and symptoms." }
-    },
-    {
-      name: 'Team',
-      path: '/team',
-      type: 'dropdown',
-      width: 'md:w-[540px]',
-      content: (
-        <div className="flex flex-col md:flex-row gap-0 overflow-hidden">
-          <div className="w-full md:w-[45%] bg-indigo-50/50 p-8 border-r border-gray-100">
-             <div className="text-[9px] font-black text-indigo-600 uppercase tracking-[0.3em] mb-6">Expert Faculty</div>
-             <Link to="/doctors" className="block group">
-                <div className="aspect-[4/5] rounded-2xl overflow-hidden mb-4 relative shadow-lg">
-                   <img src={ASSETS.ABOUT_BEACON} alt="Doctor" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                   <div className="absolute inset-0 bg-indigo-900/10 group-hover:bg-transparent transition-colors" />
-                </div>
-                <h4 className="font-bold text-lg text-brand-dark mb-1">Meet Our Doctors</h4>
-                <p className="text-xs text-gray-500 leading-relaxed font-medium text-left">Over {siteConfig.stats.superspecialists} board certified specialists with {siteConfig.stats.experience} years experience.</p>
-             </Link>
-          </div>
-          <div className="w-full md:w-[55%] p-8 bg-white flex flex-col justify-center gap-3">
-             {[
-               { name: "Our Specialists", path: "/doctors", icon: Users, desc: "Search doctor directory" },
-               { name: "Leadership Team", path: "/team/leadership", icon: Award, desc: "Our board & management" },
-               { name: "Nursing Staff", path: "/team/nursing", icon: Heart, desc: "Compassionate care team" },
-               { name: "Join Our Team", path: "/careers", icon: Briefcase, desc: "Explore career opportunities" }
-             ].map((item, i) => (
-               <Link key={i} to={item.path} className="flex items-center gap-4 p-4 rounded-2xl hover:bg-indigo-50 transition-all group">
-                  <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-indigo-400 group-hover:text-indigo-600 transition-colors border border-gray-100">
-                     <item.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                     <p className="text-sm font-bold text-gray-900 leading-none mb-1">{item.name}</p>
-                     <p className="text-[10px] text-gray-400 font-medium">{item.desc}</p>
-                  </div>
-               </Link>
-             ))}
-          </div>
-        </div>
-      ),
-      links: [
-        { name: "Our Doctors", path: "/doctors" }, { name: "Leadership", path: "/team/leadership" }, { name: "Nursing Staff", path: "/team/nursing" }, { name: "Careers", path: "/careers" }
-      ],
-      mobileFeature: { img: ASSETS.ABOUT_BEACON, title: "Expert Faculty", desc: "Meet our specialists and leadership team." }
-    },
-    {
-       name: 'Patients',
-       path: '/patient-corner',
-       type: 'dropdown',
-       width: 'md:w-[600px]',
-       content: (
-        <div className="flex flex-col md:flex-row gap-0 overflow-hidden">
-          <div className="w-full md:w-[35%] bg-amber-50/50 p-8 border-r border-gray-100 flex flex-col justify-between">
-             <div>
-                <div className="text-[9px] font-black text-amber-600 uppercase tracking-[0.3em] mb-6">Patient Portal</div>
-                <Link to="/patient-corner/patient-stories" className="block group">
-                  <div className="aspect-[16/10] rounded-2xl overflow-hidden mb-4 relative shadow-xl">
-                    <img src={ASSETS.HEALTH_CHECKUP} alt="Patient services" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <p className="text-[10px] font-bold uppercase tracking-widest opacity-80">Patient Support</p>
-                      <h4 className="font-bold text-lg">Success Stories</h4>
-                    </div>
-                  </div>
-                  <p className="text-xs text-gray-500 leading-relaxed mb-4 font-medium">Real recovery journeys and patient literature for a smooth care path.</p>
-                </Link>
-             </div>
-             <Link to="/patient-experience" className="flex items-center text-[10px] font-black text-amber-600 uppercase tracking-widest gap-2 hover:gap-3 transition-all">
-                Patient Rights & Policy <ArrowRight className="w-3.5 h-3.5" />
-             </Link>
-          </div>
-          <div className="w-full md:w-[65%] p-8 bg-white grid grid-cols-1 gap-1">
-             {[
-                { name: "Patient Experience", path: "/patient-experience", icon: Star },
-                { name: "Success Stories", path: "/patient-corner/patient-stories", icon: Heart },
-                { name: "Health Blogs", path: "/patient-corner/blogs", icon: PenTool },
-                { name: "Health Podcasts", path: "/patient-corner/podcasts", icon: Mic },
-                { name: "Patient Literature", path: "/patient-corner/patient-information-literature", icon: Info }
-             ].map((item, i) => (
-               <Link key={i} to={item.path} className="flex items-center justify-between p-3.5 rounded-xl hover:bg-amber-50 text-gray-600 hover:text-amber-700 transition-all font-bold group">
-                  <div className="flex items-center gap-4">
-                     <item.icon className="w-4.5 h-4.5 opacity-40 group-hover:opacity-100 transition-opacity" />
-                     <span className="text-[13px]">{item.name}</span>
-                  </div>
-                  <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
-               </Link>
-             ))}
-          </div>
-        </div>
-       ),
-       links: [
-          { name: "Patient Experience", path: "/patient-experience" }, { name: "Patient Stories", path: "/patient-corner/patient-stories" },
-          { name: "Health Blogs", path: "/patient-corner/blogs" }, { name: "Patient Literatur", path: "/patient-corner/patient-information-literature" }
-       ],
-       mobileFeature: { img: ASSETS.INTERNATIONAL, title: "Patient Portal", desc: "Support resources and patient stories in one place." }
-    },
-    {
-      name: 'Contact',
-      path: '/contact',
-      type: 'dropdown',
-      width: 'md:w-[620px]',
-      content: (
-        <div className="flex flex-col md:flex-row gap-0 overflow-hidden">
-          <div className="w-full md:w-[40%] bg-rose-50/60 p-8 border-r border-gray-100">
-            <div className="text-[9px] font-black text-rose-600 uppercase tracking-[0.3em] mb-6">Quick Support</div>
-            <div className="rounded-2xl overflow-hidden mb-4 shadow-lg relative">
-              <img src={ASSETS.HOSPITAL_EXTERIOR} alt="Contact Umang Hospital" className="w-full h-44 object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/75 to-transparent" />
-              <div className="absolute bottom-4 left-4 text-white">
-                <p className="text-[10px] font-black uppercase tracking-widest opacity-80">Always Available</p>
-                <h4 className="font-bold text-lg">Get in Touch</h4>
-              </div>
-            </div>
-            <a href={`tel:${siteConfig.contacts.main}`} className="flex items-center gap-3 text-rose-700 text-xs font-black uppercase tracking-wider">
-              <Phone className="w-4 h-4 fill-current" /> {siteConfig.contacts.main}
-            </a>
-          </div>
-          <div className="w-full md:w-[60%] p-8 bg-white space-y-2">
-            {[
-              { name: "General Inquiry", path: "/contact", icon: MessageSquare, color: "text-blue-600 bg-blue-50" },
-              { name: "Inquiry Hub", path: "/contact/inquiry-hub", icon: HelpCircle, color: "text-amber-600 bg-amber-50" },
-              { name: "Media Center", path: "/media-center", icon: Radio, color: "text-purple-600 bg-purple-50" }
-            ].map((item, i) => (
-              <Link key={i} to={item.path} className="flex items-center justify-between gap-4 p-4 rounded-2xl hover:bg-gray-50 transition-all group">
-                <div className="flex items-center gap-4">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${item.color.split(' ')[1]} ${item.color.split(' ')[0]}`}>
-                    <item.icon className="w-5 h-5" />
-                  </div>
-                  <span className="text-sm font-bold text-gray-700">{item.name}</span>
-                </div>
-                <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-primary-500 group-hover:translate-x-1 transition-all" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      ),
-      links: [
-         { name: "Get in Touch", path: "/contact" }, { name: "Inquiry Hub", path: "/contact/inquiry-hub" }, { name: "Media Center", path: "/media-center" }
-      ],
-      mobileFeature: { img: ASSETS.HOSPITAL_EXTERIOR, title: "Quick Support", desc: "Reach the right team for inquiries and assistance." }
-    },
+  const baseLinks = [
+    { title: 'Home', href: '/' },
+    { title: 'About', href: '/about' }
   ];
+
+  const allLinks = [...baseLinks, ...navConfig.mainNav];
 
   return (
     <>
       <header className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300">
-        {/* TOP BAR - Hidden on mobile if needed, but keeping for continuity */}
+        {/* TOP BAR */}
         <div className={`bg-[#0f172a] text-white transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0' : 'max-h-10 lg:max-h-8'}`}>
            <div className="container-custom h-10 lg:h-8 flex items-center justify-between text-[10px] lg:text-[11px] font-semibold tracking-wide px-4">
               <a href={`tel:${siteConfig.contacts.emergency.replace(/\s/g,'')}`} className="flex items-center gap-2 hover:text-primary-400 transition-colors">
                  <AlertCircle className="w-3 h-3 text-red-500" /> <span className="inline">Emergency:</span> {siteConfig.contacts.emergency}
               </a>
               <div className="flex items-center gap-4">
-                 <div className="hidden md:flex items-center gap-2 text-emerald-400 font-bold"><ShieldCheck className="w-3 h-3" /> NABH ACCREDITED</div>
+                 <div className="hidden md:flex items-center gap-2 text-emerald-400 font-bold">NABH ACCREDITED</div>
                  <Link to="/doctors" className="hover:text-primary-400 transition-colors">Find Doctor</Link>
               </div>
            </div>
         </div>
 
-        {/* MAIN NAV - Solid height for better vertical centering */}
-        <div className={`bg-white transition-all duration-500 border-b border-gray-100 flex items-center ${isScrolled ? 'h-14 lg:h-16' : 'h-16 lg:h-20'}`}>
-          <div className="container-custom flex items-center justify-between gap-4 px-4 w-full h-full">
+        {/* MAIN NAV ROW */}
+        <div className={`bg-white transition-all duration-500 border-b border-gray-100 relative ${isScrolled ? 'h-14 lg:h-16' : 'h-16 lg:h-20'}`}>
+          <div className="container-custom flex items-center justify-between gap-4 px-4 w-full h-full relative">
             <Link to="/" className="flex items-center gap-2 shrink-0 group py-1">
                <div className="h-8 lg:h-10 flex items-center">
                  <img src="/umang.svg" alt="Umang" className="h-full w-auto object-contain" />
@@ -372,38 +63,54 @@ const Header = () => {
                </div>
             </Link>
 
-            <nav className="hidden xl:flex items-center gap-0.5 h-full">
-              {navLinks.map((link) => (
-                <div key={link.name} className="relative group h-full flex items-center" onMouseEnter={() => link.type === 'dropdown' && setActiveDropdown(link.name)} onMouseLeave={() => link.type === 'dropdown' && setActiveDropdown(null)}>
-                  <NavLink to={link.path} className={({ isActive }) => `px-2 lg:px-4 py-2 text-[9px] lg:text-[11px] font-black uppercase tracking-wider rounded-lg transition-all ${isActive ? 'text-primary-600 bg-primary-50' : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'}`}>
-                    <span className="flex items-center gap-1">
-                       {link.name} {link.type === 'dropdown' && <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : 'opacity-40'}`} />}
-                    </span>
-                  </NavLink>
-                  <AnimatePresence>
-                    {activeDropdown === link.name && link.type === 'dropdown' && (
-                      <motion.div 
-                        initial={{ opacity: 0, y: 15, scale: 0.98 }} 
-                        animate={{ opacity: 1, y: 0, scale: 1 }} 
-                        exit={{ opacity: 0, y: 10, scale: 0.98 }} 
-                        transition={{ duration: 0.3, ease: "easeOut" }}
-                        className={`absolute top-full left-1/2 -translate-x-1/2 pt-2 z-[110] ${link.width}`}
-                      >
-                         <div className="bg-white rounded-[2rem] shadow-[0_30px_90px_-20px_rgba(0,0,0,0.2)] border border-gray-100/50 overflow-hidden backdrop-blur-xl">
-                            {link.content}
-                         </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
+            {/* Tightened Navigation Spacing */}
+            <nav className="hidden xl:flex items-center gap-0 h-full">
+              {allLinks.map((link) => {
+                const hasDropdown = link.groups && link.groups.length > 0;
+                
+                return (
+                  <div 
+                    key={link.title} 
+                    className="h-full flex items-center relative" 
+                    onMouseEnter={() => hasDropdown && setActiveDropdown(link.title)} 
+                    onMouseLeave={() => hasDropdown && setActiveDropdown(null)}
+                  >
+                    <NavLink 
+                      to={link.href} 
+                      className={({ isActive }) => `px-3 lg:px-4 py-2 text-[10px] lg:text-[11px] font-black uppercase tracking-widest rounded-lg transition-all ${isActive ? 'text-primary-600 bg-primary-50/50' : 'text-gray-600 hover:text-primary-600'}`}
+                    >
+                      <span className="flex items-center gap-1 whitespace-nowrap">
+                         {link.title} {hasDropdown && <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.title ? 'rotate-180' : 'opacity-40'}`} />}
+                      </span>
+                    </NavLink>
+
+                    {/* Flush Dropdown Positioning - Optimized width and smart alignment */}
+                    <AnimatePresence>
+                      {activeDropdown === link.title && hasDropdown && (
+                        <motion.div 
+                          initial={{ opacity: 0, y: 5 }} 
+                          animate={{ opacity: 1, y: 0 }} 
+                          exit={{ opacity: 0, y: 5 }} 
+                          transition={{ duration: 0.2 }}
+                          className={`absolute top-full z-[110] pt-0 ${
+                            ['Contact', 'Patients', 'Team', 'Infrastructure'].includes(link.title) ? 'right-0' : 
+                            ['Home', 'About'].includes(link.title) ? 'left-0' : 'left-1/2 -translate-x-1/2'
+                          } w-[720px] pointer-events-auto`}
+                        >
+                           <MegaMenuPanel item={link} closeMenu={() => setActiveDropdown(null)} />
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
             </nav>
 
-            <div className="flex items-center gap-3">
-               <Link to="/doctors" className="h-9 lg:h-11 px-4 lg:px-6 rounded-lg lg:rounded-2xl flex items-center gap-2 text-[10px] lg:text-[11px] font-black uppercase tracking-widest transition-all bg-primary-600 text-white shadow-lg shadow-primary-600/20 hover:bg-primary-500 hover:-translate-y-0.5 active:scale-95">
-                 <Calendar className="w-3 h-3 lg:w-3.5 lg:h-3.5" /> <span className="hidden sm:inline">Appointment</span><span className="sm:hidden text-[9px]">BOOK</span>
+            <div className="flex items-center gap-2">
+               <Link to="/doctors" className="h-9 lg:h-10 px-4 lg:px-5 rounded-xl flex items-center gap-2 text-[9px] lg:text-[10px] font-black uppercase tracking-widest transition-all bg-primary-600 text-white shadow-lg shadow-primary-600/20 hover:bg-primary-500 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap">
+                 <Calendar className="w-3 h-3" /> <span className="hidden sm:inline">Appointment</span><span className="sm:hidden">BOOK</span>
                </Link>
-               <button className="xl:hidden w-9 lg:w-11 h-9 lg:h-11 flex items-center justify-center rounded-lg bg-gray-50 text-gray-700 border border-gray-100" onClick={() => setIsMobileMenuOpen(true)}>
+               <button className="xl:hidden w-9 h-9 flex items-center justify-center rounded-lg bg-gray-50 text-gray-700 border border-gray-100" onClick={() => setIsMobileMenuOpen(true)}>
                  <Menu className="w-5 h-5" />
                </button>
             </div>
@@ -411,7 +118,7 @@ const Header = () => {
         </div>
       </header>
 
-      {/* MOBILE MENU WITH ACCORDIONS */}
+      {/* MOBILE MENU (Restored) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
@@ -422,62 +129,44 @@ const Header = () => {
                   <button onClick={() => setIsMobileMenuOpen(false)} className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center text-gray-400"><X className="w-5 h-5" /></button>
                </div>
                <div className="flex-1 space-y-1 overflow-y-auto pr-2 custom-scrollbar">
-                  {navLinks.map((link) => (
-                    <div key={link.name} className="border-b border-gray-50 last:border-0 pb-1">
-                      {link.type === 'dropdown' ? (
-                        <>
-                          <button onClick={() => setMobileAccordion(mobileAccordion === link.name ? null : link.name)} className="w-full flex items-center justify-between px-4 py-4 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-50">
-                            {link.name} {mobileAccordion === link.name ? <Minus className="w-4 h-4 text-primary-500" /> : <Plus className="w-4 h-4 text-gray-400" />}
-                          </button>
-                          <AnimatePresence>
-                            {mobileAccordion === link.name && (
-                              <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden bg-gray-50 rounded-2xl mx-2 mb-2">
-                                <div className="py-2 px-2 grid grid-cols-1 gap-1">
-                                  {link.mobileFeature && (
-                                    <div className="rounded-xl overflow-hidden border border-gray-200 bg-white mb-2">
-                                      <img src={link.mobileFeature.img} alt={link.mobileFeature.title} className="w-full h-28 object-cover" />
-                                      <div className="p-3">
-                                        <h5 className="text-xs font-bold text-brand-dark">{link.mobileFeature.title}</h5>
-                                        <p className="text-[10px] text-gray-500 leading-relaxed mt-1">{link.mobileFeature.desc}</p>
+                  {allLinks.map((link) => {
+                    const hasDropdown = link.groups && link.groups.length > 0;
+                    return (
+                      <div key={link.title} className="border-b border-gray-50 last:border-0 pb-1">
+                        {hasDropdown ? (
+                          <>
+                            <button onClick={() => setMobileAccordion(mobileAccordion === link.title ? null : link.title)} className="w-full flex items-center justify-between px-4 py-4 rounded-xl text-sm font-bold text-gray-700 hover:bg-gray-50">
+                              {link.title} {mobileAccordion === link.title ? <Minus className="w-4 h-4 text-primary-500" /> : <Plus className="w-4 h-4 text-gray-400" />}
+                            </button>
+                            <AnimatePresence>
+                              {mobileAccordion === link.title && (
+                                <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden bg-gray-50 rounded-2xl mx-2 mb-2">
+                                  <div className="py-4 px-4 flex flex-col gap-6">
+                                    {link.groups.map((group, gIdx) => (
+                                      <div key={gIdx} className="space-y-3">
+                                        <h6 className="text-[10px] font-black uppercase text-primary-600 tracking-widest pl-2">{group.title}</h6>
+                                        <div className="flex flex-col gap-1">
+                                          {group.items.map((sub, sIdx) => (
+                                            <Link key={sIdx} to={sub.href} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-[14px] font-bold text-gray-600 hover:text-primary-600 hover:bg-white rounded-xl flex items-center justify-between">
+                                              {sub.label} <ArrowRight size={14} className="text-gray-300" />
+                                            </Link>
+                                          ))}
+                                        </div>
                                       </div>
-                                    </div>
-                                  )}
-                                  {link.links.map((sub) => {
-                                    const targetPath = sub.path || (sub.slug ? `/services/${sub.slug}` : `/specialities`);
-                                    return (
-                                      <Link 
-                                        key={sub.name} 
-                                        to={targetPath} 
-                                        state={sub.id ? { category: sub.id } : (sub.slug ? { category: sub.slug } : undefined)} 
-                                        onClick={() => {
-                                          setIsMobileMenuOpen(false);
-                                          window.scrollTo({ top: 0, behavior: 'instant' });
-                                        }} 
-                                        className="px-4 py-4 text-[15px] font-bold text-gray-700 active:text-primary-600 flex items-center gap-4 active:bg-primary-50 rounded-xl transition-all"
-                                      >
-                                        <div className="w-1.5 h-1.5 rounded-full bg-primary-400" /> {sub.name}
-                                      </Link>
-                                    );
-                                  })}
-                                </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </>
-                      ) : (
-                        <NavLink 
-                          to={link.path} 
-                          onClick={() => {
-                            setIsMobileMenuOpen(false);
-                            window.scrollTo({ top: 0, behavior: 'instant' });
-                          }} 
-                          className={({ isActive }) => `block px-4 py-4 rounded-xl text-sm font-bold transition-all ${isActive ? 'bg-primary-50 text-primary-600' : 'text-gray-700 hover:bg-gray-50'}`}
-                        >
-                          {link.name}
-                        </NavLink>
-                      )}
-                    </div>
-                  ))}
+                                    ))}
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </>
+                        ) : (
+                          <NavLink to={link.href} onClick={() => setIsMobileMenuOpen(false)} className={({ isActive }) => `block px-4 py-4 rounded-xl text-sm font-bold transition-all ${isActive ? 'bg-primary-50 text-primary-600' : 'text-gray-700 hover:bg-gray-50'}`}>
+                            {link.title}
+                          </NavLink>
+                        )}
+                      </div>
+                    );
+                  })}
                </div>
                <div className="pt-6 border-t border-gray-100 space-y-3 mt-4 shrink-0">
                   <Link to="/doctors" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-center gap-2 w-full py-4 rounded-xl bg-primary-600 text-white font-bold text-sm shadow-lg shadow-primary-600/20">Book Appointment</Link>

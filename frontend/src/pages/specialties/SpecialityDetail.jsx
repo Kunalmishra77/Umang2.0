@@ -1,14 +1,14 @@
 import React, { useMemo } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, CheckCircle2, HelpCircle, ArrowRight, ShieldCheck, Activity, Phone, Calendar, AlertCircle } from 'lucide-react';
-import { Helmet } from 'react-helmet-async';
+import { ChevronRight, CheckCircle2, HelpCircle, ArrowRight, Shield, Activity, Phone, Calendar, AlertCircle, Quote, Heart } from 'lucide-react';
 import { specialitiesData } from '../../data/specialitiesData';
 import { doctors } from '../../utils/doctorsData';
 import { Container, Section, SectionHeading, Card, Badge } from '../../components/ui/Layout';
 import { siteConfig } from '../../config/siteConfig';
 import CTAButton from '../../design/system/CTAButton';
 import { VARIANTS } from '../../design/system/index';
+import SeoHead from '../../components/common/SeoHead';
 
 const SpecialityDetail = () => {
   const { id } = useParams();
@@ -34,10 +34,11 @@ const SpecialityDetail = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <Helmet>
-        <title>{data.title} | {siteConfig.shortName}</title>
-        <meta name="description" content={data.desc} />
-      </Helmet>
+      <SeoHead 
+        title={data.title} 
+        description={data.desc}
+        canonical={`/specialities/${id}`}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-brand-dark text-white overflow-hidden">
@@ -71,12 +72,12 @@ const SpecialityDetail = () => {
               {data.procedures && (
                 <div>
                   <h3 className="mb-8 flex items-center gap-3 text-brand-dark">
-                    <ShieldCheck className="text-primary-600" /> Key Procedures
+                    <Shield className="text-primary-600" /> Key Procedures
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-4">
                     {data.procedures.map((item, i) => (
                       <Card key={i} className="flex items-start gap-4 group hover:border-primary-100">
-                        <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+                        <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all">
                           <CheckCircle2 size={20} />
                         </div>
                         <div>
@@ -86,6 +87,31 @@ const SpecialityDetail = () => {
                       </Card>
                     ))}
                   </div>
+                </div>
+              )}
+
+              {/* SECTION: DEPARTMENT STATISTICS */}
+              {data.statistics && (
+                <div className="bg-primary-600 rounded-[3rem] p-10 lg:p-12 text-white relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[80px] -mr-32 -mt-32" />
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center relative z-10">
+                    {data.statistics.map((stat, i) => (
+                      <div key={i} className="space-y-2">
+                        <p className="text-4xl lg:text-5xl font-black tracking-tighter">{stat.value}</p>
+                        <p className="text-xs lg:text-sm font-bold uppercase tracking-widest text-primary-100">{stat.label}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* SECTION: TREATMENT APPROACH */}
+              {data.approach && (
+                <div className="space-y-8">
+                  <h3 className="text-3xl font-serif font-bold text-brand-dark">Our Treatment Approach</h3>
+                  <p className="text-gray-600 text-lg lg:text-xl font-light leading-relaxed border-l-4 border-primary-500 pl-8 italic">
+                    "{data.approach}"
+                  </p>
                 </div>
               )}
 
@@ -106,6 +132,42 @@ const SpecialityDetail = () => {
                 </div>
               )}
 
+              {/* SECTION: SUCCESS STORIES */}
+              {data.successStories && (
+                <div className="pt-8">
+                  <h3 className="text-3xl font-serif font-bold text-brand-dark mb-10">Patient Success Stories</h3>
+                  <div className="grid gap-6">
+                    {data.successStories.map((story, i) => (
+                      <div key={i} className="bg-gray-50 p-8 rounded-[2.5rem] border border-gray-100 flex flex-col md:flex-row gap-8 items-start hover:bg-white hover:shadow-xl transition-all group">
+                        <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shrink-0 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-all">
+                          <Quote size={24} className="opacity-50 group-hover:opacity-100" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-bold text-brand-dark mb-2">{story.patient} • <span className="text-primary-600 font-medium text-base">{story.condition}</span></h4>
+                          <p className="text-gray-600 leading-relaxed italic">"{story.story}"</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* SECTION: RECOVERY PATH */}
+              {data.recovery && (
+                <div className="bg-slate-900 rounded-[3rem] p-10 lg:p-16 text-white relative overflow-hidden">
+                  <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-primary-500 to-cyan-400" />
+                  <div className="flex flex-col md:flex-row gap-10 items-center relative z-10">
+                    <div className="w-20 h-20 rounded-full bg-primary-500/20 flex items-center justify-center shrink-0 border border-primary-500/30">
+                      <Heart className="w-10 h-10 text-primary-400 animate-pulse" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl lg:text-3xl font-serif font-bold mb-4">Journey to Recovery</h3>
+                      <p className="text-gray-400 text-lg font-light leading-relaxed">{data.recovery}</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Doctors */}
               {deptDoctors.length > 0 && (
                 <div className="pt-8">
@@ -120,6 +182,20 @@ const SpecialityDetail = () => {
                           <h5 className="text-sm font-bold mb-1 group-hover:text-primary-600 transition-colors">{doc.name}</h5>
                           <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{doc.role}</div>
                         </Card>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* SECTION: RELATED SERVICES */}
+              {data.relatedServices && (
+                <div className="pt-8">
+                  <h3 className="text-2xl font-bold text-brand-dark mb-8">Related Care & Services</h3>
+                  <div className="flex flex-wrap gap-3">
+                    {data.relatedServices.map((service, i) => (
+                      <Link key={i} to="/services" className="px-6 py-3 rounded-full bg-gray-50 border border-gray-100 text-gray-600 font-bold text-xs uppercase tracking-widest hover:bg-primary-50 hover:text-primary-600 hover:border-primary-200 transition-all">
+                        {service}
                       </Link>
                     ))}
                   </div>

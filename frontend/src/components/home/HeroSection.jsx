@@ -85,7 +85,7 @@ const HeroSection = () => {
             loop
             playsInline
             poster={ASSETS.HOSPITAL_EXTERIOR}
-            className="w-full h-full object-cover opacity-70 brightness-[0.85]"
+            className="w-full h-full object-cover opacity-100 brightness-[0.9]"
           >
             <source src="/assets/Home/umang-banner.MP4" type="video/mp4" />
           </video>
@@ -105,7 +105,7 @@ const HeroSection = () => {
             >
               <img
                 src={mediaItems[index].src}
-                className="w-full h-full object-cover opacity-70 brightness-[0.85]"
+                className="w-full h-full object-cover opacity-100 brightness-[0.9]"
                 alt=""
                 loading={index === 0 ? "eager" : "lazy"}
               />
@@ -114,9 +114,9 @@ const HeroSection = () => {
         )}
       </div>
 
-      {/* GRADIENTS FOR CONTENT FOCUS */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#020617]/40 via-[#020617]/20 to-[#020617]/60 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/60 via-transparent to-transparent z-10 hidden lg:block" />
+      {/* MINIMAL LOCALIZED OVERLAYS FOR READABILITY */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/40 via-transparent to-[#020617]/20 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020617]/40 z-10" />
 
       <div className="container-custom relative z-20 w-full">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -125,7 +125,7 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-sans font-black tracking-tight leading-[1.1] mb-6 drop-shadow-[0_10px_30px_rgba(0,0,0,0.6)]" 
+              className="font-sans font-black tracking-tight leading-[1.1] mb-6 drop-shadow-[0_15px_45px_rgba(0,0,0,0.9)]" 
               style={{ fontSize: 'clamp(2.2rem, 8vw, 4.2rem)' }}
             >
               <span className="text-white">Care with</span>
@@ -137,7 +137,8 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-[14px] md:text-[17px] text-white/90 max-w-[42ch] mb-9 font-medium leading-relaxed px-4 lg:px-0 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
+              className="text-[14px] md:text-[17px] text-white max-w-[42ch] mb-9 font-bold leading-relaxed px-4 lg:px-0"
+              style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 1px 2px rgba(0,0,0,1)' }}
             >
               A {siteConfig.stats.beds}-bed beacon of <span className="text-primary-300 font-black">medical excellence in Gurugram</span>, where advanced technology meets human compassion.
             </motion.p>
@@ -177,7 +178,7 @@ const HeroSection = () => {
                   <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center backdrop-blur-sm border border-white/10">
                     <s.icon className="w-3.5 h-3.5 text-primary-300" />
                   </div>
-                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/80">{s.label}</span>
+                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">{s.label}</span>
                 </div>
               ))}
             </motion.div>
