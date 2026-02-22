@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Card, Row, Col, Badge, Button, Modal, Table, Alert } from 'react-bootstrap';
-import { FaCalendarAlt, FaMapMarkerAlt, FaPhone, FaEnvelope, FaTimes, FaCheck } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import { 
+  Calendar, Clock, MapPin, MoreVertical, 
+  Search, Filter, ChevronRight, X, 
+  CheckCircle2, AlertCircle, CalendarDays,
+  ArrowRight, Download, Printer
+} from 'lucide-react';
 import api from '../../services/api';
 
 const PatientAppointments = () => {
@@ -9,7 +13,7 @@ const PatientAppointments = () => {
   const [loading, setLoading] = useState(true);
   const [showCancelModal, setShowCancelModal] = useState(false);
   const [selectedAppointment, setSelectedAppointment] = useState(null);
-  const [filter, setFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('all');
 
   useEffect(() => {
     fetchAppointments();
@@ -17,226 +21,181 @@ const PatientAppointments = () => {
 
   const fetchAppointments = async () => {
     try {
-      // Use temp endpoint for development (no auth required)
       const response = await api.get('/appointments-temp');
       setAppointments(response.data);
     } catch (error) {
-      console.error('Error fetching appointments:', error);
-      // Fallback to mock data if API fails
       setAppointments([
-        {
-          id: 1,
-          doctor: 'Dr. Sarah Johnson',
-          speciality: 'Cardiology',
-          hospital: 'City General Hospital',
-          date: '2026-01-30',
-          time: '10:00 AM',
-          status: 'upcoming',
-          type: 'Consultation',
-          notes: 'Regular checkup',
-        },
-        {
-          id: 2,
-          doctor: 'Dr. Michael Chen',
-          speciality: 'Dermatology',
-          hospital: 'Skin Care Clinic',
-          date: '2026-01-25',
-          time: '2:30 PM',
-          status: 'completed',
-          type: 'Follow-up',
-          notes: 'Skin condition review',
-        },
-        {
-          id: 3,
-          doctor: 'Dr. Emily Davis',
-          speciality: 'Neurology',
-          hospital: 'Brain Health Center',
-          date: '2026-01-20',
-          time: '11:15 AM',
-          status: 'cancelled',
-          type: 'Consultation',
-          notes: 'Headache evaluation',
-        },
+        { id: 1, doctor: 'Dr. Sarah Johnson', speciality: 'Cardiology', date: '2026-10-30', time: '10:00 AM', status: 'upcoming', type: 'Consultation', img: 'https://doccure.dreamstechnologies.com/react/template/80517726715f3ecda881.jpg' },
+        { id: 2, doctor: 'Dr. Michael Chen', speciality: 'Dermatology', date: '2026-10-25', time: '02:30 PM', status: 'completed', type: 'Follow-up', img: 'https://doccure.dreamstechnologies.com/react/template/8963283f58e0a139049a.jpg' },
+        { id: 3, doctor: 'Dr. Emily Davis', speciality: 'Neurology', date: '2026-10-20', time: '11:15 AM', status: 'cancelled', type: 'Consultation', img: 'https://doccure.dreamstechnologies.com/react/template/8e5470438b4d8e578f14.jpg' },
       ]);
     } finally {
       setLoading(false);
     }
   };
 
-  const getStatusBadge = (status) => {
-    const variants = {
-      upcoming: { bg: 'primary', text: 'Upcoming' },
-      completed: { bg: 'success', text: 'Completed' },
-      cancelled: { bg: 'danger', text: 'Cancelled' },
-      pending: { bg: 'warning', text: 'Pending' },
-    };
-    const config = variants[status] || { bg: 'secondary', text: status };
-    return <Badge bg={config.bg}>{config.text}</Badge>;
-  };
+  const filters = [
+    { id: 'all', label: 'All' },
+    { id: 'upcoming', label: 'Upcoming' },
+    { id: 'completed', label: 'Completed' },
+    { id: 'cancelled', label: 'Cancelled' },
+  ];
 
-  const handleCancelAppointment = (appointment) => {
-    setSelectedAppointment(appointment);
-    setShowCancelModal(true);
-  };
-
-  const confirmCancelAppointment = async () => {
-    try {
-      // API call to cancel appointment
-      // await api.delete(`/appointments/${selectedAppointment.id}`);
-
-      // Update local state
-      setAppointments(appointments.map(apt =>
-        apt.id === selectedAppointment.id
-          ? { ...apt, status: 'cancelled' }
-          : apt
-      ));
-
-      setShowCancelModal(false);
-      setSelectedAppointment(null);
-    } catch (error) {
-      console.error('Error cancelling appointment:', error);
-    }
-  };
-
-  const filteredAppointments = appointments.filter(apt => {
-    if (filter === 'all') return true;
-    return apt.status === filter;
-  });
-
-  if (loading) {
-    return (
-      <div className="d-flex justify-content-center align-items-center" style={{ height: '400px' }}>
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>
-    );
-  }
+  const filteredAppointments = appointments.filter(apt => 
+    activeFilter === 'all' ? true : apt.status === activeFilter
+  );
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      className="space-y-8"
     >
-      <div className="mb-4">
-        <h2 className="fw-bold text-dark mb-4">My Appointments</h2>
-        <p className="text-muted">Manage your upcoming and past appointments</p>
-      </div>
-
-      {/* Filter Buttons */}
-      <div className="mb-4">
-        <div className="d-flex gap-2 flex-wrap">
-          {['all', 'upcoming', 'completed', 'cancelled'].map(status => (
-            <Button
-              key={status}
-              variant={filter === status ? 'primary' : 'outline-primary'}
-              size="sm"
-              onClick={() => setFilter(status)}
-              className="text-capitalize"
+      {/* Header & Filters */}
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <h1 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Appointments</h1>
+          <p className="text-slate-500 font-medium">View and manage your clinical visits.</p>
+        </div>
+        <div className="flex bg-white p-1.5 rounded-2xl border border-slate-200 shadow-sm">
+          {filters.map(filter => (
+            <button
+              key={filter.id}
+              onClick={() => setActiveFilter(filter.id)}
+              className={`px-5 py-2.5 rounded-xl text-xs font-bold transition-all ${activeFilter === filter.id ? 'bg-[#0f172a] text-white shadow-lg shadow-slate-900/20' : 'text-slate-500 hover:text-[#0f172a]'}`}
             >
-              {status === 'all' ? 'All Appointments' : status}
-            </Button>
+              {filter.label}
+            </button>
           ))}
         </div>
       </div>
 
-      {/* Appointments List */}
-      <Row>
-        {filteredAppointments.length > 0 ? (
-          filteredAppointments.map((appointment, index) => (
-            <Col lg={6} className="mb-4" key={appointment.id}>
+      {/* Appointments Grid */}
+      <div className="grid grid-cols-1 gap-4">
+        <AnimatePresence mode="popLayout">
+          {filteredAppointments.length > 0 ? (
+            filteredAppointments.map((apt, idx) => (
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                key={apt.id}
+                layout
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                className="group bg-white p-6 rounded-[2.5rem] border border-slate-100 flex flex-col lg:flex-row lg:items-center justify-between gap-8 hover:shadow-xl hover:shadow-slate-900/5 transition-all"
               >
-                <Card className="h-100 border-0 shadow-sm">
-                  <Card.Body className="p-4">
-                    <div className="d-flex justify-content-between align-items-start mb-3">
-                      <div>
-                        <h5 className="mb-1 fw-bold text-dark">{appointment.doctor}</h5>
-                        <p className="mb-1 text-primary fw-medium">{appointment.speciality}</p>
-                        <p className="mb-0 text-muted small">{appointment.hospital}</p>
-                      </div>
-                      {getStatusBadge(appointment.status)}
+                <div className="flex items-center gap-6">
+                  <div className="relative">
+                    <img src={apt.img} alt={apt.doctor} className="w-20 h-20 rounded-3xl object-cover ring-4 ring-slate-50 group-hover:scale-105 transition-transform" />
+                    <div className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-2 border-white flex items-center justify-center ${apt.status === 'upcoming' ? 'bg-blue-600' : apt.status === 'completed' ? 'bg-emerald-500' : 'bg-red-500'}`}>
+                      {apt.status === 'upcoming' ? <Clock className="w-3 h-3 text-white" /> : apt.status === 'completed' ? <CheckCircle2 className="w-3 h-3 text-white" /> : <X className="w-3 h-3 text-white" />}
                     </div>
-
-                    <div className="mb-3">
-                      <div className="d-flex align-items-center mb-2">
-                        <FaCalendarAlt className="text-muted me-2" size={14} />
-                        <span className="text-muted small">{appointment.date} at {appointment.time}</span>
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-[#0f172a] mb-1">{apt.doctor}</h4>
+                    <p className="text-sm font-bold text-blue-600 mb-3 uppercase tracking-wider">{apt.speciality}</p>
+                    <div className="flex flex-wrap items-center gap-y-2 gap-x-6">
+                      <div className="flex items-center gap-2 text-slate-500">
+                        <CalendarDays className="w-4 h-4 text-slate-400" />
+                        <span className="text-xs font-bold">{apt.date}</span>
                       </div>
-                      <div className="d-flex align-items-center mb-2">
-                        <FaMapMarkerAlt className="text-muted me-2" size={14} />
-                        <span className="text-muted small">{appointment.hospital}</span>
+                      <div className="flex items-center gap-2 text-slate-500">
+                        <Clock className="w-4 h-4 text-slate-400" />
+                        <span className="text-xs font-bold">{apt.time}</span>
                       </div>
-                      <p className="mb-0 text-muted small">
-                        <strong>Type:</strong> {appointment.type}
-                      </p>
-                      {appointment.notes && (
-                        <p className="mb-0 text-muted small">
-                          <strong>Notes:</strong> {appointment.notes}
-                        </p>
-                      )}
+                      <div className="flex items-center gap-2 text-slate-500">
+                        <MapPin className="w-4 h-4 text-slate-400" />
+                        <span className="text-xs font-bold">Main Hospital Tower</span>
+                      </div>
                     </div>
+                  </div>
+                </div>
 
-                    {appointment.status === 'upcoming' && (
-                      <div className="d-flex gap-2">
-                        <Button variant="outline-primary" size="sm">
-                          Reschedule
-                        </Button>
-                        <Button
-                          variant="outline-danger"
-                          size="sm"
-                          onClick={() => handleCancelAppointment(appointment)}
-                        >
-                          Cancel
-                        </Button>
-                      </div>
-                    )}
-                  </Card.Body>
-                </Card>
+                <div className="flex items-center gap-3 lg:border-l lg:border-slate-100 lg:pl-8">
+                  {apt.status === 'upcoming' ? (
+                    <>
+                      <button className="h-12 px-6 rounded-xl bg-[#0f172a] text-white font-bold text-xs uppercase tracking-widest hover:bg-blue-600 transition-all shadow-lg shadow-slate-900/10">
+                        Reschedule
+                      </button>
+                      <button 
+                        onClick={() => { setSelectedAppointment(apt); setShowCancelModal(true); }}
+                        className="h-12 w-12 rounded-xl bg-red-50 text-red-600 flex items-center justify-center hover:bg-red-600 hover:text-white transition-all"
+                      >
+                        <X className="w-5 h-5" />
+                      </button>
+                    </>
+                  ) : apt.status === 'completed' ? (
+                    <>
+                      <button className="h-12 px-6 rounded-xl bg-emerald-50 text-emerald-600 font-bold text-xs uppercase tracking-widest hover:bg-emerald-600 hover:text-white transition-all flex items-center gap-2">
+                        <Printer className="w-4 h-4" /> Prescription
+                      </button>
+                      <button className="h-12 px-6 rounded-xl bg-blue-50 text-blue-600 font-bold text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all flex items-center gap-2">
+                        <Download className="w-4 h-4" /> Invoice
+                      </button>
+                    </>
+                  ) : (
+                    <button className="h-12 px-6 rounded-xl bg-slate-100 text-slate-400 font-bold text-xs uppercase tracking-widest cursor-not-allowed">
+                      Cancelled
+                    </button>
+                  )}
+                </div>
               </motion.div>
-            </Col>
-          ))
-        ) : (
-          <Col>
-            <Alert variant="info" className="text-center">
-              <FaCalendarAlt size={48} className="mb-3" />
-              <h5>No appointments found</h5>
-              <p className="mb-0">You don't have any {filter !== 'all' ? filter : ''} appointments.</p>
-            </Alert>
-          </Col>
-        )}
-      </Row>
+            ))
+          ) : (
+            <div className="text-center py-20 bg-white rounded-[3rem] border border-dashed border-slate-200">
+              <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Calendar className="w-10 h-10 text-slate-300" />
+              </div>
+              <h3 className="text-xl font-serif font-bold text-[#0f172a] mb-2">No appointments found</h3>
+              <p className="text-slate-400 max-w-xs mx-auto text-sm leading-relaxed">We couldn't find any {activeFilter !== 'all' ? activeFilter : ''} appointments for your account.</p>
+              <button onClick={() => setActiveFilter('all')} className="mt-8 text-blue-600 font-bold text-sm underline underline-offset-4">View all appointments</button>
+            </div>
+          )}
+        </AnimatePresence>
+      </div>
 
-      {/* Cancel Appointment Modal */}
-      <Modal
-        show={showCancelModal}
-        onHide={() => setShowCancelModal(false)}
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Cancel Appointment</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <p>Are you sure you want to cancel your appointment with <strong>{selectedAppointment?.doctor}</strong> on <strong>{selectedAppointment?.date}</strong> at <strong>{selectedAppointment?.time}</strong>?</p>
-          <Alert variant="warning">
-            <small>Cancellation policy: Appointments can be cancelled up to 24 hours in advance.</small>
-          </Alert>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowCancelModal(false)}>
-            Keep Appointment
-          </Button>
-          <Button variant="danger" onClick={confirmCancelAppointment}>
-            <FaTimes className="me-2" />
-            Cancel Appointment
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      {/* Cancel Modal Overlay */}
+      <AnimatePresence>
+        {showCancelModal && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-6">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowCancelModal(false)}
+              className="absolute inset-0 bg-[#0f172a]/80 backdrop-blur-sm" 
+            />
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-md bg-white rounded-[2.5rem] p-10 overflow-hidden shadow-2xl"
+            >
+              <div className="w-20 h-20 bg-red-50 text-red-600 rounded-3xl flex items-center justify-center mb-8 mx-auto">
+                <AlertCircle className="w-10 h-10" />
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-[#0f172a] text-center mb-4">Cancel Appointment?</h3>
+              <p className="text-slate-500 text-center mb-10 leading-relaxed">
+                Are you sure you want to cancel your visit with <span className="text-[#0f172a] font-bold">{selectedAppointment?.doctor}</span>? This action cannot be undone.
+              </p>
+              
+              <div className="flex flex-col gap-3">
+                <button 
+                  className="w-full h-14 rounded-2xl bg-red-600 text-white font-bold uppercase tracking-widest text-xs hover:bg-red-700 transition-all shadow-lg shadow-red-900/20"
+                  onClick={() => setShowCancelModal(false)}
+                >
+                  Yes, Cancel Visit
+                </button>
+                <button 
+                  className="w-full h-14 rounded-2xl bg-slate-100 text-slate-600 font-bold uppercase tracking-widest text-xs hover:bg-slate-200 transition-all"
+                  onClick={() => setShowCancelModal(false)}
+                >
+                  No, Keep It
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 };

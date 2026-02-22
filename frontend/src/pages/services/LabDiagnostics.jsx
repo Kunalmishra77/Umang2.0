@@ -105,7 +105,7 @@ const LabDiagnostics = () => {
       </section>
 
       {/* SECTION: LAB STATISTICS */}
-      <div className="bg-blue-600 py-8 lg:py-10 relative overflow-hidden border-y border-blue-500/30">
+      <div className="bg-blue-600 py-12 lg:py-16 relative overflow-hidden border-y border-blue-500/30">
         <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         <Container>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
@@ -116,8 +116,8 @@ const LabDiagnostics = () => {
               { label: "Home Phlebotomists", value: "25+" }
             ].map((stat, i) => (
               <div key={i}>
-                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight mb-1">{stat.value}</p>
-                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-blue-100/70">{stat.label}</p>
+                <p className="text-2xl lg:text-4xl font-serif font-bold tracking-tight mb-2">{stat.value}</p>
+                <p className="text-[10px] lg:text-[11px] font-black uppercase tracking-[0.2em] text-blue-100/70">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -127,7 +127,7 @@ const LabDiagnostics = () => {
       {/* 2. Search & Popular Categories */}
       <section className="py-20 bg-gray-50">
          <div className="container-custom">
-            <div className="bg-white/80 backdrop-blur-xl rounded-[3rem] p-8 md:p-12 shadow-2xl shadow-blue-900/10 -mt-32 relative z-20 border border-white/50">
+            <div className="bg-white/90 backdrop-blur-xl rounded-[3rem] p-8 md:p-12 shadow-2xl shadow-blue-900/10 -mt-24 relative z-20 border border-white/50">
                <div className="grid lg:grid-cols-3 gap-12 items-center">
                   <div className="lg:col-span-1">
                      <h3 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Find a Test</h3>
@@ -406,13 +406,13 @@ const LabDiagnostics = () => {
 
       {/* SECTION: LAB FAQ */}
       <Section className="bg-gray-50">
-        <Container className="max-w-4xl">
+        <Container className="max-w-7xl">
           <SectionHeading 
             eyebrow="Help Desk" 
             title="Lab & Diagnostic FAQ" 
             centered
           />
-          <div className="grid md:grid-cols-1 gap-6">
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
             {[
               { q: "How can I access my reports online?", a: "Reports are automatically shared on your registered WhatsApp number and email. You can also download them from our Patient Portal using your unique PID." },
               { q: "Is home collection available on Sundays?", a: "Yes, our home phlebotomy team is operational 7 days a week, including Sundays and public holidays from 6:00 AM to 8:00 PM." },
@@ -421,21 +421,21 @@ const LabDiagnostics = () => {
               { q: "What is the turnaround time for reports?", a: "Routine tests like CBC or Glucose are reported within 4-6 hours. Specialized tests like Biopsy or Cultures may take 3-5 working days." },
               { q: "How are critical results handled?", a: "Critical or 'Panic' values are immediately cross-verified and communicated directly to the patient or the referring doctor via phone call." }
             ].map((faq, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 text-left hover:shadow-md transition-shadow">
-                <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
-                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-                    <HelpCircle size={20} className="text-blue-600" />
+              <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 text-left hover:shadow-xl hover:shadow-blue-900/5 transition-all group">
+                <h4 className="font-bold text-[#0f172a] flex items-center gap-4 mb-4 text-lg group-hover:text-blue-600 transition-colors">
+                  <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <HelpCircle size={24} className="group-hover:rotate-12 transition-transform" />
                   </div>
                   {faq.q}
                 </h4>
-                <p className="text-slate-600 pl-14 text-base leading-relaxed">{faq.a}</p>
+                <p className="text-gray-500 pl-16 text-base leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
-          <div className="mt-12 text-center">
-             <p className="text-gray-500 mb-6">Didn't find what you're looking for?</p>
-             <Link to="/contact" className="inline-flex items-center gap-2 text-blue-600 font-bold border-b-2 border-blue-100 pb-1 hover:gap-3 transition-all">
-                Contact our Lab Helpdesk <ArrowRight size={18} />
+          <div className="mt-16 text-center">
+             <p className="text-gray-500 mb-6 font-medium">Didn't find what you're looking for?</p>
+             <Link to="/contact" className="inline-flex items-center gap-3 text-blue-600 font-bold bg-white px-8 py-4 rounded-full border border-blue-100 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm">
+                Contact our Lab Helpdesk <ArrowRight size={20} />
              </Link>
           </div>
         </Container>

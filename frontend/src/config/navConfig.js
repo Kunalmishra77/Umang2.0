@@ -118,7 +118,7 @@ export const navConfig = {
           id: 'cardiac',
           title: 'Cardiac Sciences',
           icon: Heart,
-          href: '/specialities/cardiology',
+          href: '/specialities/cardiac',
           preview: {
             title: 'The Heart Center',
             desc: 'Advanced interventional cardiology and cardiothoracic surgery unit.',

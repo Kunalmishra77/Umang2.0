@@ -179,6 +179,7 @@ function App() {
 
           <Route path="pharmacy" element={<Pharmacy />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="contact/emergency" element={<Emergency />} />
           <Route path="contact/inquiry-hub" element={<InquiryHub />} />
           <Route path="terms" element={<GenericCmsPage slug="terms-of-service" />} />
           <Route path="privacy-policy" element={<GenericCmsPage slug="privacy-policy" />} />

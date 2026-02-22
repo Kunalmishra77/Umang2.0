@@ -326,5 +326,38 @@ export const specialitiesData = {
       { q: "What is the ICU visiting policy?", a: "Visiting is restricted to 2 short sessions per day to ensure patient safety and infection control." },
       { q: "How many beds are in your ICU?", a: "We have a total of 52 ICU beds, including specialized SICU and CCU units." }
     ]
+  },
+  'oncology': {
+    title: "Oncology & Cancer Care",
+    subtitle: "Precision Cancer Treatment",
+    desc: "Evidence-based cancer treatment involving surgical oncology, medical oncology (chemotherapy), and palliative care. Our team focuses on early detection and comprehensive rehabilitation.",
+    img: ASSETS.ROBOTIC_SURGERY,
+    category: "surgical",
+    statistics: [
+      { label: "Surgeries", value: "1500+" },
+      { label: "Screenings", value: "5000+" },
+      { label: "Specialists", value: "04+" }
+    ],
+    approach: "Multidisciplinary tumor board approach to decide the best treatment path for every cancer patient, ensuring personalized care.",
+    procedures: [
+      "Surgical Oncology (Tumor Removal)",
+      "Chemotherapy & Targeted Therapy",
+      "Palliative & Pain Management",
+      "Cancer Screening (Breast, Cervical, Oral)",
+      "Biopsy & Histopathology",
+      "Immuno-Oncology"
+    ],
+    tech: [
+      { title: "Day Care Chemotherapy", desc: "Safe and comfortable environment for short-stay chemo." },
+      { title: "Histopathology Lab", desc: "Rapid and accurate tissue analysis for staging." },
+      { title: "Pain Management Unit", desc: "Advanced supportive care for end-stage comfort." }
+    ],
+    recovery: "Comprehensive cancer support includes nutritional counseling, psychological support, and pain management to improve the quality of life.",
+    relatedServices: ["General Surgery", "Radiology", "Lab & Diagnostics", "Critical Care"],
+    bullets: ["Surgical Oncology", "Chemotherapy Day Care", "Screening Programs"],
+    faq: [
+      { q: "Do you provide chemotherapy?", a: "Yes, we have a dedicated medical oncology unit for chemotherapy and targeted biological therapies." },
+      { q: "Is cancer screening available?", a: "We offer specialized screening packages for early detection of common cancers." }
+    ]
   }
 };

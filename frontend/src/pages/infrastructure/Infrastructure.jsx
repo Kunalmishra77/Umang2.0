@@ -420,17 +420,19 @@ const Infrastructure = () => {
           <SectionHeading eyebrow="Patient Centric Design" title="Built for Comfort & Convenience" centered />
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Ample Parking", desc: "Dedicated multi-level parking for patients and emergency access.", icon: Clock },
-              { title: "Premium Cafeteria", desc: "Nutritious and hygienic food options for visitors and staff.", icon: Shield },
-              { title: "Prayer Room", desc: "Quiet zones for spiritual reflection and peace of mind.", icon: CheckCircle2 }
+              { title: "Ample Parking", desc: "Dedicated multi-level parking for patients and emergency access.", icon: Clock, path: "/infrastructure/parking" },
+              { title: "Premium Cafeteria", desc: "Nutritious and hygienic food options for visitors and staff.", icon: Shield, path: "/infrastructure/cafeteria" },
+              { title: "Prayer Room", desc: "Quiet zones for spiritual reflection and peace of mind.", icon: CheckCircle2, path: "/infrastructure/help-desk" }
             ].map((feat, i) => (
-              <Card key={i} className="p-10 text-center hover:bg-white transition-all border border-gray-100">
-                <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-8 text-primary-600">
-                  <feat.icon size={32} />
-                </div>
-                <h4 className="text-2xl font-bold text-slate-900 mb-4">{feat.title}</h4>
-                <p className="text-gray-500 leading-relaxed">{feat.desc}</p>
-              </Card>
+              <Link to={feat.path} key={i} className="block group">
+                <Card className="p-10 text-center hover:bg-white transition-all border border-gray-100 h-full group-hover:shadow-xl group-hover:-translate-y-1">
+                  <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-8 text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm">
+                    <feat.icon size={32} />
+                  </div>
+                  <h4 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary-600 transition-colors">{feat.title}</h4>
+                  <p className="text-gray-500 leading-relaxed">{feat.desc}</p>
+                </Card>
+              </Link>
             ))}
           </div>
         </Container>

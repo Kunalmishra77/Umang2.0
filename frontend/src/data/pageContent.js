@@ -164,5 +164,81 @@ export const pageContent = {
         { q: 'Can I get help with insurance?', a: 'Yes, we have a dedicated TPA desk right next to the help desk for all claim queries.' }
       ]}
     ]
+  },
+  'infrastructure/cafeteria': {
+    title: 'Nutritional Care & Cafeteria',
+    subtitle: 'Healthy Dining Options',
+    heroImage: ASSETS.HOSPITAL_EXTERIOR,
+    description: 'Our multi-cuisine cafeteria provides hygienic, dietitian-approved meals for patients, staff, and visitors.',
+    sections: [
+      { type: 'stats', data: [
+        { label: 'Cuisines', value: '03' },
+        { label: 'Uptime', value: '24/7' },
+        { label: 'Quality', value: 'FSSAI' },
+        { label: 'Seating', value: '100+' }
+      ]},
+      { type: 'features', title: 'Dining Facilities', items: [
+        { title: 'Patient Meal Service', desc: 'Specialized therapeutic diets delivered directly to patient rooms.' },
+        { title: 'Visitor Café', desc: 'A wide range of healthy snacks, beverages, and full meals for guests.' },
+        { title: '24/7 Coffee Shop', desc: 'Freshly brewed coffee and quick bites available round the clock.' },
+        { title: 'Hygiene Standards', desc: 'Regular quality audits and strict FSSAI compliance for food safety.' }
+      ]},
+      { type: 'faq', items: [
+        { q: 'Are outside meals allowed for patients?', a: 'To maintain nutritional balance and hygiene, outside food is strictly prohibited for patients.' },
+        { q: 'Is there a room service option?', a: 'Yes, visitors can order from the cafeteria menu for in-room delivery.' }
+      ]}
+    ]
+  },
+  'infrastructure/parking': {
+    title: 'Ample & Secure Parking',
+    subtitle: 'Hassle-Free Arrival',
+    heroImage: ASSETS.HOSPITAL_EXTERIOR,
+    description: 'We offer extensive parking facilities with 24/7 security and valet services for the convenience of our visitors.',
+    sections: [
+      { type: 'stats', data: [
+        { label: 'Spaces', value: '200+' },
+        { label: 'Valet', value: 'Yes' },
+        { label: 'CCTV', value: '24/7' },
+        { label: 'Access', value: 'Entry 1&2' }
+      ]},
+      { type: 'features', title: 'Parking Services', items: [
+        { title: 'Valet Parking', desc: 'Complimentary valet service at the main entrance for all patients.' },
+        { title: 'Emergency Access', desc: 'Dedicated clearways for ambulances and emergency vehicle arrival.' },
+        { title: '24/7 Security', desc: 'Round-the-clock monitoring and patrolling for vehicle safety.' },
+        { title: 'EV Charging', desc: 'Upcoming facility for electric vehicle charging within the premises.' }
+      ]},
+      { type: 'faq', items: [
+        { q: 'Is parking free for patients?', a: 'Parking is complimentary for patients and one visitor vehicle per room.' },
+        { q: 'Are there disabled parking spots?', a: 'Yes, dedicated parking spots are reserved near the main entrance for differently-abled visitors.' }
+      ]}
+    ]
+  },
+  'patient-corner/podcasts': {
+    title: 'Health Audio Podcasts',
+    subtitle: 'Expert Advice on the Go',
+    heroImage: ASSETS.SVC_TELEMEDICINE,
+    description: 'Listen to our senior consultants discussing common health issues, preventive care, and medical breakthroughs.',
+    sections: [
+      { type: 'grid', title: 'Recent Episodes', items: [
+        { title: 'Cardiac Health 101', desc: 'Managing blood pressure and cholesterol in your 40s.' },
+        { title: 'Diabetes Management', desc: 'Innovative ways to control sugar levels through lifestyle.' },
+        { title: 'Pediatric Nutrition', desc: 'Expert tips on building immunity in growing children.' },
+        { title: 'Mental Wellness', desc: 'Understanding and managing stress in a high-paced world.' }
+      ]}
+    ]
+  },
+  'patient-corner/patient-information-literature': {
+    title: 'Patient Education & Guides',
+    subtitle: 'Empowering Your Health Journey',
+    heroImage: ASSETS.ABOUT_100_BEDS,
+    description: 'Comprehensive guides, brochures, and literature to help you understand your medical conditions and treatment paths.',
+    sections: [
+      { type: 'features', title: 'Knowledge Resources', items: [
+        { title: 'Pre-Surgical Guides', desc: 'Step-by-step instructions on how to prepare for your upcoming surgery.' },
+        { title: 'Post-Op Recovery', desc: 'Detailed home care protocols to ensure a smooth recovery after discharge.' },
+        { title: 'Insurance Manuals', desc: 'Understanding your TPA benefits and claim processes clearly.' },
+        { title: 'Condition Leaflets', desc: 'Simplified information on common chronic and acute ailments.' }
+      ]}
+    ]
   }
 };
