@@ -236,15 +236,18 @@ const Emergency = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Central Monitoring", desc: "Real-time vitals monitoring of all ER beds from a central nursing station.", icon: Activity },
-              { title: "Point-of-Care Testing", desc: "Bedside blood gas and cardiac marker testing for immediate diagnosis.", icon: Zap },
-              { title: "Ventilator Support", desc: "Every ER bed is equipped with advanced invasive/non-invasive ventilation.", icon: AlertCircle }
+              { title: "Central Monitoring", desc: "Real-time vitals monitoring of all ER beds from a central nursing station.", icon: Activity, path: "/infrastructure/icu" },
+              { title: "Point-of-Care Testing", desc: "Bedside blood gas and cardiac marker testing for immediate diagnosis.", icon: Zap, path: "/services/lab-test-diagnostic" },
+              { title: "Ventilator Support", desc: "Every ER bed is equipped with advanced invasive/non-invasive ventilation.", icon: AlertCircle, path: "/infrastructure/icu" }
             ].map((tech, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
-                <tech.icon className="w-10 h-10 text-red-600 mb-6" />
-                <h4 className="text-xl font-bold text-brand-dark mb-3">{tech.title}</h4>
+              <Link to={tech.path} key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all group block">
+                <tech.icon className="w-10 h-10 text-red-600 mb-6 group-hover:scale-110 transition-transform" />
+                <h4 className="text-xl font-bold text-brand-dark mb-3 group-hover:text-red-600 transition-colors">{tech.title}</h4>
                 <p className="text-gray-500 text-sm leading-relaxed">{tech.desc}</p>
-              </div>
+                <div className="mt-6 flex items-center gap-2 text-red-600 font-bold text-[10px] uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
+                   Learn More <ArrowRight size={12} />
+                </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -323,29 +326,29 @@ const Emergency = () => {
       {/* SECTION: SPECIALIST ER TEAM (NEW SECTION 11) */}
       <section className="section-padding bg-white">
         <Container>
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2">
-              <img src={ASSETS.ABOUT_MAIN} alt="Medical Team" className="rounded-[3rem] shadow-2xl" />
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+            <div className="lg:w-5/12">
+              <img src={ASSETS.ABOUT_MAIN} alt="Medical Team" className="rounded-[3rem] shadow-2xl w-full max-h-[500px] object-cover" />
             </div>
-            <div className="lg:w-1/2">
+            <div className="lg:w-7/12">
               <span className="text-red-600 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Experts</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Staffed by <br /><span className="text-red-600 italic">Fellowship Trained</span> Experts.</h2>
-              <p className="text-gray-500 text-lg mb-8 leading-relaxed">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6 leading-tight">Staffed by <br /><span className="text-red-600 italic">Fellowship Trained</span> Experts.</h2>
+              <p className="text-gray-500 text-lg mb-8 leading-relaxed max-w-xl">
                 Our ER is not just about machines; it is about the experts who operate them. Every shift is led by an ER consultant with deep experience in trauma and cardiac resuscitation.
               </p>
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-2 gap-8 mb-10">
                 <div>
-                  <h4 className="text-3xl font-bold text-brand-dark">100+</h4>
+                  <h4 className="text-4xl font-bold text-brand-dark">100+</h4>
                   <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mt-1">Paramedics</p>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-bold text-brand-dark">24/7</h4>
+                  <h4 className="text-4xl font-bold text-brand-dark">24/7</h4>
                   <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mt-1">Intensivist Cover</p>
                 </div>
               </div>
-              <div className="mt-10">
-                <Link to="/doctors" className="btn-primary">View Specialists</Link>
-              </div>
+              <Link to="/doctors" className="h-14 px-10 rounded-full bg-sky-500 text-white font-bold inline-flex items-center justify-center hover:bg-sky-600 transition-colors shadow-lg shadow-sky-200">
+                 View Specialists
+              </Link>
             </div>
           </div>
         </Container>
