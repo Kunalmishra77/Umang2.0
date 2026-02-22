@@ -127,21 +127,26 @@ const LabDiagnostics = () => {
       {/* 2. Search & Popular Categories */}
       <section className="py-20 bg-gray-50">
          <div className="container-custom">
-            <div className="bg-white rounded-[3rem] p-8 md:p-12 shadow-xl -mt-32 relative z-20 border border-gray-100">
+            <div className="bg-white/80 backdrop-blur-xl rounded-[3rem] p-8 md:p-12 shadow-2xl shadow-blue-900/10 -mt-32 relative z-20 border border-white/50">
                <div className="grid lg:grid-cols-3 gap-12 items-center">
                   <div className="lg:col-span-1">
-                     <h3 className="text-2xl font-serif font-bold text-[#0f172a] mb-2">Find a Test</h3>
+                     <h3 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Find a Test</h3>
                      <p className="text-gray-500 text-sm">Search from over 2000+ specialized lab tests.</p>
                   </div>
-                  <div className="lg:col-span-2 relative">
-                     <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-gray-400 w-6 h-6" />
+                  <div className="lg:col-span-2 relative group">
+                     <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
+                        <Search className="text-blue-500 group-focus-within:scale-110 transition-transform w-6 h-6" />
+                     </div>
                      <input 
                         type="text" 
                         placeholder="Search tests (e.g. Thyroid, CBC, Lipid Profile...)"
-                        className="w-full h-16 pl-16 pr-8 rounded-2xl bg-gray-50 border border-gray-100 focus:border-blue-500 focus:bg-white outline-none font-bold text-lg transition-all"
+                        className="w-full h-18 pl-16 pr-8 rounded-2xl bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 focus:bg-white outline-none font-bold text-lg transition-all shadow-inner"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                      />
+                     <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden md:block">
+                        <kbd className="px-2 py-1 bg-white border border-slate-200 rounded text-xs text-slate-400 font-sans">ESC</kbd>
+                     </div>
                   </div>
                </div>
             </div>
@@ -192,17 +197,17 @@ const LabDiagnostics = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {[
-              { label: "Biochemistry", icon: FlaskConical },
-              { label: "Haematology", icon: Activity },
-              { label: "Microbiology", icon: Microscope },
-              { label: "Cytology", icon: TestTube },
-              { label: "Serology", icon: FlaskConical },
-              { label: "Histopathology", icon: Microscope }
+              { label: "Biochemistry", icon: FlaskConical, path: "/services/lab-test-diagnostic" },
+              { label: "Haematology", icon: Activity, path: "/services/lab-test-diagnostic" },
+              { label: "Microbiology", icon: Microscope, path: "/services/lab-test-diagnostic" },
+              { label: "Cytology", icon: TestTube, path: "/services/lab-test-diagnostic" },
+              { label: "Serology", icon: FlaskConical, path: "/services/lab-test-diagnostic" },
+              { label: "Histopathology", icon: Microscope, path: "/services/lab-test-diagnostic" }
             ].map((dept, i) => (
-              <div key={i} className="bg-white p-6 rounded-3xl border border-gray-100 text-center hover:shadow-lg transition-all group">
-                <dept.icon className="w-8 h-8 text-blue-600 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <h4 className="text-sm font-bold text-brand-dark">{dept.label}</h4>
-              </div>
+              <Link to={dept.path} key={i} className="bg-white p-6 rounded-3xl border border-gray-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all group block">
+                <dept.icon className="w-10 h-10 text-blue-600 mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all" />
+                <h4 className="text-sm font-bold text-brand-dark group-hover:text-blue-600 transition-colors">{dept.label}</h4>
+              </Link>
             ))}
           </div>
         </Container>
@@ -371,31 +376,29 @@ const LabDiagnostics = () => {
       {/* SECTION: SPECIALIST PATHOLOGISTS (NEW SECTION 12) */}
       <Section className="bg-white">
         <Container>
-          <div className="flex flex-col lg:flex-row-reverse gap-16 items-center">
-            <div className="lg:w-1/2">
-              <img src={ASSETS.ABOUT_MAIN} alt="Pathologists" className="rounded-[3rem] shadow-2xl" />
+          <div className="flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-center">
+            <div className="lg:w-5/12">
+              <img src={ASSETS.ABOUT_MAIN} alt="Pathologists" className="rounded-[3rem] shadow-2xl w-full max-h-[500px] object-cover" />
             </div>
-            <div className="lg:w-1/2">
+            <div className="lg:w-7/12">
               <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Experts</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Led by Senior <br /><span className="text-blue-600 italic">MD Pathologists.</span></h2>
-              <p className="text-gray-500 text-lg mb-8 leading-relaxed">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6 leading-tight">Led by Senior <br /><span className="text-blue-600 italic">MD Pathologists.</span></h2>
+              <p className="text-gray-500 text-lg mb-8 leading-relaxed max-w-xl">
                 Behind every accurate report is a team of highly qualified medical professionals. Our lab is led by senior pathologists with decades of experience in clinical biochemistry and surgical pathology.
               </p>
-              <div className="grid grid-cols-2 gap-8">
+              <div className="grid grid-cols-2 gap-8 mb-10">
                 <div>
-                  <h4 className="text-3xl font-bold text-brand-dark">15+</h4>
+                  <h4 className="text-4xl font-bold text-brand-dark">15+</h4>
                   <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mt-1">Lab Specialists</p>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-bold text-brand-dark">24/7</h4>
+                  <h4 className="text-4xl font-bold text-brand-dark">24/7</h4>
                   <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mt-1">Operational</p>
                 </div>
               </div>
-              <div className="mt-10">
-                <Link to="/doctors" className="h-14 px-8 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 inline-flex">
-                  Meet Our Doctors <ArrowRight size={18} />
-                </Link>
-              </div>
+              <Link to="/doctors" className="h-14 px-10 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 inline-flex shadow-lg shadow-blue-200">
+                Meet Our Doctors <ArrowRight size={18} />
+              </Link>
             </div>
           </div>
         </Container>
@@ -409,19 +412,31 @@ const LabDiagnostics = () => {
             title="Lab & Diagnostic FAQ" 
             centered
           />
-          <div className="space-y-4">
+          <div className="grid md:grid-cols-1 gap-6">
             {[
-              { q: "How can I access my reports online?", a: "Reports are automatically shared on your registered WhatsApp number and email. You can also download them from our Patient Portal." },
-              { q: "Is home collection available on Sundays?", a: "Yes, our home phlebotomy team is operational 7 days a week, including Sundays and public holidays." },
-              { q: "Do I need a doctor's prescription for all tests?", a: "While many routine screening tests can be done without a prescription, specialized imaging like CT or MRI strictly require a doctor's referral." }
+              { q: "How can I access my reports online?", a: "Reports are automatically shared on your registered WhatsApp number and email. You can also download them from our Patient Portal using your unique PID." },
+              { q: "Is home collection available on Sundays?", a: "Yes, our home phlebotomy team is operational 7 days a week, including Sundays and public holidays from 6:00 AM to 8:00 PM." },
+              { q: "Do I need a doctor's prescription for all tests?", a: "While many routine screening tests can be done without a prescription, specialized imaging like CT or MRI strictly require a doctor's referral for clinical correlation." },
+              { q: "How long should I fast for a blood sugar test?", a: "For a Fasting Blood Sugar (FBS) or Lipid Profile, a minimum of 10-12 hours of overnight fasting is recommended. You may drink plain water." },
+              { q: "What is the turnaround time for reports?", a: "Routine tests like CBC or Glucose are reported within 4-6 hours. Specialized tests like Biopsy or Cultures may take 3-5 working days." },
+              { q: "How are critical results handled?", a: "Critical or 'Panic' values are immediately cross-verified and communicated directly to the patient or the referring doctor via phone call." }
             ].map((faq, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 text-left">
+              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 text-left hover:shadow-md transition-shadow">
                 <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
-                  <HelpCircle size={20} className="text-blue-600 shrink-0" /> {faq.q}
+                  <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                    <HelpCircle size={20} className="text-blue-600" />
+                  </div>
+                  {faq.q}
                 </h4>
-                <p className="text-slate-600 pl-9 text-base leading-relaxed">{faq.a}</p>
+                <p className="text-slate-600 pl-14 text-base leading-relaxed">{faq.a}</p>
               </div>
             ))}
+          </div>
+          <div className="mt-12 text-center">
+             <p className="text-gray-500 mb-6">Didn't find what you're looking for?</p>
+             <Link to="/contact" className="inline-flex items-center gap-2 text-blue-600 font-bold border-b-2 border-blue-100 pb-1 hover:gap-3 transition-all">
+                Contact our Lab Helpdesk <ArrowRight size={18} />
+             </Link>
           </div>
         </Container>
       </Section>
