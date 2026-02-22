@@ -119,6 +119,7 @@ function App() {
           <Route path="services/emergency" element={<Emergency />} />
           <Route path="services/health-checkup" element={<HealthCheckup />} />
           <Route path="services/health-checkup/book" element={<HealthCheckBooking />} />
+          <Route path="services/elder-care" element={<ElderCare />} />
           
           <Route path="services/booking/:serviceType" element={<ServiceBooking />} />
           

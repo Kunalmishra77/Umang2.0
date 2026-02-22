@@ -45,7 +45,7 @@ const Pharmacy = () => {
   }, []);
 
   return (
-    <div className="bg-white min-h-screen pt-12">
+    <div className="bg-white min-h-screen">
       <SeoHead 
         title="24/7 Pharmacy & Medical Store" 
         description="100% genuine medications available round-the-clock at Umang Hospital. Doorstep delivery and professional pharmacist support."
@@ -53,7 +53,7 @@ const Pharmacy = () => {
       />
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center bg-[#f8fafc] overflow-hidden">
+      <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center bg-[#f8fafc] overflow-hidden py-12 lg:py-8">
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 w-1/2 h-full bg-[#f1f5f9] -skew-x-12 translate-x-20" />
           <img 
@@ -105,7 +105,7 @@ const Pharmacy = () => {
                   { icon: User, title: "Expert Support", desc: "Registered pharmacists only" }
                ].map((item, i) => (
                   <div key={i} className="text-center group">
-                     <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                     <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
                         <item.icon className="w-7 h-7" />
                      </div>
                      <h4 className="font-bold text-[#0f172a] mb-1">{item.title}</h4>
@@ -165,45 +165,77 @@ const Pharmacy = () => {
                   >
                      <div className="w-full aspect-square bg-gray-50 rounded-[2rem] mb-6 overflow-hidden relative">
                         <img src={product.image || ASSETS.PROD_MULTIVITAMIN} alt={product.name} className="w-full h-full object-cover mix-blend-multiply p-4" />
-                        <button className="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 transition-all">
+                        <button className="absolute top-4 right-4 w-10 h-10 bg-white/80 backdrop-blur-md rounded-full flex items-center justify-center text-gray-400 hover:text-red-500 transition-all shadow-sm">
                            <HeartPulse className="w-5 h-5" />
                         </button>
                      </div>
-                     <h4 className="font-bold text-[#0f172a] mb-1 line-clamp-1">{product.name}</h4>
+                     <h4 className="font-bold text-[#0f172a] mb-1 line-clamp-1 group-hover:text-blue-600 transition-colors">{product.name}</h4>
                      <p className="text-xs text-gray-400 mb-6">{product.pack_size}</p>
-                     <button className="h-12 w-full rounded-xl bg-blue-50 text-blue-600 font-bold hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center gap-2">
+                     <Link to={`/services/buy-medicines/category/all-wellness`} className="h-12 w-full rounded-xl bg-blue-50 text-blue-600 font-bold hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center gap-2">
                         View Details
-                     </button>
+                     </Link>
                   </motion.div>
                ))}
             </div>
          </div>
       </section>
 
-      {/* 5. Process Section (NEW) */}
+      {/* SECTION: COLD CHAIN QUALITY (NEW SECTION 11) */}
+      <Section className="bg-blue-600 text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px]" />
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center relative z-10">
+            <div className="lg:w-1/2">
+              <span className="text-blue-200 font-black uppercase tracking-widest text-[10px] mb-4 block">Quality Assurance</span>
+              <h2 className="text-4xl font-serif font-bold mb-8">Unmatched Cold Chain <br />Integrity.</h2>
+              <p className="text-blue-50 text-lg font-light leading-relaxed mb-10">
+                Temperature-sensitive medicines like insulin and vaccines require precise handling. Our pharmacy uses specialized IoT-monitored refrigeration and insulated delivery packs to ensure 100% efficacy.
+              </p>
+              <div className="grid grid-cols-2 gap-6">
+                {[
+                  { label: "IoT Sensors", desc: "Real-time temp monitoring" },
+                  { label: "Power Backup", desc: "Double redundancy systems" },
+                  { label: "Insulated Kits", desc: "For doorstep deliveries" },
+                  { label: "Audit Logs", desc: "Hourly temperature checks" }
+                ].map((item, i) => (
+                  <div key={i} className="bg-white/10 border border-white/10 p-4 rounded-2xl">
+                    <h4 className="font-bold text-white mb-1">{item.label}</h4>
+                    <p className="text-blue-200 text-[10px] uppercase font-black">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              <img src={ASSETS.PHARMA_CARDIAC} alt="Cold Chain" className="rounded-[3rem] shadow-2xl border-8 border-white/5" />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 5. Process Section */}
       <Section className="bg-slate-50">
         <Container>
           <SectionHeading eyebrow="How it Works" title="3 Simple Steps to Get Your Meds" centered />
           <div className="grid md:grid-cols-3 gap-12">
             {[
-              { title: "Upload / Search", desc: "Upload your prescription or search for medicines directly.", icon: Search },
-              { title: "Expert Review", desc: "Our pharmacists verify the order and ensure right dosage.", icon: ShieldCheck },
-              { title: "Fast Delivery", desc: "Get your medicines delivered at your door within 4 hours.", icon: Truck }
+              { title: "Upload / Search", desc: "Upload your prescription or search for medicines directly.", icon: Search, path: "/services/buy-medicines/prescription-upload" },
+              { title: "Expert Review", desc: "Our pharmacists verify the order and ensure right dosage.", icon: ShieldCheck, path: "/contact" },
+              { title: "Fast Delivery", desc: "Get your medicines delivered at your door within 4 hours.", icon: Truck, path: "/services/buy-medicines/all-products" }
             ].map((step, i) => (
-              <div key={i} className="relative text-center">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg text-blue-600 border-4 border-blue-50">
+              <Link to={step.path} key={i} className="relative text-center group block">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg text-blue-600 border-4 border-blue-50 group-hover:scale-110 transition-transform">
                   <step.icon size={32} />
                 </div>
-                <h4 className="text-2xl font-bold text-slate-900 mb-4">{step.title}</h4>
+                <h4 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">{step.title}</h4>
                 <p className="text-gray-500 leading-relaxed px-6">{step.desc}</p>
                 {i < 2 && <ArrowRight className="hidden lg:block absolute top-10 -right-6 text-gray-200" size={32} />}
-              </div>
+              </Link>
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* 6. Specialized Medications (NEW) */}
+      {/* 6. Specialized Medications */}
       <Section className="bg-white overflow-hidden">
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center">
@@ -218,10 +250,15 @@ const Pharmacy = () => {
                 We maintain stock of life-saving emergency drugs, oncology medications, and specialized cardiac drugs that are often hard to find at local retail stores.
               </p>
               <div className="space-y-6">
-                {["Strict Cold Chain Maintenance", "Storage as per Global Standards", "Verified Manufacturer Sourcing"].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 font-bold text-slate-800">
-                    <CheckCircle className="text-green-500" size={20} /> {item}
-                  </div>
+                {[
+                  { label: "Strict Cold Chain Maintenance", path: "/infrastructure" },
+                  { label: "Storage as per Global Standards", path: "/patient-experience" },
+                  { label: "Verified Manufacturer Sourcing", path: "/about" }
+                ].map((item, i) => (
+                  <Link to={item.path} key={i} className="flex items-center gap-4 font-bold text-slate-800 group block">
+                    <CheckCircle className="text-green-500 group-hover:scale-125 transition-transform" size={20} /> 
+                    <span className="group-hover:text-blue-600 transition-colors">{item.label}</span>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -246,7 +283,7 @@ const Pharmacy = () => {
          </div>
       </section>
 
-      {/* 8. App Promo (NEW) */}
+      {/* 8. App Promo */}
       <Section className="bg-slate-900 text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-20" />
         <Container>
@@ -255,7 +292,7 @@ const Pharmacy = () => {
               <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Manage health on the go with <span className="text-blue-400">Umang Care App.</span></h2>
               <p className="text-slate-400 text-xl font-light leading-relaxed mb-12">Refill prescriptions, track deliveries, and consult doctors—all from your smartphone.</p>
               <div className="flex flex-wrap gap-6">
-                <button className="h-16 px-8 bg-white text-black rounded-2xl flex items-center gap-4 hover:scale-105 transition-all">
+                <button className="h-16 px-8 bg-white text-black rounded-2xl flex items-center gap-4 hover:scale-105 transition-all shadow-lg">
                   <Smartphone /> <div><p className="text-[10px] font-bold opacity-60">GET IT ON</p><p className="text-lg font-bold leading-none">Google Play</p></div>
                 </button>
                 <button className="h-16 px-8 border border-white/20 rounded-2xl flex items-center gap-4 hover:bg-white/5 transition-all">
@@ -274,7 +311,7 @@ const Pharmacy = () => {
         </Container>
       </Section>
 
-      {/* 9. FAQ Section (NEW) */}
+      {/* 9. FAQ Section */}
       <Section className="bg-white">
         <Container className="max-w-4xl">
           <SectionHeading eyebrow="Common Queries" title="Pharmacy FAQs" centered />
@@ -284,9 +321,9 @@ const Pharmacy = () => {
               { q: "How long does the delivery take?", a: "Orders placed within Gurugram are typically delivered within 2-4 hours. Chronic medicine refills can also be scheduled." },
               { q: "Do you maintain cold-chain for insulin?", a: "Absolutely. We use specialized insulated containers and cold-gel packs to ensure temperature-sensitive drugs remain effective." }
             ].map((faq, i) => (
-              <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-left">
+              <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-left hover:border-blue-200 transition-all">
                 <h4 className="font-bold text-slate-900 flex items-center gap-4 mb-4 text-lg">
-                  <HelpCircle size={20} className="text-blue-600" /> {faq.q}
+                  <HelpCircle size={20} className="text-blue-600 shrink-0" /> {faq.q}
                 </h4>
                 <p className="text-gray-600 pl-9 leading-relaxed">{faq.a}</p>
               </div>
@@ -295,14 +332,14 @@ const Pharmacy = () => {
         </Container>
       </Section>
 
-      {/* 10. Commitment CTA (NEW) */}
+      {/* 10. Commitment CTA */}
       <Section className="bg-blue-600 text-white text-center">
         <Container>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Trust Umang for your <br />clinical pharmacy needs.</h2>
             <p className="text-blue-100 text-lg mb-12 max-w-2xl mx-auto">Our registered pharmacists are available 24/7 to guide you with the right dosage and usage information.</p>
             <div className="flex justify-center gap-6">
-              <a href="tel:8929733550" className="px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-base shadow-xl flex items-center gap-3">
+              <a href="tel:8929733550" className="px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-base shadow-xl flex items-center gap-3 hover:scale-105 transition-all">
                 <Phone size={20} /> Speak to Pharmacist
               </a>
             </div>

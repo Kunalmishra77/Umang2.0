@@ -50,7 +50,7 @@ const LabDiagnostics = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
-    <div className="bg-white min-h-screen pt-12">
+    <div className="bg-white min-h-screen">
       <SeoHead 
         title="Diagnostics & Pathology Lab" 
         description="Book lab tests and health checkups with home collection. NABL accredited labs and accurate reports."
@@ -58,7 +58,7 @@ const LabDiagnostics = () => {
       />
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[550px] flex items-center bg-[#0f172a] overflow-hidden">
+      <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden py-12 lg:py-8">
         <div className="absolute inset-0 z-0">
           <img 
             src={ASSETS.SVC_PATHOLOGY} 
@@ -68,7 +68,7 @@ const LabDiagnostics = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a] via-[#0f172a]/80 to-transparent" />
         </div>
 
-        <div className="container-custom relative z-10 py-12 lg:py-10">
+        <div className="container-custom relative z-10">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ const LabDiagnostics = () => {
         </div>
       </section>
 
-      {/* SECTION: LAB STATISTICS (NEW) */}
+      {/* SECTION: LAB STATISTICS */}
       <div className="bg-blue-600 py-8 lg:py-10 relative overflow-hidden border-y border-blue-500/30">
         <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         <Container>
@@ -148,7 +148,7 @@ const LabDiagnostics = () => {
          </div>
       </section>
 
-      {/* SECTION: PREPARATION GUIDE (NEW) */}
+      {/* SECTION: PREPARATION GUIDE */}
       <Section className="bg-white overflow-hidden relative">
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
@@ -160,19 +160,19 @@ const LabDiagnostics = () => {
               </p>
               <div className="grid gap-6">
                 {[
-                  { title: "Fasting Requirements", desc: "For sugar and lipid tests, 10-12 hours of fasting is mandatory." },
-                  { title: "Medication Info", desc: "Consult your doctor if you need to stop any medication before testing." },
-                  { title: "Hydration", desc: "Drink plenty of water unless instructed otherwise for your specific test." }
+                  { title: "Fasting Requirements", desc: "For sugar and lipid tests, 10-12 hours of fasting is mandatory.", path: "/patient-experience" },
+                  { title: "Medication Info", desc: "Consult your doctor if you need to stop any medication before testing.", path: "/doctors" },
+                  { title: "Hydration", desc: "Drink plenty of water unless instructed otherwise for your specific test.", path: "/patient-experience" }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-5 items-start group">
+                  <Link to={item.path} key={i} className="flex gap-5 items-start group block">
                     <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-brand-dark mb-1">{item.title}</h4>
+                      <h4 className="font-bold text-brand-dark mb-1 group-hover:text-blue-600 transition-colors">{item.title}</h4>
                       <p className="text-sm text-gray-500">{item.desc}</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -180,6 +180,30 @@ const LabDiagnostics = () => {
               <div className="absolute inset-0 bg-blue-50 rounded-[4rem] rotate-3 -z-10" />
               <img src={ASSETS.LAB} alt="Lab Testing" className="rounded-[4rem] shadow-2xl w-full h-[500px] object-cover" />
             </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION: SPECIALIZED LAB CATEGORIES (NEW SECTION 11) */}
+      <Section className="bg-slate-50">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a]">Specialized Departments</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {[
+              { label: "Biochemistry", icon: FlaskConical },
+              { label: "Haematology", icon: Activity },
+              { label: "Microbiology", icon: Microscope },
+              { label: "Cytology", icon: TestTube },
+              { label: "Serology", icon: FlaskConical },
+              { label: "Histopathology", icon: Microscope }
+            ].map((dept, i) => (
+              <div key={i} className="bg-white p-6 rounded-3xl border border-gray-100 text-center hover:shadow-lg transition-all group">
+                <dept.icon className="w-8 h-8 text-blue-600 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <h4 className="text-sm font-bold text-brand-dark">{dept.label}</h4>
+              </div>
+            ))}
           </div>
         </Container>
       </Section>
@@ -281,23 +305,23 @@ const LabDiagnostics = () => {
 
             <div className="grid md:grid-cols-3 gap-12">
                {[
-                  { title: "128-Slice CT Scan", desc: "Ultra-fast cardiac and whole-body imaging with minimal radiation.", img: ASSETS.CT_SCAN },
-                  { title: "3 Tesla MRI", desc: "High-resolution neurological and musculoskeletal imaging.", img: ASSETS.MRI_SCAN },
-                  { title: "Digital X-Ray & USG", desc: "Instant high-clarity imaging for routine and emergency diagnostics.", img: ASSETS.SVC_RADIOLOGY_IMAGING }
+                  { title: "128-Slice CT Scan", desc: "Ultra-fast cardiac and whole-body imaging with minimal radiation.", img: ASSETS.CT_SCAN, path: "/infrastructure/radiology" },
+                  { title: "3 Tesla MRI", desc: "High-resolution neurological and musculoskeletal imaging.", img: ASSETS.MRI_SCAN, path: "/infrastructure/radiology" },
+                  { title: "Digital X-Ray & USG", desc: "Instant high-clarity imaging for routine and emergency diagnostics.", img: ASSETS.SVC_RADIOLOGY_IMAGING, path: "/infrastructure/radiology" }
                ].map((tech, i) => (
-                  <div key={i} className="group">
+                  <Link to={tech.path} key={i} className="group block">
                      <div className="aspect-[4/3] rounded-[3rem] overflow-hidden mb-8 shadow-lg">
                         <img src={tech.img} alt={tech.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                      </div>
-                     <h4 className="text-2xl font-bold text-[#0f172a] mb-4">{tech.title}</h4>
+                     <h4 className="text-2xl font-bold text-[#0f172a] mb-4 group-hover:text-blue-600 transition-colors">{tech.title}</h4>
                      <p className="text-gray-500 leading-relaxed">{tech.desc}</p>
-                  </div>
+                  </Link>
                ))}
             </div>
          </div>
       </section>
 
-      {/* SECTION: QUALITY ASSURANCE (NEW) */}
+      {/* SECTION: QUALITY ASSURANCE */}
       <Section className="bg-white">
         <Container>
           <div className="bg-slate-900 rounded-[3rem] p-10 lg:p-16 text-white relative overflow-hidden">
@@ -344,7 +368,40 @@ const LabDiagnostics = () => {
         </Container>
       </Section>
 
-      {/* SECTION: LAB FAQ (NEW) */}
+      {/* SECTION: SPECIALIST PATHOLOGISTS (NEW SECTION 12) */}
+      <Section className="bg-white">
+        <Container>
+          <div className="flex flex-col lg:flex-row-reverse gap-16 items-center">
+            <div className="lg:w-1/2">
+              <img src={ASSETS.ABOUT_MAIN} alt="Pathologists" className="rounded-[3rem] shadow-2xl" />
+            </div>
+            <div className="lg:w-1/2">
+              <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Experts</span>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Led by Senior <br /><span className="text-blue-600 italic">MD Pathologists.</span></h2>
+              <p className="text-gray-500 text-lg mb-8 leading-relaxed">
+                Behind every accurate report is a team of highly qualified medical professionals. Our lab is led by senior pathologists with decades of experience in clinical biochemistry and surgical pathology.
+              </p>
+              <div className="grid grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-3xl font-bold text-brand-dark">15+</h4>
+                  <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mt-1">Lab Specialists</p>
+                </div>
+                <div>
+                  <h4 className="text-3xl font-bold text-brand-dark">24/7</h4>
+                  <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mt-1">Operational</p>
+                </div>
+              </div>
+              <div className="mt-10">
+                <Link to="/doctors" className="h-14 px-8 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 inline-flex">
+                  Meet Our Doctors <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION: LAB FAQ */}
       <Section className="bg-gray-50">
         <Container className="max-w-4xl">
           <SectionHeading 

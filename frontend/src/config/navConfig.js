@@ -67,6 +67,34 @@ export const navConfig = {
           }
         },
         {
+          id: 'eldercare',
+          title: 'Elder Care Support',
+          icon: Baby,
+          href: '/services/elder-care',
+          preview: {
+            title: 'Dignified Aging',
+            desc: 'Specialized geriatric support for your loved ones with empathy and clinical care.',
+            bullets: ['Assisted Living', 'Dementia Care', 'Daily Vitals', 'Companionship'],
+            image: '/assets/Home/geriatrics.jpeg',
+            tag: 'Elder Care',
+            cta: { label: 'View Plans', href: '/services/elder-care' }
+          }
+        },
+        {
+          id: 'healthcheck',
+          title: 'Health Checkups',
+          icon: Activity,
+          href: '/services/health-checkup',
+          preview: {
+            title: 'Preventive Care',
+            desc: 'Curated health packages for early detection and long-term wellness.',
+            bullets: ['Full Body Check', 'Cardiac Profile', 'Diabetes Screen', 'Senior Care'],
+            image: '/assets/Home/Health-Checkup.jpg',
+            tag: 'Wellness',
+            cta: { label: 'Book Now', href: '/services/health-checkup' }
+          }
+        },
+        {
           id: 'telemedicine',
           title: 'Telemedicine Hub',
           icon: Phone,

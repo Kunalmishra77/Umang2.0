@@ -141,19 +141,36 @@ const Header = () => {
                             <AnimatePresence>
                               {mobileAccordion === link.title && (
                                 <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="overflow-hidden bg-gray-50 rounded-2xl mx-2 mb-2">
-                                  <div className="py-4 px-4 flex flex-col gap-6">
-                                    {link.groups.map((group, gIdx) => (
-                                      <div key={gIdx} className="space-y-3">
-                                        <h6 className="text-[10px] font-black uppercase text-primary-600 tracking-widest pl-2">{group.title}</h6>
-                                        <div className="flex flex-col gap-1">
-                                          {group.items.map((sub, sIdx) => (
-                                            <Link key={sIdx} to={sub.href} onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-3 text-[14px] font-bold text-gray-600 hover:text-primary-600 hover:bg-white rounded-xl flex items-center justify-between">
-                                              {sub.label} <ArrowRight size={14} className="text-gray-300" />
-                                            </Link>
-                                          ))}
-                                        </div>
-                                      </div>
-                                    ))}
+                                  <div className="py-4 px-4 flex flex-col gap-1">
+                                    {link.groups.map((group, gIdx) => {
+                                      const isExternal = group.href.startsWith('http');
+                                      const LinkComponent = isExternal ? 'a' : Link;
+                                      const linkProps = isExternal 
+                                        ? { href: group.href, target: "_blank", rel: "noopener noreferrer" } 
+                                        : { to: group.href };
+
+                                      return (
+                                        <LinkComponent 
+                                          key={gIdx} 
+                                          {...linkProps}
+                                          onClick={() => setIsMobileMenuOpen(false)} 
+                                          className="px-4 py-3.5 text-[14px] font-bold text-gray-600 hover:text-primary-600 hover:bg-white rounded-xl flex items-center justify-between transition-all"
+                                        >
+                                          <span className="flex items-center gap-3">
+                                            {group.icon && <group.icon size={16} className="text-primary-400" />}
+                                            {group.title}
+                                          </span>
+                                          <ArrowRight size={14} className="text-gray-300" />
+                                        </LinkComponent>
+                                      );
+                                    })}
+                                    <Link 
+                                      to={link.href} 
+                                      onClick={() => setIsMobileMenuOpen(false)}
+                                      className="mt-2 px-4 py-3 bg-primary-100/50 text-primary-700 rounded-xl text-xs font-black uppercase tracking-widest text-center"
+                                    >
+                                      View All {link.title}
+                                    </Link>
                                   </div>
                                 </motion.div>
                               )}

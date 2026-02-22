@@ -84,20 +84,20 @@ const About = () => {
               </p>
               
               <div className="grid sm:grid-cols-2 gap-5 lg:gap-6">
-                <div className="p-6 lg:p-7 rounded-[1.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover-lift transition-all duration-500">
-                  <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-white mb-5 shadow-lg shadow-primary-200">
+                <Link to="/patient-experience" className="p-6 lg:p-7 rounded-[1.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover-lift transition-all duration-500 block">
+                  <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-white mb-5 shadow-lg shadow-primary-200 group-hover:scale-110 transition-transform">
                     <Eye className="w-5 h-5" />
                   </div>
                   <h4 className="text-lg font-bold text-brand-dark mb-2">Our Vision</h4>
                   <p className="text-gray-500 text-[11px] lg:text-sm leading-relaxed">We seek to be a leader in providing high-quality services to our patients and define the standards of excellence for healthcare in India.</p>
-                </div>
-                <div className="p-6 lg:p-7 rounded-[1.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover-lift transition-all duration-500">
-                  <div className="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-white mb-5 shadow-lg shadow-cyan-200">
+                </Link>
+                <Link to="/patient-experience" className="p-6 lg:p-7 rounded-[1.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover-lift transition-all duration-500 block">
+                  <div className="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-white mb-5 shadow-lg shadow-cyan-200 group-hover:scale-110 transition-transform">
                     <Target className="w-5 h-5" />
                   </div>
                   <h4 className="text-lg font-bold text-brand-dark mb-2">Our Mission</h4>
                   <p className="text-gray-500 text-[11px] lg:text-sm leading-relaxed">To provide advanced, ethical, and compassionate healthcare that is accessible and affordable, with personalized treatment and excellent outcomes.</p>
-                </div>
+                </Link>
               </div>
             </motion.div>
             
@@ -158,8 +158,8 @@ const About = () => {
                   <img src={ASSETS.DIRECTOR} alt="Signature" className="w-full h-full object-cover grayscale" />
                 </div>
                 <div>
-                  <h5 className="text-xl font-bold text-white">Indresh Mishra</h5>
-                  <p className="text-gray-500 text-sm">Managing Director, Umang Hospital</p>
+                  <h5 className="text-xl font-bold text-white">Dr. Vikram Sethi</h5>
+                  <p className="text-gray-500 text-sm">Managing Director & Co-Founder</p>
                 </div>
               </div>
             </motion.div>
@@ -179,19 +179,19 @@ const About = () => {
               </p>
               <div className="space-y-8">
                 {[
-                  { title: "Empathetic Listening", desc: "Our doctors take the time to understand your concerns deeply.", icon: Heart },
-                  { title: "Evidence-Based Medicine", desc: "Treatment plans backed by the latest global medical research.", icon: Microscope },
-                  { title: "Family Involvement", desc: "We keep your loved ones informed and involved in the care journey.", icon: Users }
+                  { title: "Empathetic Listening", desc: "Our doctors take the time to understand your concerns deeply.", icon: Heart, path: "/patient-experience" },
+                  { title: "Evidence-Based Medicine", desc: "Treatment plans backed by the latest global medical research.", icon: Microscope, path: "/doctors" },
+                  { title: "Family Involvement", desc: "We keep your loved ones informed and involved in the care journey.", icon: Users, path: "/patient-experience" }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-6 group">
-                    <div className="w-12 h-12 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all">
+                  <Link to={item.path} key={i} className="flex gap-6 group cursor-pointer block">
+                    <div className="w-12 h-12 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm">
                       <item.icon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-bold text-brand-dark mb-2">{item.title}</h4>
+                      <h4 className="text-xl font-bold text-brand-dark mb-2 group-hover:text-primary-600 transition-colors">{item.title}</h4>
                       <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </motion.div>
@@ -225,18 +225,18 @@ const About = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[
-              { title: "NABH Accredited", desc: "Highest national recognition for quality of care and patient safety.", icon: Award },
-              { title: "NABL Certified Lab", desc: "Ensuring 100% accuracy and precision in diagnostic reporting.", icon: Microscope },
-              { title: "Infection Control", desc: "Rigorous sterilization and zero-infection protocols across all zones.", icon: Shield },
-              { title: "Ethical Billing", desc: "Transparent, honest communication regarding all clinical costs.", icon: Shield }
+              { title: "NABH Accredited", desc: "Highest national recognition for quality of care and patient safety.", icon: Award, path: "/patient-experience" },
+              { title: "NABL Certified Lab", desc: "Ensuring 100% accuracy and precision in diagnostic reporting.", icon: Microscope, path: "/services/lab-test-diagnostic" },
+              { title: "Infection Control", desc: "Rigorous sterilization and zero-infection protocols across all zones.", icon: Shield, path: "/infrastructure" },
+              { title: "Ethical Billing", desc: "Transparent, honest communication regarding all clinical costs.", icon: Shield, path: "/patient-experience" }
             ].map((std, i) => (
-              <div key={i} className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all group">
-                <div className="w-12 h-12 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all">
+              <Link to={std.path} key={i} className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all group block">
+                <div className="w-12 h-12 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm">
                   <std.icon className="w-6 h-6" />
                 </div>
-                <h4 className="text-lg font-bold text-brand-dark mb-3">{std.title}</h4>
+                <h4 className="text-lg font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors">{std.title}</h4>
                 <p className="text-gray-500 text-sm leading-relaxed">{std.desc}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -254,17 +254,17 @@ const About = () => {
               </p>
               <div className="grid gap-6">
                 {[
-                  { title: "Free Health Camps", desc: "Regular medical checkups organized in rural areas of Gurugram." },
-                  { title: "Awareness Webinars", desc: "Educational sessions on preventive health and lifestyle management." },
-                  { title: "Subsidized Surgery", desc: "Providing low-cost surgical options for economically weaker sections." }
+                  { title: "Free Health Camps", desc: "Regular medical checkups organized in rural areas of Gurugram.", path: "/media-center/newsletters" },
+                  { title: "Awareness Webinars", desc: "Educational sessions on preventive health and lifestyle management.", path: "/media-center/newsletters" },
+                  { title: "Subsidized Surgery", desc: "Providing low-cost surgical options for economically weaker sections.", path: "/contact" }
                 ].map((csr, i) => (
-                  <div key={i} className="p-6 bg-gray-50 rounded-2xl border border-gray-100 flex gap-5 items-center group hover:bg-white hover:shadow-md transition-all">
-                    <div className="w-3 h-3 rounded-full bg-primary-500 shrink-0" />
+                  <Link to={csr.path} key={i} className="p-6 bg-gray-50 rounded-2xl border border-gray-100 flex gap-5 items-center group hover:bg-white hover:shadow-md transition-all block">
+                    <div className="w-3 h-3 rounded-full bg-primary-500 shrink-0 group-hover:scale-150 transition-transform" />
                     <div>
-                      <h4 className="font-bold text-brand-dark">{csr.title}</h4>
+                      <h4 className="font-bold text-brand-dark group-hover:text-primary-600 transition-colors">{csr.title}</h4>
                       <p className="text-sm text-gray-500">{csr.desc}</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </motion.div>
@@ -295,10 +295,10 @@ const About = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[ 
-              { icon: Heart, title: "Compassion", desc: "Empathy at every touchpoint; dignity and respect for all patients.", color: "bg-rose-500" },
-              { icon: Shield, title: "Integrity", desc: "Transparent billing and clear communication about diagnosis and costs.", color: "bg-primary-500" },
-              { icon: Users, title: "Teamwork", desc: "Multidisciplinary collaboration across major medical specialties.", color: "bg-cyan-500" },
-              { icon: Award, title: "Excellence", desc: "High medical standards and continuous medical education.", color: "bg-yellow-500" },
+              { icon: Heart, title: "Compassion", desc: "Empathy at every touchpoint; dignity and respect for all patients.", color: "bg-rose-500", path: "/patient-experience" },
+              { icon: Shield, title: "Integrity", desc: "Transparent billing and clear communication about diagnosis and costs.", color: "bg-primary-500", path: "/patient-experience" },
+              { icon: Users, title: "Teamwork", desc: "Multidisciplinary collaboration across major medical specialties.", color: "bg-cyan-500", path: "/doctors" },
+              { icon: Award, title: "Excellence", desc: "High medical standards and continuous medical education.", color: "bg-yellow-500", path: "/patient-experience" },
             ].map((val, idx) => (
               <motion.div 
                 key={idx}
@@ -306,15 +306,20 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white border border-gray-100 p-8 lg:p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 group hover:-translate-y-2 h-full flex flex-col justify-between"
+                className="group"
               >
-                <div>
-                  <div className={`w-14 h-14 ${val.color} rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform shadow-lg`}>
-                    <val.icon className="w-7 h-7" />
+                <Link 
+                  to={val.path}
+                  className="bg-white border border-gray-100 p-8 lg:p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2 h-full flex flex-col justify-between block"
+                >
+                  <div>
+                    <div className={`w-14 h-14 ${val.color} rounded-2xl flex items-center justify-center text-white mb-8 group-hover:scale-110 transition-transform shadow-lg`}>
+                      <val.icon className="w-7 h-7" />
+                    </div>
+                    <h4 className="text-2xl font-bold mb-4 group-hover:text-primary-600 transition-colors">{val.title}</h4>
                   </div>
-                  <h4 className="text-2xl font-bold mb-4">{val.title}</h4>
-                </div>
-                <p className="text-gray-500 text-sm lg:text-base leading-relaxed transition-opacity">{val.desc}</p>
+                  <p className="text-gray-600 text-sm lg:text-base leading-relaxed transition-opacity">{val.desc}</p>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -509,15 +514,15 @@ const About = () => {
                   </div>
                </div>
                <div className="lg:col-span-4 flex flex-col gap-6 lg:gap-8">
-                  <div className="flex-1 relative rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden group shadow-xl h-[250px] lg:h-auto">
-                     <img src={ASSETS.ABOUT_ICU} alt="ICU" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-                     <div className="absolute inset-0 bg-primary-900/60 mix-blend-multiply" />
+                  <Link to="/infrastructure/icu" className="flex-1 relative rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden group shadow-xl h-[250px] lg:h-auto block">
+                     <img src={ASSETS.ABOUT_ICU} alt="ICU" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                     <div className="absolute inset-0 bg-primary-900/60 mix-blend-multiply group-hover:bg-primary-900/40 transition-all" />
                      <div className="absolute inset-0 flex flex-col justify-center items-center text-white text-center p-8">
-                        <Activity className="w-10 h-10 lg:w-12 lg:h-12 mb-3 lg:mb-4 text-primary-300" />
+                        <Activity className="w-10 h-10 lg:w-12 lg:h-12 mb-3 lg:mb-4 text-primary-300 group-hover:scale-110 transition-transform" />
                         <h4 className="text-lg lg:text-xl font-bold">Advanced ICU</h4>
                         <p className="text-[11px] lg:text-sm opacity-90 mt-2 font-light">24/7 Monitoring with 1:1 Nursing</p>
                      </div>
-                  </div>
+                  </Link>
                   <div className="flex-1 bg-brand-dark rounded-[2rem] lg:rounded-[2.5rem] p-8 lg:p-10 text-white flex flex-col justify-between shadow-xl min-h-[250px] lg:min-h-auto">
                      <div>
                         <h4 className="text-lg lg:text-xl font-bold mb-4 lg:mb-6">Quick Stats</h4>

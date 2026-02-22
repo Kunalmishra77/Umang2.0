@@ -59,7 +59,8 @@ const Telemedicine = () => {
         <meta name="description" content="Consult top doctors online via secure video call. Get digital prescriptions and follow-up care from the comfort of your home." />
       </Helmet>
 
-      <section className="relative section-padding overflow-hidden bg-[#f0f9ff]">
+      {/* 1. Hero Section */}
+      <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center bg-[#f0f9ff] overflow-hidden py-12 lg:py-8">
         <div className="absolute inset-0 z-0">
           <div className="absolute left-0 top-0 w-1/2 h-full bg-[#e0f2fe] rounded-br-[8rem]" />
           <div className="absolute right-0 bottom-0 w-96 h-96 bg-blue-200/30 rounded-full blur-[100px]" />
@@ -117,6 +118,26 @@ const Telemedicine = () => {
         </div>
       </section>
 
+      {/* SECTION: DIGITAL STATS (NEW SECTION 2) */}
+      <div className="bg-primary-600 py-8 lg:py-10 text-white overflow-hidden relative">
+        <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <Container>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10">
+            {[
+              { label: "Online Consults", value: "15,000+" },
+              { label: "Digital Rx Issued", value: "12,000+" },
+              { label: "Avg. Wait Time", value: "<10 Mins" },
+              { label: "Patient Rating", value: "4.8/5" }
+            ].map((stat, i) => (
+              <div key={i}>
+                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight mb-1">{stat.value}</p>
+                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-primary-100/70">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </div>
+
       <section className="section-padding bg-white">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-10 text-center">Consult for Common Symptoms</h2>
@@ -127,7 +148,7 @@ const Telemedicine = () => {
                   <div className={`w-14 h-14 rounded-2xl ${spec.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm`}>
                      <spec.icon className="w-7 h-7" />
                   </div>
-                  <h3 className="font-bold text-brand-dark mb-2 text-sm lg:text-base">{spec.name}</h3>
+                  <h3 className="font-bold text-brand-dark mb-2 text-sm lg:text-base group-hover:text-primary-600 transition-colors">{spec.name}</h3>
                   <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 inline-block px-3 py-1 rounded-full mt-auto">Wait: {spec.waiting}</p>
                 </div>
               </Link>
@@ -136,7 +157,33 @@ const Telemedicine = () => {
         </div>
       </section>
 
-      <section className="section-padding bg-gray-50">
+      {/* SECTION: HOW IT WORKS (NEW SECTION 4) */}
+      <Section className="bg-slate-50">
+        <Container>
+          <div className="text-center mb-16">
+            <span className="section-subtitle">Process</span>
+            <h2 className="section-title">3 Steps to Expert Advice</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-12 relative">
+            <div className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-primary-100 -z-0" />
+            {[
+              { title: "Select Specialist", desc: "Choose from our panel of 50+ available specialists.", icon: User },
+              { title: "Secure Video Call", desc: "Consult via HD video link sent to your WhatsApp/Email.", icon: Video },
+              { title: "Digital Prescription", desc: "Receive your signed RX instantly on your dashboard.", icon: FileText }
+            ].map((step, i) => (
+              <div key={i} className="text-center relative z-10 group">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg text-primary-600 border-4 border-primary-50 group-hover:scale-110 transition-transform">
+                  <step.icon size={32} />
+                </div>
+                <h4 className="text-2xl font-bold text-slate-900 mb-4">{step.title}</h4>
+                <p className="text-gray-500 leading-relaxed px-6">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="flex justify-between items-end mb-8 gap-3">
             <div>
@@ -151,22 +198,22 @@ const Telemedicine = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {doctors.map((doc) => (
               <div key={doc.id} className="bg-white card-pad rounded-[1.5rem] border border-gray-100 hover-card flex gap-4 items-center">
-                <div className="relative shrink-0">
+                <Link to={`/doctor/${doc.id}`} className="relative shrink-0 block">
                   <img src={doc.img} alt={doc.name} className="w-16 h-16 rounded-xl object-cover shadow-sm" />
                   {doc.online && <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 border-2 border-white rounded-full" />}
-                </div>
+                </Link>
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-[#0f172a] text-base truncate">{doc.name}</h3>
+                  <Link to={`/doctor/${doc.id}`} className="font-bold text-[#0f172a] text-base truncate block hover:text-primary-600 transition-colors">{doc.name}</Link>
                   <p className="text-xs text-gray-500 truncate">{doc.spec}</p>
                   <div className="flex items-center gap-3 text-[11px] font-bold text-gray-400 mt-1">
                     <span className="flex items-center gap-1 text-yellow-500"><Star className="w-3 h-3 fill-current" /> {doc.rating}</span>
                     <span>{doc.exp} Exp</span>
                   </div>
                   <div className="mt-3 flex gap-2">
-                    <Link to="/services/telemedicine/consult" className={`flex-1 py-2 rounded-lg text-[11px] font-bold text-center ${doc.online ? 'bg-[#005580] text-white hover:brightness-110' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}>
+                    <Link to="/services/telemedicine/consult" className={`flex-1 py-2 rounded-lg text-[11px] font-bold text-center ${doc.online ? 'bg-[#005580] text-white hover:brightness-110 transition-all shadow-sm' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}>
                       {doc.online ? 'Call Now' : 'Offline'}
                     </Link>
-                    <button className="px-3 py-2 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50">
+                    <button className="px-3 py-2 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 transition-all">
                       <MessageSquare className="w-4 h-4" />
                     </button>
                   </div>
@@ -186,19 +233,19 @@ const Telemedicine = () => {
                 <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Why Choose Digital Care?</h2>
                 <div className="space-y-5">
                   {[
-                    { icon: ShieldCheck, title: 'Secure & Private', desc: 'Encrypted consultation flow aligned with telemedicine standards.' },
-                    { icon: FileText, title: 'Digital Prescriptions', desc: 'Prescription shared immediately after consultation.' },
-                    { icon: Clock, title: 'Flexible Scheduling', desc: 'Book consultations across weekdays and weekends.' }
+                    { icon: ShieldCheck, title: 'Secure & Private', desc: 'Encrypted consultation flow aligned with telemedicine standards.', path: "/patient-experience" },
+                    { icon: FileText, title: 'Digital Prescriptions', desc: 'Prescription shared immediately after consultation.', path: "/patient-corner/patient-information-literature" },
+                    { icon: Clock, title: 'Flexible Scheduling', desc: 'Book consultations across weekdays and weekends.', path: "/contact" }
                   ].map((feat) => (
-                    <div key={feat.title} className="flex gap-4">
-                      <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-blue-300 shrink-0">
+                    <Link to={feat.path} key={feat.title} className="flex gap-4 group block">
+                      <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-blue-300 shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all">
                         <feat.icon className="w-5 h-5" />
                       </div>
                       <div>
-                        <h4 className="text-lg font-bold mb-1">{feat.title}</h4>
+                        <h4 className="text-lg font-bold mb-1 group-hover:text-primary-400 transition-colors">{feat.title}</h4>
                         <p className="text-gray-300 text-sm leading-relaxed">{feat.desc}</p>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -233,14 +280,44 @@ const Telemedicine = () => {
         </div>
       </section>
 
+      {/* SECTION: CARE APP PROMO (NEW SECTION 8) */}
+      <Section className="bg-slate-900 text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]" />
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">Everything you need in <br /><span className="text-blue-400">One Place.</span></h2>
+              <p className="text-gray-400 text-lg font-light leading-relaxed mb-10">
+                Track prescriptions, book follow-ups, and chat with care managers directly through the Umang Care app. 
+              </p>
+              <div className="flex flex-wrap gap-6">
+                <button className="h-14 px-8 bg-white text-black rounded-xl font-bold hover:scale-105 transition-all shadow-lg flex items-center gap-2">
+                  <Smartphone size={20} /> Play Store
+                </button>
+                <button className="h-14 px-8 border border-white/20 rounded-xl font-bold hover:bg-white/5 transition-all flex items-center gap-2">
+                  <Smartphone size={20} /> App Store
+                </button>
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              <div className="p-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] text-center max-w-sm mx-auto">
+                <Smartphone size={64} className="text-blue-400 mx-auto mb-6" />
+                <h4 className="text-2xl font-bold mb-2">98% Success</h4>
+                <p className="text-sm text-gray-400 leading-relaxed">Highly rated by 5000+ users for video stability and ease of use.</p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       <section className="section-padding bg-blue-50">
         <div className="container-custom">
           <h2 className="text-3xl font-serif font-bold text-brand-dark text-center mb-8">Patient Stories</h2>
           <div className="grid md:grid-cols-2 gap-5">
             {testimonials.map((test) => (
               <div key={test.name} className="bg-white card-pad rounded-2xl shadow-sm border border-blue-100 relative">
-                <div className="text-4xl text-blue-200 absolute top-4 left-4">"</div>
-                <p className="text-gray-600 mb-5 relative z-10 text-sm">{test.text}</p>
+                <div className="text-4xl text-blue-200 absolute top-4 left-4 select-none">"</div>
+                <p className="text-gray-600 mb-5 relative z-10 text-sm italic">{test.text}</p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center font-bold text-[#005580]">{test.name[0]}</div>
                   <div>
@@ -256,6 +333,29 @@ const Telemedicine = () => {
         </div>
       </section>
 
+      {/* SECTION: TELEMEDICINE FAQ (NEW SECTION 10) */}
+      <Section className="bg-white">
+        <Container className="max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-serif font-bold text-brand-dark">Telemedicine FAQ</h2>
+          </div>
+          <div className="space-y-4">
+            {[
+              { q: "Is digital prescription valid at pharmacies?", a: "Yes, our digital prescriptions are signed by registered doctors and are legally valid at all pharmacies across India." },
+              { q: "What if I experience technical issues during call?", a: "Our support team is on standby. If a call drops, the doctor will attempt to call you back, or we will reschedule instantly at no extra cost." },
+              { q: "Can I use telemedicine for emergency cases?", a: "Telemedicine is NOT for life-threatening emergencies. Please call our 24/7 ER at 89297 33551 for immediate ambulance dispatch." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 group hover:border-primary-300 transition-all">
+                <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
+                  <HelpCircle size={20} className="text-primary-600" /> {faq.q}
+                </h4>
+                <p className="text-gray-600 pl-9 leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
       <section className="section-padding bg-white border-t border-gray-100">
         <div className="container-custom text-center">
           <h3 className="text-xl font-bold text-gray-900 mb-6">Technical Requirements</h3>
@@ -266,6 +366,23 @@ const Telemedicine = () => {
             <div className="flex items-center gap-2"><HelpCircle className="w-5 h-5 text-[#005580]" /> Need Help? Call Support</div>
           </div>
         </div>
+      </section>
+
+      {/* SECTION: FINAL CTA (NEW SECTION 12) */}
+      <section className="section-padding bg-primary-600 text-white text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-white/5 animate-pulse" />
+        <Container className="relative z-10">
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Ready to consult <br /><span className="text-primary-200">a specialist?</span></h2>
+          <p className="text-primary-50 text-lg mb-12 max-w-2xl mx-auto">Get expert medical advice from the comfort of your home. Your health is just one video call away.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <Link to="/services/telemedicine/consult" className="px-10 py-5 bg-white text-primary-600 rounded-full font-bold text-base shadow-xl hover:scale-105 transition-all">
+              Book Video Consult
+            </Link>
+            <a href={`tel:${siteConfig.contacts.main}`} className="px-10 py-5 border border-white/20 rounded-full font-bold text-base hover:bg-white/5 transition-all">
+              Call Support Desk
+            </a>
+          </div>
+        </Container>
       </section>
     </div>
   );

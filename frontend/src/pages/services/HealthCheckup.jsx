@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Activity, Heart, Shield, Clock, User, CheckCircle, 
-  ArrowRight, FileText, Smartphone, Calendar, HelpCircle
+  ArrowRight, FileText, Smartphone, Calendar, HelpCircle, Microscope
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
@@ -52,15 +52,15 @@ const packages = [
 
 const HealthCheckup = () => {
   return (
-    <div className="bg-white min-h-screen pt-12">
+    <div className="bg-white min-h-screen">
       <SeoHead 
         title="Preventive Health Checkups" 
         description="Book comprehensive full body checkups at Umang Hospital. Includes blood tests, cardiac screening, and expert doctor consultation."
         canonical="/services/health-checkup"
       />
 
-      {/* 1. Hero Section - Full Width & Spacious */}
-      <section className="relative min-h-[500px] lg:min-h-[650px] flex items-center bg-[#005580] overflow-hidden">
+      {/* 1. Hero Section */}
+      <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center bg-[#005580] overflow-hidden py-12 lg:py-8">
         <div className="absolute inset-0 z-0">
           <img 
             src={ASSETS.SVC_INVEST_HEALTH} 
@@ -70,7 +70,7 @@ const HealthCheckup = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#005580] via-[#005580]/90 to-transparent" />
         </div>
 
-        <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center py-12 lg:py-10">
+        <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -88,7 +88,7 @@ const HealthCheckup = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6">
-              <button onClick={() => document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })} className="h-16 px-10 rounded-full bg-white text-[#005580] font-bold text-lg hover-lift hover:scale-105 transition-all flex items-center justify-center gap-3">
+              <button onClick={() => document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })} className="h-16 px-10 rounded-full bg-white text-[#005580] font-bold text-lg hover-lift hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-xl">
                 View Packages <ArrowRight className="w-5 h-5" />
               </button>
               <div className="flex items-center gap-4 text-white">
@@ -109,7 +109,6 @@ const HealthCheckup = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative hidden lg:block"
           >
-             {/* Decorative Abstract Shapes */}
              <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[80px]" />
              <img 
                src={ASSETS.HEALTH_CHECKUP} 
@@ -120,7 +119,7 @@ const HealthCheckup = () => {
         </div>
       </section>
 
-      {/* SECTION: SCREENING IMPACT STATS (NEW) */}
+      {/* SECTION: SCREENING IMPACT STATS */}
       <div className="bg-primary-600 py-8 lg:py-10 text-white overflow-hidden relative border-y border-white/5">
         <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         <Container>
@@ -140,8 +139,7 @@ const HealthCheckup = () => {
         </Container>
       </div>
 
-      {/* 2. Packages Section - Spacious Grid */}
-
+      {/* 2. Packages Section */}
       <section id="packages" className="py-32 bg-gray-50">
          <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto mb-20">
@@ -156,7 +154,7 @@ const HealthCheckup = () => {
                   <motion.div 
                      key={pkg.id}
                      whileHover={{ y: -8 }}
-                     className={`bg-white rounded-[2.5rem] overflow-hidden border ${pkg.color} shadow-sm hover:shadow-xl transition-all relative flex flex-col`}
+                     className={`bg-white rounded-[2.5rem] overflow-hidden border ${pkg.color} shadow-sm hover:shadow-xl transition-all relative flex flex-col group`}
                   >
                      {pkg.popular && (
                         <div className="absolute top-6 right-6 bg-[#005580] text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg z-10">
@@ -166,11 +164,11 @@ const HealthCheckup = () => {
                      
                      <div className="p-10 flex-1">
                         <div className="flex items-start gap-6 mb-8">
-                           <div className={`w-16 h-16 rounded-2xl ${pkg.color} flex items-center justify-center shrink-0`}>
+                           <div className={`w-16 h-16 rounded-2xl ${pkg.color} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform shadow-sm`}>
                               <pkg.icon className="w-8 h-8 text-[#0f172a]" />
                            </div>
                            <div>
-                              <h3 className="text-2xl font-bold text-[#0f172a] mb-1">{pkg.title}</h3>
+                              <h3 className="text-2xl font-bold text-[#0f172a] mb-1 group-hover:text-primary-600 transition-colors">{pkg.title}</h3>
                               <p className="text-gray-500">{pkg.subtitle}</p>
                            </div>
                         </div>
@@ -192,8 +190,8 @@ const HealthCheckup = () => {
                            <p className="text-green-600 text-lg font-bold">{pkg.tests}</p>
                            <p className="text-gray-400 text-xs uppercase tracking-widest font-black">Comprehensive screening</p>
                         </div>
-                        <Link to="/services/booking/health-checkup" className="h-14 px-8 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-[#005580] transition-all shadow-lg flex items-center gap-2">
-                           Enquire Now
+                        <Link to="/services/booking/health-checkup" className="h-14 px-8 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-[#005580] transition-all shadow-lg flex items-center justify-center gap-2">
+                           Book Package
                         </Link>
                      </div>
                   </motion.div>
@@ -202,8 +200,32 @@ const HealthCheckup = () => {
          </div>
       </section>
 
-      {/* 3. Process Section - Large Visuals */}
-      <section className="py-32 bg-white">
+      {/* SECTION: SCREENING TECHNOLOGY (NEW SECTION 11) */}
+      <Section className="bg-white">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark">High-End Screening Tech</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-12">
+            {[
+              { title: "AI-ECG Analysis", desc: "Detection of arrhythmia with 99% accuracy.", icon: Activity, path: "/specialities/cardiology" },
+              { title: "Digital Radiography", desc: "Ultra-low dose X-rays for internal imaging.", icon: Shield, path: "/infrastructure/radiology" },
+              { title: "Automated Path-Lab", desc: "Robotic sample processing for zero human error.", icon: Microscope, path: "/services/lab-test-diagnostic" }
+            ].map((tech, i) => (
+              <Link to={tech.path} key={i} className="text-center group block">
+                <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm">
+                  <tech.icon size={32} />
+                </div>
+                <h4 className="text-xl font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors">{tech.title}</h4>
+                <p className="text-gray-500 text-sm px-6">{tech.desc}</p>
+              </Link>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* 3. Process Section */}
+      <section className="py-32 bg-gray-50">
          <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
                <div className="relative">
@@ -211,7 +233,7 @@ const HealthCheckup = () => {
                   <img 
                      src={ASSETS.SVC_LAB_PROCESS} 
                      alt="Lab Process" 
-                     className="relative rounded-[3rem] shadow-2xl w-full object-cover"
+                     className="relative rounded-[3rem] shadow-2xl w-full h-[500px] object-cover"
                   />
                </div>
                
@@ -219,20 +241,20 @@ const HealthCheckup = () => {
                   <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-12">Seamless Experience</h2>
                   <div className="space-y-12">
                      {[
-                        { title: "Book Appointment", desc: "Select a package and choose a convenient time slot for home collection or hospital visit." },
-                        { title: "Sample Collection", desc: "Our trained phlebotomists collect samples following strict hygiene and safety protocols." },
-                        { title: "Smart Reporting", desc: "Detailed digital reports are shared via email and WhatsApp within 12-24 hours." },
-                        { title: "Doctor Review", desc: "Get a free tele-consultation with our experts to understand your report findings." }
+                        { title: "Book Appointment", desc: "Select a package and choose a convenient time slot for home collection or hospital visit.", path: "/services/health-checkup/book" },
+                        { title: "Sample Collection", desc: "Our trained phlebotomists collect samples following strict hygiene and safety protocols.", path: "/services/lab-test-diagnostic" },
+                        { title: "Smart Reporting", desc: "Detailed digital reports are shared via email and WhatsApp within 12-24 hours.", path: "/patient-corner/patient-information-literature" },
+                        { title: "Doctor Review", desc: "Get a free tele-consultation with our experts to understand your report findings.", path: "/services/telemedicine" }
                      ].map((step, i) => (
-                        <div key={i} className="flex gap-6">
-                           <div className="w-12 h-12 rounded-full border-2 border-[#005580] flex items-center justify-center text-[#005580] font-bold text-xl shrink-0">
+                        <Link to={step.path} key={i} className="flex gap-6 group block">
+                           <div className="w-12 h-12 rounded-full border-2 border-[#005580] flex items-center justify-center text-[#005580] font-bold text-xl shrink-0 group-hover:bg-[#005580] group-hover:text-white transition-all shadow-sm">
                               {i + 1}
                            </div>
                            <div>
-                              <h4 className="text-xl font-bold text-[#0f172a] mb-2">{step.title}</h4>
+                              <h4 className="text-xl font-bold text-[#0f172a] mb-2 group-hover:text-primary-600 transition-colors">{step.title}</h4>
                               <p className="text-gray-500 leading-relaxed text-lg">{step.desc}</p>
                            </div>
-                        </div>
+                        </Link>
                      ))}
                   </div>
                </div>
@@ -248,27 +270,54 @@ const HealthCheckup = () => {
                70% of lifestyle diseases are preventable if detected early. Regular health checkups are the most effective way to monitor your vital parameters and stay ahead of chronic conditions.
             </p>
             <div className="grid md:grid-cols-3 gap-8 text-left">
-               <div className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
-                  <FileText className="w-10 h-10 text-cyan-300 mb-6" />
-                  <h4 className="text-xl font-bold mb-3">Early Detection</h4>
-                  <p className="text-gray-400">Identify risk factors before they become complications.</p>
-               </div>
-               <div className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
-                  <Shield className="w-10 h-10 text-cyan-300 mb-6" />
-                  <h4 className="text-xl font-bold mb-3">Long-term Wellness</h4>
-                  <p className="text-gray-400">Preventive care ensures sustained health and vitality.</p>
-               </div>
-               <div className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10">
-                  <Heart className="w-10 h-10 text-cyan-300 mb-6" />
-                  <h4 className="text-xl font-bold mb-3">Better Quality of Life</h4>
-                  <p className="text-gray-400">Active monitoring leads to healthier lifestyle choices.</p>
-               </div>
+               {[
+                 { title: "Early Detection", desc: "Identify risk factors before they become complications.", icon: FileText, path: "/patient-experience" },
+                 { title: "Long-term Wellness", desc: "Preventive care ensures sustained health and vitality.", icon: Shield, path: "/patient-experience" },
+                 { title: "Better Quality of Life", desc: "Active monitoring leads to healthier lifestyle choices.", icon: Heart, path: "/patient-experience" }
+               ].map((item, i) => (
+                 <Link to={item.path} key={i} className="bg-white/10 backdrop-blur-sm p-8 rounded-3xl border border-white/10 group block hover:bg-white/20 transition-all">
+                    <item.icon className="w-10 h-10 text-cyan-300 mb-6 group-hover:scale-110 transition-transform" />
+                    <h4 className="text-xl font-bold mb-3 group-hover:text-cyan-300 transition-colors">{item.title}</h4>
+                    <p className="text-gray-400">{item.desc}</p>
+                 </Link>
+               ))}
             </div>
          </div>
       </section>
 
-      {/* SECTION: SCREENING FAQ (NEW) */}
+      {/* SECTION: SCREENING SPECIALISTS (NEW SECTION 12) */}
       <Section className="bg-white">
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <img src={ASSETS.ABOUT_DIRECTOR} alt="Specialists" className="rounded-[3rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 h-[500px] object-cover object-top" />
+            </div>
+            <div className="lg:w-1/2">
+              <span className="text-primary-600 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Board</span>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Expert Review by <br /><span className="text-primary-600 italic">Senior Consultants.</span></h2>
+              <p className="text-gray-500 text-lg mb-8 leading-relaxed">
+                Health checkups at Umang are not just about reports. Every package includes a mandatory review by our senior consultants to guide you on the right path to wellness.
+              </p>
+              <div className="grid grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-3xl font-bold text-brand-dark">50+</h4>
+                  <p className="text-xs text-gray-400 uppercase font-black tracking-widest mt-1">Specialists</p>
+                </div>
+                <div>
+                  <h4 className="text-3xl font-bold text-brand-dark">100%</h4>
+                  <p className="text-xs text-gray-400 uppercase font-black tracking-widest mt-1">Review Rate</p>
+                </div>
+              </div>
+              <div className="mt-10">
+                <Link to="/doctors" className="btn-primary">View Specialists</Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION: SCREENING FAQ */}
+      <Section className="bg-gray-50">
         <Container className="max-w-4xl">
           <SectionHeading 
             eyebrow="Help Desk" 
@@ -281,9 +330,9 @@ const HealthCheckup = () => {
               { q: "How long should I fast before the tests?", a: "A minimum of 10-12 hours of overnight fasting is required for accurate blood sugar and lipid profile results." },
               { q: "Can I customize a health package?", a: "Absolutely. You can add specific tests to any existing package based on your doctor's advice or personal health concerns." }
             ].map((faq, i) => (
-              <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-left">
+              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 text-left group hover:border-primary-300 transition-all">
                 <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
-                  <HelpCircle size={20} className="text-primary-600 shrink-0" /> {faq.q}
+                  <HelpCircle size={20} className="text-primary-600 group-hover:scale-110 transition-transform" /> {faq.q}
                 </h4>
                 <p className="text-slate-600 pl-9 text-base leading-relaxed">{faq.a}</p>
               </div>
@@ -298,7 +347,7 @@ const HealthCheckup = () => {
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Take charge of <br /><span className="text-primary-400 italic">your health today.</span></h2>
           <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">Early screening is the first step towards a longer, healthier life. Book your package now and get a expert review.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link to="/services/booking/health-checkup" className="px-10 py-5 bg-primary-600 text-white rounded-full font-bold text-base shadow-xl hover:bg-primary-500 transition-all flex items-center justify-center gap-3">
+            <Link to="/services/booking/health-checkup" className="px-10 py-5 bg-primary-600 text-white rounded-full font-bold text-base shadow-xl hover:bg-primary-500 transition-all flex items-center justify-center gap-3 shadow-primary-900/20">
               Book Your Package <ArrowRight size={20} />
             </Link>
             <a href={`tel:${siteConfig.contacts.main}`} className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-base hover:bg-white/5 transition-all flex items-center justify-center gap-3">

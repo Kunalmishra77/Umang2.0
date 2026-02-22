@@ -15,7 +15,11 @@ const MegaMenuPanel = ({ item, closeMenu }) => {
 
   const handleCategoryClick = (e, href) => {
     if (href) {
-      navigate(href);
+      if (href.startsWith('http')) {
+        window.open(href, '_blank', 'noopener,noreferrer');
+      } else {
+        navigate(href);
+      }
       closeMenu();
     }
   };
@@ -135,13 +139,27 @@ const MegaMenuPanel = ({ item, closeMenu }) => {
                   </h4>
                </div>
                
-               <Link 
-                 to={activeGroup?.href}
-                 onClick={closeMenu}
-                 className="mt-auto py-2 bg-primary-600 text-white text-[9px] font-black uppercase tracking-widest rounded-lg text-center hover:bg-primary-700 transition-all shadow-lg active:scale-95 shadow-primary-600/20"
-               >
-                 Explore Details
-               </Link>
+               {activeGroup?.href && (
+                 activeGroup.href.startsWith('http') ? (
+                   <a 
+                     href={activeGroup.href}
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     onClick={closeMenu}
+                     className="mt-auto py-2 bg-primary-600 text-white text-[9px] font-black uppercase tracking-widest rounded-lg text-center hover:bg-primary-700 transition-all shadow-lg active:scale-95 shadow-primary-600/20"
+                   >
+                     Explore Details
+                   </a>
+                 ) : (
+                   <Link 
+                     to={activeGroup.href}
+                     onClick={closeMenu}
+                     className="mt-auto py-2 bg-primary-600 text-white text-[9px] font-black uppercase tracking-widest rounded-lg text-center hover:bg-primary-700 transition-all shadow-lg active:scale-95 shadow-primary-600/20"
+                   >
+                     Explore Details
+                   </Link>
+                 )
+               )}
             </motion.div>
          </AnimatePresence>
          

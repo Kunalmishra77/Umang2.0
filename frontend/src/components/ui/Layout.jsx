@@ -18,7 +18,8 @@ export const SectionHeading = ({
   description, 
   centered = false,
   className = '',
-  dark = false
+  dark = false,
+  descriptionMaxWidth = 'max-w-[70ch]'
 }) => (
   <div className={'mb-16 md:mb-20 ' + (centered ? 'text-center' : 'text-left') + ' ' + className}>
     {eyebrow && (
@@ -26,11 +27,12 @@ export const SectionHeading = ({
         {eyebrow}
       </span>
     )}
-    <h2 className={'mb-8 ' + (dark ? 'text-white' : 'text-brand-dark')}>
-      {title}
-    </h2>
+    <h2 
+      className={'mb-8 ' + (dark ? 'text-white' : 'text-brand-dark')}
+      dangerouslySetInnerHTML={{ __html: title }}
+    />
     {description && (
-      <p className={'max-w-[70ch] leading-relaxed ' + (centered ? 'mx-auto' : '') + ' ' + (dark ? 'text-slate-300' : 'text-slate-600')}>
+      <p className={descriptionMaxWidth + ' leading-relaxed ' + (centered ? 'mx-auto' : '') + ' ' + (dark ? 'text-slate-300' : 'text-slate-600')}>
         {description}
       </p>
     )}

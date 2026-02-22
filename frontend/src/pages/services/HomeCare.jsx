@@ -68,7 +68,7 @@ const HomeCare = () => {
       </Helmet>
 
       {/* 1. Hero Section */}
-      <section className="relative section-padding overflow-hidden flex items-center bg-[#f0f9ff]">
+      <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center bg-[#f0f9ff] overflow-hidden py-12 lg:py-8">
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 w-2/3 h-full bg-[#e0f2fe] rounded-bl-[10rem] z-0" />
           <img
@@ -85,7 +85,7 @@ const HomeCare = () => {
             transition={{ duration: 0.8 }}
             className="max-w-xl"
           >
-            <div className="flex items-center gap-2 text-[#005580] font-bold uppercase tracking-widest text-sm mb-6">
+            <div className="flex items-center gap-2 text-[#005580] font-bold uppercase tracking-widest text-xs mb-6">
               <Home className="w-4 h-4" />
               <span>Hospital Expertise at Home</span>
             </div>
@@ -97,7 +97,7 @@ const HomeCare = () => {
               Bring world-class medical care to the comfort of your home. From ICU setups to compassionate nursing, we are by your side.
             </p>
             
-            <div className="bg-white card-pad rounded-2xl shadow-xl border border-gray-100 max-w-md">
+            <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 max-w-md">
                <h3 className="font-bold text-[#0f172a] mb-4 text-lg">Request a Call Back</h3>
                <div className="space-y-4">
                   <input type="text" placeholder="Patient Name" className="w-full h-11 px-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-[#005580] outline-none text-base" />
@@ -111,7 +111,27 @@ const HomeCare = () => {
         </div>
       </section>
 
-      {/* 2. Services Grid */}
+      {/* SECTION: CARE IMPACT STATS (NEW SECTION 2) */}
+      <div className="bg-[#005580] py-8 lg:py-10 text-white overflow-hidden relative">
+        <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <Container>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10">
+            {[
+              { label: "Home ICUs Setup", value: "500+" },
+              { label: "Recovery Rate", value: "94%" },
+              { label: "Certified Staff", value: "200+" },
+              { label: "Years Excellence", value: "15+" }
+            ].map((stat, i) => (
+              <div key={i}>
+                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight mb-1">{stat.value}</p>
+                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-blue-100/70">{stat.label}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </div>
+
+      {/* 2. Services Grid (NOW SECTION 3) */}
       <section className="section-padding bg-white">
          <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -129,7 +149,7 @@ const HomeCare = () => {
                      <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#005580] flex items-center justify-center mb-6 group-hover:bg-[#005580] group-hover:text-white transition-colors">
                         <service.icon className="w-7 h-7" />
                      </div>
-                     <h3 className="text-xl lg:text-2xl font-bold text-[#0f172a] mb-3">{service.title}</h3>
+                     <h3 className="text-xl lg:text-2xl font-bold text-[#0f172a] mb-3 group-hover:text-[#005580] transition-colors">{service.title}</h3>
                      <p className="text-gray-600 text-base leading-relaxed mb-6">{service.desc}</p>
                      <ul className="space-y-2">
                         {service.features.map((feat, idx) => (
@@ -144,27 +164,68 @@ const HomeCare = () => {
          </div>
       </section>
 
-      {/* 3. Why Choose Us (Stats) */}
-      <section className="section-padding bg-[#005580] text-white relative overflow-hidden">
-         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
-         <div className="container-custom relative z-10">
-            <div className="grid md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
-               {[
-                  { label: "Happy Patients", val: "5000+" },
-                  { label: "Nurses Deployed", val: "200+" },
-                  { label: "Home ICUs Setup", val: "500+" },
-                  { label: "Years of Trust", val: "15+" }
-               ].map((stat, i) => (
-                  <div key={i} className="p-4">
-                     <h3 className="text-4xl md:text-5xl font-serif font-bold mb-2">{stat.val}</h3>
-                     <p className="text-blue-200 font-medium uppercase tracking-widest text-sm">{stat.label}</p>
-                  </div>
-               ))}
+      {/* SECTION: SPECIALIZED REHABILITATION (NEW SECTION 4) */}
+      <Section className="bg-slate-50 overflow-hidden relative">
+        <Container>
+          <div className="flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-center">
+            <div className="lg:w-1/2">
+              <span className="text-[#005580] font-bold uppercase tracking-widest text-sm mb-4 block">Recovery Experts</span>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8">Specialized Post-Op <br /><span className="text-[#005580] italic">Rehabilitation.</span></h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
+                Recovery doesn't end at discharge. Our specialized rehab programs help you regain mobility and strength after complex surgeries or neurological events.
+              </p>
+              <div className="grid gap-6">
+                {[
+                  { title: "Neuro Rehabilitation", desc: "Expert care for stroke and spinal injury recovery.", path: "/specialities/neuro" },
+                  { title: "Cardiac Rehab", desc: "Monitored exercise and diet plans post heart surgery.", path: "/specialities/cardiology" },
+                  { title: "Orthopedic Rehab", desc: "Physiotherapy for joint replacements and fractures.", path: "/specialities/ortho" }
+                ].map((item, i) => (
+                  <Link to={item.path} key={i} className="p-6 bg-white rounded-2xl border border-gray-100 flex gap-5 items-center group hover:shadow-md transition-all block">
+                    <div className="w-12 h-12 bg-blue-50 text-[#005580] rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#005580] group-hover:text-white transition-all">
+                      <Heart size={24} />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-brand-dark group-hover:text-[#005580] transition-colors">{item.title}</h4>
+                      <p className="text-sm text-gray-500">{item.desc}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
-         </div>
-      </section>
+            <div className="lg:w-1/2">
+              <img src={ASSETS.ABOUT_MAIN} alt="Rehab" className="rounded-[4rem] shadow-2xl border-8 border-white" />
+            </div>
+          </div>
+        </Container>
+      </Section>
 
-      {/* 4. Process Steps */}
+      {/* SECTION: MEDICAL EQUIPMENT RENTAL (NEW SECTION 5) */}
+      <Section className="bg-white">
+        <Container>
+          <div className="text-center mb-16">
+            <span className="text-[#005580] font-bold uppercase tracking-widest text-xs mb-4 block">Support Infrastructure</span>
+            <h2 className="text-4xl font-serif font-bold text-brand-dark">Clinical Equipment Rental</h2>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { name: "Oxygen Concentrator", icon: Wind, price: "From ₹500/day" },
+              { name: "Hospital Beds", icon: Home, price: "From ₹300/day" },
+              { name: "Suction Machines", icon: Activity, price: "From ₹200/day" },
+              { name: "Cardiac Monitors", icon: Zap, price: "From ₹400/day" }
+            ].map((eq, i) => (
+              <div key={i} className="p-8 bg-gray-50 rounded-[2.5rem] text-center border border-transparent hover:border-blue-200 transition-all group">
+                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:scale-110 transition-transform">
+                  <eq.icon className="text-[#005580]" size={28} />
+                </div>
+                <h4 className="font-bold text-[#0f172a] mb-2">{eq.name}</h4>
+                <p className="text-xs font-black uppercase text-blue-600">{eq.price}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* 4. Process Steps (NOW SECTION 6) */}
       <section className="section-padding bg-gray-50">
          <div className="container-custom">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-16 text-center">How It Works</h2>
@@ -173,36 +234,93 @@ const HomeCare = () => {
                <div className="hidden md:block absolute top-8 left-0 w-full h-0.5 bg-gray-200 -z-10" />
                
                {[
-                  { title: "Consultation", desc: "Speak with our care manager to discuss needs." },
-                  { title: "Assessment", desc: "Our team conducts a home assessment visit." },
-                  { title: "Care Plan", desc: "Customized care plan created by doctors." },
-                  { title: "Service Start", desc: "Care delivery begins with regular monitoring." }
+                  { title: "Consultation", desc: "Speak with our care manager to discuss needs.", path: "/contact" },
+                  { title: "Assessment", desc: "Our team conducts a home assessment visit.", path: "/contact" },
+                  { title: "Care Plan", desc: "Customized care plan created by doctors.", path: "/doctors" },
+                  { title: "Service Start", desc: "Care delivery begins with regular monitoring.", path: "/services/booking/home-care" }
                ].map((step, i) => (
-                  <div key={i} className="text-center relative bg-gray-50">
-                     <div className="w-16 h-16 rounded-full bg-white border-4 border-blue-100 flex items-center justify-center text-xl font-bold text-[#005580] mx-auto mb-6 shadow-sm relative z-10">
+                  <Link to={step.path} key={i} className="text-center relative bg-gray-50 group block">
+                     <div className="w-16 h-16 rounded-full bg-white border-4 border-blue-100 flex items-center justify-center text-xl font-bold text-[#005580] mx-auto mb-6 shadow-sm relative z-10 group-hover:bg-[#005580] group-hover:text-white transition-all">
                         {i + 1}
                      </div>
-                     <h4 className="text-xl font-bold text-[#0f172a] mb-2">{step.title}</h4>
+                     <h4 className="text-xl font-bold text-[#0f172a] mb-2 group-hover:text-[#005580] transition-colors">{step.title}</h4>
                      <p className="text-base text-gray-500 px-4">{step.desc}</p>
-                  </div>
+                  </Link>
                ))}
             </div>
          </div>
       </section>
 
-      {/* 5. FAQ & CTA */}
-      <section className="section-padding bg-white">
+      {/* SECTION: CARE APP PROMO (NEW SECTION 7) */}
+      <Section className="bg-[#0f172a] text-white overflow-hidden relative">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]" />
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">Monitor Care in <br /><span className="text-blue-400">Real-Time.</span></h2>
+              <p className="text-gray-400 text-lg font-light leading-relaxed mb-10">
+                Track nurse vitals logging, caregiver attendance, and daily doctor reports directly through the Umang Care app. Transparency at your fingertips.
+              </p>
+              <div className="flex gap-6">
+                <button className="h-14 px-8 bg-white text-black rounded-xl font-bold hover:scale-105 transition-all">Google Play</button>
+                <button className="h-14 px-8 border border-white/20 rounded-xl font-bold hover:bg-white/5 transition-all">App Store</button>
+              </div>
+            </div>
+            <div className="lg:w-1/2 text-center">
+              <div className="inline-block p-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem]">
+                <Smartphone size={64} className="text-blue-400 mx-auto mb-6" />
+                <h4 className="text-2xl font-bold mb-2">Verified Logs</h4>
+                <p className="text-sm text-gray-400">Hourly vitals update for ICU patients.</p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION: EXPERT NURSING TEAM (NEW SECTION 8) */}
+      <Section className="bg-white">
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <img src={ASSETS.NURSE_CARE} alt="Nursing Team" className="rounded-[3rem] shadow-2xl" />
+            </div>
+            <div className="lg:w-1/2">
+              <span className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 block">Medical Professionals</span>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Staffed by Certified <br /><span className="text-blue-600 italic">ICU Nurses.</span></h2>
+              <p className="text-gray-500 text-lg mb-8 leading-relaxed">
+                Our nursing team is not just compassionate but highly skilled. Every home care nurse undergoes rigorous clinical training and background verification before deployment.
+              </p>
+              <div className="grid grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-3xl font-bold text-brand-dark">200+</h4>
+                  <p className="text-xs text-gray-400 uppercase font-bold mt-1">Caregivers</p>
+                </div>
+                <div>
+                  <h4 className="text-3xl font-bold text-brand-dark">24/7</h4>
+                  <p className="text-xs text-gray-400 uppercase font-bold mt-1">Expert Backup</p>
+                </div>
+              </div>
+              <div className="mt-10">
+                <Link to="/team/nursing" className="btn-primary">Meet Nursing Team</Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 5. FAQ & CTA (NOW SECTION 9 & 10) */}
+      <section className="section-padding bg-gray-50">
          <div className="container-custom max-w-4xl">
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-12">Common Questions</h2>
             <div className="space-y-4 mb-16">
                {faqs.map((faq, i) => (
-                  <div key={i} className="border border-gray-200 rounded-2xl overflow-hidden bg-gray-50/50">
+                  <div key={i} className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm">
                      <button 
                         onClick={() => toggleAccordion(i)}
-                        className="w-full flex items-center justify-between p-6 text-left hover:bg-white transition-colors text-lg"
+                        className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors text-lg"
                      >
                         <span className="font-bold text-[#0f172a]">{faq.q}</span>
-                        <ChevronDown className="w-5 h-5 text-gray-400 transition-transform" />
+                        <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${activeAccordion === i ? 'rotate-180' : ''}`} />
                      </button>
                      <AnimatePresence>
                         {activeAccordion === i && (
@@ -212,7 +330,7 @@ const HomeCare = () => {
                               exit={{ height: 0, opacity: 0 }}
                               className="overflow-hidden"
                            >
-                              <div className="p-6 pt-0 text-gray-600 text-base lg:text-lg leading-relaxed border-t border-gray-100 bg-white">
+                              <div className="p-6 pt-0 text-gray-600 text-base leading-relaxed border-t border-gray-100 bg-white">
                                  {faq.a}
                               </div>
                            </motion.div>
@@ -222,17 +340,38 @@ const HomeCare = () => {
                ))}
             </div>
 
-            <div className="bg-blue-50 rounded-[2rem] p-8 md:p-12 text-center border border-blue-100">
+            <div className="bg-blue-50 rounded-[2.5rem] p-8 md:p-12 text-center border border-blue-100 shadow-lg relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/50 rounded-full -mr-16 -mt-16" />
                <div className="w-16 h-16 bg-[#005580] rounded-full flex items-center justify-center text-white mx-auto mb-6 shadow-lg shadow-blue-200">
                   <Phone className="w-8 h-8" />
                </div>
                <h3 className="text-2xl font-bold text-[#0f172a] mb-4">Need immediate assistance?</h3>
-               <p className="text-gray-600 mb-8 max-w-lg mx-auto">Our Home Care coordinators are available 24/7 to answer your queries and arrange urgent care.</p>
-               <a href="tel:+918929733550" className="inline-flex items-center gap-2 px-8 py-4 bg-[#005580] text-white rounded-full font-bold shadow-xl hover-lift hover:-translate-y-1 transition-all">
-                  Call Support Team
+               <p className="text-gray-600 mb-8 max-w-lg mx-auto text-lg">Our Home Care coordinators are available 24/7 to answer your queries and arrange urgent care within 4-12 hours.</p>
+               <a href="tel:+918929733550" className="inline-flex items-center gap-2 px-10 py-5 bg-[#005580] text-white rounded-full font-bold shadow-xl hover:bg-[#004466] hover-lift transition-all">
+                  Speak to Care Manager
                </a>
             </div>
          </div>
+      </section>
+
+      {/* SECTION: FINAL COMMITMENT (NEW SECTION 11) */}
+      <section className="section-padding bg-brand-dark text-white text-center relative overflow-hidden">
+        <div className="absolute inset-0 bg-blue-600/5" />
+        <Container className="relative z-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <Star size={48} className="text-yellow-400 mx-auto mb-8 fill-current animate-pulse" />
+            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8 leading-tight">Trust the Legacy of <br /><span className="text-blue-400">Compassionate Care.</span></h2>
+            <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">We don't just provide medical support; we build a sanctuary of healing right in your home. Your comfort is our clinical priority.</p>
+            <div className="flex flex-col sm:flex-row justify-center gap-6">
+              <Link to="/contact" className="px-10 py-5 bg-white text-brand-dark rounded-full font-bold text-base shadow-xl flex items-center gap-3 hover:scale-105 transition-all">
+                Visit Main Campus
+              </Link>
+              <Link to="/about" className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-base hover:bg-white/5 transition-all flex items-center gap-3">
+                Our Healing Story
+              </Link>
+            </div>
+          </motion.div>
+        </Container>
       </section>
 
     </div>

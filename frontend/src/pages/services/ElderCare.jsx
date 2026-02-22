@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Heart, UserCheck, Home, Smile, Activity, Clock, 
-  Phone, Calendar, CheckCircle, ArrowRight, Sun, Shield, HelpCircle 
+  Phone, Calendar, CheckCircle, ArrowRight, Sun, Shield, HelpCircle, Star, Smartphone, Users
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
@@ -72,15 +72,15 @@ const ElderCare = () => {
   const [activeTab, setActiveTab] = useState('care');
 
   return (
-    <div className="bg-white min-h-screen pt-12">
+    <div className="bg-white min-h-screen">
       <SeoHead 
         title="Elder Care Services" 
         description="Compassionate geriatric care for seniors. Assisted living, dementia care, and medical support at home."
         canonical="/services/elder-care"
       />
 
-      {/* 1. Hero Section - Warm & Reassuring */}
-      <section className="relative min-h-[500px] lg:min-h-[700px] flex items-center bg-[#fff7ed] overflow-hidden">
+      {/* 1. Hero Section */}
+      <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center bg-[#fff7ed] overflow-hidden py-12 lg:py-8">
         <div className="absolute inset-0 z-0">
           <div className="absolute right-0 top-0 w-3/4 h-full bg-[#ffedd5] rounded-bl-[15rem] z-0" />
           <img 
@@ -110,7 +110,7 @@ const ElderCare = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6">
-              <button onClick={() => document.getElementById('care-plans').scrollIntoView({ behavior: 'smooth' })} className="h-16 px-8 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 hover:shadow-xl transition-all flex items-center justify-center gap-2">
+              <button onClick={() => document.getElementById('care-plans').scrollIntoView({ behavior: 'smooth' })} className="h-16 px-8 rounded-full bg-orange-500 text-white font-bold hover:bg-orange-600 hover:shadow-xl transition-all flex items-center justify-center gap-2 shadow-orange-900/20">
                 View Care Plans <ArrowRight className="w-5 h-5" />
               </button>
               <button className="h-16 px-8 rounded-full bg-white border border-orange-200 text-orange-600 font-bold hover:bg-orange-50 transition-all flex items-center justify-center gap-2">
@@ -121,7 +121,7 @@ const ElderCare = () => {
         </div>
       </section>
 
-      {/* SECTION: GERIATRIC IMPACT STATS (NEW) */}
+      {/* SECTION: GERIATRIC IMPACT STATS */}
       <div className="bg-orange-500 py-8 lg:py-10 text-white overflow-hidden relative border-y border-white/5">
         <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         <Container>
@@ -142,7 +142,6 @@ const ElderCare = () => {
       </div>
 
       {/* 2. Comprehensive Services Grid */}
-
       <section className="py-32 bg-white">
          <div className="container-custom">
             <div className="text-center max-w-3xl mx-auto mb-24">
@@ -162,10 +161,10 @@ const ElderCare = () => {
                      <div className="absolute top-0 right-0 w-32 h-32 bg-orange-50 rounded-bl-[100%] -mr-10 -mt-10 transition-transform group-hover:scale-110" />
                      
                      <div className="relative z-10">
-                        <div className="w-16 h-16 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center mb-8 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                        <div className="w-16 h-16 rounded-2xl bg-orange-50 text-orange-600 flex items-center justify-center mb-8 group-hover:bg-orange-600 group-hover:text-white transition-colors shadow-sm">
                            <service.icon className="w-8 h-8" />
                         </div>
-                        <h3 className="text-2xl font-bold text-[#0f172a] mb-4">{service.title}</h3>
+                        <h3 className="text-2xl font-bold text-[#0f172a] mb-4 group-hover:text-orange-600 transition-colors">{service.title}</h3>
                         <p className="text-gray-500 text-base leading-relaxed mb-8">{service.desc}</p>
                         <ul className="space-y-3">
                            {service.features.map((feat, idx) => (
@@ -181,6 +180,31 @@ const ElderCare = () => {
          </div>
       </section>
 
+      {/* SECTION: SENIOR STORIES (NEW SECTION 11) */}
+      <Section className="bg-slate-50">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark">Stories of Dignity</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              { name: "Mr. Sharma", age: "72", text: "The care and companionship provided by Umang nurses made my recovery from hip surgery so much easier. They are like family.", img: ASSETS.USER_AVATAR },
+              { name: "Mrs. Gupta", age: "68", text: "Having an ICU setup at home was a blessing for my mother. The technology and medical oversight were top-notch.", img: ASSETS.USER_AVATAR }
+            ].map((story, i) => (
+              <div key={i} className="bg-white p-10 rounded-[3rem] shadow-sm border border-gray-100 flex gap-8 items-start group hover:shadow-lg transition-all">
+                <div className="w-20 h-20 rounded-full bg-orange-50 flex items-center justify-center shrink-0 border-4 border-white shadow-md">
+                  <Star className="text-orange-400" />
+                </div>
+                <div>
+                  <p className="text-gray-600 text-lg italic mb-6">"{story.text}"</p>
+                  <h4 className="font-bold text-brand-dark text-xl">{story.name}, {story.age} Yrs</h4>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
       {/* 3. Care Plans Section */}
       <section id="care-plans" className="py-32 bg-gray-50">
          <div className="container-custom">
@@ -194,7 +218,7 @@ const ElderCare = () => {
                      className={`relative p-10 rounded-[3rem] ${plan.popular ? 'bg-[#0f172a] text-white shadow-2xl scale-105 z-10' : 'bg-white text-gray-900 shadow-lg border border-gray-100'}`}
                   >
                      {plan.popular && (
-                        <div className="absolute top-8 right-8 bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                        <div className="absolute top-8 right-8 bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
                            Recommended
                         </div>
                      )}
@@ -212,7 +236,7 @@ const ElderCare = () => {
                         ))}
                      </ul>
 
-                     <Link to="/services/booking/elder-care" className={`w-full h-14 rounded-xl font-bold transition-all flex items-center justify-center ${plan.popular ? 'bg-orange-500 hover:bg-orange-600 text-white' : 'bg-gray-100 hover:bg-gray-200 text-[#0f172a]'}`}>
+                     <Link to="/services/booking/elder-care" className={`w-full h-14 rounded-xl font-bold transition-all flex items-center justify-center shadow-lg ${plan.popular ? 'bg-orange-500 hover:bg-orange-600 text-white shadow-orange-900/20' : 'bg-gray-100 hover:bg-gray-200 text-[#0f172a]'}`}>
                         Enquire for Plan
                      </Link>
                   </motion.div>
@@ -229,7 +253,7 @@ const ElderCare = () => {
                <img 
                   src={ASSETS.NURSE_CARE} 
                   alt="Caregiver Holding Hand" 
-                  className="relative rounded-[3rem] shadow-2xl border-8 border-white z-10 hover:scale-[1.02] transition-transform duration-700 object-cover object-top"
+                  className="relative rounded-[3rem] shadow-2xl border-8 border-white z-10 hover:scale-[1.02] transition-transform duration-700 object-cover object-top h-[550px] w-full"
                />
             </div>
             
@@ -243,24 +267,55 @@ const ElderCare = () => {
                </p>
                
                <div className="grid sm:grid-cols-2 gap-8">
-                  <div className="flex items-start gap-4">
-                     <Shield className="w-8 h-8 text-orange-500 shrink-0" />
+                  <Link to="/patient-experience" className="flex items-start gap-4 group block">
+                     <Shield className="w-8 h-8 text-orange-500 shrink-0 group-hover:scale-110 transition-transform" />
                      <div>
-                        <h4 className="font-bold text-lg mb-1">Background Verified</h4>
+                        <h4 className="font-bold text-lg mb-1 group-hover:text-orange-600 transition-colors">Background Verified</h4>
                         <p className="text-sm text-gray-500">Police verified & medically certified staff.</p>
                      </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                     <Clock className="w-8 h-8 text-orange-500 shrink-0" />
+                  </Link>
+                  <Link to="/contact" className="flex items-start gap-4 group block">
+                     <Clock className="w-8 h-8 text-orange-500 shrink-0 group-hover:scale-110 transition-transform" />
                      <div>
-                        <h4 className="font-bold text-lg mb-1">Reliability Guarantee</h4>
+                        <h4 className="font-bold text-lg mb-1 group-hover:text-orange-600 transition-colors">Reliability Guarantee</h4>
                         <p className="text-sm text-gray-500">Immediate replacement in case of absence.</p>
                      </div>
-                  </div>
+                  </Link>
                </div>
             </div>
          </div>
       </section>
+
+      {/* SECTION: GERIATRIC SPECIALISTS (NEW SECTION 12) */}
+      <Section className="bg-slate-900 text-white">
+        <Container>
+          <div className="flex flex-col lg:flex-row-reverse gap-16 items-center">
+            <div className="lg:w-1/2">
+              <img src={ASSETS.ABOUT_DIRECTOR} alt="Geriatric Team" className="rounded-[3rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
+            </div>
+            <div className="lg:w-1/2">
+              <span className="text-orange-400 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Board</span>
+              <h2 className="text-4xl font-serif font-bold mb-6">Expert Oversight by <br /><span className="text-orange-400 italic">Senior Specialists.</span></h2>
+              <p className="text-slate-400 text-lg font-light leading-relaxed mb-8">
+                Our elder care programs are medically supervised by senior consultants who specialize in geriatric medicine, ensuring that every medical decision is based on expert clinical judgement.
+              </p>
+              <div className="grid grid-cols-2 gap-8 mb-10">
+                <div>
+                  <h4 className="text-3xl font-bold text-white">20+</h4>
+                  <p className="text-xs text-slate-500 uppercase font-black tracking-widest mt-1">Specialists</p>
+                </div>
+                <div>
+                  <h4 className="text-3xl font-bold text-white">100%</h4>
+                  <p className="text-xs text-slate-500 uppercase font-black tracking-widest mt-1">Medical Safety</p>
+                </div>
+              </div>
+              <Link to="/doctors" className="h-14 px-8 bg-orange-500 text-white rounded-xl font-bold hover:bg-orange-600 transition-all flex items-center justify-center gap-2 inline-flex">
+                Meet the Team <ArrowRight size={18} />
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </Section>
 
       {/* 5. CTA Section */}
       <section className="py-12 lg:py-10 bg-[#0f172a] text-white text-center">
@@ -277,7 +332,7 @@ const ElderCare = () => {
          </div>
       </section>
 
-      {/* SECTION: CARE EQUIPMENT (NEW) */}
+      {/* SECTION: CARE EQUIPMENT */}
       <Section className="bg-white">
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center">
@@ -289,26 +344,56 @@ const ElderCare = () => {
               </p>
               <div className="grid grid-cols-2 gap-6">
                 {[
-                  { title: "Hospital Beds", desc: "Manual & Electric multi-function beds." },
-                  { title: "Oxygen Support", desc: "Concentrators and cylinders available 24/7." },
-                  { title: "Vitals Monitors", desc: "Digital devices for blood pressure and SpO2." },
-                  { title: "Mobility Aids", desc: "Wheelchairs, walkers, and support bars." }
+                  { title: "Hospital Beds", desc: "Manual & Electric multi-function beds.", path: "/infrastructure/rooms" },
+                  { title: "Oxygen Support", desc: "Concentrators and cylinders available 24/7.", path: "/services/emergency" },
+                  { title: "Vitals Monitors", desc: "Digital devices for blood pressure and SpO2.", path: "/infrastructure/icu" },
+                  { title: "Mobility Aids", desc: "Wheelchairs, walkers, and support bars.", path: "/patient-experience" }
                 ].map((item, i) => (
-                  <div key={i} className="p-6 bg-slate-50 rounded-2xl border border-gray-100 group hover:border-orange-200 transition-all">
-                    <h4 className="font-bold text-brand-dark mb-2">{item.title}</h4>
+                  <Link to={item.path} key={i} className="p-6 bg-slate-50 rounded-2xl border border-gray-100 group hover:border-orange-200 transition-all block">
+                    <h4 className="font-bold text-brand-dark mb-2 group-hover:text-orange-600 transition-colors">{item.title}</h4>
                     <p className="text-xs text-gray-500 leading-relaxed">{item.desc}</p>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
             <div className="lg:w-1/2">
-              <img src={ASSETS.SVC_ICU_ADVANCE} alt="Equipment" className="rounded-[4rem] shadow-2xl w-full h-[450px] object-cover" />
+              <img src={ASSETS.SVC_ICU_ADVANCE} alt="Equipment" className="rounded-[4rem] shadow-2xl w-full h-[450px] object-cover border-8 border-orange-50" />
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* SECTION: GERIATRIC FAQ (NEW) */}
+      {/* SECTION: MONITORING APP (NEW SECTION 13) */}
+      <Section className="bg-orange-50 overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-2/3">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-8 leading-tight">Stay Connected with <br /><span className="text-orange-500 italic">Umang Care App.</span></h2>
+              <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
+                Remotely monitor your parent's vitals, track caregiver attendance, and get daily health summaries from our doctors. Peace of mind, anywhere.
+              </p>
+              <div className="flex flex-wrap gap-6">
+                <button className="h-14 px-8 bg-black text-white rounded-xl font-bold hover:scale-105 transition-all shadow-lg flex items-center gap-3">
+                  <Smartphone size={20} /> Play Store
+                </button>
+                <button className="h-14 px-8 border border-black/20 rounded-xl font-bold hover:bg-black/5 transition-all flex items-center gap-3">
+                  <Smartphone size={20} /> App Store
+                </button>
+              </div>
+            </div>
+            <div className="lg:w-1/3 text-center">
+              <div className="p-10 bg-white rounded-[3rem] shadow-xl border border-orange-100">
+                <Users size={64} className="text-orange-500 mx-auto mb-6" />
+                <h4 className="text-2xl font-bold text-brand-dark mb-2">5000+ Families</h4>
+                <p className="text-sm text-gray-500">Trust our app for daily elderly care updates.</p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION: GERIATRIC FAQ */}
       <Section className="bg-gray-50">
         <Container className="max-w-4xl">
           <SectionHeading 
@@ -322,9 +407,9 @@ const ElderCare = () => {
               { q: "Can we get a replacement if we are not satisfied?", a: "Yes, we prioritize patient comfort. If there is a mismatch in compatibility, we provide a replacement within 24-48 hours." },
               { q: "Do care plans include doctor visits?", a: "Our comprehensive care plans include weekly or bi-weekly home visits by a general physician to monitor progress." }
             ].map((faq, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 text-left hover:border-orange-300 transition-all">
+              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 text-left hover:border-orange-300 transition-all group">
                 <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
-                  <HelpCircle size={20} className="text-orange-500 shrink-0" /> {faq.q}
+                  <HelpCircle size={20} className="text-orange-500 shrink-0 group-hover:scale-110 transition-transform" /> {faq.q}
                 </h4>
                 <p className="text-slate-600 pl-9 text-base leading-relaxed">{faq.a}</p>
               </div>
@@ -339,7 +424,7 @@ const ElderCare = () => {
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Ready to provide the <br /><span className="text-orange-400 italic">best for your parents?</span></h2>
           <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">Get expert guidance on our care packages and find the right support system for your family.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link to="/services/booking/elder-care" className="px-10 py-5 bg-orange-500 text-white rounded-full font-bold text-base shadow-xl hover:bg-orange-600 transition-all flex items-center justify-center gap-3">
+            <Link to="/services/booking/elder-care" className="px-10 py-5 bg-orange-500 text-white rounded-full font-bold text-base shadow-xl hover:bg-orange-600 transition-all flex items-center justify-center gap-3 shadow-orange-900/20">
               Request a Consultation <ArrowRight size={20} />
             </Link>
             <a href={`tel:${siteConfig.contacts.main}`} className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-base hover:bg-white/5 transition-all flex items-center justify-center gap-3">

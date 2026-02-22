@@ -15,25 +15,29 @@ const emergencyServices = [
     icon: Heart,
     title: "Cardiac Emergency",
     desc: "24/7 Cath Lab availability for immediate angioplasty (Primary PTCA) within the golden hour.",
-    color: "bg-red-50 text-red-600"
+    color: "bg-red-50 text-red-600",
+    path: "/specialities/cardiology"
   },
   {
     icon: Activity,
     title: "Stroke Unit",
     desc: "Dedicated stroke team for rapid thrombolysis and neuro-intervention to reverse paralysis.",
-    color: "bg-purple-50 text-purple-600"
+    color: "bg-purple-50 text-purple-600",
+    path: "/specialities/neuro"
   },
   {
     icon: Zap,
     title: "Trauma & Accident",
     desc: "Level 1 Trauma Center equipped to handle poly-trauma, fractures, and severe injuries.",
-    color: "bg-orange-50 text-orange-600"
+    color: "bg-orange-50 text-orange-600",
+    path: "/specialities/ortho"
   },
   {
     icon: AlertCircle,
     title: "Poison & Overdose",
     desc: "Critical care toxicology unit for immediate neutralization and life support.",
-    color: "bg-yellow-50 text-yellow-600"
+    color: "bg-yellow-50 text-yellow-600",
+    path: "/doctors"
   }
 ];
 
@@ -47,7 +51,7 @@ const Emergency = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="bg-white min-h-screen pt-12">
+    <div className="bg-white min-h-screen">
       <SeoHead 
         title="Emergency & Trauma Care" 
         description="24/7 Emergency Room and Trauma Center. Immediate care for heart attacks, strokes, and accidents. Call 89297 33551."
@@ -55,7 +59,7 @@ const Emergency = () => {
       />
 
       {/* 1. High-Urgency Hero Section */}
-      <section className="relative min-h-[550px] lg:min-h-[750px] overflow-hidden flex items-center bg-[#0f172a] py-12 lg:py-10">
+      <section className="relative min-h-[450px] lg:min-h-[600px] overflow-hidden flex items-center bg-[#0f172a] py-12 lg:py-8">
         <div className="absolute inset-0 z-0">
           <img 
             src={ASSETS.AMBULANCE} 
@@ -67,7 +71,7 @@ const Emergency = () => {
           <div className="absolute inset-0 bg-red-500/10 animate-pulse" />
         </div>
 
-        <div className="container-custom relative z-20 text-white pb-12">
+        <div className="container-custom relative z-20 text-white pb-6 lg:pb-0">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -77,15 +81,15 @@ const Emergency = () => {
             <div className="inline-flex items-center gap-2 bg-red-600 text-white px-4 py-1.5 rounded-full font-bold uppercase tracking-widest text-xs mb-8 animate-bounce">
               <AlertCircle className="w-4 h-4" /> 24/7 Emergency Active
             </div>
-            <h1 className="text-4xl md:text-8xl font-serif font-bold mb-8 leading-none tracking-tight">
+            <h1 className="text-4xl md:text-8xl font-serif font-bold mb-6 leading-none tracking-tight">
               Every Second <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">Counts.</span>
             </h1>
-            <p className="text-xl text-red-100 font-light leading-relaxed mb-12 max-w-xl">
+            <p className="text-lg md:text-xl text-red-100 font-light leading-relaxed mb-10 max-w-xl">
               World-class emergency care staffed by fellowship-trained experts. Prepared for the unexpected, every moment of every day.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 mb-12">
+            <div className="flex flex-col sm:flex-row gap-6 mb-8">
               <a href="tel:+918929733551" className="h-16 px-8 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 hover-lift hover:shadow-red-900/50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
                 <Phone className="w-6 h-6 animate-wiggle" /> Call Ambulance: 89297 33551
               </a>
@@ -97,8 +101,8 @@ const Emergency = () => {
         </div>
       </section>
 
-      {/* SECTION: EMERGENCY STATISTICS (NEW) */}
-      <div className="bg-red-600 py-8 lg:py-10 relative overflow-hidden border-y border-red-500/30">
+      {/* SECTION: EMERGENCY STATISTICS */}
+      <div className="bg-red-600 py-6 lg:py-8 relative overflow-hidden border-y border-red-500/30">
         <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         <div className="container-custom relative z-10">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
@@ -128,20 +132,25 @@ const Emergency = () => {
                      whileInView={{ opacity: 1, y: 0 }}
                      transition={{ delay: i * 0.1 }}
                      viewport={{ once: true }}
-                     className="bg-white p-8 rounded-3xl shadow-xl border-b-4 border-b-red-500 hover:-translate-y-2 transition-all duration-300"
+                     className="group"
                   >
-                     <div className={`w-14 h-14 rounded-2xl ${service.color} flex items-center justify-center mb-6`}>
-                        <service.icon className="w-7 h-7" />
-                     </div>
-                     <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                     <p className="text-gray-500 leading-relaxed text-sm">{service.desc}</p>
+                    <Link to={service.path} className="block bg-white p-8 rounded-3xl shadow-xl border-b-4 border-b-red-500 hover:-translate-y-2 transition-all duration-300 h-full">
+                       <div className={`w-14 h-14 rounded-2xl ${service.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                          <service.icon className="w-7 h-7" />
+                       </div>
+                       <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-red-600 transition-colors">{service.title}</h3>
+                       <p className="text-gray-500 leading-relaxed text-sm">{service.desc}</p>
+                       <div className="mt-6 flex items-center gap-2 text-red-600 font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                         View Details <ArrowRight size={14} />
+                       </div>
+                    </Link>
                   </motion.div>
                ))}
             </div>
          </div>
       </section>
 
-      {/* SECTION: TRAUMA PROTOCOLS (NEW) */}
+      {/* SECTION: TRAUMA PROTOCOLS */}
       <section className="section-padding bg-slate-50 overflow-hidden relative">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
@@ -153,17 +162,17 @@ const Emergency = () => {
               </p>
               <div className="space-y-6">
                 {[
-                  { title: "Stat CT Scan", desc: "Immediate imaging for trauma cases to identify internal injuries." },
-                  { title: "Ready-to-Go OTs", desc: "One operation theatre is permanently reserved for emergency surgeries." },
-                  { title: "In-house Blood Bank", desc: "24/7 availability of critical blood components for trauma patients." }
+                  { title: "Stat CT Scan", desc: "Immediate imaging for trauma cases to identify internal injuries.", path: "/services/lab-test-diagnostic" },
+                  { title: "Ready-to-Go OTs", desc: "One operation theatre is permanently reserved for emergency surgeries.", path: "/infrastructure/ot" },
+                  { title: "In-house Blood Bank", desc: "24/7 availability of critical blood components for trauma patients.", path: "/services/lab-test-diagnostic" }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-5 items-start">
-                    <div className="w-2 h-12 bg-red-100 rounded-full group-hover:bg-red-600 transition-colors" />
+                  <Link to={item.path} key={i} className="flex gap-5 items-start group block">
+                    <div className="w-2 h-12 bg-red-100 rounded-full group-hover:bg-red-600 transition-colors shrink-0" />
                     <div>
-                      <h4 className="font-bold text-brand-dark mb-1">{item.title}</h4>
+                      <h4 className="font-bold text-brand-dark mb-1 group-hover:text-red-600 transition-colors">{item.title}</h4>
                       <p className="text-sm text-gray-500">{item.desc}</p>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -186,24 +195,24 @@ const Emergency = () => {
                </p>
                
                <div className="space-y-6">
-                  <div className="flex gap-4 items-start">
-                     <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 mt-1 shrink-0">
+                  <Link to="/patient-experience" className="flex gap-4 items-start group block">
+                     <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 mt-1 shrink-0 group-hover:bg-red-600 group-hover:text-white transition-all">
                         <Clock className="w-4 h-4" />
                      </div>
                      <div>
-                        <h4 className="font-bold text-[#0f172a]">Zero Waiting Time</h4>
+                        <h4 className="font-bold text-[#0f172a] group-hover:text-red-600 transition-colors">Zero Waiting Time</h4>
                         <p className="text-sm text-gray-500">Immediate triage for critical patients (Red Zone).</p>
                      </div>
-                  </div>
-                  <div className="flex gap-4 items-start">
-                     <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 mt-1 shrink-0">
+                  </Link>
+                  <Link to="/doctors" className="flex gap-4 items-start group block">
+                     <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center text-red-600 mt-1 shrink-0 group-hover:bg-red-600 group-hover:text-white transition-all">
                         <Shield className="w-4 h-4" />
                      </div>
                      <div>
-                        <h4 className="font-bold text-[#0f172a]">Specialist Backup</h4>
+                        <h4 className="font-bold text-[#0f172a] group-hover:text-red-600 transition-colors">Specialist Backup</h4>
                         <p className="text-sm text-gray-500">24/7 backup from Cardiologists, Neurologists & Surgeons.</p>
                      </div>
-                  </div>
+                  </Link>
                </div>
             </div>
             
@@ -218,7 +227,30 @@ const Emergency = () => {
          </div>
       </section>
 
-      {/* SECTION: AMBULANCE WORKFLOW (NEW) */}
+      {/* SECTION: EMERGENCY HUB TECHNOLOGY (NEW SECTION 10) */}
+      <section className="section-padding bg-slate-50 overflow-hidden relative">
+        <div className="container-custom">
+          <div className="text-center mb-16">
+            <span className="text-red-600 font-bold uppercase tracking-widest text-sm mb-4 block">ER Technology</span>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a]">Advanced ER Infrastructure</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { title: "Central Monitoring", desc: "Real-time vitals monitoring of all ER beds from a central nursing station.", icon: Activity },
+              { title: "Point-of-Care Testing", desc: "Bedside blood gas and cardiac marker testing for immediate diagnosis.", icon: Zap },
+              { title: "Ventilator Support", desc: "Every ER bed is equipped with advanced invasive/non-invasive ventilation.", icon: AlertCircle }
+            ].map((tech, i) => (
+              <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                <tech.icon className="w-10 h-10 text-red-600 mb-6" />
+                <h4 className="text-xl font-bold text-brand-dark mb-3">{tech.title}</h4>
+                <p className="text-gray-500 text-sm leading-relaxed">{tech.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION: AMBULANCE WORKFLOW */}
       <section className="section-padding bg-slate-900 text-white overflow-hidden">
         <Container>
           <div className="text-center mb-16 lg:mb-24">
@@ -252,12 +284,12 @@ const Emergency = () => {
             
             <div className="grid md:grid-cols-3 gap-8">
                {[
-                  { title: "Chest Pain & Breathing", items: ["Severe chest pressure", "Difficulty breathing", "Fainting or blackout", "Sudden dizziness"] },
-                  { title: "Trauma & Injury", items: ["Deep cuts or bleeding", "Head injury with confusion", "Broken bones (visible)", "Severe burns"] },
-                  { title: "Neurological Symptoms", items: ["Sudden weakness/numbness", "Slurred speech (Stroke signs)", "Severe sudden headache", "Seizures"] }
+                  { title: "Chest Pain & Breathing", path: "/specialities/cardiology", items: ["Severe chest pressure", "Difficulty breathing", "Fainting or blackout", "Sudden dizziness"] },
+                  { title: "Trauma & Injury", path: "/specialities/ortho", items: ["Deep cuts or bleeding", "Head injury with confusion", "Broken bones (visible)", "Severe burns"] },
+                  { title: "Neurological Symptoms", path: "/specialities/neuro", items: ["Sudden weakness/numbness", "Slurred speech (Stroke signs)", "Severe sudden headache", "Seizures"] }
                ].map((cat, i) => (
-                  <div key={i} className="bg-red-50 p-8 rounded-3xl border border-red-100">
-                     <h3 className="text-xl font-bold text-red-700 mb-6">{cat.title}</h3>
+                  <Link to={cat.path} key={i} className="bg-red-50 p-8 rounded-3xl border border-red-100 group block hover:bg-white transition-all">
+                     <h3 className="text-xl font-bold text-red-700 mb-6 group-hover:text-red-600">{cat.title}</h3>
                      <ul className="space-y-3">
                         {cat.items.map((item, idx) => (
                            <li key={idx} className="flex items-center gap-3 text-gray-700 font-medium">
@@ -265,13 +297,13 @@ const Emergency = () => {
                            </li>
                         ))}
                      </ul>
-                  </div>
+                  </Link>
                ))}
             </div>
          </div>
       </section>
 
-      {/* SECTION: EMERGENCY HELPLINE CTA (NEW) */}
+      {/* SECTION: EMERGENCY HELPLINE CTA */}
       <section className="section-padding bg-brand-dark relative overflow-hidden">
         <div className="absolute inset-0 bg-red-600/5" />
         <Container className="relative z-10 text-center">
@@ -284,6 +316,37 @@ const Emergency = () => {
             <Link to="/contact" className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-base hover:bg-white/5 transition-all flex items-center justify-center gap-3">
               View Hospital Map <ArrowRight size={20} />
             </Link>
+          </div>
+        </Container>
+      </section>
+
+      {/* SECTION: SPECIALIST ER TEAM (NEW SECTION 11) */}
+      <section className="section-padding bg-white">
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <img src={ASSETS.ABOUT_MAIN} alt="Medical Team" className="rounded-[3rem] shadow-2xl" />
+            </div>
+            <div className="lg:w-1/2">
+              <span className="text-red-600 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Experts</span>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Staffed by <br /><span className="text-red-600 italic">Fellowship Trained</span> Experts.</h2>
+              <p className="text-gray-500 text-lg mb-8 leading-relaxed">
+                Our ER is not just about machines; it is about the experts who operate them. Every shift is led by an ER consultant with deep experience in trauma and cardiac resuscitation.
+              </p>
+              <div className="grid grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-3xl font-bold text-brand-dark">100+</h4>
+                  <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mt-1">Paramedics</p>
+                </div>
+                <div>
+                  <h4 className="text-3xl font-bold text-brand-dark">24/7</h4>
+                  <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mt-1">Intensivist Cover</p>
+                </div>
+              </div>
+              <div className="mt-10">
+                <Link to="/doctors" className="btn-primary">View Specialists</Link>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
