@@ -4,7 +4,7 @@ import {
   Calendar, Clock, FileText, ChevronRight, 
   ArrowUpRight, Heart, Activity, Thermometer, 
   Droplets, MoreVertical, Plus, Download,
-  ExternalLink
+  ExternalLink, Settings
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
