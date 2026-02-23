@@ -2,7 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Search, Star, ChevronRight, Clock, Shield, X, Phone, 
-  Calendar, ArrowLeft, Award, MapPin, Filter, User, HelpCircle,
+  Calendar, ArrowLeft, ArrowRight, Award, MapPin, Filter, User, HelpCircle,
   ThumbsUp, Activity, Heart, Brain, Bone, Eye, Loader, Stethoscope, BookOpen
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
