@@ -307,7 +307,7 @@ const HealthCheckBooking = () => {
                            </div>
                            <div className="space-y-2">
                               <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Phone Number</label>
-                              <input type="tel" required className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent" placeholder="+91 89297 33550" />
+                              <input type="tel" required className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent" placeholder="+91 85880 72727" />
                            </div>
                            <div className="space-y-2">
                               <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Preferred Date</label>
@@ -379,7 +379,7 @@ const HealthCheckBooking = () => {
                <h2 className="text-4xl font-serif font-bold mb-4">Healthy Living Starts Here.</h2>
                <p className="text-blue-200 text-lg opacity-80">Join 50,000+ individuals who trust Umang for their annual health screenings.</p>
             </div>
-            <a href="tel:+918929733550" className="h-16 px-10 rounded-xl bg-white text-[#0f172a] font-black text-lg hover:bg-blue-50 transition-all flex items-center gap-3 shadow-2xl">
+            <a href="tel:+918588072727" className="h-16 px-10 rounded-xl bg-white text-[#0f172a] font-black text-lg hover:bg-blue-50 transition-all flex items-center gap-3 shadow-2xl">
                <Smartphone className="w-6 h-6" /> Call for Assistance
             </a>
          </div>

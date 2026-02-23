@@ -99,7 +99,7 @@ const Sitemap = () => {
                 
                 <div className="container-custom relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-                        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6">
+                        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/20 text-primary-400 text-[12px] font-black uppercase tracking-[0.3em] mb-6">
                            <Map className="w-3.5 h-3.5" /> Site Navigation
                         </span>
                         <h1 className="text-4xl md:text-7xl font-serif font-bold text-white mb-6 tracking-tighter leading-tight">
@@ -113,39 +113,53 @@ const Sitemap = () => {
             </section>
 
             {/* SITEMAP GRID */}
-            <section className="py-24 bg-white">
-                <div className="container-custom">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+            <section className="py-24 bg-slate-50 relative overflow-hidden">
+                <div className="absolute top-1/2 left-0 w-full h-full bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.03)_0%,transparent_70%)] pointer-events-none" />
+                <div className="container-custom relative z-10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                         {sitemapData.map((section, idx) => (
                             <motion.div 
                                 key={idx}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: idx * 0.1 }}
+                                initial={{ opacity: 0, scale: 0.98 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: idx * 0.05 }}
                                 viewport={{ once: true }}
-                                className="group"
+                                className="bg-white p-10 lg:p-14 rounded-[3rem] border border-slate-100 hover:border-primary-200 shadow-sm hover:shadow-2xl hover:shadow-primary-500/10 transition-all duration-700 group flex flex-col h-full"
                             >
-                                <div className="flex items-center gap-4 mb-8">
-                                    <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 shadow-sm">
-                                        <section.icon className="w-6 h-6" />
+                                <div className="flex items-center gap-6 mb-12">
+                                    <div className="w-16 h-16 rounded-[1.5rem] bg-primary-50 text-primary-600 flex items-center justify-center group-hover:bg-primary-600 group-hover:text-white transition-all duration-700 shadow-sm transform group-hover:rotate-6">
+                                        <section.icon className="w-8 h-8" />
                                     </div>
-                                    <h3 className="text-2xl font-serif font-bold text-brand-dark">{section.title}</h3>
+                                    <div>
+                                        <h3 className="text-2xl font-serif font-bold text-brand-dark tracking-tight">{section.title}</h3>
+                                        <div className="h-1 w-10 bg-primary-500/20 rounded-full mt-2 group-hover:w-20 group-hover:bg-primary-500 transition-all duration-700" />
+                                    </div>
                                 </div>
                                 
-                                <ul className="space-y-4">
+                                <ul className="space-y-4 flex-1">
                                     {section.links.map((link, lIdx) => (
                                         <li key={lIdx}>
                                             <Link 
                                                 to={link.path} 
                                                 state={link.state}
-                                                className="flex items-center justify-between py-2 text-gray-500 hover:text-primary-600 font-medium transition-colors border-b border-gray-50 group/link"
+                                                className="flex items-center justify-between py-3 px-4 -mx-4 rounded-2xl text-slate-500 hover:text-primary-600 hover:bg-primary-50/50 font-bold text-base transition-all group/link"
                                             >
-                                                <span>{link.name}</span>
-                                                <ChevronRight className="w-4 h-4 opacity-0 group-hover/link:opacity-100 group-hover/link:translate-x-1 transition-all" />
+                                                <span className="flex items-center gap-3">
+                                                   <span className="w-1.5 h-1.5 rounded-full bg-slate-200 group-hover/link:bg-primary-500 transition-colors" />
+                                                   {link.name}
+                                                </span>
+                                                <ChevronRight className="w-5 h-5 opacity-0 group-hover/link:opacity-100 translate-x-2 group-hover/link:translate-x-0 transition-all duration-300" />
                                             </Link>
                                         </li>
                                     ))}
                                 </ul>
+                                
+                                <div className="mt-12 pt-8 border-t border-slate-50 flex items-center justify-between">
+                                   <span className="text-[11px] font-black uppercase text-slate-300 tracking-widest">{section.links.length} Active Nodes</span>
+                                   <div className="flex -space-x-2">
+                                      {[1,2,3].map(i => <div key={i} className="w-6 h-6 rounded-full border-2 border-white bg-slate-100" />)}
+                                   </div>
+                                </div>
                             </motion.div>
                         ))}
                     </div>

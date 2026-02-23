@@ -38,7 +38,7 @@
 | Section | Purpose | Content | Type | Image/Video Requirement |
 |:---|:---|:---|:---|:---|
 | **Section 1: Hero** | Brand Impact | Headline: "World-Class Healthcare", Sub: "Gurugram's leading 100-bedded facility." | Static | **Video:** `umang-hospital-tour-27sec.mp4` (Muted Loop) \| **Img:** `hero-hospital-exterior.jpg` |
-| **Section 2: Stats** | Proof of Scale | 100+ Beds, 15+ Specialists, 24/7 Emergency, 15+ Years Exp. | **Dynamic (DB)** | Icons: `icon-bed.svg`, `icon-doctor.svg`, `icon-emergency.svg` |
+| **Section 2: Stats** | Proof of Scale | 100+ Beds, 30+ Specialists, 24/7 Emergency, 15+ Years Exp. | **Dynamic (DB)** | Icons: `icon-bed.svg`, `icon-doctor.svg`, `icon-emergency.svg` |
 | **Section 3: Specialties** | Medical Depth | Grid: Cardiac, Neuro, Ortho, Gastro, Pulmo, etc. | Static | `speciality-[slug].jpg` (High-quality clinical shots) |
 | **Section 4: Infrastructure** | Tech Trust | ICU Overview: 12 Advance ICU, 4 SICU, 4 CCU. | **Dynamic (DB)** | `icu-room-1.jpg`, `icu-equipment.jpg` |
 | **Section 5: Doctors** | Personal Trust | High-performing doctor cards with experience badges. | **Dynamic (DB)** | `doctor-[name].jpg` (Professional Portraits) |

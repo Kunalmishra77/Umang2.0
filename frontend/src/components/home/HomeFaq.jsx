@@ -31,17 +31,17 @@ const HomeFaq = () => {
               <h3 className="text-xl font-bold text-brand-dark mb-6 relative z-10">Need more help?</h3>
               
               <div className="space-y-6 relative z-10">
-                <a href="tel:+918929733550" className="flex items-center gap-4 group/item">
+                <a href="tel:+918588072727" className="flex items-center gap-4 group/item">
                   <div className="w-12 h-12 rounded-2xl bg-primary-600 text-white flex items-center justify-center group-hover/item:scale-110 transition-transform">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
                     <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">24/7 Helpline</p>
-                    <p className="font-bold text-brand-dark">+91 89297 33550</p>
+                    <p className="font-bold text-brand-dark">+91 85880 72727</p>
                   </div>
                 </a>
 
-                <a href="https://wa.me/918929733550" className="flex items-center gap-4 group/item">
+                <a href="https://wa.me/918588072727" className="flex items-center gap-4 group/item">
                   <div className="w-12 h-12 rounded-2xl bg-green-500 text-white flex items-center justify-center group-hover/item:scale-110 transition-transform">
                     <MessageSquare className="w-5 h-5" />
                   </div>

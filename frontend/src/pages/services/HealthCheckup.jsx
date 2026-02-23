@@ -97,7 +97,7 @@ const HealthCheckup = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase text-blue-200">Book via Call</p>
-                  <p className="font-bold text-lg">89297 33551</p>
+                  <p className="font-bold text-lg">{siteConfig.contacts.emergency}</p>
                 </div>
               </div>
             </div>
@@ -120,23 +120,29 @@ const HealthCheckup = () => {
       </section>
 
       {/* SECTION: SCREENING IMPACT STATS */}
-      <div className="bg-primary-600 py-8 lg:py-10 text-white overflow-hidden relative border-y border-white/5">
-        <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-        <Container>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10">
+      <div className="bg-[#030712] py-10 md:py-12 text-white relative overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent" />
+        <Container className="relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 text-center">
             {[
               { label: "Annual Screenings", value: "25,000+" },
               { label: "Early Detections", value: "1,200+" },
               { label: "Satisfaction", value: "98.5%" },
               { label: "Report Time", value: "24 Hrs" }
             ].map((stat, i) => (
-              <div key={i}>
-                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight mb-1">{stat.value}</p>
-                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-primary-100/70">{stat.label}</p>
+              <div key={i} className="group relative">
+                <div className="absolute -inset-4 bg-primary-600/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <p className="text-3xl lg:text-4xl font-serif font-bold mb-2 tracking-tighter text-white group-hover:text-primary-400 transition-colors duration-500">{stat.value}</p>
+                <div className="flex flex-col items-center">
+                  <div className="h-[1px] w-5 bg-primary-600/40 mb-3 group-hover:w-10 transition-all duration-700" />
+                  <p className="text-[8px] lg:text-[9px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-slate-300 transition-colors">{stat.label}</p>
+                </div>
               </div>
             ))}
           </div>
         </Container>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-primary-500/20 to-transparent" />
       </div>
 
       {/* 2. Packages Section */}
@@ -317,25 +323,38 @@ const HealthCheckup = () => {
       </Section>
 
       {/* SECTION: SCREENING FAQ */}
-      <Section className="bg-gray-50">
-        <Container className="max-w-4xl">
-          <SectionHeading 
-            eyebrow="Help Desk" 
-            title="Screening Related FAQs" 
-            centered
-          />
-          <div className="space-y-4">
+      <Section className="bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-[120px] opacity-30 -mr-48 -mt-48" />
+        <Container>
+          <div className="text-center mb-20 relative z-10">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-600 mb-4 block">Help Center</span>
+            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark">Screening <span className="text-primary-600 italic">FAQ.</span></h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10">
             {[
-              { q: "Is home collection available for all packages?", a: "Yes, all our primary health checkup packages include the option for home sample collection by certified phlebotomists." },
-              { q: "How long should I fast before the tests?", a: "A minimum of 10-12 hours of overnight fasting is required for accurate blood sugar and lipid profile results." },
-              { q: "Can I customize a health package?", a: "Absolutely. You can add specific tests to any existing package based on your doctor's advice or personal health concerns." }
+              { q: "Is home collection available for all packages?", a: "Yes, all our primary health checkup packages include the option for home sample collection by certified phlebotomists across Gurugram." },
+              { q: "How long should I fast before the tests?", a: "A minimum of 10-12 hours of overnight fasting is required for accurate blood sugar and lipid profile results. You can drink water during this period." },
+              { q: "Can I customize a health package?", a: "Absolutely. You can add specific tests to any existing package based on your doctor's advice or personal health concerns. Our desk can guide you on combinations." },
+              { q: "How soon will I receive my reports?", a: "Digital reports are typically shared via Email and WhatsApp within 12-24 hours. Physical copies can be collected from the dispatch counter." },
+              { q: "Is doctor consultation included in all?", a: "Yes, all our executive and premium packages include a mandatory review and consultation with a senior physician to discuss findings." },
+              { q: "Do you accept insurance for checkups?", a: "Many corporate insurance plans cover preventive health checkups. Please check with our TPA desk for your specific plan eligibility." }
             ].map((faq, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 text-left group hover:border-primary-300 transition-all">
-                <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
-                  <HelpCircle size={20} className="text-primary-600 group-hover:scale-110 transition-transform" /> {faq.q}
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-primary-200 hover:shadow-2xl transition-all duration-500 group"
+              >
+                <h4 className="font-bold text-brand-dark flex items-start gap-6 mb-4 text-xl group-hover:text-primary-600 transition-colors">
+                  <span className="w-10 h-10 rounded-2xl bg-primary-50 flex items-center justify-center shrink-0 text-primary-600 font-black text-sm group-hover:bg-primary-600 group-hover:text-white transition-all">?</span>
+                  {faq.q}
                 </h4>
-                <p className="text-slate-600 pl-9 text-base leading-relaxed">{faq.a}</p>
-              </div>
+                <div className="pl-16">
+                  <p className="text-slate-500 text-lg font-light leading-relaxed">{faq.a}</p>
+                </div>
+              </motion.div>
             ))}
           </div>
         </Container>

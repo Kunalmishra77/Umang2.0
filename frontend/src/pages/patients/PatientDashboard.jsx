@@ -44,9 +44,9 @@ const PatientDashboard = () => {
           <Link to="/patients/book-appointment" className="h-12 px-6 rounded-xl bg-blue-600 text-white font-bold text-sm flex items-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
             <Plus className="w-4 h-4" /> Book Appointment
           </Link>
-          <button className="h-12 w-12 rounded-xl bg-white border border-slate-200 text-slate-600 flex items-center justify-center hover:bg-slate-50 transition-all">
+          <Link to="/patients/profile" className="h-12 w-12 rounded-xl bg-white border border-slate-200 text-slate-600 flex items-center justify-center hover:bg-slate-50 transition-all">
             <Settings className="w-5 h-5" />
-          </button>
+          </Link>
         </div>
       </div>
 

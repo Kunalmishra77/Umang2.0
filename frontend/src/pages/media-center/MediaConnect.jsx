@@ -73,7 +73,7 @@ const MediaConnect = () => {
                </motion.a>
                <motion.a 
                   whileHover={{ scale: 1.05, y: -2 }}
-                  href="tel:+918929733550" 
+                  href="tel:+918588072727" 
                   className="h-16 px-10 rounded-full bg-blue-500 text-white font-bold text-lg hover:bg-blue-600 transition-all flex items-center gap-3 shadow-xl"
                >
                   <Phone className="w-6 h-6" /> +91 124 456 7895

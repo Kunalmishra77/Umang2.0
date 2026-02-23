@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Search, Star, ChevronRight, Clock, Shield, X, Phone, 
   Calendar, ArrowLeft, Award, MapPin, Filter, User, HelpCircle,
-  ThumbsUp, Activity, Heart, Brain, Bone, Eye, Loader
+  ThumbsUp, Activity, Heart, Brain, Bone, Eye, Loader, Stethoscope, BookOpen
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
@@ -178,7 +178,7 @@ const DoctorSearch = () => {
     <div className="bg-white min-h-screen">
       <SeoHead 
         title="Find a Doctor" 
-        description="Search from our network of 100+ world-class doctors and book your consultation in seconds at Umang Hospital."
+        description="Search from our network of 30+ world-class doctors and book your consultation in seconds at Umang Hospital."
         canonical="/doctors"
       />
 
@@ -188,7 +188,7 @@ const DoctorSearch = () => {
          <div className="container-custom relative z-10 text-center max-w-4xl mx-auto px-6">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
                <h1 className="text-4xl md:text-6xl lg:text-[4.2rem] font-serif font-bold mb-5 tracking-tight leading-[1.05]">Find the Right <span className="text-blue-400">Specialist.</span></h1>
-               <p className="text-blue-200 text-base lg:text-lg mb-10 lg:mb-12 opacity-80 max-w-2xl mx-auto font-light">Search from our network of 100+ world-class doctors and book your consultation in seconds.</p>
+               <p className="text-blue-200 text-base lg:text-lg mb-10 lg:mb-12 opacity-80 max-w-2xl mx-auto font-light">Search from our network of 30+ world-class doctors and book your consultation in seconds.</p>
                
                <div className="bg-white p-1.5 lg:p-2 rounded-xl lg:rounded-2xl shadow-2xl flex max-w-2xl mx-auto items-center">
                   <div className="flex-1 flex items-center px-3 lg:px-4">
@@ -228,19 +228,19 @@ const DoctorSearch = () => {
       </section>
 
       {/* SECTION: CLINICAL EXPERTISE STATS */}
-      <div className="bg-primary-600 py-8 lg:py-10 text-white overflow-hidden relative border-y border-white/5">
+      <div className="bg-primary-600 py-6 lg:py-8 text-white overflow-hidden relative border-y border-white/5">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5" />
         <Container>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10">
             {[
               { label: "Board Certified", value: "100%" },
-              { label: "Specialists", value: "100+" },
+              { label: "Specialists", value: "30+" },
               { label: "Avg Experience", value: "15+ Yrs" },
               { label: "Patient Rating", value: "4.9/5" }
             ].map((stat, i) => (
               <div key={i}>
-                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight mb-1">{stat.value}</p>
-                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-primary-100/70">{stat.label}</p>
+                <p className="text-xl lg:text-2xl font-serif font-bold tracking-tight mb-0.5">{stat.value}</p>
+                <p className="text-[8px] lg:text-[9px] font-black uppercase tracking-[0.2em] text-primary-100/70">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -458,24 +458,111 @@ const DoctorSearch = () => {
         </Container>
       </Section>
 
-      {/* FAQ Section */}
-      <section className="section-padding bg-white border-t border-gray-100">
-         <div className="container-custom max-w-4xl px-6">
-            <h2 className="text-2xl lg:text-3xl font-serif font-bold text-[#0f172a] text-center mb-12 lg:mb-16">Frequently Asked Questions</h2>
-            <div className="space-y-4">
-               {[
-                  { q: "Can I book a same-day appointment?", a: "Yes, if slots are available, you can book same-day appointments. Look for the 'Today' badge." },
-                  { q: "Do you offer second opinions online?", a: "Absolutely. Most of our specialists are available for video consultations specifically for second opinions." },
-                  { q: "How do I cancel or reschedule?", a: "You can manage your bookings through the Patient Portal or by calling our helpline." }
-               ].map((faq, i) => (
-                  <div key={i} className="bg-gray-50 p-6 lg:p-8 rounded-2xl lg:rounded-3xl border border-gray-100 text-left">
-                     <h4 className="font-bold text-base lg:text-lg text-[#0f172a] mb-2 flex items-center gap-3"><HelpCircle className="w-4 h-4 lg:w-5 lg:h-5 text-blue-500" /> {faq.q}</h4>
-                     <p className="text-gray-500 text-sm lg:text-base ml-7 lg:ml-8 leading-relaxed">{faq.a}</p>
-                  </div>
-               ))}
+      {/* SECTION: ACADEMIC EXCELLENCE (NEW) */}
+      <Section className="bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[120px]" />
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <span className="text-primary-400 font-bold uppercase tracking-widest text-xs mb-4 block">Research & Academics</span>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">Advancing Medicine <br /><span className="text-primary-400 italic">Every Day.</span></h2>
+              <p className="text-slate-400 text-lg font-light leading-relaxed mb-10">
+                Our faculty doesn\'t just practice medicine; they define it. Through continuous clinical research and participation in global medical forums, we bring the latest therapeutic breakthroughs to our patients.
+              </p>
+              <div className="grid grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-3xl font-bold text-white">500+</h4>
+                  <p className="text-xs text-slate-500 uppercase font-black tracking-widest mt-1">Research Papers</p>
+                </div>
+                <div>
+                  <h4 className="text-3xl font-bold text-white">20+</h4>
+                  <p className="text-xs text-slate-500 uppercase font-black tracking-widest mt-1">Global CMEs</p>
+                </div>
+              </div>
             </div>
-         </div>
-      </section>
+            <div className="lg:w-1/2">
+              <div className="p-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] group hover:bg-white/10 transition-all">
+                <BookOpen size={64} className="text-primary-400 mb-6 group-hover:scale-110 transition-transform" />
+                <h4 className="text-2xl font-bold mb-4">Clinical Fellowships</h4>
+                <p className="text-slate-400 leading-relaxed mb-8">We offer specialized fellowship programs for young doctors in Cardiology, Critical Care, and Minimally Invasive Surgery.</p>
+                <Link to="/health-library/knowledge-center" className="text-primary-400 font-bold uppercase tracking-widest text-xs flex items-center gap-2">Explore Academics <ArrowRight size={14} /></Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* SECTION: FELLOWSHIPS & TRAINING (NEW) */}
+      <Section className="bg-white">
+        <Container>
+          <SectionHeading eyebrow="Global Training" title="Where Our Experts Come From" centered />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-60 hover:opacity-100 transition-opacity">
+            {['AIIMS Delhi', 'PGI Chandigarh', 'Royal College (UK)', 'Cleveland Clinic'].map((inst, i) => (
+              <div key={i} className="p-8 border border-slate-100 rounded-3xl text-center grayscale hover:grayscale-0 hover:border-primary-200 transition-all">
+                <p className="font-serif font-bold text-xl text-slate-800">{inst}</p>
+                <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-2">Alumni Network</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* FAQ Section */}
+      <Section className="bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-full h-full opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]" />
+        <Container>
+          <div className="text-center mb-16 relative z-10">
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-6">
+              <HelpCircle className="w-4 h-4" /> Consultation Help
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Booking <span className="text-blue-600 italic">FAQs</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">Common questions about doctor appointments, specialist availability, and clinical consultations.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+            {[
+              { q: "Can I book a same-day appointment?", a: "Yes, if slots are available, you can book same-day appointments. Look for the 'Today' badge on the doctor profiles for instant slot availability." },
+              { q: "Do you offer second opinions online?", a: "Absolutely. Most of our senior specialists are available for video consultations specifically for detailed second opinions and case reviews." },
+              { q: "How do I cancel or reschedule?", a: "You can manage your bookings through the Patient Portal or by calling our 24/7 helpline at +91 85880 72727 at least 4 hours in advance." },
+              { q: "What should I bring for consultation?", a: "Please bring your previous medical records, ongoing prescriptions, and a valid ID proof. This helps our specialists understand your history better." },
+              { q: "Are all doctors available for walk-ins?", a: "While we accept walk-ins, it is highly recommended to book an appointment to ensure you are seen by your preferred specialist with minimal waiting time." },
+              { q: "Can I book for a family member?", a: "Yes, you can use your account to book appointments for family members. Just ensure to enter their correct patient details during the booking process." }
+            ].map((faq, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-xl shadow-blue-900/5 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all duration-500 group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  <Stethoscope size={20} />
+                </div>
+                <h4 className="font-bold text-lg text-[#0f172a] mb-4 leading-tight group-hover:text-blue-600 transition-colors">{faq.q}</h4>
+                <p className="text-gray-500 text-sm leading-relaxed font-light">{faq.a}</p>
+              </motion.div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* FINAL CTA (NEW) */}
+      <Section className="bg-brand-dark text-white text-center relative overflow-hidden py-24">
+        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <Container className="relative z-10 max-w-4xl mx-auto">
+          <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Your Health, <span className="text-primary-400 italic">Our Experts.</span></h2>
+          <p className="text-slate-400 text-xl mb-16 font-light leading-relaxed">Schedule your consultation with Gurugram\'s most distinguished medical faculty today.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-8">
+            <Link to="/appointments/request" className="px-12 py-6 bg-primary-600 text-white rounded-2xl font-bold text-lg hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
+              <Calendar size={24} className="group-hover:rotate-12 transition-transform" /> Book Appointment
+            </Link>
+            <a href="tel:+918588072727" className="px-12 py-6 border border-white/20 text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:scale-105 active:scale-95">
+              <Phone size={24} /> Get Call Back
+            </a>
+          </div>
+        </Container>
+      </Section>
 
       {/* Mobile Detail Overlay */}
       <AnimatePresence>

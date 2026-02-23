@@ -7,6 +7,7 @@ import {
   User, Calendar, Mail, Phone
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Section, Container } from '../../components/ui/Layout';
 
 const LabReports = () => {
   const [trackId, setTrackId] = useState('');
@@ -378,23 +379,44 @@ const LabReports = () => {
       </section>
 
       {/* 6. FAQ Section */}
-      <section className="py-32 bg-gray-50 border-t border-gray-100">
-         <div className="container-custom max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] text-center mb-16">Common Queries</h2>
-            <div className="space-y-4">
-               {[
-                  { q: "How long are reports stored online?", a: "Your reports are stored for a lifetime in our patient portal. You can access reports dating back to 2020 at any time." },
-                  { q: "What should I do if my report is 'Delayed'?", a: "Rarely, complex tests like cultures or biopsies may require more time. Our team will contact you if any extra validation is needed." },
-                  { q: "Can I get my reports on multiple email IDs?", a: "For security, we only send reports to the email registered at the time of billing. You can update this at the hospital reception." }
-               ].map((faq, i) => (
-                  <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                     <h4 className="font-bold text-lg text-[#0f172a] mb-2 flex items-center gap-3"><Info className="w-5 h-5 text-blue-500" /> {faq.q}</h4>
-                     <p className="text-gray-500 ml-8 leading-relaxed">{faq.a}</p>
-                  </div>
-               ))}
+      <Section className="bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-100 rounded-full blur-[80px] opacity-50 -mr-32 -mt-32" />
+        <Container>
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-6">
+              <Info className="w-4 h-4" /> Help Center
             </div>
-         </div>
-      </section>
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Common <span className="text-blue-600 italic">Queries</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">Quick answers to frequently asked questions about our digital diagnostic reports and clinical data policy.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              { q: "How long are reports stored online?", a: "Your reports are stored securely for a lifetime in our patient portal. You can access reports dating back to 2020 at any time." },
+              { q: "What should I do if my report is 'Delayed'?", a: "Rarely, complex tests like cultures or biopsies may require more time. Our team will contact you if any extra validation is needed." },
+              { q: "Can I get my reports on multiple email IDs?", a: "For security, we only send reports to the email registered at the time of billing. You can update this at the hospital reception." },
+              { q: "Are digital reports valid for consultation?", a: "Yes, our digital reports are NABL-accredited and carry a valid QR code for verification by any medical practitioner." },
+              { q: "How can I share my reports with a doctor?", a: "You can download the PDF and share via email/WhatsApp, or simply provide your login access to your consulting physician." },
+              { q: "What if there is a mistake in my report?", a: "If you notice any clerical error, please contact our laboratory helpdesk immediately at +91 85880 72727 for correction." }
+            ].map((faq, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-xl shadow-blue-900/5 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all duration-500 group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  <span className="font-bold">?</span>
+                </div>
+                <h4 className="font-bold text-lg text-[#0f172a] mb-4 leading-tight group-hover:text-blue-600 transition-colors">{faq.q}</h4>
+                <p className="text-gray-500 text-sm leading-relaxed font-light">{faq.a}</p>
+              </motion.div>
+            ))}
+          </div>
+        </Container>
+      </Section>
 
     </div>
   );

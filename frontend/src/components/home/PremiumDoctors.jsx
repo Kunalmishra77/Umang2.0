@@ -35,11 +35,11 @@ const PremiumDoctors = () => {
              viewport={{ once: true }}
              className="max-w-3xl"
            >
-             <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
-                <span className="w-12 h-[2px] bg-primary-500" />
-                <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[12px]">Elite Medical Faculty</span>
+             <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
+                <span className="w-16 h-[3px] bg-primary-500 rounded-full" />
+                <span className="text-primary-400 font-black uppercase tracking-[0.4em] text-[13px] lg:text-[15px]">Elite Medical Faculty</span>
              </div>
-             <h2 className="text-3xl md:text-5xl font-serif font-bold text-white leading-tight">
+             <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-2">
                World-Class <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400 italic">Specialists</span>
              </h2>
            </motion.div>
@@ -50,39 +50,39 @@ const PremiumDoctors = () => {
              transition={{ duration: 0.8 }}
              viewport={{ once: true }}
            >
-             <Link to="/doctors" className="group flex items-center gap-4 px-6 py-3 rounded-full bg-white/5 border border-white/10 text-[11px] font-bold text-white hover:bg-white hover:text-brand-dark transition-all duration-300 backdrop-blur-sm uppercase tracking-widest">
-                Explore <CountUp to={parseInt(siteConfig.stats.superspecialists)} />+ Specialists <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+             <Link to="/doctors" className="group flex items-center gap-5 px-8 py-4 rounded-full bg-white/5 border border-white/10 text-[13px] font-bold text-white hover:bg-white hover:text-brand-dark transition-all duration-300 backdrop-blur-sm uppercase tracking-widest shadow-xl">
+                Explore <CountUp to={parseInt(siteConfig.stats.superspecialists)} />+ Specialists <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
              </Link>
            </motion.div>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 items-start" ref={spotlightRef}>
+        <div className="grid lg:grid-cols-12 gap-10 items-start" ref={spotlightRef}>
            
            {/* Interactive Selection Area - Shows 5, Scroll for more */}
            <div className="lg:col-span-5 order-2 lg:order-1">
-              <div className="flex flex-col gap-2.5 max-h-[380px] lg:max-h-[460px] overflow-y-auto no-scrollbar pr-1">
+              <div className="flex flex-col gap-3 max-h-[450px] lg:max-h-[600px] overflow-y-auto no-scrollbar pr-1">
                 {spotlightDoctors.map((doc) => (
                    <motion.div 
                       key={doc.id} 
                       onClick={() => handleDocSelect(doc)}
-                      whileHover={{ x: 5 }}
-                      className={`p-3 lg:p-4 rounded-xl lg:rounded-2xl cursor-pointer transition-all duration-300 flex items-center gap-4 border shrink-0 ${
+                      whileHover={{ x: 8 }}
+                      className={`p-4 lg:p-5 rounded-xl lg:rounded-2xl cursor-pointer transition-all duration-300 flex items-center gap-5 border shrink-0 ${
                          activeDoc.id === doc.id 
-                         ? 'bg-primary-600/15 border-primary-500/50 shadow-xl backdrop-blur-sm' 
+                         ? 'bg-primary-600/20 border-primary-500/50 shadow-2xl backdrop-blur-md' 
                          : 'bg-white/5 border-transparent hover:bg-white/10'
                       }`}>
                       <div className="relative shrink-0">
                          <img 
                            src={doc.image} 
                            alt={doc.name} 
-                           className={`w-10 h-10 lg:w-14 lg:h-14 rounded-lg object-cover aspect-square transition-all duration-500 ${activeDoc.id === doc.id ? 'ring-2 ring-primary-400' : 'opacity-60 grayscale-[0.5]'}`} 
+                           className={`w-14 h-14 lg:w-20 lg:h-20 rounded-xl object-cover aspect-square transition-all duration-500 ${activeDoc.id === doc.id ? 'ring-4 ring-primary-400/50 scale-105' : 'opacity-60 grayscale-[0.3]'}`} 
                          />
                       </div>
                       <div className="flex-1 min-w-0">
-                         <h4 className={`text-sm lg:text-[1rem] font-bold truncate ${activeDoc.id === doc.id ? 'text-white' : 'text-gray-300'}`}>{doc.name}</h4>
-                         <p className="text-[10px] text-primary-400 font-black uppercase tracking-wider truncate">{doc.dept}</p>
+                         <h4 className={`text-base lg:text-lg font-bold truncate ${activeDoc.id === doc.id ? 'text-white' : 'text-gray-300'}`}>{doc.name}</h4>
+                         <p className="text-[11px] text-primary-400 font-black uppercase tracking-widest truncate">{doc.dept}</p>
                       </div>
-                      <ChevronRight className={`w-3.5 h-3.5 shrink-0 transition-transform ${activeDoc.id === doc.id ? 'text-primary-400 translate-x-1' : 'text-gray-700'}`} />
+                      <ChevronRight className={`w-4 h-4 shrink-0 transition-transform ${activeDoc.id === doc.id ? 'text-primary-400 translate-x-1' : 'text-gray-700'}`} />
                    </motion.div>
                 ))}
               </div>
@@ -97,7 +97,7 @@ const PremiumDoctors = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.02 }}
                     transition={{ duration: 0.5 }}
-                    className="relative w-full h-[320px] md:h-[400px] lg:h-[460px] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 bg-[#1e293b]"
+                    className="relative w-full h-[450px] md:h-[550px] lg:h-[600px] rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden shadow-2xl border border-white/10 bg-[#1e293b]"
                  >
                     <img 
                       src={activeDoc.image} 
@@ -132,18 +132,18 @@ const PremiumDoctors = () => {
                           <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white mb-1 tracking-tight leading-tight">{activeDoc.name}</h3>
                           <p className="text-primary-100 text-[12px] lg:text-[1.1rem] mb-5 lg:mb-6 font-light italic leading-relaxed max-w-lg">{activeDoc.role}</p>
 
-                          <div className="flex gap-3">
+                          <div className="flex gap-4">
                              <Link 
                                to={`/booking/${activeDoc.id}`} 
-                               className="px-5 py-2.5 bg-white text-brand-dark rounded-lg lg:rounded-full font-bold text-[10px] lg:text-sm shadow-2xl hover:bg-primary-50 transition-all flex items-center justify-center gap-2"
+                               className="px-7 py-4 bg-white text-brand-dark rounded-xl lg:rounded-full font-bold text-[12px] lg:text-[1rem] shadow-2xl hover:bg-primary-50 hover:scale-105 transition-all flex items-center justify-center gap-3"
                              >
-                                Instant Appointment <ArrowRight className="w-3.5 h-3.5" />
+                                Instant Appointment <ArrowRight className="w-4 h-4" />
                              </Link>
                              <Link 
                                to={`/doctor/${activeDoc.id}`} 
-                               className="px-5 py-2.5 rounded-lg lg:rounded-full border-2 border-white/20 text-white font-bold text-[10px] lg:text-sm backdrop-blur-md hover:bg-white/10 transition-all text-center flex items-center justify-center gap-2"
+                               className="px-7 py-4 rounded-xl lg:rounded-full border-2 border-white/20 text-white font-bold text-[12px] lg:text-[1rem] backdrop-blur-md hover:bg-white/10 hover:border-white/40 transition-all text-center flex items-center justify-center gap-3"
                              >
-                                <Stethoscope className="w-3.5 h-3.5" />
+                                <Stethoscope className="w-4 h-4" />
                                 Full Profile
                              </Link>
                           </div>

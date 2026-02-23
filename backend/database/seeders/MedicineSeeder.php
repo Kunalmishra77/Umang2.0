@@ -75,7 +75,7 @@ class MedicineSeeder extends Seeder
         $cats = MedicineCategory::all();
 
         foreach($cats as $cat) {
-            for($i=0; $i<25; $i++) {
+            for($i=0; $i<35; $i++) {
                 $name = $faker->words(3, true);
                 $slug = \Illuminate\Support\Str::slug($name) . '-' . uniqid();
                 

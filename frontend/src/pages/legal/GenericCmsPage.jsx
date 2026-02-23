@@ -147,8 +147,8 @@ const GenericCmsPage = ({ slug: propSlug }) => {
                                         <a href="mailto:compliance@umanghospital.in" className="flex items-center gap-4 text-sm font-bold bg-white/10 p-4 rounded-2xl hover:bg-white hover:text-brand-dark transition-all">
                                             <Mail className="w-5 h-5" /> compliance@umang
                                         </a>
-                                        <a href="tel:+918929733550" className="flex items-center gap-4 text-sm font-bold bg-white/10 p-4 rounded-2xl hover:bg-white hover:text-brand-dark transition-all">
-                                            <Phone className="w-5 h-5" /> +91 89297 33550
+                <a href="tel:+918588072727" className="flex items-center gap-4 text-sm font-bold bg-white/10 p-4 rounded-2xl hover:bg-white hover:text-brand-dark transition-all">
+                                            <Phone className="w-5 h-5" /> +91 85880 72727
                                         </a>
                                     </div>
                                 </div>

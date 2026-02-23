@@ -374,6 +374,66 @@ class DoctorSeeder extends Seeder
                 'bio' => 'Dr. Swati Deshpande specializes in infertility and IVF treatments.',
                 'tags' => ["IVF", "Fertility"],
                 'image' => '/doctors-images/dr-rukmaji.svg'
+            ],
+            [
+                'name' => 'Dr. Manoj Tiwari',
+                'slug' => 'ortho',
+                'gender' => 'Male',
+                'role' => 'Senior Consultant',
+                'exp' => '21+ Years',
+                'rating' => 4.9,
+                'cases' => 5000,
+                'bio' => 'Dr. Manoj Tiwari is a senior orthopedic surgeon specializing in knee and hip replacements.',
+                'tags' => ["Knee Replacement", "Hip Specialist"],
+                'image' => '/doctors-images/dr-rohit.svg'
+            ],
+            [
+                'name' => 'Dr. Richa Gupta',
+                'slug' => 'internal',
+                'gender' => 'Female',
+                'role' => 'Consultant',
+                'exp' => '10+ Years',
+                'rating' => 4.6,
+                'cases' => 2000,
+                'bio' => 'Dr. Richa Gupta is a general physician with a focus on metabolic disorders and preventive care.',
+                'tags' => ["Metabolic Care", "Prevention"],
+                'image' => '/doctors-images/dr-rukmaji.svg'
+            ],
+            [
+                'name' => 'Dr. Aryan Khan',
+                'slug' => 'cardiac',
+                'gender' => 'Male',
+                'role' => 'Senior Consultant',
+                'exp' => '15+ Years',
+                'rating' => 4.8,
+                'cases' => 3200,
+                'bio' => 'Dr. Aryan Khan is an expert in clinical cardiology and advanced echocardiography.',
+                'tags' => ["Echo Expert", "Cardiology"],
+                'image' => '/doctors-images/dr-nitin.svg'
+            ],
+            [
+                'name' => 'Dr. Deepali Singh',
+                'slug' => 'pediatrics',
+                'gender' => 'Female',
+                'role' => 'Consultant',
+                'exp' => '9+ Years',
+                'rating' => 4.7,
+                'cases' => 1800,
+                'bio' => 'Dr. Deepali Singh specializes in adolescent health and childhood nutrition.',
+                'tags' => ["Nutrition", "Adolescent Care"],
+                'image' => '/doctors-images/dr-rukmaji.svg'
+            ],
+            [
+                'name' => 'Dr. Vinod Kumar',
+                'slug' => 'surgery',
+                'gender' => 'Male',
+                'role' => 'Senior Consultant',
+                'exp' => '25+ Years',
+                'rating' => 4.9,
+                'cases' => 7000,
+                'bio' => 'Dr. Vinod Kumar is a veteran in laparoscopic surgery and trauma management.',
+                'tags' => ["Trauma Expert", "Laparoscopy"],
+                'image' => '/doctors-images/dr-manmohan.svg'
             ]
         ];
 

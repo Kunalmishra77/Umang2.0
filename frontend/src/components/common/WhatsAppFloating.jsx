@@ -9,8 +9,8 @@ const WhatsAppFloating = () => {
 
   return (
     <div 
-      className={`fixed right-5 md:bottom-6 md:right-6 z-[9999] flex items-center group transition-all duration-500 ${
-        isEmergencyPage ? 'bottom-24 md:bottom-6' : 'bottom-5 md:bottom-6'
+      className={`fixed right-4 md:bottom-6 md:right-6 z-[9999] flex items-center group transition-all duration-500 ${
+        isEmergencyPage ? 'bottom-20 md:bottom-6' : 'bottom-4 md:bottom-6'
       }`}
     >
       {/* Premium Tooltip */}

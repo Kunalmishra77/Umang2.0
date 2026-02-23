@@ -68,13 +68,15 @@ const GenericPage = () => {
       {content.sections.map((section, idx) => {
         if (section.type === 'stats') {
           return (
-            <div key={idx} className="bg-primary-600 py-12 text-white relative overflow-hidden">
+            <div key={idx} className="bg-[#0f172a] py-16 text-white relative overflow-hidden border-b border-white/5">
+               <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
                <Container>
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center relative z-10">
                      {section.data.map((stat, i) => (
-                        <div key={i}>
-                           <p className="text-3xl lg:text-4xl font-serif font-bold mb-1">{stat.value}</p>
-                           <p className="text-[10px] font-black uppercase tracking-widest text-primary-100/70">{stat.label}</p>
+                        <div key={i} className="group">
+                           <p className="text-4xl lg:text-5xl font-serif font-bold mb-3 tracking-tight group-hover:scale-110 transition-transform duration-500">{stat.value}</p>
+                           <div className="h-0.5 w-8 bg-primary-600/30 mx-auto mb-4 group-hover:w-16 transition-all duration-500" />
+                           <p className="text-[10px] lg:text-[11px] font-black uppercase tracking-[0.2em] text-slate-500 group-hover:text-primary-400 transition-colors">{stat.label}</p>
                         </div>
                      ))}
                   </div>
@@ -88,14 +90,14 @@ const GenericPage = () => {
             <Section key={idx} className="bg-white">
                <Container>
                   <SectionHeading title={section.title} centered />
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
                      {section.items.map((item, i) => (
-                        <div key={i} className="p-8 rounded-[2rem] bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-xl transition-all group">
-                           <div className="w-12 h-12 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all">
-                              <ShieldCheck size={24} />
+                        <div key={i} className="p-10 rounded-[2.5rem] bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-2xl hover:border-primary-100 transition-all duration-500 group">
+                           <div className="w-14 h-14 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center mb-8 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm">
+                              <ShieldCheck size={28} />
                            </div>
-                           <h4 className="text-xl font-bold text-brand-dark mb-3">{item.title}</h4>
-                           <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                           <h4 className="text-2xl font-bold text-brand-dark mb-4">{item.title}</h4>
+                           <p className="text-gray-500 text-base leading-relaxed font-light">{item.desc}</p>
                         </div>
                      ))}
                   </div>
@@ -108,17 +110,17 @@ const GenericPage = () => {
           return (
             <Section key={idx} className="bg-slate-50 overflow-hidden">
                <Container>
-                  <div className={`flex flex-col lg:flex-row gap-16 items-center ${idx % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
+                  <div className={`flex flex-col lg:flex-row gap-20 items-center ${idx % 2 === 0 ? '' : 'lg:flex-row-reverse'}`}>
                      <div className="lg:w-1/2">
-                        <h2 className="text-3xl lg:text-5xl font-serif font-bold text-brand-dark mb-8 leading-tight">{section.title}</h2>
-                        <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">{section.text}</p>
-                        <Link to="/contact" className="inline-flex items-center gap-3 text-primary-600 font-bold hover:gap-5 transition-all">
-                           Book a Consultation <ArrowRight size={20} />
+                        <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark mb-8 leading-tight">{section.title}</h2>
+                        <p className="text-gray-600 text-lg lg:text-xl font-light leading-relaxed mb-10 border-l-4 border-primary-500 pl-8">{section.text}</p>
+                        <Link to="/contact" className="inline-flex items-center gap-4 text-primary-600 font-bold text-lg hover:gap-6 transition-all uppercase tracking-widest">
+                           Book a Consultation <ArrowRight size={24} />
                         </Link>
                      </div>
                      <div className="lg:w-1/2">
-                        <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
-                           <img src={section.image} alt={section.title} className="w-full h-full object-cover" />
+                        <div className="relative rounded-[4rem] overflow-hidden shadow-2xl border-8 border-white">
+                           <img src={section.image} alt={section.title} className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-1000" />
                         </div>
                      </div>
                   </div>
@@ -129,17 +131,31 @@ const GenericPage = () => {
 
         if (section.type === 'faq') {
           return (
-            <Section key={idx} className="bg-white border-t border-gray-100">
-               <Container className="max-w-4xl">
-                  <SectionHeading title="Frequently Asked Questions" centered />
-                  <div className="space-y-4">
+            <Section key={idx} className="bg-slate-50 relative overflow-hidden">
+               <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100 rounded-full blur-[120px] opacity-30 -mr-48 -mt-48" />
+               <Container>
+                  <div className="text-center mb-16 relative z-10">
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-600 mb-4 block">Help Center</span>
+                    <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark mb-6">Frequently Asked <span className="text-primary-600 italic">Questions.</span></h2>
+                  </div>
+                  <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10">
                      {section.items.map((faq, i) => (
-                        <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100">
-                           <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
-                              <HelpCircle size={20} className="text-primary-600" /> {faq.q}
+                        <motion.div 
+                          key={i}
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: i * 0.1 }}
+                          className="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-primary-200 hover:shadow-2xl transition-all duration-500 group"
+                        >
+                           <h4 className="font-bold text-brand-dark flex items-start gap-6 mb-4 text-xl group-hover:text-primary-600 transition-colors">
+                              <span className="w-10 h-10 rounded-2xl bg-primary-50 flex items-center justify-center shrink-0 text-primary-600 font-black text-sm group-hover:bg-primary-600 group-hover:text-white transition-all">?</span>
+                              {faq.q}
                            </h4>
-                           <p className="text-slate-600 pl-9 leading-relaxed">{faq.a}</p>
-                        </div>
+                           <div className="pl-16">
+                              <p className="text-slate-500 text-lg font-light leading-relaxed">{faq.a}</p>
+                           </div>
+                        </motion.div>
                      ))}
                   </div>
                </Container>

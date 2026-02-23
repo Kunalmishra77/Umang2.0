@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, CheckCircle2, HelpCircle, ArrowRight, Shield, Activity, Phone, Calendar, AlertCircle, Quote, Heart } from 'lucide-react';
+import { ChevronRight, CheckCircle2, HelpCircle, ArrowRight, Shield, Activity, Phone, Calendar, AlertCircle, Quote, Heart, Zap } from 'lucide-react';
 import { specialitiesData } from '../../data/specialitiesData';
 import { doctors } from '../../utils/doctorsData';
 import { Container, Section, SectionHeading, Card, Badge } from '../../components/ui/Layout';
@@ -92,13 +92,13 @@ const SpecialityDetail = () => {
 
               {/* SECTION: DEPARTMENT STATISTICS */}
               {data.statistics && (
-                <div className="bg-primary-600 rounded-[3rem] p-10 lg:p-12 text-white relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[80px] -mr-32 -mt-32" />
+                <div className="bg-blue-600 rounded-[2rem] p-8 lg:p-12 text-white relative overflow-hidden shadow-xl shadow-blue-900/10">
+                  <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-[60px] -mr-24 -mt-24" />
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center relative z-10">
                     {data.statistics.map((stat, i) => (
                       <div key={i} className="space-y-2">
-                        <p className="text-4xl lg:text-5xl font-black tracking-tighter">{stat.value}</p>
-                        <p className="text-xs lg:text-sm font-bold uppercase tracking-widest text-primary-100">{stat.label}</p>
+                        <p className="text-4xl lg:text-5xl font-serif font-bold tracking-tight">{stat.value}</p>
+                        <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-blue-100/80 leading-relaxed">{stat.label}</p>
                       </div>
                     ))}
                   </div>
@@ -109,7 +109,7 @@ const SpecialityDetail = () => {
               {data.approach && (
                 <div className="space-y-8">
                   <h3 className="text-3xl font-serif font-bold text-brand-dark">Our Treatment Approach</h3>
-                  <p className="text-gray-600 text-lg lg:text-xl font-light leading-relaxed border-l-4 border-primary-500 pl-8 italic">
+                  <p className="text-gray-600 text-lg lg:text-xl font-light leading-relaxed border-l-4 border-blue-500 pl-8 italic">
                     "{data.approach}"
                   </p>
                 </div>
@@ -118,14 +118,17 @@ const SpecialityDetail = () => {
               {/* Technology */}
               {data.tech && (
                 <div>
-                  <h3 className="mb-8 flex items-center gap-3 text-brand-dark">
-                    <Activity className="text-primary-600" /> Advanced Technology
+                  <h3 className="mb-8 flex items-center gap-3 text-brand-dark font-serif font-bold text-3xl">
+                    <Activity className="text-blue-600 w-8 h-8" /> Advanced Technology
                   </h3>
-                  <div className="grid md:grid-cols-2 gap-6">
+                  <div className="grid md:grid-cols-3 gap-6">
                     {data.tech.map((item, i) => (
-                      <div key={i} className="bg-slate-50 p-8 rounded-3xl border border-slate-100 group hover:bg-white hover:shadow-soft transition-all">
-                        <h4 className="text-lg font-bold text-brand-dark mb-3">{item.title}</h4>
-                        <p className="text-sm text-slate-500 leading-relaxed font-medium">{item.desc}</p>
+                      <div key={i} className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 group hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all h-full flex flex-col">
+                        <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-blue-600 mb-6 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all">
+                           <Zap size={20} />
+                        </div>
+                        <h4 className="text-lg font-bold text-brand-dark mb-3 group-hover:text-blue-600 transition-colors">{item.title}</h4>
+                        <p className="text-sm text-gray-500 leading-relaxed font-medium flex-1">{item.desc}</p>
                       </div>
                     ))}
                   </div>
@@ -172,15 +175,15 @@ const SpecialityDetail = () => {
               {deptDoctors.length > 0 && (
                 <div className="pt-8">
                   <SectionHeading title="Department Specialists" />
-                  <div className="grid sm:grid-cols-3 gap-6">
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {deptDoctors.map(doc => (
                       <Link key={doc.id} to={`/doctor/${doc.id}`}>
-                        <Card className="text-center group p-6">
-                          <div className="w-20 h-20 rounded-2xl overflow-hidden mx-auto mb-4 border-2 border-white shadow-soft">
+                        <Card className="text-center group p-8 hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 rounded-[2.5rem] border-slate-100">
+                          <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden mx-auto mb-6 border-4 border-white shadow-xl group-hover:scale-110 transition-transform duration-500">
                             <img src={doc.image} alt={doc.name} className="w-full h-full object-cover" />
                           </div>
-                          <h5 className="text-sm font-bold mb-1 group-hover:text-primary-600 transition-colors">{doc.name}</h5>
-                          <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{doc.role}</div>
+                          <h5 className="text-lg lg:text-xl font-bold mb-2 group-hover:text-primary-600 transition-colors">{doc.name}</h5>
+                          <div className="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em]">{doc.role}</div>
                         </Card>
                       </Link>
                     ))}
@@ -220,16 +223,38 @@ const SpecialityDetail = () => {
 
               {/* FAQ */}
               {data.faq && (
-                <div className="pt-8">
-                  <SectionHeading title="Frequently Asked Questions" />
-                  <div className="space-y-4">
+                <div className="pt-16 border-t border-slate-100">
+                  <div className="flex items-center gap-4 mb-10">
+                    <div className="w-12 h-12 rounded-2xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-600/20">
+                      <HelpCircle size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-3xl font-serif font-bold text-brand-dark mb-1">Frequently Asked Questions</h3>
+                      <p className="text-slate-500 text-sm font-medium uppercase tracking-widest">Departmental Guidance</p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid gap-6">
                     {data.faq.map((item, i) => (
-                      <div key={i} className="border border-slate-100 rounded-2xl p-8 bg-slate-50 text-left">
-                        <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
-                          <HelpCircle size={20} className="text-primary-600 shrink-0" /> {item.q}
+                      <motion.div 
+                        key={i} 
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ delay: i * 0.1 }}
+                        viewport={{ once: true }}
+                        className="group bg-slate-50 p-8 rounded-[2rem] border border-slate-100 hover:bg-white hover:border-primary-200 hover:shadow-2xl hover:shadow-primary-600/5 transition-all duration-500"
+                      >
+                        <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-xl group-hover:text-primary-600 transition-colors">
+                          <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-xs text-primary-600 border border-primary-100 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-all">Q</span>
+                          {item.q}
                         </h4>
-                        <p className="text-slate-600 pl-9 text-base leading-relaxed">{item.a}</p>
-                      </div>
+                        <div className="flex gap-4">
+                          <div className="w-8 shrink-0 flex justify-center pt-1">
+                            <div className="w-px h-full bg-slate-200 group-hover:bg-primary-200 transition-colors" />
+                          </div>
+                          <p className="text-slate-600 text-lg leading-relaxed font-light">{item.a}</p>
+                        </div>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
@@ -239,35 +264,44 @@ const SpecialityDetail = () => {
             {/* Sidebar */}
             <div className="lg:col-span-4">
               <div className="sticky top-32 space-y-8">
-                <Card className="!bg-brand-dark !text-white !p-10 relative overflow-hidden text-left">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary-600/20 rounded-full blur-[60px] -mr-16 -mt-16" />
-                  <h3 className="text-white mb-6 italic leading-tight">Book <br /><span className="text-primary-400">Appointment.</span></h3>
-                  <p className="text-slate-400 text-sm mb-10 leading-relaxed font-light">
-                    Consult with our senior {data.title.split(' ')[0]} specialists for personalized treatment planning.
-                  </p>
-                  <div className="space-y-4">
-                    <CTAButton to="/doctors" size="md" className="w-full">Book Appointment</CTAButton>
-                    <a href={`tel:${siteConfig.contacts.main}`} className="btn-secondary !bg-white/5 !text-white !border-white/10 w-full py-4 text-xs">
-                      {siteConfig.contacts.main}
-                    </a>
-                  </div>
-                </Card>
-
-                <div className="bg-slate-50 rounded-3xl p-8 border border-slate-100 text-left">
-                  <h4 className="text-[10px] font-semibold text-slate-400 uppercase tracking-widest mb-8 border-b border-slate-200 pb-4">Clinical Directory</h4>
-                  <div className="space-y-2">
-                    {sidebarLinks.map((link) => (
+                <div className="bg-[#0f172a] rounded-[2.5rem] p-10 text-white relative overflow-hidden shadow-2xl border border-white/5">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 rounded-full blur-[60px] -mr-16 -mt-16" />
+                  
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-blue-900/20">
+                      <Calendar className="w-6 h-6 text-white" />
+                    </div>
+                    
+                    <h3 className="text-3xl font-serif font-bold text-white mb-4 leading-tight">Book an <br /><span className="text-blue-400 italic">Appointment.</span></h3>
+                    <p className="text-slate-400 text-sm mb-10 leading-relaxed font-light">
+                      Consult with our senior {data.title.split(' ')[0]} specialists for personalized treatment planning and clinical advice.
+                    </p>
+                    
+                    <div className="space-y-3">
                       <Link 
-                        key={link.id} 
-                        to={`/specialities/${link.id}`}
-                        className={`flex items-center justify-between py-3 px-4 rounded-xl transition-all group ${id === link.id ? 'bg-white shadow-soft text-primary-600' : 'text-slate-500 hover:text-primary-600 hover:bg-white'}`}
+                        to="/doctors" 
+                        className="flex items-center justify-center w-full h-14 bg-blue-600 text-white rounded-2xl font-bold text-sm uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg shadow-blue-900/20"
                       >
-                        <span className="font-bold text-xs uppercase tracking-widest">{link.name}</span>
-                        <ChevronRight size={14} className={id === link.id ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 transition-opacity'} />
+                        Find a Doctor
                       </Link>
-                    ))}
+                      
+                      <div className="pt-4 border-t border-white/10">
+                        <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3">Or call our helpline</p>
+                        <a 
+                          href={`tel:${siteConfig.contacts.main.replace(/\s/g, '')}`} 
+                          className="flex items-center gap-4 text-white hover:text-blue-400 transition-colors group"
+                        >
+                          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-blue-600/20 transition-all">
+                            <Phone className="w-4 h-4" />
+                          </div>
+                          <span className="text-lg font-bold">{siteConfig.contacts.main}</span>
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
+
+                {/* Clinical Directory section removed as per request */}
               </div>
             </div>
           </div>

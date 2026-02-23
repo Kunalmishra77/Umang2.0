@@ -241,7 +241,7 @@ const SecondOpinion = () => {
                       </div>
                       <div className="space-y-2">
                         <label className="text-xs font-bold text-gray-500 uppercase">Phone Number</label>
-                        <input type="tel" className="w-full h-12 border-b-2 border-gray-200 focus:border-[#005580] outline-none font-medium bg-transparent" placeholder="+91 89297 33550" />
+                        <input type="tel" className="w-full h-12 border-b-2 border-gray-200 focus:border-[#005580] outline-none font-medium bg-transparent" placeholder="+91 85880 72727" />
                       </div>
                     </div>
                     <div className="space-y-2">

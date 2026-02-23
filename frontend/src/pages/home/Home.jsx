@@ -66,7 +66,7 @@ const GlobalOutreach = () => (
             <div className="absolute -bottom-10 -left-10 bg-white p-10 rounded-[2.5rem] shadow-2xl hidden xl:block">
               <div className="flex flex-col items-center">
                 <p className="text-primary-600 font-black text-5xl mb-1 tracking-tighter">10k+</p>
-                <p className="text-gray-500 font-bold uppercase tracking-[0.2em] text-[10px] whitespace-nowrap">International Patients</p>
+                <p className="text-gray-500 font-bold uppercase tracking-[0.2em] text-[12px] whitespace-nowrap">International Patients</p>
                 <div className="w-12 h-1 bg-gray-100 mt-4 rounded-full" />
               </div>
             </div>

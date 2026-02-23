@@ -33,7 +33,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
+        sans: ['Figtree', 'Montserrat', 'sans-serif'],
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

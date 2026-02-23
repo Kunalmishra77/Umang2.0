@@ -263,7 +263,7 @@ export const navConfig = {
       ]
     },
     {
-      title: 'Team',
+      title: 'Doctor',
       href: '/team',
       groups: [
         {
@@ -282,12 +282,12 @@ export const navConfig = {
         },
         {
           id: 'lead',
-          title: 'Leadership',
+          title: 'Clinical Leadership',
           icon: Award,
           href: '/team/leadership',
           preview: {
-            title: 'Board of Directors',
-            desc: 'The visionary leadership team guiding Umang Hospital excellence.',
+            title: 'Executive Board',
+            desc: 'The visionary clinical leadership guiding Umang Hospital excellence.',
             bullets: ['Director Message', 'Medical Board', 'Vision/Mission', 'Quality Hub'],
             image: '/assets/About/Dr. Rakesh Gupta.png',
             tag: 'Leadership',
@@ -312,7 +312,7 @@ export const navConfig = {
           id: 'admin',
           title: 'Support Staff',
           icon: User,
-          href: '/team',
+          href: '/team/support-staff',
           preview: {
             title: 'Admin Support',
             desc: 'Our non-clinical staff ensures smooth hospital operations 24/7.',
@@ -450,14 +450,14 @@ export const navConfig = {
           id: 'whatsapp',
           title: 'WhatsApp Help',
           icon: MessageSquare,
-          href: 'https://wa.me/918929733550',
+          href: 'https://wa.me/918588072727',
           preview: {
             title: 'Digital Connect',
             desc: 'Fastest way to get answers via WhatsApp chat assistance.',
             bullets: ['Report Help', 'Booking Chat', 'Price Check', 'Quick Help'],
             image: '/assets/Home/hero11.jpeg',
             tag: 'Chat',
-            cta: { label: 'Start Chat', href: 'https://wa.me/918929733550' }
+            cta: { label: 'Start Chat', href: 'https://wa.me/918588072727' }
           }
         },
         {
@@ -466,8 +466,8 @@ export const navConfig = {
           icon: Globe,
           href: 'https://maps.google.com',
           preview: {
-            title: 'Find Campus',
-            desc: 'Navigate to our Building No. 306, Pataudi Road campus.',
+            title: 'Find Hospital',
+            desc: 'Navigate to our Building No. 306, Pataudi Road hospital.',
             bullets: ['Parking Info', 'Bus Access', 'Train Station', 'Airport Link'],
             image: '/assets/Home/hero11.jpeg',
             tag: 'Maps',

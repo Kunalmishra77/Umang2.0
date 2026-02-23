@@ -22,8 +22,26 @@ const PatientAppointments = () => {
   const fetchAppointments = async () => {
     try {
       const response = await api.get('/appointments-temp');
-      setAppointments(response.data);
+      // Laravel pagination returns data in response.data.data
+      const rawData = response.data.data || response.data;
+      
+      if (Array.isArray(rawData)) {
+        const mappedData = rawData.map(apt => ({
+          id: apt.id,
+          doctor: apt.doctor?.user?.name || 'Dr. Specialist',
+          speciality: apt.doctor?.speciality?.name || 'General',
+          date: apt.date,
+          time: apt.time,
+          status: apt.status === 'pending' ? 'upcoming' : apt.status,
+          type: apt.reason || 'Consultation',
+          img: apt.doctor?.image || 'https://doccure.dreamstechnologies.com/react/template/80517726715f3ecda881.jpg'
+        }));
+        setAppointments(mappedData);
+      } else {
+        setAppointments([]);
+      }
     } catch (error) {
+      console.error("Failed to fetch appointments:", error);
       setAppointments([
         { id: 1, doctor: 'Dr. Sarah Johnson', speciality: 'Cardiology', date: '2026-10-30', time: '10:00 AM', status: 'upcoming', type: 'Consultation', img: 'https://doccure.dreamstechnologies.com/react/template/80517726715f3ecda881.jpg' },
         { id: 2, doctor: 'Dr. Michael Chen', speciality: 'Dermatology', date: '2026-10-25', time: '02:30 PM', status: 'completed', type: 'Follow-up', img: 'https://doccure.dreamstechnologies.com/react/template/8963283f58e0a139049a.jpg' },
@@ -41,9 +59,9 @@ const PatientAppointments = () => {
     { id: 'cancelled', label: 'Cancelled' },
   ];
 
-  const filteredAppointments = appointments.filter(apt => 
+  const filteredAppointments = Array.isArray(appointments) ? appointments.filter(apt => 
     activeFilter === 'all' ? true : apt.status === activeFilter
-  );
+  ) : [];
 
   return (
     <motion.div

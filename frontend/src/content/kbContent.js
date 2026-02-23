@@ -44,7 +44,7 @@ export const kbContent = {
       { title: "Digital Labs", desc: "AI-integrated pathology for rapid and accurate reporting." }
     ],
     faqs: [
-      { q: "How do I book an appointment?", a: "You can book an appointment online via our website or by calling our 24/7 helpline at +91 89297 33550." },
+      { q: "How do I book an appointment?", a: "You can book an appointment online via our website or by calling our 24/7 helpline at +91 85880 72727." },
       { q: "Do you offer cashless insurance?", a: "Yes, we are empanelled with all major insurance companies and TPAs for cashless treatment." },
       { q: "What are the visiting hours?", a: "General visiting hours are from 4:00 PM to 7:00 PM daily. ICU visits are restricted to ensure patient safety." },
       { q: "Are emergency services available 24/7?", a: "Yes, our emergency department and ambulance services are fully operational round-the-clock." }

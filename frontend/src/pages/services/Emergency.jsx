@@ -90,9 +90,8 @@ const Emergency = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 mb-8">
-              <a href="tel:+918929733551" className="h-16 px-8 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 hover-lift hover:shadow-red-900/50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
-                <Phone className="w-6 h-6 animate-wiggle" /> Call Ambulance: 89297 33551
-              </a>
+                             <a href={`tel:${siteConfig.contacts.emergency.replace(/\s/g,'')}`} className="h-16 px-8 rounded-full bg-red-600 text-white font-bold text-lg hover:bg-red-700 hover-lift hover:shadow-red-900/50 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
+                              <Phone className="w-6 h-6 animate-wiggle" /> Call Ambulance: {siteConfig.contacts.emergency}              </a>
               <a href="https://maps.google.com/?q=Umang+Hospital+Gurugram" target="_blank" rel="noreferrer" className="h-16 px-8 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold hover:bg-white/20 transition-all flex items-center justify-center gap-3 w-full sm:w-auto">
                 <MapPin className="w-6 h-6" /> Get Directions
               </a>
@@ -313,8 +312,8 @@ const Emergency = () => {
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Save this Number. <br /><span className="text-red-500 italic">It Saves Lives.</span></h2>
           <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">Our emergency response team is just one tap away. Bookmark our location or call us for immediate ACLS ambulance dispatch.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <a href="tel:+918929733551" className="px-10 py-5 bg-red-600 text-white rounded-full font-bold text-base shadow-xl hover:bg-red-700 transition-all flex items-center justify-center gap-3">
-              <Phone className="w-6 h-6 animate-pulse" /> Call 89297 33551
+            <a href={`tel:${siteConfig.contacts.emergency.replace(/\s/g,'')}`} className="px-10 py-5 bg-red-600 text-white rounded-full font-bold text-base shadow-xl hover:bg-red-700 transition-all flex items-center justify-center gap-3">
+              <Phone className="w-6 h-6 animate-pulse" /> Call {siteConfig.contacts.emergency}
             </a>
             <Link to="/contact" className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-base hover:bg-white/5 transition-all flex items-center justify-center gap-3">
               View Hospital Map <ArrowRight size={20} />
@@ -384,7 +383,7 @@ const Emergency = () => {
                <p className="text-xs font-bold text-red-200 uppercase">Emergency?</p>
                <p className="font-bold text-lg">Tap to Call</p>
             </div>
-            <a href="tel:+918929733550" className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+            <a href="tel:+918588072727" className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center shadow-lg animate-pulse">
                <Phone className="w-6 h-6 fill-current" />
             </a>
          </div>

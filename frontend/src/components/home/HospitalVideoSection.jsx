@@ -16,7 +16,7 @@ const HospitalVideoSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className="order-2 lg:order-1 relative">
             <div className="mb-6 lg:mb-8">
-               <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] md:text-sm mb-3 block">Virtual Campus Tour</span>
+               <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] md:text-sm mb-3 block">Virtual Hospital Tour</span>
                <h3 className="text-xl lg:text-2xl font-serif font-bold text-brand-dark">World-Class Infrastructure</h3>
             </div>
             
@@ -49,10 +49,10 @@ const HospitalVideoSection = () => {
                  </div>
               </div>
 
-              {/* Right-aligned overlay text */}
-              <div className="absolute bottom-8 right-8 text-right">
-                <p className="text-white font-black text-lg lg:text-xl leading-tight mb-1 uppercase tracking-tight">Umang <span className="text-primary-400 italic">Campus</span></p>
-                <p className="text-white/60 text-[10px] lg:text-[12px] font-black uppercase tracking-[0.3em]">Gurugram, India</p>
+              {/* Right-aligned overlay text (Refined) */}
+              <div className="absolute bottom-6 right-6 text-right pointer-events-none">
+                <p className="text-white font-black text-sm lg:text-base leading-tight mb-0.5 uppercase tracking-tight opacity-90">Umang <span className="text-primary-400 italic">Hospital</span></p>
+                <p className="text-white/50 text-[8px] lg:text-[10px] font-black uppercase tracking-[0.4em]">Gurugram, India</p>
               </div>
             </motion.div>
 

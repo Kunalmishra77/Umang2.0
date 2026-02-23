@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Card, Row, Col, Form, Button, ProgressBar, Badge, Alert, Image } from 'react-bootstrap';
-import { FaUserMd, FaCalendarAlt, FaClock, FaCheck, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { 
+  Stethoscope, Calendar, Clock, Check, 
+  ChevronLeft, ChevronRight, User, Info,
+  Search, MapPin, Star, AlertCircle
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import { doctors as allDoctors } from '../../utils/doctorsData';
+import { toast } from 'react-toastify';
 
 const BookAppointmentPatient = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -20,9 +25,9 @@ const BookAppointmentPatient = () => {
   const [availableSlots, setAvailableSlots] = useState([]);
   const [loading, setLoading] = useState(false);
   const [booking, setBooking] = useState(false);
-  const [message, setMessage] = useState(null);
 
   const totalSteps = 4;
+  const progress = Math.round((currentStep / totalSteps) * 100);
 
   useEffect(() => {
     fetchSpecialities();
@@ -42,14 +47,13 @@ const BookAppointmentPatient = () => {
 
   const fetchSpecialities = async () => {
     try {
-      // Updated to match available doctor data keys
       const mockSpecialities = [
-        { id: 'cardiac', name: 'Cardiology' },
-        { id: 'neuro', name: 'Neurology' },
-        { id: 'ortho', name: 'Orthopedics' },
-        { id: 'surgery', name: 'General Surgery' },
-        { id: 'ent', name: 'E.N.T' },
-        { id: 'general-medicine', name: 'General Medicine' },
+        { id: 'cardiac', name: 'Cardiology', icon: 'Heart' },
+        { id: 'neuro', name: 'Neurology', icon: 'Brain' },
+        { id: 'ortho', name: 'Orthopedics', icon: 'Bone' },
+        { id: 'surgery', name: 'General Surgery', icon: 'Scissors' },
+        { id: 'ent', name: 'E.N.T', icon: 'Ear' },
+        { id: 'general-medicine', name: 'General Medicine', icon: 'Stethoscope' },
       ];
       setSpecialities(mockSpecialities);
     } catch (error) {
@@ -60,8 +64,7 @@ const BookAppointmentPatient = () => {
   const fetchDoctorsBySpeciality = async (specialityId) => {
     setLoading(true);
     try {
-      // Filter doctors from the real data
-      const filteredDoctors = allDoctors.filter(doc => doc.specialtyId === specialityId);
+      const filteredDoctors = allDoctors.filter(doc => doc.specialtyId === specialityId || doc.dept.toLowerCase().includes(specialityId));
       setDoctors(filteredDoctors);
     } catch (error) {
       console.error('Error fetching doctors:', error);
@@ -72,7 +75,6 @@ const BookAppointmentPatient = () => {
 
   const fetchAvailableSlots = async (doctorId, date) => {
     try {
-      // Mock data - replace with API call
       const mockSlots = [
         '09:00 AM', '09:30 AM', '10:00 AM', '10:30 AM',
         '11:00 AM', '02:00 PM', '02:30 PM', '03:00 PM'
@@ -85,49 +87,27 @@ const BookAppointmentPatient = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const nextStep = () => {
-    if (currentStep < totalSteps) {
-      setCurrentStep(currentStep + 1);
-    }
+    if (currentStep < totalSteps) setCurrentStep(currentStep + 1);
   };
 
   const prevStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1);
-    }
+    if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
   const handleSubmit = async () => {
     setBooking(true);
     try {
-      // Use temp endpoint for development (no auth required)
-      const response = await api.post('/appointments', formData);
-
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
-      setMessage({ type: 'success', text: 'Appointment booked successfully!' });
-      setTimeout(() => {
-        // Reset form and redirect
-        setFormData({
-          speciality: '',
-          doctor: '',
-          date: '',
-          time: '',
-          reason: '',
-          notes: '',
-        });
-        setCurrentStep(1);
-        setMessage(null);
-      }, 3000);
+      await api.post('/appointments', formData);
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      toast.success('Appointment booked successfully!');
+      setCurrentStep(1);
+      setFormData({ speciality: '', doctor: '', date: '', time: '', reason: '', notes: '' });
     } catch (error) {
-      setMessage({ type: 'error', text: 'Failed to book appointment. Please try again.' });
+      toast.error('Failed to book appointment. Please try again.');
     } finally {
       setBooking(false);
     }
@@ -143,306 +123,247 @@ const BookAppointmentPatient = () => {
     }
   };
 
-  const stepVariants = {
-    enter: { x: 300, opacity: 0 },
-    center: { x: 0, opacity: 1 },
-    exit: { x: -300, opacity: 0 },
-  };
-
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
         return (
-          <motion.div
-            key="step1"
-            variants={stepVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.3 }}
-          >
-            <h4 className="mb-4">Select Speciality</h4>
-            <Row>
-              {specialities.map((speciality) => (
-                <Col md={6} lg={4} className="mb-3" key={speciality.id}>
-                  <Card
-                    className={`cursor-pointer border-2 transition-all ${
-                      formData.speciality === speciality.id.toString()
-                        ? 'border-primary bg-primary bg-opacity-10'
-                        : 'border-light hover-border-primary'
-                    }`}
-                    onClick={() => setFormData(prev => ({ ...prev, speciality: speciality.id.toString() }))}
-                  >
-                    <Card.Body className="text-center p-4">
-                      <FaUserMd className="text-primary mb-3" size={32} />
-                      <h6 className="mb-0 fw-bold">{speciality.name}</h6>
-                    </Card.Body>
-                  </Card>
-                </Col>
+          <div className="space-y-6">
+            <h3 className="text-xl font-bold text-[#0f172a]">Select Speciality</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {specialities.map((s) => (
+                <button
+                  key={s.id}
+                  onClick={() => setFormData(prev => ({ ...prev, speciality: s.id }))}
+                  className={`p-6 rounded-[2rem] border-2 text-left transition-all group ${
+                    formData.speciality === s.id 
+                    ? 'border-blue-600 bg-blue-50/50' 
+                    : 'border-slate-100 hover:border-blue-200 bg-white'
+                  }`}
+                >
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors ${formData.speciality === s.id ? 'bg-blue-600 text-white' : 'bg-slate-50 text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600'}`}>
+                    <Stethoscope size={24} />
+                  </div>
+                  <p className={`font-bold ${formData.speciality === s.id ? 'text-blue-600' : 'text-[#0f172a]'}`}>{s.name}</p>
+                </button>
               ))}
-            </Row>
-          </motion.div>
+            </div>
+          </div>
         );
 
       case 2:
         return (
-          <motion.div
-            key="step2"
-            variants={stepVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.3 }}
-          >
-            <h4 className="mb-4">Choose Doctor</h4>
+          <div className="space-y-6">
+            <h3 className="text-xl font-bold text-[#0f172a]">Choose Doctor</h3>
             {loading ? (
-              <div className="text-center py-5">
-                <div className="spinner-border text-primary" role="status">
-                  <span className="visually-hidden">Loading doctors...</span>
-                </div>
-              </div>
+              <div className="flex justify-center py-12"><div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>
             ) : (
-              <Row>
-                {doctors.map((doctor) => (
-                  <Col md={6} className="mb-3" key={doctor.id}>
-                    <Card
-                      className={`cursor-pointer border-2 transition-all ${
-                        formData.doctor === doctor.id.toString()
-                          ? 'border-primary bg-primary bg-opacity-10'
-                          : 'border-light hover-border-primary'
-                      }`}
-                      onClick={() => setFormData(prev => ({ ...prev, doctor: doctor.id.toString() }))}
-                    >
-                      <Card.Body className="p-4">
-                        <div className="d-flex align-items-center">
-                          <Image
-                            src={doctor.image}
-                            roundedCircle
-                            width={60}
-                            height={60}
-                            className="me-3"
-                          />
-                          <div className="flex-grow-1">
-                            <h6 className="mb-1 fw-bold">{doctor.name}</h6>
-                            <p className="mb-1 text-muted small">{doctor.exp} experience</p>
-                            <div className="d-flex align-items-center">
-                              <Badge bg="warning" text="dark" className="me-2">
-                                ★ {doctor.rating}
-                              </Badge>
-                            </div>
-                          </div>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-              </Row>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {doctors.length > 0 ? doctors.map((doc) => (
+                  <button
+                    key={doc.id}
+                    onClick={() => setFormData(prev => ({ ...prev, doctor: doc.id.toString() }))}
+                    className={`p-5 rounded-[2rem] border-2 text-left transition-all flex items-center gap-5 ${
+                      formData.doctor === doc.id.toString() 
+                      ? 'border-blue-600 bg-blue-50/50' 
+                      : 'border-slate-100 hover:border-blue-200 bg-white'
+                    }`}
+                  >
+                    <img src={doc.image} alt={doc.name} className="w-16 h-16 rounded-2xl object-cover ring-4 ring-slate-50" />
+                    <div className="flex-1">
+                      <p className="font-bold text-[#0f172a]">{doc.name}</p>
+                      <p className="text-xs font-medium text-blue-600 uppercase tracking-widest">{doc.exp} Experience</p>
+                      <div className="flex items-center gap-1 mt-1 text-yellow-500 font-bold text-xs">
+                        <Star size={12} fill="currentColor" /> {doc.rating}
+                      </div>
+                    </div>
+                  </button>
+                )) : (
+                  <div className="col-span-full py-12 text-center text-slate-400 font-medium bg-slate-50 rounded-[2rem]">
+                    No doctors available for this speciality.
+                  </div>
+                )}
+              </div>
             )}
-          </motion.div>
+          </div>
         );
 
       case 3:
         return (
-          <motion.div
-            key="step3"
-            variants={stepVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.3 }}
-          >
-            <h4 className="mb-4">Select Date & Time</h4>
-            <Row>
-              <Col md={6} className="mb-3">
-                <Form.Group>
-                  <Form.Label className="fw-medium">
-                    <FaCalendarAlt className="me-2" />
-                    Preferred Date
-                  </Form.Label>
-                  <Form.Control
-                    type="date"
-                    name="date"
-                    value={formData.date}
-                    onChange={handleInputChange}
-                    min={new Date().toISOString().split('T')[0]}
-                    className="form-control-lg"
-                  />
-                </Form.Group>
-              </Col>
-              <Col md={6} className="mb-3">
-                <Form.Group>
-                  <Form.Label className="fw-medium">
-                    <FaClock className="me-2" />
-                    Available Time Slots
-                  </Form.Label>
-                  <div className="d-flex flex-wrap gap-2">
-                    {availableSlots.map((slot) => (
-                      <Button
-                        key={slot}
-                        variant={formData.time === slot ? 'primary' : 'outline-primary'}
-                        size="sm"
-                        onClick={() => setFormData(prev => ({ ...prev, time: slot }))}
-                        className="px-3 py-2"
-                      >
-                        {slot}
-                      </Button>
-                    ))}
-                  </div>
-                </Form.Group>
-              </Col>
-            </Row>
-          </motion.div>
+          <div className="space-y-8">
+            <h3 className="text-xl font-bold text-[#0f172a]">Select Date & Time</h3>
+            <div className="grid lg:grid-cols-2 gap-10">
+              <div className="space-y-3">
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                  <Calendar size={14} /> Preferred Date
+                </label>
+                <input 
+                  type="date" 
+                  name="date"
+                  value={formData.date}
+                  onChange={handleInputChange}
+                  min={new Date().toISOString().split('T')[0]}
+                  className="w-full h-14 px-6 bg-slate-50 border-none rounded-2xl text-sm font-bold text-[#0f172a] focus:ring-2 focus:ring-blue-600/10 focus:bg-white outline-none transition-all"
+                />
+              </div>
+              <div className="space-y-3">
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-2">
+                  <Clock size={14} /> Available Slots
+                </label>
+                <div className="grid grid-cols-3 gap-2">
+                  {availableSlots.map((slot) => (
+                    <button
+                      key={slot}
+                      onClick={() => setFormData(prev => ({ ...prev, time: slot }))}
+                      className={`h-12 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
+                        formData.time === slot 
+                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' 
+                        : 'bg-slate-50 text-slate-500 hover:bg-slate-100'
+                      }`}
+                    >
+                      {slot}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         );
 
       case 4:
+        const selectedDoctor = doctors.find(d => d.id.toString() === formData.doctor);
         return (
-          <motion.div
-            key="step4"
-            variants={stepVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.3 }}
-          >
-            <h4 className="mb-4">Appointment Details</h4>
-            <Card className="border-0 bg-light mb-4">
-              <Card.Body className="p-4">
-                <h6 className="fw-bold mb-3">Appointment Summary</h6>
-                <Row>
-                  <Col md={6}>
-                    <p className="mb-2"><strong>Speciality:</strong> {specialities.find(s => s.id.toString() === formData.speciality)?.name}</p>
-                    <p className="mb-2"><strong>Doctor:</strong> {doctors.find(d => d.id.toString() === formData.doctor)?.name}</p>
-                  </Col>
-                  <Col md={6}>
-                    <p className="mb-2"><strong>Date:</strong> {formData.date}</p>
-                    <p className="mb-2"><strong>Time:</strong> {formData.time}</p>
-                  </Col>
-                </Row>
-              </Card.Body>
-            </Card>
+          <div className="space-y-8">
+            <h3 className="text-xl font-bold text-[#0f172a]">Appointment Details</h3>
+            <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 grid md:grid-cols-2 gap-8">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-blue-600 shadow-sm"><User size={20} /></div>
+                <div>
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Doctor</p>
+                  <p className="font-bold text-[#0f172a]">{selectedDoctor?.name || 'Not Selected'}</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-blue-600 shadow-sm"><Calendar size={20} /></div>
+                <div>
+                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Schedule</p>
+                  <p className="font-bold text-[#0f172a]">{formData.date} at {formData.time}</p>
+                </div>
+              </div>
+            </div>
 
-            <Form.Group className="mb-3">
-              <Form.Label className="fw-medium">Reason for Visit *</Form.Label>
-              <Form.Control
-                as="textarea"
-                name="reason"
-                value={formData.reason}
-                onChange={handleInputChange}
-                rows={3}
-                placeholder="Please describe your symptoms or reason for the appointment"
-                className="form-control-lg"
-              />
-            </Form.Group>
-
-            <Form.Group className="mb-4">
-              <Form.Label className="fw-medium">Additional Notes (Optional)</Form.Label>
-              <Form.Control
-                as="textarea"
-                name="notes"
-                value={formData.notes}
-                onChange={handleInputChange}
-                rows={2}
-                placeholder="Any additional information you'd like to share"
-                className="form-control-lg"
-              />
-            </Form.Group>
-          </motion.div>
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Reason for Visit *</label>
+                <textarea 
+                  name="reason"
+                  value={formData.reason}
+                  onChange={handleInputChange}
+                  rows={3}
+                  placeholder="Please describe your symptoms briefly..."
+                  className="w-full p-6 bg-slate-50 border-none rounded-2xl text-sm font-bold text-[#0f172a] focus:ring-2 focus:ring-blue-600/10 focus:bg-white outline-none transition-all"
+                />
+              </div>
+              <div className="space-y-3">
+                <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Additional Notes (Optional)</label>
+                <textarea 
+                  name="notes"
+                  value={formData.notes}
+                  onChange={handleInputChange}
+                  rows={2}
+                  placeholder="Any other information for the doctor..."
+                  className="w-full p-6 bg-slate-50 border-none rounded-2xl text-sm font-bold text-[#0f172a] focus:ring-2 focus:ring-blue-600/10 focus:bg-white outline-none transition-all"
+                />
+              </div>
+            </div>
+          </div>
         );
 
-      default:
-        return null;
+      default: return null;
     }
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div className="mb-4">
-        <h2 className="fw-bold text-dark mb-4">Book Appointment</h2>
-        <p className="text-muted">Schedule an appointment with your preferred doctor</p>
+    <div className="max-w-4xl">
+      <div className="mb-10">
+        <h1 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Book Appointment</h1>
+        <p className="text-slate-500 font-medium">Schedule an appointment with your preferred doctor in 4 simple steps.</p>
       </div>
 
-      {message && (
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-        >
-          <Alert variant={message.type === 'success' ? 'success' : 'danger'} className="mb-4">
-            {message.text}
-          </Alert>
-        </motion.div>
-      )}
-
-      {/* Progress Bar */}
-      <div className="mb-4">
-        <div className="d-flex justify-content-between align-items-center mb-2">
-          <span className="text-muted small">Step {currentStep} of {totalSteps}</span>
-          <span className="text-muted small">{Math.round((currentStep / totalSteps) * 100)}% Complete</span>
+      {/* Modern Progress Bar */}
+      <div className="mb-12">
+        <div className="flex justify-between items-center mb-4">
+          <span className="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em]">Step {currentStep} of {totalSteps}</span>
+          <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">{progress}% Complete</span>
         </div>
-        <ProgressBar
-          now={(currentStep / totalSteps) * 100}
-          className="mb-4"
-          style={{ height: '8px' }}
-        />
+        <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+          <motion.div 
+            className="h-full bg-blue-600"
+            initial={{ width: 0 }}
+            animate={{ width: `${progress}%` }}
+            transition={{ duration: 0.5 }}
+          />
+        </div>
       </div>
 
-      {/* Step Content */}
-      <Card className="border-0 shadow-sm">
-        <Card.Body className="p-4">
-          <AnimatePresence mode="wait">
+      <div className="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-sm relative overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentStep}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.3 }}
+          >
             {renderStepContent()}
-          </AnimatePresence>
-        </Card.Body>
-      </Card>
+          </motion.div>
+        </AnimatePresence>
 
-      {/* Navigation Buttons */}
-      <div className="d-flex justify-content-between mt-4">
-        <Button
-          variant="outline-secondary"
-          onClick={prevStep}
-          disabled={currentStep === 1}
-          className="px-4"
-        >
-          <FaArrowLeft className="me-2" />
-          Previous
-        </Button>
+        {/* Footer Navigation */}
+        <div className="mt-12 pt-10 border-t border-slate-50 flex items-center justify-between">
+          <button
+            onClick={prevStep}
+            disabled={currentStep === 1}
+            className={`flex items-center gap-2 font-bold text-sm transition-all ${currentStep === 1 ? 'text-slate-200 cursor-not-allowed' : 'text-slate-400 hover:text-blue-600'}`}
+          >
+            <ChevronLeft size={18} /> Previous Step
+          </button>
 
-        {currentStep < totalSteps ? (
-          <Button
-            variant="primary"
-            onClick={nextStep}
-            disabled={!canProceedToNext()}
-            className="px-4"
-          >
-            Next
-            <FaArrowRight className="ms-2" />
-          </Button>
-        ) : (
-          <Button
-            variant="success"
-            onClick={handleSubmit}
-            disabled={!canProceedToNext() || booking}
-            className="px-4"
-          >
-            {booking ? (
-              <>
-                <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
-                Booking...
-              </>
-            ) : (
-              <>
-                <FaCheck className="me-2" />
-                Confirm Booking
-              </>
-            )}
-          </Button>
-        )}
+          {currentStep < totalSteps ? (
+            <button
+              onClick={nextStep}
+              disabled={!canProceedToNext()}
+              className={`h-14 px-10 rounded-2xl font-bold text-sm flex items-center gap-3 transition-all ${
+                canProceedToNext() 
+                ? 'bg-[#0f172a] text-white hover:bg-blue-600 shadow-lg shadow-slate-900/10' 
+                : 'bg-slate-100 text-slate-300 cursor-not-allowed'
+              }`}
+            >
+              Continue to Step {currentStep + 1} <ChevronRight size={18} />
+            </button>
+          ) : (
+            <button
+              onClick={handleSubmit}
+              disabled={!canProceedToNext() || booking}
+              className={`h-14 px-10 rounded-2xl bg-emerald-500 text-white font-bold text-sm flex items-center gap-3 hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-900/10 ${booking ? 'opacity-70 cursor-not-allowed' : ''}`}
+            >
+              {booking ? <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Booking...</> : <><Check size={18} /> Confirm Appointment</>}
+            </button>
+          )}
+        </div>
       </div>
-    </motion.div>
+
+      {/* Help Banner */}
+      <div className="mt-10 bg-[#0f172a] p-8 rounded-[2.5rem] text-white relative overflow-hidden group">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600 rounded-full blur-[60px] opacity-20 -mr-16 -mt-16" />
+        <div className="relative z-10 flex items-center gap-6">
+          <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-blue-400 shrink-0"><AlertCircle size={28} /></div>
+          <div>
+            <h4 className="text-lg font-serif font-bold mb-1">Facing technical issues?</h4>
+            <p className="text-sm text-slate-400 font-medium">If you are unable to book through the portal, please call our 24/7 helpline at <span className="text-white">+91 85880 72727</span>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

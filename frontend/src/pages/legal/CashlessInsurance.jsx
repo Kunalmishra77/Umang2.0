@@ -113,7 +113,28 @@ const CashlessInsurance = () => {
                 </div>
             </section>
 
-            {/* 2. SEARCH & LISTING */}
+            {/* 2. STATS BAR (NEW) */}
+            <div className="bg-[#030712] py-16 border-b border-white/5 relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
+                <Container className="relative z-10 text-center">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
+                        {[
+                            { label: 'Insurance Partners', val: '50+', icon: Shield },
+                            { label: 'Cashless Approvals', val: '10k+', icon: CheckCircle2 },
+                            { label: 'Avg Approval Time', val: '< 2 Hrs', icon: Clock },
+                            { label: 'Success Rate', val: '99.2%', icon: ThumbsUp }
+                        ].map((stat, i) => (
+                            <div key={i} className="group">
+                                <stat.icon className="w-8 h-8 text-primary-400 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                                <h3 className="text-4xl font-serif font-bold text-white mb-1">{stat.val}</h3>
+                                <p className="text-[10px] font-black uppercase tracking-widest text-slate-500">{stat.label}</p>
+                            </div>
+                        ))}
+                    </div>
+                </Container>
+            </div>
+
+            {/* 3. SEARCH & LISTING */}
             <section className="section-padding bg-white relative">
                 <div className="container-custom">
                     <div className="max-w-4xl mx-auto mb-20">
@@ -221,6 +242,120 @@ const CashlessInsurance = () => {
                 </div>
             </section>
 
+            {/* 4. ADMISSION WORKFLOW (NEW) */}
+            <Section className="bg-slate-50">
+                <Container>
+                    <SectionHeading eyebrow="The Journey" title="Cashless Admission <span class='text-primary-600'>Workflow.</span>" centered />
+                    <div className="grid md:grid-cols-4 gap-8 relative">
+                        <div className="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-primary-100 -z-0" />
+                        {[
+                            { title: 'TPA Desk', desc: 'Visit our dedicated desk with your insurance ID and ID proof.' },
+                            { title: 'Pre-Auth', desc: 'Our team files for pre-authorization with the medical reports.' },
+                            { title: 'Approval', desc: 'Receive initial approval from the TPA within 2-4 hours.' },
+                            { title: 'Admission', desc: 'Proceed with treatment without any upfront payment.' }
+                        ].map((step, i) => (
+                            <div key={i} className="text-center relative z-10 group">
+                                <div className="w-24 h-24 rounded-full bg-white border-4 border-primary-500 flex items-center justify-center text-3xl font-black text-primary-600 mx-auto mb-8 shadow-xl group-hover:bg-primary-600 group-hover:text-white transition-all">
+                                    {i + 1}
+                                </div>
+                                <h4 className="text-xl font-bold text-brand-dark mb-3">{step.title}</h4>
+                                <p className="text-sm text-slate-500 leading-relaxed px-4">{step.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </Container>
+            </Section>
+
+            {/* 5. DOCUMENT CHECKLIST (NEW) */}
+            <Section className="bg-white">
+                <Container>
+                    <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
+                        <div className="lg:w-1/2">
+                            <SectionHeading 
+                                eyebrow="Preparation" 
+                                title="Documents Required for <span class='text-primary-600'>Cashless Approval.</span>" 
+                                description="To ensure a smooth approval process, please have the following documents ready at the time of admission."
+                            />
+                            <div className="grid sm:grid-cols-2 gap-6 mt-10">
+                                {[
+                                    'Original Insurance ID Card',
+                                    'Government ID (Aadhar/PAN)',
+                                    'Doctor\'s Consultation Note',
+                                    'Relevant Lab Reports',
+                                    'Previous Discharge Summary',
+                                    'Employee ID (Corporate Policy)'
+                                ].map((doc, i) => (
+                                    <div key={i} className="flex items-center gap-4 group">
+                                        <div className="w-10 h-10 rounded-xl bg-green-50 text-green-600 flex items-center justify-center shrink-0 group-hover:bg-green-600 group-hover:text-white transition-all shadow-sm">
+                                            <CheckCircle2 size={20} />
+                                        </div>
+                                        <span className="font-bold text-slate-700 text-sm">{doc}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="lg:w-1/2 relative">
+                            <div className="absolute inset-0 bg-primary-100 rounded-[4rem] rotate-3 -z-10" />
+                            <img src={ASSETS.RECEPTION} alt="Checklist" className="rounded-[4rem] shadow-2xl w-full h-[550px] object-cover" />
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
+            {/* 6. TPA DESK ADVANTAGE (NEW) */}
+            <Section className="bg-[#0f172a] text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[120px]" />
+                <Container>
+                    <div className="text-center mb-20">
+                        <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">Our Expertise</span>
+                        <h2 className="text-4xl lg:text-7xl font-serif font-bold">The Umang TPA <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Advantage.</span></h2>
+                    </div>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {[
+                            { title: '24/7 Desk', desc: 'Our insurance team is available round the clock for emergency approvals.', icon: Clock },
+                            { title: 'Expert Liaisons', desc: 'Dedicated coordinators for major insurers to fast-track your claims.', icon: Users },
+                            { title: 'Transparent Process', desc: 'Real-time updates on your approval status directly to your phone.', icon: Activity }
+                        ].map((adv, i) => (
+                            <div key={i} className="p-12 rounded-[3rem] bg-white/5 border border-white/10 hover:bg-white/10 transition-all text-center">
+                                <adv.icon className="w-12 h-12 text-primary-400 mx-auto mb-8" />
+                                <h4 className="text-2xl font-bold mb-4">{adv.title}</h4>
+                                <p className="text-slate-400 leading-relaxed font-light">{adv.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </Container>
+            </Section>
+
+            {/* 7. CORPORATE WELLNESS HUB (NEW) */}
+            <Section className="bg-white">
+                <Container>
+                    <div className="bg-blue-50 rounded-[4rem] p-12 lg:p-20 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100 rounded-full blur-[100px] opacity-50 -mr-48 -mt-48" />
+                        <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16 relative z-10">
+                            <div className="max-w-2xl">
+                                <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">For Organizations</span>
+                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Corporate Health <br /><span className="text-primary-600 italic">& Tie-ups.</span></h2>
+                            </div>
+                            <Link to="/contact/inquiry-hub" className="px-10 py-5 bg-brand-dark text-white rounded-2xl font-bold hover:bg-primary-600 transition-all shadow-xl active:scale-95">
+                                Inquire for Tie-up
+                            </Link>
+                        </div>
+                        <div className="grid md:grid-cols-3 gap-10 relative z-10">
+                            {[
+                                { title: 'Health Camps', desc: 'On-site preventive health screenings for employees.' },
+                                { title: 'Priority Access', desc: 'Dedicated appointment slots for corporate members.' },
+                                { title: 'Wellness Plans', desc: 'Customized annual health packages for the workforce.' }
+                            ].map((item, i) => (
+                                <div key={i} className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-sm border border-white/50 group-hover:bg-white transition-all">
+                                    <h4 className="text-xl font-bold text-brand-dark mb-3">{item.title}</h4>
+                                    <p className="text-sm text-slate-500 leading-relaxed font-medium">{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
             {/* INQUIRY MODAL */}
             <AnimatePresence>
                 {selectedCompany && (
@@ -252,10 +387,10 @@ const CashlessInsurance = () => {
                                             </p>
                                         </div>
                                         <div className="space-y-4 relative z-10">
-                                            <a href="tel:+918929733550" className="flex items-center gap-3 text-xs font-bold text-primary-400 hover:text-white transition-colors">
-                                                <PhoneCall className="w-4 h-4" /> +91 89297 33550
+                                            <a href="tel:+918588072727" className="flex items-center gap-3 text-xs font-bold text-primary-400 hover:text-white transition-colors">
+                                                <PhoneCall className="w-4 h-4" /> +91 85880 72727
                                             </a>
-                                            <a href="https://wa.me/918929733550" className="flex items-center gap-3 text-xs font-bold text-green-400 hover:text-white transition-colors">
+                                            <a href="https://wa.me/918588072727" className="flex items-center gap-3 text-xs font-bold text-green-400 hover:text-white transition-colors">
                                                 <MessageCircle className="w-4 h-4" /> WhatsApp Us
                                             </a>
                                         </div>
@@ -347,13 +482,82 @@ const CashlessInsurance = () => {
                             <p className="text-gray-500 mb-10 leading-relaxed text-lg font-light">
                                 Our dedicated insurance desk is available 24/7 to help you with the pre-authorization process and claim documentation.
                             </p>
-                            <a href="tel:+918929733550" className="inline-flex items-center justify-center gap-3 bg-brand-dark text-white px-10 py-6 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-primary-600 transition-all text-center shadow-2xl hover:-translate-y-1 active:scale-95 duration-300">
-                                Call Helpline: +91 89297 33550
+                            <a href="tel:+918588072727" className="inline-flex items-center justify-center gap-3 bg-brand-dark text-white px-10 py-6 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-primary-600 transition-all text-center shadow-2xl hover:-translate-y-1 active:scale-95 duration-300">
+                                Call Helpline: +91 85880 72727
                             </a>
                         </motion.div>
                     </div>
                 </div>
             </section>
+            {/* SECTION: REIMBURSEMENT SUPPORT (NEW) */}
+            <Section className="bg-white">
+                <Container>
+                    <div className="flex flex-col lg:flex-row gap-16 items-center">
+                        <div className="lg:w-1/2 order-2 lg:order-1 relative">
+                            <img src={ASSETS.ABOUT_GLOBAL} alt="Reimbursement" className="rounded-[3rem] shadow-2xl" />
+                        </div>
+                        <div className="lg:w-1/2 order-1 lg:order-2">
+                            <SectionHeading 
+                                eyebrow="Beyond Cashless" 
+                                title="Reimbursement <span class='text-primary-600'>Assistance.</span>" 
+                                description="If your insurance provider is not on our panel, we provide complete documentation support to help you file for a reimbursement claim successfully."
+                            />
+                            <ul className="space-y-4 mb-10">
+                                {['Itemized Billing Support', 'Clinical Record Compilation', 'Insurance Form Guidance', 'Query Resolution Desk'].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-3 font-bold text-slate-700 text-sm">
+                                        <Plus className="text-primary-500 w-4 h-4" /> {item}
+                                    </li>
+                                ))}
+                            </ul>
+                            <a href="tel:+918588072727" className="btn-outline">Talk to Claim Expert</a>
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
+            {/* SECTION: POLICY EXCLUSIONS (NEW) */}
+            <Section className="bg-slate-50">
+                <Container>
+                    <div className="bg-[#030712] rounded-[4rem] p-12 lg:p-20 text-white relative overflow-hidden group border border-white/5 shadow-3xl">
+                        <div className="absolute top-0 right-0 w-96 h-96 bg-red-600 rounded-full blur-[140px] opacity-10 -mr-48 -mt-48" />
+                        <div className="flex items-center gap-4 mb-10">
+                            <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-red-400"><AlertCircle size={24} /></div>
+                            <h3 className="text-3xl lg:text-4xl font-serif font-bold text-white">Understanding <span className="text-red-400">Exclusions.</span></h3>
+                        </div>
+                        <p className="text-slate-400 text-lg mb-12 max-w-2xl font-light">Most insurance policies have specific exclusions. Understanding these early can help you plan your finances better during hospitalization.</p>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                            {[
+                                { label: 'Non-Medical Items', desc: ' Admission kits, gloves, masks.' },
+                                { label: 'Service Charges', desc: 'Registration or documentation fees.' },
+                                { label: 'Food & Beverage', desc: 'Meals for attenders and visitors.' },
+                                { label: 'Room Rent Capping', desc: 'Limits based on your policy tier.' }
+                            ].map((item, i) => (
+                                <div key={i} className="text-left">
+                                    <h4 className="font-bold text-white mb-2">{item.label}</h4>
+                                    <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+
+            {/* FINAL CTA (NEW) */}
+            <Section className="bg-brand-dark text-white text-center relative overflow-hidden py-24 border-t border-white/5">
+                <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+                <Container className="relative z-10 max-w-4xl mx-auto">
+                    <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Zero-Stress <span className="text-primary-400 italic">Insurance.</span></h2>
+                    <p className="text-slate-400 text-xl mb-16 font-light leading-relaxed">Let our experts handle the paperwork while you focus on your recovery. We are here to support your healing journey every step of the way.</p>
+                    <div className="flex flex-col sm:flex-row justify-center gap-8">
+                        <Link to="/appointments/request" className="px-12 py-6 bg-primary-600 text-white rounded-2xl font-bold text-lg hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
+                            <Calendar size={24} className="group-hover:rotate-12 transition-transform" /> Book Appointment
+                        </Link>
+                        <a href="tel:+918588072727" className="px-12 py-6 border border-white/20 text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:scale-105 active:scale-95">
+                            <Phone size={24} /> Get Call Back
+                        </a>
+                    </div>
+                </Container>
+            </Section>
         </div>
     );
 };

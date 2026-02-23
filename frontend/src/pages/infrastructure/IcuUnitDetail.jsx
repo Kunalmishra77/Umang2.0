@@ -179,7 +179,7 @@ const IcuUnitDetail = () => {
                                         </span>
                                     </div>
                                 </div>
-                                <a href="tel:+918929733550" className="mt-10 flex items-center justify-center gap-3 w-full py-5 bg-brand-dark text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-primary-600 transition-all active:scale-95 shadow-xl">
+                                <a href="tel:+918588072727" className="mt-10 flex items-center justify-center gap-3 w-full py-5 bg-brand-dark text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-primary-600 transition-all active:scale-95 shadow-xl">
                                     <PhoneCall className="w-4 h-4" /> Admission Desk
                                 </a>
                             </div>

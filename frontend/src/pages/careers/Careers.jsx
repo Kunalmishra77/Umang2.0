@@ -212,18 +212,192 @@ const Careers = () => {
         </div>
       </section>
 
-      {/* 4. CTA */}
-      <section className="py-12 lg:py-10 bg-[#005580] text-white">
-         <div className="container-custom text-center">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6">Don't see a suitable role?</h2>
-            <p className="text-blue-100 max-w-xl mx-auto mb-10 text-lg">
-               We are always looking for talent. Drop your CV at our HR desk, and we will get back to you.
-            </p>
-            <a href="mailto:Umanghospitalgurugram@gmail.com" className="inline-flex items-center gap-3 px-8 py-4 bg-white text-[#005580] rounded-full font-bold shadow-xl hover:bg-blue-50 transition-all">
-               Email Your Resume <ArrowRight className="w-4 h-4" />
-            </a>
-         </div>
+      {/* 4. EMPLOYEE GROWTH & TRAINING */}
+      <Section className="bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]" />
+        <Container>
+          <div className="grid lg:grid-cols-2 gap-20 items-center">
+            <div>
+              <span className="text-blue-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">Career Advancement</span>
+              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-10 leading-tight">Upskilling the <br /><span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Next Generation.</span></h2>
+              <p className="text-slate-400 text-lg mb-12 font-light leading-relaxed">
+                We don't just hire professionals; we build leaders. Our dedicated training wing provides monthly workshops, digital certifications, and mentorship programs for all staff levels.
+              </p>
+              <div className="grid sm:grid-cols-2 gap-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                    <CheckCircle className="text-blue-400 w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold mb-1">CME Programs</h4>
+                    <p className="text-xs text-slate-500">Continuous medical education for clinical faculty.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
+                    <CheckCircle className="text-blue-400 w-5 h-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold mb-1">Soft Skill Hub</h4>
+                    <p className="text-xs text-slate-500">Empathy-based training for support teams.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <img src={ASSETS.ROBOTIC_SURGERY} alt="Training" className="rounded-[3rem] shadow-2xl opacity-80 hover:opacity-100 transition-opacity duration-1000" />
+              <div className="absolute -bottom-10 -left-10 bg-blue-600 p-10 rounded-[3rem] shadow-2xl hidden xl:block">
+                <p className="text-white font-black text-5xl mb-1 tracking-tighter">100+</p>
+                <p className="text-blue-200 font-bold uppercase tracking-widest text-[10px]">Training Hours/Year</p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 5. INTERNSHIPS & RESIDENCY */}
+      <Section className="bg-white pt-24 pb-12">
+        <Container>
+          <div className="bg-blue-50 rounded-[4rem] p-12 lg:p-20 relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-[100px] opacity-50 -mr-48 -mt-48" />
+            <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16">
+              <div className="max-w-2xl">
+                <span className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 block">For Students</span>
+                <h2 className="text-4xl font-serif font-bold text-brand-dark leading-tight">Internship & <br /><span className="text-blue-600 italic">Academic Residency.</span></h2>
+              </div>
+              <button className="px-8 py-4 bg-[#005580] text-white rounded-2xl font-bold hover:bg-[#004466] transition-all shadow-xl">
+                Explore Programs
+              </button>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { title: 'Nursing Internships', desc: 'Six-month rotation programs for BSc Nursing final year students.' },
+                { title: 'Admin Management', desc: 'Practical exposure to healthcare operations and hospital HMIS.' },
+                { title: 'Pharmacy Trainees', desc: 'On-floor training for retail and hospital pharmacy protocols.' }
+              ].map((item, i) => (
+                <div key={i} className="bg-white p-8 rounded-3xl shadow-sm border border-blue-100/50">
+                  <h4 className="text-xl font-bold text-brand-dark mb-3">{item.title}</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 6. LIFE AT UMANG (Gallery) */}
+      <Section className="bg-white pt-12">
+        <Container>
+          <SectionHeading eyebrow="Culture in Action" title="Life at Umang Hospital" centered />
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="space-y-4">
+              <img src={ASSETS.SURGERY_TEAM} alt="Team" className="rounded-3xl h-64 w-full object-cover shadow-lg" />
+              <img src={ASSETS.ABOUT_GLOBAL} alt="Event" className="rounded-3xl h-48 w-full object-cover shadow-lg" />
+            </div>
+            <div className="space-y-4 pt-8">
+              <img src={ASSETS.DIRECTOR} alt="Leadership" className="rounded-3xl h-80 w-full object-cover shadow-lg" />
+              <img src={ASSETS.NURSE_CARE} alt="Floor" className="rounded-3xl h-48 w-full object-cover shadow-lg" />
+            </div>
+            <div className="space-y-4">
+              <img src={ASSETS.ROBOTIC_SURGERY} alt="Tech" className="rounded-3xl h-48 w-full object-cover shadow-lg" />
+              <img src={ASSETS.ABOUT_MAIN} alt="Lobby" className="rounded-3xl h-80 w-full object-cover shadow-lg" />
+            </div>
+            <div className="space-y-4 pt-12">
+              <img src={ASSETS.SVC_ICU_ADVANCE} alt="ICU" className="rounded-3xl h-64 w-full object-cover shadow-lg" />
+              <img src={ASSETS.RECEPTION} alt="Front" className="rounded-3xl h-48 w-full object-cover shadow-lg" />
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 7. DIVERSITY & INCLUSION */}
+      <Section className="bg-slate-50">
+        <Container>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <SectionHeading 
+                eyebrow="Core Values" 
+                title="A Workplace for <span class='text-blue-600'>Everyone.</span>" 
+                description="We take pride in our diverse workforce representing various cultures and backgrounds across India. Inclusivity is at the heart of our collaborative healing environment."
+              />
+              <div className="flex flex-wrap gap-4">
+                {['Equal Opportunity', 'Gender Diversity', 'Zero Tolerance Harassment', 'Transparent Pay'].map((tag, idx) => (
+                  <span key={idx} className="bg-white border border-blue-100 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-blue-600 shadow-sm">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              <div className="p-10 bg-white rounded-[3rem] shadow-xl border border-blue-50 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                <Users size={64} className="text-blue-200 mb-6" />
+                <h4 className="text-2xl font-bold text-brand-dark mb-4">Referral Program</h4>
+                <p className="text-gray-500 mb-8 leading-relaxed">Know someone who fits our culture? Our employee referral program rewards you for bringing top talent into our family.</p>
+                <Link to="/contact" className="text-blue-600 font-bold uppercase tracking-widest text-xs flex items-center gap-2">Refer Now <ArrowRight size={14} /></Link>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 8. CAREERS FAQ */}
+      <section className="section-padding bg-white border-y border-gray-100">
+        <div className="container-custom max-w-4xl">
+          <div className="text-center mb-16">
+            <span className="section-subtitle">Candidate Support</span>
+            <h2 className="section-title">Common Questions</h2>
+          </div>
+          <div className="space-y-4">
+            {[
+              { q: "How long does the hiring process take?", a: "Typically, the process from application to offer takes 2-3 weeks, depending on the role and seniority." },
+              { q: "Do you offer accommodation for outstation candidates?", a: "We provide temporary transit accommodation assistance for senior medical and nursing staff joining from other cities." },
+              { q: "Is there a policy for internal growth?", a: "Yes, we prioritize internal promotions and have a robust performance-linked growth framework." },
+              { q: "What documents are required for interview?", a: "Please carry your updated CV, original educational certificates, experience letters from previous employers, and two passport-sized photographs." }
+            ].map((faq, i) => (
+              <div key={i} className="bg-slate-50 p-8 rounded-[2.5rem] border border-transparent hover:border-blue-200 transition-all text-left">
+                <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
+                  <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center text-blue-600 shadow-sm"><HelpCircle size={20} /></div> {faq.q}
+                </h4>
+                <p className="text-gray-600 pl-14 text-base leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
+
+      {/* 9. HOSPITAL HIRING (NEW) */}
+      <Section className="bg-blue-600 text-white">
+        <Container>
+          <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+            <div className="max-w-2xl">
+              <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 leading-tight">Hospital Hiring 2026</h2>
+              <p className="text-blue-100 text-xl font-light">We are visiting top medical and nursing colleges this year. If you represent an institution, let's connect for placement drives.</p>
+            </div>
+            <Link to="/contact" className="h-16 px-10 bg-white text-blue-600 rounded-full font-black text-lg flex items-center gap-3 hover:bg-blue-50 transition-all shadow-2xl">
+              Institutional Connect <Globe size={24} />
+            </Link>
+          </div>
+        </Container>
+      </Section>
+
+      {/* 10. FINAL CTA HUB */}
+      <Section className="bg-brand-dark text-white relative overflow-hidden py-24">
+        <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <Container className="text-center relative z-10">
+          <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Start Your <br /><span className="text-primary-400 italic">Calling.</span></h2>
+          <p className="text-slate-400 text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">Join a legacy of healing and innovation. Your future at Umang Hospital begins today.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-8">
+            <button onClick={() => document.getElementById('openings').scrollIntoView({ behavior: 'smooth' })} className="px-12 py-6 bg-primary-600 text-white rounded-2xl font-bold text-lg hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
+              <Briefcase size={24} className="group-hover:rotate-12 transition-transform" /> View Openings
+            </button>
+            <a href="mailto:umanghospitalgurugram@gmail.com" className="px-12 py-6 border border-white/20 text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:scale-105 active:scale-95">
+              <Mail size={24} /> Drop Resume
+            </a>
+          </div>
+        </Container>
+      </Section>
     </div>
   );
 };

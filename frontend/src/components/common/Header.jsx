@@ -38,33 +38,33 @@ const Header = () => {
     <>
       <header className="fixed top-0 left-0 right-0 z-[100] transition-all duration-300">
         {/* TOP BAR */}
-        <div className={`bg-[#0f172a] text-white transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0' : 'max-h-10 lg:max-h-8'}`}>
-           <div className="container-custom h-10 lg:h-8 flex items-center justify-between text-[10px] lg:text-[11px] font-semibold tracking-wide px-4">
+        <div className={`bg-[#0f172a] text-white transition-all duration-500 overflow-hidden ${isScrolled ? 'max-h-0' : 'max-h-10 lg:max-h-10'}`}>
+           <div className="container-custom h-10 lg:h-10 flex items-center justify-between text-[13px] lg:text-[14px] font-semibold tracking-wide px-4">
               <a href={`tel:${siteConfig.contacts.emergency.replace(/\s/g,'')}`} className="flex items-center gap-2 hover:text-primary-400 transition-colors">
-                 <AlertCircle className="w-3 h-3 text-red-500" /> <span className="inline">Emergency:</span> {siteConfig.contacts.emergency}
+                 <AlertCircle className="w-3.5 h-3.5 text-red-500" /> <span className="inline">Emergency:</span> {siteConfig.contacts.emergency}
               </a>
-              <div className="flex items-center gap-4">
-                 <div className="hidden md:flex items-center gap-2 text-emerald-400 font-bold">NABH ACCREDITED</div>
+              <div className="flex items-center gap-6">
+                 <div className="hidden md:flex items-center gap-2 text-emerald-400 font-bold tracking-widest text-[12px]">NABH ACCREDITED</div>
                  <Link to="/doctors" className="hover:text-primary-400 transition-colors">Find Doctor</Link>
               </div>
            </div>
         </div>
 
         {/* MAIN NAV ROW */}
-        <div className={`bg-white transition-all duration-500 border-b border-gray-100 relative ${isScrolled ? 'h-14 lg:h-16' : 'h-16 lg:h-20'}`}>
+        <div className={`bg-white transition-all duration-500 border-b border-gray-100 relative ${isScrolled ? 'h-12 lg:h-14' : 'h-14 lg:h-16'}`}>
           <div className="container-custom flex items-center justify-between gap-4 px-4 w-full h-full relative">
             <Link to="/" className="flex items-center gap-2 shrink-0 group py-1">
-               <div className="h-8 lg:h-10 flex items-center">
+               <div className="h-7 lg:h-9 flex items-center">
                  <img src="/umang.svg" alt="Umang" className="h-full w-auto object-contain" />
                </div>
                <div className="flex flex-col justify-center leading-none">
-                 <span className="text-base lg:text-xl font-bold tracking-tight text-gray-900 group-hover:text-primary-600 transition-colors">{siteConfig.shortName.split(' ')[0]}<span className="text-primary-600">{siteConfig.shortName.split(' ')[1]}</span></span>
-                 <span className="text-[6px] lg:text-[7px] uppercase tracking-[0.25em] font-bold text-gray-400">Superspeciality</span>
+                 <span className="text-sm lg:text-lg font-bold tracking-tight text-gray-900 group-hover:text-primary-600 transition-colors">{siteConfig.shortName.split(' ')[0]}<span className="text-primary-600">{siteConfig.shortName.split(' ')[1]}</span></span>
+                 <span className="text-[8px] lg:text-[10px] uppercase tracking-[0.25em] font-bold text-gray-400">Superspeciality</span>
                </div>
             </Link>
 
             {/* Tightened Navigation Spacing */}
-            <nav className="hidden xl:flex items-center gap-0 h-full">
+            <nav className="hidden xl:flex items-center gap-0.5 h-full">
               {allLinks.map((link) => {
                 const hasDropdown = link.groups && link.groups.length > 0;
                 
@@ -77,10 +77,10 @@ const Header = () => {
                   >
                     <NavLink 
                       to={link.href} 
-                      className={({ isActive }) => `px-3 lg:px-4 py-2 text-[10px] lg:text-[11px] font-black uppercase tracking-widest rounded-lg transition-all ${isActive ? 'text-primary-600 bg-primary-50/50' : 'text-gray-600 hover:text-primary-600'}`}
+                      className={({ isActive }) => `px-2 lg:px-3.5 py-2 text-[12px] lg:text-[13px] font-black uppercase tracking-wider rounded-xl transition-all ${isActive ? 'text-primary-600 bg-primary-50/50' : 'text-gray-600 hover:text-primary-600'}`}
                     >
                       <span className="flex items-center gap-1 whitespace-nowrap">
-                         {link.title} {hasDropdown && <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${activeDropdown === link.title ? 'rotate-180' : 'opacity-40'}`} />}
+                         {link.title} {hasDropdown && <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-300 ${activeDropdown === link.title ? 'rotate-180' : 'opacity-40'}`} />}
                       </span>
                     </NavLink>
 
@@ -93,7 +93,7 @@ const Header = () => {
                           exit={{ opacity: 0, y: 5 }} 
                           transition={{ duration: 0.2 }}
                           className={`absolute top-full z-[110] pt-0 ${
-                            ['Contact', 'Patients', 'Team', 'Infrastructure'].includes(link.title) ? 'right-0' : 
+                            ['Contact', 'Patients', 'Doctor', 'Infrastructure'].includes(link.title) ? 'right-0' : 
                             ['Home', 'About'].includes(link.title) ? 'left-0' : 'left-1/2 -translate-x-1/2'
                           } w-[720px] pointer-events-auto`}
                         >
@@ -107,11 +107,11 @@ const Header = () => {
             </nav>
 
             <div className="flex items-center gap-2">
-               <Link to="/doctors" className="h-9 lg:h-10 px-4 lg:px-5 rounded-xl flex items-center gap-2 text-[9px] lg:text-[10px] font-black uppercase tracking-widest transition-all bg-primary-600 text-white shadow-lg shadow-primary-600/20 hover:bg-primary-500 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap">
-                 <Calendar className="w-3 h-3" /> <span className="hidden sm:inline">Appointment</span><span className="sm:hidden">BOOK</span>
+               <Link to="/doctors" className="h-10 lg:h-11 px-4 lg:px-6 rounded-xl flex items-center gap-2 text-[11px] lg:text-[12px] font-black uppercase tracking-widest transition-all bg-primary-600 text-white shadow-lg shadow-primary-600/20 hover:bg-primary-500 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap">
+                 <Calendar className="w-3.5 h-3.5" /> <span className="hidden sm:inline">Appointment</span><span className="sm:hidden">BOOK</span>
                </Link>
-               <button className="xl:hidden w-9 h-9 flex items-center justify-center rounded-lg bg-gray-50 text-gray-700 border border-gray-100" onClick={() => setIsMobileMenuOpen(true)}>
-                 <Menu className="w-5 h-5" />
+               <button className="xl:hidden w-11 h-11 flex items-center justify-center rounded-xl bg-gray-50 text-gray-700 border border-gray-100" onClick={() => setIsMobileMenuOpen(true)}>
+                 <Menu className="w-6 h-6" />
                </button>
             </div>
           </div>
@@ -154,13 +154,13 @@ const Header = () => {
                                           key={gIdx} 
                                           {...linkProps}
                                           onClick={() => setIsMobileMenuOpen(false)} 
-                                          className="px-4 py-3.5 text-[14px] font-bold text-gray-600 hover:text-primary-600 hover:bg-white rounded-xl flex items-center justify-between transition-all"
+                                          className="px-4 py-4 text-[15px] font-bold text-gray-600 hover:text-primary-600 hover:bg-white rounded-xl flex items-center justify-between transition-all"
                                         >
                                           <span className="flex items-center gap-3">
-                                            {group.icon && <group.icon size={16} className="text-primary-400" />}
+                                            {group.icon && <group.icon size={18} className="text-primary-400" />}
                                             {group.title}
                                           </span>
-                                          <ArrowRight size={14} className="text-gray-300" />
+                                          <ArrowRight size={16} className="text-gray-300" />
                                         </LinkComponent>
                                       );
                                     })}

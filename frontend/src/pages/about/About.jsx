@@ -61,8 +61,7 @@ const About = () => {
                   Explore Our Story
                </button>
                <Link to="/contact" className="px-6 py-3 rounded-full border border-white/20 text-white font-bold text-[12px] uppercase tracking-widest backdrop-blur-md hover:bg-white/10 transition-all text-center">
-                  Visit Campus
-               </Link>
+                                     Visit Hospital               </Link>
             </div>
           </motion.div>
         </div>

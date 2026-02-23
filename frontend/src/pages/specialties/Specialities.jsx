@@ -32,12 +32,18 @@ const Specialities = () => {
   const location = useLocation();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
+  const [visibleCount, setVisibleCount] = useState(6);
 
   useEffect(() => {
     if (location.state?.category) {
       setSearchQuery(location.state.category);
     }
   }, [location.state]);
+
+  // Reset visible count when filter or search changes
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [searchQuery, activeFilter]);
 
   const allSpecialties = useMemo(() => {
     return Object.entries(specialitiesData).map(([id, data]) => ({
@@ -68,34 +74,45 @@ const Specialities = () => {
       />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 bg-brand-dark text-white overflow-hidden">
+      <section className="relative pt-40 pb-24 bg-brand-dark text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img src={ASSETS.OT} alt="OT" className="w-full h-full object-cover opacity-20" />
-          <div className="hero-overlay-radial" />
+          <img src={ASSETS.CARDIAC} alt="Clinical Excellence" className="w-full h-full object-cover opacity-30 mix-blend-luminosity" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-transparent" />
         </div>
         <Container className="relative z-20">
-          <motion.div variants={VARIANTS.fadeIn} initial="hidden" animate="visible">
-            <h1 className="text-white mb-6">Centres of <span className="text-primary-400 italic">Excellence.</span></h1>
-            <p className="text-lg text-slate-200 max-w-2xl leading-relaxed">
-              Serving Gurugram & NCR with 52+ specialized departments and advanced clinical protocols.
+          <motion.div variants={VARIANTS.fadeIn} initial="hidden" animate="visible" className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="w-12 h-[2px] bg-primary-500" />
+              <span className="text-primary-400 font-black uppercase tracking-[0.3em] text-[12px]">Clinical Leadership</span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
+              Centres of <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400 italic">Excellence.</span>
+            </h1>
+            <p className="text-xl text-slate-300 max-w-2xl leading-relaxed font-light">
+              Serving Gurugram & NCR with 52+ specialized departments and advanced clinical protocols designed for superior patient outcomes.
             </p>
           </motion.div>
         </Container>
       </section>
 
       {/* SECTION: QUICK STATS */}
-      <div className="bg-primary-600 py-8 lg:py-10 border-y border-white/5">
+      <div className="bg-[#0f172a] py-8 lg:py-10 border-b border-white/5 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
         <Container>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 text-center text-white relative z-10">
             {[
-              { label: "Procedures / Year", value: "15,000+" },
-              { label: "Specialists", value: "100+" },
-              { label: "Success Rate", value: "99.2%" },
-              { label: "Years Experience", value: "15+" }
+              { label: "Procedures / Year", value: "15,000+", icon: Activity },
+              { label: "Specialists", value: "30+", icon: Users },
+              { label: "Success Rate", value: "99.2%", icon: Award },
+              { label: "Years Experience", value: "15+", icon: Clock }
             ].map((stat, i) => (
-              <div key={i} className="space-y-1">
-                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight">{stat.value}</p>
-                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-primary-100/70">{stat.label}</p>
+              <div key={i} className="flex flex-col items-center group">
+                <div className="mb-3 text-primary-500/50 group-hover:text-primary-400 transition-colors">
+                  <stat.icon size={18} strokeWidth={1.5} />
+                </div>
+                <p className="text-2xl lg:text-3xl font-serif font-bold tracking-tight mb-1.5">{stat.value}</p>
+                <div className="h-0.5 w-5 bg-primary-600/30 mb-2.5 group-hover:w-10 transition-all duration-500" />
+                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-slate-500 group-hover:text-primary-400 transition-colors">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -164,29 +181,37 @@ const Specialities = () => {
       </Section>
 
       {/* SECTION: CLINICAL MILESTONES (NEW) */}
-      <Section className="bg-primary-950 text-white">
+      <Section className="bg-primary-950 text-white overflow-hidden">
         <Container>
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-8">Decades of <br /><span className="text-primary-400">Clinical Milestones.</span></h2>
-              <div className="space-y-8">
+          <div className="flex flex-col lg:flex-row gap-20 items-center">
+            <div className="lg:w-[60%] order-2 lg:order-1">
+              <h2 className="text-3xl lg:text-6xl font-serif font-bold mb-12 leading-tight">Decades of <br /><span className="text-primary-400 italic">Clinical Milestones.</span></h2>
+              <div className="space-y-12">
                 {[
-                  { year: "2010", title: "First Robotic OT", desc: "Inaugurated the region's first fully integrated modular OT suite." },
-                  { year: "2015", title: "10,000+ Cardiac Procedures", desc: "Crossed a significant milestone in minimally invasive heart surgeries." },
-                  { year: "2022", title: "Global Accreditation", desc: "Achieved elite national quality benchmarks for specialty care." }
+                  { year: "2010", title: "First Robotic OT", desc: "Inaugurated the region's first fully integrated modular OT suite with international safety standards." },
+                  { year: "2015", title: "10,000+ Cardiac Procedures", desc: "Crossed a significant milestone in minimally invasive heart surgeries and interventional care." },
+                  { year: "2022", title: "Global Accreditation", desc: "Achieved elite national quality benchmarks (NABH) for specialty care and patient safety." }
                 ].map((m, i) => (
-                  <div key={i} className="flex gap-8">
-                    <span className="text-4xl font-serif font-bold text-primary-600 opacity-50 shrink-0">{m.year}</span>
-                    <div>
-                      <h4 className="text-xl font-bold mb-2">{m.title}</h4>
-                      <p className="text-slate-400 leading-relaxed">{m.desc}</p>
+                  <div key={i} className="flex gap-10 group">
+                    <div className="flex flex-col items-center">
+                      <span className="text-3xl lg:text-4xl font-serif font-bold text-primary-600 opacity-40 group-hover:opacity-100 transition-opacity shrink-0">{m.year}</span>
+                      <div className="w-[1px] h-full bg-primary-900 mt-4 group-last:hidden" />
+                    </div>
+                    <div className="pb-8">
+                      <h4 className="text-xl lg:text-2xl font-bold mb-3 group-hover:text-primary-400 transition-colors">{m.title}</h4>
+                      <p className="text-slate-400 text-base lg:text-lg leading-relaxed font-light">{m.desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="lg:w-1/2 relative">
-               <img src={ASSETS.ABOUT_NABH} alt="Milestones" className="rounded-[4rem] shadow-2xl opacity-80" />
+            <div className="lg:w-[40%] order-1 lg:order-2 relative">
+               <div className="relative rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl">
+                 <img src={ASSETS.ABOUT_NABH} alt="Milestones" className="w-full h-full object-cover opacity-90 scale-105" />
+                 <div className="absolute inset-0 bg-gradient-to-t from-primary-950/60 to-transparent" />
+               </div>
+               {/* Decorative Element */}
+               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary-600/20 rounded-full blur-3xl" />
             </div>
           </div>
         </Container>
@@ -282,7 +307,7 @@ const Specialities = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             <AnimatePresence mode="popLayout">
-              {filteredSpecialties.map((s) => (
+              {filteredSpecialties.slice(0, visibleCount).map((s) => (
                 <motion.div
                   key={s.id}
                   layout
@@ -321,28 +346,75 @@ const Specialities = () => {
               ))}
             </AnimatePresence>
           </div>
+
+          {filteredSpecialties.length > 6 && (
+            <div className="mt-20 flex justify-center gap-4">
+              {visibleCount < filteredSpecialties.length ? (
+                <button 
+                  onClick={() => setVisibleCount(prev => prev + 6)}
+                  className="px-10 py-4 bg-primary-600 text-white rounded-full font-bold text-sm uppercase tracking-widest hover:bg-primary-500 transition-all shadow-xl flex items-center gap-3 group"
+                >
+                  Load More Departments <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              ) : (
+                <button 
+                  onClick={() => setVisibleCount(6)}
+                  className="px-10 py-4 border-2 border-primary-600 text-primary-600 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-primary-50 transition-all flex items-center gap-3"
+                >
+                  Show Less <ChevronRight size={18} className="rotate-[-90deg]" />
+                </button>
+              )}
+            </div>
+          )}
         </Container>
       </Section>
 
       {/* SECTION: GENERAL FAQ */}
-      <Section className="bg-gray-50 border-y border-gray-100">
-        <Container className="max-w-4xl">
-          <div className="text-center mb-16">
-            <span className="section-subtitle">Common Queries</span>
-            <h2 className="section-title">Speciality FAQs</h2>
+      <Section className="bg-slate-50 relative overflow-hidden">
+        {/* Decorative background elements */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-primary-100 rounded-full blur-[100px] opacity-50" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-cyan-100 rounded-full blur-[100px] opacity-50" />
+
+        <Container>
+          <div className="text-center mb-20 relative z-10">
+            <div className="inline-flex items-center gap-3 px-4 py-2 bg-primary-50 rounded-full mb-6">
+              <HelpCircle className="w-4 h-4 text-primary-600" />
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-700">Common Queries</span>
+            </div>
+            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark mb-6">Speciality <span className="text-primary-600 italic">FAQs</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto text-lg font-light">
+              Clear answers to the most frequent questions regarding our specialized departments and clinical protocols.
+            </p>
           </div>
-          <div className="space-y-4">
+
+          <div className="grid lg:grid-cols-2 gap-8 relative z-10">
             {[
-              { q: "How do I choose the right specialist?", a: "You can use our Symptom Navigator or contact our primary desk at +91 89297 33550 for guidance." },
-              { q: "Are all specialists available 24/7?", a: "While OPD hours vary, a senior specialist from each core department is always on call for emergency cases." },
-              { q: "Do you offer online video consultations?", a: "Yes, most of our senior consultants are available for telemedicine sessions. Look for the 'Video' icon on their profile." }
+              { q: "How do I choose the right specialist?", a: "You can use our Symptom Navigator or contact our primary desk at +91 85880 72727 for guidance based on your specific health concerns." },
+              { q: "Are all specialists available 24/7?", a: "While standard OPD hours are 9 AM - 8 PM, a senior specialist from each core department is always on call 24/7 for emergency cases." },
+              { q: "Do you offer online video consultations?", a: "Yes, we offer secure telemedicine sessions for follow-ups and initial screenings. You can book these via our patient portal or WhatsApp." },
+              { q: "What should I bring for my first visit?", a: "Please bring your previous medical records, ongoing prescriptions, and a valid ID proof. This helps our specialists understand your history better." },
+              { q: "How long does a typical consultation take?", a: "A standard consultation takes 15-30 minutes, but complex cases may require more time for a thorough evaluation." },
+              { q: "Can I get a second opinion here?", a: "Absolutely. We encourage multidisciplinary reviews and second opinions, especially for complex surgical or oncological cases." }
             ].map((faq, i) => (
-              <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 text-left group hover:border-primary-200 transition-all">
-                <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
-                  <HelpCircle size={20} className="text-primary-600 shrink-0" /> {faq.q}
-                </h4>
-                <p className="text-slate-600 pl-9 text-base leading-relaxed">{faq.a}</p>
-              </div>
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-primary-200 hover:shadow-2xl hover:shadow-primary-600/5 transition-all duration-500 group"
+              >
+                <div className="flex gap-6">
+                  <div className="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500">
+                    <span className="text-primary-600 group-hover:text-white font-bold text-lg">?</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-brand-dark text-xl mb-4 leading-tight group-hover:text-primary-700 transition-colors">{faq.q}</h4>
+                    <p className="text-slate-500 text-base leading-relaxed font-light">{faq.a}</p>
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </Container>

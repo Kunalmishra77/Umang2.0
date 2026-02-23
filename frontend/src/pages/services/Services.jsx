@@ -404,8 +404,8 @@ const Services = () => {
               <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4 tracking-tight">Need Urgent Help?</h2>
               <p className="text-red-100 text-lg font-light">Our ER and Ambulance dispatch are operational 24/7. Save this number.</p>
             </div>
-            <a href="tel:8929733551" className="h-20 px-12 bg-white text-red-600 rounded-full font-black text-2xl flex items-center gap-4 hover:scale-105 transition-all shadow-2xl animate-pulse">
-              <Phone size={32} /> 89297 33551
+            <a href={`tel:${siteConfig.contacts.emergency.replace(/\s/g,'')}`} className="h-20 px-12 bg-white text-red-600 rounded-full font-black text-2xl flex items-center gap-4 hover:scale-105 transition-all shadow-2xl animate-pulse">
+              <Phone size={32} /> {siteConfig.contacts.emergency}
             </a>
           </div>
         </Container>

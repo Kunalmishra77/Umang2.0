@@ -71,8 +71,8 @@ const HeroSection = () => {
 
   return (
     <section
-      className="relative w-full bg-[#020617] text-white overflow-hidden flex items-center justify-center lg:justify-start"
-      style={{ height: 'calc(100svh - var(--header-h))', minHeight: '480px' }}
+      className="relative w-full bg-[#020617] text-white overflow-hidden flex items-end justify-center lg:justify-start pb-6 lg:pb-10"
+      style={{ height: 'calc(100svh - var(--header-h))', minHeight: '520px' }}
     >
       {/* BACKGROUND MEDIA CONTAINER */}
       <div className="absolute inset-0 z-0 bg-[#020617]">
@@ -115,7 +115,7 @@ const HeroSection = () => {
       </div>
 
       {/* MINIMAL LOCALIZED OVERLAYS FOR READABILITY */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/40 via-transparent to-[#020617]/20 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/80 via-[#020617]/40 to-transparent z-10" />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#020617]/40 z-10" />
 
       <div className="container-custom relative z-20 w-full">
@@ -137,7 +137,7 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-[14px] md:text-[17px] text-white max-w-[42ch] mb-9 font-bold leading-relaxed px-4 lg:px-0"
+              className="text-[15px] md:text-[18px] text-white max-w-[42ch] mb-9 font-bold leading-relaxed px-4 lg:px-0"
               style={{ textShadow: '0 2px 10px rgba(0,0,0,0.8), 0 1px 2px rgba(0,0,0,1)' }}
             >
               A {siteConfig.stats.beds}-bed beacon of <span className="text-primary-300 font-black">medical excellence in Gurugram</span>, where advanced technology meets human compassion.
@@ -151,13 +151,13 @@ const HeroSection = () => {
             >
               <Link
                 to="/doctors"
-                className="h-10 px-6 w-full sm:w-auto flex items-center justify-center bg-primary-600 text-white rounded-xl font-bold uppercase tracking-[0.15em] text-[10px] transition-all shadow-lg hover:bg-primary-500 hover:-translate-y-1 hover:shadow-primary-600/30 active:scale-95"
+                className="h-12 px-8 w-full sm:w-auto flex items-center justify-center bg-primary-600 text-white rounded-xl font-bold uppercase tracking-[0.15em] text-[12px] transition-all shadow-lg hover:bg-primary-500 hover:-translate-y-1 hover:shadow-primary-600/30 active:scale-95"
               >
-                Book Appointment <ArrowRight className="w-3.5 h-3.5 ml-2" />
+                Book Appointment <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
               <a
                 href={`tel:${siteConfig.contacts.emergency.replace(/\s/g, '')}`}
-                className="h-10 px-6 w-full sm:w-auto flex items-center justify-center rounded-xl border border-white/20 backdrop-blur-md hover:bg-white/10 hover:border-white/40 transition-all text-[10px] font-bold uppercase tracking-[0.15em] active:scale-95"
+                className="h-12 px-8 w-full sm:w-auto flex items-center justify-center rounded-xl border border-white/20 backdrop-blur-md hover:bg-white/10 hover:border-white/40 transition-all text-[12px] font-bold uppercase tracking-[0.15em] active:scale-95"
               >
                 Emergency
               </a>
@@ -167,18 +167,18 @@ const HeroSection = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.8 }}
-              className="flex flex-wrap justify-center lg:justify-start gap-6 md:gap-10 pt-8 border-t border-white/10 w-full lg:w-auto"
+              className="flex flex-wrap justify-center lg:justify-start gap-4 md:gap-8 pt-6 border-t border-white/10 w-full lg:w-auto"
             >
               {[
                 { label: 'NABH Accredited', icon: ShieldCheck },
                 { label: `${siteConfig.stats.beds}+ Smart Beds`, icon: Award },
                 { label: `${siteConfig.timings.emergency} Response`, icon: Clock }
               ].map((s) => (
-                <div key={s.label} className="flex items-center gap-3">
-                  <div className="w-7 h-7 rounded-full bg-white/5 flex items-center justify-center backdrop-blur-sm border border-white/10">
+                <div key={s.label} className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-white/5 flex items-center justify-center backdrop-blur-sm border border-white/10">
                     <s.icon className="w-3.5 h-3.5 text-primary-300" />
                   </div>
-                  <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">{s.label}</span>
+                  <span className="text-[11px] lg:text-[11.5px] font-bold uppercase tracking-[0.2em] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,1)]">{s.label}</span>
                 </div>
               ))}
             </motion.div>
@@ -190,19 +190,19 @@ const HeroSection = () => {
               initial={{ opacity: 0, scale: 0.95 }} 
               animate={{ opacity: 1, scale: 1 }} 
               transition={{ duration: 1, delay: 0.5, type: "spring", damping: 25 }} 
-              className="relative ml-auto max-w-[340px]"
+              className="relative ml-auto max-w-[320px]"
             >
-              <div className="rounded-[2rem] border border-white/10 bg-transparent backdrop-blur-3xl shadow-[0_40px_80px_-15px_rgba(0,0,0,0.3)] p-8 overflow-visible">
+              <div className="rounded-[2.5rem] border border-white/10 bg-transparent backdrop-blur-3xl shadow-[0_40px_80px_-15px_rgba(0,0,0,0.3)] p-8 overflow-visible">
                 {/* Decorative subtle glow */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/10 blur-[60px] -z-10" />
                 
                 <div className="flex items-center gap-4 mb-8">
-                  <div className="w-10 h-10 rounded-2xl bg-primary-600 flex items-center justify-center shadow-lg">
-                    <HeartPulse className="w-5 h-5 text-white" />
+                  <div className="w-12 h-12 rounded-2xl bg-primary-600 flex items-center justify-center shadow-lg">
+                    <HeartPulse className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-[9px] font-black text-white uppercase tracking-[0.25em] leading-tight">Quick Inquiry</h3>
-                    <p className="text-[8px] text-primary-300 font-bold uppercase tracking-widest mt-1">Response in 15 min</p>
+                    <h3 className="text-[11px] font-black text-white uppercase tracking-[0.25em] leading-tight">Quick Inquiry</h3>
+                    <p className="text-[10px] text-primary-300 font-bold uppercase tracking-widest mt-1.5">Response in 15 min</p>
                   </div>
                 </div>
 
@@ -214,35 +214,35 @@ const HeroSection = () => {
                   >
                     <CheckCircle className="w-12 h-12 text-green-400 mx-auto mb-4" />
                     <h4 className="text-white font-bold text-sm mb-2">Request Sent!</h4>
-                    <p className="text-white/60 text-[10px] mb-6">Our team will call you shortly.</p>
+                    <p className="text-white/60 text-[12px] mb-6">Our team will call you shortly.</p>
                     <button 
                       onClick={reset}
-                      className="text-primary-400 text-[9px] font-bold uppercase tracking-widest"
+                      className="text-primary-400 text-[11px] font-bold uppercase tracking-widest"
                     >
                       New Request
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="relative group">
-                      <User className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 text-white/30 group-focus-within:text-primary-400 transition-colors" />
+                      <User className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 group-focus-within:text-primary-400 transition-colors" />
                       <input
                         required
                         name="name"
                         type="text"
                         placeholder="YOUR NAME"
-                        className="w-full bg-transparent border-b border-white/10 py-2 pl-6 pr-2 text-[10px] font-bold uppercase tracking-[0.12em] outline-none focus:border-primary-400 placeholder:text-white/20 text-white transition-all"
+                        className="w-full bg-transparent border-b border-white/10 py-3 pl-8 pr-2 text-[12px] font-bold uppercase tracking-[0.12em] outline-none focus:border-primary-400 placeholder:text-white/20 text-white transition-all"
                       />
                     </div>
 
                     <div className="relative group">
-                      <Phone className="absolute left-0 top-1/2 -translate-y-1/2 w-3 h-3 text-white/30 group-focus-within:text-primary-400 transition-colors" />
+                      <Phone className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30 group-focus-within:text-primary-400 transition-colors" />
                       <input
                         required
                         name="phone"
                         type="tel"
                         placeholder="PHONE NUMBER"
-                        className="w-full bg-transparent border-b border-white/10 py-2 pl-6 pr-2 text-[10px] font-bold uppercase tracking-[0.12em] outline-none focus:border-primary-400 placeholder:text-white/20 text-white transition-all"
+                        className="w-full bg-transparent border-b border-white/10 py-3 pl-8 pr-2 text-[12px] font-bold uppercase tracking-[0.12em] outline-none focus:border-primary-400 placeholder:text-white/20 text-white transition-all"
                       />
                     </div>
 
@@ -250,10 +250,10 @@ const HeroSection = () => {
                       <button
                         type="button"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        className={`w-full bg-transparent border-b ${isDropdownOpen ? 'border-primary-400' : 'border-white/10'} py-2 text-[10px] font-bold uppercase tracking-[0.12em] outline-none transition-all flex items-center justify-between text-white/80 hover:text-white`}
+                        className={`w-full bg-transparent border-b ${isDropdownOpen ? 'border-primary-400' : 'border-white/10'} py-3 text-[12px] font-bold uppercase tracking-[0.12em] outline-none transition-all flex items-center justify-between text-white/80 hover:text-white`}
                       >
                         <span className={selectedSpecialty === 'Select Specialty' ? 'text-white/20' : 'text-white'}>{selectedSpecialty.toUpperCase()}</span>
-                        <ChevronDown className={`w-3 h-3 text-white/20 transition-transform ${isDropdownOpen ? 'rotate-180 text-primary-400' : ''}`} />
+                        <ChevronDown className={`w-4 h-4 text-white/20 transition-transform ${isDropdownOpen ? 'rotate-180 text-primary-400' : ''}`} />
                       </button>
 
                       <AnimatePresence>
@@ -273,7 +273,7 @@ const HeroSection = () => {
                                     setSelectedSpecialty(s);
                                     setIsDropdownOpen(false);
                                   }}
-                                  className={`w-full text-left px-4 py-2 text-[9px] font-bold uppercase tracking-wider rounded-xl transition-all ${
+                                  className={`w-full text-left px-5 py-3 text-[11px] font-bold uppercase tracking-wider rounded-xl transition-all ${
                                     selectedSpecialty === s 
                                       ? 'bg-primary-600 text-white' 
                                       : 'text-white/50 hover:text-white hover:bg-white/5'
@@ -290,9 +290,9 @@ const HeroSection = () => {
 
                     <button
                       disabled={loading}
-                      className={`w-full h-10 font-bold uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-2 transition-all mt-4 rounded-xl shadow-xl bg-primary-600 hover:bg-primary-500 text-white disabled:opacity-50 active:scale-95`}
+                      className={`w-full h-12 font-bold uppercase tracking-[0.2em] text-[12px] flex items-center justify-center gap-3 transition-all mt-6 rounded-xl shadow-xl bg-primary-600 hover:bg-primary-500 text-white disabled:opacity-50 active:scale-95`}
                     >
-                      {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Callback <Send className="w-3 h-3" /></>}
+                      {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <>Callback <Send className="w-4 h-4" /></>}
                     </button>
                   </form>
                 )}

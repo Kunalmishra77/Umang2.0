@@ -215,14 +215,14 @@ const ElderCare = () => {
                   <motion.div 
                      key={i}
                      whileHover={{ y: -5 }}
-                     className={`relative p-10 rounded-[3rem] ${plan.popular ? 'bg-[#0f172a] text-white shadow-2xl scale-105 z-10' : 'bg-white text-gray-900 shadow-lg border border-gray-100'}`}
+                     className={`relative p-10 pt-16 rounded-[3rem] ${plan.popular ? 'bg-[#0f172a] text-white shadow-2xl scale-105 z-10' : 'bg-white text-gray-900 shadow-lg border border-gray-100'}`}
                   >
                      {plan.popular && (
-                        <div className="absolute top-8 right-8 bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
+                        <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-orange-500 text-white text-[10px] font-black px-5 py-1.5 rounded-full uppercase tracking-[0.2em] shadow-lg whitespace-nowrap">
                            Recommended
                         </div>
                      )}
-                     <h3 className="text-2xl font-bold mb-2">{plan.title}</h3>
+                     <h3 className="text-2xl font-bold mb-2 text-center lg:text-left">{plan.title}</h3>
                      <p className={`text-sm mb-8 ${plan.popular ? 'text-gray-400' : 'text-gray-500'}`}>{plan.desc}</p>
                      
                      <ul className="space-y-5 mb-10">

@@ -86,7 +86,7 @@ const Pharmacy = () => {
                 </div>
                 <div>
                   <p className="text-xs font-bold uppercase text-gray-400">Order on Call</p>
-                  <p className="font-bold text-lg text-[#0f172a]">89297 33550</p>
+                  <p className="font-bold text-lg text-[#0f172a]">{siteConfig.contacts.whatsapp}</p>
                 </div>
               </div>
             </div>
@@ -312,21 +312,40 @@ const Pharmacy = () => {
       </Section>
 
       {/* 9. FAQ Section */}
-      <Section className="bg-white">
-        <Container className="max-w-4xl">
-          <SectionHeading eyebrow="Common Queries" title="Pharmacy FAQs" centered />
-          <div className="space-y-4">
+      <Section className="bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]" />
+        <Container>
+          <div className="text-center mb-16 relative z-10">
+            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-6">
+              <HelpCircle className="w-4 h-4" /> Pharmacy Support
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Pharmacy <span className="text-blue-600 italic">FAQs</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">Get quick answers to common questions about medication delivery, genuine sourcing, and cold-chain maintenance.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
             {[
               { q: "Is home delivery available for all medicines?", a: "Yes, we deliver all genuine medicines. Some critical or restricted drugs may require a physical prescription verification at the time of delivery." },
               { q: "How long does the delivery take?", a: "Orders placed within Gurugram are typically delivered within 2-4 hours. Chronic medicine refills can also be scheduled." },
-              { q: "Do you maintain cold-chain for insulin?", a: "Absolutely. We use specialized insulated containers and cold-gel packs to ensure temperature-sensitive drugs remain effective." }
+              { q: "Do you maintain cold-chain for insulin?", a: "Absolutely. We use specialized insulated containers and cold-gel packs to ensure temperature-sensitive drugs remain effective." },
+              { q: "Can I return unused medications?", a: "Unopened medicines in their original packaging can be returned within 7 days with a valid bill, except for refrigerated items." },
+              { q: "Do you accept insurance for pharmacy?", a: "Yes, for inpatients and certain outpatient insurance plans, we facilitate direct cashless settlements for medicines." },
+              { q: "Is a prescription mandatory for all orders?", a: "Prescription is mandatory for all scheduled drugs and high-end antibiotics to ensure patient safety and legal compliance." }
             ].map((faq, i) => (
-              <div key={i} className="bg-gray-50 p-8 rounded-3xl border border-gray-100 text-left hover:border-blue-200 transition-all">
-                <h4 className="font-bold text-slate-900 flex items-center gap-4 mb-4 text-lg">
-                  <HelpCircle size={20} className="text-blue-600 shrink-0" /> {faq.q}
-                </h4>
-                <p className="text-gray-600 pl-9 leading-relaxed">{faq.a}</p>
-              </div>
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-xl shadow-blue-900/5 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all duration-500 group"
+              >
+                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                  <Pill size={20} />
+                </div>
+                <h4 className="font-bold text-lg text-[#0f172a] mb-4 leading-tight group-hover:text-blue-600 transition-colors">{faq.q}</h4>
+                <p className="text-gray-500 text-sm leading-relaxed font-light">{faq.a}</p>
+              </motion.div>
             ))}
           </div>
         </Container>
@@ -339,7 +358,7 @@ const Pharmacy = () => {
             <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Trust Umang for your <br />clinical pharmacy needs.</h2>
             <p className="text-blue-100 text-lg mb-12 max-w-2xl mx-auto">Our registered pharmacists are available 24/7 to guide you with the right dosage and usage information.</p>
             <div className="flex justify-center gap-6">
-              <a href="tel:8929733550" className="px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-base shadow-xl flex items-center gap-3 hover:scale-105 transition-all">
+              <a href="tel:8588072727" className="px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-base shadow-xl flex items-center gap-3 hover:scale-105 transition-all">
                 <Phone size={20} /> Speak to Pharmacist
               </a>
             </div>

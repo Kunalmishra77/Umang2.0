@@ -140,23 +140,29 @@ const Infrastructure = () => {
       </section>
 
       {/* SECTION: INFRASTRUCTURE STATS */}
-      <div className="bg-primary-600 py-8 lg:py-10 relative overflow-hidden border-y border-white/5">
-        <div className="absolute top-0 left-0 w-full h-full opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-        <div className="container-custom relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
+      <div className="bg-[#030712] py-10 md:py-12 text-white relative overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent" />
+        <Container className="relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 text-center">
             {[
               { label: "Total Capacity", value: siteConfig.stats.beds + " Beds" },
               { label: "ICU Management", value: siteConfig.stats.icuBedsMarketing + " Units" },
               { label: "Modular OTs", value: siteConfig.infrastructure.ots + " Suites" },
               { label: "Diagnostic Wings", value: "04 Zones" }
             ].map((stat, i) => (
-              <div key={i}>
-                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight mb-1">{stat.value}</p>
-                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-primary-100/70">{stat.label}</p>
+              <div key={i} className="group relative">
+                <div className="absolute -inset-4 bg-primary-600/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <p className="text-3xl lg:text-4xl font-serif font-bold mb-2 tracking-tighter text-white group-hover:text-primary-400 transition-colors duration-500">{stat.value}</p>
+                <div className="flex flex-col items-center">
+                  <div className="h-[1px] w-5 bg-primary-600/40 mb-3 group-hover:w-10 transition-all duration-700" />
+                  <p className="text-[8px] lg:text-[9px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-slate-300 transition-colors">{stat.label}</p>
+                </div>
               </div>
             ))}
           </div>
-        </div>
+        </Container>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-primary-500/20 to-transparent" />
       </div>
 
       {/* SECTION: PATIENT SAFETY STANDARDS */}
@@ -386,8 +392,7 @@ const Infrastructure = () => {
               <span className="section-subtitle">Future of Medicine</span>
               <h2 className="section-title">Smart Infrastructure <br /><span className="text-primary-600">for Smart Healing.</span></h2>
               <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
-                We have integrated digital health systems across the campus, from paperless medical records to automated laboratory processing, reducing errors and saving time.
-              </p>
+                                 We have integrated digital health systems across the hospital, from paperless medical records to automated laboratory processing, reducing errors and saving time.              </p>
               <div className="space-y-8">
                 {[
                   { title: "AI-Assisted Imaging", desc: "Advanced software for early detection and high-resolution diagnostic reports.", icon: Zap },
@@ -414,7 +419,7 @@ const Infrastructure = () => {
         </Container>
       </Section>
 
-      {/* SECTION: CAMPUS FEATURES (NEW) */}
+      {/* SECTION: HOSPITAL FEATURES (NEW) */}
       <Section className="bg-slate-50">
         <Container>
           <SectionHeading eyebrow="Patient Centric Design" title="Built for Comfort & Convenience" centered />
@@ -447,7 +452,7 @@ const Infrastructure = () => {
           </div>
           <div className="space-y-4">
             {[
-              { q: "Is the hospital wheelchair accessible?", a: "Yes, our entire campus is designed with universal accessibility in mind, including ramps, wide elevators, and dedicated washrooms." },
+              { q: "Is the hospital wheelchair accessible?", a: "Yes, our entire hospital is designed with universal accessibility in mind, including ramps, wide elevators, and dedicated washrooms." },
               { q: "How do you ensure power backup for critical equipment?", a: "We have dual-redundant industrial-grade generators and UPS systems that provide instantaneous power backup for OTs and ICUs." },
               { q: "What are your water purification standards?", a: "The hospital uses a centralized RO and UV purification system, with regular lab testing to ensure zero contamination." }
             ].map((faq, i) => (

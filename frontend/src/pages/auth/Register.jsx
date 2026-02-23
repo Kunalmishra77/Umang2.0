@@ -61,7 +61,7 @@ const Register = () => {
                   <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Phone Number</label>
                   <div className="relative">
                      <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                     <input type="tel" placeholder="+91 89297 33550" className="w-full h-14 pl-12 pr-4 rounded-2xl border border-gray-200 focus:border-[#005580] outline-none" />
+                     <input type="tel" placeholder="+91 85880 72727" className="w-full h-14 pl-12 pr-4 rounded-2xl border border-gray-200 focus:border-[#005580] outline-none" />
                   </div>
                </div>
 

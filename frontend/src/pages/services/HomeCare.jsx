@@ -3,10 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { 
   Home, Heart, Activity, UserCheck, Clock, ShieldCheck, 
-  Phone, Calendar, CheckCircle, ArrowRight, Star, ChevronDown 
+  Phone, Calendar, CheckCircle, ArrowRight, Star, ChevronDown,
+  Wind, Zap, Smartphone
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
+import { Container, Section } from '../../components/ui/Layout';
 
 const services = [
   {
@@ -112,23 +114,29 @@ const HomeCare = () => {
       </section>
 
       {/* SECTION: CARE IMPACT STATS (NEW SECTION 2) */}
-      <div className="bg-[#005580] py-8 lg:py-10 text-white overflow-hidden relative">
-        <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-        <Container>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10">
+      <div className="bg-[#030712] py-10 md:py-12 text-white relative overflow-hidden border-b border-white/5">
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent" />
+        <Container className="relative z-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 text-center">
             {[
               { label: "Home ICUs Setup", value: "500+" },
               { label: "Recovery Rate", value: "94%" },
               { label: "Certified Staff", value: "200+" },
               { label: "Years Excellence", value: "15+" }
             ].map((stat, i) => (
-              <div key={i}>
-                <p className="text-xl lg:text-3xl font-serif font-bold tracking-tight mb-1">{stat.value}</p>
-                <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-blue-100/70">{stat.label}</p>
+              <div key={i} className="group relative">
+                <div className="absolute -inset-4 bg-primary-600/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                <p className="text-3xl lg:text-4xl font-serif font-bold mb-2 tracking-tighter text-white group-hover:text-primary-400 transition-colors duration-500">{stat.value}</p>
+                <div className="flex flex-col items-center">
+                  <div className="h-[1px] w-5 bg-primary-600/40 mb-3 group-hover:w-10 transition-all duration-700" />
+                  <p className="text-[8px] lg:text-[9px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-slate-300 transition-colors">{stat.label}</p>
+                </div>
               </div>
             ))}
           </div>
         </Container>
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-primary-500/20 to-transparent" />
       </div>
 
       {/* 2. Services Grid (NOW SECTION 3) */}
@@ -168,16 +176,16 @@ const HomeCare = () => {
       <Section className="bg-slate-50 overflow-hidden relative">
         <Container>
           <div className="flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-center">
-            <div className="lg:w-1/2">
+            <div className="lg:w-7/12">
               <span className="text-[#005580] font-bold uppercase tracking-widest text-sm mb-4 block">Recovery Experts</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8">Specialized Post-Op <br /><span className="text-[#005580] italic">Rehabilitation.</span></h2>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8 leading-tight">Specialized Post-Op <br /><span className="text-[#005580] italic">Rehabilitation.</span></h2>
               <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
                 Recovery doesn't end at discharge. Our specialized rehab programs help you regain mobility and strength after complex surgeries or neurological events.
               </p>
               <div className="grid gap-6">
                 {[
                   { title: "Neuro Rehabilitation", desc: "Expert care for stroke and spinal injury recovery.", path: "/specialities/neuro" },
-                  { title: "Cardiac Rehab", desc: "Monitored exercise and diet plans post heart surgery.", path: "/specialities/cardiology" },
+                  { title: "Cardiac Rehab", desc: "Monitored exercise and diet plans post heart surgery.", path: "/specialities/cardiac" },
                   { title: "Orthopedic Rehab", desc: "Physiotherapy for joint replacements and fractures.", path: "/specialities/ortho" }
                 ].map((item, i) => (
                   <Link to={item.path} key={i} className="p-6 bg-white rounded-2xl border border-gray-100 flex gap-5 items-center group hover:shadow-md transition-all block">
@@ -192,8 +200,8 @@ const HomeCare = () => {
                 ))}
               </div>
             </div>
-            <div className="lg:w-1/2">
-              <img src={ASSETS.ABOUT_MAIN} alt="Rehab" className="rounded-[4rem] shadow-2xl border-8 border-white" />
+            <div className="lg:w-5/12">
+              <img src={ASSETS.ABOUT_MAIN} alt="Rehab" className="rounded-[4rem] shadow-2xl border-8 border-white w-full max-h-[550px] object-cover" />
             </div>
           </div>
         </Container>
@@ -208,18 +216,26 @@ const HomeCare = () => {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { name: "Oxygen Concentrator", icon: Wind, price: "From ₹500/day" },
-              { name: "Hospital Beds", icon: Home, price: "From ₹300/day" },
-              { name: "Suction Machines", icon: Activity, price: "From ₹200/day" },
-              { name: "Cardiac Monitors", icon: Zap, price: "From ₹400/day" }
+              { name: "Oxygen Concentrator", icon: Wind, status: "Available Now" },
+              { name: "Hospital Beds", icon: Home, status: "In Stock" },
+              { name: "Suction Machines", icon: Activity, status: "Ready to Ship" },
+              { name: "Cardiac Monitors", icon: Zap, status: "Limited Stock" }
             ].map((eq, i) => (
-              <div key={i} className="p-8 bg-gray-50 rounded-[2.5rem] text-center border border-transparent hover:border-blue-200 transition-all group">
-                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:scale-110 transition-transform">
-                  <eq.icon className="text-[#005580]" size={28} />
+              <Link to="/contact/inquiry-hub" key={i} className="group block">
+                <div className="p-8 bg-gray-50 rounded-[2.5rem] text-center border border-transparent hover:border-blue-200 hover:bg-white hover:shadow-xl transition-all h-full">
+                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:scale-110 group-hover:bg-blue-50 transition-all">
+                    <eq.icon className="text-[#005580]" size={28} />
+                  </div>
+                  <h4 className="font-bold text-[#0f172a] mb-2 group-hover:text-blue-600 transition-colors">{eq.name}</h4>
+                  <div className="flex items-center justify-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                    <p className="text-[10px] font-black uppercase text-gray-400 tracking-widest">{eq.status}</p>
+                  </div>
+                  <div className="mt-6 flex items-center justify-center gap-2 text-blue-600 font-bold text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                    Enquire Now <ArrowRight size={12} />
+                  </div>
                 </div>
-                <h4 className="font-bold text-[#0f172a] mb-2">{eq.name}</h4>
-                <p className="text-xs font-black uppercase text-blue-600">{eq.price}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </Container>
@@ -309,50 +325,54 @@ const HomeCare = () => {
       </Section>
 
       {/* 5. FAQ & CTA (NOW SECTION 9 & 10) */}
-      <section className="section-padding bg-gray-50">
-         <div className="container-custom max-w-4xl">
-            <h2 className="text-3xl font-serif font-bold text-[#0f172a] text-center mb-12">Common Questions</h2>
-            <div className="space-y-4 mb-16">
-               {faqs.map((faq, i) => (
-                  <div key={i} className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm">
-                     <button 
-                        onClick={() => toggleAccordion(i)}
-                        className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors text-lg"
-                     >
-                        <span className="font-bold text-[#0f172a]">{faq.q}</span>
-                        <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${activeAccordion === i ? 'rotate-180' : ''}`} />
-                     </button>
-                     <AnimatePresence>
-                        {activeAccordion === i && (
-                           <motion.div 
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{ height: 'auto', opacity: 1 }}
-                              exit={{ height: 0, opacity: 0 }}
-                              className="overflow-hidden"
-                           >
-                              <div className="p-6 pt-0 text-gray-600 text-base leading-relaxed border-t border-gray-100 bg-white">
-                                 {faq.a}
-                              </div>
-                           </motion.div>
-                        )}
-                     </AnimatePresence>
-                  </div>
-               ))}
-            </div>
+      <Section className="bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-[120px] opacity-30 -mr-48 -mt-48" />
+        <Container>
+          <div className="text-center mb-20 relative z-10">
+            <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-600 mb-4 block">Help Center</span>
+            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark">Home Care <span className="text-primary-600 italic">FAQ.</span></h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10">
+            {[
+              { q: "Is the nursing staff certified?", a: "Yes, all our nurses are qualified, background-verified, and trained in critical care protocols to ensure hospital-standard care at home." },
+              { q: "How quickly can you set up an ICU at home?", a: "We can deploy a complete ICU setup within 12-24 hours depending on the equipment requirements and medical urgency." },
+              { q: "Do you offer short-term care?", a: "Yes, we offer flexible plans ranging from a single visit for dressing or injections to long-term monthly nursing packages." },
+              { q: "Is doctor supervision available?", a: "Absolutely. All our home care patients are under the supervision of a hospital consultant who conducts daily digital rounds." },
+              { q: "Can I rent equipment separately?", a: "Yes, we have a large inventory of medical equipment available for direct rental or purchase without mandatory nursing service." },
+              { q: "What areas do you cover?", a: "We provide comprehensive home care services across Gurugram and the wider NCR region with dedicated field supervisors." }
+            ].map((faq, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-white p-10 rounded-[3rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:border-primary-200 hover:shadow-2xl transition-all duration-500 group"
+              >
+                <h4 className="font-bold text-brand-dark flex items-start gap-6 mb-4 text-xl group-hover:text-primary-600 transition-colors">
+                  <span className="w-10 h-10 rounded-2xl bg-primary-50 flex items-center justify-center shrink-0 text-primary-600 font-black text-sm group-hover:bg-primary-600 group-hover:text-white transition-all">?</span>
+                  {faq.q}
+                </h4>
+                <div className="pl-16">
+                  <p className="text-slate-500 text-lg font-light leading-relaxed">{faq.a}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-            <div className="bg-blue-50 rounded-[2.5rem] p-8 md:p-12 text-center border border-blue-100 shadow-lg relative overflow-hidden">
-               <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/50 rounded-full -mr-16 -mt-16" />
-               <div className="w-16 h-16 bg-[#005580] rounded-full flex items-center justify-center text-white mx-auto mb-6 shadow-lg shadow-blue-200">
-                  <Phone className="w-8 h-8" />
-               </div>
-               <h3 className="text-2xl font-bold text-[#0f172a] mb-4">Need immediate assistance?</h3>
-               <p className="text-gray-600 mb-8 max-w-lg mx-auto text-lg">Our Home Care coordinators are available 24/7 to answer your queries and arrange urgent care within 4-12 hours.</p>
-               <a href="tel:+918929733550" className="inline-flex items-center gap-2 px-10 py-5 bg-[#005580] text-white rounded-full font-bold shadow-xl hover:bg-[#004466] hover-lift transition-all">
-                  Speak to Care Manager
-               </a>
-            </div>
-         </div>
-      </section>
+          <div className="mt-20 bg-blue-50 rounded-[2.5rem] p-8 md:p-12 text-center border border-blue-100 shadow-lg relative overflow-hidden">
+             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/50 rounded-full -mr-16 -mt-16" />
+             <div className="w-16 h-16 bg-[#005580] rounded-full flex items-center justify-center text-white mx-auto mb-6 shadow-lg shadow-blue-200">
+                <Phone className="w-8 h-8" />
+             </div>
+             <h3 className="text-2xl font-bold text-[#0f172a] mb-4">Need immediate assistance?</h3>
+             <p className="text-gray-600 mb-8 max-w-lg mx-auto text-lg">Our Home Care coordinators are available 24/7 to answer your queries and arrange urgent care within 4-12 hours.</p>
+             <a href="tel:+918588072727" className="inline-flex items-center gap-2 px-10 py-5 bg-[#005580] text-white rounded-full font-bold shadow-xl hover:bg-[#004466] hover-lift transition-all">
+                Speak to Care Manager
+             </a>
+          </div>
+        </Container>
+      </Section>
 
       {/* SECTION: FINAL COMMITMENT (NEW SECTION 11) */}
       <section className="section-padding bg-brand-dark text-white text-center relative overflow-hidden">
@@ -364,8 +384,7 @@ const HomeCare = () => {
             <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">We don't just provide medical support; we build a sanctuary of healing right in your home. Your comfort is our clinical priority.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Link to="/contact" className="px-10 py-5 bg-white text-brand-dark rounded-full font-bold text-base shadow-xl flex items-center gap-3 hover:scale-105 transition-all">
-                Visit Main Campus
-              </Link>
+                                 Visit Main Hospital              </Link>
               <Link to="/about" className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-base hover:bg-white/5 transition-all flex items-center gap-3">
                 Our Healing Story
               </Link>

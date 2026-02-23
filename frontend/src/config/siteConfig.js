@@ -15,20 +15,20 @@ export const siteConfig = {
       ccu: 7
     },
     specialties: '52+',
-    superspecialists: '15+',
+    superspecialists: '30+',
     experience: '15+'
   },
 
   contacts: {
-    main: '+91 89297 33550',
-    whatsapp: '+91 89297 33550',
+    main: '+91 85880 72727',
+    whatsapp: '+91 85880 72727',
     emergency: '+91 89297 33551',
     email: 'umanghospitalgurugram@gmail.com'
   },
 
   locations: {
     main: {
-      title: 'Main Hospital Campus',
+      title: 'Main Hospital',
       address: 'Building No. 306, Opposite Radha Swami Satsang Bhawan, Pataudi Road, Civil Lines, Gurugram – 122001, Haryana, India',
       landmark: 'Opposite Radha Swami Satsang Bhawan',
       googleMapsSearch: 'Umang Superspeciality Hospital Pataudi Road'

@@ -28,6 +28,7 @@ import MediaCenter from './pages/media-center/MediaCenter';
 import Team from './pages/our-team/Team';
 import Leadership from './pages/our-team/Leadership';
 import NursingStaff from './pages/our-team/NursingStaff';
+import SupportStaff from './pages/our-team/SupportStaff';
 import DynamicSubPage from './pages/services/DynamicSubPage';
 import SecondOpinion from './pages/services/SecondOpinion';
 import LabDiagnostics from './pages/services/LabDiagnostics';
@@ -65,9 +66,13 @@ import MediaConnect from './pages/media-center/MediaConnect';
 import PressReleaseDetail from './pages/media-center/PressReleaseDetail';
 import GeneralAppointment from './pages/appointments/GeneralAppointment';
 import LabReports from './pages/patients/LabReports';
+import Billing from './pages/patients/Billing';
 import InquiryHub from './pages/contact/InquiryHub';
 import WhatsAppFloating from './components/common/WhatsAppFloating';
 
+import Logout from './pages/auth/Logout';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import CashlessInsurance from './pages/legal/CashlessInsurance';
 import GenericCmsPage from './pages/legal/GenericCmsPage';
 import Sitemap from './pages/legal/Sitemap';
@@ -84,6 +89,7 @@ function App() {
     <>
       <ScrollToTop />
       <WhatsAppFloating />
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss draggable pauseOnHover theme="light" />
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
@@ -107,6 +113,7 @@ function App() {
           <Route path="team" element={<Team />} />
           <Route path="team/leadership" element={<Leadership />} />
           <Route path="team/nursing" element={<NursingStaff />} />
+          <Route path="team/support-staff" element={<SupportStaff />} />
           
           <Route path="services" element={<Services />} />
           <Route path="services/lab-test-diagnostic" element={<LabDiagnostics />} />
@@ -168,25 +175,27 @@ function App() {
           <Route path="booking/:id" element={<BookingPage />} />
           <Route path="appointments/request" element={<GeneralAppointment />} />
           
-          {/* Patient Portal Routes with Sidebar */}
-          <Route path="patients" element={<PatientLayout />}>
-            <Route index element={<PatientDashboard />} />
-            <Route path="lab-reports" element={<LabReports />} />
-            <Route path="appointments" element={<PatientAppointments />} />
-            <Route path="profile" element={<PatientProfile />} />
-            <Route path="book-appointment" element={<BookAppointmentPatient />} />
-          </Route>
-
           <Route path="pharmacy" element={<Pharmacy />} />
           <Route path="contact" element={<Contact />} />
           <Route path="contact/emergency" element={<Emergency />} />
           <Route path="contact/inquiry-hub" element={<InquiryHub />} />
-          <Route path="terms" element={<GenericCmsPage slug="terms-of-service" />} />
-          <Route path="privacy-policy" element={<GenericCmsPage slug="privacy-policy" />} />
-          <Route path="cms/legal-and-compliance" element={<GenericCmsPage slug="legal-and-compliance" />} />
-          <Route path="patient-experience" element={<GenericCmsPage slug="patient-experience" />} />
+          <Route path="terms" element={<Terms />} />
+          <Route path="privacy-policy" element={<Privacy />} />
+          <Route path="cms/legal-and-compliance" element={<DynamicSubPage />} />
+          <Route path="patient-experience" element={<DynamicSubPage />} />
           <Route path="sitemap" element={<Sitemap />} />
+          <Route path="logout" element={<Logout />} />
           <Route path="*" element={<NotFound />} />
+        </Route>
+
+        {/* Patient Portal Routes with Sidebar - Moved out of MainLayout */}
+        <Route path="patients" element={<PatientLayout />}>
+          <Route index element={<PatientDashboard />} />
+          <Route path="lab-reports" element={<LabReports />} />
+          <Route path="appointments" element={<PatientAppointments />} />
+          <Route path="profile" element={<PatientProfile />} />
+          <Route path="billing" element={<Billing />} />
+          <Route path="book-appointment" element={<BookAppointmentPatient />} />
         </Route>
         
         <Route path="/login" element={<Login />} />

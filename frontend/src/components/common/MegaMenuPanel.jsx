@@ -30,8 +30,8 @@ const MegaMenuPanel = ({ item, closeMenu }) => {
       {/* COLUMN 1: NAVIGATION SIDEBAR */}
       <div className="w-[230px] bg-primary-50/20 border-r border-primary-50 flex flex-col shrink-0">
         <div className="p-3 border-b border-primary-100/50 flex items-center justify-between">
-           <div className="flex items-center gap-2 text-[8px] font-black text-primary-600 uppercase tracking-[0.2em]">
-              <Sparkles className="w-2.5 h-2.5" /> SELECTION
+           <div className="flex items-center gap-2 text-[12px] font-black text-primary-600 uppercase tracking-[0.2em]">
+              <Sparkles className="w-3 h-3" /> SELECTION
            </div>
         </div>
         
@@ -44,22 +44,22 @@ const MegaMenuPanel = ({ item, closeMenu }) => {
                 key={group.id}
                 onMouseEnter={() => setActiveGroupId(group.id)}
                 onClick={(e) => handleCategoryClick(e, group.href)}
-                className={`w-full flex items-center justify-between px-3.5 py-2 rounded-lg transition-all duration-300 relative group cursor-pointer ${
+                className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-lg transition-all duration-300 relative group cursor-pointer ${
                   isActive ? 'bg-primary-600 text-white shadow-lg shadow-primary-600/20 translate-x-1' : 'text-slate-500 hover:text-primary-600 hover:bg-white'
                 }`}
               >
                 <span className="flex items-center gap-2.5 relative z-10">
-                   <Icon className={`w-3.5 h-3.5 transition-colors ${isActive ? 'text-white' : 'text-primary-300'}`} />
-                   <span className="text-[12px] font-bold tracking-tight">{group.title}</span>
+                   <Icon className={`w-4 h-4 transition-colors ${isActive ? 'text-white' : 'text-primary-300'}`} />
+                   <span className="text-[14px] font-bold tracking-tight">{group.title}</span>
                 </span>
-                <ChevronRight size={12} className={`relative z-10 transition-transform ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-1'}`} />
+                <ChevronRight size={14} className={`relative z-10 transition-transform ${isActive ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-1'}`} />
               </div>
             );
           })}
         </div>
 
-        <Link to={item.href} onClick={closeMenu} className="p-3 bg-primary-50/50 hover:bg-primary-100 border-t border-primary-100 text-center transition-colors">
-           <span className="text-[9px] font-black text-primary-700 uppercase tracking-widest flex items-center justify-center gap-2">Full Directory <ArrowRight size={10} /></span>
+        <Link to={item.href} onClick={closeMenu} className="p-4 bg-primary-50/50 hover:bg-primary-100 border-t border-primary-100 text-center transition-colors">
+           <span className="text-[12px] font-black text-primary-700 uppercase tracking-widest flex items-center justify-center gap-2">Full Directory <ArrowRight size={12} /></span>
         </Link>
       </div>
 
@@ -75,30 +75,30 @@ const MegaMenuPanel = ({ item, closeMenu }) => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -10 }}
             transition={{ duration: 0.2 }}
-            className="h-full p-6 lg:p-8 flex flex-col"
+            className="h-full p-6 lg:p-10 flex flex-col"
           >
             <div className="mb-4">
                <div className="flex items-center gap-2 mb-2">
                   <div className="h-0.5 w-6 bg-primary-600 rounded-full group-hover/center:w-10 transition-all duration-500" />
-                  <span className="text-[9px] font-black text-primary-600 uppercase tracking-widest">Specialized Insight</span>
+                  <span className="text-[13px] font-black text-primary-600 uppercase tracking-widest">Specialized Insight</span>
                </div>
-               <h4 className="text-xl lg:text-2xl font-serif font-bold text-slate-900 mb-2 tracking-tight leading-tight group-hover/center:text-primary-700 transition-colors">
+               <h4 className="text-xl lg:text-3xl font-serif font-bold text-slate-900 mb-2 tracking-tight leading-tight group-hover/center:text-primary-700 transition-colors">
                   {activeGroup?.preview?.title}
                </h4>
-               <p className="text-slate-500 text-[12px] leading-relaxed max-w-xl font-medium line-clamp-3">
+               <p className="text-slate-500 text-[15px] leading-relaxed max-w-xl font-medium line-clamp-3">
                   {activeGroup?.preview?.desc}
                </p>
             </div>
 
             {/* KEY HIGHLIGHTS / BULLETS - Tightened Grid */}
-            <div className="mt-auto pt-4 border-t border-primary-50">
-               <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+            <div className="mt-auto pt-6 border-t border-primary-50">
+               <div className="grid grid-cols-2 gap-x-8 gap-y-4">
                   {activeGroup?.preview?.bullets?.map((bullet, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5">
-                        <div className="w-4.5 h-4.5 rounded-full bg-primary-50 flex items-center justify-center shrink-0 group-hover/center:bg-primary-100 transition-colors">
-                          <CheckCircle2 size={11} className="text-primary-600" />
+                    <div key={idx} className="flex items-center gap-3">
+                        <div className="w-5 h-5 rounded-full bg-primary-50 flex items-center justify-center shrink-0 group-hover/center:bg-primary-100 transition-colors">
+                          <CheckCircle2 size={13} className="text-primary-600" />
                         </div>
-                        <span className="text-[12px] font-bold text-slate-700 leading-none">
+                        <span className="text-[14px] font-bold text-slate-700 leading-none">
                           {bullet}
                         </span>
                     </div>
@@ -131,10 +131,10 @@ const MegaMenuPanel = ({ item, closeMenu }) => {
 
                <div className="mb-4">
                   <div className="flex items-center gap-1 mb-1.5">
-                     {[1,2,3,4,5].map(i => <Star key={i} size={7} className="fill-primary-400 text-primary-400" />)}
+                     {[1,2,3,4,5].map(i => <Star key={i} size={10} className="fill-primary-400 text-primary-400" />)}
                   </div>
-                  <h5 className="font-black text-[8px] text-primary-600 uppercase tracking-widest mb-1">{activeGroup?.preview?.tag} OVERVIEW</h5>
-                  <h4 className="text-[14px] font-bold text-slate-900 leading-tight line-clamp-2">
+                  <h5 className="font-black text-[12px] text-primary-600 uppercase tracking-widest mb-1.5">{activeGroup?.preview?.tag} OVERVIEW</h5>
+                  <h4 className="text-[15px] font-bold text-slate-900 leading-tight line-clamp-2">
                      {activeGroup?.title}
                   </h4>
                </div>
@@ -146,7 +146,7 @@ const MegaMenuPanel = ({ item, closeMenu }) => {
                      target="_blank"
                      rel="noopener noreferrer"
                      onClick={closeMenu}
-                     className="mt-auto py-2 bg-primary-600 text-white text-[9px] font-black uppercase tracking-widest rounded-lg text-center hover:bg-primary-700 transition-all shadow-lg active:scale-95 shadow-primary-600/20"
+                     className="mt-auto py-3 bg-primary-600 text-white text-[12px] font-black uppercase tracking-widest rounded-lg text-center hover:bg-primary-700 transition-all shadow-lg active:scale-95 shadow-primary-600/20"
                    >
                      Explore Details
                    </a>
@@ -154,7 +154,7 @@ const MegaMenuPanel = ({ item, closeMenu }) => {
                    <Link 
                      to={activeGroup.href}
                      onClick={closeMenu}
-                     className="mt-auto py-2 bg-primary-600 text-white text-[9px] font-black uppercase tracking-widest rounded-lg text-center hover:bg-primary-700 transition-all shadow-lg active:scale-95 shadow-primary-600/20"
+                     className="mt-auto py-3 bg-primary-600 text-white text-[12px] font-black uppercase tracking-widest rounded-lg text-center hover:bg-primary-700 transition-all shadow-lg active:scale-95 shadow-primary-600/20"
                    >
                      Explore Details
                    </Link>

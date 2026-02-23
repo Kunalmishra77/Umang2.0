@@ -1,11 +1,43 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, Mail, Heart } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, Mail, Heart, ArrowUp } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 
 const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.pageYOffset > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+    window.addEventListener('scroll', toggleVisibility);
+    return () => window.removeEventListener('scroll', toggleVisibility);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <footer className="bg-[#0f172a] text-gray-400 pt-16 lg:pt-28 pb-10 border-t border-white/5 relative overflow-hidden">
+      {/* Back to Top Button */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-24 right-4 md:right-8 z-[9999] w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center shadow-xl transition-all duration-500 hover:bg-primary-500 hover:-translate-y-1 active:scale-90 ${
+          isVisible ? 'opacity-40 hover:opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+        }`}
+        aria-label="Back to Top"
+      >
+        <ArrowUp className="w-5 h-5" />
+      </button>
+
       {/* Decorative Background */}
       <div className="absolute top-0 left-1/4 w-[300px] lg:w-[600px] h-[300px] lg:h-[600px] bg-primary-900/10 rounded-full blur-[80px] lg:blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[300px] lg:w-[600px] h-[300px] lg:h-[600px] bg-cyan-900/10 rounded-full blur-[80px] lg:blur-[120px] pointer-events-none" />
@@ -71,7 +103,7 @@ const Footer = () => {
             <ul className="space-y-3 lg:space-y-4">
               {[
                 { name: 'About Us', path: '/about' },
-                { name: 'Our Team', path: '/team' },
+                { name: 'Our Doctors', path: '/team' },
                 { name: 'Careers', path: '/careers' },
                 { name: 'Contact Us', path: '/contact' },
                 { name: 'Inquiry Hub', path: '/contact/inquiry-hub' },
@@ -123,9 +155,14 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-sm text-gray-500 flex items-center gap-1 flex-wrap justify-center font-medium">
-            &copy; 2026 {siteConfig.shortName}. Developed by <a href="https://ai-agentix.com/" target="_blank" rel="noopener noreferrer" className="text-orange-500 font-bold ml-1 hover:text-orange-400 transition-colors">AGENTiX</a>. Made with <Heart className="w-3.5 h-3.5 text-red-500 fill-current animate-pulse mx-1" /> in India.
-          </p>
+          <div className="text-center md:text-left space-y-1">
+            <p className="text-sm text-gray-400 font-bold tracking-wide">
+              A Unit of Health Planners Pvt Ltd. All rights reserved 2026.
+            </p>
+            <p className="text-[12px] text-gray-500 flex items-center gap-1 flex-wrap justify-center md:justify-start font-medium opacity-80">
+              &copy; 2026 {siteConfig.shortName}. Developed by <a href="https://ai-agentix.com/" target="_blank" rel="noopener noreferrer" className="text-orange-500 font-bold ml-1 hover:text-orange-400 transition-colors">AGENTiX</a>. Made with <Heart className="w-3.5 h-3.5 text-red-500 fill-current animate-pulse mx-1" /> in India.
+            </p>
+          </div>
           <div className="flex flex-wrap justify-center gap-6 lg:gap-8 text-[12px] font-bold uppercase tracking-widest">
             <Link to="/terms" className="text-gray-500 hover:text-primary-400 transition-colors">Terms</Link>
             <Link to="/privacy-policy" className="text-gray-500 hover:text-primary-400 transition-colors">Privacy</Link>
