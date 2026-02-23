@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
+import { siteConfig } from '../../config/siteConfig';
 import api from '../../services/api';
 import { Container, Section, SectionHeading } from '../../components/ui/Layout';
 
