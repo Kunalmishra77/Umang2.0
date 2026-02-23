@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
+import mockDoctors from '../../data/doctors.json';
 import { ASSETS } from '../../utils/imageAssets';
 import { Container, Section, SectionHeading } from '../../components/ui/Layout';
 import SeoHead from '../../components/common/SeoHead';
@@ -58,12 +59,15 @@ const DoctorSearch = () => {
       if (response.data.meta && response.data.meta.last_page <= currentPage) {
         setHasMore(false);
       } else if (!response.data.meta && newDoctors.length < 12) {
-          // Fallback if meta not present (simple pagination)
           setHasMore(false);
       }
       
     } catch (error) {
-      console.error("Failed to fetch doctors", error);
+      console.error("Failed to fetch doctors, using fallback", error);
+      if (reset) {
+        setDoctors(mockDoctors);
+        setHasMore(false);
+      }
     } finally {
       setLoading(false);
     }

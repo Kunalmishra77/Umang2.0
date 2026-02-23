@@ -6,6 +6,22 @@ import { Container, Section, Card } from '../../components/ui/Layout';
 import { siteConfig } from '../../config/siteConfig';
 import api from '../../services/api';
 
+// Mock Data for fallback
+const mockProducts = {
+  'prescription': [
+    { id: 101, name: "Amoxycillin 500mg", pack_size: "Strip of 10", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=400" },
+    { id: 102, name: "Paracetamol 650mg", pack_size: "Strip of 15", image: "https://images.unsplash.com/photo-1616671285410-09502197946a?auto=format&fit=crop&q=80&w=400" },
+    { id: 103, name: "Atorvastatin 10mg", pack_size: "Strip of 10", image: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=400" },
+  ],
+  'diabetes-care': [
+    { id: 201, name: "Accu-Chek Active", pack_size: "50 Strips", image: "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=400" },
+    { id: 202, name: "Sugar Free Gold", pack_size: "500 Pellets", image: "https://images.unsplash.com/photo-1616671285410-09502197946a?auto=format&fit=crop&q=80&w=400" },
+  ],
+  'cardiac-care': [
+    { id: 301, name: "Omron BP Monitor", pack_size: "HEM-7120", image: "https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?auto=format&fit=crop&q=80&w=400" },
+  ]
+};
+
 const PharmacyCategory = () => {
   const { slug } = useParams();
   const [products, setProducts] = useState([]);
@@ -37,7 +53,11 @@ const PharmacyCategory = () => {
         setHasMore(false);
       }
     } catch (error) {
-      console.error("Failed to fetch medicines", error);
+      console.error("Failed to fetch medicines, using fallback", error);
+      if (reset) {
+        setProducts(mockProducts[slug] || mockProducts['prescription']);
+        setHasMore(false);
+      }
     } finally {
       setLoading(false);
     }
