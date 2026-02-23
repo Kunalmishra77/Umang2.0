@@ -14,15 +14,19 @@ import SeoHead from '../../components/common/SeoHead';
 const departments = [
   { name: 'All', icon: Activity },
   { name: 'Cardiac Sciences', icon: Heart },
-  { name: 'Neuro Sciences', icon: Brain },
-  { name: 'Orthopaedics', icon: Bone },
+  { name: 'Neurology', icon: Brain },
+  { name: 'Orthopedics', icon: Bone },
   { name: 'Gastroenterology', icon: Activity },
   { name: 'General Surgery', icon: Activity },
   { name: 'Pediatrics', icon: User },
   { name: 'Oncology', icon: Activity },
   { name: 'Nephrology', icon: Activity },
   { name: 'Pulmonology', icon: Activity },
-  { name: 'Urology', icon: Activity }
+  { name: 'Urology', icon: Activity },
+  { name: 'Dermatology', icon: Activity },
+  { name: 'ENT', icon: Activity },
+  { name: 'Gynecology', icon: Activity },
+  { name: 'Internal Medicine', icon: Activity }
 ];
 
 const DoctorSearch = () => {
@@ -178,7 +182,7 @@ const DoctorSearch = () => {
     <div className="bg-white min-h-screen">
       <SeoHead 
         title="Find a Doctor" 
-        description="Search from our network of 30+ world-class doctors and book your consultation in seconds at Umang Hospital."
+        description="Search from our network of 35+ world-class doctors and book your consultation in seconds at Umang Hospital."
         canonical="/doctors"
       />
 
@@ -188,7 +192,7 @@ const DoctorSearch = () => {
          <div className="container-custom relative z-10 text-center max-w-4xl mx-auto px-6">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
                <h1 className="text-4xl md:text-6xl lg:text-[4.2rem] font-serif font-bold mb-5 tracking-tight leading-[1.05]">Find the Right <span className="text-blue-400">Specialist.</span></h1>
-               <p className="text-blue-200 text-base lg:text-lg mb-10 lg:mb-12 opacity-80 max-w-2xl mx-auto font-light">Search from our network of 30+ world-class doctors and book your consultation in seconds.</p>
+               <p className="text-blue-200 text-base lg:text-lg mb-10 lg:mb-12 opacity-80 max-w-2xl mx-auto font-light">Search from our network of 35+ world-class doctors and book your consultation in seconds.</p>
                
                <div className="bg-white p-1.5 lg:p-2 rounded-xl lg:rounded-2xl shadow-2xl flex max-w-2xl mx-auto items-center">
                   <div className="flex-1 flex items-center px-3 lg:px-4">
@@ -234,7 +238,7 @@ const DoctorSearch = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10">
             {[
               { label: "Board Certified", value: "100%" },
-              { label: "Specialists", value: "30+" },
+              { label: "Specialists", value: "35+" },
               { label: "Avg Experience", value: "15+ Yrs" },
               { label: "Patient Rating", value: "4.9/5" }
             ].map((stat, i) => (

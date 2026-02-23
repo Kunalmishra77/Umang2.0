@@ -15,7 +15,8 @@ export const siteConfig = {
       ccu: 7
     },
     specialties: '52+',
-    superspecialists: '30+',
+    superspecialists: '35+',
+    medicines: '200+',
     experience: '15+'
   },
 

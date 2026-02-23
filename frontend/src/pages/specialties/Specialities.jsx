@@ -102,7 +102,7 @@ const Specialities = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 text-center text-white relative z-10">
             {[
               { label: "Procedures / Year", value: "15,000+", icon: Activity },
-              { label: "Specialists", value: "30+", icon: Users },
+              { label: "Specialists", value: "35+", icon: Users },
               { label: "Success Rate", value: "99.2%", icon: Award },
               { label: "Years Experience", value: "15+", icon: Clock }
             ].map((stat, i) => (

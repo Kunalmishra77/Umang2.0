@@ -48,7 +48,7 @@ const Pharmacy = () => {
     <div className="bg-white min-h-screen">
       <SeoHead 
         title="24/7 Pharmacy & Medical Store" 
-        description="100% genuine medications available round-the-clock at Umang Hospital. Doorstep delivery and professional pharmacist support."
+        description="200+ genuine medications available round-the-clock at Umang Hospital. Doorstep delivery and professional pharmacist support."
         canonical="/services/buy-medicines"
       />
 
