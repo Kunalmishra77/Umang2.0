@@ -180,26 +180,40 @@ const Team = () => {
       </section>
 
       {/* SECTION 5: MEDICAL BOARD (NEW) */}
-      <section className="py-12 lg:py-10 bg-white">
+      <section className="py-12 lg:py-16 bg-white overflow-hidden">
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2">
+            <div className="lg:w-7/12">
               <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">Institutional Governance</span>
               <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">The Medical Advisory <span className="text-primary-600 italic">Council.</span></h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
-                Our clinical decisions are guided by a board of senior medical experts who ensure that Umang Hospital remains at the forefront of medical ethics and innovation.
+                Our clinical decisions are guided by a board of senior medical experts who ensure that Umang Hospital remains at the forefront of medical ethics, patient safety, and clinical innovation.
               </p>
-              <div className="space-y-4">
-                {["Monthly Clinical Audits", "Mortality & Morbidity Reviews", "Infection Control Surveillance", "Bio-Ethics Committee"].map((item, idx) => (
+              <div className="grid sm:grid-cols-2 gap-y-5 gap-x-8">
+                {[
+                  "Monthly Clinical Audits", 
+                  "Mortality & Morbidity Reviews", 
+                  "Infection Control Surveillance", 
+                  "Bio-Ethics Committee",
+                  "Drug & Therapeutic Committee",
+                  "Quality Assurance Oversight"
+                ].map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-primary-600" />
-                    <span className="font-bold text-sm text-slate-700 uppercase tracking-widest">{item}</span>
+                    <span className="font-bold text-[11px] text-slate-700 uppercase tracking-[0.2em]">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="lg:w-1/2">
-              <img src={ASSETS.ABOUT_GLOBAL} alt="Medical Board" className="rounded-[3rem] shadow-2xl" />
+            <div className="lg:w-5/12">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-primary-50 rounded-[3.5rem] -rotate-2 z-0" />
+                <img 
+                  src={ASSETS.ABOUT_GLOBAL} 
+                  alt="Medical Board" 
+                  className="relative z-10 rounded-[3rem] shadow-2xl w-full max-h-[450px] object-cover" 
+                />
+              </div>
             </div>
           </div>
         </Container>
