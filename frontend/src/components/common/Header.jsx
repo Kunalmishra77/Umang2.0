@@ -22,6 +22,11 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
+    const event = new CustomEvent('mobileMenuToggle', { detail: { isOpen: isMobileMenuOpen } });
+    window.dispatchEvent(event);
+  }, [isMobileMenuOpen]);
+
+  useEffect(() => {
     setIsMobileMenuOpen(false);
     setActiveDropdown(null);
     setMobileAccordion(null);

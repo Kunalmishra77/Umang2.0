@@ -377,7 +377,7 @@ const Emergency = () => {
       </section>
 
       {/* 6. Sticky Emergency Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 bg-red-600 text-white py-4 z-50 shadow-2xl md:hidden">
+      <div className="fixed bottom-0 left-0 right-0 bg-red-600 text-white py-4 z-[60] shadow-2xl md:hidden">
          <div className="container-custom flex items-center justify-between">
             <div>
                <p className="text-xs font-bold text-red-200 uppercase">Emergency?</p>

@@ -5,6 +5,15 @@ import { siteConfig } from '../../config/siteConfig';
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleMenuToggle = (e) => {
+      setIsMenuOpen(e.detail.isOpen);
+    };
+    window.addEventListener('mobileMenuToggle', handleMenuToggle);
+    return () => window.removeEventListener('mobileMenuToggle', handleMenuToggle);
+  }, []);
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -25,12 +34,14 @@ const Footer = () => {
     });
   };
 
+  if (isMenuOpen) return <footer className="bg-[#0f172a] text-gray-400 pt-16 lg:pt-28 pb-10 border-t border-white/5 relative overflow-hidden" />;
+
   return (
     <footer className="bg-[#0f172a] text-gray-400 pt-16 lg:pt-28 pb-10 border-t border-white/5 relative overflow-hidden">
       {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-24 right-4 md:right-8 z-[9999] w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center shadow-xl transition-all duration-500 hover:bg-primary-500 hover:-translate-y-1 active:scale-90 ${
+        className={`fixed bottom-24 right-4 md:bottom-6 md:right-24 z-40 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center shadow-xl transition-all duration-500 hover:bg-primary-500 hover:-translate-y-1 active:scale-90 ${
           isVisible ? 'opacity-40 hover:opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
         }`}
         aria-label="Back to Top"

@@ -5,12 +5,23 @@ import { siteConfig } from '../../config/siteConfig';
 
 const WhatsAppFloating = () => {
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const isEmergencyPage = location.pathname === '/services/emergency';
+
+  React.useEffect(() => {
+    const handleMenuToggle = (e) => {
+      setIsMenuOpen(e.detail.isOpen);
+    };
+    window.addEventListener('mobileMenuToggle', handleMenuToggle);
+    return () => window.removeEventListener('mobileMenuToggle', handleMenuToggle);
+  }, []);
+
+  if (isMenuOpen) return null;
 
   return (
     <div 
-      className={`fixed right-4 md:bottom-6 md:right-6 z-[9999] flex items-center group transition-all duration-500 ${
-        isEmergencyPage ? 'bottom-20 md:bottom-6' : 'bottom-4 md:bottom-6'
+      className={`fixed right-4 md:bottom-6 md:right-6 z-40 flex items-center group transition-all duration-500 ${
+        isEmergencyPage ? 'bottom-24 md:bottom-6' : 'bottom-4 md:bottom-6'
       }`}
     >
       {/* Premium Tooltip */}
