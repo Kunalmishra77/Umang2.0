@@ -2,13 +2,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { 
-  Award, Stethoscope, Heart, UserPlus, Linkedin, Twitter, 
-  Mail, ChevronRight, Quote, Users, Star 
+  Award, Heart, UserPlus, Linkedin, 
+  Mail, ChevronRight, Quote, Star, ShieldCheck, Activity, ArrowRight 
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { doctors } from '../../utils/doctorsData';
 import { ASSETS } from '../../utils/imageAssets';
 import CountUp from '../../components/utils/CountUp';
+import { Container } from '../../components/ui/Layout';
 
 // Filter data
 const leadership = doctors.filter(d => d.role.includes('Director'));
