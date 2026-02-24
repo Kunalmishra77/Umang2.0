@@ -284,11 +284,11 @@ const Team = () => {
       </section>
 
       {/* SECTION 8: NURSING & SUPPORT (The Heart) */}
-      <section className="py-12 lg:py-10 bg-[#005580] text-white relative overflow-hidden">
+      <section className="py-12 lg:py-20 bg-[#005580] text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[#004466] transform skew-x-12 translate-x-20 z-0" />
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-7/12">
               <div className="flex items-center gap-3 mb-6">
                 <Heart className="w-8 h-8 text-rose-400 fill-current animate-pulse" />
                 <span className="font-bold text-blue-200 uppercase tracking-widest text-sm">The Heart of Healthcare</span>
@@ -303,11 +303,11 @@ const Team = () => {
                   <h4 className="text-4xl font-bold mb-1">
                     <CountUp to={500} suffix="+" />
                   </h4>
-                  <p className="text-blue-200 text-sm">Qualified Nurses</p>
+                  <p className="text-blue-200 text-sm font-bold uppercase tracking-wider">Qualified Nurses</p>
                 </div>
                 <div>
                   <h4 className="text-4xl font-bold mb-1">1:1</h4>
-                  <p className="text-blue-200 text-sm">ICU Patient Ratio</p>
+                  <p className="text-blue-200 text-sm font-bold uppercase tracking-wider">ICU Patient Ratio</p>
                 </div>
               </div>
               <Link to="/team/nursing" className="inline-flex items-center gap-2 text-rose-300 font-bold hover:text-white transition-colors">
@@ -315,17 +315,19 @@ const Team = () => {
               </Link>
             </div>
             
-            <div className="relative">
-              <div className="absolute inset-0 bg-rose-500 rounded-[3rem] opacity-20" />
-              <img 
-                src={ASSETS.NURSE_CARE} 
-                alt="Nursing Staff" 
-                className="relative z-10 rounded-[3rem] shadow-2xl w-full object-cover object-top h-[400px] sm:h-[500px]" 
-              />
-              <div className="absolute -bottom-8 left-4 sm:-left-8 bg-white text-[#0f172a] p-6 sm:p-8 rounded-2xl shadow-xl z-20 max-w-[280px] sm:max-w-xs">
-                <Quote className="w-8 h-8 text-rose-400 mb-4 fill-current" />
-                <p className="font-bold italic">"Compassion is the only language we speak fluently."</p>
-                <p className="text-xs font-bold text-gray-400 mt-2 uppercase">- Sister Mary, Head Nurse</p>
+            <div className="lg:w-5/12">
+              <div className="relative">
+                <div className="absolute inset-0 bg-rose-500 rounded-[3rem] opacity-20" />
+                <img 
+                  src={ASSETS.NURSE_CARE} 
+                  alt="Nursing Staff" 
+                  className="relative z-10 rounded-[3rem] shadow-2xl w-full object-cover object-top h-[450px]" 
+                />
+                <div className="absolute -bottom-8 left-4 sm:-left-8 bg-white text-[#0f172a] p-6 sm:p-8 rounded-2xl shadow-xl z-20 max-w-[280px] sm:max-w-xs">
+                  <Quote className="w-8 h-8 text-rose-400 mb-4 fill-current" />
+                  <p className="font-bold italic">"Compassion is the only language we speak fluently."</p>
+                  <p className="text-xs font-bold text-gray-400 mt-2 uppercase">- Sister Mary, Head Nurse</p>
+                </div>
               </div>
             </div>
           </div>
@@ -356,20 +358,33 @@ const Team = () => {
       </section>
 
       {/* SECTION 10: INTERNATIONAL FACULTY (NEW) */}
-      <section className="py-12 lg:py-10 bg-white">
+      <section className="py-12 lg:py-16 bg-white overflow-hidden">
         <div className="container-custom">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2 order-2 lg:order-1">
-              <img src={ASSETS.ABOUT_MAIN} alt="International Faculty" className="rounded-[3rem] shadow-2xl" />
+            <div className="lg:w-5/12 order-2 lg:order-1">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-blue-50 rounded-[3.5rem] rotate-2 z-0" />
+                <img 
+                  src={ASSETS.ABOUT_MAIN} 
+                  alt="International Faculty" 
+                  className="relative z-10 rounded-[3rem] shadow-2xl w-full h-[450px] object-cover" 
+                />
+              </div>
             </div>
-            <div className="lg:w-1/2 order-1 lg:order-2">
+            <div className="lg:w-7/12 order-1 lg:order-2">
               <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Global Medical <span className="text-primary-600 italic">Partnerships.</span></h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Umang Hospital collaborates with leading medical institutions across the UK, USA, and Germany for knowledge exchange and advanced surgical workshops.
+                Umang Hospital collaborates with leading medical institutions across the UK, USA, and Germany for knowledge exchange and advanced surgical workshops. These partnerships ensure that our patients receive world-class care locally.
               </p>
               <div className="flex flex-wrap gap-4">
-                {["UK Royal Colleges", "Cleveland Clinic Network", "German Robotic Surgery Hub"].map((tag, idx) => (
-                  <span key={idx} className="bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-xs font-bold border border-blue-100 uppercase tracking-widest">
+                {[
+                  "UK Royal Colleges", 
+                  "Cleveland Clinic Network", 
+                  "German Robotic Surgery Hub",
+                  "Mayo Clinic Care Network Affiliate",
+                  "Harvard Medical School (CME)"
+                ].map((tag, idx) => (
+                  <span key={idx} className="bg-blue-50 text-blue-700 px-4 py-2.5 rounded-xl text-xs font-bold border border-blue-100 uppercase tracking-widest">
                     {tag}
                   </span>
                 ))}
