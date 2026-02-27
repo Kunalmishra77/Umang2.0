@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { X, Maximize2, Info, CheckCircle2, ChevronDown, HelpCircle, Shield, ArrowRight } from 'lucide-react';
+import { X, Maximize2, Info, CheckCircle2, ChevronDown, HelpCircle, Shield, ArrowRight, Zap, Activity, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 import ParallaxImage from '../../components/common/ParallaxImage';
-import { Container, Section } from '../../components/ui/Layout';
+import { Container, Section, SectionHeading, Card } from '../../components/ui/Layout';
 import SeoHead from '../../components/common/SeoHead';
 import { siteConfig } from '../../config/siteConfig';
 
@@ -93,7 +93,6 @@ const Infrastructure = () => {
     <div 
       ref={containerRef} 
       className="bg-white min-h-screen font-sans relative"
-      style={{ position: 'relative' }}
     >
       <SeoHead 
         title="Our Infrastructure" 
@@ -102,7 +101,7 @@ const Infrastructure = () => {
       />
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[500px] md:h-[80vh] lg:h-[90vh] lg:min-h-[800px] flex items-center justify-center overflow-hidden bg-brand-dark">
+      <section className="relative min-h-[400px] md:h-[60vh] lg:h-[75vh] lg:min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-dark">
         <motion.div style={{ y }} className="absolute inset-0 z-0">
           <ParallaxImage 
             src={ASSETS.OT} 
@@ -119,19 +118,19 @@ const Infrastructure = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
           >
-            <div className="inline-flex items-center gap-2 lg:gap-3 px-4 py-2 lg:px-6 lg:py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl text-primary-200 text-[12px] lg:text-sm font-bold uppercase tracking-[0.2em] mb-6 lg:mb-8">
+            <div className="inline-flex items-center gap-2 lg:gap-3 px-4 py-2 lg:px-5 lg:py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl text-primary-200 text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] mb-5 lg:mb-6">
               <span className="w-2 h-2 rounded-full bg-primary-400 animate-pulse" />
               World Class Facility
             </div>
-            <h1 className="text-4xl md:text-7xl lg:text-[9rem] font-serif font-bold text-white mb-6 lg:mb-8 leading-[1.1] lg:leading-[0.9] tracking-tighter drop-shadow-[0_15px_40px_rgba(0,0,0,0.8)]">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-5 lg:mb-6 leading-[1.1] lg:leading-[1.1] tracking-tighter drop-shadow-[0_15px_40px_rgba(0,0,0,0.8)]">
               Medical <br /><span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-primary-200">Excellence</span>
             </h1>
-            <p className="text-lg lg:text-2xl text-white max-w-2xl mx-auto mb-10 lg:mb-12 font-medium leading-relaxed px-4 lg:px-0 drop-shadow-[0_5px_20px_rgba(0,0,0,0.8)]">
+            <p className="text-base lg:text-xl text-white max-w-2xl mx-auto mb-8 lg:mb-10 font-medium leading-relaxed px-4 lg:px-0 drop-shadow-[0_5px_20px_rgba(0,0,0,0.8)]">
               Experience a hospital designed around the patient. From advanced modular OTs to luxury recovery suites.
             </p>
             
             <div className="flex justify-center gap-6">
-               <button onClick={() => document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })} className="h-12 lg:h-14 px-6 lg:px-8 rounded-full bg-white text-brand-dark font-bold text-[12px] lg:text-base hover:bg-primary-50 transition-all flex items-center gap-2 shadow-lg hover:-translate-y-1">
+               <button onClick={() => document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' })} className="h-11 lg:h-12 px-5 lg:px-7 rounded-full bg-white text-brand-dark font-bold text-[12px] lg:text-sm hover:bg-primary-50 transition-all flex items-center gap-2 shadow-lg hover:-translate-y-1">
                   Explore Facilities <ChevronDown className="w-4 h-4" />
                </button>
             </div>
@@ -140,11 +139,11 @@ const Infrastructure = () => {
       </section>
 
       {/* SECTION: INFRASTRUCTURE STATS */}
-      <div className="bg-[#030712] py-10 md:py-12 text-white relative overflow-hidden border-b border-white/5">
+      <div className="bg-[#030712] py-8 md:py-10 text-white relative overflow-hidden border-b border-white/5">
         <div className="absolute inset-0 opacity-[0.02] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-primary-500/50 to-transparent" />
         <Container className="relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 text-center">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 text-center">
             {[
               { label: "Total Capacity", value: siteConfig.stats.beds + " Beds" },
               { label: "ICU Management", value: siteConfig.stats.icuBedsMarketing + " Units" },
@@ -153,10 +152,10 @@ const Infrastructure = () => {
             ].map((stat, i) => (
               <div key={i} className="group relative">
                 <div className="absolute -inset-4 bg-primary-600/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <p className="text-3xl lg:text-4xl font-serif font-bold mb-2 tracking-tighter text-white group-hover:text-primary-400 transition-colors duration-500">{stat.value}</p>
+                <p className="text-2xl lg:text-3xl font-serif font-bold mb-2 tracking-tighter text-white group-hover:text-primary-400 transition-colors duration-500">{stat.value}</p>
                 <div className="flex flex-col items-center">
-                  <div className="h-[1px] w-5 bg-primary-600/40 mb-3 group-hover:w-10 transition-all duration-700" />
-                  <p className="text-[8px] lg:text-[9px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-slate-300 transition-colors">{stat.label}</p>
+                  <div className="h-[1px] w-4 bg-primary-600/40 mb-2.5 group-hover:w-8 transition-all duration-700" />
+                  <p className="text-[7px] lg:text-[8px] font-black uppercase tracking-[0.3em] text-slate-500 group-hover:text-slate-300 transition-colors">{stat.label}</p>
                 </div>
               </div>
             ))}
@@ -194,7 +193,7 @@ const Infrastructure = () => {
               </div>
             </div>
             <div className="lg:w-1/2 relative">
-              <div className="relative rounded-[4rem] overflow-hidden shadow-2xl h-[550px] border-8 border-white">
+              <div className="relative rounded-[4rem] overflow-hidden shadow-2xl h-[450px] border-8 border-white">
                 <img src={ASSETS.ROBOTIC_SURGERY} alt="Safety" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-brand-dark/10" />
               </div>

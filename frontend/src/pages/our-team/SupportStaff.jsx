@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { 
-  Users, ShieldCheck, Clock, Award, Heart, CheckCircle2, 
-  Phone, Calendar, Globe, MapPin, Search, Star, MessageSquare
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
+import {
+  Users, ShieldCheck, Clock, Award, Heart, CheckCircle2,
+  Phone, Calendar, Globe, MapPin, Search, Star, MessageSquare, Zap,
+  FileText, Activity, Truck, User, HelpCircle
+} from 'lucide-react';import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 import { Container, Section, SectionHeading, Card } from '../../components/ui/Layout';
 import { siteConfig } from '../../config/siteConfig';
@@ -38,7 +38,7 @@ const SupportStaff = () => {
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[11px] font-bold uppercase tracking-[0.3em] mb-6">
               Operations & Care
             </span>
-            <h1 className="text-white mb-6 leading-tight text-4xl md:text-7xl lg:text-8xl">Engine of <span className="text-primary-400 italic">Excellence.</span></h1>
+            <h1 className="text-white mb-6 leading-tight text-4xl md:text-6xl lg:text-5xl font-serif font-bold">Engine of <span className="text-primary-400 normal">Excellence.</span></h1>
             <p className="text-lg text-slate-300 leading-relaxed font-light">
               Our 200+ dedicated support staff members work behind the scenes to ensure every patient journey is seamless, safe, and stress-free.
             </p>
@@ -195,7 +195,7 @@ const SupportStaff = () => {
               </div>
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2">
-               <img src={ASSETS.RECEPTION} alt="Admin Quality" className="rounded-[3rem] shadow-2xl" />
+               <img src={ASSETS.RECEPTION} alt="Admin Quality" className="rounded-[3rem] shadow-2xl w-full h-[400px] lg:h-[500px] object-cover" />
             </div>
           </div>
         </Container>
@@ -208,7 +208,7 @@ const SupportStaff = () => {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
               <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">International Support</span>
-              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-8">World-Class <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Hospitality.</span></h2>
+              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-8">World-Class <span className="normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Hospitality.</span></h2>
               <p className="text-lg text-slate-400 leading-relaxed mb-10 font-light">
                 Our guest relations team assists international patients with visa processing, airport transfers, and multi-language interpretation services.
               </p>
@@ -222,7 +222,7 @@ const SupportStaff = () => {
               </div>
             </div>
             <div className="relative">
-              <img src={ASSETS.ABOUT_GLOBAL} alt="Global Desk" className="rounded-[3rem] shadow-2xl grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-1000" />
+              <img src={ASSETS.ABOUT_GLOBAL} alt="Global Desk" className="rounded-[3rem] shadow-2xl grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-1000 w-full h-[400px] lg:h-[500px] object-cover" />
               <div className="absolute inset-0 border-[20px] border-white/5 rounded-[3rem] scale-105 -z-10" />
             </div>
           </div>
@@ -237,7 +237,7 @@ const SupportStaff = () => {
             <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16">
               <div className="max-w-2xl">
                 <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">Safety Standards</span>
-                <h2 className="text-4xl font-serif font-bold text-brand-dark leading-tight">Patient Safety is <br /><span className="text-primary-600 italic">Non-Negotiable.</span></h2>
+                <h2 className="text-4xl font-serif font-bold text-brand-dark leading-tight">Patient Safety is <br /><span className="text-primary-600 normal">Non-Negotiable.</span></h2>
               </div>
               <Link to="/contact" className="px-8 py-4 bg-primary-600 text-white rounded-2xl font-bold hover:bg-primary-700 transition-all shadow-xl active:scale-95">
                 Report Safety Issue
@@ -295,7 +295,7 @@ const SupportStaff = () => {
       <Section className="bg-slate-900 text-white">
         <Container>
           <div className="text-center mb-20">
-            <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-6">Empowering Our <span className="text-primary-400 italic">Workforce.</span></h2>
+            <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-6">Empowering Our <span className="text-primary-400 normal">Workforce.</span></h2>
             <p className="text-slate-400 max-w-2xl mx-auto font-light leading-relaxed">
               We believe in continuous learning. Our staff participates in regular workshops, simulation drills, and soft-skill training programs.
             </p>
@@ -322,7 +322,7 @@ const SupportStaff = () => {
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
-               <img src={ASSETS.ABOUT_GLOBAL} alt="Patient Advocacy" className="rounded-[3rem] shadow-2xl" />
+               <img src={ASSETS.ABOUT_GLOBAL} alt="Patient Advocacy" className="rounded-[3rem] shadow-2xl w-full h-[400px] lg:h-[500px] object-cover" />
             </div>
             <div className="lg:w-1/2">
               <SectionHeading 
@@ -364,7 +364,7 @@ const SupportStaff = () => {
               <Card key={i} className="!p-12 !rounded-[3rem] bg-slate-50 border-none shadow-sm relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary-100 rounded-bl-full -mr-8 -mt-8 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <MessageSquare className="w-10 h-10 text-primary-200 mb-6" />
-                <p className="text-lg italic text-slate-600 mb-8 leading-relaxed">"{item.text}"</p>
+                <p className="text-lg normal text-slate-600 mb-8 leading-relaxed">"{item.text}"</p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center font-bold text-primary-600">{item.name.charAt(0)}</div>
                   <div>
@@ -379,17 +379,17 @@ const SupportStaff = () => {
       </Section>
 
       {/* 10. FINAL CTA HUB */}
-      <Section className="bg-brand-dark text-white relative overflow-hidden py-24">
+      <Section className="bg-brand-dark text-white relative overflow-hidden py-12 lg:py-16">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-        <Container className="text-center relative z-10">
-          <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Need Admin <span className="text-primary-400 italic">Help?</span></h2>
-          <p className="text-slate-400 text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">Our administrative coordinators are available 24/7 to assist with your queries.</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-8">
-            <a href="tel:+918588072727" className="px-12 py-6 bg-primary-600 text-white rounded-2xl font-bold text-lg hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
-              <Phone size={24} className="group-hover:rotate-12 transition-transform" /> 85880 72727
+        <Container className="text-center relative z-10 max-w-2xl mx-auto">
+          <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 leading-tight">Need Admin <span className="text-primary-400 normal">Help?</span></h2>
+          <p className="text-slate-400 text-base lg:text-lg mb-8 max-w-xl mx-auto font-light leading-relaxed">Our administrative coordinators are available 24/7 to assist with your queries.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
+            <a href="tel:+918588072727" className="px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-base hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+              <Phone size={20} className="group-hover:rotate-12 transition-transform" /> 85880 72727
             </a>
-            <Link to="/contact" className="px-12 py-6 border border-white/20 text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:scale-105 active:scale-95">
-              <Calendar size={24} /> Get Support
+            <Link to="/contact" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+              <Calendar size={20} /> Get Support
             </Link>
           </div>
         </Container>

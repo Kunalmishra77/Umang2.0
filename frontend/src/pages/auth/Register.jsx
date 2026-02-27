@@ -31,7 +31,7 @@ const Register = () => {
               animate={{ opacity: 1, x: 0 }} 
               className="text-5xl font-serif font-bold mb-8 leading-tight"
             >
-              Start Your <br /><span className="text-blue-400 italic">Journey to Health.</span>
+              Start Your <br /><span className="text-blue-400 normal">Journey to Health.</span>
             </motion.h1>
             
             <p className="text-gray-300 text-lg font-light leading-relaxed max-w-sm">

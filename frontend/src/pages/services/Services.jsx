@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { 
   Stethoscope, Activity, Home, Pill, Video, Phone, 
   Shield, Heart, ArrowRight, Clock, 
-  Users, Award, HelpCircle, CheckCircle2 
+  Users, Award, HelpCircle, CheckCircle2, Smartphone 
 } from 'lucide-react';
 import { ASSETS } from '../../utils/imageAssets';
 import { Container, Section, SectionHeading, Card } from '../../components/ui/Layout';
@@ -106,7 +106,7 @@ const Services = () => {
             className="max-w-3xl"
           >
             <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">Support Services</span>
-            <h1 className="text-white mb-6 leading-tight">Clinical <span className="text-primary-400 italic">Excellence.</span></h1>
+            <h1 className="text-white mb-6 leading-tight">Clinical <span className="text-primary-400 normal">Excellence.</span></h1>
             <p className="text-lg text-slate-300 max-w-2xl font-light leading-relaxed">
               Comprehensive healthcare solutions designed around your needs, from preventive care to 24/7 emergency support and home care.
             </p>
@@ -188,7 +188,7 @@ const Services = () => {
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
             <div className="lg:w-1/2">
               <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">Global Outreach</span>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-8">Dedicated <br /><span className="text-primary-600 italic">International Desk.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-8">Dedicated <br /><span className="text-primary-600 normal">International Desk.</span></h2>
               <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
                 We serve patients from over 30 countries, providing seamless medical journeys from visa assistance to post-discharge care.
               </p>
@@ -396,16 +396,16 @@ const Services = () => {
       </Section>
 
       {/* SECTION: EMERGENCY HELPLINE BANNER (NEW SECTION 11) */}
-      <section className="bg-red-600 py-12 lg:py-16 text-white relative overflow-hidden">
+      <section className="bg-red-600 py-6 lg:py-8 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
         <Container className="relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10">
             <div className="text-center lg:text-left">
-              <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4 tracking-tight">Need Urgent Help?</h2>
-              <p className="text-red-100 text-lg font-light">Our ER and Ambulance dispatch are operational 24/7. Save this number.</p>
+              <h2 className="text-2xl md:text-3xl font-serif font-bold mb-2 tracking-tight">Need Urgent Help?</h2>
+              <p className="text-red-100 text-base font-light">Our ER and Ambulance dispatch are operational 24/7. Save this number.</p>
             </div>
-            <a href={`tel:${siteConfig.contacts.emergency.replace(/\s/g,'')}`} className="h-20 px-12 bg-white text-red-600 rounded-full font-black text-2xl flex items-center gap-4 hover:scale-105 transition-all shadow-2xl animate-pulse">
-              <Phone size={32} /> {siteConfig.contacts.emergency}
+            <a href={`tel:${siteConfig.contacts.emergency.replace(/\s/g,'')}`} className="h-16 px-10 bg-white text-red-600 rounded-full font-black text-xl flex items-center gap-3 hover:scale-105 transition-all shadow-xl animate-pulse shrink-0">
+              <Phone size={24} /> {siteConfig.contacts.emergency}
             </a>
           </div>
         </Container>

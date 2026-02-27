@@ -209,7 +209,7 @@ const PressRelease = () => {
             <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-10 text-[#005580]">
                <Award className="w-10 h-10" />
             </div>
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-8 leading-relaxed italic">
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-8 leading-relaxed normal">
                "Our commitment to clinical excellence is driven by a passion for human well-being. Every press release we issue is a testament to a life saved or an innovation achieved."
             </h2>
             <div className="flex flex-col items-center">

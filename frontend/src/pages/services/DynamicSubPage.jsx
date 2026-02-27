@@ -57,7 +57,7 @@ const DynamicSubPage = () => {
                     {content.title.split(' ').map((word, i) => (
                       <span key={i}>
                         {i === content.title.split(' ').length - 1 ? (
-                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400 italic">{word}</span>
+                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400 normal">{word}</span>
                         ) : word + ' '}
                       </span>
                     ))}
@@ -239,7 +239,7 @@ const DynamicSubPage = () => {
                        <Container>
                           <div className="text-center mb-16 relative z-10">
                              <span className="text-[12px] font-black uppercase tracking-[0.3em] text-primary-600 mb-4 block">Information Desk</span>
-                             <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark mb-6">Common <span className="text-primary-600 italic">Questions.</span></h2>
+                             <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark mb-6">Common <span className="text-primary-600 normal">Questions.</span></h2>
                           </div>
                           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10">
                              {section.items.map((faq, i) => (

@@ -196,7 +196,7 @@ const ElderCare = () => {
                   <Star className="text-orange-400" />
                 </div>
                 <div>
-                  <p className="text-gray-600 text-lg italic mb-6">"{story.text}"</p>
+                  <p className="text-gray-600 text-lg normal mb-6">"{story.text}"</p>
                   <h4 className="font-bold text-brand-dark text-xl">{story.name}, {story.age} Yrs</h4>
                 </div>
               </div>
@@ -295,7 +295,7 @@ const ElderCare = () => {
             </div>
             <div className="lg:w-1/2">
               <span className="text-orange-400 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Board</span>
-              <h2 className="text-4xl font-serif font-bold mb-6">Expert Oversight by <br /><span className="text-orange-400 italic">Senior Specialists.</span></h2>
+              <h2 className="text-4xl font-serif font-bold mb-6">Expert Oversight by <br /><span className="text-orange-400 normal">Senior Specialists.</span></h2>
               <p className="text-slate-400 text-lg font-light leading-relaxed mb-8">
                 Our elder care programs are medically supervised by senior consultants who specialize in geriatric medicine, ensuring that every medical decision is based on expert clinical judgement.
               </p>
@@ -369,7 +369,7 @@ const ElderCare = () => {
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-2/3">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-8 leading-tight">Stay Connected with <br /><span className="text-orange-500 italic">Umang Care App.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-8 leading-tight">Stay Connected with <br /><span className="text-orange-500 normal">Umang Care App.</span></h2>
               <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
                 Remotely monitor your parent's vitals, track caregiver attendance, and get daily health summaries from our doctors. Peace of mind, anywhere.
               </p>
@@ -421,7 +421,7 @@ const ElderCare = () => {
       {/* Final CTA */}
       <section className="section-padding bg-brand-dark relative overflow-hidden">
         <Container className="relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Ready to provide the <br /><span className="text-orange-400 italic">best for your parents?</span></h2>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Ready to provide the <br /><span className="text-orange-400 normal">best for your parents?</span></h2>
           <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">Get expert guidance on our care packages and find the right support system for your family.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <Link to="/services/booking/elder-care" className="px-10 py-5 bg-orange-500 text-white rounded-full font-bold text-base shadow-xl hover:bg-orange-600 transition-all flex items-center justify-center gap-3 shadow-orange-900/20">

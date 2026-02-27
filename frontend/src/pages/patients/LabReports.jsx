@@ -168,7 +168,7 @@ const LabReports = () => {
 
                      <div className="bg-blue-50 p-6 rounded-xl border border-blue-100 mb-12">
                         <p className="text-sm font-bold text-blue-800 mb-2">CLINICAL REMARKS:</p>
-                        <p className="text-base text-blue-900/70 italic leading-relaxed">Blood sugar levels are borderline high. Recommended follow-up with a clinical nutritionist and regular lipid panel monitoring.</p>
+                        <p className="text-base text-blue-900/70 normal leading-relaxed">Blood sugar levels are borderline high. Recommended follow-up with a clinical nutritionist and regular lipid panel monitoring.</p>
                      </div>
 
                      <div className="flex justify-end gap-12 pt-12 border-t border-gray-100">
@@ -386,7 +386,7 @@ const LabReports = () => {
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-6">
               <Info className="w-4 h-4" /> Help Center
             </div>
-            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Common <span className="text-blue-600 italic">Queries</span></h2>
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Common <span className="text-blue-600 normal">Queries</span></h2>
             <p className="text-gray-500 max-w-2xl mx-auto">Quick answers to frequently asked questions about our digital diagnostic reports and clinical data policy.</p>
           </div>
 

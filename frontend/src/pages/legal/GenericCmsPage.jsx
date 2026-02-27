@@ -90,7 +90,7 @@ const GenericCmsPage = ({ slug: propSlug }) => {
                         </div>
                         <h1 className="text-3xl md:text-8xl font-serif font-bold text-white mb-8 tracking-tighter leading-tight">
                             {page.title.split(' ').map((word, i) => (
-                                <span key={i} className={i % 2 !== 0 ? "text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-cyan-200 italic" : ""}>
+                                <span key={i} className={i % 2 !== 0 ? "text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-cyan-200 normal" : ""}>
                                     {word}{' '}
                                 </span>
                             ))}

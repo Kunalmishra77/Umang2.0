@@ -1,12 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Star, MapPin, Calendar, Clock, Award, Shield, 
-  User, ChevronRight, BookOpen, Heart, ThumbsUp, 
-  MessageSquare, Activity, GraduationCap, CheckCircle2 
-} from 'lucide-react';
-import { doctors } from '../../utils/doctorsData';
+import {
+  Star, MapPin, Calendar, Clock, Award, Shield,
+  User, ChevronRight, BookOpen, Heart, ThumbsUp,
+  MessageSquare, Activity, GraduationCap, CheckCircle2, Phone, HelpCircle, ArrowRight
+} from 'lucide-react';import { doctors } from '../../utils/doctorsData';
 import { Container, Section, SectionHeading, Card } from '../../components/ui/Layout';
 import { siteConfig } from '../../config/siteConfig';
 import SeoHead from '../../components/common/SeoHead';
@@ -99,7 +98,7 @@ const DoctorProfile = () => {
                {/* About & Expertise */}
                <div className="bg-white p-10 lg:p-12 rounded-[3rem] shadow-premium border border-gray-100">
                   <h3 className="text-2xl lg:text-3xl font-serif font-bold text-brand-dark mb-6">Professional Biography</h3>
-                  <p className="text-gray-600 leading-relaxed text-lg lg:text-xl font-light mb-10 italic">
+                  <p className="text-gray-600 leading-relaxed text-lg lg:text-xl font-light mb-10 normal">
                     "{doc.about || `Dr. ${doc.name.split(' ').pop()} is a dedicated specialist in ${doc.dept} with a focus on delivering high-quality, patient-centered care. With over ${doc.exp} of experience, they have handled complex cases with clinical excellence.`}"
                   </p>
                   
@@ -166,9 +165,9 @@ const DoctorProfile = () => {
                       { name: 'Rajesh Sharma', text: 'Very professional and explained the treatment path clearly. Highly satisfied with the recovery.' },
                       { name: 'Anita Verma', text: 'Dr. is very compassionate and patient. The entire staff at Umang was very helpful.' }
                     ].map((rev, i) => (
-                      <div key={i} className="p-6 bg-slate-50 rounded-2xl border border-gray-100 italic text-gray-600 text-sm leading-relaxed">
+                      <div key={i} className="p-6 bg-slate-50 rounded-2xl border border-gray-100 normal text-gray-600 text-sm leading-relaxed">
                         "{rev.text}"
-                        <span className="block mt-4 font-bold text-brand-dark not-italic text-xs uppercase tracking-widest">— {rev.name}</span>
+                        <span className="block mt-4 font-bold text-brand-dark not-normal text-xs uppercase tracking-widest">— {rev.name}</span>
                       </div>
                     ))}
                   </div>
@@ -207,9 +206,9 @@ const DoctorProfile = () => {
                   <div className="mb-10">
                      <div className="flex justify-between items-center mb-4">
                         <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Available Slots</p>
-                        <p className="text-[10px] font-bold text-green-600 uppercase tracking-widest flex items-center gap-1">
+                        <div className="text-[10px] font-bold text-green-600 uppercase tracking-widest flex items-center gap-1">
                            <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" /> Active
-                        </p>
+                        </div>
                      </div>
                      <div className="grid grid-cols-2 gap-3">
                         {slots.slice(0, 6).map((slot, i) => (

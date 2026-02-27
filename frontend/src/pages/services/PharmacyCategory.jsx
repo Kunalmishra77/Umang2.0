@@ -39,17 +39,17 @@ const PharmacyCategory = () => {
       const currentPage = reset ? 1 : page;
       const response = await api.get(`/medicines?category=${slug}&page=${currentPage}`);
       
-      const newProducts = response.data.data;
+      const newProducts = response.data?.data || [];
       
       if (reset) {
         setProducts(newProducts);
         setPage(2);
-      } else {
+      } else if (newProducts.length > 0) {
         setProducts(prev => [...prev, ...newProducts]);
         setPage(prev => prev + 1);
       }
       
-      if (response.data.current_page >= response.data.last_page) {
+      if (response.data?.current_page >= response.data?.last_page) {
         setHasMore(false);
       }
     } catch (error) {

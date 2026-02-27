@@ -178,7 +178,7 @@ const HomeCare = () => {
           <div className="flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-center">
             <div className="lg:w-7/12">
               <span className="text-[#005580] font-bold uppercase tracking-widest text-sm mb-4 block">Recovery Experts</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8 leading-tight">Specialized Post-Op <br /><span className="text-[#005580] italic">Rehabilitation.</span></h2>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8 leading-tight">Specialized Post-Op <br /><span className="text-[#005580] normal">Rehabilitation.</span></h2>
               <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
                 Recovery doesn't end at discharge. Our specialized rehab programs help you regain mobility and strength after complex surgeries or neurological events.
               </p>
@@ -302,7 +302,7 @@ const HomeCare = () => {
             </div>
             <div className="lg:w-1/2">
               <span className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 block">Medical Professionals</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Staffed by Certified <br /><span className="text-blue-600 italic">ICU Nurses.</span></h2>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Staffed by Certified <br /><span className="text-blue-600 normal">ICU Nurses.</span></h2>
               <p className="text-gray-500 text-lg mb-8 leading-relaxed">
                 Our nursing team is not just compassionate but highly skilled. Every home care nurse undergoes rigorous clinical training and background verification before deployment.
               </p>
@@ -330,7 +330,7 @@ const HomeCare = () => {
         <Container>
           <div className="text-center mb-20 relative z-10">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-600 mb-4 block">Help Center</span>
-            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark">Home Care <span className="text-primary-600 italic">FAQ.</span></h2>
+            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark">Home Care <span className="text-primary-600 normal">FAQ.</span></h2>
           </div>
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10">
             {[

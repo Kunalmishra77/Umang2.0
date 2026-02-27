@@ -35,7 +35,7 @@ const HospitalVideoSection = () => {
                 poster={ASSETS.HOSPITAL_EXTERIOR}
                 className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
               >
-                <source src="/assets/Home/umange-about.MP4" type="video/mp4" />
+                <source src="/assets/Home/umange-about.MP4?v=2" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent opacity-60" />
@@ -47,12 +47,6 @@ const HospitalVideoSection = () => {
                        <Activity className="w-3.5 h-3.5 lg:w-4 lg:h-4 animate-pulse" />
                     </div>
                  </div>
-              </div>
-
-              {/* Right-aligned overlay text (Refined) */}
-              <div className="absolute bottom-6 right-6 text-right pointer-events-none">
-                <p className="text-white font-black text-sm lg:text-base leading-tight mb-0.5 uppercase tracking-tight opacity-90">Umang <span className="text-primary-400 italic">Hospital</span></p>
-                <p className="text-white/50 text-[8px] lg:text-[10px] font-black uppercase tracking-[0.4em]">Gurugram, India</p>
               </div>
             </motion.div>
 
@@ -69,7 +63,7 @@ const HospitalVideoSection = () => {
             >
               <span className="section-subtitle mb-4">The Umang Experience</span>
               <h2 className="section-title mb-8">
-                Next-Gen Infrastructure with a <span className="text-primary-600 italic font-medium">Human Touch.</span>
+                Next-Gen Infrastructure with a <span className="text-primary-600 normal font-medium">Human Touch.</span>
               </h2>
               
               <div className="space-y-8 mb-10">

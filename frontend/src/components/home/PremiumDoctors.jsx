@@ -40,7 +40,7 @@ const PremiumDoctors = () => {
                 <span className="text-primary-400 font-black uppercase tracking-[0.4em] text-[13px] lg:text-[15px]">Elite Medical Faculty</span>
              </div>
              <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-2">
-               World-Class <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400 italic">Specialists</span>
+               World-Class <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400 normal">Specialists</span>
              </h2>
            </motion.div>
            
@@ -130,7 +130,7 @@ const PremiumDoctors = () => {
                           </div>
                           
                           <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white mb-1 tracking-tight leading-tight">{activeDoc.name}</h3>
-                          <p className="text-primary-100 text-[12px] lg:text-[1.1rem] mb-5 lg:mb-6 font-light italic leading-relaxed max-w-lg">{activeDoc.role}</p>
+                          <p className="text-primary-100 text-[12px] lg:text-[1.1rem] mb-5 lg:mb-6 font-light normal leading-relaxed max-w-lg">{activeDoc.role}</p>
 
                           <div className="flex gap-4">
                              <Link 

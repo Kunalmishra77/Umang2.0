@@ -46,7 +46,7 @@ const StoryDetail = () => {
             <div className="lg:col-span-8 space-y-12">
               <section>
                 <Quote className="w-12 h-12 text-pink-100 mb-6 fill-current" />
-                <p className="text-2xl font-serif italic text-[#0f172a] leading-relaxed">
+                <p className="text-2xl font-serif normal text-[#0f172a] leading-relaxed">
                   "{story.quote}"
                 </p>
               </section>

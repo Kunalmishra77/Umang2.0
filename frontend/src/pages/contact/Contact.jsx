@@ -88,7 +88,7 @@ const Contact = () => {
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
               Connect with <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 italic">Umang Care.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 normal">Umang Care.</span>
             </h1>
             <p className="text-xl text-blue-100 font-light leading-relaxed">
               Our clinical and administrative coordination desks are operational 24/7 to ensure your queries are resolved with clinical precision.
@@ -409,7 +409,7 @@ const Contact = () => {
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2">
               <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[10px] mb-6 block">Experience Excellence</span>
-              <h2 className="text-4xl lg:text-6xl font-serif font-bold text-white mb-8">Take a Virtual <br /><span className="text-primary-400 italic">Hospital Tour.</span></h2>
+              <h2 className="text-4xl lg:text-6xl font-serif font-bold text-white mb-8">Take a Virtual <br /><span className="text-primary-400 normal">Hospital Tour.</span></h2>
               <p className="text-slate-400 text-lg font-light leading-relaxed mb-10">
                 Explore our world-class facilities, modular OTs, and premium recovery suites from the comfort of your home. Get a 360-degree view of the healing environment we have built for you.
               </p>
@@ -427,7 +427,7 @@ const Contact = () => {
             <div className="grid lg:grid-cols-2 gap-20 items-center">
                <div>
                   <span className="section-subtitle">Data Sovereignty</span>
-                  <h2 className="section-title mb-8">Your Privacy, <br /><span className="text-primary-600 italic">Our Mandate.</span></h2>
+                  <h2 className="section-title mb-8">Your Privacy, <br /><span className="text-primary-600 normal">Our Mandate.</span></h2>
                   <p className="text-gray-500 text-lg mb-12 font-light leading-relaxed">At Umang Hospital, we strictly adhere to international patient privacy laws and ethical standards. Your medical records are encrypted and handled with absolute confidentiality.</p>
                   
                   <div className="space-y-6">
@@ -515,7 +515,7 @@ const Contact = () => {
           <div className="flex flex-col lg:flex-row gap-20">
             <div className="lg:w-1/3">
               <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-6 block">Quick Answers</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8 leading-tight">Common Support <br /><span className="text-primary-600 italic">Queries.</span></h2>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8 leading-tight">Common Support <br /><span className="text-primary-600 normal">Queries.</span></h2>
               <p className="text-gray-500 leading-relaxed mb-10 font-light">Can't find what you're looking for? Our support team is available 24/7 to assist with your specific needs.</p>
               <div className="p-8 bg-primary-50 rounded-[2.5rem] border border-primary-100">
                 <p className="text-sm font-bold text-brand-dark mb-4">Direct Assistance</p>
@@ -560,7 +560,7 @@ const Contact = () => {
          <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary-600/5 rounded-full blur-[100px] pointer-events-none" />
          <div className="container-custom relative z-10 text-center">
             <MessageCircle className="w-12 h-12 text-primary-400 mx-auto mb-8 animate-bounce" />
-            <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 tracking-tighter">Your Feedback <br /><span className="text-primary-400 italic">Powers Us.</span></h2>
+            <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 tracking-tighter">Your Feedback <br /><span className="text-primary-400 normal">Powers Us.</span></h2>
             <p className="text-primary-100 text-lg max-w-xl mx-auto mb-12 opacity-80 font-light leading-relaxed">Whether it's a compliment or a suggestion for improvement, we are listening. Your experience helps us redefine excellence.</p>
             <button 
               onClick={() => { window.scrollTo({ top: document.getElementById('inquiry-form')?.offsetTop - 150, behavior: 'smooth' }); }}

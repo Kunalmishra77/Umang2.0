@@ -84,10 +84,11 @@ const HeroSection = () => {
             muted
             loop
             playsInline
+            preload="auto"
             poster={ASSETS.HOSPITAL_EXTERIOR}
             className="w-full h-full object-cover opacity-100 brightness-[0.9]"
           >
-            <source src="/assets/Home/umang-banner.MP4" type="video/mp4" />
+            <source src="/assets/Home/umang-banner.MP4?v=2" type="video/mp4" />
           </video>
         ) : (
           /* Mobile: Cinematic Image Loop (NO VIDEO FOR PERF) */
@@ -130,7 +131,7 @@ const HeroSection = () => {
             >
               <span className="text-white">Care with</span>
               <br />
-              <span className="text-primary-400 italic">Passion.</span>
+              <span className="text-primary-400 normal">Passion.</span>
             </motion.h1>
 
             <motion.p 
@@ -262,7 +263,7 @@ const HeroSection = () => {
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -5 }}
-                            className="absolute top-full left-0 right-0 mt-2 bg-[#0f172a]/95 border border-white/10 z-30 backdrop-blur-3xl rounded-2xl overflow-hidden shadow-2xl"
+                            className="absolute top-full left-0 right-0 mt-2 bg-[#0f172a]/95 border border-white/10 z-[100] backdrop-blur-3xl rounded-2xl overflow-hidden shadow-2xl max-h-64 overflow-y-auto custom-scrollbar"
                           >
                             <div className="p-1 grid grid-cols-1">
                               {specialties.map((s) => (

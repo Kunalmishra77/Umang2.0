@@ -86,7 +86,7 @@ const Specialities = () => {
               <span className="text-primary-400 font-black uppercase tracking-[0.3em] text-[12px]">Clinical Leadership</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
-              Centres of <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400 italic">Excellence.</span>
+              Centres of <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400 normal">Excellence.</span>
             </h1>
             <p className="text-xl text-slate-300 max-w-2xl leading-relaxed font-light">
               Serving Gurugram & NCR with 52+ specialized departments and advanced clinical protocols designed for superior patient outcomes.
@@ -159,19 +159,21 @@ const Specialities = () => {
       <Section className="bg-white overflow-hidden">
         <Container>
           <SectionHeading eyebrow="Department Showcase" title="Our Specialized Pillars" centered />
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[
               { title: "Cardiac Sciences", desc: "Top-tier interventional cardiology and cardiothoracic surgery with a 99% success rate in primary PCI.", img: ASSETS.CARDIAC },
-              { title: "Neuro Sciences", desc: "Region\'s leading stroke hub with advanced neuro-microscopy and comprehensive rehabilitation.", img: ASSETS.NEURO }
+              { title: "Neuro Sciences", desc: "Region\'s leading stroke hub with advanced neuro-microscopy and comprehensive rehabilitation.", img: ASSETS.NEURO },
+              { title: "Orthopaedics", desc: "Advanced joint replacement and spine surgery hub with state-of-the-art robotic assistance.", img: ASSETS.ORTHO },
+              { title: "Gastroenterology", desc: "Comprehensive digestive care including advanced endoscopy and surgical gastro procedures.", img: ASSETS.GASTRO }
             ].map((item, i) => (
-              <div key={i} className="group relative rounded-[3rem] overflow-hidden h-[400px] shadow-xl">
+              <div key={i} className="group relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden h-[350px] lg:h-[450px] shadow-xl">
                 <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/20 to-transparent" />
-                <div className="absolute bottom-10 left-10 right-10">
-                  <h4 className="text-3xl font-serif font-bold text-white mb-4">{item.title}</h4>
-                  <p className="text-slate-200 text-lg mb-6 line-clamp-2">{item.desc}</p>
-                  <Link to={`/specialities/${item.title.split(' ')[0].toLowerCase()}`} className="inline-flex items-center gap-2 text-primary-400 font-bold uppercase tracking-widest text-sm group-hover:gap-4 transition-all">
-                    Explore Details <ArrowRight size={16} />
+                <div className="absolute bottom-8 left-8 right-8">
+                  <h4 className="text-2xl lg:text-3xl font-serif font-bold text-white mb-3 leading-tight">{item.title}</h4>
+                  <p className="text-slate-200 text-sm lg:text-base mb-5 line-clamp-2 font-light">{item.desc}</p>
+                  <Link to={`/specialities/${item.title.split(' ')[0].toLowerCase()}`} className="inline-flex items-center gap-2 text-primary-400 font-bold uppercase tracking-widest text-[10px] lg:text-xs group-hover:gap-4 transition-all">
+                    Explore Details <ArrowRight size={14} />
                   </Link>
                 </div>
               </div>
@@ -185,7 +187,7 @@ const Specialities = () => {
         <Container>
           <div className="flex flex-col lg:flex-row gap-20 items-center">
             <div className="lg:w-[60%] order-2 lg:order-1">
-              <h2 className="text-3xl lg:text-6xl font-serif font-bold mb-12 leading-tight">Decades of <br /><span className="text-primary-400 italic">Clinical Milestones.</span></h2>
+              <h2 className="text-3xl lg:text-6xl font-serif font-bold mb-12 leading-tight">Decades of <br /><span className="text-primary-400 normal">Clinical Milestones.</span></h2>
               <div className="space-y-12">
                 {[
                   { year: "2010", title: "First Robotic OT", desc: "Inaugurated the region's first fully integrated modular OT suite with international safety standards." },
@@ -382,7 +384,7 @@ const Specialities = () => {
               <HelpCircle className="w-4 h-4 text-primary-600" />
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-700">Common Queries</span>
             </div>
-            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark mb-6">Speciality <span className="text-primary-600 italic">FAQs</span></h2>
+            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark mb-6">Speciality <span className="text-primary-600 normal">FAQs</span></h2>
             <p className="text-gray-500 max-w-2xl mx-auto text-lg font-light">
               Clear answers to the most frequent questions regarding our specialized departments and clinical protocols.
             </p>

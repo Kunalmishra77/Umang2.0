@@ -155,7 +155,7 @@ const Emergency = () => {
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
             <div className="lg:w-1/2">
               <span className="text-red-600 font-bold uppercase tracking-widest text-sm mb-4 block">Clinical Mastery</span>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-8">Trauma Level 1 <br /><span className="text-red-600 italic">Response.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-8">Trauma Level 1 <br /><span className="text-red-600 normal">Response.</span></h2>
               <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
                 Our trauma protocols are designed for speed. We have a dedicated multidisciplinary team comprising of trauma surgeons, intensivists, and neuro-specialists on standby 24/7.
               </p>
@@ -309,7 +309,7 @@ const Emergency = () => {
       <section className="section-padding bg-brand-dark relative overflow-hidden">
         <div className="absolute inset-0 bg-red-600/5" />
         <Container className="relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Save this Number. <br /><span className="text-red-500 italic">It Saves Lives.</span></h2>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Save this Number. <br /><span className="text-red-500 normal">It Saves Lives.</span></h2>
           <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">Our emergency response team is just one tap away. Bookmark our location or call us for immediate ACLS ambulance dispatch.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <a href={`tel:${siteConfig.contacts.emergency.replace(/\s/g,'')}`} className="px-10 py-5 bg-red-600 text-white rounded-full font-bold text-base shadow-xl hover:bg-red-700 transition-all flex items-center justify-center gap-3">
@@ -331,7 +331,7 @@ const Emergency = () => {
             </div>
             <div className="lg:w-7/12">
               <span className="text-red-600 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Experts</span>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6 leading-tight">Staffed by <br /><span className="text-red-600 italic">Fellowship Trained</span> Experts.</h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6 leading-tight">Staffed by <br /><span className="text-red-600 normal">Fellowship Trained</span> Experts.</h2>
               <p className="text-gray-500 text-lg mb-8 leading-relaxed max-w-xl">
                 Our ER is not just about machines; it is about the experts who operate them. Every shift is led by an ER consultant with deep experience in trauma and cardiac resuscitation.
               </p>

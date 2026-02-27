@@ -121,7 +121,7 @@ const IcuUnitDetail = () => {
                                         <Shield className="w-8 h-8 text-primary-400" />
                                         Safety Protocols
                                     </h3>
-                                    <p className="text-primary-100/80 text-lg leading-relaxed mb-8 italic">
+                                    <p className="text-primary-100/80 text-lg leading-relaxed mb-8 normal">
                                         "{unit.details?.protocols}"
                                     </p>
                                     <div className="flex items-center gap-4">

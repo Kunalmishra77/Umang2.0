@@ -188,7 +188,7 @@ const MediaCoverage = () => {
             <div className="flex flex-col md:flex-row items-center justify-between gap-12">
                <div className="md:w-1/2">
                   <Award className="w-16 h-16 text-yellow-400 mb-8" />
-                  <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 italic">Excellence Recognized Globally.</h2>
+                  <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 normal">Excellence Recognized Globally.</h2>
                   <p className="text-blue-200 text-lg leading-relaxed opacity-80">
                      Umang Hospital has been honored with multiple national and international awards for clinical safety, innovation, and outstanding patient care programs.
                   </p>

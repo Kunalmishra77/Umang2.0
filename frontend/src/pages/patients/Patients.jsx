@@ -42,7 +42,7 @@ const Patients = () => {
                 <ShieldCheck size={14} /> 256-Bit Encrypted Portal
               </span>
               <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
-                Your Health, <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 italic">In Your Hands.</span>
+                Your Health, <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 normal">In Your Hands.</span>
               </h1>
               <p className="text-xl text-slate-300 max-w-xl leading-relaxed font-light mb-12">
                 Empowering you with instant access to medical records, appointments, and billing. Experience healthcare that moves at the speed of life.
@@ -132,7 +132,7 @@ const Patients = () => {
             </div>
             <div className="order-1 lg:order-2">
               <span className="text-blue-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">Your Privacy is Sacred</span>
-              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-8">Bank-Grade <br /><span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Data Protection.</span></h2>
+              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-8">Bank-Grade <br /><span className="normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Data Protection.</span></h2>
               <p className="text-lg text-slate-400 leading-relaxed mb-10 font-light">
                 We understand that medical data is highly personal. Umang Hospital utilizes advanced cybersecurity protocols to ensure that your records are accessible only to you and your authorized treating doctors.
               </p>
@@ -212,7 +212,7 @@ const Patients = () => {
               { name: 'Meena Gupta', text: 'Managing my elderly mother\'s prescriptions and appointments has become so easy through the Umang portal.' }
             ].map((t, i) => (
               <Card key={i} className="!p-12 border-none shadow-sm group hover:shadow-premium transition-all duration-500 bg-white">
-                <p className="text-xl italic text-slate-600 mb-8 leading-relaxed font-light">"{t.text}"</p>
+                <p className="text-xl normal text-slate-600 mb-8 leading-relaxed font-light">"{t.text}"</p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600">{t.name[0]}</div>
                   <h4 className="font-bold text-brand-dark">{t.name}</h4>
@@ -271,7 +271,7 @@ const Patients = () => {
       <Section className="bg-[#0f172a] text-white text-center relative overflow-hidden py-24">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         <Container className="relative z-10">
-          <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Ready to <span className="text-blue-400 italic">Log In?</span></h2>
+          <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Ready to <span className="text-blue-400 normal">Log In?</span></h2>
           <p className="text-slate-400 text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">Join thousands of patients who have switched to a smarter way of managing their healthcare.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-8">
             <Link to="/login" className="px-12 py-6 bg-blue-600 text-white rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">

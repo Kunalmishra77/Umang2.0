@@ -25,7 +25,6 @@ const About = () => {
     <div 
       ref={containerRef} 
       className="bg-white overflow-hidden relative font-sans"
-      style={{ position: 'relative' }}
     >
       <SeoHead 
         title="Our Story & Legacy" 
@@ -51,7 +50,7 @@ const About = () => {
             </span>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-5 tracking-tighter leading-[0.85] drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
               Legacy of <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-cyan-200 to-primary-400 italic">Excellence.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-cyan-200 to-primary-400 normal">Excellence.</span>
             </h1>
             <p className="text-base md:text-lg text-white max-w-3xl mx-auto mb-8 font-medium leading-relaxed px-4 drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]">
               More than a hospital, {siteConfig.shortName} is a sanctuary of healing where medical science meets deep human compassion.
@@ -83,20 +82,20 @@ const About = () => {
               </p>
               
               <div className="grid sm:grid-cols-2 gap-5 lg:gap-6">
-                <Link to="/patient-experience" className="p-6 lg:p-7 rounded-[1.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover-lift transition-all duration-500 block">
+                <div className="p-6 lg:p-7 rounded-[1.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover-lift transition-all duration-500 block">
                   <div className="w-10 h-10 bg-primary-600 rounded-xl flex items-center justify-center text-white mb-5 shadow-lg shadow-primary-200 group-hover:scale-110 transition-transform">
                     <Eye className="w-5 h-5" />
                   </div>
-                  <h4 className="text-lg font-bold text-brand-dark mb-2">Our Vision</h4>
+                  <h4 className="text-lg font-bold text-brand-dark mb-2 group-hover:text-primary-600 transition-colors">Our Vision</h4>
                   <p className="text-gray-500 text-[11px] lg:text-sm leading-relaxed">We seek to be a leader in providing high-quality services to our patients and define the standards of excellence for healthcare in India.</p>
-                </Link>
-                <Link to="/patient-experience" className="p-6 lg:p-7 rounded-[1.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover-lift transition-all duration-500 block">
+                </div>
+                <div className="p-6 lg:p-7 rounded-[1.5rem] bg-gray-50 border border-gray-100 group hover:bg-white hover-lift transition-all duration-500 block">
                   <div className="w-10 h-10 bg-cyan-500 rounded-xl flex items-center justify-center text-white mb-5 shadow-lg shadow-cyan-200 group-hover:scale-110 transition-transform">
                     <Target className="w-5 h-5" />
                   </div>
-                  <h4 className="text-lg font-bold text-brand-dark mb-2">Our Mission</h4>
+                  <h4 className="text-lg font-bold text-brand-dark mb-2 group-hover:text-cyan-600 transition-colors">Our Mission</h4>
                   <p className="text-gray-500 text-[11px] lg:text-sm leading-relaxed">To provide advanced, ethical, and compassionate healthcare that is accessible and affordable, with personalized treatment and excellent outcomes.</p>
-                </Link>
+                </div>
               </div>
             </motion.div>
             
@@ -117,7 +116,7 @@ const About = () => {
               </div>
               <div className="absolute -bottom-6 -right-6 lg:-bottom-8 lg:-right-8 bg-white p-6 lg:p-8 rounded-[1.5rem] shadow-2xl z-20 max-w-[200px] lg:max-w-[240px] border border-gray-100">
                 <Quote className="w-8 h-8 lg:w-10 lg:h-10 text-primary-200 mb-3 fill-current" />
-                <p className="text-brand-dark font-bold italic leading-relaxed text-[11px] lg:text-[13px]">"We treat every patient like they are our only patient."</p>
+                <p className="text-brand-dark font-bold normal leading-relaxed text-[11px] lg:text-[13px]">"We treat every patient like they are our only patient."</p>
               </div>
             </motion.div>
           </div>
@@ -154,7 +153,7 @@ const About = () => {
               </div>
               <div className="mt-10 pt-10 border-t border-white/10 flex items-center gap-6">
                 <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-primary-500">
-                  <img src={ASSETS.DIRECTOR} alt="Signature" className="w-full h-full object-cover grayscale" />
+                  <img src={ASSETS.DIRECTOR} alt="Signature" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h5 className="text-xl font-bold text-white">Dr. Vikram Sethi</h5>
@@ -196,7 +195,7 @@ const About = () => {
             </motion.div>
             <div className="lg:w-1/2 relative">
               <div className="absolute inset-0 bg-primary-50 rounded-[4rem] rotate-3 -z-10" />
-              <img src={ASSETS.ABOUT_MAIN} alt="Philosophy" className="rounded-[4rem] shadow-2xl w-full h-[600px] object-cover" />
+              <img src={ASSETS.ABOUT_MAIN} alt="Philosophy" className="rounded-[4rem] shadow-2xl w-full h-[500px] object-cover" />
               <div className="absolute -bottom-10 -left-10 bg-white p-10 rounded-[3rem] shadow-2xl border border-gray-100 hidden md:block">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center">
@@ -224,18 +223,18 @@ const About = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[
-              { title: "NABH Accredited", desc: "Highest national recognition for quality of care and patient safety.", icon: Award, path: "/patient-experience" },
-              { title: "NABL Certified Lab", desc: "Ensuring 100% accuracy and precision in diagnostic reporting.", icon: Microscope, path: "/services/lab-test-diagnostic" },
-              { title: "Infection Control", desc: "Rigorous sterilization and zero-infection protocols across all zones.", icon: Shield, path: "/infrastructure" },
-              { title: "Ethical Billing", desc: "Transparent, honest communication regarding all clinical costs.", icon: Shield, path: "/patient-experience" }
+              { title: "NABH Accredited", desc: "Highest national recognition for quality of care and patient safety.", icon: Award },
+              { title: "NABL Certified Lab", desc: "Ensuring 100% accuracy and precision in diagnostic reporting.", icon: Microscope },
+              { title: "Infection Control", desc: "Rigorous sterilization and zero-infection protocols across all zones.", icon: Shield },
+              { title: "Ethical Billing", desc: "Transparent, honest communication regarding all clinical costs.", icon: Shield }
             ].map((std, i) => (
-              <Link to={std.path} key={i} className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all group block">
+              <div key={i} className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all group block">
                 <div className="w-12 h-12 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm">
                   <std.icon className="w-6 h-6" />
                 </div>
                 <h4 className="text-lg font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors">{std.title}</h4>
                 <p className="text-gray-500 text-sm leading-relaxed">{std.desc}</p>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -253,17 +252,17 @@ const About = () => {
               </p>
               <div className="grid gap-6">
                 {[
-                  { title: "Free Health Camps", desc: "Regular medical checkups organized in rural areas of Gurugram.", path: "/media-center/newsletters" },
-                  { title: "Awareness Webinars", desc: "Educational sessions on preventive health and lifestyle management.", path: "/media-center/newsletters" },
-                  { title: "Subsidized Surgery", desc: "Providing low-cost surgical options for economically weaker sections.", path: "/contact" }
+                  { title: "Free Health Camps", desc: "Regular medical checkups organized in rural areas of Gurugram." },
+                  { title: "Awareness Webinars", desc: "Educational sessions on preventive health and lifestyle management." },
+                  { title: "Subsidized Surgery", desc: "Providing low-cost surgical options for economically weaker sections." }
                 ].map((csr, i) => (
-                  <Link to={csr.path} key={i} className="p-6 bg-gray-50 rounded-2xl border border-gray-100 flex gap-5 items-center group hover:bg-white hover:shadow-md transition-all block">
+                  <div key={i} className="p-6 bg-gray-50 rounded-2xl border border-gray-100 flex gap-5 items-center group hover:bg-white hover:shadow-md transition-all block">
                     <div className="w-3 h-3 rounded-full bg-primary-500 shrink-0 group-hover:scale-150 transition-transform" />
                     <div>
                       <h4 className="font-bold text-brand-dark group-hover:text-primary-600 transition-colors">{csr.title}</h4>
                       <p className="text-sm text-gray-500">{csr.desc}</p>
                     </div>
-                  </Link>
+                  </div>
                 ))}
               </div>
             </motion.div>
@@ -294,10 +293,10 @@ const About = () => {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {[ 
-              { icon: Heart, title: "Compassion", desc: "Empathy at every touchpoint; dignity and respect for all patients.", color: "bg-rose-500", path: "/patient-experience" },
-              { icon: Shield, title: "Integrity", desc: "Transparent billing and clear communication about diagnosis and costs.", color: "bg-primary-500", path: "/patient-experience" },
-              { icon: Users, title: "Teamwork", desc: "Multidisciplinary collaboration across major medical specialties.", color: "bg-cyan-500", path: "/doctors" },
-              { icon: Award, title: "Excellence", desc: "High medical standards and continuous medical education.", color: "bg-yellow-500", path: "/patient-experience" },
+              { icon: Heart, title: "Compassion", desc: "Empathy at every touchpoint; dignity and respect for all patients.", color: "bg-rose-500" },
+              { icon: Shield, title: "Integrity", desc: "Transparent billing and clear communication about diagnosis and costs.", color: "bg-primary-500" },
+              { icon: Users, title: "Teamwork", desc: "Multidisciplinary collaboration across major medical specialties.", color: "bg-cyan-500" },
+              { icon: Award, title: "Excellence", desc: "High medical standards and continuous medical education.", color: "bg-yellow-500" },
             ].map((val, idx) => (
               <motion.div 
                 key={idx}
@@ -307,8 +306,7 @@ const About = () => {
                 viewport={{ once: true }}
                 className="group"
               >
-                <Link 
-                  to={val.path}
+                <div 
                   className="bg-white border border-gray-100 p-8 lg:p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 group-hover:-translate-y-2 h-full flex flex-col justify-between block"
                 >
                   <div>
@@ -318,7 +316,7 @@ const About = () => {
                     <h4 className="text-2xl font-bold mb-4 group-hover:text-primary-600 transition-colors">{val.title}</h4>
                   </div>
                   <p className="text-gray-600 text-sm lg:text-base leading-relaxed transition-opacity">{val.desc}</p>
-                </Link>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -334,7 +332,7 @@ const About = () => {
               <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[12px] mb-4 block">Safety First</span>
               <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-10 leading-tight">
                 Premium Standards, <br/>
-                <span className="text-primary-400 italic">Global Protocols.</span>
+                <span className="text-primary-400 normal">Global Protocols.</span>
               </h2>
               <div className="grid sm:grid-cols-2 gap-6 lg:gap-10">
                 {[
@@ -586,7 +584,7 @@ const About = () => {
          <div className="container-custom relative z-10 text-center">
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}>
                <Star className="w-10 h-10 lg:w-12 lg:h-12 text-yellow-400 fill-current mx-auto mb-6 lg:mb-8 animate-pulse" />
-               <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-8 lg:mb-10 tracking-tighter leading-tight">Ready to experience <br />the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300 italic">{siteConfig.shortName.split(' ')[0]} difference?</span></h2>
+               <h2 className="text-2xl md:text-4xl lg:text-5xl font-serif font-bold text-white mb-8 lg:mb-10 tracking-tighter leading-tight">Ready to experience <br />the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300 normal">{siteConfig.shortName.split(' ')[0]} difference?</span></h2>
                <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
                   <Link to="/doctors" className="px-8 py-4 lg:px-10 lg:py-5 bg-white text-brand-dark rounded-full font-bold text-sm lg:text-base shadow-2xl hover:scale-105 transition-all flex items-center justify-center gap-3">
                      Book an Appointment <Calendar className="w-5 h-5" />

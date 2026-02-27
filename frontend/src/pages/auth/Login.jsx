@@ -31,7 +31,7 @@ const Login = () => {
               animate={{ opacity: 1, x: 0 }} 
               className="text-5xl md:text-6xl font-serif font-bold mb-8 leading-tight"
             >
-              Your Health, <br /><span className="text-blue-400 italic">One Click Away.</span>
+              Your Health, <br /><span className="text-blue-400 normal">One Click Away.</span>
             </motion.h1>
             
             <div className="space-y-6">

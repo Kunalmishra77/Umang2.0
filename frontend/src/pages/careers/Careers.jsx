@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { Briefcase, Users, Star, ArrowRight, ChevronDown, CheckCircle, Heart, Plus, MapPin } from 'lucide-react';
+import { Briefcase, Users, Star, ArrowRight, ChevronDown, CheckCircle, Heart, Plus, MapPin, HelpCircle, Globe, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import SeoHead from '../../components/common/SeoHead';
+import { Section, Container, SectionHeading } from '../../components/ui/Layout';
+import { ASSETS } from '../../utils/imageAssets';
 
 const jobs = [
   { id: 1, title: "Senior Resident - Cardiology", type: "Full Time", loc: "Gurugram", exp: "3-5 Years", desc: "Looking for an experienced resident to manage OPD and IPD patients in the cardiology department." },
@@ -219,7 +222,7 @@ const Careers = () => {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
               <span className="text-blue-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">Career Advancement</span>
-              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-10 leading-tight">Upskilling the <br /><span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Next Generation.</span></h2>
+              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-10 leading-tight">Upskilling the <br /><span className="normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Next Generation.</span></h2>
               <p className="text-slate-400 text-lg mb-12 font-light leading-relaxed">
                 We don't just hire professionals; we build leaders. Our dedicated training wing provides monthly workshops, digital certifications, and mentorship programs for all staff levels.
               </p>
@@ -263,7 +266,7 @@ const Careers = () => {
             <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16">
               <div className="max-w-2xl">
                 <span className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 block">For Students</span>
-                <h2 className="text-4xl font-serif font-bold text-brand-dark leading-tight">Internship & <br /><span className="text-blue-600 italic">Academic Residency.</span></h2>
+                <h2 className="text-4xl font-serif font-bold text-brand-dark leading-tight">Internship & <br /><span className="text-blue-600 normal">Academic Residency.</span></h2>
               </div>
               <button className="px-8 py-4 bg-[#005580] text-white rounded-2xl font-bold hover:bg-[#004466] transition-all shadow-xl">
                 Explore Programs
@@ -383,17 +386,17 @@ const Careers = () => {
       </Section>
 
       {/* 10. FINAL CTA HUB */}
-      <Section className="bg-brand-dark text-white relative overflow-hidden py-24">
+      <Section className="bg-brand-dark text-white relative overflow-hidden py-12 lg:py-16">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-        <Container className="text-center relative z-10">
-          <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Start Your <br /><span className="text-primary-400 italic">Calling.</span></h2>
-          <p className="text-slate-400 text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">Join a legacy of healing and innovation. Your future at Umang Hospital begins today.</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-8">
-            <button onClick={() => document.getElementById('openings').scrollIntoView({ behavior: 'smooth' })} className="px-12 py-6 bg-primary-600 text-white rounded-2xl font-bold text-lg hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
-              <Briefcase size={24} className="group-hover:rotate-12 transition-transform" /> View Openings
+        <Container className="text-center relative z-10 max-w-2xl mx-auto">
+          <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 leading-tight">Start Your <br /><span className="text-primary-400 normal">Calling.</span></h2>
+          <p className="text-slate-400 text-base lg:text-lg mb-8 max-w-xl mx-auto font-light leading-relaxed">Join a legacy of healing and innovation. Your future at Umang Hospital begins today.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
+            <button onClick={() => document.getElementById('openings').scrollIntoView({ behavior: 'smooth' })} className="px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-base hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+              <Briefcase size={20} className="group-hover:rotate-12 transition-transform" /> View Openings
             </button>
-            <a href="mailto:umanghospitalgurugram@gmail.com" className="px-12 py-6 border border-white/20 text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:scale-105 active:scale-95">
-              <Mail size={24} /> Drop Resume
+            <a href="mailto:umanghospitalgurugram@gmail.com" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+              <Mail size={20} /> Drop Resume
             </a>
           </div>
         </Container>

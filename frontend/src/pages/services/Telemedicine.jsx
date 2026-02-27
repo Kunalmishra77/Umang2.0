@@ -21,11 +21,15 @@ import {
   Brain,
   Bone,
   Wind,
-  Activity
+  Activity,
+  User,
+  Smartphone
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { doctors as allDoctors } from '../../utils/doctorsData';
 import { ASSETS } from '../../utils/imageAssets';
+import { Container, Section } from '../../components/ui/Layout';
+import { siteConfig } from '../../config/siteConfig';
 
 const doctors = allDoctors.slice(0, 3).map((doc) => ({
   id: doc.id,
@@ -323,7 +327,7 @@ const Telemedicine = () => {
             {testimonials.map((test) => (
               <div key={test.name} className="bg-white card-pad rounded-2xl shadow-sm border border-blue-100 relative">
                 <div className="text-4xl text-blue-200 absolute top-4 left-4 select-none">"</div>
-                <p className="text-gray-600 mb-5 relative z-10 text-sm italic">{test.text}</p>
+                <p className="text-gray-600 mb-5 relative z-10 text-sm normal">{test.text}</p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center font-bold text-[#005580]">{test.name[0]}</div>
                   <div>
@@ -345,7 +349,7 @@ const Telemedicine = () => {
         <Container>
           <div className="text-center mb-20 relative z-10">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-600 mb-4 block">Help Center</span>
-            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark">Telemedicine <span className="text-primary-600 italic">FAQ.</span></h2>
+            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark">Telemedicine <span className="text-primary-600 normal">FAQ.</span></h2>
           </div>
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10">
             {[

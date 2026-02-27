@@ -34,8 +34,8 @@ const Pharmacy = () => {
           api.get('/medicines/categories'),
           api.get('/medicines/featured')
         ]);
-        setCategories(catsRes.data);
-        setFeaturedProducts(featRes.data);
+        setCategories(catsRes.data || []);
+        setFeaturedProducts(featRes.data || []);
       } catch (error) {
         console.error("Failed to fetch pharmacy data", error);
       } finally {
@@ -71,7 +71,7 @@ const Pharmacy = () => {
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-[#0f172a] mb-8 leading-tight">
               Your Health, <br />
-              <span className="text-blue-600 font-medium italic">Delivered.</span>
+              <span className="text-blue-600 font-medium normal">Delivered.</span>
             </h1>
             <p className="text-xl text-gray-500 font-light leading-relaxed mb-12">
               From essential chronic medications to critical emergency drugs, Umang Pharmacy ensures 24/7 availability with strict cold-chain maintenance.
@@ -320,7 +320,7 @@ const Pharmacy = () => {
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-6">
               <HelpCircle className="w-4 h-4" /> Pharmacy Support
             </div>
-            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Pharmacy <span className="text-blue-600 italic">FAQs</span></h2>
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Pharmacy <span className="text-blue-600 normal">FAQs</span></h2>
             <p className="text-gray-500 max-w-2xl mx-auto">Get quick answers to common questions about medication delivery, genuine sourcing, and cold-chain maintenance.</p>
           </div>
 

@@ -171,7 +171,7 @@ const BreakthroughCases = () => {
          <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center">
             <div>
                <h2 className="text-4xl font-serif font-bold mb-6">"I never thought I'd walk again."</h2>
-               <p className="text-xl text-gray-300 font-light mb-8 italic">
+               <p className="text-xl text-gray-300 font-light mb-8 normal">
                   - Mr. Sharma, after complex spinal surgery.
                </p>
                <p className="text-gray-400 mb-8 leading-relaxed">

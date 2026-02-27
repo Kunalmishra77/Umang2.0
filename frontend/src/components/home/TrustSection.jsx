@@ -27,16 +27,15 @@ const TrustSection = () => {
               viewport={{ once: true }}
               className="flex-1 min-w-[140px] md:min-w-[180px]"
             >
-              <Link 
-                to={item.href}
-                className="flex flex-col items-center text-center group p-4 rounded-3xl hover:bg-gray-50 transition-all duration-300"
+              <div
+                className="flex flex-col items-center text-center p-4 rounded-3xl transition-all duration-300"
               >
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gray-50 flex items-center justify-center text-primary-600 mb-4 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500 shadow-sm border border-gray-100 group-hover:border-transparent">
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gray-50 flex items-center justify-center text-primary-600 mb-4 shadow-sm border border-gray-100">
                   <item.icon className="w-6 h-6 md:w-8 md:h-8" />
                 </div>
-                <h4 className="text-xs md:text-sm font-bold text-brand-dark mb-1 group-hover:text-primary-600 transition-colors">{item.title}</h4>
+                <h4 className="text-xs md:text-sm font-bold text-brand-dark mb-1 transition-colors">{item.title}</h4>
                 <p className="text-[9px] md:text-[10px] text-gray-400 font-medium uppercase tracking-wider">{item.desc}</p>
-              </Link>
+              </div>
             </motion.div>
           ))}
         </div>

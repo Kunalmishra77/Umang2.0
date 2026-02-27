@@ -50,7 +50,7 @@ const AppointmentCTA = () => {
 
              <h2 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight tracking-tight">
                 Your Health, <br />
-                <span className="hero-gradient-text italic">Our Priority.</span>
+                <span className="hero-gradient-text normal">Our Priority.</span>
              </h2>
              
              <p className="text-base md:text-xl text-blue-100/60 mb-10 max-w-xl mx-auto font-light leading-relaxed">

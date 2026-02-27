@@ -38,7 +38,7 @@ const ServicesSection = () => {
         <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-10 lg:mb-12 gap-8 text-center lg:text-left">
           <div className="max-w-2xl">
             <MaskText><span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[13px] mb-3 block">Comprehensive Care</span></MaskText>
-            <MaskText delay={0.1}><h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Beyond Clinical <span className="text-primary-600 italic">Excellence</span></h2></MaskText>
+            <MaskText delay={0.1}><h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Beyond Clinical <span className="text-primary-600 normal">Excellence</span></h2></MaskText>
             <MaskText delay={0.2}><p className="text-gray-500 mt-4 text-base lg:text-lg font-light leading-relaxed">Widest range of supportive services for your comfort and convenience.</p></MaskText>
           </div>
           <Link to="/services" className="hidden lg:flex items-center gap-3 px-6 py-3 rounded-full border border-gray-300 hover:border-primary-600 hover:bg-white text-brand-dark transition-all font-bold text-[12px] uppercase tracking-widest group h-12">

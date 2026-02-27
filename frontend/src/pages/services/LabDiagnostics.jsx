@@ -159,7 +159,7 @@ const LabDiagnostics = () => {
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
             <div className="lg:w-1/2">
               <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block">Patient Guide</span>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-8">Test Preparation <br /><span className="text-blue-600 italic">Protocols.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-8">Test Preparation <br /><span className="text-blue-600 normal">Protocols.</span></h2>
               <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
                 Accurate results depend on correct preparation. Please follow these general guidelines or call our helpdesk for specific test instructions.
               </p>
@@ -382,7 +382,7 @@ const LabDiagnostics = () => {
             </div>
             <div className="lg:w-7/12">
               <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Experts</span>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6 leading-tight">Led by Senior <br /><span className="text-blue-600 italic">MD Pathologists.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6 leading-tight">Led by Senior <br /><span className="text-blue-600 normal">MD Pathologists.</span></h2>
               <p className="text-gray-500 text-lg mb-8 leading-relaxed max-w-xl">
                 Behind every accurate report is a team of highly qualified medical professionals. Our lab is led by senior pathologists with decades of experience in clinical biochemistry and surgical pathology.
               </p>

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { 
-    Shield, Search, Info, CheckCircle2, Heart, Plus, 
-    ChevronDown, ExternalLink, X, Send, PhoneCall, MessageCircle, Loader2 
+import {
+    Shield, Search, Info, CheckCircle2, Heart, Plus,
+    ChevronDown, ExternalLink, X, Send, PhoneCall, MessageCircle, Loader2,
+    Clock, ThumbsUp, Users, Activity, AlertCircle, Phone
 } from 'lucide-react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
@@ -11,7 +12,7 @@ import { toast } from 'react-toastify';
 import api from '../../services/api';
 import { ASSETS } from '../../utils/imageAssets';
 import ParallaxImage from '../../components/common/ParallaxImage';
-
+import { Container, Section, SectionHeading } from '../../components/ui/Layout';
 const CashlessInsurance = () => {
     const [companies, setCompanies] = useState([]);
     const [notices, setNotices] = useState({});
@@ -104,7 +105,7 @@ const CashlessInsurance = () => {
                             <Shield className="w-4 h-4" /> Hassle-Free Healthcare
                         </span>
                         <h1 className="text-4xl md:text-7xl font-serif font-bold text-white mb-8 tracking-tighter leading-tight">
-                            Cashless <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-cyan-200 to-primary-400 italic">Insurance.</span>
+                            Cashless <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-cyan-200 to-primary-400 normal">Insurance.</span>
                         </h1>
                         <p className="text-lg md:text-xl text-primary-100/80 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
                             We are empaneled with major insurance companies and TPAs to provide you with a seamless and worry-free recovery journey.
@@ -211,7 +212,7 @@ const CashlessInsurance = () => {
                                                 <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-4 flex items-center gap-2">
                                                     <Info className="w-3.5 h-3.5 text-primary-400" /> Service Note
                                                 </p>
-                                                <p className="text-sm text-gray-500 leading-relaxed italic">
+                                                <p className="text-sm text-gray-500 leading-relaxed normal">
                                                     {company.note || "Direct empanelment available. Contact our insurance desk for specialized pre-authorization assistance."}
                                                 </p>
                                             </div>
@@ -308,7 +309,7 @@ const CashlessInsurance = () => {
                 <Container>
                     <div className="text-center mb-20">
                         <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">Our Expertise</span>
-                        <h2 className="text-4xl lg:text-7xl font-serif font-bold">The Umang TPA <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Advantage.</span></h2>
+                        <h2 className="text-4xl lg:text-7xl font-serif font-bold">The Umang TPA <span className="normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Advantage.</span></h2>
                     </div>
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
@@ -334,7 +335,7 @@ const CashlessInsurance = () => {
                         <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16 relative z-10">
                             <div className="max-w-2xl">
                                 <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">For Organizations</span>
-                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Corporate Health <br /><span className="text-primary-600 italic">& Tie-ups.</span></h2>
+                                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Corporate Health <br /><span className="text-primary-600 normal">& Tie-ups.</span></h2>
                             </div>
                             <Link to="/contact/inquiry-hub" className="px-10 py-5 bg-brand-dark text-white rounded-2xl font-bold hover:bg-primary-600 transition-all shadow-xl active:scale-95">
                                 Inquire for Tie-up
@@ -455,7 +456,7 @@ const CashlessInsurance = () => {
                     <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-stretch">
                         <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-brand-dark rounded-[3rem] p-10 lg:p-16 text-white relative overflow-hidden flex flex-col justify-center group shadow-2xl">
                             <div className="absolute top-0 right-0 w-80 h-80 bg-primary-600 rounded-full blur-[140px] opacity-20 -mr-40 -mt-40 group-hover:opacity-30 transition-opacity duration-1000" />
-                            <h3 className="text-3xl lg:text-4xl font-serif font-bold mb-10 relative z-10">Important <span className="text-primary-400 italic">Information</span></h3>
+                            <h3 className="text-3xl lg:text-4xl font-serif font-bold mb-10 relative z-10">Important <span className="text-primary-400 normal">Information</span></h3>
                             <div className="space-y-8 relative z-10">
                                 <div className="flex gap-5 group/note">
                                     <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center shrink-0 group-hover/note:bg-primary-500/20 transition-colors">
@@ -543,17 +544,17 @@ const CashlessInsurance = () => {
             </Section>
 
             {/* FINAL CTA (NEW) */}
-            <Section className="bg-brand-dark text-white text-center relative overflow-hidden py-24 border-t border-white/5">
+            <Section className="bg-brand-dark text-white text-center relative overflow-hidden py-12 lg:py-16 border-t border-white/5">
                 <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-                <Container className="relative z-10 max-w-4xl mx-auto">
-                    <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Zero-Stress <span className="text-primary-400 italic">Insurance.</span></h2>
-                    <p className="text-slate-400 text-xl mb-16 font-light leading-relaxed">Let our experts handle the paperwork while you focus on your recovery. We are here to support your healing journey every step of the way.</p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-8">
-                        <Link to="/appointments/request" className="px-12 py-6 bg-primary-600 text-white rounded-2xl font-bold text-lg hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
-                            <Calendar size={24} className="group-hover:rotate-12 transition-transform" /> Book Appointment
+                <Container className="relative z-10 max-w-2xl mx-auto">
+                    <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 leading-tight">Zero-Stress <span className="text-primary-400 normal">Insurance.</span></h2>
+                    <p className="text-slate-400 text-base lg:text-lg mb-8 font-light leading-relaxed">Let our experts handle the paperwork while you focus on your recovery. We are here to support your healing journey every step of the way.</p>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
+                        <Link to="/appointments/request" className="px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-base hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+                            <Calendar size={20} className="group-hover:rotate-12 transition-transform" /> Book Appointment
                         </Link>
-                        <a href="tel:+918588072727" className="px-12 py-6 border border-white/20 text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:scale-105 active:scale-95">
-                            <Phone size={24} /> Get Call Back
+                        <a href="tel:+918588072727" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+                            <Phone size={20} /> Get Call Back
                         </a>
                     </div>
                 </Container>

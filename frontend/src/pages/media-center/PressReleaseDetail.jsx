@@ -22,7 +22,7 @@ const PressReleaseDetail = () => {
       <h3 class="text-2xl font-bold mb-4 text-[#0f172a]">Patient Benefits</h3>
       <p class="mb-6 leading-relaxed">Robotic-assisted surgery offers significant advantages for patients, including smaller incisions, reduced blood loss, shorter hospital stays, and a faster return to normal daily activities.</p>
       
-      <p class="mb-6 leading-relaxed italic border-l-4 border-[#005580] pl-6 py-2 bg-gray-50">"This technology is a game-changer for complex oncology and urological procedures. Our team has undergone rigorous training to master this platform," said the Head of Surgery.</p>
+      <p class="mb-6 leading-relaxed normal border-l-4 border-[#005580] pl-6 py-2 bg-gray-50">"This technology is a game-changer for complex oncology and urological procedures. Our team has undergone rigorous training to master this platform," said the Head of Surgery.</p>
       
       <h3 class="text-2xl font-bold mb-4 text-[#0f172a]">About Umang Hospital</h3>
       <p class="mb-6 leading-relaxed">Umang Hospital is a leading multi-speciality healthcare provider committed to excellence in patient care, clinical research, and medical education.</p>

@@ -46,19 +46,19 @@ const DoctorSearch = () => {
       setLoading(true);
       const currentPage = reset ? 1 : page;
       const response = await api.get(`/doctors?page=${currentPage}`);
-      const newDoctors = response.data.data;
+      const newDoctors = response.data?.data || [];
       
       if (reset) {
         setDoctors(newDoctors);
         setPage(2);
-      } else {
+      } else if (newDoctors.length > 0) {
         setDoctors(prev => [...prev, ...newDoctors]);
         setPage(prev => prev + 1);
       }
       
-      if (response.data.meta && response.data.meta.last_page <= currentPage) {
+      if (response.data?.meta && response.data?.meta?.last_page <= currentPage) {
         setHasMore(false);
-      } else if (!response.data.meta && newDoctors.length < 12) {
+      } else if (!response.data?.meta && newDoctors.length < 12) {
           setHasMore(false);
       }
       
@@ -94,7 +94,7 @@ const DoctorSearch = () => {
   }, [searchTerm, selectedDept, doctors]);
 
   const selectedDoc = useMemo(() => 
-    doctors.find(d => d.id === selectedDocId) || doctors[0]
+    doctors.length > 0 ? (doctors.find(d => d.id === selectedDocId) || doctors[0]) : null
   , [selectedDocId, doctors]);
 
   const handleDocSelect = (id) => {
@@ -156,7 +156,7 @@ const DoctorSearch = () => {
             <h4 className="text-[12px] lg:text-sm font-bold text-gray-400 uppercase tracking-widest mb-3 flex items-center gap-2">
               <Shield className="w-4 h-4 text-green-500" /> Professional Overview
             </h4>
-            <p className="text-gray-600 font-light italic leading-relaxed text-sm lg:text-lg">"{doc.about}"</p>
+            <p className="text-gray-600 font-light normal leading-relaxed text-sm lg:text-lg">"{doc.about}"</p>
           </div>
 
           <div className="bg-blue-50/50 rounded-[2rem] p-6 lg:p-8 border border-blue-100 shadow-sm flex flex-col sm:flex-row justify-between items-center gap-6">
@@ -454,7 +454,7 @@ const DoctorSearch = () => {
                   <div className="flex gap-1 mb-4 text-yellow-400">
                     {[...Array(review.rating)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
                   </div>
-                  <p className="text-gray-600 italic mb-6 leading-relaxed">"{review.text}"</p>
+                  <p className="text-gray-600 normal mb-6 leading-relaxed">"{review.text}"</p>
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary-100 flex items-center justify-center text-primary-600 font-bold">{review.name.charAt(0)}</div>
                     <span className="font-bold text-slate-900 text-sm">{review.name}</span>
@@ -473,7 +473,7 @@ const DoctorSearch = () => {
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
               <span className="text-primary-400 font-bold uppercase tracking-widest text-xs mb-4 block">Research & Academics</span>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">Advancing Medicine <br /><span className="text-primary-400 italic">Every Day.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">Advancing Medicine <br /><span className="text-primary-400 normal">Every Day.</span></h2>
               <p className="text-slate-400 text-lg font-light leading-relaxed mb-10">
                 Our faculty doesn\'t just practice medicine; they define it. Through continuous clinical research and participation in global medical forums, we bring the latest therapeutic breakthroughs to our patients.
               </p>
@@ -523,7 +523,7 @@ const DoctorSearch = () => {
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-6">
               <HelpCircle className="w-4 h-4" /> Consultation Help
             </div>
-            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Booking <span className="text-blue-600 italic">FAQs</span></h2>
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Booking <span className="text-blue-600 normal">FAQs</span></h2>
             <p className="text-gray-500 max-w-2xl mx-auto">Common questions about doctor appointments, specialist availability, and clinical consultations.</p>
           </div>
 
@@ -556,17 +556,17 @@ const DoctorSearch = () => {
       </Section>
 
       {/* FINAL CTA (NEW) */}
-      <Section className="bg-brand-dark text-white text-center relative overflow-hidden py-24">
+      <Section className="bg-brand-dark text-white text-center relative overflow-hidden py-12 lg:py-16">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-        <Container className="relative z-10 max-w-4xl mx-auto">
-          <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Your Health, <span className="text-primary-400 italic">Our Experts.</span></h2>
-          <p className="text-slate-400 text-xl mb-16 font-light leading-relaxed">Schedule your consultation with Gurugram\'s most distinguished medical faculty today.</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-8">
-            <Link to="/appointments/request" className="px-12 py-6 bg-primary-600 text-white rounded-2xl font-bold text-lg hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
-              <Calendar size={24} className="group-hover:rotate-12 transition-transform" /> Book Appointment
+        <Container className="relative z-10 max-w-2xl mx-auto">
+          <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 leading-tight">Your Health, <span className="text-primary-400 normal">Our Experts.</span></h2>
+          <p className="text-slate-400 text-base lg:text-lg mb-8 font-light leading-relaxed">Schedule your consultation with Gurugram\'s most distinguished medical faculty today.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
+            <Link to="/appointments/request" className="px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-base hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+              <Calendar size={20} className="group-hover:rotate-12 transition-transform" /> Book Appointment
             </Link>
-            <a href="tel:+918588072727" className="px-12 py-6 border border-white/20 text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:scale-105 active:scale-95">
-              <Phone size={24} /> Get Call Back
+            <a href="tel:+918588072727" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+              <Phone size={20} /> Get Call Back
             </a>
           </div>
         </Container>

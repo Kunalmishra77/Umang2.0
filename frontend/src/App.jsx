@@ -82,7 +82,7 @@ import IcuUnitDetail from './pages/infrastructure/IcuUnitDetail';
 import PatientLayout from './layouts/PatientLayout';
 import NotFound from './pages/utils/NotFound';
 
-import GenericPage from './pages/utils/GenericPage';
+import Patients from './pages/patients/Patients';
 
 function App() {
   return (
@@ -132,6 +132,7 @@ function App() {
           
           <Route path="services/ipd-opd" element={<HomeCare />} />
           <Route path="services/home-care" element={<HomeCare />} />
+          <Route path="services/second-opinion" element={<SecondOpinion />} />
           <Route path="services/telemedicine" element={<Telemedicine />} />
           <Route path="services/telemedicine/consult" element={<TelemedicineConsult />} />
           <Route path="services/:slug" element={<DynamicSubPage />} />
@@ -183,6 +184,7 @@ function App() {
           <Route path="privacy-policy" element={<Privacy />} />
           <Route path="cms/legal-and-compliance" element={<DynamicSubPage />} />
           <Route path="patient-experience" element={<DynamicSubPage />} />
+          <Route path="patient-portal" element={<Patients />} />
           <Route path="sitemap" element={<Sitemap />} />
           <Route path="logout" element={<Logout />} />
           <Route path="*" element={<NotFound />} />
@@ -196,6 +198,7 @@ function App() {
           <Route path="profile" element={<PatientProfile />} />
           <Route path="billing" element={<Billing />} />
           <Route path="book-appointment" element={<BookAppointmentPatient />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
         
         <Route path="/login" element={<Login />} />

@@ -68,8 +68,8 @@ const IcuPage = () => {
                            <span className="w-12 h-[2px] bg-primary-500" />
                            <span className="text-primary-400 font-black uppercase tracking-[0.4em] text-[11px]">Elite Critical Care</span>
                         </div>
-                        <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 tracking-tighter leading-[0.9]">
-                            Smart ICU <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-cyan-200 to-primary-400 italic">Hub.</span>
+                        <h1 className="text-4xl md:text-6xl lg:text-5xl font-serif font-bold text-white mb-6 tracking-tighter leading-[1.1]">
+                            Smart ICU <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-cyan-200 to-primary-400 normal">Hub.</span>
                         </h1>
                         <p className="text-lg md:text-xl text-primary-100/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
                             Advanced life support, AI-driven vigilance, and a multidisciplinary team dedicated to clinical excellence in every critical second.
@@ -121,7 +121,7 @@ const IcuPage = () => {
                                <span className="w-10 h-[1px] bg-primary-500" />
                                <span className="text-primary-600 font-black text-[10px] lg:text-[11px] uppercase tracking-[0.3em]">Clinical Ecosystem</span>
                             </div>
-                            <h2 className="text-4xl lg:text-7xl font-serif font-bold text-brand-dark mb-10 leading-tight tracking-tight">Vigilance in <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-cyan-600 italic">Every Vitals.</span></h2>
+                            <h2 className="text-3xl lg:text-5xl font-serif font-bold text-brand-dark mb-8 leading-tight tracking-tight">Vigilance in <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-cyan-600 normal">Every Vitals.</span></h2>
                             <p className="text-gray-600 text-lg lg:text-xl font-light leading-relaxed mb-12 border-l-4 border-primary-500 pl-8">
                                 Our ICU environment is engineered for the highest level of patient safety, integrating modular negative-pressure isolation and invasive hemodynamic monitoring.
                             </p>
@@ -174,7 +174,7 @@ const IcuPage = () => {
             </Section>
 
             {/* 4. SMART MONITORING TECH HUB */}
-            <Section className="bg-[#030712] text-white relative overflow-hidden py-20 md:py-28">
+            <Section className="bg-[#030712] text-white relative overflow-hidden py-16 md:py-20">
                 <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-600/5 rounded-full blur-[150px] pointer-events-none" />
                 <Container>
                     <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-stretch">
@@ -183,7 +183,7 @@ const IcuPage = () => {
                              <span className="text-primary-400 font-black text-[11px] uppercase tracking-[0.4em]">Technology Stack</span>
                              <div className="h-px flex-1 bg-gradient-to-r from-primary-500/30 to-transparent" />
                           </div>
-                          <h2 className="text-4xl lg:text-6xl font-serif font-bold text-white mb-12 leading-[1.1]">Intelligent <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400 italic">Care.</span></h2>
+                          <h2 className="text-3xl lg:text-4xl font-serif font-bold text-white mb-10 leading-[1.1]">Intelligent <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400 normal">Care.</span></h2>
                           
                           <div className="grid sm:grid-cols-2 gap-5 flex-grow">
                              {[
@@ -229,7 +229,7 @@ const IcuPage = () => {
                            <Microscope className="w-4 h-4 text-primary-600" />
                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-primary-700">Specialized Infrastructure</span>
                         </div>
-                        <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark mb-6">High-Tech <span className="text-primary-600 italic">Clinical Wings.</span></h2>
+                        <h2 className="text-3xl lg:text-4xl font-serif font-bold text-brand-dark mb-6">High-Tech <span className="text-primary-600 normal">Clinical Wings.</span></h2>
                         <p className="text-gray-500 max-w-2xl mx-auto text-lg font-light">Explore our specialized intensive care units designed for diverse medical and surgical needs.</p>
                     </div>
 
@@ -281,7 +281,7 @@ const IcuPage = () => {
                     <div className="flex flex-col lg:flex-row-reverse gap-20 items-center">
                         <div className="lg:w-1/2">
                             <span className="section-subtitle">Clinical Bio-Safety</span>
-                            <h2 className="section-title text-4xl lg:text-6xl">Zero-Infection <br /><span className="text-primary-600 italic">Architecture.</span></h2>
+                            <h2 className="section-title text-3xl lg:text-4xl">Zero-Infection <br /><span className="text-primary-600 normal">Architecture.</span></h2>
                             <p className="text-gray-600 text-lg lg:text-xl font-light leading-relaxed mb-10 border-l-4 border-primary-500 pl-8">
                                 We maintain a "Clean Room" standard in our ICU suites, featuring HEPA-filtered air with 25+ positive pressure changes per hour to eliminate cross-contamination risks.
                             </p>
@@ -322,7 +322,7 @@ const IcuPage = () => {
                                <span className="w-10 h-[1px] bg-primary-500" />
                                <span className="text-primary-600 font-black text-[10px] lg:text-[11px] uppercase tracking-[0.3em]">Specialist Faculty</span>
                             </div>
-                            <h2 className="text-4xl lg:text-7xl font-serif font-bold text-brand-dark mb-8 leading-tight">The ICU <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-blue-600 italic">Vanguard.</span></h2>
+                            <h2 className="text-3xl lg:text-5xl font-serif font-bold text-brand-dark mb-8 leading-tight">The ICU <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-blue-600 normal">Vanguard.</span></h2>
                             <p className="text-gray-600 text-xl font-light leading-relaxed mb-12">
                                 Led by senior intensivists with global training, our critical care team is prepared to intervene in seconds, supported by registered nurses and physiotherapists.
                             </p>
@@ -366,7 +366,7 @@ const IcuPage = () => {
                 <Container>
                     <div className="max-w-5xl mx-auto text-center relative z-10">
                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-primary-400 mb-6 block">Compassionate Support</span>
-                        <h2 className="text-4xl lg:text-7xl font-serif font-bold mb-8 leading-tight">Bridging the <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-white to-primary-400 italic">Clinical Gap.</span></h2>
+                        <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-8 leading-tight">Bridging the <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-white to-primary-400 normal">Clinical Gap.</span></h2>
                         <p className="text-slate-400 text-lg md:text-xl font-light leading-relaxed mb-12 max-w-3xl mx-auto">
                             We ensure families are informed and connected with transparent medical data and regular clinical briefings through our exclusive Family Connect program.
                         </p>
@@ -396,7 +396,7 @@ const IcuPage = () => {
                <Container>
                   <div className="text-center mb-20 relative z-10">
                      <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-600 mb-4 block">Help Center</span>
-                     <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark">Clinical <span className="text-primary-600 italic">Queries.</span></h2>
+                     <h2 className="text-3xl lg:text-4xl font-serif font-bold text-brand-dark">Clinical <span className="text-primary-600 normal">Queries.</span></h2>
                   </div>
                   <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10">
                      {[
@@ -433,7 +433,7 @@ const IcuPage = () => {
                <Container>
                   <div className="flex flex-col lg:flex-row gap-20 items-center">
                      <div className="lg:w-[60%] order-2 lg:order-1">
-                        <h2 className="text-4xl lg:text-7xl font-serif font-bold mb-16 leading-tight">Elite Critical <br /><span className="text-primary-400 italic">Benchmarks.</span></h2>
+                        <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-12 leading-tight">Elite Critical <br /><span className="text-primary-400 normal">Benchmarks.</span></h2>
                         <div className="space-y-12">
                            {[
                               { year: "2018", title: "Smart ICU Inauguration", desc: "Equipped with the region's first centralized hemodynamic monitoring network." },
@@ -466,15 +466,15 @@ const IcuPage = () => {
             {/* 11. CRITICAL CARE CTA */}
             <Section className="bg-brand-dark text-white relative overflow-hidden py-20 lg:py-24">
                 <div className="absolute top-0 right-0 w-96 h-96 bg-primary-600/10 rounded-full blur-[150px] pointer-events-none" />
-                <Container className="text-center relative z-10">
-                    <h2 className="text-4xl lg:text-7xl font-serif font-bold mb-8 leading-tight">Vigilance <br /><span className="text-primary-400 italic">24/7.</span></h2>
-                    <p className="text-slate-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light leading-relaxed">Our clinical command center is available round-the-clock for critical emergencies and specialist consultation.</p>
-                    <div className="flex flex-col sm:flex-row justify-center gap-6 lg:gap-8">
-                        <a href="tel:+918929733551" className="px-10 py-5 bg-red-600 text-white rounded-2xl font-bold text-base hover:bg-red-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
-                            <Phone size={22} className="group-hover:rotate-12 transition-transform" /> Emergency Hub
+                <Container className="text-center relative z-10 max-w-2xl mx-auto">
+                    <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 leading-tight">Vigilance <br /><span className="text-primary-400 normal">24/7.</span></h2>
+                    <p className="text-slate-400 text-base lg:text-lg mb-10 max-w-xl mx-auto font-light leading-relaxed">Our clinical command center is available round-the-clock for critical emergencies and specialist consultation.</p>
+                    <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
+                        <a href="tel:+918929733551" className="px-8 py-4 bg-red-600 text-white rounded-xl font-bold text-base hover:bg-red-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+                            <Phone size={20} className="group-hover:rotate-12 transition-transform" /> Emergency Hub
                         </a>
-                        <Link to="/contact" className="px-10 py-5 border border-white/20 text-white rounded-2xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:scale-105 active:scale-95">
-                            <Calendar size={22} /> Get Assistance
+                        <Link to="/contact" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+                            <Calendar size={20} /> Get Assistance
                         </Link>
                     </div>
                 </Container>

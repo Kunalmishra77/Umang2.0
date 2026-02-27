@@ -109,7 +109,7 @@ const SpecialityDetail = () => {
               {data.approach && (
                 <div className="space-y-8">
                   <h3 className="text-3xl font-serif font-bold text-brand-dark">Our Treatment Approach</h3>
-                  <p className="text-gray-600 text-lg lg:text-xl font-light leading-relaxed border-l-4 border-blue-500 pl-8 italic">
+                  <p className="text-gray-600 text-lg lg:text-xl font-light leading-relaxed border-l-4 border-blue-500 pl-8 normal">
                     "{data.approach}"
                   </p>
                 </div>
@@ -147,7 +147,7 @@ const SpecialityDetail = () => {
                         </div>
                         <div>
                           <h4 className="text-xl font-bold text-brand-dark mb-2">{story.patient} • <span className="text-primary-600 font-medium text-base">{story.condition}</span></h4>
-                          <p className="text-gray-600 leading-relaxed italic">"{story.story}"</p>
+                          <p className="text-gray-600 leading-relaxed normal">"{story.story}"</p>
                         </div>
                       </div>
                     ))}
@@ -212,7 +212,7 @@ const SpecialityDetail = () => {
                     <Badge className="!bg-red-600 !text-white !border-none mb-6 animate-pulse px-4 py-2">
                       <AlertCircle size={14} className="mr-2" /> Emergency Guidance
                     </Badge>
-                    <h3 className="text-red-900 mb-6 italic font-bold">When to seek urgent care?</h3>
+                    <h3 className="text-red-900 mb-6 normal font-bold">When to seek urgent care?</h3>
                     <p className="text-red-700 text-lg font-medium mb-8 max-w-xl leading-relaxed">{data.emergencyCallout}</p>
                     <CTAButton href={`tel:${siteConfig.contacts.emergency}`} variant="danger" size="lg" className="px-10">
                       Call Helpline: {siteConfig.contacts.emergency}
@@ -272,7 +272,7 @@ const SpecialityDetail = () => {
                       <Calendar className="w-6 h-6 text-white" />
                     </div>
                     
-                    <h3 className="text-3xl font-serif font-bold text-white mb-4 leading-tight">Book an <br /><span className="text-blue-400 italic">Appointment.</span></h3>
+                    <h3 className="text-3xl font-serif font-bold text-white mb-4 leading-tight">Book an <br /><span className="text-blue-400 normal">Appointment.</span></h3>
                     <p className="text-slate-400 text-sm mb-10 leading-relaxed font-light">
                       Consult with our senior {data.title.split(' ')[0]} specialists for personalized treatment planning and clinical advice.
                     </p>

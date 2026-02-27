@@ -346,14 +346,14 @@ export const navConfig = {
           id: 'portal',
           title: 'Patient Portal',
           icon: Smartphone,
-          href: '/patients',
+          href: '/patient-portal',
           preview: {
             title: 'Digital Health',
             desc: 'Securely manage your appointments, reports and medical history.',
             bullets: ['Download Reports', 'Book Appointments', 'Online Payments', 'Tele-Consultation'],
             image: '/assets/About/about-main.png',
             tag: 'Portal',
-            cta: { label: 'Login Now', href: '/patients' }
+            cta: { label: 'Login Now', href: '/login' }
           }
         },
         {

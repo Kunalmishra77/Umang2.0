@@ -72,7 +72,7 @@ const Privacy = () => {
                <Shield className="w-3.5 h-3.5" /> Patient Confidentiality
             </span>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 tracking-tight leading-tight">
-              Privacy <span className="text-emerald-400 italic font-medium">Policy.</span>
+              Privacy <span className="text-emerald-400 normal font-medium">Policy.</span>
             </h1>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
               Committed to protecting your sensitive medical data with <br />global security standards.
@@ -172,7 +172,7 @@ const Privacy = () => {
                <div className="mt-32 p-12 lg:p-20 bg-slate-900 rounded-[4rem] relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-[120px] -z-10" />
                   <div className="max-w-xl">
-                     <h3 className="text-3xl lg:text-5xl font-serif font-bold text-white mb-8 leading-tight">Patient Safety Above <span className="text-emerald-400 italic">Everything.</span></h3>
+                     <h3 className="text-3xl lg:text-5xl font-serif font-bold text-white mb-8 leading-tight">Patient Safety Above <span className="text-emerald-400 normal">Everything.</span></h3>
                      <p className="text-slate-400 text-lg font-light mb-12 leading-relaxed">If you have any further questions regarding your privacy at Umang Hospital, our patient experience team is here to help.</p>
                      <Link to="/contact" className="inline-flex items-center gap-3 px-10 py-5 bg-emerald-600 text-white rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-emerald-500 transition-all shadow-xl hover:scale-105 active:scale-95">
                         Inquiry Hub <ArrowRight size={18} />

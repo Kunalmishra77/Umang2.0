@@ -68,9 +68,9 @@ const PatientStories = () => {
             <div className="inline-flex items-center gap-2 bg-pink-500/20 px-4 py-2 rounded-full border border-pink-500/30 text-pink-300 font-bold uppercase tracking-widest text-xs mb-8">
               <Heart className="w-4 h-4 fill-current" /> Stories of Hope
             </div>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 leading-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight">
               Healing is a <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-300 italic">Shared Journey.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-300 normal">Shared Journey.</span>
             </h1>
             <p className="text-xl text-blue-100 font-light leading-relaxed mb-12 max-w-2xl">
               Real people, real struggles, and real victories. Discover how our patients overcame their health challenges through clinical excellence and human spirit.
@@ -149,7 +149,7 @@ const PatientStories = () => {
                   </div>
                   <div className="p-8">
                     <Quote className="w-8 h-8 text-pink-100 mb-4 fill-current" />
-                    <p className="text-slate-600 italic mb-8 leading-relaxed font-medium">"{story.quote}"</p>
+                    <p className="text-slate-600 normal mb-8 leading-relaxed font-medium">"{story.quote}"</p>
                     <div className="flex items-center gap-4 pt-6 border-t border-slate-50">
                       <div className="w-10 h-10 rounded-full bg-pink-50 flex items-center justify-center font-bold text-pink-600">{story.name[0]}</div>
                       <div>
@@ -235,7 +235,7 @@ const PatientStories = () => {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
               <span className="text-pink-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">Support Network</span>
-              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-8">You Are Never <br /><span className="italic text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-rose-200">Alone.</span></h2>
+              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-8">You Are Never <br /><span className="normal text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-rose-200">Alone.</span></h2>
               <p className="text-lg text-slate-400 leading-relaxed mb-10 font-light">
                 Recovery doesn't end at discharge. Join our specialized support groups to connect with fellow survivors, share experiences, and receive ongoing emotional guidance from experts.
               </p>
@@ -321,7 +321,7 @@ const PatientStories = () => {
             <div className="lg:w-1/2 relative">
                <img src={ASSETS.ABOUT_BEACON} alt="Medical Team" className="rounded-[3rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000" />
                <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-xl border border-slate-100 hidden md:block">
-                  <p className="text-sm font-bold text-slate-700 italic leading-relaxed">"Surgery saves the body, but compassion saves the soul."</p>
+                  <p className="text-sm font-bold text-slate-700 normal leading-relaxed">"Surgery saves the body, but compassion saves the soul."</p>
                   <p className="text-[10px] font-black uppercase text-pink-600 mt-2 tracking-widest">- Clinical Director</p>
                </div>
             </div>
@@ -377,7 +377,7 @@ const PatientStories = () => {
          <Container>
             <div className="flex flex-col lg:flex-row gap-20 items-center">
                <div className="lg:w-1/2">
-                  <h2 className="text-5xl font-serif font-bold text-brand-dark mb-8 leading-tight">Become a Beacon <br />of <span className="text-pink-600 italic">Hope.</span></h2>
+                  <h2 className="text-5xl font-serif font-bold text-brand-dark mb-8 leading-tight">Become a Beacon <br />of <span className="text-pink-600 normal">Hope.</span></h2>
                   <p className="text-xl text-slate-500 leading-relaxed mb-10 font-light">Your recovery is a testament to the human spirit and clinical excellence. By sharing your story, you might give someone the courage they need to start their own healing journey.</p>
                   <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
                      <p className="text-sm font-bold text-slate-700 mb-4">Direct Support Line</p>

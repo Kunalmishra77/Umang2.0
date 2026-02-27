@@ -72,7 +72,7 @@ const Terms = () => {
                <Scale className="w-3.5 h-3.5" /> Legal Framework
             </span>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 tracking-tight">
-              Terms & <span className="text-primary-400 italic font-medium">Conditions.</span>
+              Terms & <span className="text-primary-400 normal font-medium">Conditions.</span>
             </h1>
             <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
               Last Updated: February 24, 2026 • Version 2.0

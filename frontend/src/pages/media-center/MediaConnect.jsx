@@ -147,7 +147,7 @@ const MediaConnect = () => {
                            <h3 className="text-3xl font-bold">{person.name}</h3>
                         </div>
                      </div>
-                     <div className="flex items-center gap-3 text-gray-500 text-lg italic px-4">
+                     <div className="flex items-center gap-3 text-gray-500 text-lg normal px-4">
                         <MessageSquare className="w-6 h-6 text-blue-500" /> 
                         <span>Expert in {person.expertise}</span>
                      </div>
@@ -218,7 +218,7 @@ const MediaConnect = () => {
                      </motion.div>
                   ))}
                </div>
-               <p className="mt-12 text-gray-500 italic text-lg leading-relaxed flex items-start gap-3">
+               <p className="mt-12 text-gray-500 normal text-lg leading-relaxed flex items-start gap-3">
                   <Info className="w-6 h-6 text-blue-400 shrink-0 mt-1" />
                   Note: All media events require RSVP. Connect with us for media passes and security clearance.
                </p>

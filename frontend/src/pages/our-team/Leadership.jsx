@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { 
   Award, Star, Linkedin, Mail, ChevronRight, ShieldCheck, 
-  Heart 
+  Heart, Users, Activity, User, Quote, CheckCircle2, 
+  ArrowRight, Phone, Calendar
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { doctors } from '../../utils/doctorsData';
@@ -41,7 +42,7 @@ const Leadership = () => {
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-[11px] font-bold uppercase tracking-[0.3em] mb-6">
               Visionary Leadership
             </span>
-            <h1 className="text-white mb-6 leading-tight">Driving the <span className="text-primary-400 italic">Future of Healthcare.</span></h1>
+            <h1 className="text-white mb-6 leading-tight">Driving the <span className="text-primary-400 normal">Future of Healthcare.</span></h1>
             <p className="text-lg text-slate-300 leading-relaxed font-light">
               Our leadership team brings together decades of clinical expertise and strategic vision to redefine medical excellence in Gurugram.
             </p>
@@ -63,7 +64,7 @@ const Leadership = () => {
               </div>
               <div className="absolute -bottom-8 -right-8 bg-brand-dark text-white p-8 rounded-3xl shadow-2xl z-20 max-w-[240px] border border-white/10 hidden md:block">
                 <Star className="w-8 h-8 text-yellow-400 fill-current mb-4 animate-pulse" />
-                <p className="text-sm font-bold italic leading-relaxed">"Healthcare is a sacred covenant between the healer and the healed."</p>
+                <p className="text-sm font-bold normal leading-relaxed">"Healthcare is a sacred covenant between the healer and the healed."</p>
               </div>
             </div>
             
@@ -155,7 +156,7 @@ const Leadership = () => {
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
               <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">Strategic Roadmap</span>
-              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-10 leading-tight">Vision for <br /><span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Better Healing.</span></h2>
+              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-10 leading-tight">Vision for <br /><span className="normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Better Healing.</span></h2>
               <div className="space-y-10">
                 <div className="flex gap-6 group">
                   <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-primary-400 group-hover:bg-primary-500 group-hover:text-white transition-all">
@@ -211,7 +212,7 @@ const Leadership = () => {
             <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16">
               <div className="max-w-2xl">
                 <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">Clinical Governance</span>
-                <h2 className="text-4xl font-serif font-bold text-brand-dark leading-tight">The Umang Quality <br /><span className="text-primary-600 italic">Benchmarks.</span></h2>
+                <h2 className="text-4xl font-serif font-bold text-brand-dark leading-tight">The Umang Quality <br /><span className="text-primary-600 normal">Benchmarks.</span></h2>
               </div>
               <Link to="/patient-experience" className="px-8 py-4 bg-brand-dark text-white rounded-2xl font-bold hover:bg-primary-600 transition-all shadow-xl active:scale-95">
                 View Quality Reports
@@ -266,7 +267,7 @@ const Leadership = () => {
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         <Container className="relative z-10 text-center max-w-4xl">
           <Quote className="w-16 h-16 text-primary-500/20 mx-auto mb-10 fill-current" />
-          <h3 className="text-2xl md:text-4xl font-serif italic font-bold text-white mb-10 leading-relaxed">
+          <h3 className="text-2xl md:text-4xl font-serif normal font-bold text-white mb-10 leading-relaxed">
             "Leadership at Umang is not about authority; it is about serving the front-line caregivers so they can focus on what matters most—saving lives."
           </h3>
           <div className="flex flex-col items-center">
@@ -281,10 +282,10 @@ const Leadership = () => {
       <Section className="bg-white">
         <Container>
            <div className="flex flex-col lg:flex-row gap-16 items-center">
-              <div className="lg:w-1/2">
-                 <img src={ASSETS.ABOUT_GLOBAL} alt="Advisory Council" className="rounded-[3rem] shadow-2xl" />
+              <div className="lg:w-[45%]">
+                 <img src={ASSETS.ABOUT_GLOBAL} alt="Advisory Council" className="rounded-[3rem] shadow-2xl w-full h-[400px] object-cover" />
               </div>
-              <div className="lg:w-1/2">
+              <div className="lg:w-[55%]">
                  <SectionHeading 
                    eyebrow="Expert Oversight" 
                    title="Institutional Ethics <span class='text-primary-600'>Committee.</span>" 
@@ -358,7 +359,7 @@ const Leadership = () => {
       <Section className="bg-slate-50">
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="lg:w-1/2">
+            <div className="lg:w-[55%]">
               <SectionHeading 
                 eyebrow="Global Network" 
                 title="International <span class='text-primary-600'>Exchange.</span>" 
@@ -373,8 +374,8 @@ const Leadership = () => {
                 ))}
               </div>
             </div>
-            <div className="lg:w-1/2 relative">
-              <img src={ASSETS.ABOUT_GLOBAL} alt="Global Partners" className="rounded-[3rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" />
+            <div className="lg:w-[45%] relative">
+              <img src={ASSETS.ABOUT_GLOBAL} alt="Global Partners" className="rounded-[3rem] shadow-2xl w-full h-[400px] object-cover transition-all duration-700" />
             </div>
           </div>
         </Container>
@@ -384,7 +385,7 @@ const Leadership = () => {
       <Section className="bg-brand-dark text-white relative overflow-hidden py-24">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         <Container className="text-center relative z-10">
-          <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Connect with <span className="text-primary-400 italic">Board.</span></h2>
+          <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-10 leading-tight">Connect with <span className="text-primary-400 normal">Board.</span></h2>
           <p className="text-slate-400 text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">For institutional inquiries, corporate partnerships, or strategic feedback.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-8">
             <a href="tel:+918588072727" className="px-12 py-6 bg-primary-600 text-white rounded-2xl font-bold text-lg hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">

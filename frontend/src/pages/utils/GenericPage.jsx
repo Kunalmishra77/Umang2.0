@@ -136,7 +136,7 @@ const GenericPage = () => {
                <Container>
                   <div className="text-center mb-16 relative z-10">
                     <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-600 mb-4 block">Help Center</span>
-                    <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark mb-6">Frequently Asked <span className="text-primary-600 italic">Questions.</span></h2>
+                    <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark mb-6">Frequently Asked <span className="text-primary-600 normal">Questions.</span></h2>
                   </div>
                   <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10">
                      {section.items.map((faq, i) => (

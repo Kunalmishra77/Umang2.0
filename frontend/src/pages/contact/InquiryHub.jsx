@@ -4,10 +4,12 @@ import { Helmet } from 'react-helmet-async';
 import { 
   Plus, MessageSquare, Briefcase, Globe, Ambulance, Heart, 
   ArrowRight, CheckCircle, Info, Smartphone, Mail, MapPin,
-  Smile, ShieldCheck, Clock, Download, Loader2, UserCheck, Star, FileText
+  Smile, ShieldCheck, Clock, Download, Loader2, UserCheck, Star, FileText, Calendar
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ASSETS } from '../../utils/imageAssets';
 import { useLeadForm } from '../../hooks/useLeadForm';
+import { Container, Section, SectionHeading } from '../../components/ui/Layout';
 import SeoHead from '../../components/common/SeoHead';
 import { siteConfig } from '../../config/siteConfig';
 
@@ -147,7 +149,7 @@ const InquiryHub = () => {
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-[140px] opacity-10 -mr-48 -mt-48" />
             <div>
               <span className="text-blue-400 font-bold uppercase tracking-widest text-[10px] mb-4 block">Service Level Agreement</span>
-              <h2 className="text-4xl lg:text-5xl font-serif font-bold mb-8 text-white">Our Response <br /><span className="text-blue-400 italic">Guarantees.</span></h2>
+              <h2 className="text-4xl lg:text-5xl font-serif font-bold mb-8 text-white">Our Response <br /><span className="text-blue-400 normal">Guarantees.</span></h2>
               <div className="space-y-8">
                 {[
                   { label: 'Emergency Callback', time: 'Immediate' },
@@ -176,7 +178,12 @@ const InquiryHub = () => {
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2 order-2 lg:order-1 relative">
-               <img src={ASSETS.ABOUT_GLOBAL} alt="Digital Channels" className="rounded-[3rem] shadow-2xl" />
+               <img 
+                 src={ASSETS.ABOUT_GLOBAL} 
+                 alt="Digital Channels" 
+                 className="rounded-[3rem] shadow-2xl w-full h-[450px] lg:h-[550px] object-cover" 
+               />
+               <div className="absolute inset-0 bg-blue-600/5 rounded-[3rem] pointer-events-none" />
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2">
               <SectionHeading 
@@ -340,7 +347,7 @@ const InquiryHub = () => {
             <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16 relative z-10">
               <div className="max-w-2xl">
                 <span className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 block">Global Patient Desk</span>
-                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">International <br /><span className="text-blue-600 italic">Concierge Service.</span></h2>
+                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">International <br /><span className="text-blue-600 normal">Concierge Service.</span></h2>
               </div>
               <button className="px-10 py-5 bg-brand-dark text-white rounded-2xl font-bold hover:bg-blue-600 transition-all shadow-xl active:scale-95">
                 Visit International Hub
@@ -368,11 +375,11 @@ const InquiryHub = () => {
           <div className="flex flex-col lg:flex-row gap-20">
             <div className="lg:w-1/3">
               <span className="text-blue-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-6 block">Direct Answers</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8 leading-tight">Specific Inquiry <br /><span className="text-blue-600 italic">FAQ Hub.</span></h2>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8 leading-tight">Specific Inquiry <br /><span className="text-blue-600 normal">FAQ Hub.</span></h2>
               <p className="text-slate-500 leading-relaxed mb-10 font-light">Find instant answers to specialized queries regarding international care, corporate tie-ups, and more.</p>
               <div className="p-8 bg-blue-100/50 rounded-[2.5rem] border border-blue-100 shadow-sm">
                  <p className="text-xs font-black uppercase text-blue-600 tracking-widest mb-4">Dedicated Desk</p>
-                 <p className="text-brand-dark font-bold leading-relaxed mb-6 italic">"Our support hubs are specialized to provide technical and clinical clarity beyond standard care."</p>
+                 <p className="text-brand-dark font-bold leading-relaxed mb-6 normal">"Our support hubs are specialized to provide technical and clinical clarity beyond standard care."</p>
                  <button className="text-blue-600 font-black text-[10px] uppercase tracking-widest flex items-center gap-2">Read Policy Docs <ArrowRight size={12} /></button>
               </div>
             </div>
@@ -447,17 +454,17 @@ const InquiryHub = () => {
       </section>
 
       {/* 12. FINAL CTA HUB (NEW) */}
-      <Section className="bg-brand-dark text-white relative overflow-hidden py-24 border-t border-white/5">
+      <Section className="bg-brand-dark text-white relative overflow-hidden py-12 lg:py-16 border-t border-white/5">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-        <Container className="text-center relative z-10">
-          <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Always <span className="text-blue-400 italic">Available.</span></h2>
-          <p className="text-slate-400 text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">Our clinical and administrative desks are operational 24/7 to provide you with the support you need.</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-8">
-            <a href="tel:+918588072727" className="px-12 py-6 bg-blue-600 text-white rounded-2xl font-bold text-lg hover:bg-blue-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
-              <Smartphone size={24} className="group-hover:rotate-12 transition-transform" /> 85880 72727
+        <Container className="text-center relative z-10 max-w-2xl mx-auto">
+          <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 leading-tight">Always <span className="text-blue-400 normal">Available.</span></h2>
+          <p className="text-slate-400 text-base lg:text-lg mb-8 max-w-xl mx-auto font-light leading-relaxed">Our clinical and administrative desks are operational 24/7 to provide you with the support you need.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
+            <a href="tel:+918588072727" className="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold text-base hover:bg-blue-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+              <Smartphone size={20} className="group-hover:rotate-12 transition-transform" /> 85880 72727
             </a>
-            <Link to="/contact" className="px-12 py-6 border-2 border-white/10 text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:scale-105 active:scale-95">
-              <MapPin size={24} /> Get Directions
+            <Link to="/contact" className="px-8 py-4 border-2 border-white/10 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+              <MapPin size={20} /> Get Directions
             </Link>
           </div>
         </Container>

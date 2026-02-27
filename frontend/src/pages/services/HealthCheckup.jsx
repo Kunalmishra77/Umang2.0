@@ -300,7 +300,7 @@ const HealthCheckup = () => {
             </div>
             <div className="lg:w-1/2">
               <span className="text-primary-600 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Board</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Expert Review by <br /><span className="text-primary-600 italic">Senior Consultants.</span></h2>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Expert Review by <br /><span className="text-primary-600 normal">Senior Consultants.</span></h2>
               <p className="text-gray-500 text-lg mb-8 leading-relaxed">
                 Health checkups at Umang are not just about reports. Every package includes a mandatory review by our senior consultants to guide you on the right path to wellness.
               </p>
@@ -328,7 +328,7 @@ const HealthCheckup = () => {
         <Container>
           <div className="text-center mb-20 relative z-10">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-600 mb-4 block">Help Center</span>
-            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark">Screening <span className="text-primary-600 italic">FAQ.</span></h2>
+            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark">Screening <span className="text-primary-600 normal">FAQ.</span></h2>
           </div>
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10">
             {[
@@ -363,7 +363,7 @@ const HealthCheckup = () => {
       {/* Final CTA */}
       <section className="section-padding bg-brand-dark relative overflow-hidden">
         <Container className="relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Take charge of <br /><span className="text-primary-400 italic">your health today.</span></h2>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8">Take charge of <br /><span className="text-primary-400 normal">your health today.</span></h2>
           <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">Early screening is the first step towards a longer, healthier life. Book your package now and get a expert review.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <Link to="/services/booking/health-checkup" className="px-10 py-5 bg-primary-600 text-white rounded-full font-bold text-base shadow-xl hover:bg-primary-500 transition-all flex items-center justify-center gap-3 shadow-primary-900/20">

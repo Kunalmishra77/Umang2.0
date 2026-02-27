@@ -1,11 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
-import { 
-  Heart, ShieldCheck, Quote, Star, Users, Award, 
-  CheckCircle2, Clock, Sparkles, Smile, Activity
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
+import {
+  Heart, ShieldCheck, Quote, Star, Users, Award,
+  CheckCircle2, Clock, Sparkles, Smile, Activity, ArrowRight, Phone, HelpCircle
+} from 'lucide-react';import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 import { Container, Section, SectionHeading, Card } from '../../components/ui/Layout';
 import { siteConfig } from '../../config/siteConfig';
@@ -38,7 +37,7 @@ const NursingStaff = () => {
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-300 text-[11px] font-bold uppercase tracking-[0.3em] mb-6">
               The Heart of Care
             </span>
-            <h1 className="text-white mb-6 leading-tight">Healing with <span className="text-rose-400 italic">Compassion.</span></h1>
+            <h1 className="text-white mb-6 leading-tight">Healing with <span className="text-rose-400 normal">Compassion.</span></h1>
             <p className="text-lg text-slate-300 leading-relaxed font-light">
               Our 500+ strong nursing team is dedicated to providing round-the-clock compassionate care, ensuring your journey to recovery is comfortable and safe.
             </p>
@@ -60,7 +59,7 @@ const NursingStaff = () => {
               </div>
               <div className="absolute -bottom-8 -left-8 bg-white p-8 rounded-3xl shadow-2xl z-20 max-w-[320px] border border-slate-100 hidden md:block">
                 <Quote className="w-10 h-10 text-rose-400 mb-4 fill-current opacity-40" />
-                <p className="text-sm font-bold italic leading-relaxed text-slate-700">"Compassion is the only language we speak fluently. We don't just treat symptoms; we care for souls."</p>
+                <p className="text-sm font-bold normal leading-relaxed text-slate-700">"Compassion is the only language we speak fluently. We don't just treat symptoms; we care for souls."</p>
                 <div className="mt-4 pt-4 border-t border-slate-50">
                   <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">- Nursing Director</p>
                 </div>
@@ -155,7 +154,7 @@ const NursingStaff = () => {
         <Container>
           <div className="text-center mb-20">
             <span className="text-rose-400 font-bold uppercase tracking-widest text-[11px] mb-4 block">Our Protocol</span>
-            <h2 className="text-4xl lg:text-6xl font-serif font-bold">Nursing Care <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-rose-300 to-rose-100">Workflow.</span></h2>
+            <h2 className="text-4xl lg:text-6xl font-serif font-bold">Nursing Care <span className="normal text-transparent bg-clip-text bg-gradient-to-r from-rose-300 to-rose-100">Workflow.</span></h2>
           </div>
           <div className="grid md:grid-cols-4 gap-8 relative">
             <div className="hidden lg:block absolute top-12 left-0 w-full h-0.5 bg-white/10 -z-0" />
@@ -253,7 +252,7 @@ const NursingStaff = () => {
               <Card key={i} className="!p-12 !rounded-[3rem] bg-slate-50 border-none shadow-sm relative group overflow-hidden">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-rose-100 rounded-bl-full -mr-8 -mt-8 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Quote className="w-10 h-10 text-rose-200 mb-6 fill-current" />
-                <p className="text-lg italic text-slate-600 mb-8 leading-relaxed">"{item.text}"</p>
+                <p className="text-lg normal text-slate-600 mb-8 leading-relaxed">"{item.text}"</p>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center font-bold text-rose-600">{item.name.charAt(0)}</div>
                   <div>
@@ -296,7 +295,7 @@ const NursingStaff = () => {
                  </div>
               </div>
               <div className="lg:w-1/2">
-                 <img src={ASSETS.ABOUT_MAIN} alt="Care Coordination" className="rounded-[3rem] shadow-2xl" />
+                 <img src={ASSETS.ABOUT_MAIN} alt="Care Coordination" className="rounded-[3rem] shadow-2xl w-full h-[400px] lg:h-[500px] object-cover" />
               </div>
            </div>
         </Container>
@@ -308,7 +307,7 @@ const NursingStaff = () => {
         <Container>
           <div className="text-center mb-20 relative z-10">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-rose-600 mb-4 block">Help Center</span>
-            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark">Nursing <span className="text-rose-600 italic">Queries.</span></h2>
+            <h2 className="text-4xl lg:text-6xl font-serif font-bold text-brand-dark">Nursing <span className="text-rose-600 normal">Queries.</span></h2>
           </div>
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto relative z-10">
             {[
@@ -351,17 +350,17 @@ const NursingStaff = () => {
       </Section>
 
       {/* 10. FINAL CTA HUB */}
-      <Section className="bg-brand-dark text-white relative overflow-hidden py-24">
+      <Section className="bg-brand-dark text-white relative overflow-hidden py-12 lg:py-16">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
-        <Container className="text-center relative z-10">
-          <h2 className="text-4xl lg:text-8xl font-serif font-bold mb-10 leading-tight">Touch of <span className="text-rose-400 italic">Healing.</span></h2>
-          <p className="text-slate-400 text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">Our clinical nursing coordinators are available 24/7 to assist with your patient care queries.</p>
-          <div className="flex flex-col sm:flex-row justify-center gap-8">
-            <a href="tel:+918588072727" className="px-12 py-6 bg-rose-600 text-white rounded-2xl font-bold text-lg hover:bg-rose-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
-              <Phone size={24} className="group-hover:rotate-12 transition-transform" /> 85880 72727
+        <Container className="text-center relative z-10 max-w-2xl mx-auto">
+          <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 leading-tight">Touch of <span className="text-rose-400 normal">Healing.</span></h2>
+          <p className="text-slate-400 text-base lg:text-lg mb-8 max-w-xl mx-auto font-light leading-relaxed">Our clinical nursing coordinators are available 24/7 to assist with your patient care queries.</p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
+            <a href="tel:+918588072727" className="px-8 py-4 bg-rose-600 text-white rounded-xl font-bold text-base hover:bg-rose-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+              <Phone size={20} className="group-hover:rotate-12 transition-transform" /> 85880 72727
             </a>
-            <Link to="/careers" className="px-12 py-6 border border-white/20 text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:scale-105 active:scale-95">
-              <Users size={24} /> Join Our Team
+            <Link to="/careers" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+              <Users size={20} /> Join Our Team
             </Link>
           </div>
         </Container>

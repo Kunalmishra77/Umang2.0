@@ -12,6 +12,7 @@ import MaskText from '../../components/common/MaskText';
 import { ASSETS } from '../../utils/imageAssets';
 import SeoHead from '../../components/common/SeoHead';
 import { Container, Section, SectionHeading, Card } from '../../components/ui/Layout';
+import { siteConfig } from '../../config/siteConfig';
 
 const MediaCenter = () => {
   const { scrollYProgress } = useScroll();
@@ -49,8 +50,8 @@ const MediaCenter = () => {
           </motion.div>
           
           <MaskText>
-            <h1 className="text-4xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 lg:mb-8 leading-tight tracking-tighter">
-              Stories of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 italic">Impact.</span>
+            <h1 className="text-4xl md:text-6xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight tracking-tighter">
+              Stories of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 normal">Impact.</span>
             </h1>
           </MaskText>
           
@@ -256,7 +257,7 @@ const MediaCenter = () => {
                   <p className="text-slate-400 leading-relaxed mb-10 font-light">
                     Registered media professionals can request accreditation for special event coverage and one-on-one specialist interviews.
                   </p>
-                  <Link to="/contact/media-connect" className="block w-full py-5 bg-white text-brand-dark text-center rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-primary-50 transition-all shadow-xl active:scale-95">
+                  <Link to="/media-center/media-connect" className="block w-full py-5 bg-white text-brand-dark text-center rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-primary-50 transition-all shadow-xl active:scale-95">
                     Apply for Accreditation
                   </Link>
                 </div>

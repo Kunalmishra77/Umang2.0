@@ -185,7 +185,7 @@ const Team = () => {
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-7/12">
               <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">Institutional Governance</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">The Medical Advisory <span className="text-primary-600 italic">Council.</span></h2>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">The Medical Advisory <span className="text-primary-600 normal">Council.</span></h2>
               <p className="text-slate-600 text-lg leading-relaxed mb-8">
                 Our clinical decisions are guided by a board of senior medical experts who ensure that Umang Hospital remains at the forefront of medical ethics, patient safety, and clinical innovation.
               </p>
@@ -325,7 +325,7 @@ const Team = () => {
                 />
                 <div className="absolute -bottom-8 left-4 sm:-left-8 bg-white text-[#0f172a] p-6 sm:p-8 rounded-2xl shadow-xl z-20 max-w-[280px] sm:max-w-xs">
                   <Quote className="w-8 h-8 text-rose-400 mb-4 fill-current" />
-                  <p className="font-bold italic">"Compassion is the only language we speak fluently."</p>
+                  <p className="font-bold normal">"Compassion is the only language we speak fluently."</p>
                   <p className="text-xs font-bold text-gray-400 mt-2 uppercase">- Sister Mary, Head Nurse</p>
                 </div>
               </div>
@@ -372,7 +372,7 @@ const Team = () => {
               </div>
             </div>
             <div className="lg:w-7/12 order-1 lg:order-2">
-              <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Global Medical <span className="text-primary-600 italic">Partnerships.</span></h2>
+              <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Global Medical <span className="text-primary-600 normal">Partnerships.</span></h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
                 Umang Hospital collaborates with leading medical institutions across the UK, USA, and Germany for knowledge exchange and advanced surgical workshops. These partnerships ensure that our patients receive world-class care locally.
               </p>

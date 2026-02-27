@@ -255,7 +255,7 @@ const Podcasts = () => {
                      <div className="flex gap-1 text-yellow-400 mb-4">
                         {[...Array(review.rating)].map((_, j) => <Star key={j} className="w-4 h-4 fill-current" />)}
                      </div>
-                     <p className="text-gray-600 mb-6 italic">"{review.comment}"</p>
+                     <p className="text-gray-600 mb-6 normal">"{review.comment}"</p>
                      <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-bold">
                            {review.user[0]}
