@@ -195,7 +195,7 @@ const About = () => {
             </motion.div>
             <div className="lg:w-1/2 relative">
               <div className="absolute inset-0 bg-primary-50 rounded-[4rem] rotate-3 -z-10" />
-              <img src={ASSETS.ABOUT_MAIN} alt="Philosophy" className="rounded-[4rem] shadow-2xl w-full h-[500px] object-cover" />
+              <img src={ASSETS.ABOUT_PHILOSOPHY} alt="Philosophy" className="rounded-[4rem] shadow-2xl w-full h-[500px] object-cover" />
               <div className="absolute -bottom-10 -left-10 bg-white p-10 rounded-[3rem] shadow-2xl border border-gray-100 hidden md:block">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-green-500 text-white rounded-full flex items-center justify-center">

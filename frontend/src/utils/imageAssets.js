@@ -106,6 +106,7 @@ export const ASSETS = {
   PERSONAL_CARE: '/assets/services/pharmacy-247/personal care.png',
 
   // About Page
+  ABOUT_PHILOSOPHY: '/Umang-real/consultant.jpeg',
   ABOUT_MAIN: '/assets/About/about-main.png',
   ABOUT_GLOBAL: '/Umang-real/cammunity.jpeg',
   ABOUT_ICU: '/assets/About/advanced-icu.png',
