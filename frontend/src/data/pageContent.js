@@ -72,8 +72,7 @@ export const pageContent = {
         { title: 'Smart Entertainment', desc: 'High-definition LED TVs with premium cable and relaxation channels.' },
         { title: 'High-Speed Wi-Fi', desc: 'Seamless high-bandwidth connectivity for patients and families.' }
       ]},
-      { type: 'text-image', title: 'Hygienic and Safe Environment', text: 'Our rooms undergo clinical-grade deep cleaning twice daily using hospital-grade disinfectants. Every room is equipped with HEPA-filtered air vents to ensure zero cross-infection risk and a sterile recovery atmosphere.', image: ASSETS.ABOUT_100_BEDS },
-      { type: 'stats', data: [
+      { type: 'text-image', title: 'Hygienic and Safe Environment', text: 'Our rooms undergo clinical-grade deep cleaning twice daily using hospital-grade disinfectants. Every room is equipped with HEPA-filtered air vents to ensure zero cross-infection risk and a sterile recovery atmosphere.', image: ASSETS.SVC_HYGIENE_BEDS },      { type: 'stats', data: [
         { label: 'Nursing Ratio', value: '1:4' },
         { label: 'Cleaning', value: '2x Daily' },
         { label: 'Oxygen', value: 'Central' },

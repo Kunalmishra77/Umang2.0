@@ -73,6 +73,7 @@ export const ASSETS = {
   SVC_ADVANCED_LIFE_SUPPORT: '/assets/services/advanced-life-support.png',
 
   // ICU Infrastructure
+  SVC_HYGIENE_BEDS: '/Umang-real/hygenic beds.jpeg',
   SVC_ICU_GENERAL: '/Umang-real/general ICU.jpeg',
   SVC_ICU_ADVANCE: '/Umang-real/ICU.jpeg',
   SVC_ICU_ADVANCE_CARE: '/assets/services/icu-infrastructure/Advance ICU care.jpeg',
@@ -111,7 +112,7 @@ export const ASSETS = {
   ABOUT_NABH: '/Umang-real/clinical excelence.jpeg',
   ABOUT_BEACON: '/assets/About/super-speciality-beacon.png',
   ABOUT_LEAP: '/assets/About/technological-leap.png',
-  ABOUT_100_BEDS: '/assets/About/100-Beds.jpg',
+  ABOUT_100_BEDS: '/Umang-real/hygenic beds.jpeg',
   ABOUT_DIRECTOR: '/assets/About/Dr. Rakesh Gupta.png',
   ABOUT_BANNER: '/Umang-real/about banner.jpeg',
   ABOUT_BANNER_VIDEO: '/assets/About/about-banner.mp4',
