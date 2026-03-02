@@ -73,7 +73,8 @@ export const ASSETS = {
   SVC_ADVANCED_LIFE_SUPPORT: '/assets/services/advanced-life-support.png',
 
   // ICU Infrastructure
-  SVC_ICU_ADVANCE: '/assets/services/icu-infrastructure/Advance ICU.png',
+  SVC_ICU_GENERAL: '/Umang-real/general ICU.jpeg',
+  SVC_ICU_ADVANCE: '/Umang-real/ICU.jpeg',
   SVC_ICU_ADVANCE_CARE: '/assets/services/icu-infrastructure/Advance ICU care.jpeg',
   SVC_ICU_CCU: '/assets/services/icu-infrastructure/CCU (Critical Care Unit).png',
   SVC_ICU_SICU: '/assets/services/icu-infrastructure/SICU (Surgical ICU).png',
@@ -105,14 +106,14 @@ export const ASSETS = {
 
   // About Page
   ABOUT_MAIN: '/assets/About/about-main.png',
-  ABOUT_GLOBAL: '/assets/About/a-global-medical.png',
+  ABOUT_GLOBAL: '/Umang-real/cammunity.jpeg',
   ABOUT_ICU: '/assets/About/advanced-icu.png',
-  ABOUT_NABH: '/assets/About/nabh-gold-standard.png',
+  ABOUT_NABH: '/Umang-real/clinical excelence.jpeg',
   ABOUT_BEACON: '/assets/About/super-speciality-beacon.png',
   ABOUT_LEAP: '/assets/About/technological-leap.png',
   ABOUT_100_BEDS: '/assets/About/100-Beds.jpg',
   ABOUT_DIRECTOR: '/assets/About/Dr. Rakesh Gupta.png',
-  ABOUT_BANNER: '/assets/About/about-banner.jpeg',
+  ABOUT_BANNER: '/Umang-real/about banner.jpeg',
   ABOUT_BANNER_VIDEO: '/assets/About/about-banner.mp4',
   UMANG_VIDEO: '/assets/About/Umang.mp4',
   UMANG_HERO_VIDEO: '/assets/Home/Umang_hero.mp4',
@@ -148,6 +149,7 @@ export const getRandomDoctor = (gender = 'male') => {
 
 export const getIcuImage = (slug) => {
   const mapping = {
+    'general-icu': ASSETS.SVC_ICU_GENERAL,
     'advance-icu': ASSETS.SVC_ICU_ADVANCE,
     'sicu': ASSETS.SVC_ICU_SICU,
     'ccu': ASSETS.SVC_ICU_CCU

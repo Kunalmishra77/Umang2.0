@@ -95,6 +95,7 @@ class ContentSeeder extends Seeder
                 'slug' => 'general-icu',
                 'beds' => 28, 
                 'description' => 'For critically ill patients requiring ventilator support and intensive monitoring.',
+                'image' => '/Umang-real/general ICU.jpeg',
                 'details' => [
                     'features' => ['24/7 Intensivist', 'High nurse-to-patient ratio', 'Ventilator support'],
                 ],
@@ -105,6 +106,7 @@ class ContentSeeder extends Seeder
                 'slug' => 'sicu',
                 'beds' => 8, 
                 'description' => 'Specifically for patients who have undergone major surgeries.',
+                'image' => '/assets/services/icu-infrastructure/SICU (Surgical ICU).png',
                 'details' => [
                     'features' => ['Post-operative monitoring', 'Surgical recovery protocols'],
                 ],
@@ -115,6 +117,7 @@ class ContentSeeder extends Seeder
                 'slug' => 'ccu',
                 'beds' => 7, 
                 'description' => 'Exclusively for heart patients requiring post-heart attack or post-angioplasty care.',
+                'image' => '/assets/services/icu-infrastructure/CCU (Critical Care Unit).png',
                 'details' => [
                     'features' => ['Continuous cardiac monitoring', 'Post-angioplasty care'],
                 ],
