@@ -1,14 +1,22 @@
 export const ASSETS = {
   // Infrastructure
   HOSPITAL_EXTERIOR: '/assets/Home/hero11.jpeg',
-  RECEPTION: '/assets/About/about-main.png', 
-  OT: '/assets/Home/general-surgery.png',
+  RECEPTION: '/UmangLatest/reception1.jpg',
+  RECEPTION_ALT: '/UmangLatest/reception2.jpg',
+  RECEPTION_LOBBY: '/UmangLatest/reception3.jpg',
+  OT: '/UmangLatest/Modular-ot.jpg',
   ICU: '/assets/services/icu-infrastructure/Advance ICU.png',
-  PATIENT_ROOM: '/assets/About/100-Beds.jpg',
+  PATIENT_ROOM: '/UmangLatest/Deluxe-patients-room.jpg',
   TWIN_SHARING: '/assets/About/100-Beds.jpg',
+  CATH_LAB: '/UmangLatest/Cath-lab.jpg',
+  EMERGENCY_DEPT: '/UmangLatest/Emergency.jpg',
+  NURSING_STATION: '/UmangLatest/Nursing-station.jpg',
+  OPD_COMPLEX: '/UmangLatest/Opd-complex.jpg',
+  CORRIDOR: '/UmangLatest/Passage.jpg',
+  PREOP_WARD: '/UmangLatest/Pre-operative-ward.jpg',
   
   // Services & Departments
-  PHARMACY: '/assets/Home/pharmacy.jpeg',
+  PHARMACY: '/UmangLatest/Pharmacy.jpg',
   AMBULANCE: '/assets/services/advanced-life-support.png',
   LAB: '/assets/services/diagnostic-lab/pathology.png',
   DIALYSIS: '/assets/Specialities/Hepatology.png', 
@@ -33,18 +41,18 @@ export const ASSETS = {
   ROBOTIC_SURGERY: '/assets/Home/robotic-OT-suite.webp',
   
   // People & Interaction
-  DIRECTOR: '/assets/About/Dr. Rakesh Gupta.png',
+  DIRECTOR: '/UmangLatest/Capt-umang-bhardwaj.jpg',
   NURSE_CARE: '/assets/Home/home-care.jpg',
   CONSULTATION: '/assets/Home/telemedicene.jpeg',
   TELEMEDICINE: '/assets/Home/telemedicene.jpeg',
   HEALTH_CHECKUP: '/assets/Home/Health-Checkup.jpg',
   INTERNATIONAL: '/assets/About/a-global-medical.png',
   GERIATRICS: '/assets/Specialities/Geriatrics.png',
-  SURGERY_TEAM: '/assets/Home/general-surgery.png',
+  SURGERY_TEAM: '/UmangLatest/Modular-ot.jpg',
   HEART_TRANSPLANT: '/assets/Specialities/Cardiothoracic Surgery.png',
   
   // Specialty Services
-  SVC_INTERVENTIONAL_CARDIOLOGY: '/assets/Specialities/Interventional Cardiology.png',
+  SVC_INTERVENTIONAL_CARDIOLOGY: '/UmangLatest/Cath-lab.jpg',
   SVC_CARDIOTHORACIC_SURGERY: '/assets/Specialities/Cardiothoracic Surgery.png',
   SVC_ELECTROPHYSIOLOGY: '/assets/Specialities/Electrophysiology.png',
   SVC_NEURO_SURGERY: '/assets/Specialities/Neuro Surgery.png',
@@ -105,6 +113,12 @@ export const ASSETS = {
   MULTIVITAMIN: '/assets/services/pharmacy-247/Multivitamin Complex.png',
   PERSONAL_CARE: '/assets/services/pharmacy-247/personal care.png',
 
+  // Events & Campaigns (placeholders — swap with real poster images later)
+  EVENT_JANTA_OPD: '/assets/events/janta-opd-poster.jpg',
+  EVENT_DIAGNOSTICS: '/assets/events/diagnostics-poster.jpg',
+  EVENT_BODY_CHECKUP: '/assets/events/body-checkup-poster.jpg',
+  EVENT_SATURDAY_CAMP: '/assets/events/saturday-camp-poster.jpg',
+
   // About Page
   ABOUT_PHILOSOPHY: '/Umang-real/consultant.jpeg',
   ABOUT_MAIN: '/assets/About/about-main.png',
@@ -114,7 +128,7 @@ export const ASSETS = {
   ABOUT_BEACON: '/assets/About/super-speciality-beacon.png',
   ABOUT_LEAP: '/assets/About/technological-leap.png',
   ABOUT_100_BEDS: '/Umang-real/hygenic beds.jpeg',
-  ABOUT_DIRECTOR: '/assets/About/Dr. Rakesh Gupta.png',
+  ABOUT_DIRECTOR: '/UmangLatest/Capt-umang-bhardwaj.jpg',
   ABOUT_BANNER: '/Umang-real/about banner.jpeg',
   ABOUT_BANNER_VIDEO: '/assets/About/about-banner.mp4',
   UMANG_VIDEO: '/assets/About/Umang.mp4',

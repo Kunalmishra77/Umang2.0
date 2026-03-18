@@ -1,7 +1,8 @@
 import React from 'react';
 import SeoHead from '../../components/common/SeoHead';
 import HeroSection from '../../components/home/HeroSection';
-import TrustSection from '../../components/home/TrustSection';
+import EventHighlights from '../../components/home/EventHighlights';
+
 import HospitalVideoSection from '../../components/home/HospitalVideoSection';
 import SpecialitiesSection from '../../components/home/SpecialitiesSection';
 import ServicesSection from '../../components/home/ServicesSection';
@@ -24,9 +25,9 @@ const GlobalOutreach = () => (
     <Container>
       <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
         <div className="lg:w-[55%]">
-          <SectionHeading 
-            eyebrow="Global Presence" 
-            title="A Premier Medical <span class='text-primary-400'>Destination.</span>" 
+          <SectionHeading
+            eyebrow="Global Presence"
+            title="A Premier Medical <span class='text-primary-400'>Destination.</span>"
             description="Umang Hospital is a preferred healthcare destination for patients worldwide. We offer personalized medical care, dedicated concierge services, and post-discharge follow-ups globally."
             dark
             descriptionMaxWidth="max-w-xl"
@@ -50,7 +51,7 @@ const GlobalOutreach = () => (
               </div>
             ))}
           </div>
-          
+
           <div className="mt-12 flex flex-wrap gap-6">
             <Link to="/contact/inquiry-hub" className="inline-flex items-center gap-2 px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-full font-bold transition-all transform hover:scale-105 shadow-lg shadow-primary-600/20">
               International Desk <ArrowRight className="w-4 h-4" />
@@ -70,7 +71,7 @@ const GlobalOutreach = () => (
                 <div className="w-12 h-1 bg-gray-100 mt-4 rounded-full" />
               </div>
             </div>
-            
+
             <div className="absolute top-10 -right-6 bg-primary-600 text-white px-6 py-4 rounded-2xl shadow-xl hidden lg:block">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-ping" />
@@ -78,7 +79,6 @@ const GlobalOutreach = () => (
               </div>
             </div>
           </div>
-          {/* Decorative elements */}
           <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full border border-white/5 rounded-full scale-110" />
           <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/5 rounded-full scale-125 opacity-30" />
         </div>
@@ -97,8 +97,8 @@ const Home = () => {
 
   return (
     <>
-      <SeoHead 
-        title="Umang Superspeciality Hospital" 
+      <SeoHead
+        title="Umang Superspeciality Hospital"
         description="World-class healthcare in Gurugram. 150-bedded facility with advanced Cardiology, Neurology, Orthopaedics, and 24/7 Emergency care."
         canonical="/"
       />
@@ -110,7 +110,7 @@ const Home = () => {
 
       <main className="overflow-x-hidden relative">
         <HeroSection />
-        <TrustSection />
+        <EventHighlights />
         <HospitalVideoSection />
         <SpecialitiesSection />
         <ServicesSection />

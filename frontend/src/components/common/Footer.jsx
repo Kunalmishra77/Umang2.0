@@ -41,12 +41,12 @@ const Footer = () => {
       {/* Back to Top Button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-24 right-4 md:bottom-6 md:right-24 z-40 w-10 h-10 rounded-full bg-primary-600 text-white flex items-center justify-center shadow-xl transition-all duration-500 hover:bg-primary-500 hover:-translate-y-1 active:scale-90 ${
-          isVisible ? 'opacity-40 hover:opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+        className={`fixed bottom-5 left-5 md:bottom-6 md:left-6 z-40 w-10 h-10 rounded-full bg-brand-dark/80 backdrop-blur-md text-white flex items-center justify-center shadow-lg border border-white/10 transition-all duration-500 hover:bg-primary-600 hover:-translate-y-1 active:scale-90 ${
+          isVisible ? 'opacity-60 hover:opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
         }`}
         aria-label="Back to Top"
       >
-        <ArrowUp className="w-5 h-5" />
+        <ArrowUp className="w-4 h-4" />
       </button>
 
       {/* Decorative Background */}

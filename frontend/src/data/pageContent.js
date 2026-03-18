@@ -5,7 +5,7 @@ export const pageContent = {
   'infrastructure/ot': {
     title: 'Advanced Modular Operation Theatres',
     subtitle: 'Zero-Infection Surgical Suites',
-    heroImage: ASSETS.ROBOTIC_SURGERY,
+    heroImage: ASSETS.OT,
     description: 'Our hospital features state-of-the-art modular operation theatres designed to perform complex surgeries with maximum precision and safety.',
     sections: [
       { type: 'stats', data: [
@@ -169,7 +169,7 @@ export const pageContent = {
         { title: 'Charging Hubs', desc: 'Dedicated mobile and laptop charging stations in all waiting areas.' },
         { title: 'Tele-Health Booth', desc: 'Private booths for remote consultation with family doctors.' }
       ]},
-      { type: 'text-image', title: 'Secure Environment', text: 'The entire facility is under 24/7 CCTV surveillance with a dedicated security team patrolling every floor to ensure the safety of patients and their belongings.', image: ASSETS.RECEPTION },
+      { type: 'text-image', title: 'Secure Environment', text: 'The entire facility is under 24/7 CCTV surveillance with a dedicated security team patrolling every floor to ensure the safety of patients and their belongings.', image: ASSETS.CORRIDOR },
       { type: 'stats', data: [
         { label: 'Elevators', value: '06 Units' },
         { label: 'Air Quality', value: 'Purified' },
@@ -237,7 +237,7 @@ export const pageContent = {
   'infrastructure/help-desk': {
     title: '24/7 Patient Help Desk',
     subtitle: 'At Your Service',
-    heroImage: ASSETS.RECEPTION,
+    heroImage: ASSETS.RECEPTION_ALT,
     description: 'Our dedicated patient coordination team is here to assist you with admissions, billing, and general hospital inquiries.',
     sections: [
       { type: 'stats', data: [
@@ -405,7 +405,7 @@ export const pageContent = {
         { title: 'Respect Others', desc: 'Treat medical staff and other patients with respect and maintain a quiet environment.' },
         { title: 'Financial Obligations', desc: 'Ensure timely settlement of bills and coordinate with your insurance provider.' }
       ]},
-      { type: 'text-image', title: 'Visitor Policy & Safety', text: 'To ensure a quiet and healing environment, we request all visitors to adhere to our visiting hours and safety guidelines. We limit visitors to two per patient to maintain clinical hygiene.', image: ASSETS.RECEPTION },
+      { type: 'text-image', title: 'Visitor Policy & Safety', text: 'To ensure a quiet and healing environment, we request all visitors to adhere to our visiting hours and safety guidelines. We limit visitors to two per patient to maintain clinical hygiene.', image: ASSETS.RECEPTION_LOBBY },
       { type: 'grid', title: 'Safety Benchmarks', items: [
         { title: 'Hand Hygiene', desc: 'Strict protocols for staff and visitors to minimize cross-infection risks.' },
         { title: 'Fire Safety', desc: 'Automated detection systems and regular mock drills for rapid evacuation.' },

@@ -1,42 +1,46 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { ShieldCheck, Activity, Award, Star, Heart, HeartPulse } from 'lucide-react';
 import { Container } from '../ui/Layout';
 
 const trustItems = [
-  { icon: ShieldCheck, title: "NABH Accredited", desc: "Gold Standard Quality", href: "/patient-experience" },
-  { icon: Activity, title: "NABL Certified", desc: "Precision Diagnostics", href: "/services/lab-test-diagnostic" },
-  { icon: Award, title: "JCI Standards", desc: "Global Care Protocols", href: "/patient-experience" },
-  { icon: Star, title: "ISO 9001:2015", desc: "Quality Management", href: "/patient-experience" },
-  { icon: Heart, title: "Patient Choice", desc: "Voted #1 in Region", href: "/patient-corner/patient-stories" },
-  { icon: HeartPulse, title: "24/7 Emergency", desc: "Critical Care Hub", href: "/services/emergency" }
+  { icon: ShieldCheck, title: "NABH Accredited", desc: "Gold Standard Quality" },
+  { icon: Activity, title: "NABL Certified", desc: "Precision Diagnostics" },
+  { icon: Award, title: "JCI Standards", desc: "Global Care Protocols" },
+  { icon: Star, title: "ISO 9001:2015", desc: "Quality Management" },
+  { icon: Heart, title: "Patient Choice", desc: "Voted #1 in Region" },
+  { icon: HeartPulse, title: "24/7 Emergency", desc: "Critical Care Hub" }
 ];
 
 const TrustSection = () => {
   return (
-    <section className="py-10 bg-white border-y border-gray-100 overflow-hidden">
+    <section className="py-10 md:py-12 bg-white border-y border-gray-100 overflow-hidden">
       <Container>
-        <div className="flex flex-wrap justify-center lg:flex-nowrap gap-4 md:gap-8">
+        <div className="flex flex-wrap justify-center lg:flex-nowrap gap-2 md:gap-0">
           {trustItems.map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="flex-1 min-w-[140px] md:min-w-[180px]"
-            >
-              <div
-                className="flex flex-col items-center text-center p-4 rounded-3xl transition-all duration-300"
-              >
-                <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gray-50 flex items-center justify-center text-primary-600 mb-4 shadow-sm border border-gray-100">
-                  <item.icon className="w-6 h-6 md:w-8 md:h-8" />
+            <React.Fragment key={i}>
+              {/* Separator dot — desktop only, between items */}
+              {i > 0 && (
+                <div className="hidden lg:flex items-center px-1">
+                  <div className="w-1 h-1 rounded-full bg-gray-200" />
                 </div>
-                <h4 className="text-xs md:text-sm font-bold text-brand-dark mb-1 transition-colors">{item.title}</h4>
-                <p className="text-[9px] md:text-[10px] text-gray-400 font-medium uppercase tracking-wider">{item.desc}</p>
-              </div>
-            </motion.div>
+              )}
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08, duration: 0.4 }}
+                viewport={{ once: true }}
+                className="flex-1 min-w-[130px] md:min-w-[150px]"
+              >
+                <div className="flex flex-col items-center text-center p-4 md:p-5 rounded-2xl hover:bg-gray-50/80 transition-all duration-300 group cursor-default">
+                  <div className="w-11 h-11 md:w-14 md:h-14 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 mb-3 border border-primary-100/50 group-hover:bg-primary-100 group-hover:scale-105 transition-all duration-300">
+                    <item.icon className="w-5 h-5 md:w-7 md:h-7" />
+                  </div>
+                  <h4 className="text-sm md:text-[15px] font-bold text-brand-dark mb-0.5 group-hover:text-primary-700 transition-colors">{item.title}</h4>
+                  <p className="text-[10px] md:text-[11px] text-gray-400 font-semibold uppercase tracking-wider">{item.desc}</p>
+                </div>
+              </motion.div>
+            </React.Fragment>
           ))}
         </div>
       </Container>

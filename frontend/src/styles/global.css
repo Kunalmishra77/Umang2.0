@@ -4,21 +4,35 @@
 /* 1. Import Ultra-Premium Fonts */
 
 @theme {
-  --color-primary-50: #f0f9ff;
-  --color-primary-100: #e0f2fe;
-  --color-primary-200: #bae6fd;
-  --color-primary-300: #7dd3fc;
-  --color-primary-400: #38bdf8;
-  --color-primary-500: #0ea5e9;
-  --color-primary-600: #0284c7;
-  --color-primary-700: #0369a1;
-  --color-primary-800: #075985;
-  --color-primary-900: #0c4a6e;
-  --color-primary-950: #082f49;
+  /* Teal palette — matched to Umang logo #1E97B2 */
+  --color-primary-50: #f0fbfc;
+  --color-primary-100: #d4f1f5;
+  --color-primary-200: #a8e3ec;
+  --color-primary-300: #6acdd9;
+  --color-primary-400: #35b3c4;
+  --color-primary-500: #1E97B2;
+  --color-primary-600: #1a8299;
+  --color-primary-700: #196b7e;
+  --color-primary-800: #1a5667;
+  --color-primary-900: #1b4856;
+  --color-primary-950: #0d2f3a;
+
+  /* Orange/Amber accent — matched to Umang logo #FFA600 */
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fff3c6;
+  --color-accent-200: #ffe588;
+  --color-accent-300: #ffd24a;
+  --color-accent-400: #ffbf20;
+  --color-accent-500: #FFA600;
+  --color-accent-600: #e09000;
+  --color-accent-700: #b86d02;
+  --color-accent-800: #955408;
+  --color-accent-900: #7b440b;
+  --color-accent-950: #472300;
 
   --color-brand-dark: #0f172a;
-  --color-brand-blue: #2563eb;
-  --color-brand-cyan: #06b6d4;
+  --color-brand-teal: #1E97B2;
+  --color-brand-orange: #FFA600;
   --color-brand-yellow: #f59e0b;
 
   /* 2. Update Font Families to Figtree (Proxima Nova alternative) */
@@ -122,11 +136,25 @@
   }
 
   .btn-primary {
-    @apply bg-gradient-to-r from-primary-600 to-primary-500 text-white px-8 py-4 rounded-full shadow-[0_10px_20px_-10px_rgba(14,165,233,0.4)] hover:shadow-[0_20px_30px_-10px_rgba(14,165,233,0.5)] hover:-translate-y-1 active:translate-y-0 active:scale-95 transition-all duration-300 font-bold tracking-wide flex items-center justify-center gap-2;
+    @apply bg-gradient-to-r from-primary-600 to-primary-500 text-white px-8 py-4 rounded-full shadow-[0_10px_20px_-10px_rgba(30,151,178,0.4)] hover:shadow-[0_20px_30px_-10px_rgba(30,151,178,0.5)] hover:-translate-y-1 active:translate-y-0 active:scale-95 transition-all duration-300 font-bold tracking-wide flex items-center justify-center gap-2;
   }
 
   .btn-outline {
     @apply bg-transparent border-2 border-primary-600 text-primary-700 px-8 py-4 rounded-full hover:bg-primary-50 hover:border-primary-500 hover:shadow-lg hover:-translate-y-1 active:translate-y-0 active:scale-95 transition-all duration-300 font-bold tracking-wide flex items-center justify-center gap-2;
+  }
+
+  /* Pill button system — standardized across site */
+  .btn-pill {
+    @apply rounded-full font-bold uppercase tracking-[0.1em] text-[12px] transition-all active:scale-95;
+  }
+  .btn-pill-primary {
+    @apply rounded-full font-bold uppercase tracking-[0.1em] text-[12px] transition-all active:scale-95 bg-primary-600 text-white px-8 h-12 flex items-center justify-center gap-2 hover:bg-primary-500 shadow-lg shadow-primary-600/20;
+  }
+  .btn-pill-outline {
+    @apply rounded-full font-bold uppercase tracking-[0.1em] text-[12px] transition-all active:scale-95 border border-white/20 text-white px-8 h-12 flex items-center justify-center gap-2 hover:bg-white/10;
+  }
+  .btn-pill-accent {
+    @apply rounded-full font-bold uppercase tracking-[0.1em] text-[12px] transition-all active:scale-95 bg-accent-500 text-white px-8 h-12 flex items-center justify-center gap-2 hover:bg-accent-600 shadow-lg shadow-accent-500/20;
   }
 
   .hover-card {
@@ -173,13 +201,13 @@
 }
 
 .hero-gradient-text {
-  color: #7dd3fc;
-  text-shadow: 0 1px 16px rgba(2, 132, 199, 0.22);
+  color: #6acdd9;
+  text-shadow: 0 1px 16px rgba(30, 151, 178, 0.22);
 }
 
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .hero-gradient-text {
-    background-image: linear-gradient(120deg, #e0f2fe 5%, #7dd3fc 38%, #38bdf8 72%, #bae6fd 100%);
+    background-image: linear-gradient(120deg, #d4f1f5 5%, #6acdd9 38%, #35b3c4 72%, #a8e3ec 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -12,7 +12,7 @@ const HomeFaq = () => {
       <div className="container-custom">
         <div className="flex flex-col lg:flex-row gap-16 items-start">
           {/* Left Side: Info & Contact Card */}
-          <div className="lg:w-1/3 sticky top-32">
+          <div className="lg:w-1/3 sticky" style={{ top: 'calc(var(--header-h) + 2rem)' }}>
             <div className="mb-10">
               <span className="inline-block px-4 py-2 bg-primary-50 text-primary-600 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
                 Help Desk

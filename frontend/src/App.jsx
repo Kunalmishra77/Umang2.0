@@ -69,6 +69,8 @@ import LabReports from './pages/patients/LabReports';
 import Billing from './pages/patients/Billing';
 import InquiryHub from './pages/contact/InquiryHub';
 import WhatsAppFloating from './components/common/WhatsAppFloating';
+// LiveChatBubble merged into WhatsAppFloating
+import Preloader from './components/common/Preloader';
 
 import Logout from './pages/auth/Logout';
 import { ToastContainer } from 'react-toastify';
@@ -83,10 +85,22 @@ import PatientLayout from './layouts/PatientLayout';
 import NotFound from './pages/utils/NotFound';
 
 import Patients from './pages/patients/Patients';
+import { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
+      <AnimatePresence mode="wait">
+        {isLoading && <Preloader key="preloader" />}
+      </AnimatePresence>
       <ScrollToTop />
       <WhatsAppFloating />
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss draggable pauseOnHover theme="light" />

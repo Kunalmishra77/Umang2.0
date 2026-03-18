@@ -27,7 +27,7 @@ const PatientLayout = () => {
         <div className="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-12">
             <Link to="/patients" className="flex items-center gap-2 group">
-              <img src="/umang.svg" alt="Umang" className="h-10 transition-transform group-hover:scale-110" />
+              <img src="/Umang-logo.png" alt="Umang" className="h-10 transition-transform group-hover:scale-110" />
               <div className="hidden md:block">
                 <span className="text-xl font-serif font-bold text-[#0f172a] block leading-none">UMANG</span>
                 <span className="text-[10px] font-bold text-red-600 tracking-[0.3em] uppercase">Portal</span>
