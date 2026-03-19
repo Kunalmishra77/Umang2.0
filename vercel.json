@@ -1,6 +1,7 @@
 {
   "version": 2,
   "public": true,
+  "outputDirectory": "frontend/dist",
   "rewrites": [
     { "source": "/api/(.*)", "destination": "http://localhost:8000/api/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
