@@ -57,6 +57,19 @@ const events = [
     icon: '🏥',
     cta: { label: 'Learn More', to: '/services' },
   },
+  {
+    title: 'Flat 30% Off on Medicines',
+    desc: 'Get up to 30% discount on all medicines at our pharmacy. Quality medicines at affordable prices for every patient.',
+    badge: 'LIMITED TIME',
+    status: 'OFFER',
+    statusColor: 'bg-purple-500',
+    schedule: 'Available Daily',
+    location: 'Hospital Pharmacy, Ground Floor',
+    image: ASSETS.PHARMACY,
+    gradient: 'from-purple-600 to-pink-500',
+    icon: '💊',
+    cta: { label: 'Visit Pharmacy', to: '/services/pharmacy' },
+  },
 ];
 
 const EventHighlights = () => {

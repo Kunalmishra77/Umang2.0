@@ -1,80 +1,344 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Heart, Brain, Bone, Activity, Scissors, Wind } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 
 const departments = [
-  { id: 'cardiac', name: 'Cardiac Sciences', icon: Heart, desc: 'Advanced heart care', img: ASSETS.CARDIAC },
-  { id: 'neuro', name: 'Neuro Sciences', icon: Brain, desc: 'Brain & Spine Care', img: ASSETS.NEURO },
-  { id: 'ortho', name: 'Orthopaedics', icon: Bone, desc: 'Joint Replacement', img: ASSETS.ORTHO },
-  { id: 'gastro', name: 'Gastroenterology', icon: Activity, desc: 'Digestive Health', img: ASSETS.GASTRO },
-  { id: 'pulmonology', name: 'Pulmonology', icon: Wind, desc: 'Respiratory Care', img: ASSETS.PULMONOLOGY },
-  { id: 'surgery', name: 'General Surgery', icon: Scissors, desc: 'Laparoscopic Care', img: ASSETS.OT },
+  {
+    id: 'cardiac', name: 'Cardiac Sciences', shortName: 'Cardiac', icon: Heart,
+    tagline: 'Comprehensive heart care with 24/7 Cath Lab, bypass surgery, and interventional cardiology.',
+    stat: '5000+', statLabel: 'Procedures',
+    img: ASSETS.CARDIAC, video: ASSETS.CARDIAC_VIDEO,
+    accent: 'from-rose-500 to-red-600',
+  },
+  {
+    id: 'neuro', name: 'Neuro Sciences', shortName: 'Neuro', icon: Brain,
+    tagline: 'Advanced brain & spine surgeries including micro-neurosurgery and stroke management.',
+    stat: '2000+', statLabel: 'Surgeries',
+    img: ASSETS.NEURO, video: ASSETS.NEURO_VIDEO,
+    accent: 'from-violet-500 to-purple-600',
+  },
+  {
+    id: 'ortho', name: 'Orthopaedics', shortName: 'Ortho', icon: Bone,
+    tagline: 'Total joint replacements, arthroscopy, sports medicine, and navigation-guided surgery.',
+    stat: '3000+', statLabel: 'Replacements',
+    img: ASSETS.ORTHO, video: ASSETS.ORTHO_VIDEO,
+    accent: 'from-amber-500 to-orange-600',
+  },
+  {
+    id: 'gastro', name: 'Gastroenterology', shortName: 'Gastro', icon: Activity,
+    tagline: 'Advanced endoscopy, ERCP, liver transplant workup, and comprehensive GI care.',
+    stat: '1500+', statLabel: 'Endoscopies',
+    img: ASSETS.GASTRO, video: ASSETS.GASTRO_VIDEO,
+    accent: 'from-emerald-500 to-green-600',
+  },
+  {
+    id: 'pulmonology', name: 'Pulmonology', shortName: 'Pulmo', icon: Wind,
+    tagline: 'Respiratory critical care, sleep medicine, bronchoscopy, and ventilator management.',
+    stat: '1000+', statLabel: 'Treated',
+    img: ASSETS.PULMONOLOGY, video: ASSETS.PULMONOLOGY_VIDEO,
+    accent: 'from-cyan-500 to-teal-600',
+  },
+  {
+    id: 'surgery', name: 'General Surgery', shortName: 'Surgery', icon: Scissors,
+    tagline: 'Minimally invasive laparoscopic procedures, bariatric surgery, and hernia repair.',
+    stat: '4000+', statLabel: 'Surgeries',
+    img: ASSETS.OT, video: ASSETS.SURGERY_VIDEO,
+    accent: 'from-blue-500 to-indigo-600',
+  },
 ];
 
-const container = {
-  hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.08 } }
+/* ═══════════════════════════════════════
+   DESKTOP: Expanding Strips
+═══════════════════════════════════════ */
+const ExpandingStrips = () => {
+  const [active, setActive] = useState(0);
+  const videoRefs = useRef({});
+  const timerRef = useRef(null);
+
+  const activate = (idx) => {
+    setActive(idx);
+    // Play the newly active video
+    Object.entries(videoRefs.current).forEach(([key, ref]) => {
+      if (ref) {
+        if (parseInt(key) === idx) {
+          ref.currentTime = 0;
+          ref.play().catch(() => {});
+        } else {
+          ref.pause();
+        }
+      }
+    });
+    // Reset auto-rotate
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setActive((p) => (p + 1) % departments.length);
+    }, 5000);
+  };
+
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setActive((p) => (p + 1) % departments.length);
+    }, 5000);
+    return () => clearInterval(timerRef.current);
+  }, []);
+
+  // Play correct video when active changes via autoplay
+  useEffect(() => {
+    Object.entries(videoRefs.current).forEach(([key, ref]) => {
+      if (ref) {
+        if (parseInt(key) === active) {
+          ref.currentTime = 0;
+          ref.play().catch(() => {});
+        } else {
+          ref.pause();
+        }
+      }
+    });
+  }, [active]);
+
+  return (
+    <div className="hidden lg:flex h-[540px] rounded-[2rem] overflow-hidden border border-white/[0.06] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.5)]">
+      {departments.map((dept, i) => {
+        const isActive = i === active;
+        return (
+          <motion.div
+            key={dept.id}
+            className="relative h-full cursor-pointer overflow-hidden"
+            animate={{ flex: isActive ? 5 : 0.6 }}
+            transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+            onClick={() => activate(i)}
+            onMouseEnter={() => activate(i)}
+          >
+            {/* Background image (always visible) */}
+            <img
+              src={dept.img}
+              alt={dept.name}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* Video (only for active) */}
+            <video
+              ref={(el) => { videoRefs.current[i] = el; }}
+              muted
+              loop
+              playsInline
+              preload="none"
+              poster={dept.img}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+                isActive ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <source src={dept.video} type="video/mp4" />
+            </video>
+
+            {/* Dark overlay — heavier on collapsed strips */}
+            <div className={`absolute inset-0 transition-all duration-600 ${
+              isActive
+                ? 'bg-gradient-to-t from-[#020617]/90 via-[#020617]/30 to-[#020617]/20'
+                : 'bg-[#020617]/80'
+            }`} />
+
+            {/* ── Collapsed state: vertical text ── */}
+            <div className={`absolute inset-0 flex flex-col items-center justify-center transition-all duration-500 ${
+              isActive ? 'opacity-0 pointer-events-none' : 'opacity-100'
+            }`}>
+              <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${dept.accent} flex items-center justify-center mb-4 shadow-lg`}>
+                <dept.icon className="w-5 h-5 text-white" />
+              </div>
+              <span
+                className="text-white/70 font-bold text-[13px] uppercase tracking-[0.2em]"
+                style={{ writingMode: 'vertical-lr', textOrientation: 'mixed' }}
+              >
+                {dept.shortName}
+              </span>
+            </div>
+
+            {/* ── Expanded state: full content ── */}
+            <AnimatePresence>
+              {isActive && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  className="absolute inset-0 flex flex-col justify-end p-10 xl:p-12"
+                >
+                  {/* Number indicator */}
+                  <span className="absolute top-8 left-10 text-[120px] font-black text-white/[0.03] leading-none select-none font-serif">
+                    0{i + 1}
+                  </span>
+
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r ${dept.accent} text-white text-[10px] font-bold uppercase tracking-widest mb-5 shadow-lg`}>
+                      <dept.icon className="w-3.5 h-3.5" />
+                      {dept.name}
+                    </div>
+
+                    <h3 className="text-3xl xl:text-4xl font-serif font-bold text-white mb-3 leading-tight">
+                      {dept.name}
+                    </h3>
+
+                    <p className="text-white/50 text-sm xl:text-base leading-relaxed max-w-lg mb-8">
+                      {dept.tagline}
+                    </p>
+
+                    <div className="flex items-center gap-8">
+                      <Link
+                        to={`/specialities/${dept.id}`}
+                        className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-[#020617] rounded-full font-bold text-[12px] uppercase tracking-wider hover:-translate-y-0.5 transition-all shadow-xl"
+                      >
+                        Explore <ArrowRight className="w-4 h-4" />
+                      </Link>
+
+                      <div className="hidden xl:block border-l border-white/10 pl-8">
+                        <span className="text-3xl font-black text-white">{dept.stat}</span>
+                        <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest mt-0.5">{dept.statLabel}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Progress bar at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[3px]">
+                    <motion.div
+                      className={`h-full bg-gradient-to-r ${dept.accent}`}
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 5, ease: 'linear' }}
+                      style={{ transformOrigin: 'left' }}
+                      key={`progress-${active}`}
+                    />
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
 };
 
-const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
+/* ═══════════════════════════════════════
+   MOBILE: Stacked horizontal scroll cards
+═══════════════════════════════════════ */
+const MobileCards = () => {
+  const [active, setActive] = useState(0);
+  const scrollRef = useRef(null);
+
+  return (
+    <div className="lg:hidden">
+      <div
+        ref={scrollRef}
+        className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4"
+        onScroll={(e) => {
+          const el = e.target;
+          const idx = Math.round(el.scrollLeft / (el.offsetWidth * 0.85));
+          setActive(Math.min(idx, departments.length - 1));
+        }}
+      >
+        {departments.map((dept, i) => (
+          <Link
+            key={dept.id}
+            to={`/specialities/${dept.id}`}
+            className="shrink-0 w-[85vw] sm:w-[70vw] snap-start relative rounded-2xl overflow-hidden aspect-[3/4] sm:aspect-[4/5] group block"
+          >
+            <img src={dept.img} alt={dept.name} className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/95 via-[#020617]/40 to-transparent" />
+
+            {/* Number watermark */}
+            <span className="absolute top-4 right-5 text-[80px] font-black text-white/[0.04] leading-none select-none font-serif">
+              0{i + 1}
+            </span>
+
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r ${dept.accent} text-white text-[9px] font-bold uppercase tracking-widest mb-3`}>
+                <dept.icon className="w-3 h-3" />
+                {dept.shortName}
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-2">{dept.name}</h3>
+              <p className="text-white/40 text-[13px] leading-relaxed mb-5 line-clamp-2">{dept.tagline}</p>
+              <div className="flex items-center justify-between">
+                <span className="inline-flex items-center gap-2 text-white font-bold text-[11px] uppercase tracking-wider">
+                  Explore <ArrowRight className="w-3.5 h-3.5" />
+                </span>
+                <div className="text-right">
+                  <span className="text-xl font-black text-white">{dept.stat}</span>
+                  <p className="text-[8px] font-bold text-white/25 uppercase tracking-widest">{dept.statLabel}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom accent bar */}
+            <div className={`absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r ${dept.accent}`} />
+          </Link>
+        ))}
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-1.5 mt-4">
+        {departments.map((_, i) => (
+          <div
+            key={i}
+            className={`h-1 rounded-full transition-all duration-300 ${
+              i === active ? 'w-6 bg-primary-400' : 'w-1.5 bg-white/15'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
+/* ═══════════════════════════════════════
+   MAIN SECTION
+═══════════════════════════════════════ */
 const SpecialitiesSection = () => {
   return (
-    <section className="section-padding bg-gray-50 overflow-hidden">
-      <div className="container-custom">
+    <section className="py-16 lg:py-24 bg-[#020617] overflow-hidden relative">
+      {/* Background glow */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-600/5 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-600/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container-custom relative z-10">
+        {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-10 lg:mb-14 gap-6 text-center lg:text-left">
-          <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
-            <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] lg:text-[13px] mb-3 block">Clinical Excellence</span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">Centres of <span className="text-primary-600">Excellence</span></h2>
-            <p className="text-gray-500 max-w-xl text-base lg:text-lg font-light leading-relaxed mx-auto lg:mx-0 mt-3">
-              Leading specialized departments utilizing cutting-edge technology for superior patient outcomes.
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[11px] lg:text-[12px] mb-3 block">
+              Clinical Excellence
+            </span>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight">
+              Centres of{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300">
+                Excellence
+              </span>
+            </h2>
+            <p className="text-white/30 max-w-xl text-base lg:text-lg font-light leading-relaxed mx-auto lg:mx-0 mt-3">
+              Hover to explore our world-class departments.
             </p>
           </motion.div>
-          <Link to="/specialities" className="hidden lg:flex items-center gap-3 px-7 py-3.5 rounded-full border border-gray-200 hover:border-primary-600 hover:bg-white text-brand-dark transition-all font-bold text-[11px] uppercase tracking-widest group shrink-0 shadow-sm hover:shadow-md">
-            View All Departments <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+          <Link
+            to="/specialities"
+            className="hidden lg:flex items-center gap-3 px-7 py-3.5 rounded-full border border-white/10 hover:border-primary-500 text-white transition-all font-bold text-[11px] uppercase tracking-widest group shrink-0 hover:bg-white/5"
+          >
+            All Departments <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
-        {/* Simplified grid: 2 cols mobile, 3 cols desktop, uniform height */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 auto-rows-[240px] sm:auto-rows-[260px] lg:auto-rows-[300px]"
-        >
-          {departments.map((dept) => (
-            <motion.div key={dept.id} variants={item}>
-              <Link to={`/specialities/${dept.id}`} className="block h-full group relative rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
-                <div className="absolute inset-0 overflow-hidden">
-                  <img src={dept.img} alt={dept.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-brand-dark/20 to-transparent opacity-75 group-hover:opacity-65 transition-opacity" />
+        {/* Desktop */}
+        <ExpandingStrips />
 
-                <div className="absolute inset-0 p-5 lg:p-7 flex flex-col justify-end">
-                  <div className="relative z-10">
-                    <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center mb-3 lg:mb-4 border border-white/15 group-hover:bg-primary-500/20 group-hover:border-primary-400/30 transition-all duration-500">
-                      <dept.icon className="w-5 h-5 lg:w-6 lg:h-6 text-white" />
-                    </div>
-                    <h3 className="text-base lg:text-xl font-bold text-white mb-1 leading-tight">{dept.name}</h3>
-                    {/* Always visible "Explore" — not hover-only */}
-                    <div className="flex items-center gap-2 text-primary-300 font-bold tracking-widest text-[10px] lg:text-[11px] uppercase mt-1 opacity-70 group-hover:opacity-100 transition-opacity">
-                      <span>Explore</span> <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Mobile */}
+        <MobileCards />
 
         <div className="mt-8 lg:hidden text-center">
-          <Link to="/specialities" className="inline-flex items-center gap-2 text-primary-600 font-bold text-[11px] uppercase tracking-widest">
+          <Link to="/specialities" className="inline-flex items-center gap-2 text-primary-400 font-bold text-[11px] uppercase tracking-widest">
             All Departments <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>

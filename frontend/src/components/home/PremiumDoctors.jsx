@@ -39,7 +39,7 @@ const PremiumDoctors = () => {
                 <span className="w-16 h-[3px] bg-primary-500 rounded-full" />
                 <span className="text-primary-400 font-black uppercase tracking-[0.4em] text-[13px] lg:text-[15px]">Elite Medical Faculty</span>
              </div>
-             <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-2">
+             <h2 className="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white leading-[1.1] mb-2">
                World-Class <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400 normal">Specialists</span>
              </h2>
            </motion.div>
@@ -50,8 +50,8 @@ const PremiumDoctors = () => {
              transition={{ duration: 0.8 }}
              viewport={{ once: true }}
            >
-             <Link to="/doctors" className="group flex items-center gap-5 px-8 py-4 rounded-full bg-white/5 border border-white/10 text-[13px] font-bold text-white hover:bg-white hover:text-brand-dark transition-all duration-300 backdrop-blur-sm uppercase tracking-widest shadow-xl">
-                Explore <CountUp to={parseInt(siteConfig.stats.superspecialists)} />+ Specialists <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+             <Link to="/doctors" className="group flex items-center gap-3 sm:gap-5 px-5 sm:px-8 py-3 sm:py-4 rounded-full bg-white/5 border border-white/10 text-[11px] sm:text-[13px] font-bold text-white hover:bg-white hover:text-brand-dark transition-all duration-300 backdrop-blur-sm uppercase tracking-widest shadow-xl">
+                Explore <CountUp to={parseInt(siteConfig.stats.superspecialists)} />+ Specialists <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-2 transition-transform" />
              </Link>
            </motion.div>
         </div>
@@ -97,7 +97,7 @@ const PremiumDoctors = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.02 }}
                     transition={{ duration: 0.5 }}
-                    className="relative w-full h-[450px] md:h-[550px] lg:h-[600px] rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden shadow-2xl border border-white/10 bg-[#1e293b]"
+                    className="relative w-full h-[350px] xs:h-[400px] sm:h-[450px] md:h-[550px] lg:h-[600px] rounded-2xl sm:rounded-[2.5rem] lg:rounded-[3.5rem] overflow-hidden shadow-2xl border border-white/10 bg-[#1e293b]"
                  >
                     <img 
                       src={activeDoc.image} 
@@ -129,21 +129,21 @@ const PremiumDoctors = () => {
                              </div>
                           </div>
                           
-                          <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white mb-1 tracking-tight leading-tight">{activeDoc.name}</h3>
-                          <p className="text-primary-100 text-[12px] lg:text-[1.1rem] mb-5 lg:mb-6 font-light normal leading-relaxed max-w-lg">{activeDoc.role}</p>
+                          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif font-bold text-white mb-1 tracking-tight leading-tight">{activeDoc.name}</h3>
+                          <p className="text-primary-100 text-[11px] sm:text-[12px] lg:text-[1.1rem] mb-4 sm:mb-5 lg:mb-6 font-light normal leading-relaxed max-w-lg line-clamp-2">{activeDoc.role}</p>
 
-                          <div className="flex gap-4">
-                             <Link 
-                               to={`/booking/${activeDoc.id}`} 
-                               className="px-7 py-4 bg-white text-brand-dark rounded-xl lg:rounded-full font-bold text-[12px] lg:text-[1rem] shadow-2xl hover:bg-primary-50 hover:scale-105 transition-all flex items-center justify-center gap-3"
+                          <div className="flex flex-col xs:flex-row gap-3 sm:gap-4">
+                             <Link
+                               to={`/booking/${activeDoc.id}`}
+                               className="px-5 sm:px-7 py-3 sm:py-4 bg-white text-brand-dark rounded-xl lg:rounded-full font-bold text-[11px] sm:text-[12px] lg:text-[1rem] shadow-2xl hover:bg-primary-50 hover:scale-105 transition-all flex items-center justify-center gap-2 sm:gap-3"
                              >
-                                Instant Appointment <ArrowRight className="w-4 h-4" />
+                                Instant Appointment <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                              </Link>
-                             <Link 
-                               to={`/doctor/${activeDoc.id}`} 
-                               className="px-7 py-4 rounded-xl lg:rounded-full border-2 border-white/20 text-white font-bold text-[12px] lg:text-[1rem] backdrop-blur-md hover:bg-white/10 hover:border-white/40 transition-all text-center flex items-center justify-center gap-3"
+                             <Link
+                               to={`/doctor/${activeDoc.id}`}
+                               className="px-5 sm:px-7 py-3 sm:py-4 rounded-xl lg:rounded-full border-2 border-white/20 text-white font-bold text-[11px] sm:text-[12px] lg:text-[1rem] backdrop-blur-md hover:bg-white/10 hover:border-white/40 transition-all text-center flex items-center justify-center gap-2 sm:gap-3"
                              >
-                                <Stethoscope className="w-4 h-4" />
+                                <Stethoscope className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                                 Full Profile
                              </Link>
                           </div>
