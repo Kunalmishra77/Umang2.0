@@ -100,17 +100,17 @@ export const pageContent = {
     title: 'Radiology & Imaging Wing',
     subtitle: 'High-Precision Diagnostics',
     heroImage: ASSETS.MRI_SCAN,
-    description: 'Equipped with the region\'s first 3 Tesla wide-bore MRI and 128 slice CT scan for rapid and accurate diagnosis through high-definition imaging.',
+    description: 'Equipped with a 3 Tesla wide-bore MRI (upcoming) and 32 slice CT scan for rapid and accurate diagnosis through high-definition imaging.',
     sections: [
       { type: 'stats', data: [
         { label: 'MRI Tech', value: '3.0 Tesla' },
-        { label: 'CT Slices', value: '128 Slice' },
+        { label: 'CT Slices', value: '32 Slice' },
         { label: 'Reporting', value: '24/7' },
         { label: 'Accuracy', value: '99.9%' }
       ]},
       { type: 'features', title: 'Imaging Technologies', items: [
-        { title: '3.0T Wide-Bore MRI', desc: 'Non-claustrophobic design with AI-assisted high-resolution imaging for neurological and musculoskeletal scans.' },
-        { title: '128 Slice CT Scan', desc: 'Ultrafast scanning with 40% lower radiation dosage for cardiac, pulmonary, and trauma cases.' },
+        { title: '3.0T Wide-Bore MRI (Upcoming)', desc: 'Non-claustrophobic design with AI-assisted high-resolution imaging for neurological and musculoskeletal scans.' },
+        { title: '32 Slice CT Scan', desc: 'Ultrafast scanning with lower radiation dosage for cardiac, pulmonary, and trauma cases.' },
         { title: 'Digital X-Ray', desc: 'Instant high-quality digital radiographs with ultra-low exposure for immediate clinical review.' },
         { title: 'Color Doppler', desc: 'Advanced blood flow imaging using high-frequency sound waves for vascular and cardiac health.' }
       ]},

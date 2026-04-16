@@ -159,7 +159,7 @@ const Telemedicine = () => {
                      <spec.icon className="w-7 h-7" />
                   </div>
                   <h3 className="font-bold text-brand-dark mb-2 text-sm lg:text-base group-hover:text-primary-600 transition-colors">{spec.name}</h3>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 inline-block px-3 py-1 rounded-full mt-auto">Wait: {spec.waiting}</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-emerald-600 bg-emerald-50 inline-block px-3 py-1 rounded-full mt-auto">Avg. wait: {spec.waiting}</p>
                 </div>
               </Link>
             ))}
@@ -278,7 +278,7 @@ const Telemedicine = () => {
                   </div>
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                     <div className="flex items-center gap-2">
-                      <img src="/Umang-logo.png" alt="Umang logo" className="h-5 w-auto opacity-60" />
+                      <img src="/Umang-logo.webp" alt="Umang logo" className="h-5 w-auto opacity-60" />
                       <span className="text-xs font-bold text-gray-400">Signed Digitally</span>
                     </div>
                     <CheckCircle className="w-5 h-5 text-green-500" />

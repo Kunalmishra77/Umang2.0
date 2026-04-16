@@ -16,6 +16,7 @@ const packages = [
     title: "Basic Health Check",
     subtitle: "Essential screening for young adults",
     tests: "40+ Parameters",
+    price: "₹1,100",
     color: "bg-blue-50 border-blue-100",
     icon: Activity,
     features: ["Complete Blood Count (CBC)", "Blood Sugar (Fasting)", "Lipid Profile (Cholesterol)", "Liver Function Test (LFT)", "Kidney Function Test (KFT)", "Urine Routine"]
@@ -25,6 +26,7 @@ const packages = [
     title: "Executive Full Body",
     subtitle: "Comprehensive analysis for 30+",
     tests: "75+ Parameters",
+    price: "₹1,700",
     color: "bg-green-50 border-green-100",
     icon: Shield,
     popular: true,
@@ -35,6 +37,7 @@ const packages = [
     title: "Premium Heart Check",
     subtitle: "Dedicated cardiac assessment",
     tests: "60+ Parameters",
+    price: "₹2,100",
     color: "bg-red-50 border-red-100",
     icon: Heart,
     features: ["All Executive Tests", "2D Echo / TMT", "Cardiac Risk Markers", "Homocysteine", "Pulmonary Function Test", "Cardiologist Consult"]
@@ -44,6 +47,7 @@ const packages = [
     title: "Senior Citizen Care",
     subtitle: "Specialized geriatric screening",
     tests: "85+ Parameters",
+    price: "₹2,000",
     color: "bg-orange-50 border-orange-100",
     icon: User,
     features: ["All Executive Tests", "Bone Health Profile", "Prostate / Pap Smear", "Eye & Dental Checkup", "Audiometry", "Geriatric Consult"]
@@ -193,7 +197,8 @@ const HealthCheckup = () => {
 
                      <div className="bg-gray-50 p-8 border-t border-gray-100 flex items-center justify-between">
                         <div>
-                           <p className="text-green-600 text-lg font-bold">{pkg.tests}</p>
+                           <p className="text-[#005580] text-2xl font-black">{pkg.price}</p>
+                           <p className="text-green-600 text-sm font-bold">{pkg.tests}</p>
                            <p className="text-gray-400 text-xs uppercase tracking-widest font-black">Comprehensive screening</p>
                         </div>
                         <Link to="/services/booking/health-checkup" className="h-14 px-8 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-[#005580] transition-all shadow-lg flex items-center justify-center gap-2">

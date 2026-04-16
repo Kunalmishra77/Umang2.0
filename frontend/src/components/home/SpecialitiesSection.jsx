@@ -193,10 +193,6 @@ const ExpandingStrips = () => {
                         Explore <ArrowRight className="w-4 h-4" />
                       </Link>
 
-                      <div className="hidden xl:block border-l border-white/10 pl-8">
-                        <span className="text-3xl font-black text-white">{dept.stat}</span>
-                        <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest mt-0.5">{dept.statLabel}</p>
-                      </div>
                     </div>
                   </div>
 
@@ -264,10 +260,6 @@ const MobileCards = () => {
                 <span className="inline-flex items-center gap-2 text-white font-bold text-[11px] uppercase tracking-wider">
                   Explore <ArrowRight className="w-3.5 h-3.5" />
                 </span>
-                <div className="text-right">
-                  <span className="text-xl font-black text-white">{dept.stat}</span>
-                  <p className="text-[8px] font-bold text-white/25 uppercase tracking-widest">{dept.statLabel}</p>
-                </div>
               </div>
             </div>
 

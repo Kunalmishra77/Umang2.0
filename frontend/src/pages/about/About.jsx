@@ -56,7 +56,7 @@ const About = () => {
         <div className="container-custom relative z-10 text-center">
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-[11px] lg:text-[13px] font-bold uppercase tracking-[0.3em] mb-6 backdrop-blur-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary-500 animate-pulse" /> Established 2010
+              <span className="w-1.5 h-1.5 rounded-full bg-primary-500 animate-pulse" /> Established 2021
             </span>
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-5 tracking-tighter leading-[0.85] drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)]">
               Legacy of <br />
@@ -130,7 +130,7 @@ const About = () => {
 const PurposeSection = ({ fadeIn }) => {
   const [activeTab, setActiveTab] = useState('vision');
   const tabs = {
-    vision: { icon: Eye, title: 'Our Vision', color: 'primary', text: 'We seek to be a leader in providing high-quality services to our patients and define the standards of excellence for healthcare in India.' },
+    vision: { icon: Eye, title: 'Our Vision', color: 'primary', text: 'Patient centric affordable and advance clinical care.' },
     mission: { icon: Target, title: 'Our Mission', color: 'cyan', text: 'To provide advanced, ethical, and compassionate healthcare that is accessible and affordable, with personalized treatment and excellent outcomes.' },
   };
 
@@ -542,7 +542,7 @@ const CoreValuesSection = () => {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] mb-4 block">The Umang Ethos</span>
             <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Our Core Values</h2>
-            <p className="text-gray-500 text-lg lg:text-xl font-light">The pillars that support our clinical excellence and patient trust.</p>
+            <p className="text-gray-500 text-lg lg:text-xl font-light">Sewa Parmo Dharam — Service is the highest virtue.</p>
           </motion.div>
         </div>
 
@@ -795,9 +795,9 @@ const TimelineSection = () => {
   });
 
   const milestones = [
-    { year: '2010', title: 'The Foundation', desc: `Umang opens its doors as a 50-bed focused care unit. Driven by a mission to bring accessible, world-class healthcare to Gurugram.`, align: 'left', img: ASSETS.HOSPITAL_EXTERIOR },
-    { year: '2015', title: 'Technological Leap', desc: `A major upgrade to a ${siteConfig.stats.beds}-bed facility. We installed the region's first 128-slice CT scan and inaugurated our advanced 24/7 Pathology Lab.`, align: 'right', img: ASSETS.ABOUT_LEAP },
-    { year: '2020', title: 'Super Speciality Beacon', desc: 'Launch of dedicated Cardiac and Neuro Sciences wings. In the very first year, our team successfully performed over 1,000 procedures.', align: 'left', img: ASSETS.ABOUT_BEACON },
+    { year: '2021', title: 'The Foundation', desc: `Umang opens its doors as a focused care unit. Driven by a mission to bring accessible, world-class healthcare to Gurugram.`, align: 'left', img: ASSETS.HOSPITAL_EXTERIOR },
+    { year: '2022', title: 'Technological Leap', desc: `A major upgrade to a ${siteConfig.stats.beds}-bed facility. We installed a state-of-the-art CT scan and inaugurated our advanced 24/7 Pathology Lab.`, align: 'right', img: ASSETS.ABOUT_LEAP },
+    { year: '2023', title: 'Super Speciality Beacon', desc: 'Launch of dedicated Cardiac and Neuro Sciences wings. In the very first year, our team successfully performed over 1,000 procedures.', align: 'left', img: ASSETS.ABOUT_BEACON },
     { year: '2024', title: 'NABH Gold Standard', desc: `Expanding to ${siteConfig.stats.beds} beds with state-of-the-art Robotic OT suites and comprehensive critical care infrastructure. Achieving high national accreditation.`, align: 'right', img: ASSETS.ABOUT_NABH },
   ];
 

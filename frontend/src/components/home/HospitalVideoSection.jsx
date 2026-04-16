@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, CheckCircle2, Activity, Play } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
 
@@ -37,49 +37,14 @@ const HospitalVideoSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              className="relative rounded-[2.5rem] overflow-hidden border-4 lg:border-[12px] border-white shadow-2xl bg-[#0f172a] aspect-video lg:aspect-[4/3] group"
+              className="relative rounded-[2.5rem] overflow-hidden border-4 lg:border-[12px] border-white shadow-2xl aspect-video lg:aspect-[4/3] group"
             >
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                poster={ASSETS.HOSPITAL_EXTERIOR}
-                className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-700"
-              >
-                <source src="/assets/Home/umange-about.MP4?v=2" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/80 via-transparent to-transparent opacity-60" />
-
-              {/* Animated play pulse */}
-              <div className="absolute top-6 left-6 z-20 pointer-events-none">
-                <div className="relative">
-                  <div className="absolute inset-0 w-12 h-12 rounded-full bg-primary-500/30 animate-ping" />
-                  <div className="relative w-12 h-12 rounded-full bg-primary-600/80 backdrop-blur-md border border-white/30 flex items-center justify-center">
-                    <Activity className="w-5 h-5 text-white" />
-                  </div>
-                </div>
-              </div>
-
-              {/* Stats overlay on hover */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="absolute bottom-4 right-4 lg:bottom-6 lg:right-6 bg-white/10 backdrop-blur-xl rounded-2xl px-5 py-3 border border-white/20 hidden lg:flex items-center gap-4"
-              >
-                <div className="text-center">
-                  <p className="text-2xl font-black text-white">150+</p>
-                  <p className="text-[9px] font-bold text-white/50 uppercase tracking-widest">Beds</p>
-                </div>
-                <div className="w-px h-10 bg-white/10" />
-                <div className="text-center">
-                  <p className="text-2xl font-black text-white">35+</p>
-                  <p className="text-[9px] font-bold text-white/50 uppercase tracking-widest">Doctors</p>
-                </div>
-              </motion.div>
+              <img
+                src="/UmangLatest/reception2.webp"
+                alt="Umang Hospital Reception"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/60 via-transparent to-transparent" />
             </motion.div>
 
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary-500/10 rounded-full blur-3xl -z-10" />
