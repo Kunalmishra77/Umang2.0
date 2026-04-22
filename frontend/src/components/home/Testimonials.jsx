@@ -150,7 +150,7 @@ const Testimonials = () => {
     <section className="py-20 lg:py-32 bg-slate-50 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-40">
-        <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary-100 rounded-full blur-[120px]" />
+        <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary-100/60 rounded-full blur-[120px]" />
         <div className="absolute bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-primary-100/60 rounded-full blur-[120px]" />
       </div>
 
