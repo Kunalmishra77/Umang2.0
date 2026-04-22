@@ -441,7 +441,7 @@ const HeroSection = () => {
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/[0.04]">
           <motion.div className="h-full bg-gradient-to-r from-primary-400 to-accent-400 origin-left" style={{ scaleX: progress }} />
         </div>
-        <div className="container-custom pb-7 pl-20">
+        <div className="container-custom pb-7">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
