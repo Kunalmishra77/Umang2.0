@@ -75,7 +75,7 @@ const AppointmentCTA = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.35 }}
-            className="text-base md:text-xl text-blue-100/50 mb-12 max-w-xl mx-auto font-light leading-relaxed"
+            className="text-base md:text-xl text-primary-100/60 mb-12 max-w-xl mx-auto font-light leading-relaxed"
           >
             Experience world-class healthcare with a personal touch. Schedule your consultation with our leading specialists today.
           </motion.p>

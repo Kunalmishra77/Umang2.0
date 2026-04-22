@@ -49,7 +49,7 @@ const WhyChooseUs = () => {
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-gray-50 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary-100/20 rounded-full blur-[120px] -mr-100 -mt-100 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-100/30 rounded-full blur-[100px] -ml-80 -mb-80 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary-100/30 rounded-full blur-[100px] -ml-80 -mb-80 pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-8 sm:mb-12 lg:mb-16 gap-6 sm:gap-8">

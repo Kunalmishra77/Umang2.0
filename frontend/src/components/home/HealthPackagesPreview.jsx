@@ -9,8 +9,8 @@ const packages = [
     desc: "Essential screening for 40+ vital parameters.",
     tag: "Essential",
     icon: ShieldCheck,
-    color: "from-blue-500 to-cyan-500",
-    bgLight: "bg-blue-50",
+    color: "from-primary-400 to-primary-600",
+    bgLight: "bg-primary-50",
     features: ["Home Collection", "Digital Reports", "Doctor Review", "Diet Consultation"],
   },
   {
@@ -28,8 +28,8 @@ const packages = [
     desc: "Advanced cardiac risk assessment with 60+ tests.",
     tag: "Advanced",
     icon: Heart,
-    color: "from-rose-500 to-red-600",
-    bgLight: "bg-red-50",
+    color: "from-accent-400 to-accent-600",
+    bgLight: "bg-accent-50",
     features: ["Home Collection", "Digital Reports", "Cardiologist Review", "ECG + Echo", "Stress Test"],
   }
 ];

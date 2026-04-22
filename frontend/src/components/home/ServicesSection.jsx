@@ -5,8 +5,8 @@ import { ArrowRight, Home, Video, Pill, Activity, ChevronLeft, ChevronRight } fr
 import { ASSETS } from '../../utils/imageAssets';
 
 const services = [
-  { icon: Home, title: "Home Care", path: "/services/ipd-opd", desc: "Nursing, physiotherapy, and elderly care at your doorstep. Professional medical staff available round the clock.", img: ASSETS.NURSE_CARE, accent: 'from-blue-500 to-cyan-500', bg: 'bg-blue-50' },
-  { icon: Video, title: "Telemedicine", path: "/services/telemedicine", desc: "Connect with top specialists via secure video calls. Get expert medical advice from the comfort of your home.", img: ASSETS.TELEMEDICINE, accent: 'from-emerald-500 to-green-500', bg: 'bg-green-50' },
+  { icon: Home, title: "Home Care", path: "/services/ipd-opd", desc: "Nursing, physiotherapy, and elderly care at your doorstep. Professional medical staff available round the clock.", img: ASSETS.NURSE_CARE, accent: 'from-primary-400 to-primary-600', bg: 'bg-primary-50' },
+  { icon: Video, title: "Telemedicine", path: "/services/telemedicine", desc: "Connect with top specialists via secure video calls. Get expert medical advice from the comfort of your home.", img: ASSETS.TELEMEDICINE, accent: 'from-primary-500 to-accent-500', bg: 'bg-accent-50' },
   { icon: Pill, title: "Pharmacy", path: "/services/buy-medicines", desc: "24/7 online pharmacy with genuine medicine delivery. Flat discounts on all prescriptions.", img: ASSETS.PHARMACY, accent: 'from-violet-500 to-purple-500', bg: 'bg-purple-50' },
   { icon: Activity, title: "Health Checkup", path: "/services/health-checkup", desc: "Comprehensive custom preventive packages with home collection, digital reports, and doctor consultations.", img: ASSETS.HEALTH_CHECKUP, accent: 'from-orange-500 to-amber-500', bg: 'bg-orange-50' }
 ];
