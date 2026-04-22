@@ -60,10 +60,10 @@ const InquiryHub = () => {
       {/* 1. Hero Section */}
       <section className="relative min-h-[500px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/UmangLatest/reception2.webp" 
-            alt="Customer Support" 
-            className="w-full h-full object-cover opacity-10" 
+          <img
+            src="/assets/images/localized/inquiry-hero.jpg"
+            alt="Customer Support"
+            className="w-full h-full object-cover opacity-10"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a]/60 via-transparent to-[#0f172a]" />
         </div>
