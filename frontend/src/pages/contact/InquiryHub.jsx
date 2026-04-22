@@ -61,7 +61,7 @@ const InquiryHub = () => {
       <section className="relative min-h-[500px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/assets/images/localized/inquiry-hero.jpg" 
+            src="/UmangLatest/reception2.webp" 
             alt="Customer Support" 
             className="w-full h-full object-cover opacity-10" 
           />
@@ -110,7 +110,7 @@ const InquiryHub = () => {
       </div>
 
       {/* 3. SPECIALIZED DESKS GRID */}
-      <section className="py-32 bg-white">
+      <section className="py-16 lg:py-24 bg-white">
          <div className="container-custom">
             <SectionHeading eyebrow="Expert Assistance" title="Our Specialized <span class='text-blue-600'>Support Hubs.</span>" centered />
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -228,7 +228,7 @@ const InquiryHub = () => {
       </Section>
 
       {/* 7. INQUIRY & FEEDBACK HUB FORM */}
-      <section id="inquiry-form" className="py-32 bg-white">
+      <section id="inquiry-form" className="py-16 lg:py-24 bg-white">
          <div className="container-custom">
             <div className="bg-[#005580] rounded-[5rem] p-12 md:p-24 text-white relative overflow-hidden flex flex-col lg:flex-row gap-20">
                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px]" />
@@ -427,7 +427,7 @@ const InquiryHub = () => {
       </Section>
 
       {/* 11. COMPREHENSIVE CONTACT HUB (ENHANCED) */}
-      <section className="py-32 bg-[#0f172a] text-white">
+      <section className="py-16 lg:py-24 bg-[#0f172a] text-white">
          <div className="container-custom">
             <h2 className="text-4xl font-serif font-bold text-center mb-20">Regional Presence</h2>
             <div className="grid md:grid-cols-3 gap-12 text-center">

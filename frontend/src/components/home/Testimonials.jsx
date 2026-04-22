@@ -147,7 +147,7 @@ const Testimonials = () => {
   const activeTestimonial = testimonials[active];
 
   return (
-    <section className="py-20 lg:py-32 bg-slate-50 relative overflow-hidden">
+    <section className="py-16 lg:py-24 bg-slate-50 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-40">
         <div className="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary-100/60 rounded-full blur-[120px]" />

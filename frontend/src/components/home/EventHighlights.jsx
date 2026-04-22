@@ -104,7 +104,7 @@ const EventHighlights = () => {
   const [imgFailed, setImgFailed] = useState(true);
 
   return (
-    <section className="py-12 lg:py-16 bg-gradient-to-b from-white via-gray-50/50 to-white overflow-hidden">
+    <section className="py-16 lg:py-24 bg-gradient-to-b from-white via-gray-50/50 to-white overflow-hidden">
       <div className="container-custom">
         {/* Section header — compact */}
         <div className="flex items-center justify-between mb-8 lg:mb-10">

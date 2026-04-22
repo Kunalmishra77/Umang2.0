@@ -141,7 +141,7 @@ const Contact = () => {
       </section>
 
       {/* 3. STATS SECTION */}
-      <div className="bg-white py-24 border-b border-gray-50">
+      <div className="bg-white py-16 lg:py-24 border-b border-gray-50">
         <Container>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
             {[
@@ -160,7 +160,7 @@ const Contact = () => {
       </div>
 
       {/* 4. MAIN CONTACT GRID */}
-      <section className="py-32 bg-gray-50 overflow-hidden">
+      <section className="py-16 lg:py-24 bg-gray-50 overflow-hidden">
          <div className="container-custom">
             <div className="grid lg:grid-cols-12 gap-16 items-stretch">
                
@@ -375,7 +375,7 @@ const Contact = () => {
       </Section>
 
       {/* 6. SPECIALIZED DEPT CONTACTS */}
-      <section className="py-32 bg-gray-50 overflow-hidden">
+      <section className="py-16 lg:py-24 bg-gray-50 overflow-hidden">
          <div className="container-custom">
             <h2 className="text-4xl font-serif font-bold text-brand-dark mb-20 text-center">Specific Department Hubs</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -422,7 +422,7 @@ const Contact = () => {
       </Section>
 
       {/* 8. TRUST & PRIVACY */}
-      <section className="py-32 bg-white">
+      <section className="py-16 lg:py-24 bg-white">
          <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
                <div>
