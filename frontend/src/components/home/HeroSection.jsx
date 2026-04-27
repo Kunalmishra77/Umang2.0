@@ -171,7 +171,7 @@ const ConsultationForm = () => {
     if (!loading) { e.target.reset(); setSelectedSpecialty(''); }
   };
 
-  const inputCls = "w-full bg-white/[0.08] border border-white/[0.18] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-400/60 focus:bg-white/[0.14] placeholder:text-white/50 text-white transition-all";
+  const inputCls = "w-full bg-white/[0.12] border border-white/[0.28] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-400/80 focus:bg-white/[0.18] placeholder:text-white/65 text-white transition-all";
 
   return (
     <motion.div
@@ -193,7 +193,7 @@ const ConsultationForm = () => {
           </div>
           <div>
             <h3 className="text-[12px] font-black text-white uppercase tracking-[0.15em]">Book Consultation</h3>
-            <p className="text-[10px] text-primary-300/90 font-semibold mt-0.5">We respond within 15 minutes</p>
+            <p className="text-[10px] text-white/70 font-semibold mt-0.5">We respond within 15 minutes</p>
           </div>
         </div>
 
@@ -210,18 +210,18 @@ const ConsultationForm = () => {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-3">
             <div className="relative group">
-              <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 group-focus-within:text-primary-400 transition-colors" />
+              <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/55 group-focus-within:text-primary-400 transition-colors" />
               <input required name="name" type="text" placeholder="Full Name" className={inputCls} />
             </div>
             <div className="relative group">
-              <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 group-focus-within:text-primary-400 transition-colors" />
+              <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/55 group-focus-within:text-primary-400 transition-colors" />
               <input required name="phone" type="tel" placeholder="Phone Number" className={inputCls} />
             </div>
             <div className="relative">
               <button type="button" onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className={`w-full bg-white/[0.08] border ${isDropdownOpen ? 'border-primary-400/60 bg-white/[0.14]' : 'border-white/[0.18]'} rounded-xl py-3 px-4 text-[13px] font-medium outline-none transition-all flex items-center justify-between`}>
-                <span className={selectedSpecialty ? 'text-white' : 'text-white/45'}>{selectedSpecialty || 'Select Specialty'}</span>
-                <ChevronDown className={`w-4 h-4 text-white/45 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-primary-400' : ''}`} />
+                className={`w-full bg-white/[0.12] border ${isDropdownOpen ? 'border-primary-400/80 bg-white/[0.18]' : 'border-white/[0.28]'} rounded-xl py-3 px-4 text-[13px] font-medium outline-none transition-all flex items-center justify-between`}>
+                <span className={selectedSpecialty ? 'text-white' : 'text-white/65'}>{selectedSpecialty || 'Select Specialty'}</span>
+                <ChevronDown className={`w-4 h-4 text-white/65 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-primary-400' : ''}`} />
               </button>
               <AnimatePresence>
                 {isDropdownOpen && (
@@ -241,9 +241,9 @@ const ConsultationForm = () => {
               </AnimatePresence>
             </div>
             <div className="relative group">
-              <MessageSquare className="absolute left-3.5 top-3.5 w-4 h-4 text-white/40 group-focus-within:text-primary-400 transition-colors" />
+              <MessageSquare className="absolute left-3.5 top-3.5 w-4 h-4 text-white/55 group-focus-within:text-primary-400 transition-colors" />
               <textarea name="message" placeholder="Brief message (optional)" rows={2}
-                className="w-full bg-white/[0.08] border border-white/[0.18] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-400/60 focus:bg-white/[0.14] placeholder:text-white/50 text-white transition-all resize-none" />
+                className="w-full bg-white/[0.12] border border-white/[0.28] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-400/80 focus:bg-white/[0.18] placeholder:text-white/65 text-white transition-all resize-none" />
             </div>
             <button disabled={loading}
               className="w-full h-12 font-bold uppercase tracking-[0.12em] text-[12px] flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white disabled:opacity-50 active:scale-[0.97] transition-all shadow-lg shadow-primary-600/25 mt-1">
@@ -302,7 +302,7 @@ const SlideContent = ({ slide, isActive, index }) => {
           {/* Film grain texture */}
           <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")' }} />
 
-          <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10 pb-28 sm:pb-32 lg:pb-20">
+          <div className="relative z-10 container-custom pb-28 sm:pb-32 lg:pb-20">
             <div className="lg:max-w-[52%]">
               {/* Eyebrow tag — animated line + pill */}
               <motion.div
@@ -441,7 +441,7 @@ const HeroSection = () => {
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/[0.04]">
           <motion.div className="h-full bg-gradient-to-r from-primary-400 to-accent-400 origin-left" style={{ scaleX: progress }} />
         </div>
-        <div className="w-full px-4 sm:px-6 lg:px-10 pb-7">
+        <div className="container-custom pb-7">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}

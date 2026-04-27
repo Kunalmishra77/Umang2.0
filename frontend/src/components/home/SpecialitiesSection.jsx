@@ -289,10 +289,10 @@ const MobileCards = () => {
 ═══════════════════════════════════════ */
 const SpecialitiesSection = () => {
   return (
-    <section className="py-16 lg:py-24 bg-[#020617] overflow-hidden relative">
+    <section className="py-16 lg:py-24 bg-gray-50 overflow-hidden relative">
       {/* Background glow */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-600/5 rounded-full blur-[150px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-100/60 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-100/50 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container-custom relative z-10">
         {/* Header */}
@@ -302,22 +302,22 @@ const SpecialitiesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[11px] lg:text-[12px] mb-3 block">
+            <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[11px] lg:text-[12px] mb-3 block">
               Clinical Excellence
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">
               Centres of{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-cyan-500">
                 Excellence
               </span>
             </h2>
-            <p className="text-white/30 max-w-xl text-base lg:text-lg font-light leading-relaxed mx-auto lg:mx-0 mt-3">
+            <p className="text-gray-500 max-w-xl text-base lg:text-lg font-light leading-relaxed mx-auto lg:mx-0 mt-3">
               Hover to explore our world-class departments.
             </p>
           </motion.div>
           <Link
             to="/specialities"
-            className="hidden lg:flex items-center gap-3 px-7 py-3.5 rounded-full border border-white/10 hover:border-primary-500 text-white transition-all font-bold text-[11px] uppercase tracking-widest group shrink-0 hover:bg-white/5"
+            className="hidden lg:flex items-center gap-3 px-7 py-3.5 rounded-full border border-gray-300 hover:border-primary-500 text-brand-dark hover:text-primary-600 transition-all font-bold text-[11px] uppercase tracking-widest group shrink-0 hover:bg-primary-50"
           >
             All Departments <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
           </Link>
@@ -330,7 +330,7 @@ const SpecialitiesSection = () => {
         <MobileCards />
 
         <div className="mt-8 lg:hidden text-center">
-          <Link to="/specialities" className="inline-flex items-center gap-2 text-primary-400 font-bold text-[11px] uppercase tracking-widest">
+          <Link to="/specialities" className="inline-flex items-center gap-2 text-primary-600 font-bold text-[11px] uppercase tracking-widest">
             All Departments <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
