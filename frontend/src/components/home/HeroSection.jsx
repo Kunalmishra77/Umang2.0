@@ -171,7 +171,7 @@ const ConsultationForm = () => {
     if (!loading) { e.target.reset(); setSelectedSpecialty(''); }
   };
 
-  const inputCls = "w-full bg-white/[0.10] border border-white/[0.22] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-400/70 focus:bg-white/[0.15] placeholder:text-white/45 text-white transition-all";
+  const inputCls = "w-full bg-white/[0.08] border border-white/[0.18] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-400/60 focus:bg-white/[0.14] placeholder:text-white/50 text-white transition-all";
 
   return (
     <motion.div
@@ -179,7 +179,7 @@ const ConsultationForm = () => {
       animate={{ opacity: 1, x: 0, scale: 1 }}
       transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="rounded-[1.75rem] border border-white/[0.22] bg-[#060f1e]/80 backdrop-blur-2xl shadow-[0_32px_80px_-16px_rgba(0,0,0,0.75)] p-6 xl:p-7 relative overflow-visible">
+      <div className="rounded-[1.75rem] border border-white/[0.20] bg-white/[0.12] backdrop-blur-2xl shadow-[0_32px_80px_-16px_rgba(0,0,0,0.5)] p-6 xl:p-7 relative overflow-visible">
         {/* Animated glow orbs */}
         <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.15, 0.08] }} transition={{ duration: 4, repeat: Infinity }}
           className="absolute -top-10 -right-10 w-40 h-40 bg-primary-500 blur-[80px] rounded-full pointer-events-none" />
@@ -187,7 +187,7 @@ const ConsultationForm = () => {
           className="absolute -bottom-8 -left-8 w-32 h-32 bg-accent-500 blur-[60px] rounded-full pointer-events-none" />
 
         {/* Header */}
-        <div className="flex items-center gap-3 mb-5 pb-5 border-b border-white/[0.15]">
+        <div className="flex items-center gap-3 mb-5 pb-5 border-b border-white/[0.12]">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-lg shadow-primary-600/30">
             <Stethoscope className="w-5 h-5 text-white" />
           </div>
@@ -219,7 +219,7 @@ const ConsultationForm = () => {
             </div>
             <div className="relative">
               <button type="button" onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className={`w-full bg-white/[0.10] border ${isDropdownOpen ? 'border-primary-400/70 bg-white/[0.15]' : 'border-white/[0.22]'} rounded-xl py-3 px-4 text-[13px] font-medium outline-none transition-all flex items-center justify-between`}>
+                className={`w-full bg-white/[0.08] border ${isDropdownOpen ? 'border-primary-400/60 bg-white/[0.14]' : 'border-white/[0.18]'} rounded-xl py-3 px-4 text-[13px] font-medium outline-none transition-all flex items-center justify-between`}>
                 <span className={selectedSpecialty ? 'text-white' : 'text-white/45'}>{selectedSpecialty || 'Select Specialty'}</span>
                 <ChevronDown className={`w-4 h-4 text-white/45 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-primary-400' : ''}`} />
               </button>
@@ -243,7 +243,7 @@ const ConsultationForm = () => {
             <div className="relative group">
               <MessageSquare className="absolute left-3.5 top-3.5 w-4 h-4 text-white/40 group-focus-within:text-primary-400 transition-colors" />
               <textarea name="message" placeholder="Brief message (optional)" rows={2}
-                className="w-full bg-white/[0.10] border border-white/[0.22] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-400/70 focus:bg-white/[0.15] placeholder:text-white/45 text-white transition-all resize-none" />
+                className="w-full bg-white/[0.08] border border-white/[0.18] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-400/60 focus:bg-white/[0.14] placeholder:text-white/50 text-white transition-all resize-none" />
             </div>
             <button disabled={loading}
               className="w-full h-12 font-bold uppercase tracking-[0.12em] text-[12px] flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white disabled:opacity-50 active:scale-[0.97] transition-all shadow-lg shadow-primary-600/25 mt-1">
