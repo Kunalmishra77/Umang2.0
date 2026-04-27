@@ -171,7 +171,7 @@ const ConsultationForm = () => {
     if (!loading) { e.target.reset(); setSelectedSpecialty(''); }
   };
 
-  const inputCls = "w-full bg-white/[0.04] border border-white/[0.08] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-500/40 focus:bg-white/[0.07] placeholder:text-white/20 text-white transition-all";
+  const inputCls = "w-full bg-white/[0.10] border border-white/[0.22] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-400/70 focus:bg-white/[0.15] placeholder:text-white/45 text-white transition-all";
 
   return (
     <motion.div
@@ -179,7 +179,7 @@ const ConsultationForm = () => {
       animate={{ opacity: 1, x: 0, scale: 1 }}
       transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="rounded-[1.75rem] border border-white/[0.1] bg-white/[0.06] backdrop-blur-2xl shadow-[0_32px_80px_-16px_rgba(0,0,0,0.6)] p-6 xl:p-7 relative overflow-visible">
+      <div className="rounded-[1.75rem] border border-white/[0.22] bg-[#060f1e]/80 backdrop-blur-2xl shadow-[0_32px_80px_-16px_rgba(0,0,0,0.75)] p-6 xl:p-7 relative overflow-visible">
         {/* Animated glow orbs */}
         <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.15, 0.08] }} transition={{ duration: 4, repeat: Infinity }}
           className="absolute -top-10 -right-10 w-40 h-40 bg-primary-500 blur-[80px] rounded-full pointer-events-none" />
@@ -187,13 +187,13 @@ const ConsultationForm = () => {
           className="absolute -bottom-8 -left-8 w-32 h-32 bg-accent-500 blur-[60px] rounded-full pointer-events-none" />
 
         {/* Header */}
-        <div className="flex items-center gap-3 mb-5 pb-5 border-b border-white/[0.06]">
+        <div className="flex items-center gap-3 mb-5 pb-5 border-b border-white/[0.15]">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center shadow-lg shadow-primary-600/30">
             <Stethoscope className="w-5 h-5 text-white" />
           </div>
           <div>
             <h3 className="text-[12px] font-black text-white uppercase tracking-[0.15em]">Book Consultation</h3>
-            <p className="text-[10px] text-primary-300/60 font-semibold mt-0.5">We respond within 15 minutes</p>
+            <p className="text-[10px] text-primary-300/90 font-semibold mt-0.5">We respond within 15 minutes</p>
           </div>
         </div>
 
@@ -210,18 +210,18 @@ const ConsultationForm = () => {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-3">
             <div className="relative group">
-              <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/15 group-focus-within:text-primary-400 transition-colors" />
+              <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 group-focus-within:text-primary-400 transition-colors" />
               <input required name="name" type="text" placeholder="Full Name" className={inputCls} />
             </div>
             <div className="relative group">
-              <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/15 group-focus-within:text-primary-400 transition-colors" />
+              <Phone className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40 group-focus-within:text-primary-400 transition-colors" />
               <input required name="phone" type="tel" placeholder="Phone Number" className={inputCls} />
             </div>
             <div className="relative">
               <button type="button" onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className={`w-full bg-white/[0.04] border ${isDropdownOpen ? 'border-primary-500/40 bg-white/[0.07]' : 'border-white/[0.08]'} rounded-xl py-3 px-4 text-[13px] font-medium outline-none transition-all flex items-center justify-between`}>
-                <span className={selectedSpecialty ? 'text-white' : 'text-white/20'}>{selectedSpecialty || 'Select Specialty'}</span>
-                <ChevronDown className={`w-4 h-4 text-white/20 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-primary-400' : ''}`} />
+                className={`w-full bg-white/[0.10] border ${isDropdownOpen ? 'border-primary-400/70 bg-white/[0.15]' : 'border-white/[0.22]'} rounded-xl py-3 px-4 text-[13px] font-medium outline-none transition-all flex items-center justify-between`}>
+                <span className={selectedSpecialty ? 'text-white' : 'text-white/45'}>{selectedSpecialty || 'Select Specialty'}</span>
+                <ChevronDown className={`w-4 h-4 text-white/45 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180 text-primary-400' : ''}`} />
               </button>
               <AnimatePresence>
                 {isDropdownOpen && (
@@ -241,15 +241,15 @@ const ConsultationForm = () => {
               </AnimatePresence>
             </div>
             <div className="relative group">
-              <MessageSquare className="absolute left-3.5 top-3.5 w-4 h-4 text-white/15 group-focus-within:text-primary-400 transition-colors" />
+              <MessageSquare className="absolute left-3.5 top-3.5 w-4 h-4 text-white/40 group-focus-within:text-primary-400 transition-colors" />
               <textarea name="message" placeholder="Brief message (optional)" rows={2}
-                className="w-full bg-white/[0.04] border border-white/[0.08] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-500/40 focus:bg-white/[0.07] placeholder:text-white/20 text-white transition-all resize-none" />
+                className="w-full bg-white/[0.10] border border-white/[0.22] rounded-xl py-3 pl-10 pr-4 text-[13px] font-medium outline-none focus:border-primary-400/70 focus:bg-white/[0.15] placeholder:text-white/45 text-white transition-all resize-none" />
             </div>
             <button disabled={loading}
               className="w-full h-12 font-bold uppercase tracking-[0.12em] text-[12px] flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white disabled:opacity-50 active:scale-[0.97] transition-all shadow-lg shadow-primary-600/25 mt-1">
               {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <>Book Now <Send className="w-3.5 h-3.5" /></>}
             </button>
-            <p className="text-center text-[10px] text-white/20 font-medium pt-1">
+            <p className="text-center text-[10px] text-white/40 font-medium pt-1">
               <ShieldCheck className="w-3 h-3 inline mr-1 -mt-px" />No spam. Your data is secure.
             </p>
           </form>
@@ -302,8 +302,8 @@ const SlideContent = ({ slide, isActive, index }) => {
           {/* Film grain texture */}
           <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")' }} />
 
-          <div className="relative z-10 container-custom pb-28 sm:pb-32 lg:pb-20 w-full">
-            <div className="lg:max-w-[50%]">
+          <div className="relative z-10 w-full px-4 sm:px-6 lg:px-10 pb-28 sm:pb-32 lg:pb-20">
+            <div className="lg:max-w-[52%]">
               {/* Eyebrow tag — animated line + pill */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
@@ -336,7 +336,7 @@ const SlideContent = ({ slide, isActive, index }) => {
               </h1>
 
               {/* Description */}
-              <p ref={descRef} className="text-white/40 text-[15px] lg:text-lg max-w-[46ch] leading-relaxed mb-8" style={{ opacity: 0 }}>
+              <p ref={descRef} className="text-white/65 text-[15px] lg:text-lg max-w-[46ch] leading-relaxed mb-8" style={{ opacity: 0 }}>
                 {slide.desc}
               </p>
 
@@ -441,7 +441,7 @@ const HeroSection = () => {
         <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/[0.04]">
           <motion.div className="h-full bg-gradient-to-r from-primary-400 to-accent-400 origin-left" style={{ scaleX: progress }} />
         </div>
-        <div className="container-custom pb-7">
+        <div className="w-full px-4 sm:px-6 lg:px-10 pb-7">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
