@@ -36,7 +36,7 @@ export const ASSETS = {
   RADIOLOGY: '/assets/services/diagnostic-lab/Radiology & Imaging.webp',
   
   // Technology
-  CT_SCAN: '/assets/Home/128-Slice CT Scan.webp',
+  CT_SCAN: '/assets/services/diagnostic-lab/Radiology & Imaging.webp',
   MRI_SCAN: '/assets/Home/3 Tesla MRI.webp',
   ROBOTIC_SURGERY: '/assets/Home/robotic-OT-suite.webp',
   

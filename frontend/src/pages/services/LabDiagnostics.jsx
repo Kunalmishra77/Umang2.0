@@ -75,19 +75,19 @@ const LabDiagnostics = () => {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 bg-blue-500/20 px-4 py-2 rounded-full border border-blue-500/30 text-blue-300 font-bold uppercase tracking-widest text-[10px] mb-8">
+            <div className="inline-flex items-center gap-2 bg-primary-500/20 px-4 py-2 rounded-full border border-primary-500/30 text-primary-300 font-bold uppercase tracking-widest text-[10px] mb-8">
               <Microscope className="w-4 h-4" /> NABL Accredited Services
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
               Precision in <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Every Drop.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300">Every Drop.</span>
             </h1>
-            <p className="text-xl text-blue-100 font-light leading-relaxed mb-12">
+            <p className="text-xl text-primary-100 font-light leading-relaxed mb-12">
               Advanced pathology and imaging powered by 128-Slice CT and AI-driven diagnostics for faster, more accurate results.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link to="/services/booking/lab-test" className="h-16 px-10 rounded-full bg-blue-600 text-white font-bold text-lg hover:bg-blue-700 shadow-xl shadow-blue-900/20 transition-all flex items-center justify-center gap-3">
+              <Link to="/services/booking/lab-test" className="h-16 px-10 rounded-full bg-primary-600 text-white font-bold text-lg hover:bg-primary-700 shadow-xl shadow-primary-900/20 transition-all flex items-center justify-center gap-3">
                 Book a Test <ArrowRight className="w-5 h-5" />
               </Link>
               <div className="flex items-center gap-4 text-white">
@@ -95,7 +95,7 @@ const LabDiagnostics = () => {
                   <Clock className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold uppercase text-blue-300">Report Turnaround</p>
+                  <p className="text-xs font-bold uppercase text-primary-300">Report Turnaround</p>
                   <p className="font-bold text-lg">Same Day (4-6 Hours)</p>
                 </div>
               </div>
@@ -105,7 +105,7 @@ const LabDiagnostics = () => {
       </section>
 
       {/* SECTION: LAB STATISTICS */}
-      <div className="bg-blue-600 py-12 lg:py-16 relative overflow-hidden border-y border-blue-500/30">
+      <div className="bg-primary-600 py-12 lg:py-16 relative overflow-hidden border-y border-primary-500/30">
         <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
         <Container>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
@@ -117,7 +117,7 @@ const LabDiagnostics = () => {
             ].map((stat, i) => (
               <div key={i}>
                 <p className="text-2xl lg:text-4xl font-serif font-bold tracking-tight mb-2">{stat.value}</p>
-                <p className="text-[10px] lg:text-[11px] font-black uppercase tracking-[0.2em] text-blue-100/70">{stat.label}</p>
+                <p className="text-[10px] lg:text-[11px] font-black uppercase tracking-[0.2em] text-primary-100/70">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -135,12 +135,12 @@ const LabDiagnostics = () => {
                   </div>
                   <div className="lg:col-span-2 relative group">
                      <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
-                        <Search className="text-blue-500 group-focus-within:scale-110 transition-transform w-6 h-6" />
+                        <Search className="text-primary-500 group-focus-within:scale-110 transition-transform w-6 h-6" />
                      </div>
                      <input 
                         type="text" 
                         placeholder="Search tests (e.g. Thyroid, CBC, Lipid Profile...)"
-                        className="w-full h-18 pl-16 pr-8 rounded-2xl bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 focus:bg-white outline-none font-bold text-lg transition-all shadow-inner"
+                        className="w-full h-18 pl-16 pr-8 rounded-2xl bg-slate-50 border border-slate-200 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10 focus:bg-white outline-none font-bold text-lg transition-all shadow-inner"
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                      />
@@ -158,8 +158,8 @@ const LabDiagnostics = () => {
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
             <div className="lg:w-1/2">
-              <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block">Patient Guide</span>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-8">Test Preparation <br /><span className="text-blue-600 normal">Protocols.</span></h2>
+              <span className="text-primary-600 font-bold uppercase tracking-widest text-sm mb-4 block">Patient Guide</span>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-8">Test Preparation <br /><span className="text-primary-600 normal">Protocols.</span></h2>
               <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
                 Accurate results depend on correct preparation. Please follow these general guidelines or call our helpdesk for specific test instructions.
               </p>
@@ -170,11 +170,11 @@ const LabDiagnostics = () => {
                   { title: "Hydration", desc: "Drink plenty of water unless instructed otherwise for your specific test.", path: "/patient-experience" }
                 ].map((item, i) => (
                   <Link to={item.path} key={i} className="flex gap-5 items-start group block">
-                    <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
+                    <div className="w-12 h-12 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm">
                       <CheckCircle2 className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-brand-dark mb-1 group-hover:text-blue-600 transition-colors">{item.title}</h4>
+                      <h4 className="font-bold text-brand-dark mb-1 group-hover:text-primary-600 transition-colors">{item.title}</h4>
                       <p className="text-sm text-gray-500">{item.desc}</p>
                     </div>
                   </Link>
@@ -182,7 +182,7 @@ const LabDiagnostics = () => {
               </div>
             </div>
             <div className="lg:w-1/2 relative">
-              <div className="absolute inset-0 bg-blue-50 rounded-[4rem] rotate-3 -z-10" />
+              <div className="absolute inset-0 bg-primary-50 rounded-[4rem] rotate-3 -z-10" />
               <img src={ASSETS.LAB} alt="Lab Testing" className="rounded-[4rem] shadow-2xl w-full h-[500px] object-cover" />
             </div>
           </div>
@@ -205,8 +205,8 @@ const LabDiagnostics = () => {
               { label: "Histopathology", icon: Microscope, path: "/services/lab-test-diagnostic" }
             ].map((dept, i) => (
               <Link to={dept.path} key={i} className="bg-white p-6 rounded-3xl border border-gray-100 text-center hover:shadow-xl hover:-translate-y-1 transition-all group block">
-                <dept.icon className="w-10 h-10 text-blue-600 mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all" />
-                <h4 className="text-sm font-bold text-brand-dark group-hover:text-blue-600 transition-colors">{dept.label}</h4>
+                <dept.icon className="w-10 h-10 text-primary-600 mx-auto mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all" />
+                <h4 className="text-sm font-bold text-brand-dark group-hover:text-primary-600 transition-colors">{dept.label}</h4>
               </Link>
             ))}
           </div>
@@ -219,10 +219,10 @@ const LabDiagnostics = () => {
          <div className="container-custom">
             <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-20">
                <div className="max-w-2xl text-left">
-                  <span className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 block">Recommended for you</span>
+                  <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">Recommended for you</span>
                   <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a]">Popular Health Packages</h2>
                </div>
-               <Link to="/services/health-checkup" className="text-blue-600 font-bold flex items-center gap-2 hover:gap-3 transition-all border-b-2 border-blue-100 pb-1">
+               <Link to="/services/health-checkup" className="text-primary-600 font-bold flex items-center gap-2 hover:gap-3 transition-all border-b-2 border-primary-100 pb-1">
                   View All Packages <ArrowRight className="w-5 h-5" />
                </Link>
             </div>
@@ -250,7 +250,7 @@ const LabDiagnostics = () => {
                         </ul>
                      </div>
 
-                     <Link to="/services/booking/lab-test" className="w-full h-12 rounded-xl bg-[#0f172a] text-white font-bold flex items-center justify-center gap-2 hover:bg-blue-600 transition-all">
+                     <Link to="/services/booking/lab-test" className="w-full h-12 rounded-xl bg-[#0f172a] text-white font-bold flex items-center justify-center gap-2 hover:bg-primary-600 transition-all">
                         Enquire Now
                      </Link>
                   </motion.div>
@@ -261,12 +261,12 @@ const LabDiagnostics = () => {
 
       {/* 4. Home Collection Banner */}
       <section className="py-12 lg:py-10 container-custom">
-         <div className="bg-[#005580] rounded-[4rem] p-12 md:p-24 text-white relative overflow-hidden flex flex-col lg:flex-row items-center gap-16">
+         <div className="bg-primary-700 rounded-[4rem] p-12 md:p-24 text-white relative overflow-hidden flex flex-col lg:flex-row items-center gap-16">
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px]" />
             
             <div className="lg:w-1/2 relative z-10">
                <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">Professional <br />Home Collection.</h2>
-               <p className="text-xl text-blue-100 mb-12 leading-relaxed">
+               <p className="text-xl text-primary-100 mb-12 leading-relaxed">
                   Skip the queue and stay safe. Our vaccinated and trained phlebotomists will collect samples from the comfort of your home.
                </p>
                <ul className="space-y-6 mb-12">
@@ -281,14 +281,14 @@ const LabDiagnostics = () => {
                   </li>
                </ul>
                <div className="flex flex-wrap gap-6">
-                  <a href={`tel:${siteConfig.contacts.main.replace(/\s/g, '')}`} className="h-16 px-10 rounded-full bg-white text-[#005580] font-bold text-lg hover:bg-blue-50 transition-all flex items-center justify-center gap-3">
+                  <a href={`tel:${siteConfig.contacts.main.replace(/\s/g, '')}`} className="h-16 px-10 rounded-full bg-white text-primary-700 font-bold text-lg hover:bg-primary-50 transition-all flex items-center justify-center gap-3">
                      <Phone className="w-6 h-6" /> Call +91 85880 72727
                   </a>
                </div>
             </div>
 
             <div className="lg:w-1/2 relative">
-               <div className="absolute inset-0 bg-blue-400/20 rounded-full blur-[80px]" />
+               <div className="absolute inset-0 bg-primary-400/20 rounded-full blur-[80px]" />
                <img 
                   src={ASSETS.SVC_LAB_PROCESS} 
                   alt="Home Collection" 
@@ -318,7 +318,7 @@ const LabDiagnostics = () => {
                      <div className="aspect-[4/3] rounded-[3rem] overflow-hidden mb-8 shadow-lg">
                         <img src={tech.img} alt={tech.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                      </div>
-                     <h4 className="text-2xl font-bold text-[#0f172a] mb-4 group-hover:text-blue-600 transition-colors">{tech.title}</h4>
+                     <h4 className="text-2xl font-bold text-[#0f172a] mb-4 group-hover:text-primary-600 transition-colors">{tech.title}</h4>
                      <p className="text-gray-500 leading-relaxed">{tech.desc}</p>
                   </Link>
                ))}
@@ -330,17 +330,17 @@ const LabDiagnostics = () => {
       <Section className="bg-white">
         <Container>
           <div className="bg-slate-900 rounded-[3rem] p-10 lg:p-16 text-white relative overflow-hidden">
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-[120px] opacity-10 -mr-32 -mb-32" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary-600 rounded-full blur-[120px] opacity-10 -mr-32 -mb-32" />
             <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
               <div>
-                <span className="text-blue-400 font-bold uppercase tracking-widest text-xs mb-4 block">NABL Accredited Lab</span>
+                <span className="text-primary-400 font-bold uppercase tracking-widest text-xs mb-4 block">NABL Accredited Lab</span>
                 <h3 className="text-3xl lg:text-4xl font-serif font-bold mb-6">Uncompromising <br />Report Integrity.</h3>
                 <p className="text-slate-400 text-lg font-light leading-relaxed mb-8">
                   We participate in external quality assurance programs (EQAS) and perform daily internal quality controls to ensure that every report generated is 100% accurate.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   {["Barcoded Samples", "Zero Manual Entry", "Digital Interfacing", "Expert Validation"].map((item, i) => (
-                    <span key={i} className="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-blue-300">
+                    <span key={i} className="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest text-primary-300">
                       {item}
                     </span>
                   ))}
@@ -349,7 +349,7 @@ const LabDiagnostics = () => {
               <div className="bg-white/5 border border-white/10 rounded-[2rem] p-10 backdrop-blur-sm">
                 <div className="space-y-8">
                   <div className="flex gap-6 items-start">
-                    <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
+                    <div className="w-12 h-12 bg-primary-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
                       <Shield size={24} />
                     </div>
                     <div>
@@ -358,7 +358,7 @@ const LabDiagnostics = () => {
                     </div>
                   </div>
                   <div className="flex gap-6 items-start">
-                    <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
+                    <div className="w-12 h-12 bg-primary-600 rounded-2xl flex items-center justify-center shrink-0 shadow-lg">
                       <Award size={24} />
                     </div>
                     <div>
@@ -381,8 +381,8 @@ const LabDiagnostics = () => {
               <img src={ASSETS.ABOUT_MAIN} alt="Pathologists" className="rounded-[3rem] shadow-2xl w-full max-h-[500px] object-cover" />
             </div>
             <div className="lg:w-7/12">
-              <span className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Experts</span>
-              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6 leading-tight">Led by Senior <br /><span className="text-blue-600 normal">MD Pathologists.</span></h2>
+              <span className="text-primary-600 font-bold uppercase tracking-widest text-sm mb-4 block">Medical Experts</span>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-brand-dark mb-6 leading-tight">Led by Senior <br /><span className="text-primary-600 normal">MD Pathologists.</span></h2>
               <p className="text-gray-500 text-lg mb-8 leading-relaxed max-w-xl">
                 Behind every accurate report is a team of highly qualified medical professionals. Our lab is led by senior pathologists with decades of experience in clinical biochemistry and surgical pathology.
               </p>
@@ -396,7 +396,7 @@ const LabDiagnostics = () => {
                   <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mt-1">Operational</p>
                 </div>
               </div>
-              <Link to="/doctors" className="h-14 px-10 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-700 transition-all flex items-center justify-center gap-2 inline-flex shadow-lg shadow-blue-200">
+              <Link to="/doctors" className="h-14 px-10 rounded-full bg-primary-600 text-white font-bold hover:bg-primary-700 transition-all flex items-center justify-center gap-2 inline-flex shadow-lg shadow-primary-200">
                 Meet Our Doctors <ArrowRight size={18} />
               </Link>
             </div>
@@ -422,8 +422,8 @@ const LabDiagnostics = () => {
               { q: "How are critical results handled?", a: "Critical or 'Panic' values are immediately cross-verified and communicated directly to the patient or the referring doctor via phone call." }
             ].map((faq, i) => (
               <div key={i} className="bg-white p-8 rounded-[2.5rem] border border-gray-100 text-left hover:shadow-xl hover:shadow-blue-900/5 transition-all group">
-                <h4 className="font-bold text-[#0f172a] flex items-center gap-4 mb-4 text-lg group-hover:text-blue-600 transition-colors">
-                  <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                <h4 className="font-bold text-[#0f172a] flex items-center gap-4 mb-4 text-lg group-hover:text-primary-600 transition-colors">
+                  <div className="w-12 h-12 rounded-2xl bg-primary-50 flex items-center justify-center shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all">
                     <HelpCircle size={24} className="group-hover:rotate-12 transition-transform" />
                   </div>
                   {faq.q}
@@ -434,7 +434,7 @@ const LabDiagnostics = () => {
           </div>
           <div className="mt-16 text-center">
              <p className="text-gray-500 mb-6 font-medium">Didn't find what you're looking for?</p>
-             <Link to="/contact" className="inline-flex items-center gap-3 text-blue-600 font-bold bg-white px-8 py-4 rounded-full border border-blue-100 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all shadow-sm">
+             <Link to="/contact" className="inline-flex items-center gap-3 text-primary-600 font-bold bg-white px-8 py-4 rounded-full border border-primary-100 hover:bg-primary-600 hover:text-white hover:border-primary-600 transition-all shadow-sm">
                 Contact our Lab Helpdesk <ArrowRight size={20} />
              </Link>
           </div>
@@ -444,10 +444,10 @@ const LabDiagnostics = () => {
       {/* Final CTA */}
       <section className="section-padding bg-brand-dark text-white relative overflow-hidden">
         <Container className="relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Ready to book <br /><span className="text-blue-400">your test?</span></h2>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Ready to book <br /><span className="text-primary-400">your test?</span></h2>
           <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">Get accurate reports within hours. Schedule a home collection or visit our hospital lab.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link to="/services/booking/lab-test" className="px-10 py-5 bg-blue-600 text-white rounded-full font-bold text-base shadow-xl hover:bg-blue-500 transition-all flex items-center justify-center gap-3">
+            <Link to="/services/booking/lab-test" className="px-10 py-5 bg-primary-600 text-white rounded-full font-bold text-base shadow-xl hover:bg-primary-500 transition-all flex items-center justify-center gap-3">
               Book Home Collection <ArrowRight size={20} />
             </Link>
             <a href={`tel:${siteConfig.contacts.main}`} className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-base hover:bg-white/5 transition-all flex items-center justify-center gap-3">
