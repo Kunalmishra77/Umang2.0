@@ -59,9 +59,11 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-4 lg:pr-12 text-center sm:text-left">
             <Link to="/" className="inline-block mb-6 lg:mb-8 group">
-              <span className="text-2xl lg:text-3xl font-serif font-bold text-white tracking-tight">
-                {siteConfig.shortName.split(' ')[0]}<span className="text-primary-500">{siteConfig.shortName.split(' ')[1]}</span>
-              </span>
+              <img
+                src="/Umang-logo.webp"
+                alt={siteConfig.name}
+                className="h-14 lg:h-16 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-gray-300 mb-8 leading-relaxed font-light text-base lg:text-lg max-w-md mx-auto sm:mx-0">
               {siteConfig.name} is a {siteConfig.stats.beds}-bedded super speciality hospital in Gurugram, {siteConfig.marketingMessage.toLowerCase()}.
