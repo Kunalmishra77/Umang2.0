@@ -11,7 +11,7 @@ const chooseItems = [
     title: `${siteConfig.stats.beds}-Bed Infrastructure`,
     desc: `A massive facility featuring ${siteConfig.stats.icuBedsMarketing} ICU beds, Modular OTs, and specialized units for rapid recovery.`,
     icon: ShieldCheck,
-    img: ASSETS.HOSPITAL_EXTERIOR,
+    img: ASSETS.NURSING_STATION,
     path: "/infrastructure",
     features: ["Modular OTs", "28 ICU Beds", "Smart Wards"],
     accent: 'from-primary-500 to-cyan-500',
