@@ -168,7 +168,7 @@ const DynamicSubPage = () => {
                                       </div>
                                    </div>
                                    <div className="flex items-center gap-4">
-                                      <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shadow-sm">
+                                      <div className="w-12 h-12 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center shadow-sm">
                                          <Award size={24} />
                                       </div>
                                       <div>

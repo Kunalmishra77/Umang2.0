@@ -19,7 +19,7 @@ const PatientProfile = () => {
           <h1 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Profile Settings</h1>
           <p className="text-slate-500 font-medium">Manage your personal information and health profile.</p>
         </div>
-        <button className="h-12 px-8 rounded-xl bg-blue-600 text-white font-bold text-sm flex items-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+        <button className="h-12 px-8 rounded-xl bg-primary-600 text-white font-bold text-sm flex items-center gap-2 hover:bg-primary-700 transition-all shadow-lg shadow-primary-200">
           <Save className="w-4 h-4" /> Save All Changes
         </button>
       </div>
@@ -34,12 +34,12 @@ const PatientProfile = () => {
                 alt="Profile" 
                 className="w-32 h-32 rounded-[2.5rem] object-cover ring-8 ring-slate-50"
               />
-              <button className="absolute -bottom-2 -right-2 w-10 h-10 bg-blue-600 text-white rounded-xl border-4 border-white flex items-center justify-center hover:bg-blue-700 transition-all shadow-lg">
+              <button className="absolute -bottom-2 -right-2 w-10 h-10 bg-primary-600 text-white rounded-xl border-4 border-white flex items-center justify-center hover:bg-primary-700 transition-all shadow-lg">
                 <Camera className="w-4 h-4" />
               </button>
             </div>
             <h3 className="text-xl font-serif font-bold text-[#0f172a]">Richard Wilson</h3>
-            <p className="text-sm font-bold text-blue-600 uppercase tracking-widest mt-1">UH-2026-9821</p>
+            <p className="text-sm font-bold text-primary-600 uppercase tracking-widest mt-1">UH-2026-9821</p>
             
             <div className="mt-8 pt-8 border-t border-slate-100 grid grid-cols-2 gap-4">
               <div className="text-center p-4 bg-slate-50 rounded-2xl">
@@ -54,7 +54,7 @@ const PatientProfile = () => {
           </div>
 
           <div className="bg-[#0f172a] p-8 rounded-[2.5rem] text-white relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600 rounded-full blur-[60px] opacity-20 -mr-16 -mt-16" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary-600 rounded-full blur-[60px] opacity-20 -mr-16 -mt-16" />
             <div className="relative z-10">
               <Shield className="w-8 h-8 text-blue-400 mb-6" />
               <h4 className="text-xl font-serif font-bold mb-2">Account Security</h4>
@@ -70,7 +70,7 @@ const PatientProfile = () => {
         <div className="lg:col-span-2 space-y-8">
           <div className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
             <h3 className="text-xl font-serif font-bold text-[#0f172a] mb-8 flex items-center gap-3">
-              <User className="text-blue-600 w-6 h-6" /> Personal Information
+              <User className="text-primary-600 w-6 h-6" /> Personal Information
             </h3>
             
             <div className="grid sm:grid-cols-2 gap-8">
@@ -126,7 +126,7 @@ const PatientProfile = () => {
 
           <div className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm">
             <h3 className="text-xl font-serif font-bold text-[#0f172a] mb-8 flex items-center gap-3">
-              <MapPin className="text-blue-600 w-6 h-6" /> Residential Address
+              <MapPin className="text-primary-600 w-6 h-6" /> Residential Address
             </h3>
             
             <div className="grid sm:grid-cols-2 gap-8">

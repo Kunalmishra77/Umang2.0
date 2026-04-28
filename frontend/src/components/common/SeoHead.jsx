@@ -6,7 +6,7 @@ const SeoHead = ({
   title, 
   description, 
   canonical, 
-  ogImage = '/Umang-logo.png', 
+  ogImage = '/Umang-logo.webp', 
   ogType = 'website',
   keywords = [] 
 }) => {
@@ -47,7 +47,7 @@ const SeoHead = ({
           "name": siteConfig.name,
           "alternateName": siteConfig.shortName,
           "url": siteUrl,
-          "logo": `${siteUrl}/Umang-logo.png`,
+          "logo": `${siteUrl}/Umang-logo.webp`,
           "contactPoint": [
             {
               "@type": "ContactPoint",

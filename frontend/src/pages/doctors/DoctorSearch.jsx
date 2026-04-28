@@ -161,15 +161,15 @@ const DoctorSearch = () => {
 
           <div className="bg-blue-50/50 rounded-[2rem] p-6 lg:p-8 border border-blue-100 shadow-sm flex flex-col sm:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-4 w-full sm:w-auto">
-              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white rounded-xl lg:rounded-2xl flex items-center justify-center text-[#005580] shadow-sm">
+              <div className="w-10 h-10 lg:w-12 lg:h-12 bg-white rounded-xl lg:rounded-2xl flex items-center justify-center text-primary-600 shadow-sm">
                 <Clock className="w-5 h-5 lg:w-6 lg:h-6" />
               </div>
               <div className="text-left">
                 <p className="text-[11px] lg:text-sm font-bold text-gray-400 uppercase mb-1">Availability</p>
-                <p className="text-sm lg:text-lg font-bold text-[#005580]">{doc.nextSlot || 'Available'} (Slots Active)</p>
+                <p className="text-sm lg:text-lg font-bold text-primary-600">{doc.nextSlot || 'Available'} (Slots Active)</p>
               </div>
             </div>
-            <Link to={`/booking/${doc.id}`} className="w-full sm:w-auto px-6 lg:px-8 py-3 lg:py-4 bg-[#005580] text-white rounded-xl lg:rounded-2xl font-bold text-sm lg:text-base hover:bg-[#004466] transition-all shadow-lg text-center">
+            <Link to={`/booking/${doc.id}`} className="w-full sm:w-auto px-6 lg:px-8 py-3 lg:py-4 bg-primary-600 text-white rounded-xl lg:rounded-2xl font-bold text-sm lg:text-base hover:bg-primary-700 transition-all shadow-lg text-center">
               Instant Booking
             </Link>
           </div>
@@ -209,7 +209,7 @@ const DoctorSearch = () => {
                        onChange={(e) => setSearchTerm(e.target.value)}
                      />
                   </div>
-                  <button className="h-10 lg:h-14 px-6 lg:px-10 bg-[#005580] text-white rounded-lg lg:rounded-xl font-bold hover:bg-[#004466] transition-all hidden sm:block text-xs lg:text-sm">
+                  <button className="h-10 lg:h-14 px-6 lg:px-10 bg-primary-600 text-white rounded-lg lg:rounded-xl font-bold hover:bg-primary-700 transition-all hidden sm:block text-xs lg:text-sm">
                      Find Doctor
                   </button>
                </div>
@@ -225,7 +225,7 @@ const DoctorSearch = () => {
                   <button 
                      key={dept.name}
                      onClick={() => setSelectedDept(dept.name)}
-                     className={`flex items-center gap-2 lg:gap-3 px-4 lg:px-6 py-2 lg:py-3 rounded-full font-bold text-xs lg:text-sm whitespace-nowrap transition-all ${selectedDept === dept.name ? 'bg-[#005580] text-white shadow-lg' : 'bg-white text-gray-500 border border-gray-200 hover:border-blue-300'}`}
+                     className={`flex items-center gap-2 lg:gap-3 px-4 lg:px-6 py-2 lg:py-3 rounded-full font-bold text-xs lg:text-sm whitespace-nowrap transition-all ${selectedDept === dept.name ? 'bg-primary-600 text-white shadow-lg' : 'bg-white text-gray-500 border border-gray-200 hover:border-blue-300'}`}
                   >
                      <dept.icon className="w-3.5 h-3.5 lg:w-4 lg:h-4" />
                      {dept.name}
@@ -282,7 +282,7 @@ const DoctorSearch = () => {
                             onClick={() => handleDocSelect(doc.id)}
                             whileHover={{ scale: 1.01 }}
                             className={`p-4 rounded-[1.5rem] lg:rounded-[2rem] cursor-pointer transition-all flex items-center gap-4 border group text-left ${
-                                selectedDocId === doc.id ? 'bg-[#0f172a] text-white shadow-2xl border-transparent' : 'bg-white hover:bg-blue-50/50 border-gray-50'
+                                selectedDocId === doc.id ? 'bg-[#0f172a] text-white shadow-2xl border-transparent' : 'bg-white hover:bg-primary-50/50 border-gray-50'
                             }`}
                             >
                             <div className="w-14 h-14 lg:w-16 lg:h-16 rounded-xl lg:rounded-2xl overflow-hidden shrink-0 border border-gray-100 group-hover:rotate-3 transition-transform">
@@ -290,7 +290,7 @@ const DoctorSearch = () => {
                             </div>
                             <div className="flex-1 min-w-0">
                                 <h4 className="font-bold text-base lg:text-lg mb-0.5 leading-tight">{doc.name}</h4>
-                                <p className={`text-[11px] lg:text-[12px] font-black uppercase tracking-widest ${selectedDocId === doc.id ? 'text-blue-400' : 'text-[#005580]'}`}>{doc.dept}</p>
+                                <p className={`text-[11px] lg:text-[12px] font-black uppercase tracking-widest ${selectedDocId === doc.id ? 'text-blue-400' : 'text-primary-600'}`}>{doc.dept}</p>
                                 <div className="flex items-center gap-2 lg:gap-3 mt-1 lg:mt-2 text-[11px] lg:text-[12px] font-bold">
                                     <span className="flex items-center gap-1 text-yellow-400"><Star className="w-2.5 h-2.5 fill-current" /> {doc.rating || 'N/A'}</span>
                                     <span className="text-gray-400">• {doc.exp} Exp</span>
@@ -394,7 +394,7 @@ const DoctorSearch = () => {
       <section className="section-padding bg-white">
          <div className="container-custom grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 px-6">
             <div className="p-8 lg:p-10 bg-slate-50 rounded-[2.5rem] lg:rounded-[3rem] shadow-sm border border-gray-100 text-left hover:bg-white hover:shadow-xl transition-all group">
-               <Shield className="w-10 h-10 lg:w-12 lg:h-12 text-blue-600 mb-6 group-hover:scale-110 transition-transform" />
+               <Shield className="w-10 h-10 lg:w-12 lg:h-12 text-primary-600 mb-6 group-hover:scale-110 transition-transform" />
                <h3 className="text-lg lg:text-xl font-bold text-[#0f172a] mb-4">Board Certified</h3>
                <p className="text-gray-500 text-sm leading-relaxed">Every doctor in our network undergoes a rigorous credentialing process to ensure the highest standards.</p>
             </div>
@@ -523,7 +523,7 @@ const DoctorSearch = () => {
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-6">
               <HelpCircle className="w-4 h-4" /> Consultation Help
             </div>
-            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Booking <span className="text-blue-600 normal">FAQs</span></h2>
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Booking <span className="text-primary-600 normal">FAQs</span></h2>
             <p className="text-gray-500 max-w-2xl mx-auto">Common questions about doctor appointments, specialist availability, and clinical consultations.</p>
           </div>
 
@@ -544,10 +544,10 @@ const DoctorSearch = () => {
                 viewport={{ once: true }}
                 className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-xl shadow-blue-900/5 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all duration-500 group"
               >
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all">
                   <Stethoscope size={20} />
                 </div>
-                <h4 className="font-bold text-lg text-[#0f172a] mb-4 leading-tight group-hover:text-blue-600 transition-colors">{faq.q}</h4>
+                <h4 className="font-bold text-lg text-[#0f172a] mb-4 leading-tight group-hover:text-primary-600 transition-colors">{faq.q}</h4>
                 <p className="text-gray-500 text-sm leading-relaxed font-light">{faq.a}</p>
               </motion.div>
             ))}

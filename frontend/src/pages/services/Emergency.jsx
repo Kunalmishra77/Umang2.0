@@ -16,7 +16,7 @@ const emergencyServices = [
     title: "Cardiac Emergency",
     desc: "24/7 Cath Lab availability for immediate angioplasty (Primary PTCA) within the golden hour.",
     color: "bg-red-50 text-red-600",
-    path: "/specialities/cardiology"
+    path: "/specialities/cardiac"
   },
   {
     icon: Activity,
@@ -345,7 +345,7 @@ const Emergency = () => {
                   <p className="text-xs text-gray-400 uppercase tracking-widest font-bold mt-1">Intensivist Cover</p>
                 </div>
               </div>
-              <Link to="/doctors" className="h-14 px-10 rounded-full bg-sky-500 text-white font-bold inline-flex items-center justify-center hover:bg-sky-600 transition-colors shadow-lg shadow-sky-200">
+              <Link to="/doctors" className="h-14 px-10 rounded-full bg-primary-600 text-white font-bold inline-flex items-center justify-center hover:bg-primary-700 transition-colors shadow-lg shadow-primary-200">
                  View Specialists
               </Link>
             </div>

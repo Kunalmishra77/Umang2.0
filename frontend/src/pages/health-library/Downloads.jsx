@@ -37,7 +37,7 @@ const Downloads = () => {
       <section className="relative min-h-[500px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')] opacity-10" />
-          <div className="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px]" />
+          <div className="absolute -top-32 -left-32 w-96 h-96 bg-primary-500/20 rounded-full blur-[100px]" />
         </div>
 
         <div className="container-custom relative z-10 text-center">
@@ -47,7 +47,7 @@ const Downloads = () => {
             transition={{ duration: 0.8 }}
             className="max-w-3xl mx-auto"
           >
-            <div className="inline-flex items-center gap-2 bg-cyan-500/20 px-4 py-2 rounded-full border border-cyan-500/30 text-cyan-300 font-bold uppercase tracking-widest text-xs mb-8">
+            <div className="inline-flex items-center gap-2 bg-primary-500/20 px-4 py-2 rounded-full border border-cyan-500/30 text-cyan-300 font-bold uppercase tracking-widest text-xs mb-8">
               <Download className="w-4 h-4" /> Resources Center
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight">
@@ -82,7 +82,7 @@ const Downloads = () => {
                   <button 
                      key={cat}
                      onClick={() => setActiveCategory(cat)}
-                     className={`px-8 py-3 rounded-xl text-sm font-bold transition-all ${activeCategory === cat ? 'bg-[#005580] text-white shadow-xl' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100'}`}
+                     className={`px-8 py-3 rounded-xl text-sm font-bold transition-all ${activeCategory === cat ? 'bg-primary-600 text-white shadow-xl' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100'}`}
                   >
                      {cat}
                   </button>
@@ -99,7 +99,7 @@ const Downloads = () => {
                      className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-cyan-100 transition-all group"
                   >
                      <div className="flex justify-between items-start mb-6">
-                        <div className="w-14 h-14 bg-cyan-50 rounded-2xl flex items-center justify-center text-[#005580]">
+                        <div className="w-14 h-14 bg-primary-50 rounded-2xl flex items-center justify-center text-primary-600">
                            <FileText className="w-7 h-7" />
                         </div>
                         <span className="text-[10px] font-bold bg-gray-50 px-3 py-1 rounded-full uppercase tracking-wider text-gray-500">
@@ -107,11 +107,11 @@ const Downloads = () => {
                         </span>
                      </div>
                      
-                     <h3 className="text-lg font-bold text-[#0f172a] mb-2 group-hover:text-[#005580] transition-colors">{file.title}</h3>
+                     <h3 className="text-lg font-bold text-[#0f172a] mb-2 group-hover:text-primary-600 transition-colors">{file.title}</h3>
                      <p className="text-sm text-gray-400 mb-8">{file.category}</p>
                      
                      <div className="flex gap-3">
-                        <button className="flex-1 h-12 rounded-xl bg-[#0f172a] text-white font-bold flex items-center justify-center gap-2 hover:bg-[#005580] transition-all text-sm">
+                        <button className="flex-1 h-12 rounded-xl bg-[#0f172a] text-white font-bold flex items-center justify-center gap-2 hover:bg-primary-600 transition-all text-sm">
                            <Download className="w-4 h-4" /> Download
                         </button>
                         <button className="w-12 h-12 rounded-xl border-2 border-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:text-[#0f172a] transition-all">
@@ -128,14 +128,14 @@ const Downloads = () => {
       <section className="py-12 lg:py-10 bg-white border-t border-gray-100">
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div>
-               <div className="inline-flex items-center gap-2 text-[#005580] font-bold uppercase tracking-widest text-xs mb-6">
+               <div className="inline-flex items-center gap-2 text-primary-600 font-bold uppercase tracking-widest text-xs mb-6">
                   <ShieldCheck className="w-4 h-4" /> Cashless Treatment
                </div>
                <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Insurance & TPA</h2>
                <p className="text-xl text-gray-500 mb-8 leading-relaxed">
                   We are empanelled with all major insurance providers and Third Party Administrators (TPAs) to offer you a hassle-free cashless hospitalization experience.
                </p>
-               <button className="flex items-center gap-2 text-[#005580] font-bold text-lg hover:gap-3 transition-all">
+               <button className="flex items-center gap-2 text-primary-600 font-bold text-lg hover:gap-3 transition-all">
                   View Full List of TPAs <ChevronRight className="w-5 h-5" />
                </button>
             </div>

@@ -45,7 +45,7 @@ const specialties = [
   { name: 'General Fever', icon: Thermometer, waiting: '7 min', color: 'bg-orange-50 text-orange-600' },
   { name: 'Heart Symptoms', icon: Heart, waiting: '10 min', color: 'bg-red-50 text-red-600' },
   { name: 'Neuro Consult', icon: Brain, waiting: '12 min', color: 'bg-purple-50 text-purple-600' },
-  { name: 'Joint Pain', icon: Bone, waiting: '9 min', color: 'bg-blue-50 text-blue-600' },
+  { name: 'Joint Pain', icon: Bone, waiting: '9 min', color: 'bg-primary-50 text-primary-600' },
   { name: 'Respiratory', icon: Wind, waiting: '8 min', color: 'bg-cyan-50 text-cyan-600' },
   { name: 'Digestive Care', icon: Activity, waiting: '11 min', color: 'bg-emerald-50 text-emerald-600' }
 ];
@@ -200,7 +200,7 @@ const Telemedicine = () => {
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-2">Available Doctors</h2>
               <p className="text-gray-500">Connect with specialists currently available online.</p>
             </div>
-            <Link to="/doctors" className="text-[#005580] font-bold hidden md:flex items-center gap-2 hover:gap-3 transition-all">
+            <Link to="/doctors" className="text-primary-600 font-bold hidden md:flex items-center gap-2 hover:gap-3 transition-all">
               View All Doctors <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -220,7 +220,7 @@ const Telemedicine = () => {
                     <span>{doc.exp} Exp</span>
                   </div>
                   <div className="mt-3 flex gap-2">
-                    <Link to="/services/telemedicine/consult" className={`flex-1 py-2 rounded-lg text-[11px] font-bold text-center ${doc.online ? 'bg-[#005580] text-white hover:brightness-110 transition-all shadow-sm' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}>
+                    <Link to="/services/telemedicine/consult" className={`flex-1 py-2 rounded-lg text-[11px] font-bold text-center ${doc.online ? 'bg-primary-600 text-white hover:brightness-110 transition-all shadow-sm' : 'bg-gray-100 text-gray-400 cursor-not-allowed'}`}>
                       {doc.online ? 'Call Now' : 'Offline'}
                     </Link>
                     <button className="px-3 py-2 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 transition-all">
@@ -248,7 +248,7 @@ const Telemedicine = () => {
                     { icon: Clock, title: 'Flexible Scheduling', desc: 'Book consultations across weekdays and weekends.', path: "/contact" }
                   ].map((feat) => (
                     <Link to={feat.path} key={feat.title} className="flex gap-4 group block">
-                      <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-blue-300 shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all">
+                      <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-primary-300 shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all">
                         <feat.icon className="w-5 h-5" />
                       </div>
                       <div>
@@ -263,7 +263,7 @@ const Telemedicine = () => {
               <div className="relative">
                 <div className="bg-white text-gray-900 rounded-[1.5rem] p-6 shadow-2xl max-w-sm mx-auto">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-[#005580]">
+                    <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
                       <FileText className="w-5 h-5" />
                     </div>
                     <div>
@@ -292,11 +292,11 @@ const Telemedicine = () => {
 
       {/* SECTION: CARE APP PROMO (NEW SECTION 8) */}
       <Section className="bg-slate-900 text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[120px]" />
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">Everything you need in <br /><span className="text-blue-400">One Place.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">Everything you need in <br /><span className="text-primary-400">One Place.</span></h2>
               <p className="text-gray-400 text-lg font-light leading-relaxed mb-10">
                 Track prescriptions, book follow-ups, and chat with care managers directly through the Umang Care app. 
               </p>
@@ -311,7 +311,7 @@ const Telemedicine = () => {
             </div>
             <div className="lg:w-1/2">
               <div className="p-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] text-center max-w-sm mx-auto">
-                <Smartphone size={64} className="text-blue-400 mx-auto mb-6" />
+                <Smartphone size={64} className="text-primary-400 mx-auto mb-6" />
                 <h4 className="text-2xl font-bold mb-2">98% Success</h4>
                 <p className="text-sm text-gray-400 leading-relaxed">Highly rated by 5000+ users for video stability and ease of use.</p>
               </div>
@@ -320,7 +320,7 @@ const Telemedicine = () => {
         </Container>
       </Section>
 
-      <section className="section-padding bg-blue-50">
+      <section className="section-padding bg-primary-50">
         <div className="container-custom">
           <h2 className="text-3xl font-serif font-bold text-brand-dark text-center mb-8">Patient Stories</h2>
           <div className="grid md:grid-cols-2 gap-5">
@@ -329,7 +329,7 @@ const Telemedicine = () => {
                 <div className="text-4xl text-blue-200 absolute top-4 left-4 select-none">"</div>
                 <p className="text-gray-600 mb-5 relative z-10 text-sm normal">{test.text}</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center font-bold text-[#005580]">{test.name[0]}</div>
+                  <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-600">{test.name[0]}</div>
                   <div>
                     <h4 className="font-bold text-[#0f172a]">{test.name}</h4>
                     <div className="flex text-yellow-400 text-xs">
@@ -385,10 +385,10 @@ const Telemedicine = () => {
         <div className="container-custom text-center">
           <h3 className="text-xl font-bold text-gray-900 mb-6">Technical Requirements</h3>
           <div className="flex flex-wrap justify-center gap-5 text-gray-500 text-sm">
-            <div className="flex items-center gap-2"><Wifi className="w-5 h-5 text-[#005580]" /> Stable Internet (4G/WiFi)</div>
-            <div className="flex items-center gap-2"><Laptop className="w-5 h-5 text-[#005580]" /> Smartphone or Laptop</div>
-            <div className="flex items-center gap-2"><Mic className="w-5 h-5 text-[#005580]" /> Working Mic & Camera</div>
-            <div className="flex items-center gap-2"><HelpCircle className="w-5 h-5 text-[#005580]" /> Need Help? Call Support</div>
+            <div className="flex items-center gap-2"><Wifi className="w-5 h-5 text-primary-600" /> Stable Internet (4G/WiFi)</div>
+            <div className="flex items-center gap-2"><Laptop className="w-5 h-5 text-primary-600" /> Smartphone or Laptop</div>
+            <div className="flex items-center gap-2"><Mic className="w-5 h-5 text-primary-600" /> Working Mic & Camera</div>
+            <div className="flex items-center gap-2"><HelpCircle className="w-5 h-5 text-primary-600" /> Need Help? Call Support</div>
           </div>
         </div>
       </section>

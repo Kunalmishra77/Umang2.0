@@ -5,7 +5,9 @@
       "Bash(git checkout:*)",
       "Bash(npm install:*)",
       "Bash(npm run:*)",
-      "WebFetch(domain:frontend-kunalmishra77s-projects.vercel.app)"
+      "WebFetch(domain:frontend-kunalmishra77s-projects.vercel.app)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   }
 }

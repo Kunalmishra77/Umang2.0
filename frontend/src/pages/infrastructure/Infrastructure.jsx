@@ -56,7 +56,7 @@ const facilities = [
     short: '1:1 Nursing ratio with advanced monitoring.',
     details: {
       specs: [
-        { label: 'Beds', value: '40 Critical Care Beds' },
+        { label: 'Beds', value: '43 Critical Care Beds' },
         { label: 'Ventilators', value: 'Invasive & Non-invasive' },
         { label: 'Monitoring', value: 'Central Station (24/7)' },
         { label: 'Dialysis', value: 'Bedside SLED Support' }

@@ -33,7 +33,7 @@ const Billing = () => {
         </div>
         <button 
           onClick={handleAddPayment}
-          className="h-12 px-6 rounded-xl bg-blue-600 text-white font-bold text-sm flex items-center gap-2 hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
+          className="h-12 px-6 rounded-xl bg-primary-600 text-white font-bold text-sm flex items-center gap-2 hover:bg-primary-700 transition-all shadow-lg shadow-primary-200"
         >
           <CreditCard className="w-4 h-4" /> Add Payment Method
         </button>
@@ -56,7 +56,7 @@ const Billing = () => {
           <h3 className="text-2xl font-serif font-bold text-[#0f172a]">₹1,200</h3>
         </div>
         <div className="bg-[#0f172a] p-6 rounded-[2rem] text-white relative overflow-hidden group">
-          <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600 rounded-full blur-[40px] opacity-20 -mr-8 -mt-8" />
+          <div className="absolute top-0 right-0 w-24 h-24 bg-primary-600 rounded-full blur-[40px] opacity-20 -mr-8 -mt-8" />
           <div className="relative z-10">
             <div className="w-12 h-12 rounded-2xl bg-white/10 text-white flex items-center justify-center mb-4">
               <FileText className="w-6 h-6" />
@@ -71,7 +71,7 @@ const Billing = () => {
       <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden">
         <div className="p-8 border-b border-slate-50 flex items-center justify-between">
           <h3 className="text-xl font-serif font-bold text-[#0f172a]">Recent Invoices</h3>
-          <button className="text-blue-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+          <button className="text-primary-600 font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
             View All <ChevronRight className="w-4 h-4" />
           </button>
         </div>
@@ -112,10 +112,10 @@ const Billing = () => {
                   </td>
                   <td className="px-8 py-6">
                     <div className="flex items-center justify-center gap-2">
-                      <button className="w-9 h-9 rounded-lg bg-slate-100 text-slate-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
+                      <button className="w-9 h-9 rounded-lg bg-slate-100 text-slate-400 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all">
                         <Download className="w-4 h-4" />
                       </button>
-                      <button className="w-9 h-9 rounded-lg bg-slate-100 text-slate-400 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-all">
+                      <button className="w-9 h-9 rounded-lg bg-slate-100 text-slate-400 flex items-center justify-center hover:bg-primary-600 hover:text-white transition-all">
                         <Printer className="w-4 h-4" />
                       </button>
                     </div>
@@ -129,14 +129,14 @@ const Billing = () => {
 
       {/* Payment Information Banner */}
       <div className="bg-blue-50 rounded-[2.5rem] p-8 border border-blue-100 flex flex-col md:flex-row items-center gap-6">
-        <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center text-blue-600 shrink-0 shadow-sm">
+        <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center text-primary-600 shrink-0 shadow-sm">
           <AlertCircle className="w-8 h-8" />
         </div>
         <div className="flex-1 text-center md:text-left">
           <h4 className="text-lg font-bold text-[#0f172a] mb-1">Need help with your insurance claim?</h4>
           <p className="text-sm text-slate-500 font-medium leading-relaxed">Our TPA helpdesk is available 24/7 at the ground floor to assist you with cashless hospitalisation and reimbursement claims.</p>
         </div>
-        <button className="h-12 px-6 rounded-xl border-2 border-blue-600 text-blue-600 font-bold text-sm hover:bg-blue-600 hover:text-white transition-all">
+        <button className="h-12 px-6 rounded-xl border-2 border-primary-600 text-primary-600 font-bold text-sm hover:bg-primary-600 hover:text-white transition-all">
           Contact Billing Support
         </button>
       </div>

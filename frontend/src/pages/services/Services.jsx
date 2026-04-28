@@ -17,7 +17,7 @@ const services = [
     title: "Second Opinion",
     slug: "second-opinion",
     desc: "Get expert validation on your diagnosis and treatment plan from our top specialists.",
-    color: "bg-blue-50 text-blue-600",
+    color: "bg-primary-50 text-primary-600",
     img: ASSETS.CONSULTATION
   },
   {

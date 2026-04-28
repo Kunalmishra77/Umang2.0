@@ -36,7 +36,7 @@ const Careers = () => {
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center bg-[#0f172a] overflow-hidden">
          <div className="absolute inset-0 z-0">
             <img 
-              src="/assets/images/localized/careers-team.jpg" 
+              src="/Umang-real/cammunity.webp" 
               alt="Medical Team" 
               className="w-full h-full object-cover opacity-30 mix-blend-luminosity" 
             />
@@ -49,14 +49,14 @@ const Careers = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-               <span className="text-blue-400 font-bold uppercase tracking-[0.2em] text-xs mb-6 block">Join Our Mission</span>
+               <span className="text-primary-400 font-bold uppercase tracking-[0.2em] text-xs mb-6 block">Join Our Mission</span>
                <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6">
-                  Build a Career that <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">Saves Lives</span>
+                  Build a Career that <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-300">Saves Lives</span>
                </h1>
                <p className="text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed mb-10">
                   Be part of a world-class team where your expertise meets our passion for compassionate healthcare.
                </p>
-               <button onClick={() => document.getElementById('openings').scrollIntoView({ behavior: 'smooth' })} className="h-14 px-8 rounded-full bg-white text-[#0f172a] font-bold text-sm hover:bg-blue-50 transition-all flex items-center gap-2 mx-auto">
+               <button onClick={() => document.getElementById('openings').scrollIntoView({ behavior: 'smooth' })} className="h-14 px-8 rounded-full bg-white text-[#0f172a] font-bold text-sm hover:bg-primary-50 transition-all flex items-center gap-2 mx-auto">
                   View Openings <ArrowRight className="w-4 h-4" />
                </button>
             </motion.div>
@@ -76,9 +76,9 @@ const Careers = () => {
                   <motion.div 
                      key={i}
                      whileHover={{ y: -5 }}
-                     className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 hover:border-blue-200 transition-all h-full"
+                     className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 hover:border-primary-200 transition-all h-full"
                   >
-                     <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-[#005580] mb-6 shadow-sm">
+                     <div className="w-14 h-14 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 mb-6 shadow-sm">
                         <perk.icon className="w-7 h-7" />
                      </div>
                      <h3 className="text-xl font-bold text-[#0f172a] mb-3">{perk.title}</h3>
@@ -133,7 +133,7 @@ const Careers = () => {
 
             <div className="space-y-6">
                {jobs.map((job) => (
-                  <div key={job.id} className="border border-gray-200 rounded-3xl overflow-hidden transition-all hover:border-blue-300 hover:shadow-xl bg-white group">
+                  <div key={job.id} className="border border-gray-200 rounded-3xl overflow-hidden transition-all hover:border-primary-300 hover:shadow-xl bg-white group">
                      <div 
                         className="p-8 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
                         onClick={() => setActiveJob(activeJob === job.id ? null : job.id)}
@@ -141,7 +141,7 @@ const Careers = () => {
                         <div>
                            <h3 className="text-2xl font-bold text-[#0f172a] group-hover:text-primary-600 transition-colors">{job.title}</h3>
                            <div className="flex flex-wrap gap-6 mt-4 text-sm font-bold text-gray-500 uppercase tracking-wider">
-                              <span className="flex items-center gap-2"><Briefcase className="w-4.5 h-4.5 text-blue-500" /> {job.type}</span>
+                              <span className="flex items-center gap-2"><Briefcase className="w-4.5 h-4.5 text-primary-500" /> {job.type}</span>
                               <span className="flex items-center gap-2"><Users className="w-4.5 h-4.5 text-green-500" /> {job.exp}</span>
                               <span className="flex items-center gap-2"><MapPin className="w-4.5 h-4.5 text-red-500" /> {job.loc}</span>
                            </div>
@@ -178,7 +178,7 @@ const Careers = () => {
                                     ))}
                                  </ul>
 
-                                 <button className="h-14 px-10 rounded-xl bg-[#005580] text-white font-black text-sm uppercase tracking-widest hover:bg-[#004466] transition-all shadow-xl flex items-center gap-3">
+                                 <button className="h-14 px-10 rounded-xl bg-primary-600 text-white font-black text-sm uppercase tracking-widest hover:bg-primary-700 transition-all shadow-xl flex items-center gap-3">
                                     Apply for this Role <ArrowRight className="w-5 h-5" />
                                  </button>
                               </div>
@@ -217,19 +217,19 @@ const Careers = () => {
 
       {/* 4. EMPLOYEE GROWTH & TRAINING */}
       <Section className="bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[120px]" />
         <Container>
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
-              <span className="text-blue-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">Career Advancement</span>
-              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-10 leading-tight">Upskilling the <br /><span className="normal text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-200">Next Generation.</span></h2>
+              <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">Career Advancement</span>
+              <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-10 leading-tight">Upskilling the <br /><span className="normal text-transparent bg-clip-text bg-gradient-to-r from-primary-300 to-cyan-200">Next Generation.</span></h2>
               <p className="text-slate-400 text-lg mb-12 font-light leading-relaxed">
                 We don't just hire professionals; we build leaders. Our dedicated training wing provides monthly workshops, digital certifications, and mentorship programs for all staff levels.
               </p>
               <div className="grid sm:grid-cols-2 gap-8">
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                    <CheckCircle className="text-blue-400 w-5 h-5" />
+                    <CheckCircle className="text-primary-400 w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="font-bold mb-1">CME Programs</h4>
@@ -238,7 +238,7 @@ const Careers = () => {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                    <CheckCircle className="text-blue-400 w-5 h-5" />
+                    <CheckCircle className="text-primary-400 w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="font-bold mb-1">Soft Skill Hub</h4>
@@ -249,7 +249,7 @@ const Careers = () => {
             </div>
             <div className="relative">
               <img src={ASSETS.ROBOTIC_SURGERY} alt="Training" className="rounded-[3rem] shadow-2xl opacity-80 hover:opacity-100 transition-opacity duration-1000" />
-              <div className="absolute -bottom-10 -left-10 bg-blue-600 p-10 rounded-[3rem] shadow-2xl hidden xl:block">
+              <div className="absolute -bottom-10 -left-10 bg-primary-600 p-10 rounded-[3rem] shadow-2xl hidden xl:block">
                 <p className="text-white font-black text-5xl mb-1 tracking-tighter">100+</p>
                 <p className="text-blue-200 font-bold uppercase tracking-widest text-[10px]">Training Hours/Year</p>
               </div>
@@ -261,14 +261,14 @@ const Careers = () => {
       {/* 5. INTERNSHIPS & RESIDENCY */}
       <Section className="bg-white pt-24 pb-12">
         <Container>
-          <div className="bg-blue-50 rounded-[4rem] p-12 lg:p-20 relative overflow-hidden group">
+          <div className="bg-primary-50 rounded-[4rem] p-12 lg:p-20 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-[100px] opacity-50 -mr-48 -mt-48" />
             <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16">
               <div className="max-w-2xl">
-                <span className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 block">For Students</span>
-                <h2 className="text-4xl font-serif font-bold text-brand-dark leading-tight">Internship & <br /><span className="text-blue-600 normal">Academic Residency.</span></h2>
+                <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">For Students</span>
+                <h2 className="text-4xl font-serif font-bold text-brand-dark leading-tight">Internship & <br /><span className="text-primary-600 normal">Academic Residency.</span></h2>
               </div>
-              <button className="px-8 py-4 bg-[#005580] text-white rounded-2xl font-bold hover:bg-[#004466] transition-all shadow-xl">
+              <button className="px-8 py-4 bg-primary-600 text-white rounded-2xl font-bold hover:bg-primary-700 transition-all shadow-xl">
                 Explore Programs
               </button>
             </div>
@@ -321,12 +321,12 @@ const Careers = () => {
             <div className="lg:w-1/2">
               <SectionHeading 
                 eyebrow="Core Values" 
-                title="A Workplace for <span class='text-blue-600'>Everyone.</span>" 
+                title="A Workplace for <span class='text-primary-600'>Everyone.</span>" 
                 description="We take pride in our diverse workforce representing various cultures and backgrounds across India. Inclusivity is at the heart of our collaborative healing environment."
               />
               <div className="flex flex-wrap gap-4">
                 {['Equal Opportunity', 'Gender Diversity', 'Zero Tolerance Harassment', 'Transparent Pay'].map((tag, idx) => (
-                  <span key={idx} className="bg-white border border-blue-100 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-blue-600 shadow-sm">
+                  <span key={idx} className="bg-white border border-blue-100 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-primary-600 shadow-sm">
                     {tag}
                   </span>
                 ))}
@@ -334,11 +334,11 @@ const Careers = () => {
             </div>
             <div className="lg:w-1/2">
               <div className="p-10 bg-white rounded-[3rem] shadow-xl border border-blue-50 relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary-50 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Users size={64} className="text-blue-200 mb-6" />
                 <h4 className="text-2xl font-bold text-brand-dark mb-4">Referral Program</h4>
                 <p className="text-gray-500 mb-8 leading-relaxed">Know someone who fits our culture? Our employee referral program rewards you for bringing top talent into our family.</p>
-                <Link to="/contact" className="text-blue-600 font-bold uppercase tracking-widest text-xs flex items-center gap-2">Refer Now <ArrowRight size={14} /></Link>
+                <Link to="/contact" className="text-primary-600 font-bold uppercase tracking-widest text-xs flex items-center gap-2">Refer Now <ArrowRight size={14} /></Link>
               </div>
             </div>
           </div>
@@ -359,9 +359,9 @@ const Careers = () => {
               { q: "Is there a policy for internal growth?", a: "Yes, we prioritize internal promotions and have a robust performance-linked growth framework." },
               { q: "What documents are required for interview?", a: "Please carry your updated CV, original educational certificates, experience letters from previous employers, and two passport-sized photographs." }
             ].map((faq, i) => (
-              <div key={i} className="bg-slate-50 p-8 rounded-[2.5rem] border border-transparent hover:border-blue-200 transition-all text-left">
+              <div key={i} className="bg-slate-50 p-8 rounded-[2.5rem] border border-transparent hover:border-primary-200 transition-all text-left">
                 <h4 className="font-bold text-brand-dark flex items-center gap-4 mb-4 text-lg">
-                  <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center text-blue-600 shadow-sm"><HelpCircle size={20} /></div> {faq.q}
+                  <div className="w-10 h-10 rounded-2xl bg-white flex items-center justify-center text-primary-600 shadow-sm"><HelpCircle size={20} /></div> {faq.q}
                 </h4>
                 <p className="text-gray-600 pl-14 text-base leading-relaxed">{faq.a}</p>
               </div>
@@ -371,14 +371,14 @@ const Careers = () => {
       </section>
 
       {/* 9. HOSPITAL HIRING (NEW) */}
-      <Section className="bg-blue-600 text-white">
+      <Section className="bg-primary-600 text-white">
         <Container>
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <div className="max-w-2xl">
               <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6 leading-tight">Hospital Hiring 2026</h2>
-              <p className="text-blue-100 text-xl font-light">We are visiting top medical and nursing colleges this year. If you represent an institution, let's connect for placement drives.</p>
+              <p className="text-primary-100 text-xl font-light">We are visiting top medical and nursing colleges this year. If you represent an institution, let's connect for placement drives.</p>
             </div>
-            <Link to="/contact" className="h-16 px-10 bg-white text-blue-600 rounded-full font-black text-lg flex items-center gap-3 hover:bg-blue-50 transition-all shadow-2xl">
+            <Link to="/contact" className="h-16 px-10 bg-white text-primary-600 rounded-full font-black text-lg flex items-center gap-3 hover:bg-primary-50 transition-all shadow-2xl">
               Institutional Connect <Globe size={24} />
             </Link>
           </div>

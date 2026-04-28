@@ -59,7 +59,7 @@ const Header = () => {
         <div className={`bg-white transition-all duration-500 border-b border-gray-100 relative ${isScrolled ? 'h-12 lg:h-14' : 'h-14 lg:h-16'}`}>
           <div className="container-custom flex items-center justify-between gap-4 px-4 w-full h-full relative">
             <Link to="/" className="flex items-center shrink-0 group py-1">
-               <img src="/Umang-logo.png" alt="Umang Superspeciality Hospital" className="h-9 lg:h-11 w-auto object-contain" />
+               <img src="/Umang-logo.webp" alt="Umang Superspeciality Hospital" className="h-9 lg:h-11 w-auto object-contain" />
             </Link>
 
             {/* Tightened Navigation Spacing */}

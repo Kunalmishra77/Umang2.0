@@ -55,7 +55,7 @@ const PressRelease = () => {
       <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/assets/images/localized/press-conference.jpg" 
+            src="/Umang-real/clinical excelence.webp" 
             alt="Press Conference" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay" 
           />
@@ -82,7 +82,7 @@ const PressRelease = () => {
             
             <div className="bg-white p-2 rounded-2xl shadow-2xl flex max-w-xl transform hover:scale-105 transition-all duration-300 group">
                <div className="flex-1 flex items-center px-4">
-                  <Search className="w-5 h-5 text-gray-400 mr-3 group-focus-within:text-[#005580] transition-colors" />
+                  <Search className="w-5 h-5 text-gray-400 mr-3 group-focus-within:text-primary-600 transition-colors" />
                   <input 
                     type="text" 
                     placeholder="Search news..." 
@@ -91,7 +91,7 @@ const PressRelease = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
                </div>
-               <button className="h-12 px-8 bg-[#005580] text-white rounded-xl font-bold hover:bg-[#004466] transition-all">
+               <button className="h-12 px-8 bg-primary-600 text-white rounded-xl font-bold hover:bg-primary-700 transition-all">
                   Filter
                </button>
             </div>
@@ -119,11 +119,11 @@ const PressRelease = () => {
                      <div className="flex items-center gap-4 text-xs font-bold text-gray-400 mb-6 uppercase tracking-widest">
                         <span className="flex items-center gap-2"><Calendar className="w-4 h-4 text-blue-500" /> {releases[0].date}</span>
                         <span className="w-1 h-1 rounded-full bg-gray-300" />
-                        <span className="text-blue-600">{releases[0].category}</span>
+                        <span className="text-primary-600">{releases[0].category}</span>
                      </div>
-                     <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-6 group-hover:text-[#005580] transition-colors leading-tight">{releases[0].title}</h3>
+                     <h3 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-6 group-hover:text-primary-600 transition-colors leading-tight">{releases[0].title}</h3>
                      <p className="text-gray-500 text-lg leading-relaxed mb-10">{releases[0].excerpt}</p>
-                     <span className="inline-flex items-center gap-2 text-[#005580] font-bold text-lg">
+                     <span className="inline-flex items-center gap-2 text-primary-600 font-bold text-lg">
                         Read Full Statement <motion.div animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}><ArrowRight className="w-5 h-5" /></motion.div>
                      </span>
                   </div>
@@ -147,14 +147,14 @@ const PressRelease = () => {
                         <img src={item.img} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                      </Link>
                      <div className="flex-1">
-                        <div className="flex items-center gap-3 text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">
+                        <div className="flex items-center gap-3 text-xs font-bold text-primary-600 uppercase tracking-widest mb-3">
                            {item.category} • {item.date}
                         </div>
-                        <Link to={`/media-center/press-release/${item.id}`} className="text-2xl font-bold text-[#0f172a] mb-4 group-hover:text-[#005580] transition-colors leading-tight block">{item.title}</Link>
+                        <Link to={`/media-center/press-release/${item.id}`} className="text-2xl font-bold text-[#0f172a] mb-4 group-hover:text-primary-600 transition-colors leading-tight block">{item.title}</Link>
                         <p className="text-gray-500 text-sm line-clamp-2 mb-4 leading-relaxed">{item.excerpt}</p>
                         <button 
                            onClick={() => handleDownload(item.id)}
-                           className="text-sm font-bold text-[#0f172a] flex items-center gap-2 group-hover:text-blue-600 transition-colors"
+                           className="text-sm font-bold text-[#0f172a] flex items-center gap-2 group-hover:text-primary-600 transition-colors"
                         >
                            {downloading === item.id ? <motion.div animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 1, ease: "linear" }}><Clock className="w-4 h-4" /></motion.div> : <Download className="w-4 h-4" />}
                            {downloading === item.id ? 'Preparing Download...' : 'Download PDF'}
@@ -167,7 +167,7 @@ const PressRelease = () => {
                <motion.button 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-10 py-4 bg-gray-50 border-2 border-gray-100 rounded-full text-[#0f172a] font-bold hover:bg-white hover:border-[#005580] hover:text-[#005580] transition-all shadow-sm"
+                  className="px-10 py-4 bg-gray-50 border-2 border-gray-100 rounded-full text-[#0f172a] font-bold hover:bg-white hover:border-primary-600 hover:text-primary-600 transition-all shadow-sm"
                >
                   Load More News
                </motion.button>
@@ -196,7 +196,7 @@ const PressRelease = () => {
                      </div>
                   </div>
                </div>
-               <button className="h-16 px-10 rounded-full bg-blue-500 text-white font-bold text-lg hover:bg-blue-600 transition-all flex items-center gap-3 shadow-xl shadow-blue-900/50">
+               <button className="h-16 px-10 rounded-full bg-primary-600 text-white font-bold text-lg hover:bg-primary-700 transition-all flex items-center gap-3 shadow-xl shadow-primary-900/50">
                   <Download className="w-6 h-6" /> Download All Assets
                </button>
             </div>
@@ -206,7 +206,7 @@ const PressRelease = () => {
       {/* 5. Leadership Quote */}
       <section className="py-32 bg-white">
          <div className="container-custom max-w-4xl text-center">
-            <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-10 text-[#005580]">
+            <div className="w-20 h-20 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-10 text-primary-600">
                <Award className="w-10 h-10" />
             </div>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-8 leading-relaxed normal">
@@ -214,7 +214,7 @@ const PressRelease = () => {
             </h2>
             <div className="flex flex-col items-center">
                <div className="w-16 h-16 rounded-full overflow-hidden mb-4 shadow-lg border-2 border-white">
-                  <img src="/assets/images/localized/doctor-thumbnail.jpg" alt="CEO" className="w-full h-full object-cover" />
+                  <img src="/Umang-real/consultant.webp" alt="CEO" className="w-full h-full object-cover" />
                </div>
                <h4 className="font-bold text-[#0f172a]">Dr. Vikram Sethi</h4>
                <p className="text-sm text-gray-400 uppercase tracking-widest font-bold">Group Medical Director</p>
@@ -245,7 +245,7 @@ const PressRelease = () => {
                      <input type="text" placeholder="Journalist Name" className="w-full h-14 bg-gray-50 rounded-xl px-6 border border-gray-200 outline-none focus:border-blue-500 transition-all" />
                      <input type="text" placeholder="Media House" className="w-full h-14 bg-gray-50 rounded-xl px-6 border border-gray-200 outline-none focus:border-blue-500 transition-all" />
                      <textarea rows="3" placeholder="Nature of inquiry..." className="w-full bg-gray-50 rounded-xl p-6 border border-gray-200 outline-none focus:border-blue-500 transition-all resize-none"></textarea>
-                     <button className="w-full h-14 bg-[#0f172a] text-white rounded-xl font-bold hover:bg-[#005580] transition-all shadow-lg">
+                     <button className="w-full h-14 bg-[#0f172a] text-white rounded-xl font-bold hover:bg-primary-600 transition-all shadow-lg">
                         Submit Media Request
                      </button>
                   </form>

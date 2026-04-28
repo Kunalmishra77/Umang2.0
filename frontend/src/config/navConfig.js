@@ -19,7 +19,7 @@ export const navConfig = {
             title: 'Critical Care Excellence',
             desc: '24/7 Level-1 Trauma response with specialized ICU units and advanced life support.',
             bullets: ['Level-1 Trauma Center', '52-Bed Smart ICU', 'Cardiac Ambulances', '24/7 Intensivist'],
-            image: '/assets/services/advanced-life-support.png',
+            image: '/assets/services/advanced-life-support.webp',
             tag: 'Emergency',
             cta: { label: 'Get Help', href: '/services/emergency' }
           }
@@ -33,7 +33,7 @@ export const navConfig = {
             title: 'Precision Diagnostics',
             desc: 'NABL accredited labs providing accurate results with region-first 3 Tesla MRI.',
             bullets: ['3T MRI', '128 Slice CT', 'Automated Pathology', 'Non-Invasive Cardiac'],
-            image: '/assets/services/diagnostic-lab/Radiology & Imaging.png',
+            image: '/assets/services/diagnostic-lab/Radiology & Imaging.webp',
             tag: 'Diagnostics',
             cta: { label: 'Book Test', href: '/services/lab-test-diagnostic' }
           }
@@ -47,7 +47,7 @@ export const navConfig = {
             title: 'Wellness & Medicine',
             desc: '24/7 doorstep delivery of genuine medications and professional pharmacist support.',
             bullets: ['Doorstep Delivery', 'Cold Chain Supply', 'Genuine Meds', '24/7 Open'],
-            image: '/assets/Home/pharmacy.jpeg',
+            image: '/assets/Home/pharmacy.webp',
             tag: 'Pharmacy',
             cta: { label: 'Order Online', href: '/services/buy-medicines' }
           }
@@ -61,7 +61,7 @@ export const navConfig = {
             title: 'Hospital at Home',
             desc: 'Bringing clinical expertise to your doorstep with nursing and physiotherapy.',
             bullets: ['ICU at Home', 'Home Nursing', 'Physiotherapy', 'Doctor Visits'],
-            image: '/assets/Home/home-care.jpg',
+            image: '/assets/Home/home-care.webp',
             tag: 'Home Care',
             cta: { label: 'Inquire Now', href: '/services/home-care' }
           }
@@ -75,7 +75,7 @@ export const navConfig = {
             title: 'Dignified Aging',
             desc: 'Specialized geriatric support for your loved ones with empathy and clinical care.',
             bullets: ['Assisted Living', 'Dementia Care', 'Daily Vitals', 'Companionship'],
-            image: '/assets/Home/geriatrics.jpeg',
+            image: '/assets/Specialities/Geriatrics.webp',
             tag: 'Elder Care',
             cta: { label: 'View Plans', href: '/services/elder-care' }
           }
@@ -89,7 +89,7 @@ export const navConfig = {
             title: 'Preventive Care',
             desc: 'Curated health packages for early detection and long-term wellness.',
             bullets: ['Full Body Check', 'Cardiac Profile', 'Diabetes Screen', 'Senior Care'],
-            image: '/assets/Home/Health-Checkup.jpg',
+            image: '/assets/Home/Health-Checkup.webp',
             tag: 'Wellness',
             cta: { label: 'Book Now', href: '/services/health-checkup' }
           }
@@ -103,7 +103,7 @@ export const navConfig = {
             title: 'Digital Consultation',
             desc: 'Connect with top specialists via secure video calls from anywhere.',
             bullets: ['Instant Connect', 'Expert Opinion', 'Digital Rx', 'Safe & Secure'],
-            image: '/assets/Home/telemedicene.jpeg',
+            image: '/assets/Home/telemedicene.webp',
             tag: 'Digital',
             cta: { label: 'Book Call', href: '/services/telemedicine' }
           }
@@ -123,7 +123,7 @@ export const navConfig = {
             title: 'The Heart Center',
             desc: 'Advanced interventional cardiology and cardiothoracic surgery unit.',
             bullets: ['Cath Lab', 'Bypass Surgery', 'Heart Failure', 'Pediatric Cardiac'],
-            image: '/assets/Home/cardiac-sciences.png',
+            image: '/assets/Home/cardiac-sciences.webp',
             tag: 'Cardiac',
             cta: { label: 'View Doctors', href: '/doctors?dept=cardiac' }
           }
@@ -137,7 +137,7 @@ export const navConfig = {
             title: 'Brain & Spine Unit',
             desc: 'Management of complex stroke, epilepsy, and spinal disorders.',
             bullets: ['Stroke Care', 'Neurosurgery', 'Spine Clinic', 'Neuro-Physio'],
-            image: '/assets/Home/neuro-sciences.png',
+            image: '/assets/Home/neuro-sciences.webp',
             tag: 'Neuro',
             cta: { label: 'View Doctors', href: '/doctors?dept=neuro' }
           }
@@ -151,7 +151,7 @@ export const navConfig = {
             title: 'Bone & Joint Care',
             desc: 'Center for robotic joint replacement and sports injury rehabilitation.',
             bullets: ['Knee/Hip Replace', 'Sports Medicine', 'Trauma Care', 'Arthroscopy'],
-            image: '/assets/Home/orthopaedics-joint-replacement.png',
+            image: '/assets/Home/orthopaedics-joint-replacement.webp',
             tag: 'Ortho',
             cta: { label: 'View Doctors', href: '/doctors?dept=ortho' }
           }
@@ -165,7 +165,7 @@ export const navConfig = {
             title: 'Digestive Health',
             desc: 'Pioneering liver transplant and advanced endoscopic care.',
             bullets: ['Liver Clinic', 'Endoscopy Unit', 'GI Surgery', 'Cancer Care'],
-            image: '/assets/Home/gastroenterology.png',
+            image: '/assets/Home/gastroenterology.webp',
             tag: 'Gastro',
             cta: { label: 'View Doctors', href: '/doctors?dept=gastro' }
           }
@@ -179,7 +179,7 @@ export const navConfig = {
             title: 'Cancer Institute',
             desc: 'Multi-modality evidence-based cancer treatments and screening.',
             bullets: ['Surgical Oncology', 'Chemotherapy', 'Pain Mgmt', 'Support Care'],
-            image: '/assets/About/super-speciality-beacon.png',
+            image: '/assets/About/super-speciality-beacon.webp',
             tag: 'Oncology',
             cta: { label: 'View Doctors', href: '/doctors?dept=oncology' }
           }
@@ -199,7 +199,7 @@ export const navConfig = {
             title: 'Surgical Excellence',
             desc: 'ISO Class 5 modular operating theatres ensuring zero-infection safety.',
             bullets: ['HEPA Filter', 'Robotic Suite', 'Pre-Op Lounge', 'Recovery Bay'],
-            image: '/assets/Home/general-surgery.png',
+            image: '/assets/Home/general-surgery.webp',
             tag: 'Surgery',
             cta: { label: 'OT Tech', href: '/infrastructure/ot' }
           }
@@ -213,7 +213,7 @@ export const navConfig = {
             title: 'Critical Care Unit',
             desc: '52-bed advanced ICU with 1:1 nursing and specialized monitoring.',
             bullets: ['SICU / CCU', 'Ventilators', 'Dialysis ready', 'Central Station'],
-            image: '/assets/services/icu-infrastructure/Advance ICU.png',
+            image: '/assets/services/icu-infrastructure/Advance ICU.webp',
             tag: 'ICU',
             cta: { label: 'ICU Details', href: '/infrastructure/icu' }
           }
@@ -227,7 +227,7 @@ export const navConfig = {
             title: 'Healing Comfort',
             desc: 'Range of luxury suites and deluxe rooms for patient comfort.',
             bullets: ['Presidential Suite', 'Deluxe Room', 'Twin Sharing', 'General Ward'],
-            image: '/assets/About/100-Beds.jpg',
+            image: '/assets/About/100-Beds.webp',
             tag: 'Wards',
             cta: { label: 'View Rooms', href: '/infrastructure/rooms' }
           }
@@ -241,7 +241,7 @@ export const navConfig = {
             title: 'High-End Imaging',
             desc: 'Equipped with region-first 3 Tesla MRI and 128 slice CT Scan.',
             bullets: ['3 Tesla MRI', '128 Slice CT', 'Digital X-Ray', 'Color Doppler'],
-            image: '/assets/services/diagnostic-lab/Radiology & Imaging.png',
+            image: '/assets/services/diagnostic-lab/Radiology & Imaging.webp',
             tag: 'Imaging',
             cta: { label: 'Tech Specs', href: '/infrastructure/radiology' }
           }
@@ -255,7 +255,7 @@ export const navConfig = {
             title: 'Support Services',
             desc: '24/7 assistance including cafeteria, parking and help desk.',
             bullets: ['Basement Parking', '24/7 Cafeteria', 'Global Help Desk', 'Prayer Room'],
-            image: '/assets/Home/hero11.jpeg',
+            image: '/assets/Home/hero11.webp',
             tag: 'Services',
             cta: { label: 'More Services', href: '/infrastructure/cafeteria' }
           }
@@ -275,7 +275,7 @@ export const navConfig = {
             title: 'Medical Faculty',
             desc: 'Over 100+ board certified senior consultants and surgeons.',
             bullets: ['Find Doctor', 'Profile Access', 'Expertise list', 'Visiting Staff'],
-            image: '/assets/About/Dr. Rakesh Gupta.png',
+            image: '/assets/About/Dr. Rakesh Gupta.webp',
             tag: 'Faculty',
             cta: { label: 'Find a Doctor', href: '/doctors' }
           }
@@ -289,7 +289,7 @@ export const navConfig = {
             title: 'Executive Board',
             desc: 'The visionary clinical leadership guiding Umang Hospital excellence.',
             bullets: ['Director Message', 'Medical Board', 'Vision/Mission', 'Quality Hub'],
-            image: '/assets/About/Dr. Rakesh Gupta.png',
+            image: '/assets/About/Dr. Rakesh Gupta.webp',
             tag: 'Leadership',
             cta: { label: 'View Board', href: '/team/leadership' }
           }
@@ -303,7 +303,7 @@ export const navConfig = {
             title: 'Compassionate Care',
             desc: 'Dedicated nursing force trained in critical care and protocols.',
             bullets: ['NICU Experts', 'ICU Nursing', 'OT Technicians', 'Home Care'],
-            image: '/assets/Home/home-care.jpg',
+            image: '/assets/Home/home-care.webp',
             tag: 'Nursing',
             cta: { label: 'Join Team', href: '/team/nursing' }
           }
@@ -317,7 +317,7 @@ export const navConfig = {
             title: 'Admin Support',
             desc: 'Our non-clinical staff ensures smooth hospital operations 24/7.',
             bullets: ['Help Desk', 'Patient Care', 'Facility Mgmt', 'TPA Desk'],
-            image: '/assets/Home/hero11.jpeg',
+            image: '/assets/Home/hero11.webp',
             tag: 'Admin',
             cta: { label: 'Contact Admin', href: '/contact' }
           }
@@ -331,7 +331,7 @@ export const navConfig = {
             title: 'Join Our Team',
             desc: 'Explore career opportunities for medical and non-clinical roles.',
             bullets: ['Current Openings', 'Doctors Portal', 'Nursing Vacancy', 'Internships'],
-            image: '/assets/Home/hero11.jpeg',
+            image: '/assets/Home/hero11.webp',
             tag: 'Careers',
             cta: { label: 'Apply Now', href: '/careers' }
           }
@@ -351,7 +351,7 @@ export const navConfig = {
             title: 'Digital Health',
             desc: 'Securely manage your appointments, reports and medical history.',
             bullets: ['Download Reports', 'Book Appointments', 'Online Payments', 'Tele-Consultation'],
-            image: '/assets/About/about-main.png',
+            image: '/assets/About/about-main.webp',
             tag: 'Portal',
             cta: { label: 'Login Now', href: '/login' }
           }
@@ -365,7 +365,7 @@ export const navConfig = {
             title: 'Success Journeys',
             desc: 'Read about the life-changing recoveries of our patients.',
             bullets: ['Heart Recovery', 'Neuro Success', 'Ortho Stories', 'Child Health'],
-            image: '/assets/Home/Health-Checkup.jpg',
+            image: '/assets/Home/Health-Checkup.webp',
             tag: 'Stories',
             cta: { label: 'Read More', href: '/patient-corner/patient-stories' }
           }
@@ -379,7 +379,7 @@ export const navConfig = {
             title: 'Visitor Policy',
             desc: 'Guidelines for patients and visitors to ensure a safe environment.',
             bullets: ['Patient Rights', 'Billing Policy', 'Safety Guide', 'Accreditations'],
-            image: '/assets/About/about-main.png',
+            image: '/assets/About/about-main.webp',
             tag: 'Policy',
             cta: { label: 'View Rights', href: '/patient-experience' }
           }
@@ -393,7 +393,7 @@ export const navConfig = {
             title: 'Cashless Help',
             desc: 'Network of empaneled insurance partners and TPA assistance.',
             bullets: ['GIPSA Group', 'Corporate TPA', 'Claim Process', 'Documents'],
-            image: '/assets/services/cashless-insurance.png',
+            image: '/assets/services/cashless-insurance.webp',
             tag: 'Insurance',
             cta: { label: 'View Panel', href: '/cashless-insurance' }
           }
@@ -407,7 +407,7 @@ export const navConfig = {
             title: 'Help Desk',
             desc: 'Centralized desk for international and domestic inquiries.',
             bullets: ['Visa Support', 'Interpreter', 'Travel Guide', 'Room Booking'],
-            image: '/assets/About/a-global-medical.png',
+            image: '/assets/About/a-global-medical.webp',
             tag: 'Support',
             cta: { label: 'Submit Query', href: '/contact/inquiry-hub' }
           }
@@ -427,7 +427,7 @@ export const navConfig = {
             title: 'Reception Desk',
             desc: 'Contact our main reception for general inquiries and help.',
             bullets: ['Reception 24/7', 'Directions', 'Feedback', 'Admin Desk'],
-            image: '/assets/Home/hero11.jpeg',
+            image: '/assets/Home/hero11.webp',
             tag: 'Contact',
             cta: { label: 'Get Help', href: '/contact' }
           }
@@ -441,7 +441,7 @@ export const navConfig = {
             title: 'Immediate Help',
             desc: 'Reach our emergency response team for critical support.',
             bullets: ['Helpline 24/7', 'Ambulance Hub', 'Blood Bank', 'Pharmacy Help'],
-            image: '/assets/services/advanced-life-support.png',
+            image: '/assets/services/advanced-life-support.webp',
             tag: 'Emergency',
             cta: { label: 'Call Now', href: '/contact/emergency' }
           }
@@ -455,7 +455,7 @@ export const navConfig = {
             title: 'Digital Connect',
             desc: 'Fastest way to get answers via WhatsApp chat assistance.',
             bullets: ['Report Help', 'Booking Chat', 'Price Check', 'Quick Help'],
-            image: '/assets/Home/hero11.jpeg',
+            image: '/assets/Home/hero11.webp',
             tag: 'Chat',
             cta: { label: 'Start Chat', href: 'https://wa.me/918588072727' }
           }
@@ -469,7 +469,7 @@ export const navConfig = {
             title: 'Find Hospital',
             desc: 'Navigate to our Building No. 306, Pataudi Road hospital.',
             bullets: ['Parking Info', 'Bus Access', 'Train Station', 'Airport Link'],
-            image: '/assets/Home/hero11.jpeg',
+            image: '/assets/Home/hero11.webp',
             tag: 'Maps',
             cta: { label: 'Directions', href: 'https://maps.google.com' }
           }
@@ -483,7 +483,7 @@ export const navConfig = {
             title: 'News & Media',
             desc: 'Connect with our media desk for press releases and events.',
             bullets: ['Press Release', 'Media Gallery', 'Event Inquire', 'News Archive'],
-            image: '/assets/About/a-global-medical.png',
+            image: '/assets/About/a-global-medical.webp',
             tag: 'Media',
             cta: { label: 'Enter Media', href: '/media-center' }
           }

@@ -17,7 +17,7 @@ const packages = [
     subtitle: "Essential screening for young adults",
     tests: "40+ Parameters",
     price: "₹1,100",
-    color: "bg-blue-50 border-blue-100",
+    color: "bg-primary-50 border-blue-100",
     icon: Activity,
     features: ["Complete Blood Count (CBC)", "Blood Sugar (Fasting)", "Lipid Profile (Cholesterol)", "Liver Function Test (LFT)", "Kidney Function Test (KFT)", "Urine Routine"]
   },
@@ -64,14 +64,14 @@ const HealthCheckup = () => {
       />
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center bg-[#005580] overflow-hidden py-12 lg:py-8">
+      <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center bg-primary-600 overflow-hidden py-12 lg:py-8">
         <div className="absolute inset-0 z-0">
           <img 
             src={ASSETS.SVC_INVEST_HEALTH} 
             alt="Health Checkup" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#005580] via-[#005580]/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-700 via-primary-700/90 to-transparent" />
         </div>
 
         <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center">
@@ -92,7 +92,7 @@ const HealthCheckup = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6">
-              <button onClick={() => document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })} className="h-16 px-10 rounded-full bg-white text-[#005580] font-bold text-lg hover-lift hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-xl">
+              <button onClick={() => document.getElementById('packages').scrollIntoView({ behavior: 'smooth' })} className="h-16 px-10 rounded-full bg-white text-primary-600 font-bold text-lg hover-lift hover:scale-105 transition-all flex items-center justify-center gap-3 shadow-xl">
                 View Packages <ArrowRight className="w-5 h-5" />
               </button>
               <div className="flex items-center gap-4 text-white">
@@ -167,7 +167,7 @@ const HealthCheckup = () => {
                      className={`bg-white rounded-[2.5rem] overflow-hidden border ${pkg.color} shadow-sm hover:shadow-xl transition-all relative flex flex-col group`}
                   >
                      {pkg.popular && (
-                        <div className="absolute top-6 right-6 bg-[#005580] text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg z-10">
+                        <div className="absolute top-6 right-6 bg-primary-600 text-white text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wider shadow-lg z-10">
                            Most Popular
                         </div>
                      )}
@@ -197,11 +197,11 @@ const HealthCheckup = () => {
 
                      <div className="bg-gray-50 p-8 border-t border-gray-100 flex items-center justify-between">
                         <div>
-                           <p className="text-[#005580] text-2xl font-black">{pkg.price}</p>
+                           <p className="text-primary-600 text-2xl font-black">{pkg.price}</p>
                            <p className="text-green-600 text-sm font-bold">{pkg.tests}</p>
                            <p className="text-gray-400 text-xs uppercase tracking-widest font-black">Comprehensive screening</p>
                         </div>
-                        <Link to="/services/booking/health-checkup" className="h-14 px-8 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-[#005580] transition-all shadow-lg flex items-center justify-center gap-2">
+                        <Link to="/services/booking/health-checkup" className="h-14 px-8 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-primary-600 transition-all shadow-lg flex items-center justify-center gap-2">
                            Book Package
                         </Link>
                      </div>
@@ -224,7 +224,7 @@ const HealthCheckup = () => {
               { title: "Automated Path-Lab", desc: "Robotic sample processing for zero human error.", icon: Microscope, path: "/services/lab-test-diagnostic" }
             ].map((tech, i) => (
               <Link to={tech.path} key={i} className="text-center group block">
-                <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm">
+                <div className="w-20 h-20 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm">
                   <tech.icon size={32} />
                 </div>
                 <h4 className="text-xl font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors">{tech.title}</h4>
@@ -240,7 +240,7 @@ const HealthCheckup = () => {
          <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
                <div className="relative">
-                  <div className="absolute inset-0 bg-blue-50 rounded-[3rem] -rotate-3" />
+                  <div className="absolute inset-0 bg-primary-50 rounded-[3rem] -rotate-3" />
                   <img 
                      src={ASSETS.SVC_LAB_PROCESS} 
                      alt="Lab Process" 
@@ -258,7 +258,7 @@ const HealthCheckup = () => {
                         { title: "Doctor Review", desc: "Get a free tele-consultation with our experts to understand your report findings.", path: "/services/telemedicine" }
                      ].map((step, i) => (
                         <Link to={step.path} key={i} className="flex gap-6 group block">
-                           <div className="w-12 h-12 rounded-full border-2 border-[#005580] flex items-center justify-center text-[#005580] font-bold text-xl shrink-0 group-hover:bg-[#005580] group-hover:text-white transition-all shadow-sm">
+                           <div className="w-12 h-12 rounded-full border-2 border-primary-600 flex items-center justify-center text-primary-600 font-bold text-xl shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm">
                               {i + 1}
                            </div>
                            <div>
@@ -329,7 +329,7 @@ const HealthCheckup = () => {
 
       {/* SECTION: SCREENING FAQ */}
       <Section className="bg-slate-50 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-[120px] opacity-30 -mr-48 -mt-48" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100 rounded-full blur-[120px] opacity-30 -mr-48 -mt-48" />
         <Container>
           <div className="text-center mb-20 relative z-10">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-600 mb-4 block">Help Center</span>

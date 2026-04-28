@@ -49,7 +49,7 @@ const LabReports = () => {
       </Helmet>
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[550px] flex items-center bg-[#005580] overflow-hidden">
+      <section className="relative min-h-[550px] flex items-center bg-primary-600 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
           <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px]" />
@@ -74,7 +74,7 @@ const LabReports = () => {
             
             <div className="flex flex-wrap justify-center gap-4">
                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  <Link to="/login" className="h-16 px-10 rounded-full bg-white text-[#005580] font-black text-lg hover:bg-cyan-50 transition-all shadow-2xl flex items-center gap-2">
+                  <Link to="/login" className="h-16 px-10 rounded-full bg-white text-primary-600 font-black text-lg hover:bg-cyan-50 transition-all shadow-2xl flex items-center gap-2">
                      Login to Portal <ArrowRight className="w-5 h-5" />
                   </Link>
                </motion.div>
@@ -108,15 +108,15 @@ const LabReports = () => {
                >
                   <div className="bg-gray-50 p-6 flex justify-between items-center border-b border-gray-200">
                      <div className="flex items-center gap-3">
-                        <FileText className="w-6 h-6 text-[#005580]" />
+                        <FileText className="w-6 h-6 text-primary-600" />
                         <h3 className="font-bold text-[#0f172a] text-lg">Digital Report Preview</h3>
                      </div>
                      <button onClick={() => setShowSample(false)} className="text-gray-400 hover:text-gray-600 font-bold uppercase text-sm">Close</button>
                   </div>
                   
                   <div className="flex-1 overflow-y-auto p-12 bg-white font-serif">
-                     <div className="flex justify-between border-b-4 border-[#005580] pb-8 mb-12">
-                        <div className="text-3xl font-black text-[#005580]">UMANG HOSPITAL</div>
+                     <div className="flex justify-between border-b-4 border-primary-600 pb-8 mb-12">
+                        <div className="text-3xl font-black text-primary-600">UMANG HOSPITAL</div>
                         <div className="text-right text-sm">
                            <p>Sector 55, Gurugram, 122011</p>
                            <p>NABL Accredited Facility</p>
@@ -180,7 +180,7 @@ const LabReports = () => {
                   </div>
 
                   <div className="p-6 bg-gray-50 flex gap-4">
-                     <button className="flex-1 h-14 bg-[#005580] text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#004466] transition-all">
+                     <button className="flex-1 h-14 bg-primary-600 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary-700 transition-all">
                         <Download className="w-5 h-5" /> Download PDF
                      </button>
                      <button onClick={() => setShowSample(false)} className="px-8 h-14 border border-gray-200 rounded-xl font-bold text-gray-500 hover:bg-white transition-all">Dismiss</button>
@@ -195,7 +195,7 @@ const LabReports = () => {
          <div className="container-custom">
             <div className="bg-white rounded-[4rem] p-12 md:p-24 shadow-2xl border border-gray-100 flex flex-col lg:flex-row gap-20 items-center">
                <div className="lg:w-5/12">
-                  <span className="text-[#005580] font-black text-[12px] uppercase tracking-[0.3em] mb-6 block">Real-Time Updates</span>
+                  <span className="text-primary-600 font-black text-[12px] uppercase tracking-[0.3em] mb-6 block">Real-Time Updates</span>
                   <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-8">Track Your <br />Report Status.</h2>
                   <p className="text-gray-600 text-xl leading-relaxed mb-10">Enter your Registration ID or Bill Number to see exactly where your samples are in the clinical process.</p>
                   <div className="space-y-4">
@@ -240,7 +240,7 @@ const LabReports = () => {
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     disabled={isTracking} 
-                                    className="w-full h-16 bg-blue-500 text-white rounded-2xl font-black text-xl hover:bg-blue-600 transition-all flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl shadow-blue-900/50"
+                                    className="w-full h-16 bg-primary-600 text-white rounded-2xl font-black text-xl hover:bg-primary-700 transition-all flex items-center justify-center gap-3 disabled:opacity-50 shadow-xl shadow-primary-900/50"
                                  >
                                     {isTracking ? <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin" /> : <>Track My Samples <Search className="w-6 h-6" /></>}
                                  </motion.button>
@@ -301,7 +301,7 @@ const LabReports = () => {
             <div className="grid md:grid-cols-3 gap-12">
                {[
                   { title: "WhatsApp Alerts", desc: "Receive an automated PDF directly on your registered WhatsApp number as soon as it's ready.", icon: MessageCircle, color: "text-green-600 bg-green-50" },
-                  { title: "Umang Portal", desc: "Log in to our encrypted patient portal to see historical trends and lifetime medical records.", icon: ShieldCheck, color: "text-blue-600 bg-blue-50" },
+                  { title: "Umang Portal", desc: "Log in to our encrypted patient portal to see historical trends and lifetime medical records.", icon: ShieldCheck, color: "text-primary-600 bg-primary-50" },
                   { title: "Physical Collection", desc: "Visit our 24/7 report dispatch desk for printed copies with the official hospital seal.", icon: Smartphone, color: "text-purple-600 bg-purple-50" }
                ].map((item, i) => (
                   <motion.div 
@@ -350,7 +350,7 @@ const LabReports = () => {
                <p className="text-blue-100 text-xl leading-relaxed mb-12 opacity-80">
                   We understand the sensitivity of medical data. Only you and your treating doctors have access to your digital lab reports. Our systems are audited daily for security excellence.
                </p>
-               <button className="h-16 px-10 rounded-full bg-blue-500 text-white font-black text-lg hover:bg-blue-600 transition-all flex items-center gap-3">
+               <button className="h-16 px-10 rounded-full bg-primary-600 text-white font-black text-lg hover:bg-primary-700 transition-all flex items-center gap-3">
                   Read Data Policy <ArrowRight className="w-6 h-6" />
                </button>
             </div>
@@ -363,16 +363,16 @@ const LabReports = () => {
             <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-16">Facing Trouble Accessing Reports?</h2>
             <div className="grid md:grid-cols-2 gap-8">
                <div className="bg-gray-50 p-10 rounded-[3rem] border border-gray-100 flex flex-col items-center group hover:bg-white hover-lift transition-all">
-                  <div className="w-16 h-16 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center mb-6"><Mail className="w-8 h-8" /></div>
+                  <div className="w-16 h-16 rounded-2xl bg-primary-100 text-primary-600 flex items-center justify-center mb-6"><Mail className="w-8 h-8" /></div>
                   <h4 className="font-bold text-[#0f172a] text-xl mb-2">Email Desk</h4>
                   <p className="text-gray-500 mb-6 text-sm">Typically responds in 4 hours.</p>
-                  <p className="text-lg font-black text-[#005580]">Umanghospitalgurugram@gmail.com</p>
+                  <p className="text-lg font-black text-primary-600">Umanghospitalgurugram@gmail.com</p>
                </div>
                <div className="bg-gray-50 p-10 rounded-[3rem] border border-gray-100 flex flex-col items-center group hover:bg-white hover-lift transition-all">
                   <div className="w-16 h-16 rounded-2xl bg-green-100 text-green-600 flex items-center justify-center mb-6"><Phone className="w-8 h-8" /></div>
                   <h4 className="font-bold text-[#0f172a] text-xl mb-2">Call Support</h4>
                   <p className="text-gray-500 mb-6 text-sm">Direct line to Laboratory Desk.</p>
-                  <p className="text-lg font-black text-[#005580]">+91 124 456 7899</p>
+                  <p className="text-lg font-black text-primary-600">+91 124 456 7899</p>
                </div>
             </div>
          </div>
@@ -386,7 +386,7 @@ const LabReports = () => {
             <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-6">
               <Info className="w-4 h-4" /> Help Center
             </div>
-            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Common <span className="text-blue-600 normal">Queries</span></h2>
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Common <span className="text-primary-600 normal">Queries</span></h2>
             <p className="text-gray-500 max-w-2xl mx-auto">Quick answers to frequently asked questions about our digital diagnostic reports and clinical data policy.</p>
           </div>
 
@@ -407,10 +407,10 @@ const LabReports = () => {
                 viewport={{ once: true }}
                 className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-xl shadow-blue-900/5 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all duration-500 group"
               >
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all">
                   <span className="font-bold">?</span>
                 </div>
-                <h4 className="font-bold text-lg text-[#0f172a] mb-4 leading-tight group-hover:text-blue-600 transition-colors">{faq.q}</h4>
+                <h4 className="font-bold text-lg text-[#0f172a] mb-4 leading-tight group-hover:text-primary-600 transition-colors">{faq.q}</h4>
                 <p className="text-gray-500 text-sm leading-relaxed font-light">{faq.a}</p>
               </motion.div>
             ))}

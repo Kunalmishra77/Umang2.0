@@ -89,7 +89,7 @@ const MediaCenter = () => {
           <SectionHeading eyebrow="Resources" title="Explore Our Media Hub" centered />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mt-16">
             {[
-              { title: "Press Releases", slug: "press-release", icon: Newspaper, desc: "Official statements and launch announcements.", color: "text-blue-600" },
+              { title: "Press Releases", slug: "press-release", icon: Newspaper, desc: "Official statements and launch announcements.", color: "text-primary-600" },
               { title: "Media Coverage", slug: "media-coverage", icon: Video, desc: "Umang Hospital in national and global news.", color: "text-red-600" },
               { title: "Newsletters", slug: "newsletters", icon: Mail, desc: "Monthly health digests and community updates.", color: "text-green-600" },
               { title: "Media Connect", slug: "media-connect", icon: Radio, desc: "Resources and contacts for journalists.", color: "text-purple-600" },
@@ -276,10 +276,10 @@ const MediaCenter = () => {
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { label: 'Facebook', id: '@UmangHospital', icon: Globe, color: 'text-blue-600' },
+              { label: 'Facebook', id: '@UmangHospital', icon: Globe, color: 'text-primary-600' },
               { label: 'Twitter', id: '@UmangCare', icon: Radio, color: 'text-sky-500' },
               { label: 'Linkedin', id: 'Umang Superspeciality', icon: Users, color: 'text-blue-700' },
-              { label: 'Instagram', id: '@umang_hospital', icon: ASSETS.SNEHA_KAPOOR ? Search : MessageSquare, color: 'text-pink-600' }
+              { label: 'Instagram', id: '@umang_hospital', icon: ASSETS.SNEHA_KAPOOR ? Search : MessageSquare, color: 'text-primary-600' }
             ].map((social, i) => (
               <div key={i} className="p-8 bg-white rounded-[2.5rem] border border-gray-100 flex flex-col items-center group hover:shadow-premium transition-all cursor-pointer">
                 <div className={`w-16 h-16 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 ${social.color} group-hover:scale-110 transition-transform`}>

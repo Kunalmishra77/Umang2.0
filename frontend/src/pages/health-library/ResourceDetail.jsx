@@ -34,12 +34,12 @@ const ResourceDetail = () => {
       </Helmet>
 
       <div className="container-custom max-w-4xl">
-        <Link to="/health-library/knowledge-center" className="inline-flex items-center gap-2 text-gray-500 hover:text-[#005580] mb-8 transition-colors">
+        <Link to="/health-library/knowledge-center" className="inline-flex items-center gap-2 text-gray-500 hover:text-primary-600 mb-8 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to Library
         </Link>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <span className="text-xs font-bold text-[#005580] bg-blue-50 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
+          <span className="text-xs font-bold text-primary-600 bg-primary-50 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
             {resource.type}
           </span>
           <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a] mb-6 leading-tight">
@@ -48,13 +48,13 @@ const ResourceDetail = () => {
 
           <div className="flex flex-wrap gap-6 text-sm text-gray-500 mb-8 border-b border-gray-100 pb-8">
             <div className="flex items-center gap-2">
-              <User className="w-4 h-4 text-[#005580]" /> {resource.author}
+              <User className="w-4 h-4 text-primary-600" /> {resource.author}
             </div>
             <div className="flex items-center gap-2">
-              <Calendar className="w-4 h-4 text-[#005580]" /> {resource.date}
+              <Calendar className="w-4 h-4 text-primary-600" /> {resource.date}
             </div>
             <div className="flex items-center gap-2">
-              <Tag className="w-4 h-4 text-[#005580]" /> {resource.tags.join(', ')}
+              <Tag className="w-4 h-4 text-primary-600" /> {resource.tags.join(', ')}
             </div>
           </div>
 
@@ -65,7 +65,7 @@ const ResourceDetail = () => {
               <h4 className="font-bold text-[#0f172a] mb-1">Download Full Paper</h4>
               <p className="text-sm text-gray-500">Access the complete dataset and high-res images.</p>
             </div>
-            <button className="h-12 px-8 rounded-xl bg-[#005580] text-white font-bold flex items-center gap-2 hover:bg-[#004466] transition-all shadow-lg">
+            <button className="h-12 px-8 rounded-xl bg-primary-600 text-white font-bold flex items-center gap-2 hover:bg-primary-700 transition-all shadow-lg">
               <Download className="w-4 h-4" /> Download PDF
             </button>
           </div>

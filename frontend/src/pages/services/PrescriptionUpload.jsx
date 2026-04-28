@@ -37,13 +37,13 @@ const PrescriptionUpload = () => {
         <div className="bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-100 p-8 md:p-12 text-center">
           {!success ? (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-              <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-[#005580]">
+              <div className="w-16 h-16 bg-primary-50 rounded-2xl flex items-center justify-center mx-auto mb-6 text-primary-600">
                 <FileText className="w-8 h-8" />
               </div>
               <h1 className="text-3xl font-serif font-bold text-[#0f172a] mb-2">Upload Prescription</h1>
               <p className="text-gray-500 mb-8">Please upload a clear image of your valid prescription.</p>
 
-              <div className="relative border-2 border-dashed border-gray-300 rounded-3xl h-64 flex flex-col items-center justify-center bg-gray-50 hover:bg-blue-50 hover:border-[#005580] transition-all cursor-pointer group mb-8">
+              <div className="relative border-2 border-dashed border-gray-300 rounded-3xl h-64 flex flex-col items-center justify-center bg-gray-50 hover:bg-primary-50 hover:border-primary-600 transition-all cursor-pointer group mb-8">
                 <input 
                   type="file" 
                   className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
@@ -53,7 +53,7 @@ const PrescriptionUpload = () => {
                 {!file ? (
                   <>
                     <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-sm mb-4 group-hover:scale-110 transition-transform">
-                      <Upload className="w-6 h-6 text-[#005580]" />
+                      <Upload className="w-6 h-6 text-primary-600" />
                     </div>
                     <p className="font-bold text-gray-700">Click to Upload</p>
                     <p className="text-xs text-gray-400 mt-1">JPG, PNG or PDF (Max 5MB)</p>
@@ -77,7 +77,7 @@ const PrescriptionUpload = () => {
               <button 
                 onClick={handleUpload}
                 disabled={!file || uploading}
-                className={`w-full h-14 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg ${!file || uploading ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-[#005580] text-white hover:bg-[#004466]'}`}
+                className={`w-full h-14 rounded-xl font-bold flex items-center justify-center gap-2 transition-all shadow-lg ${!file || uploading ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'bg-primary-600 text-white hover:bg-primary-700'}`}
               >
                 {uploading ? 'Uploading...' : 'Submit Prescription'} <ArrowRight className="w-5 h-5" />
               </button>
@@ -89,7 +89,7 @@ const PrescriptionUpload = () => {
               </div>
               <h2 className="text-2xl font-bold text-[#0f172a] mb-2">Upload Successful!</h2>
               <p className="text-gray-500 mb-8">Our pharmacists will verify your prescription and contact you shortly.</p>
-              <Link to="/services/buy-medicines" className="text-[#005580] font-bold hover:underline">Return to Pharmacy</Link>
+              <Link to="/services/buy-medicines" className="text-primary-600 font-bold hover:underline">Return to Pharmacy</Link>
             </motion.div>
           )}
         </div>

@@ -77,11 +77,11 @@ const Team = () => {
             
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <Award className="w-8 h-8 text-[#005580]" />
+                <Award className="w-8 h-8 text-primary-600" />
                 <span className="font-bold text-gray-400 uppercase tracking-widest text-sm">Leadership Profile</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-2">Dr. Vikram Sethi</h2>
-              <p className="text-[#005580] font-bold text-lg mb-8">Group Medical Director & Founder</p>
+              <p className="text-primary-600 font-bold text-lg mb-8">Group Medical Director & Founder</p>
               
               <div className="space-y-6 text-gray-600 text-lg leading-relaxed mb-10">
                 <p>
@@ -144,7 +144,7 @@ const Team = () => {
       <section className="py-12 lg:py-10 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <span className="text-[#005580] font-bold uppercase tracking-widest text-xs">Pillars of Excellence</span>
+            <span className="text-primary-600 font-bold uppercase tracking-widest text-xs">Pillars of Excellence</span>
             <h2 className="text-4xl font-serif font-bold text-[#0f172a] mt-3">Heads of Department</h2>
           </div>
 
@@ -169,7 +169,7 @@ const Team = () => {
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-bold text-[#0f172a] mb-1">{doc.name}</h3>
                   <p className={`text-sm font-bold mb-4 ${doc.deptColor.replace('text-', 'text-opacity-80 text-')}`}>{doc.dept}</p>
-                  <Link to={`/doctor/${doc.id}`} className="text-sm font-bold text-gray-400 hover:text-[#005580] flex items-center justify-center gap-1 transition-colors">
+                  <Link to={`/doctor/${doc.id}`} className="text-sm font-bold text-gray-400 hover:text-primary-600 flex items-center justify-center gap-1 transition-colors">
                     View Profile <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -239,7 +239,7 @@ const Team = () => {
                   <img src={doc.image} alt={doc.name} className="w-full h-full object-cover object-top" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="font-bold text-[#0f172a] truncate group-hover:text-[#005580] transition-colors">{doc.name}</h4>
+                  <h4 className="font-bold text-[#0f172a] truncate group-hover:text-primary-600 transition-colors">{doc.name}</h4>
                   <p className="text-xs text-gray-500 truncate">{doc.dept}</p>
                   <div className="flex items-center gap-1 mt-1 text-xs font-bold text-green-600">
                     <Star className="w-3 h-3 fill-current" /> {doc.rating}
@@ -254,7 +254,7 @@ const Team = () => {
       {/* SECTION 7: RESEARCH & PUBLICATIONS (NEW) */}
       <section className="py-12 lg:py-10 bg-white">
         <div className="container-custom">
-          <div className="bg-blue-600 rounded-[3rem] p-12 lg:p-20 text-white relative overflow-hidden">
+          <div className="bg-primary-600 rounded-[3rem] p-12 lg:p-20 text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-[100px] -mr-48 -mt-48" />
             <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
               <div>
@@ -274,7 +274,7 @@ const Team = () => {
                 </div>
               </div>
               <div className="text-center lg:text-right">
-                <Link to="/health-library/knowledge-center" className="inline-flex items-center gap-3 px-10 py-5 bg-white text-blue-600 rounded-2xl font-bold text-lg hover:bg-blue-50 transition-all shadow-2xl">
+                <Link to="/health-library/knowledge-center" className="inline-flex items-center gap-3 px-10 py-5 bg-white text-primary-600 rounded-2xl font-bold text-lg hover:bg-primary-50 transition-all shadow-2xl">
                   Knowledge Center <ArrowRight size={24} />
                 </Link>
               </div>
@@ -284,8 +284,8 @@ const Team = () => {
       </section>
 
       {/* SECTION 8: NURSING & SUPPORT (The Heart) */}
-      <section className="py-12 lg:py-20 bg-[#005580] text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-[#004466] transform skew-x-12 translate-x-20 z-0" />
+      <section className="py-12 lg:py-20 bg-primary-600 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-primary-800 transform skew-x-12 translate-x-20 z-0" />
         <div className="container-custom relative z-10">
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-7/12">
@@ -349,7 +349,7 @@ const Team = () => {
               { label: "Infection Control", icon: Activity }
             ].map((q, i) => (
               <div key={i} className="bg-white p-8 rounded-3xl border border-gray-100 text-center hover:shadow-xl transition-all">
-                <q.icon className="w-12 h-12 text-[#005580] mx-auto mb-4" />
+                <q.icon className="w-12 h-12 text-primary-600 mx-auto mb-4" />
                 <h4 className="font-bold text-[#0f172a]">{q.label}</h4>
               </div>
             ))}
@@ -397,7 +397,7 @@ const Team = () => {
       {/* SECTION 11: JOIN THE FACULTY (CTA) */}
       <section className="py-12 lg:py-10 bg-white text-center">
         <div className="container-custom max-w-3xl">
-          <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-8 text-[#005580]">
+          <div className="w-20 h-20 bg-primary-50 rounded-full flex items-center justify-center mx-auto mb-8 text-primary-600">
             <UserPlus className="w-10 h-10" />
           </div>
           <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Join Our Mission</h2>
@@ -405,7 +405,7 @@ const Team = () => {
             Are you passionate about saving lives? We are always looking for talented doctors, nurses, and paramedical staff to join the Umang family.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <Link to="/careers" className="h-14 px-10 rounded-full bg-[#0f172a] text-white font-bold flex items-center justify-center gap-2 hover:bg-[#005580] transition-all shadow-lg">
+            <Link to="/careers" className="h-14 px-10 rounded-full bg-[#0f172a] text-white font-bold flex items-center justify-center gap-2 hover:bg-primary-600 transition-all shadow-lg">
               View Current Openings
             </Link>
             <Link to="/contact" className="h-14 px-10 rounded-full border-2 border-gray-200 text-[#0f172a] font-bold flex items-center justify-center gap-2 hover:border-[#0f172a] transition-all">

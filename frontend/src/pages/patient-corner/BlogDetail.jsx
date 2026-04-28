@@ -30,11 +30,11 @@ const BlogDetail = () => {
       </Helmet>
 
       <div className="container-custom max-w-3xl">
-        <Link to="/patient-corner/blogs" className="inline-flex items-center gap-2 text-gray-500 hover:text-[#005580] mb-8 transition-colors">
+        <Link to="/patient-corner/blogs" className="inline-flex items-center gap-2 text-gray-500 hover:text-primary-600 mb-8 transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back to Blogs
         </Link>
 
-        <span className="text-xs font-bold text-[#005580] bg-blue-50 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
+        <span className="text-xs font-bold text-primary-600 bg-primary-50 px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
           {blog.category}
         </span>
         
@@ -52,7 +52,7 @@ const BlogDetail = () => {
           <div className="flex items-center gap-2">
             <Clock className="w-4 h-4" /> {blog.readTime}
           </div>
-          <button className="ml-auto flex items-center gap-2 hover:text-[#005580]">
+          <button className="ml-auto flex items-center gap-2 hover:text-primary-600">
             <Share2 className="w-4 h-4" /> Share
           </button>
         </div>

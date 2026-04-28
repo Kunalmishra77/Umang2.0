@@ -30,12 +30,12 @@ const CaseDetail = () => {
 
       <div className="container-custom max-w-4xl">
         <div className="flex justify-between items-center mb-8">
-          <Link to="/patient-corner/breakthrough-cases" className="inline-flex items-center gap-2 text-gray-500 hover:text-[#005580] transition-colors">
+          <Link to="/patient-corner/breakthrough-cases" className="inline-flex items-center gap-2 text-gray-500 hover:text-primary-600 transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Cases
           </Link>
           <div className="flex gap-4">
-            <button className="p-2 rounded-full hover:bg-gray-100 text-gray-400 hover:text-[#005580] transition-all"><Share2 className="w-5 h-5" /></button>
-            <button className="p-2 rounded-full hover:bg-gray-100 text-gray-400 hover:text-[#005580] transition-all"><Printer className="w-5 h-5" /></button>
+            <button className="p-2 rounded-full hover:bg-gray-100 text-gray-400 hover:text-primary-600 transition-all"><Share2 className="w-5 h-5" /></button>
+            <button className="p-2 rounded-full hover:bg-gray-100 text-gray-400 hover:text-primary-600 transition-all"><Printer className="w-5 h-5" /></button>
           </div>
         </div>
 
@@ -77,7 +77,7 @@ const CaseDetail = () => {
             </section>
 
             <section className="bg-blue-50 p-8 rounded-3xl border border-blue-100">
-              <h3 className="text-2xl font-bold text-[#005580] mb-4 flex items-center gap-3">
+              <h3 className="text-2xl font-bold text-primary-600 mb-4 flex items-center gap-3">
                 <Microscope className="w-6 h-6" /> The Procedure
               </h3>
               <p className="text-lg text-blue-900/80">{caseData.procedure}</p>
@@ -93,7 +93,7 @@ const CaseDetail = () => {
 
           <div className="mt-16 pt-12 border-t border-gray-100 text-center">
             <h4 className="text-xl font-bold text-[#0f172a] mb-6">Want to learn more about our Cardiology expertise?</h4>
-            <Link to="/specialities/cardiac" className="inline-flex items-center gap-2 h-14 px-10 rounded-full bg-[#005580] text-white font-bold hover:bg-[#004466] shadow-xl transition-all">
+            <Link to="/specialities/cardiac" className="inline-flex items-center gap-2 h-14 px-10 rounded-full bg-primary-600 text-white font-bold hover:bg-primary-700 shadow-xl transition-all">
               Explore Department <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

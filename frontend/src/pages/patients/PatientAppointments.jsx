@@ -104,13 +104,13 @@ const PatientAppointments = () => {
                 <div className="flex items-center gap-6">
                   <div className="relative">
                     <img src={apt.img} alt={apt.doctor} className="w-20 h-20 rounded-3xl object-cover ring-4 ring-slate-50 group-hover:scale-105 transition-transform" />
-                    <div className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-2 border-white flex items-center justify-center ${apt.status === 'upcoming' ? 'bg-blue-600' : apt.status === 'completed' ? 'bg-emerald-500' : 'bg-red-500'}`}>
+                    <div className={`absolute -bottom-1 -right-1 w-6 h-6 rounded-full border-2 border-white flex items-center justify-center ${apt.status === 'upcoming' ? 'bg-primary-600' : apt.status === 'completed' ? 'bg-emerald-500' : 'bg-red-500'}`}>
                       {apt.status === 'upcoming' ? <Clock className="w-3 h-3 text-white" /> : apt.status === 'completed' ? <CheckCircle2 className="w-3 h-3 text-white" /> : <X className="w-3 h-3 text-white" />}
                     </div>
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-[#0f172a] mb-1">{apt.doctor}</h4>
-                    <p className="text-sm font-bold text-blue-600 mb-3 uppercase tracking-wider">{apt.speciality}</p>
+                    <p className="text-sm font-bold text-primary-600 mb-3 uppercase tracking-wider">{apt.speciality}</p>
                     <div className="flex flex-wrap items-center gap-y-2 gap-x-6">
                       <div className="flex items-center gap-2 text-slate-500">
                         <CalendarDays className="w-4 h-4 text-slate-400" />
@@ -131,7 +131,7 @@ const PatientAppointments = () => {
                 <div className="flex items-center gap-3 lg:border-l lg:border-slate-100 lg:pl-8">
                   {apt.status === 'upcoming' ? (
                     <>
-                      <button className="h-12 px-6 rounded-xl bg-[#0f172a] text-white font-bold text-xs uppercase tracking-widest hover:bg-blue-600 transition-all shadow-lg shadow-slate-900/10">
+                      <button className="h-12 px-6 rounded-xl bg-[#0f172a] text-white font-bold text-xs uppercase tracking-widest hover:bg-primary-600 transition-all shadow-lg shadow-slate-900/10">
                         Reschedule
                       </button>
                       <button 
@@ -146,7 +146,7 @@ const PatientAppointments = () => {
                       <button className="h-12 px-6 rounded-xl bg-emerald-50 text-emerald-600 font-bold text-xs uppercase tracking-widest hover:bg-emerald-600 hover:text-white transition-all flex items-center gap-2">
                         <Printer className="w-4 h-4" /> Prescription
                       </button>
-                      <button className="h-12 px-6 rounded-xl bg-blue-50 text-blue-600 font-bold text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all flex items-center gap-2">
+                      <button className="h-12 px-6 rounded-xl bg-primary-50 text-primary-600 font-bold text-xs uppercase tracking-widest hover:bg-primary-600 hover:text-white transition-all flex items-center gap-2">
                         <Download className="w-4 h-4" /> Invoice
                       </button>
                     </>
@@ -165,7 +165,7 @@ const PatientAppointments = () => {
               </div>
               <h3 className="text-xl font-serif font-bold text-[#0f172a] mb-2">No appointments found</h3>
               <p className="text-slate-400 max-w-xs mx-auto text-sm leading-relaxed">We couldn't find any {activeFilter !== 'all' ? activeFilter : ''} appointments for your account.</p>
-              <button onClick={() => setActiveFilter('all')} className="mt-8 text-blue-600 font-bold text-sm underline underline-offset-4">View all appointments</button>
+              <button onClick={() => setActiveFilter('all')} className="mt-8 text-primary-600 font-bold text-sm underline underline-offset-4">View all appointments</button>
             </div>
           )}
         </AnimatePresence>

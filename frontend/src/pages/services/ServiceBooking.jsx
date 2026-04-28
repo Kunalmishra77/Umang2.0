@@ -36,7 +36,7 @@ const ServiceBooking = () => {
       <div className="container-custom max-w-2xl">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
           {/* Header */}
-          <div className="bg-[#005580] p-8 text-white text-center relative overflow-hidden">
+          <div className="bg-primary-600 p-8 text-white text-center relative overflow-hidden">
              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
              <div className="relative z-10">
                 <h1 className="text-3xl font-serif font-bold mb-2">{info.title}</h1>
@@ -60,7 +60,7 @@ const ServiceBooking = () => {
                          <input 
                            type="text" 
                            required 
-                           className="w-full h-14 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-[#005580] outline-none transition-all"
+                           className="w-full h-14 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-primary-600 outline-none transition-all"
                            placeholder="Enter full name"
                            value={formData.name}
                            onChange={e => setFormData({...formData, name: e.target.value})}
@@ -74,7 +74,7 @@ const ServiceBooking = () => {
                          <input 
                            type="tel" 
                            required 
-                           className="w-full h-14 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-[#005580] outline-none transition-all"
+                           className="w-full h-14 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-primary-600 outline-none transition-all"
                            placeholder="+91 85880 72727"
                            value={formData.phone}
                            onChange={e => setFormData({...formData, phone: e.target.value})}
@@ -82,7 +82,7 @@ const ServiceBooking = () => {
                       </div>
                    </div>
                 </div>
-                <button className="w-full h-14 bg-[#005580] text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#004466] transition-all shadow-lg">
+                <button className="w-full h-14 bg-primary-600 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary-700 transition-all shadow-lg">
                    Next Step <ArrowRight className="w-5 h-5" />
                 </button>
               </motion.form>
@@ -103,7 +103,7 @@ const ServiceBooking = () => {
                          <input 
                            type="date" 
                            required 
-                           className="w-full h-14 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-[#005580] outline-none transition-all"
+                           className="w-full h-14 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-primary-600 outline-none transition-all"
                            value={formData.date}
                            onChange={e => setFormData({...formData, date: e.target.value})}
                          />
@@ -116,7 +116,7 @@ const ServiceBooking = () => {
                          <textarea 
                            required 
                            rows="3"
-                           className="w-full p-4 pl-12 rounded-xl border border-gray-200 focus:border-[#005580] outline-none transition-all resize-none"
+                           className="w-full p-4 pl-12 rounded-xl border border-gray-200 focus:border-primary-600 outline-none transition-all resize-none"
                            placeholder="Enter your address"
                            value={formData.address}
                            onChange={e => setFormData({...formData, address: e.target.value})}
@@ -129,7 +129,7 @@ const ServiceBooking = () => {
                    <button type="button" onClick={() => setStep(1)} className="w-1/3 h-14 border border-gray-200 text-gray-600 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-all">
                       <ArrowLeft className="w-5 h-5" /> Back
                    </button>
-                   <button className="w-2/3 h-14 bg-[#005580] text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#004466] transition-all shadow-lg">
+                   <button className="w-2/3 h-14 bg-primary-600 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary-700 transition-all shadow-lg">
                       Confirm Booking <CheckCircle className="w-5 h-5" />
                    </button>
                 </div>

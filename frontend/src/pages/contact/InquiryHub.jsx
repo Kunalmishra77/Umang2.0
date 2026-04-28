@@ -112,13 +112,13 @@ const InquiryHub = () => {
       {/* 3. SPECIALIZED DESKS GRID */}
       <section className="py-16 lg:py-24 bg-white">
          <div className="container-custom">
-            <SectionHeading eyebrow="Expert Assistance" title="Our Specialized <span class='text-blue-600'>Support Hubs.</span>" centered />
+            <SectionHeading eyebrow="Expert Assistance" title="Our Specialized <span class='text-primary-600'>Support Hubs.</span>" centered />
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                {[
-                  { title: "International Desk", desc: "Visa assistance, airport transfers, and interpreter services for foreign nationals.", icon: Globe, color: "text-blue-600 bg-blue-50", type: 'general' },
+                  { title: "International Desk", desc: "Visa assistance, airport transfers, and interpreter services for foreign nationals.", icon: Globe, color: "text-primary-600 bg-primary-50", type: 'general' },
                   { title: "Home Collection", desc: "Expert phlebotomists visiting your home for blood and urine sample collection.", icon: Heart, color: "text-red-600 bg-red-50", type: 'general' },
                   { title: "Ambulance Hub", desc: "Advanced cardiac life support (ACLS) ambulances available 24/7 for transfers.", icon: Ambulance, color: "text-red-600 bg-red-50", type: 'general' },
-                  { title: "Corporate Wellness", desc: "Customized health camps and onsite clinics for your workforce.", icon: Briefcase, color: "text-[#005580] bg-blue-50", type: 'corporate' }
+                  { title: "Corporate Wellness", desc: "Customized health camps and onsite clinics for your workforce.", icon: Briefcase, color: "text-primary-600 bg-blue-50", type: 'corporate' }
                ].map((item, i) => (
                   <motion.div 
                      key={i}
@@ -132,7 +132,7 @@ const InquiryHub = () => {
                      <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">{item.desc}</p>
                      <button 
                         onClick={() => scrollToForm(item.type)}
-                        className="text-[#005580] font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all mt-auto"
+                        className="text-primary-600 font-bold text-xs uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all mt-auto"
                      >
                         Initiate Inquiry <ArrowRight className="w-4 h-4" />
                      </button>
@@ -146,7 +146,7 @@ const InquiryHub = () => {
       <Section className="bg-slate-50">
         <Container>
           <div className="bg-[#0f172a] rounded-[4rem] p-12 lg:p-20 text-white relative overflow-hidden flex flex-col lg:grid lg:grid-cols-2 gap-16 items-center">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-[140px] opacity-10 -mr-48 -mt-48" />
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary-600 rounded-full blur-[140px] opacity-10 -mr-48 -mt-48" />
             <div>
               <span className="text-blue-400 font-bold uppercase tracking-widest text-[10px] mb-4 block">Service Level Agreement</span>
               <h2 className="text-4xl lg:text-5xl font-serif font-bold mb-8 text-white">Our Response <br /><span className="text-blue-400 normal">Guarantees.</span></h2>
@@ -183,12 +183,12 @@ const InquiryHub = () => {
                  alt="Digital Channels" 
                  className="rounded-[3rem] shadow-2xl w-full h-[450px] lg:h-[550px] object-cover" 
                />
-               <div className="absolute inset-0 bg-blue-600/5 rounded-[3rem] pointer-events-none" />
+               <div className="absolute inset-0 bg-primary-600/5 rounded-[3rem] pointer-events-none" />
             </div>
             <div className="lg:w-1/2 order-1 lg:order-2">
               <SectionHeading 
                 eyebrow="Modern Connect" 
-                title="Seamless <span class='text-blue-600'>Digital Channels.</span>" 
+                title="Seamless <span class='text-primary-600'>Digital Channels.</span>" 
                 description="Choose the way you want to connect with us. Our systems are integrated to provide a unified experience across all platforms."
               />
               <div className="space-y-6 mt-10">
@@ -198,7 +198,7 @@ const InquiryHub = () => {
                   { title: "24/7 Voice Desk", desc: "Speak directly with our clinical coordinators for help.", icon: Smartphone }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-6 group">
-                    <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <div className="w-14 h-14 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all">
                       <item.icon size={24} />
                     </div>
                     <div>
@@ -220,7 +220,7 @@ const InquiryHub = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {['Billing & Refunds', 'Report Delays', 'Insurance/TPA', 'Medical Records', 'Appointment Fix', 'Visitor Passes', 'Feedback Hub', 'Tech Support'].map((topic, i) => (
               <button key={i} className="p-6 bg-white border border-slate-100 rounded-3xl text-center hover:border-blue-300 hover:shadow-premium transition-all group">
-                <span className="font-bold text-brand-dark group-hover:text-blue-600 transition-colors text-sm">{topic}</span>
+                <span className="font-bold text-brand-dark group-hover:text-primary-600 transition-colors text-sm">{topic}</span>
               </button>
             ))}
           </div>
@@ -230,7 +230,7 @@ const InquiryHub = () => {
       {/* 7. INQUIRY & FEEDBACK HUB FORM */}
       <section id="inquiry-form" className="py-16 lg:py-24 bg-white">
          <div className="container-custom">
-            <div className="bg-[#005580] rounded-[5rem] p-12 md:p-24 text-white relative overflow-hidden flex flex-col lg:flex-row gap-20">
+            <div className="bg-primary-600 rounded-[5rem] p-12 md:p-24 text-white relative overflow-hidden flex flex-col lg:flex-row gap-20">
                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px]" />
                
                <div className="lg:w-5/12 relative z-10">
@@ -244,7 +244,7 @@ const InquiryHub = () => {
                         <button 
                            key={tab.id}
                            onClick={() => { setActiveForm(tab.id); reset(); }}
-                           className={`w-full flex items-center justify-between p-6 rounded-3xl border-2 transition-all ${activeForm === tab.id ? 'bg-white text-[#005580] border-white shadow-xl' : 'bg-transparent text-white border-white/20 hover:bg-white/5'}`}
+                           className={`w-full flex items-center justify-between p-6 rounded-3xl border-2 transition-all ${activeForm === tab.id ? 'bg-white text-primary-600 border-white shadow-xl' : 'bg-transparent text-white border-white/20 hover:bg-white/5'}`}
                         >
                            <span className="flex items-center gap-4 font-bold">
                               <tab.icon className="w-6 h-6" /> {tab.label}
@@ -269,7 +269,7 @@ const InquiryHub = () => {
                       <p className="text-gray-500 mb-8">Thank you for reaching out. Our representative will contact you shortly.</p>
                       <button 
                         onClick={() => { reset(); setFormData({ name: '', contact: '', message: '' }); }}
-                        className="px-8 py-4 bg-[#005580] text-white rounded-xl font-bold"
+                        className="px-8 py-4 bg-primary-600 text-white rounded-xl font-bold"
                       >
                         Send Another Request
                       </button>
@@ -288,7 +288,7 @@ const InquiryHub = () => {
                             onChange={handleInputChange}
                             type="text" 
                             required 
-                            className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent" 
+                            className="w-full h-12 border-b-2 border-gray-100 focus:border-primary-500 outline-none font-bold text-lg bg-transparent" 
                             placeholder="John Doe" 
                           />
                        </div>
@@ -300,7 +300,7 @@ const InquiryHub = () => {
                             onChange={handleInputChange}
                             type="text" 
                             required 
-                            className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent" 
+                            className="w-full h-12 border-b-2 border-gray-100 focus:border-primary-500 outline-none font-bold text-lg bg-transparent" 
                             placeholder="+91 / mail@" 
                           />
                        </div>
@@ -312,7 +312,7 @@ const InquiryHub = () => {
                             onChange={handleInputChange}
                             rows="3" 
                             required 
-                            className="w-full border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent resize-none" 
+                            className="w-full border-b-2 border-gray-100 focus:border-primary-500 outline-none font-bold text-lg bg-transparent resize-none" 
                             placeholder="Describe your requirement..."
                           ></textarea>
                        </div>
@@ -327,7 +327,7 @@ const InquiryHub = () => {
                           <button 
                             disabled={loading}
                             type="submit" 
-                            className="w-full h-16 bg-[#0f172a] text-white rounded-2xl font-black text-lg hover:bg-[#005580] transition-all shadow-xl flex items-center justify-center gap-3 disabled:opacity-50"
+                            className="w-full h-16 bg-[#0f172a] text-white rounded-2xl font-black text-lg hover:bg-primary-600 transition-all shadow-xl flex items-center justify-center gap-3 disabled:opacity-50"
                           >
                              {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : 'Submit Inquiry Hub Request'}
                           </button>
@@ -346,10 +346,10 @@ const InquiryHub = () => {
             <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-[100px] opacity-50 -mr-48 -mt-48" />
             <div className="flex flex-col lg:flex-row justify-between items-end gap-8 mb-16 relative z-10">
               <div className="max-w-2xl">
-                <span className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 block">Global Patient Desk</span>
-                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">International <br /><span className="text-blue-600 normal">Concierge Service.</span></h2>
+                <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">Global Patient Desk</span>
+                <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">International <br /><span className="text-primary-600 normal">Concierge Service.</span></h2>
               </div>
-              <button className="px-10 py-5 bg-brand-dark text-white rounded-2xl font-bold hover:bg-blue-600 transition-all shadow-xl active:scale-95">
+              <button className="px-10 py-5 bg-brand-dark text-white rounded-2xl font-bold hover:bg-primary-600 transition-all shadow-xl active:scale-95">
                 Visit International Hub
               </button>
             </div>
@@ -374,13 +374,13 @@ const InquiryHub = () => {
         <Container>
           <div className="flex flex-col lg:flex-row gap-20">
             <div className="lg:w-1/3">
-              <span className="text-blue-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-6 block">Direct Answers</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8 leading-tight">Specific Inquiry <br /><span className="text-blue-600 normal">FAQ Hub.</span></h2>
+              <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[10px] mb-6 block">Direct Answers</span>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8 leading-tight">Specific Inquiry <br /><span className="text-primary-600 normal">FAQ Hub.</span></h2>
               <p className="text-slate-500 leading-relaxed mb-10 font-light">Find instant answers to specialized queries regarding international care, corporate tie-ups, and more.</p>
               <div className="p-8 bg-blue-100/50 rounded-[2.5rem] border border-blue-100 shadow-sm">
-                 <p className="text-xs font-black uppercase text-blue-600 tracking-widest mb-4">Dedicated Desk</p>
+                 <p className="text-xs font-black uppercase text-primary-600 tracking-widest mb-4">Dedicated Desk</p>
                  <p className="text-brand-dark font-bold leading-relaxed mb-6 normal">"Our support hubs are specialized to provide technical and clinical clarity beyond standard care."</p>
-                 <button className="text-blue-600 font-black text-[10px] uppercase tracking-widest flex items-center gap-2">Read Policy Docs <ArrowRight size={12} /></button>
+                 <button className="text-primary-600 font-black text-[10px] uppercase tracking-widest flex items-center gap-2">Read Policy Docs <ArrowRight size={12} /></button>
               </div>
             </div>
             <div className="lg:w-2/3 space-y-4">
@@ -392,7 +392,7 @@ const InquiryHub = () => {
               ].map((faq, i) => (
                 <div key={i} className="p-8 rounded-[2rem] bg-white border border-slate-100 group hover:border-blue-200 transition-all shadow-sm hover:shadow-md">
                   <h4 className="text-lg font-bold text-brand-dark mb-4 flex items-center gap-4">
-                    <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <div className="w-8 h-8 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center group-hover:bg-primary-600 group-hover:text-white transition-all">
                       <Info size={16} />
                     </div>
                     {faq.q}
@@ -411,7 +411,7 @@ const InquiryHub = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { label: 'Emergency 24/7', info: siteConfig.contacts.emergency, icon: Smartphone, color: 'bg-red-50 text-red-600' },
-              { label: 'OPD Appointment', info: siteConfig.contacts.main, icon: Calendar, color: 'bg-blue-50 text-blue-600' },
+              { label: 'OPD Appointment', info: siteConfig.contacts.main, icon: Calendar, color: 'bg-primary-50 text-primary-600' },
               { label: 'Report Dispatch', info: '+91 124 456 7899', icon: FileText, color: 'bg-emerald-50 text-emerald-600' }
             ].map((box, i) => (
               <div key={i} className="p-10 rounded-[3rem] border border-slate-100 shadow-sm hover:shadow-premium transition-all text-center group">
@@ -460,7 +460,7 @@ const InquiryHub = () => {
           <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 leading-tight">Always <span className="text-blue-400 normal">Available.</span></h2>
           <p className="text-slate-400 text-base lg:text-lg mb-8 max-w-xl mx-auto font-light leading-relaxed">Our clinical and administrative desks are operational 24/7 to provide you with the support you need.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
-            <a href="tel:+918588072727" className="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold text-base hover:bg-blue-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+            <a href="tel:+918588072727" className="px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-base hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
               <Smartphone size={20} className="group-hover:rotate-12 transition-transform" /> 85880 72727
             </a>
             <Link to="/contact" className="px-8 py-4 border-2 border-white/10 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">

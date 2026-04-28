@@ -117,13 +117,13 @@ const BreakthroughCases = () => {
                         </motion.div>
 
                         <div className="flex items-center gap-3 mb-8">
-                           <Microscope className="w-5 h-5 text-[#005580]" />
-                           <span className="text-sm font-bold text-gray-500">Tech Used: <span className="text-[#005580] group-hover:underline">{item.tech}</span></span>
+                           <Microscope className="w-5 h-5 text-primary-600" />
+                           <span className="text-sm font-bold text-gray-500">Tech Used: <span className="text-primary-600 group-hover:underline">{item.tech}</span></span>
                         </div>
 
                         <div className="flex items-center justify-between mt-auto pt-8 border-t border-gray-100">
                            <div className="flex items-center gap-3">
-                              <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 group-hover:bg-[#005580] group-hover:text-white transition-all duration-500">
+                              <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500">
                                  <User className="w-5 h-5" />
                               </div>
                               <div>
@@ -132,7 +132,7 @@ const BreakthroughCases = () => {
                               </div>
                            </div>
                            <motion.div whileHover={{ x: 5 }} whileTap={{ scale: 0.95 }}>
-                              <Link to={`/patient-corner/breakthrough-cases/${item.id}`} className="h-12 px-6 rounded-xl border-2 border-[#005580] text-[#005580] font-bold flex items-center gap-2 hover:bg-[#005580] hover:text-white transition-all shadow-sm">
+                              <Link to={`/patient-corner/breakthrough-cases/${item.id}`} className="h-12 px-6 rounded-xl border-2 border-primary-600 text-primary-600 font-bold flex items-center gap-2 hover:bg-primary-600 hover:text-white transition-all shadow-sm">
                                  Read Full Case <ArrowRight className="w-4 h-4" />
                               </Link>
                            </motion.div>

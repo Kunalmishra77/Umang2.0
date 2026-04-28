@@ -83,7 +83,7 @@ const Blogs = () => {
                  <span>•</span>
                  <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> 10 min read</span>
               </div>
-              <button className="h-14 px-8 rounded-full bg-[#005580] text-white font-bold hover:bg-[#004466] transition-all shadow-lg flex items-center gap-2">
+              <button className="h-14 px-8 rounded-full bg-primary-600 text-white font-bold hover:bg-primary-700 transition-all shadow-lg flex items-center gap-2">
                  Read Full Article <ArrowRight className="w-4 h-4" />
               </button>
            </motion.div>
@@ -115,7 +115,7 @@ const Blogs = () => {
                   >
                      <div className="text-5xl font-serif font-black text-gray-100 group-hover:text-red-100 transition-colors">0{i+1}</div>
                      <div>
-                        <h4 className="font-bold text-xl text-[#0f172a] mb-2 group-hover:text-[#005580] transition-colors leading-tight">{blog.title}</h4>
+                        <h4 className="font-bold text-xl text-[#0f172a] mb-2 group-hover:text-primary-600 transition-colors leading-tight">{blog.title}</h4>
                         <div className="flex items-center gap-2 text-xs font-bold text-gray-400 uppercase tracking-widest">
                            <Clock className="w-3 h-3" /> {blog.readTime}
                         </div>
@@ -136,18 +136,18 @@ const Blogs = () => {
                      whileHover={{ scale: 1.05 }}
                      whileTap={{ scale: 0.95 }}
                      onClick={() => { setActiveCategory(cat); setVisibleCount(9); }}
-                     className={`px-8 py-3 rounded-full text-sm font-bold whitespace-nowrap transition-all border-2 ${activeCategory === cat ? 'bg-[#005580] border-[#005580] text-white shadow-xl shadow-blue-900/20' : 'bg-white border-gray-100 text-gray-500 hover:border-blue-200 hover:text-[#005580]'}`}
+                     className={`px-8 py-3 rounded-full text-sm font-bold whitespace-nowrap transition-all border-2 ${activeCategory === cat ? 'bg-primary-600 border-primary-600 text-white shadow-xl shadow-primary-900/20' : 'bg-white border-gray-100 text-gray-500 hover:border-primary-200 hover:text-primary-600'}`}
                   >
                      {cat}
                   </motion.button>
                ))}
             </div>
             <div className="relative w-full md:w-96 group">
-               <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[#005580] transition-colors" />
+               <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-primary-600 transition-colors" />
                <input 
                   type="text" 
                   placeholder="Search articles..." 
-                  className="w-full h-14 pl-14 pr-6 rounded-full border-2 border-gray-100 focus:border-[#005580] outline-none text-base transition-all bg-gray-50/50 focus:bg-white"
+                  className="w-full h-14 pl-14 pr-6 rounded-full border-2 border-gray-100 focus:border-primary-600 outline-none text-base transition-all bg-gray-50/50 focus:bg-white"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                />
@@ -170,7 +170,7 @@ const Blogs = () => {
                   >
                      <div className="h-64 overflow-hidden relative">
                         <img src={blog.img} alt={blog.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-                        <div className="absolute top-6 left-6 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full text-xs font-bold text-[#005580] uppercase tracking-[0.2em] shadow-lg">
+                        <div className="absolute top-6 left-6 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full text-xs font-bold text-primary-600 uppercase tracking-[0.2em] shadow-lg">
                            {blog.category}
                         </div>
                      </div>
@@ -180,19 +180,19 @@ const Blogs = () => {
                            <span className="w-1 h-1 rounded-full bg-gray-300" />
                            <span>{blog.readTime}</span>
                         </div>
-                        <h3 className="text-2xl font-bold text-[#0f172a] mb-6 group-hover:text-[#005580] transition-colors line-clamp-2 leading-tight">
+                        <h3 className="text-2xl font-bold text-[#0f172a] mb-6 group-hover:text-primary-600 transition-colors line-clamp-2 leading-tight">
                            <Link to={`/patient-corner/blogs/${blog.id}`}>{blog.title}</Link>
                         </h3>
                         <p className="text-gray-500 leading-relaxed mb-10 flex-1 text-lg line-clamp-3">{blog.summary}</p>
                         <div className="flex items-center justify-between pt-8 border-t border-gray-50">
                            <div className="flex items-center gap-4">
-                              <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 group-hover:bg-[#005580] group-hover:text-white transition-all duration-500">
+                              <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500">
                                  <User className="w-5 h-5" />
                               </div>
                               <span className="text-sm font-bold text-gray-700 truncate w-32">{blog.author}</span>
                            </div>
                            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                              <Link to={`/patient-corner/blogs/${blog.id}`} className="w-12 h-12 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 group-hover:bg-[#005580] group-hover:text-white group-hover:border-[#005580] transition-all duration-300 shadow-sm">
+                              <Link to={`/patient-corner/blogs/${blog.id}`} className="w-12 h-12 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-400 group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600 transition-all duration-300 shadow-sm">
                                  <ArrowRight className="w-6 h-6" />
                               </Link>
                            </motion.div>
@@ -208,7 +208,7 @@ const Blogs = () => {
                      whileHover={{ scale: 1.05, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.1)" }}
                      whileTap={{ scale: 0.95 }}
                      onClick={() => setVisibleCount(prev => prev + 9)}
-                     className="px-12 py-4 bg-white border-2 border-gray-100 rounded-full text-[#0f172a] font-bold text-lg hover:border-[#005580] hover:text-[#005580] transition-all shadow-sm"
+                     className="px-12 py-4 bg-white border-2 border-gray-100 rounded-full text-[#0f172a] font-bold text-lg hover:border-primary-600 hover:text-primary-600 transition-all shadow-sm"
                   >
                      Explore More Articles
                   </motion.button>
@@ -255,7 +255,7 @@ const Blogs = () => {
                         <img src={author.img} alt={author.name} className="relative w-full h-full object-cover rounded-full border-4 border-white shadow-lg" />
                      </div>
                      <h3 className="text-lg font-bold text-[#0f172a]">{author.name}</h3>
-                     <p className="text-[#005580] text-sm font-medium mb-2">{author.role}</p>
+                     <p className="text-primary-600 text-sm font-medium mb-2">{author.role}</p>
                      <p className="text-gray-400 text-xs">{author.articles} Articles Published</p>
                   </div>
                ))}
@@ -264,7 +264,7 @@ const Blogs = () => {
       </section>
 
       {/* 7. Newsletter */}
-      <section className="py-12 lg:py-10 bg-[#005580] text-white text-center">
+      <section className="py-12 lg:py-10 bg-primary-600 text-white text-center">
          <div className="container-custom max-w-2xl">
             <Mail className="w-12 h-12 text-cyan-300 mx-auto mb-6" />
             <h2 className="text-4xl font-serif font-bold mb-4">Health in Your Inbox</h2>
@@ -273,7 +273,7 @@ const Blogs = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 bg-white/10 p-2 rounded-2xl border border-white/20">
                <input type="email" placeholder="Enter your email address" className="flex-1 h-12 bg-transparent px-4 outline-none text-white placeholder-blue-200" />
-               <button className="h-12 px-8 rounded-xl bg-white text-[#005580] font-bold hover:bg-cyan-50 transition-all">
+               <button className="h-12 px-8 rounded-xl bg-white text-primary-600 font-bold hover:bg-cyan-50 transition-all">
                   Subscribe
                </button>
             </div>

@@ -46,7 +46,7 @@ const MediaCoverage = () => {
       <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/assets/images/localized/press-conference.jpg" 
+            src="/Umang-real/clinical excelence.webp" 
             alt="Hospital News" 
             className="w-full h-full object-cover opacity-20" 
           />
@@ -80,7 +80,7 @@ const MediaCoverage = () => {
                <h2 className="text-4xl font-serif font-bold text-[#0f172a]">Featured Headlines</h2>
                <div className="flex gap-4">
                   <motion.div 
-                     whileHover={{ scale: 1.1, backgroundColor: "#ffffff", color: "#005580" }}
+                     whileHover={{ scale: 1.1, backgroundColor: "#ffffff", color: "#1E97B2" }}
                      className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 cursor-pointer shadow-sm transition-all"
                   >
                      <Share2 className="w-5 h-5" />
@@ -109,13 +109,13 @@ const MediaCoverage = () => {
                               </motion.div>
                            </div>
                         )}
-                        <div className="absolute top-6 right-6 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full text-[10px] font-bold text-[#005580] uppercase tracking-widest shadow-lg">
+                        <div className="absolute top-6 right-6 bg-white/90 backdrop-blur px-4 py-1.5 rounded-full text-[10px] font-bold text-primary-600 uppercase tracking-widest shadow-lg">
                            {item.type}
                         </div>
                      </div>
                      <div className="p-10 flex-1 flex flex-col transition-colors group-hover:bg-gray-50/50">
-                        <span className="text-blue-600 font-bold text-sm mb-3 uppercase tracking-widest">{item.source}</span>
-                        <h3 className="text-2xl font-bold text-[#0f172a] mb-8 group-hover:text-[#005580] transition-colors leading-tight">{item.title}</h3>
+                        <span className="text-primary-600 font-bold text-sm mb-3 uppercase tracking-widest">{item.source}</span>
+                        <h3 className="text-2xl font-bold text-[#0f172a] mb-8 group-hover:text-primary-600 transition-colors leading-tight">{item.title}</h3>
                         <div className="mt-auto pt-8 border-t border-gray-100 flex items-center justify-between">
                            <span className="text-xs text-gray-400 font-bold flex items-center gap-2 uppercase tracking-widest">
                               <Calendar className="w-4 h-4 text-blue-500" /> {item.date}
@@ -123,7 +123,7 @@ const MediaCoverage = () => {
                            <motion.a 
                               whileHover={{ x: 5, scale: 1.1 }}
                               href="#" 
-                              className="w-12 h-12 rounded-2xl bg-gray-50 text-gray-400 flex items-center justify-center group-hover:bg-[#005580] group-hover:text-white transition-all shadow-sm border border-gray-100"
+                              className="w-12 h-12 rounded-2xl bg-gray-50 text-gray-400 flex items-center justify-center group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm border border-gray-100"
                            >
                               <ExternalLink className="w-5 h-5" />
                            </motion.a>
@@ -152,7 +152,7 @@ const MediaCoverage = () => {
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div className="relative">
                <div className="absolute inset-0 bg-blue-100 rounded-[3rem] rotate-3" />
-               <img src="/assets/images/localized/doctor-interview.jpg" alt="Doctor Interview" className="relative rounded-[3rem] shadow-2xl w-full object-cover" />
+               <img src="/Umang-real/consultant.webp" alt="Doctor Interview" className="relative rounded-[3rem] shadow-2xl w-full object-cover" />
                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-red-600 text-white rounded-full flex items-center justify-center shadow-2xl animate-pulse cursor-pointer">
                   <Play className="w-8 h-8 fill-current ml-1" />
                </div>
@@ -170,7 +170,7 @@ const MediaCoverage = () => {
                   ].map((op, i) => (
                      <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between group cursor-pointer hover:border-blue-200 transition-all">
                         <div>
-                           <h4 className="font-bold text-[#0f172a] group-hover:text-[#005580] transition-colors">{op.title}</h4>
+                           <h4 className="font-bold text-[#0f172a] group-hover:text-primary-600 transition-colors">{op.title}</h4>
                            <p className="text-xs text-gray-400">{op.source}</p>
                         </div>
                         <ArrowRight className="w-5 h-5 text-gray-300 group-hover:translate-x-1 transition-transform" />
@@ -213,7 +213,7 @@ const MediaCoverage = () => {
       {/* 6. Social Media Buzz */}
       <section className="py-12 lg:py-10 bg-white">
          <div className="container-custom text-center">
-            <Radio className="w-12 h-12 text-[#005580] mx-auto mb-6" />
+            <Radio className="w-12 h-12 text-primary-600 mx-auto mb-6" />
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-4">Stay Connected</h2>
             <p className="text-gray-500 mb-12 max-w-2xl mx-auto">
                Follow us on social media for real-time updates, health tips, and behind-the-scenes looks at our medical miracles.

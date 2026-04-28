@@ -27,7 +27,7 @@ const PatientLayout = () => {
         <div className="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-12">
             <Link to="/patients" className="flex items-center gap-2 group">
-              <img src="/Umang-logo.png" alt="Umang" className="h-10 transition-transform group-hover:scale-110" />
+              <img src="/Umang-logo.webp" alt="Umang" className="h-10 transition-transform group-hover:scale-110" />
               <div className="hidden md:block">
                 <span className="text-xl font-serif font-bold text-[#0f172a] block leading-none">UMANG</span>
                 <span className="text-[10px] font-bold text-red-600 tracking-[0.3em] uppercase">Portal</span>
@@ -35,11 +35,11 @@ const PatientLayout = () => {
             </Link>
             
             <div className="hidden lg:flex relative w-96 group">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-blue-600 transition-colors" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 group-focus-within:text-primary-600 transition-colors" />
               <input 
                 type="text" 
                 placeholder="Search appointments, reports, doctors..." 
-                className="w-full h-11 pl-11 pr-4 bg-slate-100 border-none rounded-xl text-sm focus:ring-2 focus:ring-blue-600/20 focus:bg-white transition-all outline-none font-medium"
+                className="w-full h-11 pl-11 pr-4 bg-slate-100 border-none rounded-xl text-sm focus:ring-2 focus:ring-primary-600/20 focus:bg-white transition-all outline-none font-medium"
               />
             </div>
           </div>
@@ -56,7 +56,7 @@ const PatientLayout = () => {
                 <p className="text-[10px] font-medium text-slate-500 uppercase tracking-wider">Patient ID: UH-2026-9821</p>
               </div>
               <img 
-                src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
+                src="/assets/About/about-main.png" 
                 alt="Profile" 
                 className="w-11 h-11 rounded-xl object-cover ring-2 ring-slate-100 ring-offset-2"
               />
@@ -73,7 +73,7 @@ const PatientLayout = () => {
               <div className="bg-white rounded-[2rem] border border-slate-200 overflow-hidden shadow-sm">
                 <div className="p-6 bg-slate-50 border-b border-slate-100">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center text-white shadow-lg shadow-blue-200">
+                    <div className="w-12 h-12 rounded-2xl bg-primary-600 flex items-center justify-center text-white shadow-lg shadow-primary-200">
                       <ShieldCheck className="w-6 h-6" />
                     </div>
                     <div>
@@ -91,12 +91,12 @@ const PatientLayout = () => {
                       className={`
                         flex items-center gap-3 px-4 py-3.5 rounded-2xl text-sm font-bold transition-all
                         ${location.pathname === item.path 
-                          ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/10 scale-[1.02]' 
-                          : 'text-slate-600 hover:bg-slate-50 hover:text-blue-600'
+                          ? 'bg-primary-600 text-white shadow-xl shadow-primary-900/10 scale-[1.02]' 
+                          : 'text-slate-600 hover:bg-slate-50 hover:text-primary-600'
                         }
                       `}
                     >
-                      <item.icon className={`w-5 h-5 ${location.pathname === item.path ? 'text-white' : 'text-slate-400 group-hover:text-blue-600'}`} />
+                      <item.icon className={`w-5 h-5 ${location.pathname === item.path ? 'text-white' : 'text-slate-400 group-hover:text-primary-600'}`} />
                       {item.label}
                       {location.pathname === item.path && <ChevronRight className="ml-auto w-4 h-4 opacity-50" />}
                     </Link>

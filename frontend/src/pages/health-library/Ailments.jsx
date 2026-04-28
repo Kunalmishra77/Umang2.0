@@ -125,7 +125,7 @@ const Ailments = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
                </div>
-               <button className="h-14 px-8 bg-[#005580] text-white rounded-xl font-bold hover:bg-[#004466] transition-all">
+               <button className="h-14 px-8 bg-primary-600 text-white rounded-xl font-bold hover:bg-primary-700 transition-all">
                   Search
                </button>
             </div>
@@ -141,7 +141,7 @@ const Ailments = () => {
                   <button 
                      key={letter}
                      onClick={() => setActiveLetter(letter)}
-                     className={`w-8 h-8 md:w-10 md:h-10 rounded-full text-xs md:text-sm font-bold transition-all ${activeLetter === letter ? 'bg-[#005580] text-white scale-110' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'}`}
+                     className={`w-8 h-8 md:w-10 md:h-10 rounded-full text-xs md:text-sm font-bold transition-all ${activeLetter === letter ? 'bg-primary-600 text-white scale-110' : 'bg-gray-50 text-gray-500 hover:bg-gray-100'}`}
                   >
                      {letter}
                   </button>
@@ -171,7 +171,7 @@ const Ailments = () => {
                      
                      <div className="relative z-10">
                         <div className="flex justify-between items-start mb-6">
-                           <div className="w-16 h-16 rounded-2xl bg-blue-50 text-[#005580] flex items-center justify-center group-hover:bg-[#005580] group-hover:text-white transition-colors">
+                           <div className="w-16 h-16 rounded-2xl bg-blue-50 text-primary-600 flex items-center justify-center group-hover:bg-primary-600 group-hover:text-white transition-colors">
                               <ailment.icon className="w-8 h-8" />
                            </div>
                            <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${ailment.risk === 'High' ? 'bg-red-50 text-red-600' : 'bg-green-50 text-green-600'}`}>
@@ -179,7 +179,7 @@ const Ailments = () => {
                            </span>
                         </div>
 
-                        <h3 className="text-2xl font-bold text-[#0f172a] mb-2 group-hover:text-[#005580] transition-colors">{ailment.name}</h3>
+                        <h3 className="text-2xl font-bold text-[#0f172a] mb-2 group-hover:text-primary-600 transition-colors">{ailment.name}</h3>
                         <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">{ailment.category}</p>
                         <p className="text-gray-500 leading-relaxed mb-6 h-16 line-clamp-3">{ailment.desc}</p>
                         
@@ -194,7 +194,7 @@ const Ailments = () => {
                            </div>
                         </div>
 
-                        <Link to={`/specialities/${ailment.specialityId}`} className="flex items-center gap-2 text-[#005580] font-bold hover:gap-3 transition-all">
+                        <Link to={`/specialities/${ailment.specialityId}`} className="flex items-center gap-2 text-primary-600 font-bold hover:gap-3 transition-all">
                            Consult Specialist <ArrowRight className="w-4 h-4" />
                         </Link>
                      </div>
@@ -239,7 +239,7 @@ const Ailments = () => {
             <div className="order-1 lg:order-2 relative">
                <div className="absolute inset-0 bg-green-50 rounded-[3rem] rotate-3" />
                <img 
-                  src="/assets/images/localized/ailments-hero.jpg" 
+                  src="/assets/Home/Health-Checkup.webp" 
                   alt="Wellness" 
                   className="relative rounded-[3rem] shadow-2xl w-full object-cover"
                />
@@ -248,7 +248,7 @@ const Ailments = () => {
       </section>
 
       {/* 5. CTA */}
-      <section className="py-12 lg:py-10 bg-[#005580] text-white relative overflow-hidden text-center">
+      <section className="py-12 lg:py-10 bg-primary-600 text-white relative overflow-hidden text-center">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10" />
          <div className="container-custom relative z-10 max-w-4xl">
             <h2 className="text-4xl font-serif font-bold mb-6">Unsure about your symptoms?</h2>
@@ -256,7 +256,7 @@ const Ailments = () => {
                Don't self-diagnose. Talk to our general physicians for an accurate assessment and peace of mind.
             </p>
             <div className="flex justify-center gap-6">
-               <Link to="/doctors" className="h-16 px-10 rounded-full bg-white text-[#005580] font-bold text-lg hover:bg-blue-50 transition-all flex items-center gap-2 shadow-xl">
+               <Link to="/doctors" className="h-16 px-10 rounded-full bg-white text-primary-600 font-bold text-lg hover:bg-primary-50 transition-all flex items-center gap-2 shadow-xl">
                   <Stethoscope className="w-5 h-5" /> Consult a Doctor
                </Link>
             </div>

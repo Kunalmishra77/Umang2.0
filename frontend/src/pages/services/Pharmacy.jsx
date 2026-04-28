@@ -66,23 +66,23 @@ const Pharmacy = () => {
 
         <div className="container-custom relative z-20">
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-8">
+            <div className="inline-flex items-center gap-2 bg-primary-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-8">
               <ShieldCheck className="w-4 h-4" /> 100% Genuine Medicines
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-[#0f172a] mb-8 leading-tight">
               Your Health, <br />
-              <span className="text-blue-600 font-medium normal">Delivered.</span>
+              <span className="text-primary-600 font-medium normal">Delivered.</span>
             </h1>
             <p className="text-xl text-gray-500 font-light leading-relaxed mb-12">
               From essential chronic medications to critical emergency drugs, Umang Pharmacy ensures 24/7 availability with strict cold-chain maintenance.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6">
-              <Link to="/services/buy-medicines/prescription-upload" className="h-16 px-10 rounded-2xl bg-[#0f172a] text-white font-bold text-lg hover:bg-blue-600 transition-all flex items-center justify-center gap-3 shadow-xl">
+              <Link to="/services/buy-medicines/prescription-upload" className="h-16 px-10 rounded-2xl bg-[#0f172a] text-white font-bold text-lg hover:bg-primary-600 transition-all flex items-center justify-center gap-3 shadow-xl">
                 <Upload className="w-5 h-5" /> Upload Prescription
               </Link>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center text-blue-600">
+                <div className="w-12 h-12 rounded-full bg-primary-50 flex items-center justify-center text-primary-600">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
@@ -106,7 +106,7 @@ const Pharmacy = () => {
                   { icon: User, title: "Expert Support", desc: "Registered pharmacists only" }
                ].map((item, i) => (
                   <div key={i} className="text-center group">
-                     <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-600 group-hover:text-white transition-all shadow-sm">
+                     <div className="w-14 h-14 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-600 group-hover:text-white transition-all shadow-sm">
                         <item.icon className="w-7 h-7" />
                      </div>
                      <h4 className="font-bold text-[#0f172a] mb-1">{item.title}</h4>
@@ -133,7 +133,7 @@ const Pharmacy = () => {
          <div className="container-custom">
             <div className="flex justify-between items-end mb-16 px-4">
                <h2 className="text-4xl font-serif font-bold text-[#0f172a]">Shop by Category</h2>
-               <Link to="/services/buy-medicines/all-products" className="text-blue-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
+               <Link to="/services/buy-medicines/all-products" className="text-primary-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
                   View All <ArrowRight className="w-5 h-5" />
                </Link>
             </div>
@@ -145,7 +145,7 @@ const Pharmacy = () => {
                         <div className="w-full aspect-square rounded-2xl bg-gray-50 mb-6 overflow-hidden">
                            <img src={cat.image || ASSETS.PHARMA_CARDIAC} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                         </div>
-                        <h4 className="font-bold text-[#0f172a] group-hover:text-blue-600 transition-colors text-sm">{cat.name}</h4>
+                        <h4 className="font-bold text-[#0f172a] group-hover:text-primary-600 transition-colors text-sm">{cat.name}</h4>
                      </motion.div>
                   </Link>
                ))}
@@ -170,9 +170,9 @@ const Pharmacy = () => {
                            <HeartPulse className="w-5 h-5" />
                         </button>
                      </div>
-                     <h4 className="font-bold text-[#0f172a] mb-1 line-clamp-1 group-hover:text-blue-600 transition-colors">{product.name}</h4>
+                     <h4 className="font-bold text-[#0f172a] mb-1 line-clamp-1 group-hover:text-primary-600 transition-colors">{product.name}</h4>
                      <p className="text-xs text-gray-400 mb-6">{product.pack_size}</p>
-                     <Link to={`/services/buy-medicines/category/all-wellness`} className="h-12 w-full rounded-xl bg-blue-50 text-blue-600 font-bold hover:bg-blue-600 hover:text-white transition-all flex items-center justify-center gap-2">
+                     <Link to={`/services/buy-medicines/category/all-wellness`} className="h-12 w-full rounded-xl bg-primary-50 text-primary-600 font-bold hover:bg-primary-600 hover:text-white transition-all flex items-center justify-center gap-2">
                         View Details
                      </Link>
                   </motion.div>
@@ -182,7 +182,7 @@ const Pharmacy = () => {
       </section>
 
       {/* SECTION: COLD CHAIN QUALITY (NEW SECTION 11) */}
-      <Section className="bg-blue-600 text-white overflow-hidden relative">
+      <Section className="bg-primary-600 text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[100px]" />
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center relative z-10">
@@ -224,10 +224,10 @@ const Pharmacy = () => {
               { title: "Fast Delivery", desc: "Get your medicines delivered at your door within 4 hours.", icon: Truck, path: "/services/buy-medicines/all-products" }
             ].map((step, i) => (
               <Link to={step.path} key={i} className="relative text-center group block">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg text-blue-600 border-4 border-blue-50 group-hover:scale-110 transition-transform">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg text-primary-600 border-4 border-blue-50 group-hover:scale-110 transition-transform">
                   <step.icon size={32} />
                 </div>
-                <h4 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition-colors">{step.title}</h4>
+                <h4 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-primary-600 transition-colors">{step.title}</h4>
                 <p className="text-gray-500 leading-relaxed px-6">{step.desc}</p>
                 {i < 2 && <ArrowRight className="hidden lg:block absolute top-10 -right-6 text-gray-200" size={32} />}
               </Link>
@@ -241,7 +241,7 @@ const Pharmacy = () => {
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2 relative">
-              <div className="absolute inset-0 bg-blue-100 rounded-[4rem] rotate-3 -z-10" />
+              <div className="absolute inset-0 bg-primary-100 rounded-[4rem] rotate-3 -z-10" />
               <img src={ASSETS.PHARMA_CARDIAC} alt="Specialized" className="rounded-[4rem] shadow-2xl w-full h-[500px] object-cover" />
             </div>
             <div className="lg:w-1/2">
@@ -258,7 +258,7 @@ const Pharmacy = () => {
                 ].map((item, i) => (
                   <Link to={item.path} key={i} className="flex items-center gap-4 font-bold text-slate-800 group block">
                     <CheckCircle className="text-green-500 group-hover:scale-125 transition-transform" size={20} /> 
-                    <span className="group-hover:text-blue-600 transition-colors">{item.label}</span>
+                    <span className="group-hover:text-primary-600 transition-colors">{item.label}</span>
                   </Link>
                 ))}
               </div>
@@ -274,7 +274,7 @@ const Pharmacy = () => {
             <div className="lg:w-1/2 relative z-10">
                <h2 className="text-4xl md:text-6xl font-serif font-bold mb-8 leading-tight">Can't find your medicine?</h2>
                <p className="text-xl text-blue-100 mb-12">Just upload your prescription and our pharmacists will find it for you.</p>
-               <Link to="/services/buy-medicines/prescription-upload" className="h-16 px-10 rounded-2xl bg-white text-blue-600 font-bold text-lg hover:bg-blue-50 transition-all flex items-center justify-center gap-3 shadow-xl">
+               <Link to="/services/buy-medicines/prescription-upload" className="h-16 px-10 rounded-2xl bg-white text-primary-600 font-bold text-lg hover:bg-primary-50 transition-all flex items-center justify-center gap-3 shadow-xl">
                   <Upload className="w-6 h-6" /> Upload & Order Now
                </Link>
             </div>
@@ -286,11 +286,11 @@ const Pharmacy = () => {
 
       {/* 8. App Promo */}
       <Section className="bg-slate-900 text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 rounded-full blur-[150px] opacity-20" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-600 rounded-full blur-[150px] opacity-20" />
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-2/3">
-              <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Manage health on the go with <span className="text-blue-400">Umang Care App.</span></h2>
+              <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Manage health on the go with <span className="text-primary-400">Umang Care App.</span></h2>
               <p className="text-slate-400 text-xl font-light leading-relaxed mb-12">Refill prescriptions, track deliveries, and consult doctors—all from your smartphone.</p>
               <div className="flex flex-wrap gap-6">
                 <button className="h-16 px-8 bg-white text-black rounded-2xl flex items-center gap-4 hover:scale-105 transition-all shadow-lg">
@@ -303,7 +303,7 @@ const Pharmacy = () => {
             </div>
             <div className="lg:w-1/3 w-full">
                <div className="p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem] text-center">
-                  <Award size={48} className="text-blue-400 mx-auto mb-6" />
+                  <Award size={48} className="text-primary-400 mx-auto mb-6" />
                   <h4 className="text-2xl font-bold mb-2">99% Delivery Rate</h4>
                   <p className="text-slate-400 text-sm">Successfully delivered 50,000+ orders across Gurugram last year.</p>
                </div>
@@ -317,10 +317,10 @@ const Pharmacy = () => {
         <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]" />
         <Container>
           <div className="text-center mb-16 relative z-10">
-            <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-6">
+            <div className="inline-flex items-center gap-2 bg-primary-100 text-blue-700 px-4 py-2 rounded-full font-bold uppercase tracking-widest text-[10px] mb-6">
               <HelpCircle className="w-4 h-4" /> Pharmacy Support
             </div>
-            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Pharmacy <span className="text-blue-600 normal">FAQs</span></h2>
+            <h2 className="text-4xl lg:text-5xl font-serif font-bold text-[#0f172a] mb-6">Pharmacy <span className="text-primary-600 normal">FAQs</span></h2>
             <p className="text-gray-500 max-w-2xl mx-auto">Get quick answers to common questions about medication delivery, genuine sourcing, and cold-chain maintenance.</p>
           </div>
 
@@ -341,10 +341,10 @@ const Pharmacy = () => {
                 viewport={{ once: true }}
                 className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-xl shadow-blue-900/5 hover:border-blue-200 hover:shadow-2xl hover:shadow-blue-600/5 transition-all duration-500 group"
               >
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                <div className="w-10 h-10 rounded-xl bg-primary-50 text-primary-600 flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-all">
                   <Pill size={20} />
                 </div>
-                <h4 className="font-bold text-lg text-[#0f172a] mb-4 leading-tight group-hover:text-blue-600 transition-colors">{faq.q}</h4>
+                <h4 className="font-bold text-lg text-[#0f172a] mb-4 leading-tight group-hover:text-primary-600 transition-colors">{faq.q}</h4>
                 <p className="text-gray-500 text-sm leading-relaxed font-light">{faq.a}</p>
               </motion.div>
             ))}
@@ -353,13 +353,13 @@ const Pharmacy = () => {
       </Section>
 
       {/* 10. Commitment CTA */}
-      <Section className="bg-blue-600 text-white text-center">
+      <Section className="bg-primary-600 text-white text-center">
         <Container>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Trust Umang for your <br />clinical pharmacy needs.</h2>
             <p className="text-blue-100 text-lg mb-12 max-w-2xl mx-auto">Our registered pharmacists are available 24/7 to guide you with the right dosage and usage information.</p>
             <div className="flex justify-center gap-6">
-              <a href="tel:8588072727" className="px-10 py-5 bg-white text-blue-600 rounded-full font-bold text-base shadow-xl flex items-center gap-3 hover:scale-105 transition-all">
+              <a href="tel:8588072727" className="px-10 py-5 bg-white text-primary-600 rounded-full font-bold text-base shadow-xl flex items-center gap-3 hover:scale-105 transition-all">
                 <Phone size={20} /> Speak to Pharmacist
               </a>
             </div>

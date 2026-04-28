@@ -14,7 +14,7 @@ const events = [
     schedule: 'Daily 10 AM – 12 PM',
     location: 'Ground Floor, OPD Wing',
     image: ASSETS.EVENT_JANTA_OPD,
-    gradient: 'from-blue-600 to-cyan-500',
+    gradient: 'from-primary-600 to-cyan-500',
     icon: '🩺',
     cta: { label: 'Book OPD Slot', to: '/doctors' },
   },
@@ -29,7 +29,7 @@ const events = [
     image: ASSETS.EVENT_DIAGNOSTICS,
     gradient: 'from-emerald-600 to-teal-500',
     icon: '🔬',
-    cta: { label: 'View Tests', to: '/services/diagnostic-lab' },
+    cta: { label: 'View Tests', to: '/services/lab-test-diagnostic' },
   },
   {
     title: 'Full Body Checkup',
@@ -37,7 +37,7 @@ const events = [
     badge: '₹500 Starting',
     status: 'Limited Slots',
     statusColor: 'bg-amber-500',
-    schedule: 'Till 30 March 2026',
+    schedule: 'Ongoing — Limited Slots',
     location: 'Health Checkup Centre, 1st Floor',
     image: ASSETS.EVENT_BODY_CHECKUP,
     gradient: 'from-primary-600 to-blue-500',
@@ -66,7 +66,7 @@ const events = [
     schedule: 'Available Daily',
     location: 'Hospital Pharmacy, Ground Floor',
     image: ASSETS.PHARMACY,
-    gradient: 'from-purple-600 to-pink-500',
+    gradient: 'from-primary-600 to-accent-500',
     icon: '💊',
     cta: { label: 'Visit Pharmacy', to: '/services/pharmacy' },
   },
@@ -101,7 +101,7 @@ const EventHighlights = () => {
   };
 
   const event = events[active];
-  const [imgFailed, setImgFailed] = useState(true);
+  const [imgFailed, setImgFailed] = useState(false);
 
   return (
     <section className="py-16 lg:py-24 bg-gradient-to-b from-white via-gray-50/50 to-white overflow-hidden">

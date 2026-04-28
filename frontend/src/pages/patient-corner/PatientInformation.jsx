@@ -43,7 +43,7 @@ const PatientInformation = () => {
       />
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[500px] flex items-center bg-[#005580] overflow-hidden">
+      <section className="relative min-h-[500px] flex items-center bg-primary-600 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/notebook.png')] opacity-10" />
           <div className="absolute -top-32 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px]" />
@@ -102,14 +102,14 @@ const PatientInformation = () => {
                      }}
                      className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100 transition-all relative overflow-hidden group"
                   >
-                     <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-[100%] -mr-10 -mt-10 group-hover:bg-blue-600 transition-all duration-500" />
+                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary-50 rounded-bl-[100%] -mr-10 -mt-10 group-hover:bg-primary-600 transition-all duration-500" />
                      <div className="text-6xl font-bold text-gray-100 absolute top-6 right-6 font-serif group-hover:text-blue-500/20 transition-colors">{item.step}</div>
                      
-                     <h3 className="text-2xl font-bold text-[#0f172a] mb-4 relative z-10 group-hover:text-[#005580] transition-colors">{item.title}</h3>
+                     <h3 className="text-2xl font-bold text-[#0f172a] mb-4 relative z-10 group-hover:text-primary-600 transition-colors">{item.title}</h3>
                      <p className="text-gray-500 leading-relaxed mb-8 relative z-10 group-hover:text-gray-700 transition-colors">{item.desc}</p>
                      
                      <motion.div whileHover={{ x: 5 }} className="relative z-10">
-                        <Link to="/contact" className="text-[#005580] font-bold flex items-center gap-2 text-sm">
+                        <Link to="/contact" className="text-primary-600 font-bold flex items-center gap-2 text-sm">
                            Read Guidelines <ArrowRight className="w-4 h-4" />
                         </Link>
                      </motion.div>
@@ -134,7 +134,7 @@ const PatientInformation = () => {
                         <img src={room.img} alt={room.type} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
                      </div>
-                     <h4 className="text-lg font-bold text-[#0f172a] group-hover:text-[#005580] transition-colors">{room.type}</h4>
+                     <h4 className="text-lg font-bold text-[#0f172a] group-hover:text-primary-600 transition-colors">{room.type}</h4>
                      <p className="text-sm text-gray-500">{room.desc}</p>
                   </motion.div>
                ))}
@@ -147,7 +147,7 @@ const PatientInformation = () => {
          <div className="container-custom">
             <div className="flex justify-between items-end mb-16">
                <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0f172a]">Essential Downloads</h2>
-               <Link to="/health-library/downloads" className="text-[#005580] font-bold flex items-center gap-2 hover:gap-3 transition-all">
+               <Link to="/health-library/downloads" className="text-primary-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
                   View All Documents <ArrowRight className="w-5 h-5" />
                </Link>
             </div>
@@ -160,14 +160,14 @@ const PatientInformation = () => {
                      onClick={() => handleDownload(guide.id)}
                      className="flex items-center gap-4 p-6 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-lg transition-all cursor-pointer group bg-white relative overflow-hidden"
                   >
-                     <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-[#005580] shadow-sm group-hover:scale-110 transition-transform">
-                        {downloading === guide.id ? <div className="w-5 h-5 border-2 border-[#005580] border-t-transparent rounded-full animate-spin" /> : <FileText className="w-6 h-6" />}
+                     <div className="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 shadow-sm group-hover:scale-110 transition-transform">
+                        {downloading === guide.id ? <div className="w-5 h-5 border-2 border-primary-600 border-t-transparent rounded-full animate-spin" /> : <FileText className="w-6 h-6" />}
                      </div>
                      <div className="flex-1 min-w-0">
                         <h4 className="font-bold text-[#0f172a] truncate mb-1">{guide.title}</h4>
                         <p className="text-xs text-gray-500">{guide.category} • {guide.size}</p>
                      </div>
-                     <Download className={`w-5 h-5 transition-all ${downloading === guide.id ? 'text-green-500 scale-125' : 'text-gray-400 group-hover:text-[#005580]'}`} />
+                     <Download className={`w-5 h-5 transition-all ${downloading === guide.id ? 'text-green-500 scale-125' : 'text-gray-400 group-hover:text-primary-600'}`} />
                   </motion.div>
                ))}
             </div>
@@ -175,7 +175,7 @@ const PatientInformation = () => {
       </section>
 
       {/* 5. Patient Rights */}
-      <section className="py-12 lg:py-10 bg-[#005580] text-white">
+      <section className="py-12 lg:py-10 bg-primary-600 text-white">
          <div className="container-custom grid lg:grid-cols-2 gap-16 items-center">
             <div>
                <h2 className="text-4xl font-serif font-bold mb-6">Patient Rights & Responsibilities</h2>
@@ -208,17 +208,17 @@ const PatientInformation = () => {
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-12">Visitor Guidelines</h2>
             <div className="grid md:grid-cols-3 gap-8 text-left">
                <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                  <Clock className="w-8 h-8 text-[#005580] mb-4" />
+                  <Clock className="w-8 h-8 text-primary-600 mb-4" />
                   <h4 className="font-bold mb-2">Visiting Hours</h4>
                   <p className="text-sm text-gray-500">Wards: 4 PM - 7 PM<br/>ICU: 11 AM - 12 PM</p>
                </div>
                <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                  <UserCheck className="w-8 h-8 text-[#005580] mb-4" />
+                  <UserCheck className="w-8 h-8 text-primary-600 mb-4" />
                   <h4 className="font-bold mb-2">Visitor Pass</h4>
                   <p className="text-sm text-gray-500">1 attendant pass + 1 visitor pass issued at admission.</p>
                </div>
                <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
-                  <AlertCircle className="w-8 h-8 text-[#005580] mb-4" />
+                  <AlertCircle className="w-8 h-8 text-primary-600 mb-4" />
                   <h4 className="font-bold mb-2">Restrictions</h4>
                   <p className="text-sm text-gray-500">Children under 12 not allowed in ICUs. No outside food.</p>
                </div>
@@ -230,7 +230,7 @@ const PatientInformation = () => {
       <section className="py-12 lg:py-10 bg-blue-50">
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div>
-               <div className="inline-flex items-center gap-2 text-[#005580] font-bold uppercase tracking-widest text-xs mb-6">
+               <div className="inline-flex items-center gap-2 text-primary-600 font-bold uppercase tracking-widest text-xs mb-6">
                   <Shield className="w-4 h-4" /> Financial Support
                </div>
                <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Insurance & TPA</h2>
@@ -243,7 +243,7 @@ const PatientInformation = () => {
                   <div className="bg-white p-4 rounded-xl text-center font-bold text-gray-400 border border-gray-200">ICICI Lombard</div>
                   <div className="bg-white p-4 rounded-xl text-center font-bold text-gray-400 border border-gray-200">Max Bupa</div>
                </div>
-               <Link to="/contact" className="inline-flex items-center gap-2 bg-[#005580] text-white px-8 py-4 rounded-full font-bold hover:bg-[#004466] transition-all shadow-lg">
+               <Link to="/contact" className="inline-flex items-center gap-2 bg-primary-600 text-white px-8 py-4 rounded-full font-bold hover:bg-primary-700 transition-all shadow-lg">
                   Check Your Eligibility <ArrowRight className="w-4 h-4" />
                </Link>
             </div>
@@ -253,7 +253,7 @@ const PatientInformation = () => {
                <ul className="space-y-6">
                   <li className="flex gap-4">
                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-                        <Phone className="w-5 h-5 text-[#005580]" />
+                        <Phone className="w-5 h-5 text-primary-600" />
                      </div>
                      <div>
                         <h4 className="font-bold text-[#0f172a]">24/7 Helpline</h4>
@@ -262,7 +262,7 @@ const PatientInformation = () => {
                   </li>
                   <li className="flex gap-4">
                      <div className="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-                        <HelpCircle className="w-5 h-5 text-[#005580]" />
+                        <HelpCircle className="w-5 h-5 text-primary-600" />
                      </div>
                      <div>
                         <h4 className="font-bold text-[#0f172a]">Financial Counseling</h4>
@@ -282,7 +282,7 @@ const PatientInformation = () => {
             <p className="text-gray-500 mb-8">
                We strive for excellence. If you have any suggestions or grievances, please let us know.
             </p>
-            <Link to="/contact" className="text-[#005580] font-bold hover:underline">
+            <Link to="/contact" className="text-primary-600 font-bold hover:underline">
                Submit Feedback Form
             </Link>
          </div>

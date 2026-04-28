@@ -14,35 +14,35 @@ const Login = () => {
       {/* LEFT: Cinematic Branding */}
       <div className="lg:w-1/2 bg-[#0f172a] relative overflow-hidden hidden lg:flex flex-col justify-center p-20 text-white">
          <div className="absolute inset-0 z-0">
-            <img src="/assets/images/localized/hospital-hallway.jpg" className="w-full h-full object-cover opacity-20" alt="Hospital" />
-            <div className="absolute inset-0 bg-gradient-to-br from-[#005580] via-[#0f172a] to-transparent" />
+            <img src="/UmangLatest/Passage.webp" className="w-full h-full object-cover opacity-20" alt="Hospital" />
+            <div className="absolute inset-0 bg-gradient-to-br from-primary-800 via-[#0f172a] to-transparent" />
          </div>
-         
+
          <div className="relative z-10">
             <Link to="/" className="flex items-center gap-3 mb-16">
                <div className="p-2 bg-white rounded-xl shadow-lg">
-                  <img src="/Umang-logo.png" alt="Logo" className="h-10 w-auto object-contain" />
+                  <img src="/Umang-logo.webp" alt="Logo" className="h-10 w-auto object-contain" />
                </div>
                <span className="text-3xl font-serif font-bold">Umang</span>
             </Link>
-            
-            <motion.h1 
-              initial={{ opacity: 0, x: -30 }} 
-              animate={{ opacity: 1, x: 0 }} 
+
+            <motion.h1
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
               className="text-5xl md:text-6xl font-serif font-bold mb-8 leading-tight"
             >
-              Your Health, <br /><span className="text-blue-400 normal">One Click Away.</span>
+              Your Health, <br /><span className="text-primary-400 normal">One Click Away.</span>
             </motion.h1>
-            
+
             <div className="space-y-6">
                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
+                  <div className="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">
                      <ShieldCheck className="w-5 h-5" />
                   </div>
                   <p className="text-gray-300 font-medium">Access your medical reports securely.</p>
                </div>
                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
+                  <div className="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">
                      <Heart className="w-5 h-5" />
                   </div>
                   <p className="text-gray-300 font-medium">Manage appointments & consultations.</p>
@@ -64,10 +64,10 @@ const Login = () => {
                   <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Email Address</label>
                   <div className="relative">
                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                     <input 
-                       type="email" 
-                       placeholder="Umanghospitalgurugram@gmail.com" 
-                       className="w-full h-14 pl-12 pr-4 rounded-2xl border border-gray-200 focus:border-[#005580] focus:ring-4 focus:ring-blue-50 outline-none transition-all"
+                     <input
+                       type="email"
+                       placeholder="your@email.com"
+                       className="w-full h-14 pl-12 pr-4 rounded-2xl border border-gray-200 focus:border-primary-500 focus:ring-4 focus:ring-primary-50 outline-none transition-all"
                      />
                   </div>
                </div>
@@ -75,26 +75,26 @@ const Login = () => {
                <div className="space-y-2">
                   <div className="flex justify-between items-center">
                      <label className="text-xs font-bold text-gray-400 uppercase tracking-widest">Password</label>
-                     <Link to="#" className="text-xs font-bold text-blue-600 hover:underline">Forgot Password?</Link>
+                     <Link to="#" className="text-xs font-bold text-primary-600 hover:underline">Forgot Password?</Link>
                   </div>
                   <div className="relative">
                      <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
-                     <input 
-                       type="password" 
-                       placeholder="••••••••" 
-                       className="w-full h-14 pl-12 pr-4 rounded-2xl border border-gray-200 focus:border-[#005580] focus:ring-4 focus:ring-blue-50 outline-none transition-all"
+                     <input
+                       type="password"
+                       placeholder="••••••••"
+                       className="w-full h-14 pl-12 pr-4 rounded-2xl border border-gray-200 focus:border-primary-500 focus:ring-4 focus:ring-primary-50 outline-none transition-all"
                      />
                   </div>
                </div>
 
-               <button className="w-full h-14 bg-[#005580] text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-[#004466] shadow-xl transition-all group">
+               <button className="w-full h-14 bg-primary-600 text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-primary-700 shadow-xl transition-all group">
                   Sign In <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                </button>
             </form>
 
             <div className="mt-12 text-center">
                <p className="text-gray-500 text-sm">
-                  New to Umang? <Link to="/register" className="text-[#005580] font-bold hover:underline">Create an account</Link>
+                  New to Umang? <Link to="/register" className="text-primary-600 font-bold hover:underline">Create an account</Link>
                </p>
             </div>
          </div>

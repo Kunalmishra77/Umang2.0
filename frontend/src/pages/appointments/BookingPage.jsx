@@ -68,14 +68,14 @@ const BookingPage = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="bg-[#023e8a] text-white py-12 lg:py-16 relative overflow-hidden">
+      <section className="bg-[#0f172a] text-white py-12 lg:py-16 relative overflow-hidden">
          <div className="container-custom relative z-10 px-6">
-            <Link to="/doctors" className="inline-flex items-center gap-2 text-blue-200 hover:text-white mb-6 font-bold transition-colors text-sm">
+            <Link to="/doctors" className="inline-flex items-center gap-2 text-primary-200 hover:text-white mb-6 font-bold transition-colors text-sm">
                <ArrowLeft className="w-4 h-4" /> BACK TO SEARCH
             </Link>
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
                <h1 className="text-3xl md:text-5xl font-serif font-bold mb-4">Book Your Visit</h1>
-               <p className="text-blue-100 text-base lg:text-lg max-w-2xl opacity-80">Secure your consultation with {doctor.name} in just a few clicks.</p>
+               <p className="text-primary-100 text-base lg:text-lg max-w-2xl opacity-80">Secure your consultation with {doctor.name} in just a few clicks.</p>
             </motion.div>
          </div>
       </section>

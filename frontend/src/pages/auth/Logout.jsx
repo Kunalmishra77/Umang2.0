@@ -31,7 +31,7 @@ const Logout = () => {
           className="bg-white p-12 rounded-[3rem] shadow-2xl border border-slate-100 max-w-sm w-full"
         >
           <div className="flex justify-center mb-6">
-            <Loader2 className="w-12 h-12 text-blue-600 animate-spin" />
+            <Loader2 className="w-12 h-12 text-primary-600 animate-spin" />
           </div>
           <h2 className="text-2xl font-serif font-bold text-[#0f172a] mb-2">Signing You Out</h2>
           <p className="text-slate-500 font-medium">Please wait while we secure your account session...</p>

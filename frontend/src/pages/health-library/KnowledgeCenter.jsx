@@ -57,11 +57,11 @@ const KnowledgeCenter = () => {
       <section className="relative min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/assets/images/knowledge-center-cme.jpg" 
+            src="/Umang-real/clinical excelence.webp" 
             alt="Medical Library" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay" 
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#005580] via-[#005580]/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-700 via-primary-700/90 to-transparent" />
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-400/10 rounded-full blur-[100px]" />
         </div>
 
@@ -109,7 +109,7 @@ const KnowledgeCenter = () => {
                      <button 
                         key={filter}
                         onClick={() => setActiveFilter(filter)}
-                        className={`px-6 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-all ${activeFilter === filter ? 'bg-[#005580] text-white shadow-lg' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100'}`}
+                        className={`px-6 py-2 rounded-full text-sm font-bold whitespace-nowrap transition-all ${activeFilter === filter ? 'bg-primary-600 text-white shadow-lg' : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100'}`}
                      >
                         {filter}
                      </button>
@@ -125,7 +125,7 @@ const KnowledgeCenter = () => {
                      className="bg-white p-8 rounded-[2rem] shadow-sm border border-gray-100 hover:shadow-xl transition-all group flex flex-col"
                   >
                      <div className="flex justify-between items-start mb-6">
-                        <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-[#005580] group-hover:bg-[#005580] group-hover:text-white transition-colors">
+                        <div className="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors">
                            <item.icon className="w-6 h-6" />
                         </div>
                         <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 bg-gray-50 px-2 py-1 rounded-md">
@@ -138,7 +138,7 @@ const KnowledgeCenter = () => {
                      
                      <div className="flex flex-wrap gap-2 mb-6">
                         {item.tags.map((tag, idx) => (
-                           <span key={idx} className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded-md">
+                           <span key={idx} className="text-xs font-medium text-primary-600 bg-primary-50 px-2 py-1 rounded-md">
                               #{tag}
                            </span>
                         ))}
@@ -148,7 +148,7 @@ const KnowledgeCenter = () => {
                         <div className="flex items-center gap-2 text-gray-600 font-medium">
                            <Users className="w-4 h-4" /> {item.author}
                         </div>
-                        <button className="text-[#005580] font-bold hover:underline flex items-center gap-1">
+                        <button className="text-primary-600 font-bold hover:underline flex items-center gap-1">
                            View <ArrowRight className="w-3 h-3" />
                         </button>
                      </div>
@@ -192,7 +192,7 @@ const KnowledgeCenter = () => {
             </div>
 
             <div>
-               <div className="inline-flex items-center gap-2 text-[#005580] font-bold uppercase tracking-widest text-xs mb-6">
+               <div className="inline-flex items-center gap-2 text-primary-600 font-bold uppercase tracking-widest text-xs mb-6">
                   <Award className="w-4 h-4" /> Continuous Learning
                </div>
                <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-6">Professional Development</h2>
@@ -206,7 +206,7 @@ const KnowledgeCenter = () => {
                      </li>
                   ))}
                </ul>
-               <Link to="/contact" className="inline-flex items-center gap-2 text-[#005580] font-bold text-lg hover:gap-3 transition-all">
+               <Link to="/contact" className="inline-flex items-center gap-2 text-primary-600 font-bold text-lg hover:gap-3 transition-all">
                   Register for Updates <ArrowRight className="w-5 h-5" />
                </Link>
             </div>

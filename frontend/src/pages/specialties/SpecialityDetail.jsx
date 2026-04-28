@@ -92,13 +92,13 @@ const SpecialityDetail = () => {
 
               {/* SECTION: DEPARTMENT STATISTICS */}
               {data.statistics && (
-                <div className="bg-blue-600 rounded-[2rem] p-8 lg:p-12 text-white relative overflow-hidden shadow-xl shadow-blue-900/10">
+                <div className="bg-primary-600 rounded-[2rem] p-8 lg:p-12 text-white relative overflow-hidden shadow-xl shadow-primary-900/10">
                   <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-[60px] -mr-24 -mt-24" />
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center relative z-10">
                     {data.statistics.map((stat, i) => (
                       <div key={i} className="space-y-2">
                         <p className="text-4xl lg:text-5xl font-serif font-bold tracking-tight">{stat.value}</p>
-                        <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-blue-100/80 leading-relaxed">{stat.label}</p>
+                        <p className="text-[9px] lg:text-[10px] font-black uppercase tracking-[0.2em] text-primary-100/80 leading-relaxed">{stat.label}</p>
                       </div>
                     ))}
                   </div>
@@ -109,7 +109,7 @@ const SpecialityDetail = () => {
               {data.approach && (
                 <div className="space-y-8">
                   <h3 className="text-3xl font-serif font-bold text-brand-dark">Our Treatment Approach</h3>
-                  <p className="text-gray-600 text-lg lg:text-xl font-light leading-relaxed border-l-4 border-blue-500 pl-8 normal">
+                  <p className="text-gray-600 text-lg lg:text-xl font-light leading-relaxed border-l-4 border-primary-500 pl-8 normal">
                     "{data.approach}"
                   </p>
                 </div>
@@ -119,15 +119,15 @@ const SpecialityDetail = () => {
               {data.tech && (
                 <div>
                   <h3 className="mb-8 flex items-center gap-3 text-brand-dark font-serif font-bold text-3xl">
-                    <Activity className="text-blue-600 w-8 h-8" /> Advanced Technology
+                    <Activity className="text-primary-600 w-8 h-8" /> Advanced Technology
                   </h3>
                   <div className="grid md:grid-cols-3 gap-6">
                     {data.tech.map((item, i) => (
                       <div key={i} className="bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 group hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all h-full flex flex-col">
-                        <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-blue-600 mb-6 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all">
+                        <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-primary-600 mb-6 shadow-sm group-hover:bg-primary-600 group-hover:text-white transition-all">
                            <Zap size={20} />
                         </div>
-                        <h4 className="text-lg font-bold text-brand-dark mb-3 group-hover:text-blue-600 transition-colors">{item.title}</h4>
+                        <h4 className="text-lg font-bold text-brand-dark mb-3 group-hover:text-primary-600 transition-colors">{item.title}</h4>
                         <p className="text-sm text-gray-500 leading-relaxed font-medium flex-1">{item.desc}</p>
                       </div>
                     ))}
@@ -265,14 +265,14 @@ const SpecialityDetail = () => {
             <div className="lg:col-span-4">
               <div className="sticky top-32 space-y-8">
                 <div className="bg-[#0f172a] rounded-[2.5rem] p-10 text-white relative overflow-hidden shadow-2xl border border-white/5">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 rounded-full blur-[60px] -mr-16 -mt-16" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary-600/20 rounded-full blur-[60px] -mr-16 -mt-16" />
                   
                   <div className="relative z-10">
-                    <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-blue-900/20">
+                    <div className="w-12 h-12 bg-primary-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg shadow-primary-900/20">
                       <Calendar className="w-6 h-6 text-white" />
                     </div>
                     
-                    <h3 className="text-3xl font-serif font-bold text-white mb-4 leading-tight">Book an <br /><span className="text-blue-400 normal">Appointment.</span></h3>
+                    <h3 className="text-3xl font-serif font-bold text-white mb-4 leading-tight">Book an <br /><span className="text-primary-400 normal">Appointment.</span></h3>
                     <p className="text-slate-400 text-sm mb-10 leading-relaxed font-light">
                       Consult with our senior {data.title.split(' ')[0]} specialists for personalized treatment planning and clinical advice.
                     </p>
@@ -280,7 +280,7 @@ const SpecialityDetail = () => {
                     <div className="space-y-3">
                       <Link 
                         to="/doctors" 
-                        className="flex items-center justify-center w-full h-14 bg-blue-600 text-white rounded-2xl font-bold text-sm uppercase tracking-widest hover:bg-blue-700 transition-all shadow-lg shadow-blue-900/20"
+                        className="flex items-center justify-center w-full h-14 bg-primary-600 text-white rounded-2xl font-bold text-sm uppercase tracking-widest hover:bg-primary-700 transition-all shadow-lg shadow-primary-900/20"
                       >
                         Find a Doctor
                       </Link>
@@ -289,9 +289,9 @@ const SpecialityDetail = () => {
                         <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] mb-3">Or call our helpline</p>
                         <a 
                           href={`tel:${siteConfig.contacts.main.replace(/\s/g, '')}`} 
-                          className="flex items-center gap-4 text-white hover:text-blue-400 transition-colors group"
+                          className="flex items-center gap-4 text-white hover:text-primary-400 transition-colors group"
                         >
-                          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-blue-600/20 transition-all">
+                          <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-primary-600/20 transition-all">
                             <Phone className="w-4 h-4" />
                           </div>
                           <span className="text-lg font-bold">{siteConfig.contacts.main}</span>

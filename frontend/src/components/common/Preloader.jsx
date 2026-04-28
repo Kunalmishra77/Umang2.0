@@ -15,7 +15,7 @@ const Preloader = () => {
         transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
         className="mb-8"
       >
-        <img src="/Umang-logo.png" alt="Umang Superspeciality Hospital" className="h-20 md:h-24 w-auto" />
+        <img src="/Umang-logo.webp" alt="Umang Superspeciality Hospital" className="h-20 md:h-24 w-auto" />
       </motion.div>
 
       {/* Loading Bar */}

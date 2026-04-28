@@ -87,13 +87,13 @@ const HomeCare = () => {
             transition={{ duration: 0.8 }}
             className="max-w-xl"
           >
-            <div className="flex items-center gap-2 text-[#005580] font-bold uppercase tracking-widest text-xs mb-6">
+            <div className="flex items-center gap-2 text-primary-600 font-bold uppercase tracking-widest text-xs mb-6">
               <Home className="w-4 h-4" />
               <span>Hospital Expertise at Home</span>
             </div>
             <h1 className="font-serif font-bold text-[#0f172a] mb-4 leading-tight" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
               Healing begins where the <br />
-              <span className="text-[#005580]">Heart belongs.</span>
+              <span className="text-primary-600">Heart belongs.</span>
             </h1>
             <p className="text-lg lg:text-xl text-gray-600 font-light leading-relaxed mb-7">
               Bring world-class medical care to the comfort of your home. From ICU setups to compassionate nursing, we are by your side.
@@ -102,9 +102,9 @@ const HomeCare = () => {
             <div className="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 max-w-md">
                <h3 className="font-bold text-[#0f172a] mb-4 text-lg">Request a Call Back</h3>
                <div className="space-y-4">
-                  <input type="text" placeholder="Patient Name" className="w-full h-11 px-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-[#005580] outline-none text-base" />
-                  <input type="tel" placeholder="Phone Number" className="w-full h-11 px-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-[#005580] outline-none text-base" />
-                  <Link to="/services/booking/home-care" className="w-full h-12 bg-[#005580] text-white rounded-xl font-bold hover:bg-[#004466] transition-all shadow-lg flex items-center justify-center gap-2 text-base">
+                  <input type="text" placeholder="Patient Name" className="w-full h-11 px-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-600 outline-none text-base" />
+                  <input type="tel" placeholder="Phone Number" className="w-full h-11 px-4 rounded-xl bg-gray-50 border border-gray-200 focus:border-primary-600 outline-none text-base" />
+                  <Link to="/services/booking/home-care" className="w-full h-12 bg-primary-600 text-white rounded-xl font-bold hover:bg-primary-700 transition-all shadow-lg flex items-center justify-center gap-2 text-base">
                      Get Free Consultation <ArrowRight className="w-4 h-4" />
                   </Link>
                </div>
@@ -152,12 +152,12 @@ const HomeCare = () => {
                   <motion.div 
                      key={i}
                      whileHover={{ y: -10 }}
-                     className="bg-white p-8 rounded-[2rem] border border-gray-100 hover:border-blue-200 hover:shadow-xl transition-all group"
+                     className="bg-white p-8 rounded-[2rem] border border-gray-100 hover:border-primary-200 hover:shadow-xl transition-all group"
                   >
-                     <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#005580] flex items-center justify-center mb-6 group-hover:bg-[#005580] group-hover:text-white transition-colors">
+                     <div className="w-14 h-14 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-colors">
                         <service.icon className="w-7 h-7" />
                      </div>
-                     <h3 className="text-xl lg:text-2xl font-bold text-[#0f172a] mb-3 group-hover:text-[#005580] transition-colors">{service.title}</h3>
+                     <h3 className="text-xl lg:text-2xl font-bold text-[#0f172a] mb-3 group-hover:text-primary-600 transition-colors">{service.title}</h3>
                      <p className="text-gray-600 text-base leading-relaxed mb-6">{service.desc}</p>
                      <ul className="space-y-2">
                         {service.features.map((feat, idx) => (
@@ -177,8 +177,8 @@ const HomeCare = () => {
         <Container>
           <div className="flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-center">
             <div className="lg:w-7/12">
-              <span className="text-[#005580] font-bold uppercase tracking-widest text-sm mb-4 block">Recovery Experts</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8 leading-tight">Specialized Post-Op <br /><span className="text-[#005580] normal">Rehabilitation.</span></h2>
+              <span className="text-primary-600 font-bold uppercase tracking-widest text-sm mb-4 block">Recovery Experts</span>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-8 leading-tight">Specialized Post-Op <br /><span className="text-primary-600 normal">Rehabilitation.</span></h2>
               <p className="text-gray-600 text-lg font-light leading-relaxed mb-10">
                 Recovery doesn't end at discharge. Our specialized rehab programs help you regain mobility and strength after complex surgeries or neurological events.
               </p>
@@ -189,11 +189,11 @@ const HomeCare = () => {
                   { title: "Orthopedic Rehab", desc: "Physiotherapy for joint replacements and fractures.", path: "/specialities/ortho" }
                 ].map((item, i) => (
                   <Link to={item.path} key={i} className="p-6 bg-white rounded-2xl border border-gray-100 flex gap-5 items-center group hover:shadow-md transition-all block">
-                    <div className="w-12 h-12 bg-blue-50 text-[#005580] rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#005580] group-hover:text-white transition-all">
+                    <div className="w-12 h-12 bg-primary-50 text-primary-600 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary-600 group-hover:text-white transition-all">
                       <Heart size={24} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-brand-dark group-hover:text-[#005580] transition-colors">{item.title}</h4>
+                      <h4 className="font-bold text-brand-dark group-hover:text-primary-600 transition-colors">{item.title}</h4>
                       <p className="text-sm text-gray-500">{item.desc}</p>
                     </div>
                   </Link>
@@ -211,7 +211,7 @@ const HomeCare = () => {
       <Section className="bg-white">
         <Container>
           <div className="text-center mb-16">
-            <span className="text-[#005580] font-bold uppercase tracking-widest text-xs mb-4 block">Support Infrastructure</span>
+            <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">Support Infrastructure</span>
             <h2 className="text-4xl font-serif font-bold text-brand-dark">Clinical Equipment Rental</h2>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -222,16 +222,16 @@ const HomeCare = () => {
               { name: "Cardiac Monitors", icon: Zap, status: "Limited Stock" }
             ].map((eq, i) => (
               <Link to="/contact/inquiry-hub" key={i} className="group block">
-                <div className="p-8 bg-gray-50 rounded-[2.5rem] text-center border border-transparent hover:border-blue-200 hover:bg-white hover:shadow-xl transition-all h-full">
-                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:scale-110 group-hover:bg-blue-50 transition-all">
-                    <eq.icon className="text-[#005580]" size={28} />
+                <div className="p-8 bg-gray-50 rounded-[2.5rem] text-center border border-transparent hover:border-primary-200 hover:bg-white hover:shadow-xl transition-all h-full">
+                  <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center mx-auto mb-6 shadow-sm group-hover:scale-110 group-hover:bg-primary-50 transition-all">
+                    <eq.icon className="text-primary-600" size={28} />
                   </div>
-                  <h4 className="font-bold text-[#0f172a] mb-2 group-hover:text-blue-600 transition-colors">{eq.name}</h4>
+                  <h4 className="font-bold text-[#0f172a] mb-2 group-hover:text-primary-600 transition-colors">{eq.name}</h4>
                   <div className="flex items-center justify-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                     <p className="text-[10px] font-black uppercase text-gray-400 tracking-widest">{eq.status}</p>
                   </div>
-                  <div className="mt-6 flex items-center justify-center gap-2 text-blue-600 font-bold text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="mt-6 flex items-center justify-center gap-2 text-primary-600 font-bold text-[10px] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                     Enquire Now <ArrowRight size={12} />
                   </div>
                 </div>
@@ -256,10 +256,10 @@ const HomeCare = () => {
                   { title: "Service Start", desc: "Care delivery begins with regular monitoring.", path: "/services/booking/home-care" }
                ].map((step, i) => (
                   <Link to={step.path} key={i} className="text-center relative bg-gray-50 group block">
-                     <div className="w-16 h-16 rounded-full bg-white border-4 border-blue-100 flex items-center justify-center text-xl font-bold text-[#005580] mx-auto mb-6 shadow-sm relative z-10 group-hover:bg-[#005580] group-hover:text-white transition-all">
+                     <div className="w-16 h-16 rounded-full bg-white border-4 border-primary-100 flex items-center justify-center text-xl font-bold text-primary-600 mx-auto mb-6 shadow-sm relative z-10 group-hover:bg-primary-600 group-hover:text-white transition-all">
                         {i + 1}
                      </div>
-                     <h4 className="text-xl font-bold text-[#0f172a] mb-2 group-hover:text-[#005580] transition-colors">{step.title}</h4>
+                     <h4 className="text-xl font-bold text-[#0f172a] mb-2 group-hover:text-primary-600 transition-colors">{step.title}</h4>
                      <p className="text-base text-gray-500 px-4">{step.desc}</p>
                   </Link>
                ))}
@@ -269,11 +269,11 @@ const HomeCare = () => {
 
       {/* SECTION: CARE APP PROMO (NEW SECTION 7) */}
       <Section className="bg-[#0f172a] text-white overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px]" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[120px]" />
         <Container>
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
-              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">Monitor Care in <br /><span className="text-blue-400">Real-Time.</span></h2>
+              <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8 leading-tight">Monitor Care in <br /><span className="text-primary-400">Real-Time.</span></h2>
               <p className="text-gray-400 text-lg font-light leading-relaxed mb-10">
                 Track nurse vitals logging, caregiver attendance, and daily doctor reports directly through the Umang Care app. Transparency at your fingertips.
               </p>
@@ -284,7 +284,7 @@ const HomeCare = () => {
             </div>
             <div className="lg:w-1/2 text-center">
               <div className="inline-block p-10 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[3rem]">
-                <Smartphone size={64} className="text-blue-400 mx-auto mb-6" />
+                <Smartphone size={64} className="text-primary-400 mx-auto mb-6" />
                 <h4 className="text-2xl font-bold mb-2">Verified Logs</h4>
                 <p className="text-sm text-gray-400">Hourly vitals update for ICU patients.</p>
               </div>
@@ -301,8 +301,8 @@ const HomeCare = () => {
               <img src={ASSETS.NURSE_CARE} alt="Nursing Team" className="rounded-[3rem] shadow-2xl" />
             </div>
             <div className="lg:w-1/2">
-              <span className="text-blue-600 font-bold uppercase tracking-widest text-xs mb-4 block">Medical Professionals</span>
-              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Staffed by Certified <br /><span className="text-blue-600 normal">ICU Nurses.</span></h2>
+              <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-4 block">Medical Professionals</span>
+              <h2 className="text-4xl font-serif font-bold text-brand-dark mb-6">Staffed by Certified <br /><span className="text-primary-600 normal">ICU Nurses.</span></h2>
               <p className="text-gray-500 text-lg mb-8 leading-relaxed">
                 Our nursing team is not just compassionate but highly skilled. Every home care nurse undergoes rigorous clinical training and background verification before deployment.
               </p>
@@ -326,7 +326,7 @@ const HomeCare = () => {
 
       {/* 5. FAQ & CTA (NOW SECTION 9 & 10) */}
       <Section className="bg-slate-50 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100 rounded-full blur-[120px] opacity-30 -mr-48 -mt-48" />
+        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-100 rounded-full blur-[120px] opacity-30 -mr-48 -mt-48" />
         <Container>
           <div className="text-center mb-20 relative z-10">
             <span className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-600 mb-4 block">Help Center</span>
@@ -360,14 +360,14 @@ const HomeCare = () => {
             ))}
           </div>
 
-          <div className="mt-20 bg-blue-50 rounded-[2.5rem] p-8 md:p-12 text-center border border-blue-100 shadow-lg relative overflow-hidden">
-             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-100/50 rounded-full -mr-16 -mt-16" />
-             <div className="w-16 h-16 bg-[#005580] rounded-full flex items-center justify-center text-white mx-auto mb-6 shadow-lg shadow-blue-200">
+          <div className="mt-20 bg-primary-50 rounded-[2.5rem] p-8 md:p-12 text-center border border-primary-100 shadow-lg relative overflow-hidden">
+             <div className="absolute top-0 right-0 w-32 h-32 bg-primary-100/50 rounded-full -mr-16 -mt-16" />
+             <div className="w-16 h-16 bg-primary-600 rounded-full flex items-center justify-center text-white mx-auto mb-6 shadow-lg shadow-primary-200">
                 <Phone className="w-8 h-8" />
              </div>
              <h3 className="text-2xl font-bold text-[#0f172a] mb-4">Need immediate assistance?</h3>
              <p className="text-gray-600 mb-8 max-w-lg mx-auto text-lg">Our Home Care coordinators are available 24/7 to answer your queries and arrange urgent care within 4-12 hours.</p>
-             <a href="tel:+918588072727" className="inline-flex items-center gap-2 px-10 py-5 bg-[#005580] text-white rounded-full font-bold shadow-xl hover:bg-[#004466] hover-lift transition-all">
+             <a href="tel:+918588072727" className="inline-flex items-center gap-2 px-10 py-5 bg-primary-600 text-white rounded-full font-bold shadow-xl hover:bg-primary-700 hover-lift transition-all">
                 Speak to Care Manager
              </a>
           </div>
@@ -376,11 +376,11 @@ const HomeCare = () => {
 
       {/* SECTION: FINAL COMMITMENT (NEW SECTION 11) */}
       <section className="section-padding bg-brand-dark text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-blue-600/5" />
+        <div className="absolute inset-0 bg-primary-600/5" />
         <Container className="relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <Star size={48} className="text-yellow-400 mx-auto mb-8 fill-current animate-pulse" />
-            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8 leading-tight">Trust the Legacy of <br /><span className="text-blue-400">Compassionate Care.</span></h2>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8 leading-tight">Trust the Legacy of <br /><span className="text-primary-400">Compassionate Care.</span></h2>
             <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">We don't just provide medical support; we build a sanctuary of healing right in your home. Your comfort is our clinical priority.</p>
             <div className="flex flex-col sm:flex-row justify-center gap-6">
               <Link to="/contact" className="px-10 py-5 bg-white text-brand-dark rounded-full font-bold text-base shadow-xl flex items-center gap-3 hover:scale-105 transition-all">

@@ -30,7 +30,7 @@ const chooseItems = [
     icon: Zap,
     img: ASSETS.CT_SCAN,
     path: "/health-library/technologies",
-    accent: 'from-violet-500 to-purple-600',
+    accent: 'from-primary-500 to-primary-700',
   },
   {
     title: "Clinical Excellence",
@@ -76,7 +76,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
             className="text-gray-500 text-base lg:text-lg font-light leading-relaxed max-w-sm text-left lg:text-right"
           >
-            Leading the way in medical innovation with a patient-first approach since 2010.
+            Leading the way in medical innovation with a patient-first approach since 2021.
           </motion.p>
         </div>
 

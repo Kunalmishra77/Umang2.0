@@ -166,14 +166,14 @@ const Treatments = () => {
       `}</style>
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[600px] flex items-center bg-[#005580] overflow-hidden">
+      <section className="relative min-h-[600px] flex items-center bg-primary-600 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src={ASSETS.SURGERY_TEAM} 
             alt="Surgery" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay" 
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-[#005580] via-[#005580]/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-700 via-primary-700/90 to-transparent" />
           <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-cyan-500/20 rounded-full blur-[100px]" />
         </div>
 
@@ -207,7 +207,7 @@ const Treatments = () => {
                     onChange={(e) => setSearchTerm(e.target.value)}
                   />
                </div>
-               <button className="h-12 px-8 bg-[#005580] text-white rounded-xl font-bold hover:bg-[#004466] transition-all">
+               <button className="h-12 px-8 bg-primary-600 text-white rounded-xl font-bold hover:bg-primary-700 transition-all">
                   Search
                </button>
             </div>
@@ -244,7 +244,7 @@ const Treatments = () => {
                   >
                     <button
                       onClick={() => { setActiveCategory('All'); setIsDropdownOpen(false); }}
-                      className={`w-full text-left px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors ${activeCategory === 'All' ? 'bg-blue-50 text-[#005580]' : 'text-gray-600'}`}
+                      className={`w-full text-left px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors ${activeCategory === 'All' ? 'bg-blue-50 text-primary-600' : 'text-gray-600'}`}
                     >
                       All Specialties
                     </button>
@@ -252,7 +252,7 @@ const Treatments = () => {
                       <button
                          key={cat.id}
                          onClick={() => { setActiveCategory(cat.name); setIsDropdownOpen(false); }}
-                         className={`w-full text-left px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-3 ${activeCategory === cat.name ? 'bg-blue-50 text-[#005580]' : 'text-gray-600'}`}
+                         className={`w-full text-left px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors flex items-center gap-3 ${activeCategory === cat.name ? 'bg-blue-50 text-primary-600' : 'text-gray-600'}`}
                       >
                          <cat.icon className="w-4 h-4 opacity-70" />
                          {cat.name}
@@ -270,9 +270,9 @@ const Treatments = () => {
                   <button 
                      key={`${cat.id}-${i}`}
                      onClick={() => setActiveCategory(cat.name === activeCategory ? 'All' : cat.name)}
-                     className={`w-[200px] shrink-0 p-6 rounded-3xl border transition-all text-center flex flex-col items-center gap-4 group ${activeCategory === cat.name ? 'bg-[#005580] border-[#005580] text-white shadow-xl' : 'bg-white border-gray-100 text-gray-600 hover:border-blue-200 hover:shadow-lg'}`}
+                     className={`w-[200px] shrink-0 p-6 rounded-3xl border transition-all text-center flex flex-col items-center gap-4 group ${activeCategory === cat.name ? 'bg-primary-600 border-primary-600 text-white shadow-xl' : 'bg-white border-gray-100 text-gray-600 hover:border-primary-200 hover:shadow-lg'}`}
                   >
-                     <div className={`w-14 h-14 rounded-full flex items-center justify-center transition-colors ${activeCategory === cat.name ? 'bg-white/20 text-white' : 'bg-blue-50 text-[#005580] group-hover:bg-[#005580] group-hover:text-white'}`}>
+                     <div className={`w-14 h-14 rounded-full flex items-center justify-center transition-colors ${activeCategory === cat.name ? 'bg-white/20 text-white' : 'bg-blue-50 text-primary-600 group-hover:bg-primary-600 group-hover:text-white'}`}>
                         <cat.icon className="w-6 h-6" />
                      </div>
                      <div>
@@ -306,13 +306,13 @@ const Treatments = () => {
                   >
                      <div className="h-56 overflow-hidden relative">
                         <img src={treatment.img} alt={treatment.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-[#005580] uppercase tracking-wide">
+                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-primary-600 uppercase tracking-wide">
                            {treatment.category}
                         </div>
                      </div>
                      
                      <div className="p-8 flex-1 flex flex-col">
-                        <h3 className="text-xl font-bold text-[#0f172a] mb-4 group-hover:text-[#005580] transition-colors">{treatment.name}</h3>
+                        <h3 className="text-xl font-bold text-[#0f172a] mb-4 group-hover:text-primary-600 transition-colors">{treatment.name}</h3>
                         
                         <div className="space-y-3 mb-8 flex-1">
                            <div className="flex items-center justify-between text-sm text-gray-600 pb-3 border-b border-gray-50">
@@ -325,7 +325,7 @@ const Treatments = () => {
                            </div>
                         </div>
 
-                        <Link to="/contact" className="w-full h-12 rounded-xl border-2 border-[#005580] text-[#005580] font-bold flex items-center justify-center gap-2 hover:bg-[#005580] hover:text-white transition-all">
+                        <Link to="/contact" className="w-full h-12 rounded-xl border-2 border-primary-600 text-primary-600 font-bold flex items-center justify-center gap-2 hover:bg-primary-600 hover:text-white transition-all">
                            Enquire Now <ArrowRight className="w-4 h-4" />
                         </Link>
                      </div>
@@ -383,7 +383,7 @@ const Treatments = () => {
                Our patient counselors are here to help you understand the treatment process and insurance coverage.
             </p>
             <div className="flex justify-center gap-6">
-               <Link to="/contact" className="h-16 px-10 rounded-full bg-[#005580] text-white font-bold text-lg hover:bg-[#004466] shadow-xl hover-lift hover:-translate-y-1 transition-all flex items-center gap-3">
+               <Link to="/contact" className="h-16 px-10 rounded-full bg-primary-600 text-white font-bold text-lg hover:bg-primary-700 shadow-xl hover-lift hover:-translate-y-1 transition-all flex items-center gap-3">
                   <MessageSquare className="w-5 h-5" /> Enquire Now
                </Link>
             </div>

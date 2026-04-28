@@ -136,14 +136,14 @@ const BookAppointmentPatient = () => {
                   onClick={() => setFormData(prev => ({ ...prev, speciality: s.id }))}
                   className={`p-6 rounded-[2rem] border-2 text-left transition-all group ${
                     formData.speciality === s.id 
-                    ? 'border-blue-600 bg-blue-50/50' 
-                    : 'border-slate-100 hover:border-blue-200 bg-white'
+                    ? 'border-primary-600 bg-primary-50/50' 
+                    : 'border-slate-100 hover:border-primary-200 bg-white'
                   }`}
                 >
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors ${formData.speciality === s.id ? 'bg-blue-600 text-white' : 'bg-slate-50 text-slate-400 group-hover:bg-blue-50 group-hover:text-blue-600'}`}>
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-colors ${formData.speciality === s.id ? 'bg-primary-600 text-white' : 'bg-slate-50 text-slate-400 group-hover:bg-primary-50 group-hover:text-primary-600'}`}>
                     <Stethoscope size={24} />
                   </div>
-                  <p className={`font-bold ${formData.speciality === s.id ? 'text-blue-600' : 'text-[#0f172a]'}`}>{s.name}</p>
+                  <p className={`font-bold ${formData.speciality === s.id ? 'text-primary-600' : 'text-[#0f172a]'}`}>{s.name}</p>
                 </button>
               ))}
             </div>
@@ -155,7 +155,7 @@ const BookAppointmentPatient = () => {
           <div className="space-y-6">
             <h3 className="text-xl font-bold text-[#0f172a]">Choose Doctor</h3>
             {loading ? (
-              <div className="flex justify-center py-12"><div className="w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin" /></div>
+              <div className="flex justify-center py-12"><div className="w-8 h-8 border-4 border-primary-600 border-t-transparent rounded-full animate-spin" /></div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {doctors.length > 0 ? doctors.map((doc) => (
@@ -164,14 +164,14 @@ const BookAppointmentPatient = () => {
                     onClick={() => setFormData(prev => ({ ...prev, doctor: doc.id.toString() }))}
                     className={`p-5 rounded-[2rem] border-2 text-left transition-all flex items-center gap-5 ${
                       formData.doctor === doc.id.toString() 
-                      ? 'border-blue-600 bg-blue-50/50' 
-                      : 'border-slate-100 hover:border-blue-200 bg-white'
+                      ? 'border-primary-600 bg-primary-50/50' 
+                      : 'border-slate-100 hover:border-primary-200 bg-white'
                     }`}
                   >
                     <img src={doc.image} alt={doc.name} className="w-16 h-16 rounded-2xl object-cover ring-4 ring-slate-50" />
                     <div className="flex-1">
                       <p className="font-bold text-[#0f172a]">{doc.name}</p>
-                      <p className="text-xs font-medium text-blue-600 uppercase tracking-widest">{doc.exp} Experience</p>
+                      <p className="text-xs font-medium text-primary-600 uppercase tracking-widest">{doc.exp} Experience</p>
                       <div className="flex items-center gap-1 mt-1 text-yellow-500 font-bold text-xs">
                         <Star size={12} fill="currentColor" /> {doc.rating}
                       </div>
@@ -202,7 +202,7 @@ const BookAppointmentPatient = () => {
                   value={formData.date}
                   onChange={handleInputChange}
                   min={new Date().toISOString().split('T')[0]}
-                  className="w-full h-14 px-6 bg-slate-50 border-none rounded-2xl text-sm font-bold text-[#0f172a] focus:ring-2 focus:ring-blue-600/10 focus:bg-white outline-none transition-all"
+                  className="w-full h-14 px-6 bg-slate-50 border-none rounded-2xl text-sm font-bold text-[#0f172a] focus:ring-2 focus:ring-primary-600/10 focus:bg-white outline-none transition-all"
                 />
               </div>
               <div className="space-y-3">
@@ -216,7 +216,7 @@ const BookAppointmentPatient = () => {
                       onClick={() => setFormData(prev => ({ ...prev, time: slot }))}
                       className={`h-12 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all ${
                         formData.time === slot 
-                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-900/20' 
+                        ? 'bg-primary-600 text-white shadow-lg shadow-blue-900/20' 
                         : 'bg-slate-50 text-slate-500 hover:bg-slate-100'
                       }`}
                     >
@@ -236,14 +236,14 @@ const BookAppointmentPatient = () => {
             <h3 className="text-xl font-bold text-[#0f172a]">Appointment Details</h3>
             <div className="bg-slate-50 p-8 rounded-[2rem] border border-slate-100 grid md:grid-cols-2 gap-8">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-blue-600 shadow-sm"><User size={20} /></div>
+                <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-primary-600 shadow-sm"><User size={20} /></div>
                 <div>
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Doctor</p>
                   <p className="font-bold text-[#0f172a]">{selectedDoctor?.name || 'Not Selected'}</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-blue-600 shadow-sm"><Calendar size={20} /></div>
+                <div className="w-12 h-12 rounded-2xl bg-white flex items-center justify-center text-primary-600 shadow-sm"><Calendar size={20} /></div>
                 <div>
                   <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Schedule</p>
                   <p className="font-bold text-[#0f172a]">{formData.date} at {formData.time}</p>
@@ -260,7 +260,7 @@ const BookAppointmentPatient = () => {
                   onChange={handleInputChange}
                   rows={3}
                   placeholder="Please describe your symptoms briefly..."
-                  className="w-full p-6 bg-slate-50 border-none rounded-2xl text-sm font-bold text-[#0f172a] focus:ring-2 focus:ring-blue-600/10 focus:bg-white outline-none transition-all"
+                  className="w-full p-6 bg-slate-50 border-none rounded-2xl text-sm font-bold text-[#0f172a] focus:ring-2 focus:ring-primary-600/10 focus:bg-white outline-none transition-all"
                 />
               </div>
               <div className="space-y-3">
@@ -271,7 +271,7 @@ const BookAppointmentPatient = () => {
                   onChange={handleInputChange}
                   rows={2}
                   placeholder="Any other information for the doctor..."
-                  className="w-full p-6 bg-slate-50 border-none rounded-2xl text-sm font-bold text-[#0f172a] focus:ring-2 focus:ring-blue-600/10 focus:bg-white outline-none transition-all"
+                  className="w-full p-6 bg-slate-50 border-none rounded-2xl text-sm font-bold text-[#0f172a] focus:ring-2 focus:ring-primary-600/10 focus:bg-white outline-none transition-all"
                 />
               </div>
             </div>
@@ -292,12 +292,12 @@ const BookAppointmentPatient = () => {
       {/* Modern Progress Bar */}
       <div className="mb-12">
         <div className="flex justify-between items-center mb-4">
-          <span className="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em]">Step {currentStep} of {totalSteps}</span>
+          <span className="text-[10px] font-black text-primary-600 uppercase tracking-[0.2em]">Step {currentStep} of {totalSteps}</span>
           <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">{progress}% Complete</span>
         </div>
         <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
           <motion.div 
-            className="h-full bg-blue-600"
+            className="h-full bg-primary-600"
             initial={{ width: 0 }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 0.5 }}
@@ -323,7 +323,7 @@ const BookAppointmentPatient = () => {
           <button
             onClick={prevStep}
             disabled={currentStep === 1}
-            className={`flex items-center gap-2 font-bold text-sm transition-all ${currentStep === 1 ? 'text-slate-200 cursor-not-allowed' : 'text-slate-400 hover:text-blue-600'}`}
+            className={`flex items-center gap-2 font-bold text-sm transition-all ${currentStep === 1 ? 'text-slate-200 cursor-not-allowed' : 'text-slate-400 hover:text-primary-600'}`}
           >
             <ChevronLeft size={18} /> Previous Step
           </button>
@@ -334,7 +334,7 @@ const BookAppointmentPatient = () => {
               disabled={!canProceedToNext()}
               className={`h-14 px-10 rounded-2xl font-bold text-sm flex items-center gap-3 transition-all ${
                 canProceedToNext() 
-                ? 'bg-[#0f172a] text-white hover:bg-blue-600 shadow-lg shadow-slate-900/10' 
+                ? 'bg-[#0f172a] text-white hover:bg-primary-600 shadow-lg shadow-slate-900/10' 
                 : 'bg-slate-100 text-slate-300 cursor-not-allowed'
               }`}
             >
@@ -354,9 +354,9 @@ const BookAppointmentPatient = () => {
 
       {/* Help Banner */}
       <div className="mt-10 bg-[#0f172a] p-8 rounded-[2.5rem] text-white relative overflow-hidden group">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600 rounded-full blur-[60px] opacity-20 -mr-16 -mt-16" />
+        <div className="absolute top-0 right-0 w-32 h-32 bg-primary-600 rounded-full blur-[60px] opacity-20 -mr-16 -mt-16" />
         <div className="relative z-10 flex items-center gap-6">
-          <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-blue-400 shrink-0"><AlertCircle size={28} /></div>
+          <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-primary-400 shrink-0"><AlertCircle size={28} /></div>
           <div>
             <h4 className="text-lg font-serif font-bold mb-1">Facing technical issues?</h4>
             <p className="text-sm text-slate-400 font-medium">If you are unable to book through the portal, please call our 24/7 helpline at <span className="text-white">+91 85880 72727</span>.</p>

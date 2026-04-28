@@ -200,8 +200,8 @@ const ConsultationForm = () => {
         {isSubmitted ? (
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-8">
             <motion.div animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-14 h-14 rounded-2xl bg-green-500/10 flex items-center justify-center mx-auto mb-4 border border-green-500/20">
-              <ShieldCheck className="w-7 h-7 text-green-400" />
+              className="w-14 h-14 rounded-2xl bg-primary-500/10 flex items-center justify-center mx-auto mb-4 border border-primary-500/20">
+              <ShieldCheck className="w-7 h-7 text-primary-400" />
             </motion.div>
             <h4 className="text-white font-bold text-base mb-2">Request Received!</h4>
             <p className="text-white/40 text-[12px] mb-5 leading-relaxed">Our medical coordinator will<br />call you within 15 minutes.</p>

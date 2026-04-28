@@ -31,7 +31,7 @@ const sections = [
     title: "Information Literature",
     slug: "patient-information-literature",
     desc: "Downloadable brochures and guides for patient education.",
-    color: "bg-blue-50 text-blue-600"
+    color: "bg-primary-50 text-primary-600"
   },
   {
     icon: Lightbulb,
@@ -49,7 +49,7 @@ const PatientCorner = () => {
         <title>Patient Corner - Umang Hospital</title>
       </Helmet>
 
-      <section className="bg-[#005580] text-white py-12 lg:py-10 px-4 relative overflow-hidden">
+      <section className="bg-primary-600 text-white py-12 lg:py-10 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10"></div>
         <div className="container-custom relative z-10 text-center">
           <motion.h1 
@@ -88,7 +88,7 @@ const PatientCorner = () => {
                   <div className={`w-14 h-14 rounded-xl ${section.color} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
                     <section.icon className="w-7 h-7" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#005580] transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                     {section.title}
                   </h3>
                   <p className="text-gray-500 leading-relaxed text-sm">

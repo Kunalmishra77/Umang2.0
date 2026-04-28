@@ -45,7 +45,7 @@ const departments = [
     tagline: 'Minimally invasive laparoscopic procedures, bariatric surgery, and hernia repair.',
     stat: '4000+', statLabel: 'Surgeries',
     img: ASSETS.OT, video: ASSETS.SURGERY_VIDEO,
-    accent: 'from-blue-500 to-indigo-600',
+    accent: 'from-primary-500 to-primary-700',
   },
 ];
 

@@ -152,13 +152,13 @@ const Technologies = () => {
                         
                         <div className="space-y-3 mb-8">
                            {tech.specs.map((spec, idx) => (
-                              <div key={idx} className="flex items-center gap-3 text-sm font-bold text-[#005580] bg-blue-50 p-2 rounded-lg">
+                              <div key={idx} className="flex items-center gap-3 text-sm font-bold text-primary-600 bg-blue-50 p-2 rounded-lg">
                                  <Zap className="w-4 h-4 shrink-0" /> {spec}
                               </div>
                            ))}
                         </div>
 
-                        <Link to="/contact" className="flex items-center gap-2 text-[#0f172a] font-bold hover:gap-3 transition-all text-sm group-hover:text-blue-600">
+                        <Link to="/contact" className="flex items-center gap-2 text-[#0f172a] font-bold hover:gap-3 transition-all text-sm group-hover:text-primary-600">
                            Enquire Availability <ArrowRight className="w-4 h-4" />
                         </Link>
                      </div>
@@ -169,7 +169,7 @@ const Technologies = () => {
       </section>
 
       {/* 3. Innovation Stats */}
-      <section className="py-12 lg:py-10 bg-[#005580] text-white relative overflow-hidden">
+      <section className="py-12 lg:py-10 bg-primary-600 text-white relative overflow-hidden">
          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diagmonds-light.png')] opacity-10" />
          <div className="container-custom relative z-10">
             <div className="grid md:grid-cols-4 gap-12 text-center divide-x divide-white/10">
@@ -207,7 +207,7 @@ const Technologies = () => {
                      </div>
                   </div>
                   <div className="flex gap-4 items-start">
-                     <div className="w-12 h-12 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 shrink-0">
+                     <div className="w-12 h-12 bg-primary-100 rounded-2xl flex items-center justify-center text-primary-600 shrink-0">
                         <CheckCircle className="w-6 h-6" />
                      </div>
                      <div>

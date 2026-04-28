@@ -58,7 +58,7 @@ const SecondOpinion = () => {
             alt="Doctor Consultation" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#005580] via-[#005580]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-700 via-primary-700/80 to-transparent" />
         </div>
 
         <div className="container-custom relative z-10 text-white">
@@ -68,20 +68,20 @@ const SecondOpinion = () => {
             transition={{ duration: 0.8 }}
             className="max-w-2xl"
           >
-            <div className="flex items-center gap-2 text-blue-200 font-bold uppercase tracking-widest text-xs mb-4">
+            <div className="flex items-center gap-2 text-primary-200 font-bold uppercase tracking-widest text-xs mb-4">
               <span className="bg-white/10 px-3 py-1 rounded-full backdrop-blur-md border border-white/20">Umang Services</span>
               <span className="w-12 h-[1px] bg-blue-200"></span>
               <span>Expert Review</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
               Certainty in <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-cyan-200">Every Decision.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-200 to-cyan-200">Every Decision.</span>
             </h1>
-            <p className="text-xl text-blue-100 font-light leading-relaxed mb-10 border-l-4 border-cyan-400 pl-6">
+            <p className="text-xl text-primary-100 font-light leading-relaxed mb-10 border-l-4 border-cyan-400 pl-6">
               When it comes to complex health conditions, a second opinion isn't just an option—it's a vital step towards the right cure.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button onClick={() => document.getElementById('request-form').scrollIntoView({ behavior: 'smooth' })} className="h-14 px-8 rounded-full bg-white text-[#005580] font-bold text-sm hover:shadow-xl hover:scale-105 transition-all flex items-center gap-2">
+              <button onClick={() => document.getElementById('request-form').scrollIntoView({ behavior: 'smooth' })} className="h-14 px-8 rounded-full bg-white text-primary-600 font-bold text-sm hover:shadow-xl hover:scale-105 transition-all flex items-center gap-2">
                 Get Second Opinion <ArrowRight className="w-4 h-4" />
               </button>
               <button className="h-14 px-8 rounded-full bg-transparent border border-white/30 text-white font-bold text-sm hover:bg-white/10 transition-all flex items-center gap-2">
@@ -110,7 +110,7 @@ const SecondOpinion = () => {
                 viewport={{ once: true }}
                 className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
               >
-                <div className="w-14 h-14 rounded-2xl bg-blue-50 text-[#005580] flex items-center justify-center mb-6 group-hover:bg-[#005580] group-hover:text-white transition-colors">
+                <div className="w-14 h-14 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center mb-6 group-hover:bg-primary-600 group-hover:text-white transition-colors">
                   <feature.icon className="w-7 h-7" />
                 </div>
                 <h3 className="text-xl font-bold text-[#0f172a] mb-3">{feature.title}</h3>
@@ -135,14 +135,14 @@ const SecondOpinion = () => {
                 {steps.map((step) => (
                   <div 
                     key={step.id} 
-                    className={`relative flex gap-6 p-6 rounded-2xl cursor-pointer transition-all duration-300 ${activeStep === step.id ? 'bg-blue-50 border border-blue-100' : 'hover:bg-gray-50'}`}
+                    className={`relative flex gap-6 p-6 rounded-2xl cursor-pointer transition-all duration-300 ${activeStep === step.id ? 'bg-primary-50 border border-primary-100' : 'hover:bg-gray-50'}`}
                     onClick={() => setActiveStep(step.id)}
                   >
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold shrink-0 relative z-10 transition-colors ${activeStep === step.id ? 'bg-[#005580] text-white shadow-lg shadow-blue-200' : 'bg-white border-2 border-gray-200 text-gray-400'}`}>
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-bold shrink-0 relative z-10 transition-colors ${activeStep === step.id ? 'bg-primary-600 text-white shadow-lg shadow-primary-200' : 'bg-white border-2 border-gray-200 text-gray-400'}`}>
                       {step.id}
                     </div>
                     <div>
-                      <h4 className={`text-lg font-bold mb-1 transition-colors ${activeStep === step.id ? 'text-[#005580]' : 'text-gray-900'}`}>{step.title}</h4>
+                      <h4 className={`text-lg font-bold mb-1 transition-colors ${activeStep === step.id ? 'text-primary-600' : 'text-gray-900'}`}>{step.title}</h4>
                       <p className="text-sm text-gray-500">{step.desc}</p>
                     </div>
                   </div>
@@ -151,7 +151,7 @@ const SecondOpinion = () => {
             </div>
 
             <div className="lg:w-1/2 relative">
-              <div className="absolute inset-0 bg-blue-100 rounded-[3rem] rotate-3 transform" />
+              <div className="absolute inset-0 bg-primary-100 rounded-[3rem] rotate-3 transform" />
               <div className="relative bg-white rounded-[3rem] shadow-2xl p-2 border border-gray-100 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.img 
@@ -195,7 +195,7 @@ const SecondOpinion = () => {
 
       {/* 4. Request Form Section */}
       <section id="request-form" className="py-12 lg:py-10 bg-[#0f172a] text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-[100px]" />
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[100px]" />
 
         <div className="container-custom relative z-10">
@@ -203,7 +203,7 @@ const SecondOpinion = () => {
             
             <div className="lg:w-5/12">
               <h2 className="text-4xl font-serif font-bold mb-6">Start Your Review</h2>
-              <p className="text-blue-200 text-lg mb-8 leading-relaxed">
+              <p className="text-primary-200 text-lg mb-8 leading-relaxed">
                 Take the first step towards certainty. Fill out the form, upload your reports, and let our experts guide you.
               </p>
               
@@ -218,7 +218,7 @@ const SecondOpinion = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/10">
-                  <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
+                  <div className="w-10 h-10 rounded-full bg-primary-500/20 flex items-center justify-center text-primary-400">
                      <Clock className="w-5 h-5" />
                   </div>
                   <div>
@@ -237,19 +237,19 @@ const SecondOpinion = () => {
                     <div className="grid md:grid-cols-2 gap-6">
                       <div className="space-y-2">
                         <label className="text-xs font-bold text-gray-500 uppercase">Full Name</label>
-                        <input type="text" className="w-full h-12 border-b-2 border-gray-200 focus:border-[#005580] outline-none font-medium bg-transparent" placeholder="Enter patient name" />
+                        <input type="text" className="w-full h-12 border-b-2 border-gray-200 focus:border-primary-600 outline-none font-medium bg-transparent" placeholder="Enter patient name" />
                       </div>
                       <div className="space-y-2">
                         <label className="text-xs font-bold text-gray-500 uppercase">Phone Number</label>
-                        <input type="tel" className="w-full h-12 border-b-2 border-gray-200 focus:border-[#005580] outline-none font-medium bg-transparent" placeholder="+91 85880 72727" />
+                        <input type="tel" className="w-full h-12 border-b-2 border-gray-200 focus:border-primary-600 outline-none font-medium bg-transparent" placeholder="+91 XXXXX XXXXX" />
                       </div>
                     </div>
                     <div className="space-y-2">
                       <label className="text-xs font-bold text-gray-500 uppercase">Current Diagnosis</label>
-                      <input type="text" className="w-full h-12 border-b-2 border-gray-200 focus:border-[#005580] outline-none font-medium bg-transparent" placeholder="e.g. Coronary Artery Disease" />
+                      <input type="text" className="w-full h-12 border-b-2 border-gray-200 focus:border-primary-600 outline-none font-medium bg-transparent" placeholder="e.g. Coronary Artery Disease" />
                     </div>
                     <div className="pt-4">
-                      <button onClick={() => setFormStep(2)} className="w-full h-14 bg-[#005580] text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#004466] transition-all">
+                      <button onClick={() => setFormStep(2)} className="w-full h-14 bg-primary-600 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary-700 transition-all">
                         Next Step <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
@@ -261,9 +261,9 @@ const SecondOpinion = () => {
                     <h3 className="text-2xl font-bold text-[#0f172a] mb-2">Upload Reports</h3>
                     <p className="text-sm text-gray-500">Please attach relevant medical reports (PDF, JPG, DICOM).</p>
                     
-                    <div className="border-2 border-dashed border-gray-300 rounded-2xl h-48 flex flex-col items-center justify-center bg-gray-50 hover:bg-blue-50 hover:border-blue-300 transition-all cursor-pointer">
+                    <div className="border-2 border-dashed border-gray-300 rounded-2xl h-48 flex flex-col items-center justify-center bg-gray-50 hover:bg-primary-50 hover:border-primary-300 transition-all cursor-pointer">
                       <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm mb-3">
-                        <Upload className="w-6 h-6 text-[#005580]" />
+                        <Upload className="w-6 h-6 text-primary-600" />
                       </div>
                       <p className="font-bold text-gray-700">Click to Upload</p>
                       <p className="text-xs text-gray-400 mt-1">or drag and drop files here</p>
@@ -273,7 +273,7 @@ const SecondOpinion = () => {
                       <button onClick={() => setFormStep(1)} className="flex-1 h-14 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition-all">
                         Back
                       </button>
-                      <button onClick={() => alert('Request Submitted!')} className="flex-[2] h-14 bg-[#005580] text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#004466] shadow-xl transition-all">
+                      <button onClick={() => alert('Request Submitted!')} className="flex-[2] h-14 bg-primary-600 text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary-700 shadow-xl transition-all">
                         Submit Request <CheckCircle className="w-4 h-4" />
                       </button>
                     </div>
@@ -291,7 +291,7 @@ const SecondOpinion = () => {
         <div className="container-custom">
           <div className="flex justify-between items-end mb-12">
              <h2 className="text-3xl font-serif font-bold text-[#0f172a]">Expertise You Can Trust</h2>
-             <Link to="/specialities" className="text-[#005580] font-bold flex items-center gap-2 hover:gap-3 transition-all">View All Specialities <ArrowRight className="w-4 h-4" /></Link>
+             <Link to="/specialities" className="text-primary-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">View All Specialities <ArrowRight className="w-4 h-4" /></Link>
           </div>
           
           <div className="grid md:grid-cols-3 gap-6">

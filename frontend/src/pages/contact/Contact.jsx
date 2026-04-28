@@ -331,7 +331,7 @@ const Contact = () => {
                                whileHover={{ scale: 1.02 }}
                                whileTap={{ scale: 0.98 }}
                                disabled={loading}
-                               className={`w-full h-16 bg-blue-600 text-white rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-blue-700 transition-all shadow-xl shadow-blue-900/20 flex items-center justify-center gap-3 disabled:opacity-50`}
+                               className={`w-full h-16 bg-primary-600 text-white rounded-2xl font-black uppercase tracking-widest text-sm hover:bg-primary-700 transition-all shadow-xl shadow-primary-900/20 flex items-center justify-center gap-3 disabled:opacity-50`}
                             >
                                {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Submit Request'} 
                                {!loading && <Send className="w-5 h-5" />}
@@ -495,10 +495,10 @@ const Contact = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { label: 'Facebook', icon: Facebook, color: 'text-blue-600' },
+              { label: 'Facebook', icon: Facebook, color: 'text-primary-600' },
               { label: 'Twitter', icon: Twitter, color: 'text-sky-500' },
               { label: 'Linkedin', icon: Linkedin, color: 'text-blue-700' },
-              { label: 'Instagram', icon: Instagram, color: 'text-pink-600' }
+              { label: 'Instagram', icon: Instagram, color: 'text-primary-600' }
             ].map((social, i) => (
               <a key={i} href="#" className="p-8 bg-white rounded-3xl border border-slate-100 flex flex-col items-center group hover:-translate-y-2 transition-all shadow-sm">
                 <social.icon size={32} className={`${social.color} mb-4 group-hover:scale-110 transition-transform`} />

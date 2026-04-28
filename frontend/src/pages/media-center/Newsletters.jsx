@@ -38,14 +38,14 @@ const Newsletters = () => {
       </Helmet>
 
       {/* 1. Hero Section */}
-      <section className="relative min-h-[500px] lg:min-h-[650px] flex items-center bg-[#005580] overflow-hidden">
+      <section className="relative min-h-[500px] lg:min-h-[650px] flex items-center bg-primary-600 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/assets/images/localized/newsletter-hero.jpg" 
+            src="/UmangLatest/Nursing-station.webp" 
             alt="Newsletter" 
             className="w-full h-full object-cover opacity-20 mix-blend-overlay" 
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#005580] via-[#005580]/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-primary-700 via-primary-700/90 to-transparent" />
         </div>
 
         <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-16 items-center py-12 lg:py-10">
@@ -77,9 +77,9 @@ const Newsletters = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   disabled={submitting}
-                  className="h-14 px-10 rounded-xl bg-white text-[#005580] font-bold transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-cyan-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="h-14 px-10 rounded-xl bg-white text-primary-600 font-bold transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-cyan-500/20 disabled:opacity-70 disabled:cursor-not-allowed"
                >
-                  {submitting ? <div className="w-5 h-5 border-2 border-[#005580] border-t-transparent rounded-full animate-spin" /> : <>Subscribe Now <ArrowRight className="w-4 h-4" /></>}
+                  {submitting ? <div className="w-5 h-5 border-2 border-primary-600 border-t-transparent rounded-full animate-spin" /> : <>Subscribe Now <ArrowRight className="w-4 h-4" /></>}
                </motion.button>
             </form>
             <AnimatePresence>
@@ -104,7 +104,7 @@ const Newsletters = () => {
           >
              <div className="relative z-10 bg-white rounded-[3rem] shadow-2xl p-4 border border-white/10 group cursor-pointer overflow-hidden">
                 <img 
-                  src="/assets/images/localized/lab-technician.jpg" 
+                  src="/assets/services/diagnostic-lab/pathology.webp" 
                   alt="Magazine" 
                   className="rounded-[2.5rem] shadow-lg w-full h-[550px] object-cover transition-transform duration-1000 group-hover:scale-105" 
                 />
@@ -130,7 +130,7 @@ const Newsletters = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                {[
-                  { title: "Expert Columns", desc: "Deep dives into medical topics by our senior consultants.", icon: BookOpen, color: "text-blue-600 bg-blue-50" },
+                  { title: "Expert Columns", desc: "Deep dives into medical topics by our senior consultants.", icon: BookOpen, color: "text-primary-600 bg-primary-50" },
                   { title: "Patient Stories", desc: "Inspirational recovery journeys from our community.", icon: Heart, color: "text-red-600 bg-red-50" },
                   { title: "Wellness Tips", desc: "Practical nutrition, exercise, and mental health advice.", icon: Star, color: "text-yellow-600 bg-yellow-50" },
                   { title: "Hospital News", desc: "Updates on new technologies, launches, and events.", icon: Shield, color: "text-green-600 bg-green-50" }
@@ -164,7 +164,7 @@ const Newsletters = () => {
                </div>
                <div className="flex gap-4">
                   <div className="relative">
-                     <select className="h-14 pl-8 pr-12 rounded-2xl border-2 border-gray-100 bg-white font-bold text-gray-600 outline-none focus:border-[#005580] appearance-none cursor-pointer shadow-sm">
+                     <select className="h-14 pl-8 pr-12 rounded-2xl border-2 border-gray-100 bg-white font-bold text-gray-600 outline-none focus:border-primary-600 appearance-none cursor-pointer shadow-sm">
                         <option>Year 2026</option>
                         <option>Year 2025</option>
                      </select>
@@ -186,18 +186,18 @@ const Newsletters = () => {
                      <div className="h-56 relative overflow-hidden">
                         <img src={issue.img} alt={issue.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors" />
-                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#005580] uppercase tracking-widest shadow-lg">
+                        <div className="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-primary-600 uppercase tracking-widest shadow-lg">
                            PDF Edition
                         </div>
                      </div>
                      <div className="p-8 flex-1 flex flex-col">
-                        <p className="text-xs font-bold text-blue-600 uppercase tracking-[0.2em] mb-3">{issue.date}</p>
-                        <h3 className="text-xl font-bold text-[#0f172a] mb-8 line-clamp-2 group-hover:text-[#005580] transition-colors leading-tight">{issue.title}</h3>
+                        <p className="text-xs font-bold text-primary-600 uppercase tracking-[0.2em] mb-3">{issue.date}</p>
+                        <h3 className="text-xl font-bold text-[#0f172a] mb-8 line-clamp-2 group-hover:text-primary-600 transition-colors leading-tight">{issue.title}</h3>
                         <div className="mt-auto flex items-center justify-between pt-6 border-t border-gray-50">
                            <span className="text-xs text-gray-400 font-bold">{issue.size}</span>
                            <motion.button 
                               whileHover={{ x: 5 }}
-                              className="flex items-center gap-2 text-[#005580] font-bold text-sm"
+                              className="flex items-center gap-2 text-primary-600 font-bold text-sm"
                            >
                               Download <Download className="w-4 h-4" />
                            </motion.button>
@@ -242,13 +242,13 @@ const Newsletters = () => {
                   <div className="grid grid-cols-2 gap-4">
                      {["Wellness", "Cardiology", "Neurology", "Pediatrics", "Nutrition", "Oncology"].map((pref) => (
                         <label key={pref} className="flex items-center gap-3 cursor-pointer group">
-                           <input type="checkbox" className="w-5 h-5 rounded border-gray-200 text-[#005580] focus:ring-[#005580]" />
-                           <span className="text-sm font-medium text-gray-600 group-hover:text-[#005580] transition-colors">{pref}</span>
+                           <input type="checkbox" className="w-5 h-5 rounded border-gray-200 text-primary-600 focus:ring-primary-500" />
+                           <span className="text-sm font-medium text-gray-600 group-hover:text-primary-600 transition-colors">{pref}</span>
                         </label>
                      ))}
                   </div>
                </div>
-               <button className="w-full h-14 bg-[#005580] text-white rounded-xl font-bold hover:bg-[#004466] transition-all shadow-lg">
+               <button className="w-full h-14 bg-primary-600 text-white rounded-xl font-bold hover:bg-primary-700 transition-all shadow-lg">
                   Update Preferences
                </button>
             </div>
@@ -261,8 +261,8 @@ const Newsletters = () => {
             <h2 className="text-3xl font-serif font-bold text-[#0f172a] mb-16 text-center">Special Theme Editions</h2>
             <div className="grid md:grid-cols-2 gap-12">
                {[
-                  { title: "2025 Annual Impact Report", desc: "A comprehensive look at our year in clinical outcomes and community impact.", color: "bg-blue-600" },
-                  { title: "The Oncology Guide 2026", desc: "Essential reading for patients and families fighting cancer with hope.", color: "bg-pink-600" }
+                  { title: "2025 Annual Impact Report", desc: "A comprehensive look at our year in clinical outcomes and community impact.", color: "bg-primary-600" },
+                  { title: "The Oncology Guide 2026", desc: "Essential reading for patients and families fighting cancer with hope.", color: "bg-primary-600" }
                ].map((item, i) => (
                   <div key={i} className={`${item.color} rounded-[2.5rem] p-12 text-white relative overflow-hidden group cursor-pointer`}>
                      <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl group-hover:scale-110 transition-transform duration-700" />
@@ -282,18 +282,18 @@ const Newsletters = () => {
          <div className="container-custom grid lg:grid-cols-2 gap-20 items-center">
             <div className="order-2 lg:order-1">
                <img 
-                  src="/assets/images/localized/healthy-lifestyle.jpg" 
+                  src="/assets/Home/home-care.webp" 
                   alt="Community" 
                   className="rounded-[3rem] shadow-2xl w-full h-[500px] object-cover"
                />
             </div>
             <div className="order-1 lg:order-2">
-               <span className="text-[#005580] font-bold uppercase tracking-widest text-xs mb-6 block">Community Voice</span>
+               <span className="text-primary-600 font-bold uppercase tracking-widest text-xs mb-6 block">Community Voice</span>
                <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-8 leading-tight">Featured in the Pulse: Patient Stories</h2>
                <p className="text-gray-500 text-lg leading-relaxed mb-10">
                   Every issue features a segment dedicated to our patients. It's a space for sharing, healing, and celebrating the indomitable human spirit. Read how your neighbors found hope at Umang.
                </p>
-               <Link to="/patient-corner/patient-stories" className="inline-flex items-center gap-2 text-[#005580] font-bold text-lg hover:gap-4 transition-all">
+               <Link to="/patient-corner/patient-stories" className="inline-flex items-center gap-2 text-primary-600 font-bold text-lg hover:gap-4 transition-all">
                   Read More Stories <ArrowRight className="w-5 h-5" />
                </Link>
             </div>

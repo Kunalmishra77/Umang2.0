@@ -124,7 +124,7 @@ const Podcasts = () => {
                    <div className="flex gap-2">
                       <div className="w-1 h-8 bg-purple-500 rounded-full animate-[bounce_1s_infinite]"></div>
                       <div className="w-1 h-6 bg-purple-400 rounded-full animate-[bounce_1.2s_infinite]"></div>
-                      <div className="w-1 h-10 bg-pink-500 rounded-full animate-[bounce_0.8s_infinite]"></div>
+                      <div className="w-1 h-10 bg-primary-500 rounded-full animate-[bounce_0.8s_infinite]"></div>
                       <div className="w-1 h-5 bg-blue-500 rounded-full animate-[bounce_1.1s_infinite]"></div>
                    </div>
                 </div>
@@ -141,7 +141,7 @@ const Podcasts = () => {
                   <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-4">Recent Episodes</h2>
                   <p className="text-gray-500 text-lg">Curated discussions on topics that matter to you.</p>
                </div>
-               <button className="text-[#005580] font-bold flex items-center gap-2 hover:gap-3 transition-all">
+               <button className="text-primary-600 font-bold flex items-center gap-2 hover:gap-3 transition-all">
                   View All Episodes <ArrowRight className="w-5 h-5" />
                </button>
             </div>
@@ -167,25 +167,25 @@ const Podcasts = () => {
                               whileTap={{ scale: 0.9 }}
                               className="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-lg transform"
                            >
-                              {playing === ep.id ? <Pause className="w-6 h-6 text-[#005580] fill-current" /> : <Play className="w-6 h-6 text-[#005580] fill-current ml-1" />}
+                              {playing === ep.id ? <Pause className="w-6 h-6 text-primary-600 fill-current" /> : <Play className="w-6 h-6 text-primary-600 fill-current ml-1" />}
                            </motion.div>
                         </button>
                      </div>
                      
                      <div className="flex-1 w-full text-center md:text-left">
                         <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-3 text-xs font-bold uppercase tracking-wider text-gray-400">
-                           <span className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full transition-colors group-hover:bg-blue-600 group-hover:text-white">{ep.category}</span>
+                           <span className="bg-primary-50 text-primary-600 px-3 py-1 rounded-full transition-colors group-hover:bg-primary-600 group-hover:text-white">{ep.category}</span>
                            <span className="flex items-center gap-1"><Calendar className="w-3 h-3" /> {ep.date}</span>
                            <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> {ep.duration}</span>
                         </div>
-                        <h3 className="text-2xl font-bold text-[#0f172a] mb-2 group-hover:text-[#005580] transition-colors">{ep.title}</h3>
+                        <h3 className="text-2xl font-bold text-[#0f172a] mb-2 group-hover:text-primary-600 transition-colors">{ep.title}</h3>
                         <p className="text-gray-500 mb-6">Hosted by <span className="text-gray-900 font-medium">{ep.host}</span> • {ep.role}</p>
                         
                         <div className="flex items-center justify-center md:justify-start gap-4">
                            <motion.button 
-                              whileHover={{ scale: 1.05, backgroundColor: "#005580", color: "#ffffff" }}
+                              whileHover={{ scale: 1.05, backgroundColor: "#1E97B2", color: "#ffffff" }}
                               whileTap={{ scale: 0.95 }}
-                              className="h-10 px-6 rounded-xl border-2 border-[#005580] text-[#005580] font-bold text-sm transition-all flex items-center gap-2"
+                              className="h-10 px-6 rounded-xl border-2 border-primary-600 text-primary-600 font-bold text-sm transition-all flex items-center gap-2"
                            >
                               <Play className="w-3 h-3 fill-current" /> Play Episode
                            </motion.button>

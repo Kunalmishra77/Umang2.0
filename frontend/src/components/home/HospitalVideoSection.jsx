@@ -40,7 +40,7 @@ const HospitalVideoSection = () => {
               className="relative rounded-[2.5rem] overflow-hidden border-4 lg:border-[12px] border-white shadow-2xl aspect-video lg:aspect-[4/3] group"
             >
               <img
-                src="/UmangLatest/reception2.webp"
+                src={ASSETS.RECEPTION_ALT}
                 alt="Umang Hospital Reception"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />

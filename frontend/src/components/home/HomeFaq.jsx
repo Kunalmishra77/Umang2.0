@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { HelpCircle, ChevronDown, Phone, MessageSquare, ArrowRight } from 'lucide-react';
 import { kbContent } from '../../content/kbContent';
 import { Link } from 'react-router-dom';
+import { siteConfig } from '../../config/siteConfig';
 
 const HomeFaq = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -55,7 +56,7 @@ const HomeFaq = () => {
               <h3 className="text-xl font-bold text-brand-dark mb-6 relative z-10">Need more help?</h3>
 
               <div className="space-y-5 relative z-10">
-                <a href="tel:+918588072727" className="flex items-center gap-4 group/item p-3 -m-3 rounded-2xl hover:bg-primary-50/50 transition-colors">
+                <a href={`tel:${siteConfig.contacts.main.replace(/\s/g, '')}`} className="flex items-center gap-4 group/item p-3 -m-3 rounded-2xl hover:bg-primary-50/50 transition-colors">
                   <div className="w-12 h-12 rounded-2xl bg-primary-600 text-white flex items-center justify-center group-hover/item:scale-110 transition-transform shadow-lg shadow-primary-200">
                     <Phone className="w-5 h-5" />
                   </div>
@@ -65,7 +66,7 @@ const HomeFaq = () => {
                   </div>
                 </a>
 
-                <a href="https://wa.me/918588072727" className="flex items-center gap-4 group/item p-3 -m-3 rounded-2xl hover:bg-green-50/50 transition-colors">
+                <a href={`https://wa.me/${siteConfig.contacts.whatsapp.replace(/[\s+]/g, '')}`} className="flex items-center gap-4 group/item p-3 -m-3 rounded-2xl hover:bg-green-50/50 transition-colors">
                   <div className="w-12 h-12 rounded-2xl bg-green-500 text-white flex items-center justify-center group-hover/item:scale-110 transition-transform shadow-lg shadow-green-200">
                     <MessageSquare className="w-5 h-5" />
                   </div>

@@ -38,7 +38,7 @@ const MediaConnect = () => {
       <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/assets/images/localized/media-connect-hero.jpg" 
+            src="/UmangLatest/reception3.webp" 
             alt="Media Room" 
             className="w-full h-full object-cover opacity-20" 
           />
@@ -69,12 +69,12 @@ const MediaConnect = () => {
                   href="mailto:Umanghospitalgurugram@gmail.com" 
                   className="h-16 px-10 rounded-full bg-white text-[#0f172a] font-bold text-lg transition-all flex items-center gap-3 shadow-xl"
                >
-                  <Mail className="w-6 h-6 text-blue-600" /> Umanghospitalgurugram@gmail.com
+                  <Mail className="w-6 h-6 text-primary-600" /> Umanghospitalgurugram@gmail.com
                </motion.a>
                <motion.a 
                   whileHover={{ scale: 1.05, y: -2 }}
                   href="tel:+918588072727" 
-                  className="h-16 px-10 rounded-full bg-blue-500 text-white font-bold text-lg hover:bg-blue-600 transition-all flex items-center gap-3 shadow-xl"
+                  className="h-16 px-10 rounded-full bg-primary-600 text-white font-bold text-lg hover:bg-primary-700 transition-all flex items-center gap-3 shadow-xl"
                >
                   <Phone className="w-6 h-6" /> +91 124 456 7895
                </motion.a>
@@ -102,14 +102,14 @@ const MediaConnect = () => {
                      }}
                      className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-sm transition-all duration-500 text-center group"
                   >
-                     <div className="w-20 h-20 rounded-[2rem] bg-blue-50 text-[#005580] flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:bg-[#005580] group-hover:text-white transition-all duration-500">
+                     <div className="w-20 h-20 rounded-[2rem] bg-blue-50 text-primary-600 flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:bg-primary-600 group-hover:text-white transition-all duration-500">
                         <res.icon className="w-10 h-10" />
                      </div>
                      <h3 className="text-2xl font-bold text-[#0f172a] mb-4">{res.title}</h3>
                      <p className="text-gray-500 text-sm mb-10 leading-relaxed">{res.desc}</p>
                      <motion.button 
                         whileHover={{ x: 5 }}
-                        className="flex items-center gap-2 text-[#005580] font-bold text-sm mx-auto transition-all"
+                        className="flex items-center gap-2 text-primary-600 font-bold text-sm mx-auto transition-all"
                      >
                         Download Assets <Download className="w-4 h-4" />
                      </motion.button>
@@ -128,7 +128,7 @@ const MediaConnect = () => {
                   <p className="text-gray-500 text-xl leading-relaxed">Our clinical and administrative leaders are available for expert commentary, interviews, and panel discussions.</p>
                </div>
                <motion.div whileHover={{ x: 10 }}>
-                  <Link to="/team" className="text-[#005580] font-bold flex items-center gap-2 text-lg">Meet Entire Team <ArrowRight className="w-5 h-5" /></Link>
+                  <Link to="/team" className="text-primary-600 font-bold flex items-center gap-2 text-lg">Meet Entire Team <ArrowRight className="w-5 h-5" /></Link>
                </motion.div>
             </div>
 
@@ -183,9 +183,9 @@ const MediaConnect = () => {
          <div className="container-custom grid lg:grid-cols-2 gap-24 items-center">
             <div className="relative group">
                <div className="absolute inset-0 bg-blue-500/20 rounded-[4rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-               <img src="/assets/images/localized/press-event-thumb.jpg" alt="Press Event" className="relative rounded-[4rem] shadow-2xl w-full h-[600px] object-cover transition-transform duration-1000 group-hover:scale-[1.02]" />
+               <img src="/Umang-real/cammunity.webp" alt="Press Event" className="relative rounded-[4rem] shadow-2xl w-full h-[600px] object-cover transition-transform duration-1000 group-hover:scale-[1.02]" />
                <div className="absolute -bottom-10 -right-10 bg-white p-10 rounded-[3rem] shadow-2xl border border-gray-100 hidden xl:block">
-                  <p className="text-4xl font-serif font-black text-[#005580]">Feb 04</p>
+                  <p className="text-4xl font-serif font-black text-primary-600">Feb 04</p>
                   <p className="text-sm font-bold text-gray-400 uppercase tracking-widest mt-1">Next Briefing</p>
                </div>
             </div>
@@ -203,7 +203,7 @@ const MediaConnect = () => {
                         className="bg-white p-8 rounded-3xl border border-gray-100 flex items-center justify-between group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500"
                      >
                         <div>
-                           <h4 className="font-bold text-xl text-[#0f172a] group-hover:text-[#005580] transition-colors mb-2">{ev.title}</h4>
+                           <h4 className="font-bold text-xl text-[#0f172a] group-hover:text-primary-600 transition-colors mb-2">{ev.title}</h4>
                            <div className="flex items-center gap-4 text-sm text-gray-400 font-medium">
                               <span className="flex items-center gap-2"><Calendar className="w-4 h-4" /> {ev.date}</span>
                               <span className="flex items-center gap-2"><Clock className="w-4 h-4" /> {ev.time}</span>
@@ -211,7 +211,7 @@ const MediaConnect = () => {
                         </div>
                         <motion.button 
                            whileHover={{ scale: 1.2, rotate: 90 }}
-                           className="w-12 h-12 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center shadow-inner"
+                           className="w-12 h-12 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center shadow-inner"
                         >
                            <Plus className="w-6 h-6" />
                         </motion.button>
@@ -229,7 +229,7 @@ const MediaConnect = () => {
       {/* 6. Media Request Form */}
       <section className="py-32 bg-white">
          <div className="container-custom">
-            <div className="bg-[#005580] rounded-[3rem] lg:rounded-[5rem] p-6 sm:p-12 md:p-24 text-white relative overflow-hidden flex flex-col lg:flex-row gap-12 lg:gap-20">
+            <div className="bg-primary-600 rounded-[3rem] lg:rounded-[5rem] p-6 sm:p-12 md:p-24 text-white relative overflow-hidden flex flex-col lg:flex-row gap-12 lg:gap-20">
                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
                
                <div className="lg:w-5/12 relative z-10">
@@ -239,7 +239,7 @@ const MediaConnect = () => {
                   </p>
                   <div className="space-y-8">
                      <div className="flex items-center gap-6 group">
-                        <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-[#005580] transition-all duration-500">
+                        <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary-600 transition-all duration-500">
                            <Clock className="w-7 h-7" />
                         </div>
                         <div>
@@ -248,7 +248,7 @@ const MediaConnect = () => {
                         </div>
                      </div>
                      <div className="flex items-center gap-6 group">
-                        <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-[#005580] transition-all duration-500">
+                        <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-primary-600 transition-all duration-500">
                            <CheckCircle className="w-7 h-7" />
                         </div>
                         <div>
@@ -272,15 +272,15 @@ const MediaConnect = () => {
                         >
                            <div className="space-y-3">
                               <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Journalist Name</label>
-                              <input type="text" required className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-xl bg-transparent transition-colors placeholder:text-gray-200" placeholder="John Doe" />
+                              <input type="text" required className="w-full h-12 border-b-2 border-gray-100 focus:border-primary-600 outline-none font-bold text-xl bg-transparent transition-colors placeholder:text-gray-200" placeholder="John Doe" />
                            </div>
                            <div className="space-y-3">
                               <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Media Outlet</label>
-                              <input type="text" required className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-xl bg-transparent transition-colors placeholder:text-gray-200" placeholder="Media House" />
+                              <input type="text" required className="w-full h-12 border-b-2 border-gray-100 focus:border-primary-600 outline-none font-bold text-xl bg-transparent transition-colors placeholder:text-gray-200" placeholder="Media House" />
                            </div>
                            <div className="md:col-span-2 space-y-3">
                               <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Nature of Inquiry</label>
-                              <select className="w-full h-12 border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent cursor-pointer">
+                              <select className="w-full h-12 border-b-2 border-gray-100 focus:border-primary-600 outline-none font-bold text-lg bg-transparent cursor-pointer">
                                  <option>Interview Request</option>
                                  <option>Official Statement</option>
                                  <option>Fact-checking</option>
@@ -289,14 +289,14 @@ const MediaConnect = () => {
                            </div>
                            <div className="md:col-span-2 space-y-3">
                               <label className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Your Message / Deadline</label>
-                              <textarea required rows="3" className="w-full border-b-2 border-gray-100 focus:border-[#005580] outline-none font-bold text-lg bg-transparent transition-colors resize-none placeholder:text-gray-200" placeholder="Please provide details and your deadline..."></textarea>
+                              <textarea required rows="3" className="w-full border-b-2 border-gray-100 focus:border-primary-600 outline-none font-bold text-lg bg-transparent transition-colors resize-none placeholder:text-gray-200" placeholder="Please provide details and your deadline..."></textarea>
                            </div>
                            <div className="md:col-span-2 pt-8">
                               <motion.button 
                                  whileHover={{ scale: 1.02 }}
                                  whileTap={{ scale: 0.98 }}
                                  disabled={submitting}
-                                 className="w-full h-16 bg-[#0f172a] text-white rounded-2xl font-black text-xl hover:bg-[#005580] transition-all shadow-2xl flex items-center justify-center gap-4 group disabled:opacity-70"
+                                 className="w-full h-16 bg-[#0f172a] text-white rounded-2xl font-black text-xl hover:bg-primary-600 transition-all shadow-2xl flex items-center justify-center gap-4 group disabled:opacity-70"
                               >
                                  {submitting ? <div className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full animate-spin" /> : <>Send Media Request <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" /></>}
                               </motion.button>
@@ -314,7 +314,7 @@ const MediaConnect = () => {
                            </div>
                            <h2 className="text-4xl font-serif font-bold text-[#0f172a] mb-4">Request Sent!</h2>
                            <p className="text-gray-500 text-lg max-w-sm mb-10 leading-relaxed">Our Media Relations Officer has been notified and will contact you within 2 hours.</p>
-                           <button onClick={() => setSubmitted(false)} className="text-[#005580] font-black uppercase tracking-widest text-sm hover:underline">Send Another Request</button>
+                           <button onClick={() => setSubmitted(false)} className="text-primary-600 font-black uppercase tracking-widest text-sm hover:underline">Send Another Request</button>
                         </motion.div>
                      )}
                   </AnimatePresence>

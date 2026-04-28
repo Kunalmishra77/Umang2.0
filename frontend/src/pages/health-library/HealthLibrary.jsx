@@ -56,7 +56,7 @@ const HealthLibrary = () => {
         <title>Health Library - Umang Hospital</title>
       </Helmet>
 
-      <section className="bg-[#005580] text-white py-12 lg:py-10 px-4 relative overflow-hidden">
+      <section className="bg-primary-600 text-white py-12 lg:py-10 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10"></div>
         <div className="container-custom relative z-10 text-center">
           <motion.h1 
@@ -93,12 +93,12 @@ const HealthLibrary = () => {
                   className="block h-full bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group"
                 >
                   <div className="flex items-start justify-between mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#005580] flex items-center justify-center group-hover:bg-[#005580] group-hover:text-white transition-colors duration-300">
+                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-primary-600 flex items-center justify-center group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
                       <cat.icon className="w-6 h-6" />
                     </div>
                     <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">{cat.count}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#005580] transition-colors">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
                     {cat.title}
                   </h3>
                   <p className="text-gray-500 leading-relaxed text-sm">
