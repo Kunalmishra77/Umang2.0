@@ -11,7 +11,7 @@ const events = [
     badge: '₹50 Only',
     status: 'Live Now',
     statusColor: 'bg-red-500',
-    schedule: 'Daily 10 AM – 12 PM',
+    schedule: 'Daily 8 PM – 12 Midnight',
     location: 'Ground Floor, OPD Wing',
     image: ASSETS.EVENT_JANTA_OPD,
     gradient: 'from-primary-600 to-cyan-500',
@@ -34,7 +34,7 @@ const events = [
   {
     title: 'Full Body Checkup',
     desc: 'Preventive health screening with 60+ parameters including CBC, Lipid Profile, Thyroid, Liver & Kidney function — all reviewed by a senior physician.',
-    badge: '₹500 Starting',
+    badge: '₹700 till 31 July • ₹2000 after',
     status: 'Limited Slots',
     statusColor: 'bg-amber-500',
     schedule: 'Ongoing — Limited Slots',
@@ -58,8 +58,8 @@ const events = [
     cta: { label: 'Learn More', to: '/services' },
   },
   {
-    title: 'Flat 30% Off on Medicines',
-    desc: 'Get up to 30% discount on all medicines at our pharmacy. Quality medicines at affordable prices for every patient.',
+    title: 'Flat 20% Off on Medicines',
+    desc: 'Get a flat 20% discount on all medicines at our pharmacy. Quality medicines at affordable prices for every patient.',
     badge: 'LIMITED TIME',
     status: 'OFFER',
     statusColor: 'bg-purple-500',

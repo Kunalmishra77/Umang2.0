@@ -7,7 +7,7 @@ export const siteConfig = {
   
   stats: {
     beds: 150,
-    icuBedsMarketing: 52,
+    icuBedsMarketing: 24,
     icuBedsClinical: 43,
     icuBreakdown: {
       general: 28,
@@ -23,7 +23,7 @@ export const siteConfig = {
   contacts: {
     main: '+91 85880 72727',
     whatsapp: '+91 85880 72727',
-    emergency: '+91 89297 33551',
+    emergency: '+91 85880 72727',
     email: 'umanghospitalgurugram@gmail.com'
   },
 

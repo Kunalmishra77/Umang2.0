@@ -114,10 +114,7 @@ const About = () => {
       {/* ═══ SECTION 10: INFRASTRUCTURE — Hover-zoom bento ═══ */}
       <InfrastructureSection />
 
-      {/* ═══ SECTION 11: GLOBAL OUTREACH — Staggered counter reveal ═══ */}
-      <GlobalOutreachSection />
-
-      {/* ═══ SECTION 12: FINAL CTA — Animated gradient orbs ═══ */}
+      {/* ═══ SECTION 11: FINAL CTA — Animated gradient orbs ═══ */}
       <FinalCTASection fadeIn={fadeIn} />
     </div>
   );
@@ -130,7 +127,7 @@ const About = () => {
 const PurposeSection = ({ fadeIn }) => {
   const [activeTab, setActiveTab] = useState('vision');
   const tabs = {
-    vision: { icon: Eye, title: 'Our Vision', color: 'primary', text: 'Patient centric affordable and advance clinical care.' },
+    vision: { icon: Eye, title: 'Our Vision', color: 'primary', text: 'Inspired by the selfless service of Captain Umang Bharadwaj SC (P), our vision is to deliver patient-centric, affordable, and advanced clinical care to everyone — because quality healthcare is a right, not a privilege.' },
     mission: { icon: Target, title: 'Our Mission', color: 'cyan', text: 'To provide advanced, ethical, and compassionate healthcare that is accessible and affordable, with personalized treatment and excellent outcomes.' },
   };
 
@@ -263,13 +260,13 @@ const LeadershipSection = () => {
               viewport={{ once: true }}
               className="text-3xl md:text-5xl font-serif font-bold mb-8 leading-tight"
             >
-              A Message from <br /><span className="text-primary-400">Our Leadership</span>
+              Named After a <br /><span className="text-primary-400">Hero. Built for Everyone.</span>
             </motion.h2>
 
             {/* Staggered quote paragraphs */}
             {[
-              "At Umang Superspeciality Hospital, our journey has always been defined by a single-minded focus: to make world-class healthcare accessible to everyone. We believe that medical excellence is not just about advanced machines, but about the hands that operate them and the hearts that care for the patients.",
-              "We have invested in the finest medical talent and the most advanced infrastructure to ensure that when a patient walks through our doors, they receive care that is ethical, evidence-based, and deeply compassionate."
+              "Captain Umang Bharadwaj served the Indian Army with extraordinary courage and was awarded the Shaurya Chakra — posthumously. He gave his life in the line of duty, embodying the highest ideals of service, sacrifice, and putting others before oneself.",
+              "This hospital carries his name as a tribute to that spirit. Just as he served without discrimination, Umang Superspeciality Hospital was founded with one mission: to deliver world-class, affordable healthcare to every person who walks through our doors — regardless of background or means."
             ].map((text, i) => (
               <motion.p
                 key={i}
@@ -663,8 +660,7 @@ const CSRSection = () => {
 const ClinicalExcellenceSection = ({ fadeIn }) => {
   const items = [
     { title: "Zero Infection", desc: "Modular OTs with HEPA filters ensuring maximum surgical safety.", icon: Shield, path: "/infrastructure" },
-    { title: "Patient Rights", desc: "Ethical care models aligned with NABH quality frameworks.", icon: Heart, path: "/patient-experience" },
-    { title: "Critical Care", desc: `Large ${siteConfig.stats.icuBedsMarketing}-bed ICU capacity with 24/7 intensivist coverage.`, icon: Activity, path: "/infrastructure/icu" },
+    { title: "Critical Care", desc: `${siteConfig.stats.icuBedsMarketing}-bed ICU capacity with 24/7 intensivist coverage.`, icon: Activity, path: "/infrastructure/icu" },
     { title: "24/7 Diagnostics", desc: "In-house lab and imaging delivering accurate results round-the-clock.", icon: Microscope, path: "/services/lab-test-diagnostic" }
   ];
 
@@ -712,11 +708,11 @@ const ClinicalExcellenceSection = ({ fadeIn }) => {
                 whileHover={{ y: -8 }}
                 className="aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 relative group"
               >
-                <img src={ASSETS.ROBOTIC_SURGERY} alt="Robotic Surgery" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+                <img src={ASSETS.CATH_LAB} alt="Cath Lab" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent opacity-60" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-[10px] font-black text-primary-400 uppercase tracking-widest mb-1">Infrastructure</p>
-                  <h4 className="text-white font-bold text-lg">Robotic OT</h4>
+                  <h4 className="text-white font-bold text-lg">Cath Lab</h4>
                 </div>
               </motion.div>
 
@@ -798,7 +794,7 @@ const TimelineSection = () => {
     { year: '2021', title: 'The Foundation', desc: `Umang opens its doors as a focused care unit. Driven by a mission to bring accessible, world-class healthcare to Gurugram.`, align: 'left', img: ASSETS.HOSPITAL_EXTERIOR },
     { year: '2022', title: 'Technological Leap', desc: `A major upgrade to a ${siteConfig.stats.beds}-bed facility. We installed a state-of-the-art CT scan and inaugurated our advanced 24/7 Pathology Lab.`, align: 'right', img: ASSETS.ABOUT_LEAP },
     { year: '2023', title: 'Super Speciality Beacon', desc: 'Launch of dedicated Cardiac and Neuro Sciences wings. In the very first year, our team successfully performed over 1,000 procedures.', align: 'left', img: ASSETS.ABOUT_BEACON },
-    { year: '2024', title: 'NABH Gold Standard', desc: `Expanding to ${siteConfig.stats.beds} beds with state-of-the-art Robotic OT suites and comprehensive critical care infrastructure. Achieving high national accreditation.`, align: 'right', img: ASSETS.ABOUT_NABH },
+    { year: '2026', title: 'NABH Gold Standard', desc: `Expanding to ${siteConfig.stats.beds} beds with state-of-the-art OT suites and comprehensive critical care infrastructure. Achieving high national accreditation.`, align: 'right', img: ASSETS.ABOUT_NABH },
   ];
 
   return (

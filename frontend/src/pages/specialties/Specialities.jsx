@@ -190,7 +190,7 @@ const Specialities = () => {
               <h2 className="text-3xl lg:text-6xl font-serif font-bold mb-12 leading-tight">Decades of <br /><span className="text-primary-400 normal">Clinical Milestones.</span></h2>
               <div className="space-y-12">
                 {[
-                  { year: "2010", title: "First Robotic OT", desc: "Inaugurated the region's first fully integrated modular OT suite with international safety standards." },
+                  { year: "2025", title: "Advanced Modular OT Suite", desc: "Inaugurated 3 fully integrated modular OTs with HEPA filtration and international safety standards." },
                   { year: "2015", title: "10,000+ Cardiac Procedures", desc: "Crossed a significant milestone in minimally invasive heart surgeries and interventional care." },
                   { year: "2022", title: "Global Accreditation", desc: "Achieved elite national quality benchmarks (NABH) for specialty care and patient safety." }
                 ].map((m, i) => (

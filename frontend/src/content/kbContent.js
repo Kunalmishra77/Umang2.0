@@ -40,7 +40,7 @@ export const kbContent = {
     techHighlights: [
       { title: "128-Slice CT", desc: "Ultra-fast cardiac and whole-body imaging with 80% less radiation." },
       { title: "3 Tesla MRI", desc: "Silent scan technology for high-definition neurological diagnostics." },
-      { title: "Robotic OT", desc: "Precision-guided minimally invasive surgical systems." },
+      { title: "Modular OT", desc: "3 HEPA-filtered modular operation theatres with laminar airflow and zero-infection standards." },
       { title: "Digital Labs", desc: "AI-integrated pathology for rapid and accurate reporting." }
     ],
     faqs: [
@@ -66,7 +66,7 @@ export const kbContent = {
       { year: "2010", title: "Inception", desc: "Started as a focused care unit with 50 beds." },
       { year: "2015", title: "Expansion", desc: "Upgraded to 100 beds with advanced diagnostic wing." },
       { year: "2020", title: "Superspeciality Status", desc: "Launched dedicated Cardiac and Neuro science departments." },
-      { year: "2024", title: "Infrastructure Leap", desc: `Inaugurated the modern ${siteConfig.stats.beds}-bed facility with Robotic OT.` }
+      { year: "2024", title: "Infrastructure Leap", desc: `Inaugurated the modern ${siteConfig.stats.beds}-bed facility with 3 modular OTs and advanced Cath Lab.` }
     ],
     quality: {
       title: "Quality & Safety Standards",

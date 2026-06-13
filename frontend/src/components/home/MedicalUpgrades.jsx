@@ -22,12 +22,12 @@ const upgrades = [
     specs: ['70cm Wide Bore', 'Silent Scan Tech', '4D Flow Imaging'],
   },
   {
-    title: 'Robotic OT Suite',
-    desc: 'Modular operation theatres with advanced robotic-assisted surgery systems.',
+    title: 'Modular OT Suite',
+    desc: '3 fully modular operation theatres with HEPA filtration and international safety standards.',
     icon: Zap,
-    image: ASSETS.ROBOTIC_SURGERY,
+    image: ASSETS.OT,
     tag: 'Surgical',
-    specs: ['HEPA Filtered', 'Zero Infection', 'Robotic Precision'],
+    specs: ['HEPA Filtered', 'Zero Infection', 'Laminar Airflow'],
   },
 ];
 
