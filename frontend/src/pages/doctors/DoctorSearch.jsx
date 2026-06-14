@@ -14,20 +14,19 @@ import SeoHead from '../../components/common/SeoHead';
 
 const departments = [
   { name: 'All', icon: Activity },
-  { name: 'Cardiac Sciences', icon: Heart },
-  { name: 'Neurology', icon: Brain },
+  { name: 'Cardiology', icon: Heart },
   { name: 'Orthopedics', icon: Bone },
-  { name: 'Gastroenterology', icon: Activity },
-  { name: 'General Surgery', icon: Activity },
-  { name: 'Pediatrics', icon: User },
-  { name: 'Oncology', icon: Activity },
-  { name: 'Nephrology', icon: Activity },
-  { name: 'Pulmonology', icon: Activity },
+  { name: 'Neurosurgery', icon: Brain },
+  { name: 'General Medicine', icon: Stethoscope },
+  { name: 'Medical Gastroenterology', icon: Activity },
   { name: 'Urology', icon: Activity },
-  { name: 'Dermatology', icon: Activity },
-  { name: 'ENT', icon: Activity },
-  { name: 'Gynecology', icon: Activity },
-  { name: 'Internal Medicine', icon: Activity }
+  { name: 'Critical Care', icon: Activity },
+  { name: 'Pulmonology', icon: Activity },
+  { name: 'Obstetrics & Gynecology', icon: Activity },
+  { name: 'Radiology', icon: Activity },
+  { name: 'ENT (Otorhinolaryngology)', icon: Activity },
+  { name: 'Nephrology', icon: Activity },
+  { name: 'General & Laparoscopic Surgery', icon: Activity }
 ];
 
 const DoctorSearch = () => {
