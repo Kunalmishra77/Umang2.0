@@ -7,27 +7,30 @@ import { ASSETS } from '../../utils/imageAssets';
 const upgrades = [
   {
     title: '128-Slice CT Scan',
-    desc: 'Ultra-fast imaging with 80% less radiation dose than conventional scanners.',
+    desc: 'Ultra-fast whole-body and cardiac imaging with sub-second scan time and 0.5mm precision.',
     icon: Activity,
     image: ASSETS.CT_SCAN,
-    tag: 'Diagnostic',
+    tag: 'Coming Soon',
+    comingSoon: true,
     specs: ['80% Less Radiation', 'Sub-Second Scans', '0.5mm Precision'],
   },
   {
     title: '3 Tesla MRI',
-    desc: 'Highest clarity imaging for neurological and musculoskeletal diagnostics.',
+    desc: 'Highest-field MRI for neurological, musculoskeletal, and oncological diagnostics.',
     icon: Cpu,
-    image: ASSETS.MRI_SCAN,
-    tag: 'Imaging',
-    specs: ['70cm Wide Bore', 'Silent Scan Tech', '4D Flow Imaging'],
+    image: ASSETS.RADIOLOGY,
+    tag: 'Coming Soon',
+    comingSoon: true,
+    specs: ['Silent Scan Tech', '70cm Wide Bore', '4D Flow Imaging'],
   },
   {
-    title: 'Modular OT Suite',
-    desc: '3 fully modular operation theatres with HEPA filtration and international safety standards.',
+    title: 'Time of Flight PET Scan',
+    desc: 'Next-generation molecular imaging for precise oncology staging and cardiac metabolic assessment.',
     icon: Zap,
-    image: ASSETS.OT,
-    tag: 'Surgical',
-    specs: ['HEPA Filtered', 'Zero Infection', 'Laminar Airflow'],
+    image: ASSETS.SVC_RADIOLOGY_IMAGING,
+    tag: 'Coming Soon',
+    comingSoon: true,
+    specs: ['Whole-Body Scan', 'Cancer Detection', 'Cardiac Imaging'],
   },
 ];
 
@@ -55,9 +58,22 @@ const DesktopTabs = () => {
               </motion.div>
             </AnimatePresence>
 
+            {/* Coming Soon overlay */}
+            {upgrades[active].comingSoon && (
+              <div className="absolute inset-0 z-10 flex items-center justify-center">
+                <div className="bg-black/40 backdrop-blur-[2px] px-6 py-3 rounded-full border border-white/30">
+                  <span className="text-white font-black uppercase tracking-[0.3em] text-sm">Coming Soon</span>
+                </div>
+              </div>
+            )}
+
             {/* Tag pill */}
             <div className="absolute top-6 right-6 z-20">
-              <span className="px-4 py-1.5 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full text-[10px] font-black text-white uppercase tracking-widest shadow-lg">
+              <span className={`px-4 py-1.5 rounded-full text-[10px] font-black text-white uppercase tracking-widest shadow-lg ${
+                upgrades[active].comingSoon
+                  ? 'bg-amber-500'
+                  : 'bg-gradient-to-r from-primary-500 to-accent-500'
+              }`}>
                 {upgrades[active].tag}
               </span>
             </div>
@@ -175,7 +191,14 @@ const MobileCards = () => (
           <div className="aspect-video relative overflow-hidden">
             <img src={item.image} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 to-transparent" />
-            <span className="absolute top-4 left-4 px-3 py-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full text-[10px] font-black text-white uppercase tracking-widest">
+            {item.comingSoon && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="bg-black/40 backdrop-blur-[2px] px-5 py-2 rounded-full border border-white/30">
+                  <span className="text-white font-black uppercase tracking-widest text-xs">Coming Soon</span>
+                </div>
+              </div>
+            )}
+            <span className={`absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-black text-white uppercase tracking-widest ${item.comingSoon ? 'bg-amber-500' : 'bg-gradient-to-r from-primary-500 to-accent-500'}`}>
               {item.tag}
             </span>
           </div>

@@ -10,7 +10,7 @@ const testimonials = [
     loc: 'Gurugram',
     dept: 'Cardiac Sciences',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200',
+    color: 'bg-teal-600',
     id: 1,
   },
   {
@@ -19,7 +19,7 @@ const testimonials = [
     loc: 'Faridabad',
     dept: 'Orthopaedics',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200',
+    color: 'bg-primary-600',
     id: 2,
   },
   {
@@ -28,7 +28,7 @@ const testimonials = [
     loc: 'Noida',
     dept: 'Emergency & ICU',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200',
+    color: 'bg-cyan-700',
     id: 3,
   },
   {
@@ -37,7 +37,7 @@ const testimonials = [
     loc: 'Delhi',
     dept: 'Maternity Care',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200',
+    color: 'bg-teal-700',
     id: 4,
   },
   {
@@ -46,7 +46,7 @@ const testimonials = [
     loc: 'Gurugram',
     dept: 'General Surgery',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=200',
+    color: 'bg-primary-700',
     id: 5,
   },
   {
@@ -55,7 +55,7 @@ const testimonials = [
     loc: 'Rewari',
     dept: 'Neuro Sciences',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=200',
+    color: 'bg-cyan-600',
     id: 6,
   },
   {
@@ -64,7 +64,7 @@ const testimonials = [
     loc: 'Jhajjar',
     dept: 'Critical Care',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=200',
+    color: 'bg-teal-600',
     id: 7,
   },
   {
@@ -73,7 +73,7 @@ const testimonials = [
     loc: 'Sohna',
     dept: 'Health Checkup',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=200',
+    color: 'bg-primary-600',
     id: 8,
   },
   {
@@ -82,7 +82,7 @@ const testimonials = [
     loc: 'Gurugram',
     dept: 'Urology',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200',
+    color: 'bg-cyan-700',
     id: 9,
   },
   {
@@ -91,10 +91,20 @@ const testimonials = [
     loc: 'Manesar',
     dept: 'Paediatrics',
     rating: 5,
-    image: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=200',
+    color: 'bg-teal-700',
     id: 10,
   },
 ];
+
+const PatientAvatar = ({ name, color, size = 'lg' }) => {
+  const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase();
+  const sizeClass = size === 'lg' ? 'w-16 h-16 text-lg' : 'w-8 h-8 text-xs';
+  return (
+    <div className={`${sizeClass} ${color} rounded-full flex items-center justify-center font-bold text-white shrink-0`}>
+      {initials}
+    </div>
+  );
+};
 
 const Testimonials = () => {
   const [active, setActive] = useState(0);
@@ -209,12 +219,8 @@ const Testimonials = () => {
 
                   <div className="flex items-center gap-5">
                     <div className="relative">
-                      <div className="w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                        <img 
-                          src={activeTestimonial.image} 
-                          alt={activeTestimonial.name} 
-                          className="w-full h-full object-cover"
-                        />
+                      <div className="border-4 border-white shadow-lg rounded-full">
+                        <PatientAvatar name={activeTestimonial.name} color={activeTestimonial.color} size="lg" />
                       </div>
                       <div className="absolute -bottom-1 -right-1 bg-green-500 rounded-full p-1 border-2 border-white">
                         <CheckCircle2 className="w-3 h-3 text-white" />
@@ -272,8 +278,8 @@ const Testimonials = () => {
               <div className="flex items-center gap-4 mb-8">
                 <div className="flex -space-x-3">
                   {testimonials.slice(0, 4).map((t, i) => (
-                    <div key={i} className="w-10 h-10 rounded-full border-2 border-brand-dark overflow-hidden bg-slate-800">
-                      <img src={t.image} alt="" className="w-full h-full object-cover opacity-80" />
+                    <div key={i} className="border-2 border-brand-dark rounded-full opacity-80">
+                      <PatientAvatar name={t.name} color={t.color} size="sm" />
                     </div>
                   ))}
                   <div className="w-10 h-10 rounded-full border-2 border-brand-dark bg-primary-600 flex items-center justify-center text-[10px] font-bold">
@@ -303,7 +309,7 @@ const Testimonials = () => {
                   }`}
                 >
                   <div className="flex items-center gap-3 mb-2">
-                    <img src={t.image} alt="" className="w-8 h-8 rounded-full object-cover" />
+                    <PatientAvatar name={t.name} color={t.color} size="sm" />
                     <span className={`text-xs font-bold transition-colors ${active === i ? 'text-primary-700' : 'text-slate-400'}`}>
                       {t.name.split(' ')[0]}
                     </span>

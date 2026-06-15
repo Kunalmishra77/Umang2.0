@@ -502,9 +502,9 @@ const DoctorSearch = () => {
       {/* SECTION: FELLOWSHIPS & TRAINING (NEW) */}
       <Section className="bg-white">
         <Container>
-          <SectionHeading eyebrow="Global Training" title="Where Our Experts Come From" centered />
+          <SectionHeading eyebrow="Expert Training" title="Where Our Experts Come From" centered />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-60 hover:opacity-100 transition-opacity">
-            {['AIIMS Delhi', 'PGI Chandigarh', 'Royal College (UK)', 'Cleveland Clinic'].map((inst, i) => (
+            {['AIIMS Delhi', 'PGI Chandigarh', 'Safdarjung Hospital', 'MAMC Delhi'].map((inst, i) => (
               <div key={i} className="p-8 border border-slate-100 rounded-3xl text-center grayscale hover:grayscale-0 hover:border-primary-200 transition-all">
                 <p className="font-serif font-bold text-xl text-slate-800">{inst}</p>
                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 mt-2">Alumni Network</p>
