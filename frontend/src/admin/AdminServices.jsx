@@ -8,7 +8,7 @@ const config = {
   primaryField: 'title',
   secondaryField: 'description',
   imageField: 'image_url',
-  defaults: { title: '', path: '', description: '', icon: 'Home', image_url: '', accent: 'from-primary-400 to-primary-600', bg: 'bg-primary-50', is_published: true, sort_order: 0 },
+  defaults: { title: '', path: '', description: '', icon: 'Home', image_url: '', accent: 'from-primary-400 to-primary-600', bg: 'bg-primary-50', is_published: true, featured: false, sort_order: 0 },
   fields: [
     { name: 'title', label: 'Title', type: 'text' },
     { name: 'path', label: 'Link (e.g. /services/telemedicine)', type: 'text' },
@@ -18,6 +18,7 @@ const config = {
     { name: 'accent', label: 'Accent gradient (e.g. from-primary-400 to-primary-600)', type: 'text' },
     { name: 'bg', label: 'Background (e.g. bg-primary-50)', type: 'text' },
     { name: 'sort_order', label: 'Order (0 = first)', type: 'number' },
+    { name: 'featured', label: 'Feature on homepage', type: 'checkbox', hint: 'Show in the homepage services section' },
     { name: 'is_published', label: 'Published', type: 'checkbox', hint: 'Show on the website' },
   ],
 };

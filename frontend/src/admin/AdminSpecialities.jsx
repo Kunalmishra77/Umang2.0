@@ -8,7 +8,7 @@ const config = {
   primaryField: 'name',
   secondaryField: 'tagline',
   imageField: 'image_url',
-  defaults: { name: '', short_name: '', slug: '', icon: 'Heart', tagline: '', stat: '', stat_label: '', image_url: '', accent: 'from-primary-500 to-primary-700', is_published: true, sort_order: 0 },
+  defaults: { name: '', short_name: '', slug: '', icon: 'Heart', tagline: '', stat: '', stat_label: '', image_url: '', accent: 'from-primary-500 to-primary-700', is_published: true, featured: false, sort_order: 0 },
   fields: [
     { name: 'name', label: 'Name', type: 'text' },
     { name: 'short_name', label: 'Short name', type: 'text' },
@@ -20,6 +20,7 @@ const config = {
     { name: 'image_url', label: 'Image', type: 'image' },
     { name: 'accent', label: 'Accent gradient (e.g. from-rose-500 to-red-600)', type: 'text' },
     { name: 'sort_order', label: 'Order (0 = first)', type: 'number' },
+    { name: 'featured', label: 'Feature on homepage', type: 'checkbox', hint: 'Show in the homepage Centres of Excellence section' },
     { name: 'is_published', label: 'Published', type: 'checkbox', hint: 'Show on the website' },
   ],
 };

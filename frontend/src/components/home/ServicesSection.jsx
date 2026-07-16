@@ -18,7 +18,7 @@ const ServicesSection = () => {
   const [direction, setDirection] = useState(1);
   const timerRef = useRef(null);
 
-  const services = usePublished('services', staticServices).map((s) => ({
+  const services = usePublished('services', staticServices, { featuredOnly: true }).map((s) => ({
     ...s,
     icon: resolveIcon(s.icon),
     img: s.img ?? s.image_url,

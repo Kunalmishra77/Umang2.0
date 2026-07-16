@@ -63,7 +63,7 @@ const mapDept = (d) => (d.icon && typeof d.icon !== 'string') ? d : {
   statLabel: d.statLabel ?? d.stat_label,
   id: d.slug || d.id,
 };
-const useDepartments = () => usePublished('specialities', staticDepartments).map(mapDept);
+const useDepartments = () => usePublished('specialities', staticDepartments, { featuredOnly: true }).map(mapDept);
 
 const ExpandingStrips = () => {
   const [active, setActive] = useState(0);
