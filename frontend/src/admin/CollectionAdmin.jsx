@@ -32,8 +32,18 @@ export default function CollectionAdmin({ config }) {
   }, [table]);
   useEffect(() => { load(); }, [load]);
 
-  const openNew = () => { setForm({ ...defaults }); setEditing('new'); setError(''); };
-  const openEdit = (r) => { setForm({ ...defaults, ...r }); setEditing(r.id); setError(''); };
+  // Convert stored values → editable form strings for list/json fields.
+  const toForm = (obj) => {
+    const f = { ...obj };
+    fields.forEach((fl) => {
+      if (fl.type === 'lines') f[fl.name] = Array.isArray(obj[fl.name]) ? obj[fl.name].join('\n') : (obj[fl.name] || '');
+      if (fl.type === 'json') f[fl.name] = (obj[fl.name] != null && typeof obj[fl.name] !== 'string') ? JSON.stringify(obj[fl.name], null, 2) : (obj[fl.name] || '');
+    });
+    return f;
+  };
+
+  const openNew = () => { setForm(toForm({ ...defaults })); setEditing('new'); setError(''); };
+  const openEdit = (r) => { setForm(toForm({ ...defaults, ...r })); setEditing(r.id); setError(''); };
   const close = () => { setEditing(null); setForm(defaults); setError(''); };
 
   const upload = async (fieldName, file) => {
@@ -51,12 +61,20 @@ export default function CollectionAdmin({ config }) {
   const save = async () => {
     setSaving(true); setError('');
     const payload = {};
-    fields.forEach((f) => {
-      let v = form[f.name];
-      if (f.type === 'number') v = v === '' || v == null ? null : Number(v);
-      if (f.type === 'checkbox') v = !!v;
-      payload[f.name] = v ?? (f.type === 'checkbox' ? false : null);
-    });
+    try {
+      fields.forEach((f) => {
+        let v = form[f.name];
+        if (f.type === 'number') v = v === '' || v == null ? null : Number(v);
+        else if (f.type === 'checkbox') v = !!v;
+        else if (f.type === 'lines') v = (v || '').split('\n').map((s) => s.trim()).filter(Boolean);
+        else if (f.type === 'json') v = v && String(v).trim() ? JSON.parse(v) : [];
+        payload[f.name] = v ?? (f.type === 'checkbox' ? false : null);
+      });
+    } catch (e) {
+      setSaving(false);
+      setError('Invalid JSON in one of the fields: ' + e.message);
+      return;
+    }
     const res = editing === 'new'
       ? await supabase.from(table).insert(payload)
       : await supabase.from(table).update(payload).eq('id', editing);
@@ -143,6 +161,14 @@ export default function CollectionAdmin({ config }) {
                       <option value="">—</option>
                       {(f.options || []).map((o) => <option key={o} value={o}>{o}</option>)}
                     </select>
+                  ) : f.type === 'lines' ? (
+                    <textarea rows={4} value={form[f.name] ?? ''} onChange={(e) => setForm({ ...form, [f.name]: e.target.value })}
+                      placeholder="One item per line"
+                      className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm outline-none focus:border-primary-500 resize-none" />
+                  ) : f.type === 'json' ? (
+                    <textarea rows={6} value={form[f.name] ?? ''} onChange={(e) => setForm({ ...form, [f.name]: e.target.value })}
+                      spellCheck={false}
+                      className="w-full px-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-xs font-mono outline-none focus:border-primary-500 resize-y" />
                   ) : f.type === 'image' ? (
                     <div className="flex items-center gap-3">
                       <div className="w-20 h-20 rounded-lg bg-gray-100 overflow-hidden shrink-0">

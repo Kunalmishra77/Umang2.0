@@ -1,8 +1,28 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronRight, CheckCircle2, HelpCircle, ArrowRight, Shield, Activity, Phone, Calendar, AlertCircle, Quote, Heart, Zap } from 'lucide-react';
 import { specialitiesData } from '../../data/specialitiesData';
+import { supabase, isSupabaseConfigured } from '../../lib/supabase';
+
+// Map a DB speciality row to the rich shape this page renders.
+const mapDetail = (d) => ({
+  title: d.name,
+  subtitle: d.subtitle,
+  desc: d.description,
+  img: d.image_url,
+  category: d.category,
+  statistics: d.statistics || [],
+  approach: d.approach,
+  procedures: d.procedures || [],
+  tech: d.tech || [],
+  successStories: d.success_stories || [],
+  recovery: d.recovery,
+  relatedServices: d.related_services || [],
+  bullets: d.bullets || [],
+  emergencyCallout: d.emergency_callout,
+  faq: d.faq || [],
+});
 import { doctors } from '../../utils/doctorsData';
 import { Container, Section, SectionHeading, Card, Badge } from '../../components/ui/Layout';
 import { siteConfig } from '../../config/siteConfig';
@@ -12,12 +32,28 @@ import SeoHead from '../../components/common/SeoHead';
 
 const SpecialityDetail = () => {
   const { id } = useParams();
-  const data = specialitiesData[id];
+  const staticData = specialitiesData[id];
+  const [dbData, setDbData] = useState(null);
+  const [loading, setLoading] = useState(!staticData);
+
+  useEffect(() => {
+    if (!isSupabaseConfigured || !supabase) { setLoading(false); return; }
+    let active = true;
+    setLoading(!specialitiesData[id]);
+    supabase.from('specialities').select('*').eq('slug', id).eq('is_published', true).maybeSingle()
+      .then(({ data }) => { if (!active) return; if (data) setDbData(mapDetail(data)); setLoading(false); });
+    return () => { active = false; };
+  }, [id]);
+
+  const data = dbData || staticData;
 
   const deptDoctors = useMemo(() => {
     return doctors.filter(doc => doc.specialtyId === id);
   }, [id]);
 
+  if (!data && loading) {
+    return <div className="min-h-screen grid place-items-center text-gray-400">Loading…</div>;
+  }
   if (!data) {
     return <Navigate to="/specialities" replace />;
   }
