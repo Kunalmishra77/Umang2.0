@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Home, Video, Pill, Activity, ChevronLeft, ChevronRight } from 'lucide-react';
 import { ASSETS } from '../../utils/imageAssets';
+import { usePublished } from '../../lib/useCollection';
+import { resolveIcon } from '../../lib/iconMap';
 
-const services = [
+const staticServices = [
   { icon: Home, title: "Home Care", path: "/services/ipd-opd", desc: "Nursing, physiotherapy, and elderly care at your doorstep. Professional medical staff available round the clock.", img: ASSETS.NURSE_CARE, accent: 'from-primary-400 to-primary-600', bg: 'bg-primary-50' },
   { icon: Video, title: "Telemedicine", path: "/services/telemedicine", desc: "Connect with top specialists via secure video calls. Get expert medical advice from the comfort of your home.", img: ASSETS.TELEMEDICINE, accent: 'from-primary-500 to-accent-500', bg: 'bg-accent-50' },
   { icon: Pill, title: "Pharmacy", path: "/services/buy-medicines", desc: "24/7 online pharmacy with genuine medicine delivery. Flat discounts on all prescriptions.", img: ASSETS.PHARMACY, accent: 'from-primary-500 to-primary-600', bg: 'bg-primary-50' },
@@ -15,6 +17,15 @@ const ServicesSection = () => {
   const [active, setActive] = useState(0);
   const [direction, setDirection] = useState(1);
   const timerRef = useRef(null);
+
+  const services = usePublished('services', staticServices).map((s) => ({
+    ...s,
+    icon: resolveIcon(s.icon),
+    img: s.img ?? s.image_url,
+    desc: s.desc ?? s.description,
+    accent: s.accent || 'from-primary-400 to-primary-600',
+    bg: s.bg || 'bg-primary-50',
+  }));
 
   const goTo = useCallback((idx, dir = 1) => {
     setDirection(dir);

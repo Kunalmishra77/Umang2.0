@@ -94,6 +94,10 @@ const AdminMedia = lazy(() => import('./admin/AdminMedia'));
 const AdminTestimonials = lazy(() => import('./admin/AdminTestimonials'));
 const AdminFaqs = lazy(() => import('./admin/AdminFaqs'));
 const AdminDoctors = lazy(() => import('./admin/AdminDoctors'));
+const AdminServices = lazy(() => import('./admin/AdminServices'));
+const AdminSpecialities = lazy(() => import('./admin/AdminSpecialities'));
+const AdminGallery = lazy(() => import('./admin/AdminGallery'));
+const Gallery = lazy(() => import('./pages/gallery/Gallery'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -207,6 +211,7 @@ function App() {
             <Route path="privacy-policy" element={<Privacy />} />
             <Route path="cms/legal-and-compliance" element={<DynamicSubPage />} />
             <Route path="patient-experience" element={<DynamicSubPage />} />
+            <Route path="gallery" element={<Gallery />} />
             <Route path="sitemap" element={<Sitemap />} />
             <Route path="logout" element={<Logout />} />
             <Route path="*" element={<NotFound />} />
@@ -223,6 +228,9 @@ function App() {
             <Route path="testimonials" element={<AdminTestimonials />} />
             <Route path="faqs" element={<AdminFaqs />} />
             <Route path="doctors" element={<AdminDoctors />} />
+            <Route path="services" element={<AdminServices />} />
+            <Route path="specialities" element={<AdminSpecialities />} />
+            <Route path="gallery" element={<AdminGallery />} />
           </Route>
         </Routes>
       </Suspense>

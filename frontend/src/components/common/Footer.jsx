@@ -125,6 +125,7 @@ const Footer = () => {
                 { name: 'Our Doctors', path: '/team' },
                 { name: 'Careers', path: '/careers' },
                 { name: 'Contact Us', path: '/contact' },
+                { name: 'Gallery', path: '/gallery' },
                 { name: 'Inquiry Hub', path: '/contact/inquiry-hub' },
                 { name: 'Sitemap', path: '/sitemap' },
               ].map((link) => (
