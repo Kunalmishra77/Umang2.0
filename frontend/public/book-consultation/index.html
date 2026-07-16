@@ -233,7 +233,15 @@ textarea.f-in{resize:vertical;min-height:64px}
 .vids{background:var(--navy)}
 .vids h2{color:#fff}
 .vids .sub{color:#9fb8c6}
-.vid-row{display:grid;grid-auto-flow:column;grid-auto-columns:min(78vw,270px);gap:16px;overflow-x:auto;padding:26px 4px 10px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.vid-wrap{position:relative}
+.vid-row{display:grid;grid-auto-flow:column;grid-auto-columns:min(78vw,270px);gap:16px;overflow-x:auto;padding:26px 4px 10px;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none}
+.vid-row::-webkit-scrollbar{display:none}
+.vid-nav{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--orange);color:var(--navy);border:none;display:grid;place-items:center;cursor:pointer;z-index:5;font-size:18px;box-shadow:0 8px 20px rgba(0,0,0,.4);transition:transform .15s}
+.vid-nav:hover{transform:translateY(-50%) scale(1.08)}
+.vid-nav:active{transform:translateY(-50%) scale(.95)}
+.vid-prev{left:-6px}.vid-prev .ic{transform:rotate(180deg)}
+.vid-next{right:-6px}
+@media(max-width:640px){.vid-nav{display:none}}
 .vid{scroll-snap-align:start;border-radius:14px;overflow:hidden;position:relative;background:var(--navy-mid);border:1px solid rgba(255,255,255,.1)}
 .vid .ph{height:300px}
 .vid .ph img{width:100%;height:100%;object-fit:cover;opacity:.8}
@@ -759,6 +767,9 @@ footer a:hover{color:#fff}
       <h2>Hear It From Our Patients</h2>
       <p class="sub" style="margin-inline:auto;">Real stories and health guidance from Umang Superspeciality Hospital — tap any video to play.</p>
     </div>
+    <div class="vid-wrap">
+    <button class="vid-nav vid-prev" type="button" aria-label="Previous videos"><svg class="ic"><use href="#i-arrow"/></svg></button>
+    <button class="vid-nav vid-next" type="button" aria-label="Next videos"><svg class="ic"><use href="#i-arrow"/></svg></button>
     <div class="vid-row">
       <div class="vid" data-video><video src="/reviews-videos/patient-story-vishnu.mp4" preload="metadata" playsinline></video><span class="play"><svg class="ic"><use href="#i-play"/></svg></span><div class="ov"><b>Patient Story — Vishnu Mataji</b><span>Care &amp; Recovery at Umang</span></div></div>
       <div class="vid" data-video><video src="/reviews-videos/affordable-care.mp4" preload="metadata" playsinline></video><span class="play"><svg class="ic"><use href="#i-play"/></svg></span><div class="ov"><b>Affordable Advanced Care</b><span>Umang Superspeciality Hospital</span></div></div>
@@ -766,6 +777,7 @@ footer a:hover{color:#fff}
       <div class="vid" data-video><video src="/reviews-videos/liver-health.mp4" preload="metadata" playsinline></video><span class="play"><svg class="ic"><use href="#i-play"/></svg></span><div class="ov"><b>Fatty Liver Awareness</b><span>Liver Health Tips</span></div></div>
       <div class="vid" data-video><video src="/reviews-videos/good-sleep.mp4" preload="metadata" playsinline></video><span class="play"><svg class="ic"><use href="#i-play"/></svg></span><div class="ov"><b>The Power of Good Sleep</b><span>Health &amp; Recovery Tips</span></div></div>
       <div class="vid" data-video><video src="/reviews-videos/eating-habits.mp4" preload="metadata" playsinline></video><span class="play"><svg class="ic"><use href="#i-play"/></svg></span><div class="ov"><b>5 Habits to Avoid After Eating</b><span>Digestive Health Tips</span></div></div>
+    </div>
     </div>
   </div>
 </section>
@@ -985,6 +997,15 @@ footer a:hover{color:#fff}
     });
     v.addEventListener('ended', function () { card.classList.remove('playing'); v.controls = false; v.currentTime = 0; });
   });
+
+  /* Video row arrows */
+  var row = document.querySelector('.vid-row');
+  var step = 286;
+  var prev = document.querySelector('.vid-prev'), next = document.querySelector('.vid-next');
+  if (row && prev && next) {
+    prev.addEventListener('click', function () { row.scrollBy({ left: -step, behavior: 'smooth' }); });
+    next.addEventListener('click', function () { row.scrollBy({ left: step, behavior: 'smooth' }); });
+  }
 })();
 </script>
 </body>
