@@ -3,8 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Heart, Brain, Bone, Activity, Scissors, Wind } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS } from '../../utils/imageAssets';
+import { usePublished } from '../../lib/useCollection';
+import { resolveIcon } from '../../lib/iconMap';
 
-const departments = [
+const staticDepartments = [
   {
     id: 'cardiac', name: 'Cardiac Sciences', shortName: 'Cardiac', icon: Heart,
     tagline: 'Comprehensive heart care with 24/7 Cath Lab, bypass surgery, and interventional cardiology.',
@@ -52,10 +54,23 @@ const departments = [
 /* ═══════════════════════════════════════
    DESKTOP: Expanding Strips
 ═══════════════════════════════════════ */
+// Map a DB speciality row to the shape the section renders (static rows pass through).
+const mapDept = (d) => (d.icon && typeof d.icon !== 'string') ? d : {
+  ...d,
+  icon: resolveIcon(d.icon),
+  img: d.img ?? d.image_url,
+  shortName: d.shortName ?? d.short_name,
+  statLabel: d.statLabel ?? d.stat_label,
+  id: d.slug || d.id,
+};
+const useDepartments = () => usePublished('specialities', staticDepartments).map(mapDept);
+
 const ExpandingStrips = () => {
   const [active, setActive] = useState(0);
   const videoRefs = useRef({});
   const timerRef = useRef(null);
+  const departments = useDepartments();
+  useEffect(() => { if (active >= departments.length) setActive(0); }, [departments.length, active]);
 
   const activate = (idx) => {
     setActive(idx);
@@ -223,6 +238,7 @@ const ExpandingStrips = () => {
 const MobileCards = () => {
   const [active, setActive] = useState(0);
   const scrollRef = useRef(null);
+  const departments = useDepartments();
 
   return (
     <div className="lg:hidden">
