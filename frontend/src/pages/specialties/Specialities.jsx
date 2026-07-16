@@ -11,6 +11,8 @@ import SeoHead from '../../components/common/SeoHead';
 import { siteConfig } from '../../config/siteConfig';
 import { ASSETS } from '../../utils/imageAssets';
 import { specialitiesData } from '../../data/specialitiesData';
+import { usePublished } from '../../lib/useCollection';
+import { resolveIcon } from '../../lib/iconMap';
 import { Container, Section, SectionHeading, Card, Badge } from '../../components/ui/Layout';
 import { VARIANTS } from '../../design/system/index';
 
@@ -45,7 +47,19 @@ const Specialities = () => {
     setVisibleCount(6);
   }, [searchQuery, activeFilter]);
 
+  const dbSpecs = usePublished('specialities', []);
   const allSpecialties = useMemo(() => {
+    if (dbSpecs && dbSpecs.length) {
+      return dbSpecs.map((d) => ({
+        id: d.slug || d.id,
+        name: d.name,
+        bullets: d.bullets,
+        img: d.image_url || d.img,
+        path: `/specialities/${d.slug || d.id}`,
+        type: d.category || 'medical',
+        icon: resolveIcon(d.icon),
+      }));
+    }
     return Object.entries(specialitiesData).map(([id, data]) => ({
       id,
       name: data.title.split(' (')[0],
@@ -55,7 +69,7 @@ const Specialities = () => {
       type: data.category || 'medical',
       icon: id === 'cardiac' ? Heart : id === 'neuro' ? Brain : id === 'ortho' ? Bone : id === 'gastro' ? Activity : id === 'pulmonology' ? Wind : id === 'urology' ? Zap : id === 'surgery' ? Scissors : id === 'oncology' ? Shield : id === 'internal' ? Stethoscope : id === 'nephrology' ? Activity : id === 'pain-management' ? Activity : id === 'gynecology' ? Users : Activity
     }));
-  }, []);
+  }, [dbSpecs]);
 
   const filteredSpecialties = useMemo(() => {
     return allSpecialties.filter(s => {

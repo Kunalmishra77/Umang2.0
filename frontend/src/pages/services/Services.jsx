@@ -10,8 +10,10 @@ import { ASSETS } from '../../utils/imageAssets';
 import { Container, Section, SectionHeading, Card } from '../../components/ui/Layout';
 import SeoHead from '../../components/common/SeoHead';
 import { siteConfig } from '../../config/siteConfig';
+import { usePublished } from '../../lib/useCollection';
+import { resolveIcon } from '../../lib/iconMap';
 
-const services = [
+const staticServices = [
   {
     icon: Stethoscope,
     title: "Second Opinion",
@@ -79,6 +81,14 @@ const services = [
 ];
 
 const Services = () => {
+  const services = usePublished('services', staticServices).map((s) => ({
+    ...s,
+    icon: resolveIcon(s.icon),
+    desc: s.desc ?? s.description,
+    img: s.img ?? s.image_url,
+    slug: s.slug ?? (s.path || '').replace('/services/', ''),
+    color: s.color || 'bg-primary-50 text-primary-600',
+  }));
   return (
     <div className="bg-white min-h-screen">
       <SeoHead 
