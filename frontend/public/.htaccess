@@ -1,13 +1,50 @@
 Options -MultiViews
 RewriteEngine On
 
-# Redirect old .html URLs from previous site (301 permanent redirects)
-RewriteRule ^Pulmonology\.html$ /specialities/pulmonology [R=301,L]
-RewriteRule ^General%20Surgery\.html$ /specialities/general-surgery [R=301,NE,L]
-RewriteRule ^General\ Surgery\.html$ /specialities/general-surgery [R=301,L]
-RewriteRule ^index\.html$ / [R=301,L]
+# ── Force HTTPS ───────────────────────────────────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
-# SPA routing: serve index.html for all routes that are not real files/directories
+# ── Canonical host: force www (matches sitemap + canonical tags) ──────────────
+RewriteCond %{HTTP_HOST} ^umanghospitals\.in$ [NC]
+RewriteRule ^ https://www.umanghospitals.in%{REQUEST_URI} [R=301,L]
+
+# ── 301 redirects from the previous (.html) site — preserve SEO ───────────────
+RewriteRule ^Pulmonology\.html$        /specialities/pulmonology [R=301,L]
+RewriteRule ^General%20Surgery\.html$  /specialities/surgery     [R=301,NE,L]
+RewriteRule ^General\ Surgery\.html$   /specialities/surgery     [R=301,L]
+RewriteRule ^index\.html$              /                         [R=301,L]
+
+# ── SPA routing: serve index.html for any non-file/non-dir route ──────────────
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ /index.html [L]
+
+# ── Security headers ──────────────────────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header always set X-Frame-Options "DENY"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # HSTS (only sent over HTTPS)
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" "expr=%{HTTPS} == 'on'"
+  # NOTE: A Content-Security-Policy is recommended but must be tested in staging
+  # (it can break GTM / Supabase / Google Fonts if too strict). Suggested value:
+  # Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co; frame-src https://www.googletagmanager.com"
+</IfModule>
+
+# ── Compression ───────────────────────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml \
+    application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# ── Caching: long-cache hashed assets, never cache index.html ─────────────────
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|woff2?|ttf|otf|png|jpe?g|webp|gif|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "(index\.html|service-worker\.js)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+</IfModule>
