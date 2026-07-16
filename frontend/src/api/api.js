@@ -56,6 +56,18 @@ const insertLead = async (type, { name, phone, email, message, speciality, sourc
     }
     throw new Error(error.message || 'Could not submit. Please try again.');
   }
+
+  // Conversion tracking: fire a GTM dataLayer event on every successful lead
+  // so Google Ads / GA4 can count it as a conversion (trigger on 'lead_submit').
+  if (typeof window !== 'undefined') {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'lead_submit',
+      lead_type: type,
+      source_page: row.source_page || '(unknown)',
+    });
+  }
+
   return { data: null };
 };
 
