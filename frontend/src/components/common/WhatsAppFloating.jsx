@@ -17,6 +17,7 @@ const WhatsAppFloating = () => {
   const [showChat, setShowChat] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const isEmergencyPage = location.pathname === '/services/emergency';
+  const isAdmin = location.pathname.startsWith('/admin');
   const hoverTimeoutRef = React.useRef(null);
 
   const whatsappUrl = `https://wa.me/${siteConfig.contacts.whatsapp.replace(/\D/g, '')}?text=${encodeURIComponent('Hi, I need help with...')}`;
@@ -69,6 +70,7 @@ const WhatsAppFloating = () => {
   };
 
   if (isMenuOpen) return null;
+  if (isAdmin) return null; // never show the public WhatsApp bubble in the admin panel
 
   return (
     <div

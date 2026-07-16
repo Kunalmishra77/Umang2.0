@@ -37,6 +37,16 @@ const insertLead = async (type, { name, phone, email, message, speciality, sourc
   if (!isSupabaseConfigured || !supabase) {
     throw new Error('Form service is not configured yet. Please try again later.');
   }
+  // Capture ad-campaign attribution (utm params / gclid) from the URL, so the
+  // admin can see exactly which campaign a lead came from.
+  const utm = {};
+  try {
+    const p = new URLSearchParams(window.location.search);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'].forEach((k) => {
+      const v = p.get(k); if (v) utm[k] = v;
+    });
+  } catch { /* no-op */ }
+
   const row = {
     type,
     name: (name || '').trim(),
@@ -45,7 +55,7 @@ const insertLead = async (type, { name, phone, email, message, speciality, sourc
     message: message?.trim() || null,
     speciality: speciality || null,
     source_page: source_page || null,
-    extra, // department, preferred_date, preferred_time, inquiry_type, etc.
+    extra: { ...extra, ...utm }, // department, preferred_date, utm_campaign, etc.
   };
   // Do NOT use .select() here: anon has INSERT-only rights on leads (no SELECT),
   // so a RETURNING clause would fail RLS. Insert without returning the row.

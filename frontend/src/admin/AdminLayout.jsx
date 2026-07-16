@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { LayoutDashboard, Users, LogOut, Megaphone, FileText, Image, Quote, HelpCircle, Stethoscope, Layers, Grid3x3, HeartPulse, GalleryHorizontal } from 'lucide-react';
 import { useAuth } from '../lib/auth';
@@ -23,6 +23,18 @@ export default function AdminLayout() {
   const navigate = useNavigate();
 
   const handleSignOut = async () => { await signOut(); navigate('/admin/login'); };
+
+  // Security: auto-logout after 15 minutes of inactivity in the admin panel.
+  useEffect(() => {
+    const IDLE_MS = 15 * 60 * 1000;
+    let timer;
+    const logout = async () => { await signOut(); navigate('/admin/login', { replace: true }); };
+    const reset = () => { clearTimeout(timer); timer = setTimeout(logout, IDLE_MS); };
+    const events = ['mousemove', 'keydown', 'click', 'scroll', 'touchstart'];
+    events.forEach((e) => window.addEventListener(e, reset, { passive: true }));
+    reset();
+    return () => { clearTimeout(timer); events.forEach((e) => window.removeEventListener(e, reset)); };
+  }, [signOut, navigate]);
 
   return (
     <div className="min-h-screen bg-gray-50 flex">

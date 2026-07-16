@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Download, Search, Loader2, X } from 'lucide-react';
+import { Download, Search, Loader2, X, AlertTriangle, Trash2 } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 const STATUSES = ['new', 'contacted', 'converted', 'closed'];
@@ -18,16 +18,30 @@ export default function AdminLeads() {
   const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState('');
   const [type, setType] = useState('');
+  const [source, setSource] = useState('');
+  const [dateFrom, setDateFrom] = useState('');
+  const [dateTo, setDateTo] = useState('');
+  const [sources, setSources] = useState([]);
   const [search, setSearch] = useState('');
   const [active, setActive] = useState(null); // lead open in the side drawer
   const [savingNote, setSavingNote] = useState(false);
 
+  // Distinct sources for the filter dropdown (from the latest 1000 leads).
+  useEffect(() => {
+    if (!supabase) return;
+    supabase.from('leads').select('source_page').order('created_at', { ascending: false }).limit(1000)
+      .then(({ data }) => setSources([...new Set((data || []).map((r) => r.source_page).filter(Boolean))].sort()));
+  }, []);
+
   const load = useCallback(async () => {
     if (!supabase) { setLoading(false); return; }
     setLoading(true);
-    let q = supabase.from('leads').select('*').order('created_at', { ascending: false }).limit(500);
+    let q = supabase.from('leads').select('*').order('created_at', { ascending: false }).limit(1000);
     if (status) q = q.eq('status', status);
     if (type) q = q.eq('type', type);
+    if (source) q = q.eq('source_page', source);
+    if (dateFrom) q = q.gte('created_at', new Date(dateFrom + 'T00:00:00').toISOString());
+    if (dateTo) q = q.lte('created_at', new Date(dateTo + 'T23:59:59').toISOString());
     const { data } = await q;
     let list = data || [];
     if (search.trim()) {
@@ -36,9 +50,56 @@ export default function AdminLeads() {
     }
     setRows(list);
     setLoading(false);
-  }, [status, type, search]);
+  }, [status, type, source, dateFrom, dateTo, search]);
 
   useEffect(() => { load(); }, [load]);
+
+  // Quick date presets
+  const preset = (days) => {
+    if (days === null) { setDateFrom(''); setDateTo(''); return; }
+    const to = new Date(); const from = new Date();
+    from.setDate(to.getDate() - days);
+    const iso = (d) => d.toISOString().slice(0, 10);
+    setDateFrom(iso(from)); setDateTo(iso(to));
+  };
+
+  // Per-source counts for the summary chips (top 5 of current result set)
+  const sourceCounts = rows.reduce((m, r) => { const k = r.source_page || '(unknown)'; m[k] = (m[k] || 0) + 1; return m; }, {});
+  const topSources = Object.entries(sourceCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
+
+  // ── Retention: leads older than 3 months need an admin decision ──────────
+  const [oldCount, setOldCount] = useState(0);
+  const retentionCutoff = () => { const d = new Date(); d.setMonth(d.getMonth() - 3); return d.toISOString(); };
+  useEffect(() => {
+    if (!supabase) return;
+    supabase.from('leads').select('id', { count: 'exact', head: true }).lt('created_at', retentionCutoff())
+      .then(({ count }) => setOldCount(count || 0));
+  }, []);
+
+  const csvFromRows = (list, filename) => {
+    const cols = ['created_at', 'type', 'name', 'phone', 'email', 'speciality', 'message', 'source_page', 'status', 'notes', 'extra'];
+    const esc = (v) => `"${String(typeof v === 'object' && v !== null ? JSON.stringify(v) : v ?? '').replace(/"/g, '""')}"`;
+    const csv = [cols.join(','), ...list.map((r) => cols.map((c) => esc(r[c])).join(','))].join('\n');
+    const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv' }));
+    const a = document.createElement('a');
+    a.href = url; a.download = filename; a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const downloadAndDeleteOld = async () => {
+    const { data } = await supabase.from('leads').select('*').lt('created_at', retentionCutoff()).order('created_at');
+    if (!data || !data.length) { setOldCount(0); return; }
+    csvFromRows(data, `umang-leads-archive-${new Date().toISOString().slice(0, 10)}.csv`);
+    if (!confirm(`CSV downloaded (${data.length} leads). Now DELETE these ${data.length} old leads from the database?`)) return;
+    await supabase.from('leads').delete().lt('created_at', retentionCutoff());
+    setOldCount(0); load();
+  };
+
+  const deleteOldOnly = async () => {
+    if (!confirm(`Delete ${oldCount} leads older than 3 months WITHOUT downloading? This cannot be undone.`)) return;
+    await supabase.from('leads').delete().lt('created_at', retentionCutoff());
+    setOldCount(0); load();
+  };
 
   const updateStatus = async (lead, newStatus) => {
     const { error } = await supabase.from('leads').update({ status: newStatus }).eq('id', lead.id);
@@ -78,13 +139,36 @@ export default function AdminLeads() {
         </button>
       </div>
 
+      {/* Retention notice: leads older than 3 months need a decision */}
+      {oldCount > 0 && (
+        <div className="mb-5 bg-amber-50 border border-amber-200 rounded-2xl p-4 flex flex-wrap items-center gap-3">
+          <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />
+          <div className="flex-1 min-w-[240px]">
+            <p className="font-bold text-amber-800 text-sm">{oldCount} lead{oldCount > 1 ? 's are' : ' is'} older than 3 months</p>
+            <p className="text-amber-700 text-xs mt-0.5">To keep the database small, download an archive and delete them — or delete directly without downloading.</p>
+          </div>
+          <button onClick={downloadAndDeleteOld}
+            className="flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-xl text-xs font-bold hover:bg-amber-700">
+            <Download className="w-3.5 h-3.5" /> Download &amp; Delete
+          </button>
+          <button onClick={deleteOldOnly}
+            className="flex items-center gap-2 px-4 py-2 border border-amber-300 text-amber-800 rounded-xl text-xs font-bold hover:bg-amber-100">
+            <Trash2 className="w-3.5 h-3.5" /> Delete Only
+          </button>
+        </div>
+      )}
+
       {/* Filters */}
-      <div className="flex flex-wrap gap-3 mb-5">
+      <div className="flex flex-wrap gap-3 mb-3">
         <div className="relative flex-1 min-w-[200px]">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
           <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Search name, phone, email"
             className="w-full pl-9 pr-3 py-2.5 bg-white border border-gray-200 rounded-xl text-sm outline-none focus:border-primary-500" />
         </div>
+        <select value={source} onChange={(e) => setSource(e.target.value)} className="px-3 py-2.5 bg-white border border-gray-200 rounded-xl text-sm max-w-[220px]">
+          <option value="">All sources</option>
+          {sources.map((s) => <option key={s} value={s}>{s}</option>)}
+        </select>
         <select value={type} onChange={(e) => setType(e.target.value)} className="px-3 py-2.5 bg-white border border-gray-200 rounded-xl text-sm capitalize">
           <option value="">All types</option>
           {TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
@@ -94,6 +178,34 @@ export default function AdminLeads() {
           {STATUSES.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
       </div>
+
+      {/* Date range + presets */}
+      <div className="flex flex-wrap items-center gap-2 mb-3">
+        <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Date:</span>
+        {[['Today', 0], ['7 days', 7], ['30 days', 30], ['All', null]].map(([label, d]) => (
+          <button key={label} onClick={() => preset(d)}
+            className="px-3 py-1.5 rounded-full text-xs font-bold border border-gray-200 bg-white text-gray-600 hover:border-primary-400 hover:text-primary-600 transition-colors">
+            {label}
+          </button>
+        ))}
+        <input type="date" value={dateFrom} onChange={(e) => setDateFrom(e.target.value)}
+          className="px-3 py-1.5 bg-white border border-gray-200 rounded-xl text-xs" />
+        <span className="text-gray-400 text-xs">to</span>
+        <input type="date" value={dateTo} onChange={(e) => setDateTo(e.target.value)}
+          className="px-3 py-1.5 bg-white border border-gray-200 rounded-xl text-xs" />
+      </div>
+
+      {/* Source summary chips */}
+      {!loading && topSources.length > 0 && (
+        <div className="flex flex-wrap gap-2 mb-5">
+          {topSources.map(([s, n]) => (
+            <button key={s} onClick={() => setSource(source === s ? '' : s)}
+              className={`px-3 py-1.5 rounded-full text-xs font-bold border transition-colors ${source === s ? 'bg-primary-600 text-white border-primary-600' : 'bg-primary-50 text-primary-700 border-primary-100 hover:border-primary-300'}`}>
+              {s}: {n}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Table */}
       <div className="bg-white rounded-2xl border border-gray-100 overflow-x-auto">

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Clock, CheckCircle2, PhoneCall, ArrowRight, Megaphone, FileText, Image, Plus } from 'lucide-react';
+import { Users, Clock, CheckCircle2, PhoneCall, ArrowRight, Megaphone, FileText, Image, Plus, AlertTriangle } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 const fmt = (d) => new Date(d).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' });
@@ -11,7 +11,15 @@ export default function AdminDashboard() {
   const [recent, setRecent] = useState([]);
   const [traffic, setTraffic] = useState({ total_views: 0, unique_sessions: 0 });
   const [topPages, setTopPages] = useState([]);
+  const [oldLeads, setOldLeads] = useState(0);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!supabase) return;
+    const cutoff = new Date(); cutoff.setMonth(cutoff.getMonth() - 3);
+    supabase.from('leads').select('id', { count: 'exact', head: true }).lt('created_at', cutoff.toISOString())
+      .then(({ count }) => setOldLeads(count || 0));
+  }, []);
 
   useEffect(() => {
     let active = true;
@@ -59,6 +67,17 @@ export default function AdminDashboard() {
     <div>
       <h1 className="text-3xl font-serif font-bold text-brand-dark mb-1">Dashboard</h1>
       <p className="text-gray-500 mb-8">Overview of website enquiries.</p>
+
+      {oldLeads > 0 && (
+        <Link to="/admin/leads" className="mb-6 flex flex-wrap items-center gap-3 bg-amber-50 border border-amber-200 rounded-2xl p-4 hover:border-amber-400 transition-colors">
+          <AlertTriangle className="w-5 h-5 text-amber-600 shrink-0" />
+          <div className="flex-1 min-w-[240px]">
+            <p className="font-bold text-amber-800 text-sm">{oldLeads} lead{oldLeads > 1 ? 's are' : ' is'} older than 3 months — action needed</p>
+            <p className="text-amber-700 text-xs mt-0.5">Open Leads to download an archive &amp; delete, or delete directly.</p>
+          </div>
+          <span className="text-amber-700 text-xs font-bold flex items-center gap-1">Manage <ArrowRight className="w-3.5 h-3.5" /></span>
+        </Link>
+      )}
 
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {cards.map((c) => (

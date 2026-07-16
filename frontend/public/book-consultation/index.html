@@ -949,6 +949,15 @@ footer a:hover{color:#fff}
   var SB_URL = 'https://lqydjmrktkehzuxarszg.supabase.co/rest/v1/leads';
   var SB_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxxeWRqbXJrdGtlaHp1eGFyc3pnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQxNDA5MjcsImV4cCI6MjA5OTcxNjkyN30.n7UTHUGD2p9Wdf7X5lIqK-dUxpLv_voRKyC3ENJq0wo';
 
+  /* Ad-campaign attribution: capture utm params / gclid from the ad's URL */
+  var UTM = {};
+  try {
+    var qp = new URLSearchParams(location.search);
+    ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid'].forEach(function (k) {
+      var v = qp.get(k); if (v) UTM[k] = v;
+    });
+  } catch (e) { /* no-op */ }
+
   document.querySelectorAll('form.lead-form').forEach(function (f) {
     var ok = f.querySelector('.f-ok'), err = f.querySelector('.f-err'), btn = f.querySelector('button[type=submit]');
     var btnText = btn.textContent;
@@ -969,7 +978,8 @@ footer a:hover{color:#fff}
           type: 'callback', name: name, phone: phone,
           speciality: el.speciality.value || null,
           message: (el.message.value || '').trim() || null,
-          source_page: 'Google Ads Landing Page'
+          source_page: 'Google Ads Landing Page',
+          extra: UTM
         })
       }).then(function (r) {
         if (!r.ok && r.status !== 201) throw new Error('failed');
