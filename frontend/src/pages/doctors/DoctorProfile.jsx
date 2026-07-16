@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -6,6 +6,17 @@ import {
   User, ChevronRight, BookOpen, Heart, ThumbsUp,
   MessageSquare, Activity, GraduationCap, CheckCircle2, Phone, HelpCircle, ArrowRight
 } from 'lucide-react';import { doctors } from '../../utils/doctorsData';
+import { supabase, isSupabaseConfigured } from '../../lib/supabase';
+
+const mapDoc = (d) => ({
+  ...d,
+  image: d.image || d.image_url,
+  deptSlug: d.deptSlug || d.dept_slug || '',
+  tags: d.tags || [],
+  cases: d.cases ?? null,
+  nextSlot: d.nextSlot || 'Today',
+  rating: d.rating || '4.8',
+});
 import { Container, Section, SectionHeading, Card } from '../../components/ui/Layout';
 import { siteConfig } from '../../config/siteConfig';
 import SeoHead from '../../components/common/SeoHead';
@@ -15,7 +26,17 @@ const DoctorProfile = () => {
   const [selectedDate, setSelectedDate] = useState(0);
   const [selectedSlot, setSelectedSlot] = useState(null);
 
-  const doc = useMemo(() => doctors.find(d => d.id === parseInt(id)) || doctors[0], [id]);
+  const staticDoc = useMemo(() => doctors.find(d => d.id === parseInt(id)), [id]);
+  const [dbDoc, setDbDoc] = useState(null);
+  useEffect(() => {
+    setDbDoc(null);
+    if (staticDoc || !isSupabaseConfigured || !supabase) return;
+    let active = true;
+    supabase.from('doctors').select('*').eq('id', id).maybeSingle()
+      .then(({ data }) => { if (active && data) setDbDoc(mapDoc(data)); });
+    return () => { active = false; };
+  }, [id, staticDoc]);
+  const doc = staticDoc || dbDoc || doctors[0];
 
   // Dates for booking (Next 3 days)
   const dates = [

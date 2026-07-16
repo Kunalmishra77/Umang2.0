@@ -8,6 +8,18 @@ import {
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import mockDoctors from '../../data/doctors.json';
+import { supabase, isSupabaseConfigured } from '../../lib/supabase';
+
+// Normalize a doctor row (DB or static JSON) to the shape this page expects.
+const mapDoc = (d) => ({
+  ...d,
+  image: d.image || d.image_url,
+  deptSlug: d.deptSlug || d.dept_slug || '',
+  tags: d.tags || [],
+  cases: d.cases ?? null,
+  nextSlot: d.nextSlot || 'Today',
+  rating: d.rating || '4.8',
+});
 import { ASSETS } from '../../utils/imageAssets';
 import { Container, Section, SectionHeading } from '../../components/ui/Layout';
 import SeoHead from '../../components/common/SeoHead';
@@ -40,40 +52,25 @@ const DoctorSearch = () => {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  const fetchDoctors = async (reset = false) => {
+  const fetchDoctors = async () => {
     try {
       setLoading(true);
-      const currentPage = reset ? 1 : page;
-      const response = await api.get(`/doctors?page=${currentPage}`);
-      const newDoctors = response.data?.data || [];
-      
-      if (reset) {
-        setDoctors(newDoctors);
-        setPage(2);
-      } else if (newDoctors.length > 0) {
-        setDoctors(prev => [...prev, ...newDoctors]);
-        setPage(prev => prev + 1);
+      if (isSupabaseConfigured && supabase) {
+        const { data } = await supabase.from('doctors').select('*')
+          .eq('is_published', true).order('sort_order').order('created_at', { ascending: false });
+        if (data && data.length) { setDoctors(data.map(mapDoc)); setHasMore(false); return; }
       }
-      
-      if (response.data?.meta && response.data?.meta?.last_page <= currentPage) {
-        setHasMore(false);
-      } else if (!response.data?.meta && newDoctors.length < 12) {
-          setHasMore(false);
-      }
-      
+      setDoctors(mockDoctors.map(mapDoc)); setHasMore(false);
     } catch (error) {
-      console.error("Failed to fetch doctors, using fallback", error);
-      if (reset) {
-        setDoctors(mockDoctors);
-        setHasMore(false);
-      }
+      console.error('Failed to fetch doctors, using fallback', error);
+      setDoctors(mockDoctors.map(mapDoc)); setHasMore(false);
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchDoctors(true);
+    fetchDoctors();
   }, []);
 
   useEffect(() => {
