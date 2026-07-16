@@ -2,8 +2,11 @@ import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Star, Quote, ArrowRight, ChevronLeft, ChevronRight, CheckCircle2, MessageSquare, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { usePublished } from '../../lib/useCollection';
 
-const testimonials = [
+const AVATAR_COLORS = ['bg-teal-600', 'bg-primary-600', 'bg-accent-500', 'bg-cyan-600', 'bg-emerald-600', 'bg-indigo-600'];
+
+const fallbackTestimonials = [
   {
     name: 'Rajesh Kumar',
     text: 'Exceptional care during my cardiac surgery. The team was supportive throughout the recovery process. The modular OTs and professional staff made me feel safe and confident.',
@@ -108,6 +111,8 @@ const PatientAvatar = ({ name, color, size = 'lg' }) => {
 
 const Testimonials = () => {
   const [active, setActive] = useState(0);
+  const testimonials = usePublished('testimonials', fallbackTestimonials)
+    .map((t, i) => ({ ...t, color: t.color || AVATAR_COLORS[i % AVATAR_COLORS.length] }));
   const [direction, setDirection] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const timerRef = useRef(null);

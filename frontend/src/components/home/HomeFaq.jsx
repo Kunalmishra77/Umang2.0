@@ -4,10 +4,14 @@ import { HelpCircle, ChevronDown, Phone, MessageSquare, ArrowRight } from 'lucid
 import { kbContent } from '../../content/kbContent';
 import { Link } from 'react-router-dom';
 import { siteConfig } from '../../config/siteConfig';
+import { usePublished } from '../../lib/useCollection';
 
 const HomeFaq = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const faqs = kbContent.home.faqs;
+  const faqs = usePublished('faqs', kbContent.home.faqs).map((f) => ({
+    q: f.q ?? f.question,
+    a: f.a ?? f.answer,
+  }));
 
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-gray-50/50 overflow-hidden">
