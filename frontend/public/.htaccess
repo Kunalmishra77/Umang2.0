@@ -10,9 +10,13 @@ RewriteCond %{HTTP_HOST} ^umanghospitals\.in$ [NC]
 RewriteRule ^ https://www.umanghospitals.in%{REQUEST_URI} [R=301,L]
 
 # ── 301 redirects from the previous (.html) site — preserve SEO ───────────────
+# THE_REQUEST guard: only redirect DIRECT browser requests, never the SPA's
+# internal rewrite to index.html (otherwise every route 301s to /).
+RewriteCond %{THE_REQUEST} \s/Pulmonology\.html [NC]
 RewriteRule ^Pulmonology\.html$        /specialities/pulmonology [R=301,L]
-RewriteRule ^General%20Surgery\.html$  /specialities/surgery     [R=301,NE,L]
-RewriteRule ^General\ Surgery\.html$   /specialities/surgery     [R=301,L]
+RewriteCond %{THE_REQUEST} \s/General(%20|\s)Surgery\.html [NC]
+RewriteRule ^General(%20|\ )Surgery\.html$ /specialities/surgery [R=301,NE,L]
+RewriteCond %{THE_REQUEST} \s/index\.html [NC]
 RewriteRule ^index\.html$              /                         [R=301,L]
 
 # ── SPA routing: serve index.html for any non-file/non-dir route ──────────────
