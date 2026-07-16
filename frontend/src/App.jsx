@@ -93,6 +93,7 @@ const AdminContent = lazy(() => import('./admin/AdminContent'));
 const AdminMedia = lazy(() => import('./admin/AdminMedia'));
 const AdminTestimonials = lazy(() => import('./admin/AdminTestimonials'));
 const AdminFaqs = lazy(() => import('./admin/AdminFaqs'));
+const AdminDoctors = lazy(() => import('./admin/AdminDoctors'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -221,6 +222,7 @@ function App() {
             <Route path="media" element={<AdminMedia />} />
             <Route path="testimonials" element={<AdminTestimonials />} />
             <Route path="faqs" element={<AdminFaqs />} />
+            <Route path="doctors" element={<AdminDoctors />} />
           </Route>
         </Routes>
       </Suspense>

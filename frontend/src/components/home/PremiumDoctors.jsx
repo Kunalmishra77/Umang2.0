@@ -5,7 +5,8 @@ import {
   Wind, Activity, Ear, Droplets, Scissors, Microscope
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { doctors } from '../../utils/doctorsData';
+import { doctors as staticDoctors } from '../../utils/doctorsData';
+import { usePublished } from '../../lib/useCollection';
 import { siteConfig } from '../../config/siteConfig';
 import CountUp from '../common/CountUp';
 
@@ -63,8 +64,10 @@ const stats = [
 ];
 
 const PremiumDoctors = () => {
-  const row1 = [...doctors.slice(0, 9),  ...doctors.slice(0, 9)];
-  const row2 = [...doctors.slice(9),     ...doctors.slice(9)];
+  const doctors = usePublished('doctors', staticDoctors);
+  const half = Math.ceil(doctors.length / 2);
+  const row1 = [...doctors.slice(0, half), ...doctors.slice(0, half)];
+  const row2 = [...doctors.slice(half),    ...doctors.slice(half)];
 
   return (
     <section className="py-16 lg:py-24 bg-brand-dark relative overflow-hidden">
