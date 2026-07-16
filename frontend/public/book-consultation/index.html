@@ -134,10 +134,24 @@ textarea.f-in{resize:vertical;min-height:64px}
 .mq-track{display:flex;gap:12px;width:max-content;animation:mq 40s linear infinite}
 .marquee:hover .mq-track{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(-50%)}}
-.mq-chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:13.5px;font-weight:600;color:var(--navy);white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.mq-chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 18px 8px 10px;font-size:13.5px;font-weight:600;color:var(--navy);white-space:nowrap;display:inline-flex;align-items:center;gap:9px}
 .mq-chip .ic{color:var(--success);font-size:15px}
+.mq-chip img{width:22px;height:22px;border-radius:6px;object-fit:contain;flex:none;background:#fff}
+
+/* ── See More / See Less collapsing ── */
+.spec-grid.collapsed .spec:nth-child(n+9){display:none}
+.fac-grid.collapsed .fac:nth-child(n+7){display:none}
+.see-more{margin-top:22px}
+.tst-more{display:none}
+@media(max-width:640px){
+  .spec-grid.collapsed .spec:nth-child(n+7){display:none}
+  .fac-grid.collapsed .fac:nth-child(n+4){display:none}
+  .tst-grid.collapsed .tst-card:nth-child(n+4){display:none}
+  .tst-more{display:inline-flex}
+}
 .gov-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:12px;margin-top:18px}
 .gov{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+.gov img{width:38px;height:38px;margin:0 auto 8px;border-radius:9px}
 .gov b{display:block;font-family:var(--font-head);color:var(--blue-deeper);font-size:1rem}
 .gov span{font-size:12px;color:#6b8294}
 .note{margin-top:20px;background:var(--orange-light);border:1px solid #f0d9a8;border-radius:12px;padding:14px 16px;font-size:13.5px;color:#7c5a12}
@@ -452,7 +466,7 @@ footer a:hover{color:#fff}
       <h2>52+ Medical Specialties</h2>
       <p class="sub">Complete care for every health need — from heart and brain to bones, women's health, and more.</p>
     </div>
-    <div class="spec-grid">
+    <div class="spec-grid collapsed" id="specGrid">
       <div class="spec card"><div class="spec-ico"><svg class="ic"><use href="#i-heart"/></svg></div><h3>Cardiology &amp; Cardiac Sciences</h3><p>Heart check-ups and treatment for chest pain, blocked arteries, and heart attacks — with round-the-clock emergency heart care.</p><a href="#book">Book Consultation <svg class="ic"><use href="#i-arrow"/></svg></a></div>
       <div class="spec card"><div class="spec-ico"><svg class="ic"><use href="#i-bone"/></svg></div><h3>Orthopedics, Trauma &amp; Pain</h3><p>Treatment for broken bones, joint pain, and injuries — including knee and hip replacement, plus 24×7 accident care.</p><a href="#book">Book Consultation <svg class="ic"><use href="#i-arrow"/></svg></a></div>
       <div class="spec card"><div class="spec-ico"><svg class="ic"><use href="#i-stomach"/></svg></div><h3>Gastroenterology</h3><p>Care for stomach pain, acidity, liver problems, and digestion issues, with scans and scopes to find the exact cause.</p><a href="#book">Book Consultation <svg class="ic"><use href="#i-arrow"/></svg></a></div>
@@ -474,7 +488,10 @@ footer a:hover{color:#fff}
       <div class="spec card"><div class="spec-ico"><svg class="ic"><use href="#i-pill"/></svg></div><h3>Anesthesia</h3><p>Keeps you pain-free and safe during surgery, with pre-surgery check-ups and round-the-clock availability.</p><a href="#book">Book Consultation <svg class="ic"><use href="#i-arrow"/></svg></a></div>
       <div class="spec card"><div class="spec-ico"><svg class="ic"><use href="#i-scalpel"/></svg></div><h3>Plastic &amp; Reconstructive Surgery</h3><p>Surgery to repair injuries, burns, and scars, along with cosmetic procedures to restore appearance and confidence.</p><a href="#book">Book Consultation <svg class="ic"><use href="#i-arrow"/></svg></a></div>
     </div>
-    <div class="center" style="margin-top:26px;"><a class="btn btn-blue" href="#book">Book Consultation for Any Specialty</a></div>
+    <div class="center see-more" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <button type="button" class="btn btn-blue" data-toggle-grid="specGrid" data-more="See More Specialties" data-less="See Less"><span>See More Specialties</span></button>
+      <a class="btn btn-orange" href="#book">Book Consultation</a>
+    </div>
   </div>
 </section>
 
@@ -493,17 +510,17 @@ footer a:hover{color:#fff}
     </div>
     <h3 class="center" style="font-size:1.05rem;margin-bottom:4px;">Accepted Insurance Companies</h3>
     <div class="marquee"><div class="mq-track">
-      <span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>Aditya Birla Health Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>Care Health Insurance (Corporate)</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>ACKO General Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>Bajaj General Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>Future Generali (Generali Central)</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>HDFC ERGO General Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>ICICI Lombard General Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>Liberty General Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>Magma General Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>Navi General Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>SBI General Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>Universal Sompo General Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>Zuno General Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>Zurich Kotak General Insurance</span><span class="mq-chip"><svg class="ic"><use href="#i-check"/></svg>GIPSA PPN</span>
-      <span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>Aditya Birla Health Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>Care Health Insurance (Corporate)</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>ACKO General Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>Bajaj General Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>Future Generali (Generali Central)</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>HDFC ERGO General Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>ICICI Lombard General Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>Liberty General Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>Magma General Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>Navi General Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>SBI General Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>Universal Sompo General Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>Zuno General Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>Zurich Kotak General Insurance</span><span class="mq-chip" aria-hidden="true"><svg class="ic"><use href="#i-check"/></svg>GIPSA PPN</span>
+      <span class="mq-chip"><img src="/insurance-logos/aditya-birla.png" alt="">Aditya Birla Health Insurance</span><span class="mq-chip"><img src="/insurance-logos/care-health.svg" alt="">Care Health Insurance (Corporate)</span><span class="mq-chip"><img src="/insurance-logos/acko.png" alt="">ACKO General Insurance</span><span class="mq-chip"><img src="/insurance-logos/bajaj.png" alt="">Bajaj General Insurance</span><span class="mq-chip"><img src="/insurance-logos/future-generali.png" alt="">Future Generali (Generali Central)</span><span class="mq-chip"><img src="/insurance-logos/hdfc-ergo.png" alt="">HDFC ERGO General Insurance</span><span class="mq-chip"><img src="/insurance-logos/icici-lombard.png" alt="">ICICI Lombard General Insurance</span><span class="mq-chip"><img src="/insurance-logos/liberty.svg" alt="">Liberty General Insurance</span><span class="mq-chip"><img src="/insurance-logos/magma.png" alt="">Magma General Insurance</span><span class="mq-chip"><img src="/insurance-logos/navi.svg" alt="">Navi General Insurance</span><span class="mq-chip"><img src="/insurance-logos/sbi-general.svg" alt="">SBI General Insurance</span><span class="mq-chip"><img src="/insurance-logos/universal-sompo.svg" alt="">Universal Sompo General Insurance</span><span class="mq-chip"><img src="/insurance-logos/zuno.svg" alt="">Zuno General Insurance</span><span class="mq-chip"><img src="/insurance-logos/zurich-kotak.png" alt="">Zurich Kotak General Insurance</span><span class="mq-chip"><img src="/insurance-logos/gipsa.svg" alt="">GIPSA PPN</span>
+      <span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/aditya-birla.png" alt="">Aditya Birla Health Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/care-health.svg" alt="">Care Health Insurance (Corporate)</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/acko.png" alt="">ACKO General Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/bajaj.png" alt="">Bajaj General Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/future-generali.png" alt="">Future Generali (Generali Central)</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/hdfc-ergo.png" alt="">HDFC ERGO General Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/icici-lombard.png" alt="">ICICI Lombard General Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/liberty.svg" alt="">Liberty General Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/magma.png" alt="">Magma General Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/navi.svg" alt="">Navi General Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/sbi-general.svg" alt="">SBI General Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/universal-sompo.svg" alt="">Universal Sompo General Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/zuno.svg" alt="">Zuno General Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/zurich-kotak.png" alt="">Zurich Kotak General Insurance</span><span class="mq-chip" aria-hidden="true"><img src="/insurance-logos/gipsa.svg" alt="">GIPSA PPN</span>
     </div></div>
     <h3 class="center" style="font-size:1.05rem;margin-top:26px;">Government Schemes &amp; Empanelments</h3>
     <div class="gov-grid">
-      <div class="gov"><b>CGHS</b><span>Central Govt. Health Scheme</span></div>
-      <div class="gov"><b>DGEHS</b><span>Delhi Govt. Employees</span></div>
-      <div class="gov"><b>DVBEFT</b><span>Delhi Vidyut Board</span></div>
-      <div class="gov"><b>NDMC</b><span>New Delhi Municipal</span></div>
-      <div class="gov"><b>FCI</b><span>Food Corporation of India</span></div>
-      <div class="gov"><b>CAPF</b><span>Central Armed Police Forces</span></div>
+      <div class="gov"><img src="/insurance-logos/gov-cghs.svg" alt="CGHS"><b>CGHS</b><span>Central Govt. Health Scheme</span></div>
+      <div class="gov"><img src="/insurance-logos/gov-dgehs.svg" alt="DGEHS"><b>DGEHS</b><span>Delhi Govt. Employees</span></div>
+      <div class="gov"><img src="/insurance-logos/gov-dvbeft.svg" alt="DVBEFT"><b>DVBEFT</b><span>Delhi Vidyut Board</span></div>
+      <div class="gov"><img src="/insurance-logos/gov-ndmc.svg" alt="NDMC"><b>NDMC</b><span>New Delhi Municipal</span></div>
+      <div class="gov"><img src="/insurance-logos/gov-fci.svg" alt="FCI"><b>FCI</b><span>Food Corporation of India</span></div>
+      <div class="gov"><img src="/insurance-logos/gov-capf.svg" alt="CAPF"><b>CAPF</b><span>Central Armed Police Forces</span></div>
     </div>
     <div class="note"><b>Important:</b> Always verify with your insurance company before admission that Umang Superspeciality Hospital is in their current cashless network and your treatment is covered. Call our helpdesk at <a href="tel:+918929733551" style="font-weight:800;color:#7c5a12;text-decoration:underline;">+91 89297 33551</a> for insurance queries.</div>
     <div class="center" style="margin-top:22px;"><a class="btn btn-blue" href="#book">Book Consultation</a></div>
@@ -557,7 +574,7 @@ footer a:hover{color:#fff}
       <h2>World-Class Medical Facilities</h2>
       <p class="sub">Modern infrastructure built for the highest standards of patient care, safety, and recovery.</p>
     </div>
-    <div class="fac-grid">
+    <div class="fac-grid collapsed" id="facGrid">
       <div class="fac card"><div class="ph"><img src="/Umang-real/ICU.webp" alt="12-Bed General ICU" loading="lazy"></div><div class="bd"><h3>12-Bed General ICU</h3><p>Advanced ICU with ventilators, cardiac monitors, defibrillators, central/arterial lines, blood gas analysis, infusion pumps. 24×7 intensivist coverage.</p><div class="chips"><span class="chip">24×7</span><span class="chip">Ventilators</span><span class="chip">Intensivist</span></div></div></div>
       <div class="fac card"><div class="ph"><img src="/UmangLatest/Pre-operative-ward.webp" alt="Surgical ICU (SICU)" loading="lazy"></div><div class="bd"><h3>Surgical ICU (SICU)</h3><p>3-bed Surgical Intensive Care Unit for post-operative critical care monitoring and management of complex surgical patients.</p><div class="chips"><span class="chip">3 Beds</span><span class="chip">Post-Surgery</span><span class="chip">Specialist Care</span></div></div></div>
       <div class="fac card"><div class="ph"><img src="/UmangLatest/Deluxe-patients-room.webp" alt="High Dependency Unit (HDU)" loading="lazy"></div><div class="bd"><h3>High Dependency Unit (HDU)</h3><p>4-bed HDU for patients requiring close monitoring — between regular ward and full ICU — with dedicated nursing and monitoring equipment.</p><div class="chips"><span class="chip">4 Beds</span><span class="chip">Close Monitoring</span></div></div></div>
@@ -567,6 +584,9 @@ footer a:hover{color:#fff}
       <div class="fac card"><div class="ph"><img src="/UmangLatest/Pharmacy.webp" alt="24×7 Pharmacy" loading="lazy"></div><div class="bd"><h3>24×7 Pharmacy</h3><p>Round-the-clock pharmacy for all patients — emergency, admitted, and OPD. Emergency medications always available. No prescription delay.</p><div class="chips"><span class="chip">24×7</span><span class="chip">All Patients</span><span class="chip">Emergency Meds</span></div></div></div>
       <div class="fac card"><div class="ph"><img src="/UmangLatest/Emergency.webp" alt="Emergency Department" loading="lazy"></div><div class="bd"><h3>Emergency Department</h3><p>24×7 emergency department with triage, immediate examination, IV access, oxygen, emergency medicines and specialist on-call system.</p><div class="chips"><span class="chip">24×7</span><span class="chip">Ambulance</span><span class="chip">Triage</span></div></div></div>
       <div class="fac card"><div class="ph"><img src="/UmangNew/cardiology-diagnostics.jpeg" alt="Advanced Diagnostics Centre" loading="lazy"></div><div class="bd"><h3>Advanced Diagnostics Centre</h3><p>CT Scan, Digital X-Ray, Ultrasound — 24×7 for emergencies. Complete pathology lab, 2D Echo, TMT. Lowest rates in Gurugram.</p><div class="chips"><span class="chip">CT Scan</span><span class="chip">X-Ray</span><span class="chip">Pathology</span></div></div></div>
+    </div>
+    <div class="center see-more">
+      <button type="button" class="btn btn-blue" data-toggle-grid="facGrid" data-more="See More Facilities" data-less="See Less"><span>See More Facilities</span></button>
     </div>
     <div class="strip"><div><b>Dialysis Services Available</b> — 3 dialysis machines · 24×7 · CHRT · SLED · Plasmapheresis also available</div><a class="btn btn-orange" href="#book">Book Consultation</a></div>
   </div>
@@ -587,13 +607,16 @@ footer a:hover{color:#fff}
         <div style="font-size:12.5px;color:#6b8294;">On Google Maps for Umang Superspeciality Hospital</div>
       </div>
     </div>
-    <div class="tst-grid">
+    <div class="tst-grid collapsed" id="tstGrid">
       <div class="tst-card card"><span class="vr"><svg class="ic"><use href="#i-check"/></svg>Verified Google Review</span><p>"Dr. Mayank Pratap Singh is extremely knowledgeable and humble. He explained the problem very clearly and guided the treatment perfectly. The hospital staff is cooperative and the service is very satisfactory."</p><div class="tst-who"><span class="av">J</span><div><b>Jas Walia</b><span>Doctor Expertise &amp; Staff · Google Review</span></div></div></div>
       <div class="tst-card card"><span class="vr"><svg class="ic"><use href="#i-check"/></svg>Verified Google Review</span><p>"Staff was nice and very accommodating. CT scan was done at a very affordable price. Highly recommend for diagnostic services."</p><div class="tst-who"><span class="av">J</span><div><b>James Malcommrias</b><span>Affordability &amp; Diagnostics · Google Review</span></div></div></div>
       <div class="tst-card card"><span class="vr"><svg class="ic"><use href="#i-check"/></svg>Verified Google Review</span><p>"My mother was admitted and the doctors and staff are very good. The cleanliness and housekeeping is very good, and this is a very good hospital overall."</p><div class="tst-who"><span class="av">S</span><div><b>Shalvita Shakunta</b><span>Cleanliness &amp; Care · Google Review</span></div></div></div>
       <div class="tst-card card"><span class="vr"><svg class="ic"><use href="#i-check"/></svg>Verified Google Review</span><p>"The doctors, nursing, and housekeeping staff were extremely compassionate, helpful, and professional. They took great care and were always available when needed. Truly grateful for their dedication."</p><div class="tst-who"><span class="av">S</span><div><b>Shrikant Shukla</b><span>Staff Dedication · Google Review</span></div></div></div>
       <div class="tst-card card"><span class="vr"><svg class="ic"><use href="#i-check"/></svg>Verified Google Review</span><p>"Best Doctors and Best Nursing Care. They care for patients like home and the doctors and nurses are very humble and good human beings."</p><div class="tst-who"><span class="av">S</span><div><b>Sushant Anand</b><span>Patient Care · Google Review</span></div></div></div>
       <div class="tst-card card"><span class="vr"><svg class="ic"><use href="#i-check"/></svg>Verified Google Review</span><p>"The hospital staff is good. Most original bills and items are clearly provided to the patients. I believe the billing process is transparent and patient-friendly."</p><div class="tst-who"><span class="av">S</span><div><b>Sharmila Dayal</b><span>Transparency &amp; Billing · Google Review</span></div></div></div>
+    </div>
+    <div class="center see-more">
+      <button type="button" class="btn btn-blue tst-more" data-toggle-grid="tstGrid" data-more="See More Reviews" data-less="See Less"><span>See More Reviews</span></button>
     </div>
   </div>
 </section>
@@ -1006,6 +1029,17 @@ footer a:hover{color:#fff}
       card.classList.add('playing'); v.controls = true; v.play();
     });
     v.addEventListener('ended', function () { card.classList.remove('playing'); v.controls = false; v.currentTime = 0; });
+  });
+
+  /* See More / See Less toggles */
+  document.querySelectorAll('[data-toggle-grid]').forEach(function (btn) {
+    var grid = document.getElementById(btn.getAttribute('data-toggle-grid'));
+    if (!grid) return;
+    btn.addEventListener('click', function () {
+      var collapsed = grid.classList.toggle('collapsed');
+      btn.querySelector('span').textContent = collapsed ? btn.getAttribute('data-more') : btn.getAttribute('data-less');
+      if (collapsed) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   });
 
   /* Video row arrows */
