@@ -106,7 +106,7 @@ const Services = () => {
             className="max-w-3xl"
           >
             <span className="text-primary-400 font-bold uppercase tracking-[0.3em] text-[11px] mb-6 block">Support Services</span>
-            <h1 className="text-white mb-6 leading-tight">Clinical <span className="text-primary-400 normal">Excellence.</span></h1>
+            <h1 className="text-white mb-6 leading-tight text-4xl md:text-6xl lg:text-7xl font-serif font-bold">Clinical <span className="text-primary-400 normal">Excellence.</span></h1>
             <p className="text-lg text-slate-300 max-w-2xl font-light leading-relaxed">
               Comprehensive healthcare solutions designed around your needs, from preventive care to 24/7 emergency support and home care.
             </p>

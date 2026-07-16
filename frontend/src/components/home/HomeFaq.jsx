@@ -22,7 +22,7 @@ const HomeFaq = () => {
               className="mb-10"
             >
               <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] mb-3 block">Help Desk</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark mb-4 sm:mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-dark mb-4 sm:mb-6 leading-tight">
                 Frequently Asked <span className="text-primary-600 normal">Questions.</span>
               </h2>
               <p className="text-gray-500 text-sm sm:text-base lg:text-lg leading-relaxed font-light">

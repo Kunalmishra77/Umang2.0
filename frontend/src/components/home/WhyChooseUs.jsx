@@ -58,13 +58,13 @@ const WhyChooseUs = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-2xl text-left"
+            className="max-w-3xl text-left"
           >
             <div className="flex items-center gap-3 mb-2 sm:mb-3">
               <span className="w-8 sm:w-10 h-[2px] bg-primary-500 rounded-full" />
               <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[11px] sm:text-[12px]">Excellence in Care</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-dark leading-tight">
               Trusted Care in <span className="text-primary-600 normal font-medium">Gurugram</span>
             </h2>
           </motion.div>

@@ -4,4 +4,4 @@ Disallow: /login
 Disallow: /register
 Disallow: /patients/
 
-Sitemap: https://umanghospital.com/sitemap.xml
+Sitemap: https://www.umanghospitals.in/sitemap.xml

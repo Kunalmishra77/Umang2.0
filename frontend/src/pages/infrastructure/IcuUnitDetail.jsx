@@ -45,7 +45,7 @@ const IcuUnitDetail = () => {
 
     if (!unit) return (
         <div className="max-w-4xl mx-auto py-32 text-center px-4">
-            <h2 className="text-2xl font-bold text-brand-dark mb-8">Unit Not Found</h2>
+            <h2 className="text-2xl font-serif font-bold text-brand-dark mb-8">Unit Not Found</h2>
             <Link to="/infrastructure/icu" className="px-8 py-4 bg-brand-dark text-white rounded-full font-bold text-sm uppercase tracking-widest hover:bg-primary-900 transition-all">Back to Critical Care</Link>
         </div>
     );

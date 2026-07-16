@@ -44,9 +44,9 @@ const ServicesSection = () => {
       <div className="container-custom">
         {/* Header */}
         <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-8 sm:mb-10 lg:mb-14 gap-4 sm:gap-6 text-center lg:text-left">
-          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl">
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-3xl">
             <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[11px] sm:text-[12px] mb-2 sm:mb-3 block">Comprehensive Care</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-dark leading-tight">
               Beyond Clinical <span className="text-primary-600 normal">Excellence</span>
             </h2>
             <p className="text-gray-500 mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg font-light leading-relaxed">

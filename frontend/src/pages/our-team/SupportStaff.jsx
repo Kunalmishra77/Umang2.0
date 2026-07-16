@@ -38,7 +38,7 @@ const SupportStaff = () => {
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-[11px] font-bold uppercase tracking-[0.3em] mb-6">
               Operations & Care
             </span>
-            <h1 className="text-white mb-6 leading-tight text-4xl md:text-6xl lg:text-5xl font-serif font-bold">Engine of <span className="text-primary-400 normal">Excellence.</span></h1>
+            <h1 className="text-white mb-6 leading-tight text-4xl md:text-5xl lg:text-6xl font-serif font-bold">Engine of <span className="text-primary-400 normal">Excellence.</span></h1>
             <p className="text-lg text-slate-300 leading-relaxed font-light">
               Our 200+ dedicated support staff members work behind the scenes to ensure every patient journey is seamless, safe, and stress-free.
             </p>

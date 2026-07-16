@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { Link } from 'react-router-dom';
 import { BookOpen, Cpu, Stethoscope, GraduationCap, Calendar, Download } from 'lucide-react';
 
@@ -52,9 +52,12 @@ const categories = [
 const HealthLibrary = () => {
   return (
     <div className="bg-gray-50 min-h-screen pt-12">
-      <Helmet>
-        <title>Health Library - Umang Hospital</title>
-      </Helmet>
+      <SeoHead
+        title="Health Library"
+        description="Access 200+ articles on treatments, ailments, medical technologies, events, and knowledge resources — curated by Umang Hospital's clinical specialists in Gurugram."
+        canonical="/health-library"
+        keywords={["health library", "medical articles", "treatment guides", "ailment information"]}
+      />
 
       <section className="bg-primary-600 text-white py-12 lg:py-10 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10"></div>

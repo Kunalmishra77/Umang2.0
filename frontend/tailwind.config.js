@@ -40,7 +40,7 @@ export default {
         },
       },
       fontFamily: {
-        sans:  ['Figtree', 'Montserrat', 'sans-serif'],
+        sans:  ['Figtree', 'system-ui', '-apple-system', 'sans-serif'],
         serif: ['Playfair Display', 'Georgia', 'serif'],
       },
       animation: {

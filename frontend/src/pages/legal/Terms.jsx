@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { FileText, ShieldCheck, Scale, AlertCircle, Clock, ChevronRight, Phone, Mail, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Container, Section } from '../../components/ui/Layout';
@@ -46,10 +46,11 @@ const Terms = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <Helmet>
-        <title>Terms & Conditions | Umang Superspeciality Hospital</title>
-        <meta name="description" content="Legal terms and conditions for using Umang Hospital's digital services and website." />
-      </Helmet>
+      <SeoHead
+        title="Terms & Conditions"
+        description="Terms and conditions governing use of Umang Superspeciality Hospital's website and digital healthcare services, including our medical disclaimer."
+        canonical="/terms"
+      />
 
       {/* 1. PREMIUM HERO SECTION */}
       <section className="relative pt-40 pb-24 bg-[#0f172a] text-white overflow-hidden">

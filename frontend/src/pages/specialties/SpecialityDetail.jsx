@@ -53,7 +53,7 @@ const SpecialityDetail = () => {
               <ChevronRight size={14} className="text-slate-500" />
               <span className="text-slate-400 text-xs font-bold uppercase tracking-widest">{data.title.split(' (')[0]}</span>
             </div>
-            <h1 className="text-white mb-6">{data.title}</h1>
+            <h1 className="text-white mb-6 text-4xl md:text-6xl lg:text-7xl font-serif font-bold">{data.title}</h1>
             <p className="text-lg text-slate-200 leading-relaxed">{data.subtitle || data.desc.substring(0, 150) + '...'}</p>
           </motion.div>
         </Container>

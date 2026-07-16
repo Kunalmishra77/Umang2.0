@@ -1,0 +1,13 @@
+Options -MultiViews
+RewriteEngine On
+
+# Redirect old .html URLs from previous site (301 permanent redirects)
+RewriteRule ^Pulmonology\.html$ /specialities/pulmonology [R=301,L]
+RewriteRule ^General%20Surgery\.html$ /specialities/general-surgery [R=301,NE,L]
+RewriteRule ^General\ Surgery\.html$ /specialities/general-surgery [R=301,L]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# SPA routing: serve index.html for all routes that are not real files/directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [L]

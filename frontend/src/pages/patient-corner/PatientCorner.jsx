@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { Link } from 'react-router-dom';
 import { User, PenTool, Mic, Book, Lightbulb } from 'lucide-react';
 
@@ -45,9 +45,12 @@ const sections = [
 const PatientCorner = () => {
   return (
     <div className="bg-gray-50 min-h-screen pt-12">
-      <Helmet>
-        <title>Patient Corner - Umang Hospital</title>
-      </Helmet>
+      <SeoHead
+        title="Patient Corner"
+        description="Your hub for patient stories, health blogs, podcasts, breakthrough cases, and wellness guides at Umang Superspeciality Hospital, Gurugram."
+        canonical="/patient-corner"
+        keywords={["patient stories", "health blogs", "medical podcasts", "patient resources Gurugram"]}
+      />
 
       <section className="bg-primary-600 text-white py-12 lg:py-10 px-4 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-10"></div>

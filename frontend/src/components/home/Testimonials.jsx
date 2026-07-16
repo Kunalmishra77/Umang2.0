@@ -178,9 +178,9 @@ const Testimonials = () => {
               <div className="inline-flex items-center gap-2 bg-primary-50 px-4 py-2 rounded-full text-primary-600 font-bold uppercase tracking-widest text-xs mb-6">
                 <Heart className="w-4 h-4 fill-current" /> Patient Voices
               </div>
-              <h2 className="text-4xl lg:text-5xl font-serif font-bold text-brand-dark mb-6 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-dark mb-6 leading-tight">
                 Healing Stories <br />
-                <span className="text-primary-600 italic font-medium">from the Heart.</span>
+                <span className="text-primary-600 font-medium">from the Heart.</span>
               </h2>
               <p className="text-lg text-slate-500 font-light max-w-xl mx-auto lg:mx-0">
                 Thousands of patients trust Umang Hospital for their healthcare journey. Here are some of their inspiring stories of recovery.
@@ -213,7 +213,7 @@ const Testimonials = () => {
                     ))}
                   </div>
 
-                  <p className="text-xl sm:text-2xl text-slate-700 font-medium leading-relaxed mb-10 italic">
+                  <p className="text-xl sm:text-2xl text-slate-700 font-medium leading-relaxed mb-10">
                     "{activeTestimonial.text}"
                   </p>
 

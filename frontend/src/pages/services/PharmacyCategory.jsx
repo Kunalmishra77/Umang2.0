@@ -104,7 +104,7 @@ const PharmacyCategory = () => {
 
             {/* Product Grid */}
             <div className="w-full lg:w-3/4">
-              <h1 className="text-3xl md:text-4xl font-bold text-brand-dark mb-10">{categoryName}</h1>
+              <h1 className="text-3xl md:text-4xl font-serif font-bold text-brand-dark mb-10">{categoryName}</h1>
               
               {loading && products.length === 0 ? (
                 <div className="flex items-center justify-center h-64">

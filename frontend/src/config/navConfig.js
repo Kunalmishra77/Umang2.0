@@ -343,20 +343,6 @@ export const navConfig = {
       href: '/patient-corner',
       groups: [
         {
-          id: 'portal',
-          title: 'Patient Portal',
-          icon: Smartphone,
-          href: '/patient-portal',
-          preview: {
-            title: 'Digital Health',
-            desc: 'Securely manage your appointments, reports and medical history.',
-            bullets: ['Download Reports', 'Book Appointments', 'Online Payments', 'Tele-Consultation'],
-            image: '/assets/About/about-main.webp',
-            tag: 'Portal',
-            cta: { label: 'Login Now', href: '/login' }
-          }
-        },
-        {
           id: 'stories',
           title: 'Patient Stories',
           icon: MessageSquare,

@@ -50,7 +50,7 @@ const MediaCenter = () => {
           </motion.div>
           
           <MaskText>
-            <h1 className="text-4xl md:text-6xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight tracking-tighter">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 leading-tight tracking-tighter">
               Stories of <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 normal">Impact.</span>
             </h1>
           </MaskText>

@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Calendar, User, Phone, MapPin, CheckCircle, ArrowRight, ArrowLeft } from 'lucide-react';
+import { leadApi } from '../../api/api';
 
 const serviceTypes = {
   'lab-test': { title: "Book Lab Test", subtitle: "Select a convenient slot for home collection or center visit." },
@@ -19,12 +20,25 @@ const ServiceBooking = () => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({ name: '', phone: '', date: '', address: '' });
 
-  const handleSubmit = (e) => {
+  const [error, setError] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStep(3); // Success state
-    setTimeout(() => {
-        navigate('/');
-    }, 3000);
+    setError('');
+    try {
+      await leadApi.submitAppointment({
+        name: formData.name,
+        phone: formData.phone,
+        source_page: `Service Booking: ${info.title}`,
+        service: serviceType,
+        preferred_date: formData.date,
+        address: formData.address,
+      });
+      setStep(3); // Success state
+      setTimeout(() => { navigate('/'); }, 3000);
+    } catch (err) {
+      setError(err.message || 'Could not submit. Please try again.');
+    }
   };
 
   return (
@@ -125,6 +139,9 @@ const ServiceBooking = () => {
                    </div>
                 </div>
                 
+                {error && (
+                   <p className="text-sm text-red-600 font-medium text-center">{error}</p>
+                )}
                 <div className="flex gap-4">
                    <button type="button" onClick={() => setStep(1)} className="w-1/3 h-14 border border-gray-200 text-gray-600 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-gray-50 transition-all">
                       <ArrowLeft className="w-5 h-5" /> Back
@@ -141,7 +158,7 @@ const ServiceBooking = () => {
                   <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                      <CheckCircle className="w-10 h-10 text-green-600" />
                   </div>
-                  <h2 className="text-2xl font-bold text-[#0f172a] mb-2">Booking Requested!</h2>
+                  <h2 className="text-2xl font-serif font-bold text-[#0f172a] mb-2">Booking Requested!</h2>
                   <p className="text-gray-500 mb-6">Thank you, {formData.name}. We have received your request. Our support team will confirm your slot shortly.</p>
                   <p className="text-xs text-gray-400">Redirecting to home...</p>
                </motion.div>

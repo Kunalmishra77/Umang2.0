@@ -89,7 +89,7 @@ const PremiumDoctors = () => {
             <span className="text-primary-400 font-black uppercase tracking-[0.4em] text-[12px]">Elite Medical Faculty</span>
             <span className="w-12 h-[2px] bg-primary-500 rounded-full" />
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white mb-4 leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4 leading-tight">
             World-Class{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-cyan-400">
               Specialists

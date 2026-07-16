@@ -326,7 +326,7 @@ const SlideContent = ({ slide, isActive, index }) => {
               {/* Headline — GSAP Split-Text letter reveal */}
               <h1
                 className="font-sans font-black text-white leading-[0.92] mb-7 tracking-tight"
-                style={{ fontSize: 'clamp(2.8rem, 7vw, 6rem)', perspective: '600px' }}
+                style={{ fontSize: 'clamp(2.5rem, 5.4vw, 5.25rem)', perspective: '600px' }}
               >
                 {slide.heading.map((line, lineIdx) => (
                   <span key={lineIdx} className="block">

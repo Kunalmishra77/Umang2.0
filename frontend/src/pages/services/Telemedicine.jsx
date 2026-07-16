@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import {
   Video,
   Calendar,
@@ -58,10 +58,12 @@ const testimonials = [
 const Telemedicine = () => {
   return (
     <div className="bg-white min-h-screen">
-      <Helmet>
-        <title>Telemedicine & Online Consultation | Umang Hospital</title>
-        <meta name="description" content="Consult top doctors online via secure video call. Get digital prescriptions and follow-up care from the comfort of your home." />
-      </Helmet>
+      <SeoHead
+        title="Telemedicine & Online Consultation"
+        description="Consult top Umang Hospital doctors via secure video call — digital prescriptions, second opinions, and follow-up care from home. Book your e-consultation today."
+        canonical="/services/telemedicine"
+        keywords={["online doctor consultation Gurugram", "telemedicine", "video consultation", "e-consultation India"]}
+      />
 
       {/* 1. Hero Section */}
       <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center bg-[#f0f9ff] overflow-hidden py-12 lg:py-8">

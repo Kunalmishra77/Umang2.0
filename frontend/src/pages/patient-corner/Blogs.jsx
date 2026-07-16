@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { Search, User, Clock, ArrowRight, Mail, Star, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ASSETS, getRandomDoctor } from '../../utils/imageAssets';
@@ -59,10 +59,12 @@ const Blogs = () => {
 
   return (
     <div className="bg-white min-h-screen pt-12">
-      <Helmet>
-        <title>Health Blogs & Articles | Umang Hospital</title>
-        <meta name="description" content="Expert health tips, medical news, and wellness advice from Umang Hospital's specialists." />
-      </Helmet>
+      <SeoHead
+        title="Health Blogs & Articles"
+        description="Expert health tips, medical news, and wellness insights from Umang Hospital's specialists. Explore cardiology, orthopedics, nutrition, mental health and more."
+        canonical="/patient-corner/blogs"
+        keywords={["health blogs", "medical articles Gurugram", "wellness tips", "doctor health advice"]}
+      />
 
       {/* 1. Featured Article Hero */}
       <section className="relative min-h-[500px] flex items-center bg-[#f0fdf4] overflow-hidden">

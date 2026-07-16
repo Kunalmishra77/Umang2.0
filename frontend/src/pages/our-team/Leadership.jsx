@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { 
   Award, Star, Linkedin, Mail, ChevronRight, ShieldCheck, 
   Heart, Users, Activity, User, Quote, CheckCircle2, 
@@ -10,17 +10,18 @@ import { Link } from 'react-router-dom';
 import { doctors } from '../../utils/doctorsData';
 import { ASSETS } from '../../utils/imageAssets';
 import { Container, Section, SectionHeading, Card } from '../../components/ui/Layout';
-import { siteConfig } from '../../config/siteConfig';
 
 const heads = doctors.filter(d => d.role.includes('Head') || d.role.includes('Director'));
 
 const Leadership = () => {
   return (
     <div className="bg-white min-h-screen">
-      <Helmet>
-        <title>Clinical Leadership | {siteConfig.name}</title>
-        <meta name="description" content="Meet the visionary leaders and department heads who drive clinical excellence at Umang Hospital." />
-      </Helmet>
+      <SeoHead
+        title="Clinical Leadership"
+        description="Meet the visionary medical directors and department heads driving clinical excellence at Umang Superspeciality Hospital, Gurugram."
+        canonical="/team/leadership"
+        keywords={["hospital leadership Gurugram", "medical directors", "department heads"]}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 bg-brand-dark text-white overflow-hidden">
@@ -42,7 +43,7 @@ const Leadership = () => {
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-500/20 border border-primary-500/30 text-primary-300 text-[11px] font-bold uppercase tracking-[0.3em] mb-6">
               Visionary Leadership
             </span>
-            <h1 className="text-white mb-6 leading-tight">Driving the <span className="text-primary-400 normal">Future of Healthcare.</span></h1>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight">Driving the <span className="text-primary-400 normal">Future of Healthcare.</span></h1>
             <p className="text-lg text-slate-300 leading-relaxed font-light">
               Our leadership team brings together decades of clinical expertise and strategic vision to redefine medical excellence in Gurugram.
             </p>
@@ -73,7 +74,7 @@ const Leadership = () => {
                 <Award className="w-8 h-8 text-primary-600" />
                 <span className="font-bold text-slate-400 uppercase tracking-widest text-xs">Medical Director & Founder</span>
               </div>
-              <h2 className="text-brand-dark mb-4 text-4xl lg:text-5xl font-bold">Dr. Rakesh Gupta</h2>
+              <h2 className="text-brand-dark mb-4 text-4xl lg:text-5xl font-bold font-serif">Dr. Rakesh Gupta</h2>
               <p className="text-primary-600 font-bold text-xl mb-8">MBBS, MS (General Surgery)</p>
               
               <div className="space-y-6 text-slate-600 text-lg leading-relaxed mb-12 font-medium">

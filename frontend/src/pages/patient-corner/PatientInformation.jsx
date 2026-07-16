@@ -278,7 +278,7 @@ const PatientInformation = () => {
       <section className="py-12 lg:py-10 bg-white border-t border-gray-100 text-center">
          <div className="container-custom max-w-2xl">
             <MessageCircle className="w-12 h-12 text-gray-300 mx-auto mb-6" />
-            <h2 className="text-2xl font-bold text-[#0f172a] mb-4">Your Feedback Matters</h2>
+            <h2 className="text-2xl font-serif font-bold text-[#0f172a] mb-4">Your Feedback Matters</h2>
             <p className="text-gray-500 mb-8">
                We strive for excellence. If you have any suggestions or grievances, please let us know.
             </p>

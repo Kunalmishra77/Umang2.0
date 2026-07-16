@@ -37,7 +37,7 @@ const NursingStaff = () => {
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/20 border border-rose-500/30 text-rose-300 text-[11px] font-bold uppercase tracking-[0.3em] mb-6">
               The Heart of Care
             </span>
-            <h1 className="text-white mb-6 leading-tight">Healing with <span className="text-rose-400 normal">Compassion.</span></h1>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight">Healing with <span className="text-rose-400 normal">Compassion.</span></h1>
             <p className="text-lg text-slate-300 leading-relaxed font-light">
               Our 500+ strong nursing team is dedicated to providing round-the-clock compassionate care, ensuring your journey to recovery is comfortable and safe.
             </p>

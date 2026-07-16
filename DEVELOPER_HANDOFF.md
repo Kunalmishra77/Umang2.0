@@ -1,7 +1,7 @@
 # Umang Superspeciality Hospital — Developer Handoff Guide
 
 **Project:** Umang Superspeciality Hospital Website  
-**Live URL:** https://umang2-0.vercel.app  
+**Live URL:** https://www.umanghospitals.in  
 **Repository:** https://github.com/Kunalmishra77/Umang2.0  
 **Prepared for:** Umang Hospital Development Team  
 
@@ -13,11 +13,11 @@ This is the official website for **Umang Superspeciality Hospital, Gurugram**. I
 
 | Layer | Technology | Status |
 |---|---|---|
-| Frontend | React 18 + Vite + Tailwind CSS | Live on Vercel |
+| Frontend | React 18 + Vite + Tailwind CSS | Deployed at umanghospitals.in (Apache/cPanel) |
 | Backend | Laravel 11 (PHP) | Built, not yet deployed |
 | Database | SQLite (default) / MySQL (production) | Migrations ready |
 
-The frontend is fully functional and deployed. The backend is built and ready for deployment — it provides an API for doctors, appointments, CMS data, and lead generation (callbacks, contact inquiries).
+The frontend is fully functional and deployed on Apache/cPanel hosting at **https://www.umanghospitals.in**. The backend is built and ready for deployment — it provides an API for doctors, appointments, CMS data, and lead generation (callbacks, contact inquiries).
 
 ---
 
@@ -230,29 +230,34 @@ VITE_API_URL=https://api.yourdomain.com/api
 
 ## 7. Deployment Guide
 
-### 7A. Frontend Deployment (Vercel — Already Live)
+### 7A. Frontend Deployment (Apache / cPanel — Live at umanghospitals.in)
 
-The frontend is deployed at **https://umang2-0.vercel.app** via Vercel.
+The frontend is deployed on **Apache/cPanel hosting** at **https://www.umanghospitals.in**.
 
-**To redeploy after changes:**
+**Deployment steps (after any code change):**
 ```bash
-cd Umang2.0
-git add .
-git commit -m "your changes"
-git push origin main
-# Vercel auto-deploys on push to main
+# 1. Build the frontend
+cd Umang2.0/frontend
+npm run build
+# Output is in: frontend/dist/
+
+# 2. Upload dist/ contents to cPanel public_html/
+# Upload everything inside dist/ (not the dist folder itself) to your domain root
+# This includes: index.html, assets/, .htaccess, sitemap.xml, robots.txt, lp.html, etc.
 ```
 
-**To link a custom domain on Vercel:**
-1. Go to [vercel.com](https://vercel.com) → Project → Settings → Domains
-2. Add your domain (e.g., `www.umanghospital.com`)
-3. Update your domain's DNS:
-   - Add a `CNAME` record: `www` → `cname.vercel-dns.com`
-   - Or for root domain (`@`): use Vercel's provided A record IPs
+**Important files included in the build output (`dist/`):**
+- `index.html` — React app entry point
+- `assets/` — bundled JS/CSS + all public assets (images, videos)
+- `.htaccess` — Apache SPA routing + old URL redirects (copied from `public/.htaccess`)
+- `sitemap.xml` — Search engine sitemap
+- `robots.txt` — Crawler directives
+- `lp.html` — Standalone marketing landing page (accessible at `/lp.html`)
 
-**Environment variable for production API on Vercel:**
-1. Vercel Dashboard → Project → Settings → Environment Variables
-2. Add: `VITE_API_URL` = `https://api.yourdomain.com/api`
+**The `.htaccess` file handles:**
+- React Router SPA routing (all routes serve `index.html`)
+- 301 redirects for old `.html` URLs from the previous website
+- `/index.html` → `/` redirect
 
 ### 7B. Backend Deployment
 
@@ -290,31 +295,24 @@ php artisan migrate --force
 User Browser
      │
      ▼
-[Vercel CDN] ──── serves React frontend ──── www.umanghospital.com
+[Apache Server / cPanel] ──── serves React frontend ──── www.umanghospitals.in
      │
      │ (API calls)
      ▼
-[PHP Server / VPS] ──── Laravel backend ──── api.umanghospital.com
+[PHP Server / cPanel subdomain] ──── Laravel backend ──── api.umanghospitals.in
      │
      ▼
 [MySQL Database]
 ```
-
-**DNS Setup for Custom Domain:**
-| Record Type | Name | Value |
-|---|---|---|
-| CNAME | www | cname.vercel-dns.com |
-| A | @ | 76.76.21.21 (Vercel IP) |
-| CNAME | api | your-backend-server-ip or hostname |
 
 ---
 
 ## 8. Important Configuration After Deployment
 
 ### Update Frontend API URL
-In Vercel Environment Variables:
+In `frontend/.env` (before building):
 ```
-VITE_API_URL = https://api.yourdomain.com/api
+VITE_API_URL = https://api.umanghospitals.in/api
 ```
 
 ### Update Backend `.env` for Production
@@ -341,7 +339,7 @@ MAIL_FROM_NAME="Umang Superspeciality Hospital"
 ### Enable CORS for Frontend Domain
 In `backend/config/cors.php`, ensure your frontend domain is allowed:
 ```php
-'allowed_origins' => ['https://www.umanghospital.com', 'https://umang2-0.vercel.app'],
+'allowed_origins' => ['https://www.umanghospitals.in'],
 ```
 
 ---
@@ -387,8 +385,9 @@ In `backend/config/cors.php`, ensure your frontend domain is allowed:
 | Hospital Email | umanghospitalgurugram@gmail.com |
 | Emergency Phone | +91 85880 72727 |
 | GitHub Repo | https://github.com/Kunalmishra77/Umang2.0 |
-| Vercel Project | https://vercel.com (login with GitHub) |
-| Live Frontend | https://umang2-0.vercel.app |
+| Hosting | Apache / cPanel (contact Umang IT team for credentials) |
+| Live Frontend | https://www.umanghospitals.in |
+| Landing Page | https://www.umanghospitals.in/lp.html |
 
 ---
 
@@ -404,7 +403,7 @@ In `backend/config/cors.php`, ensure your frontend domain is allowed:
 | Edit About page content | `frontend/src/pages/about/About.jsx` |
 | Edit home page events | `frontend/src/components/home/EventHighlights.jsx` |
 | Edit home page milestones | `frontend/src/content/kbContent.js` → `about.milestones` |
-| Deploy to Vercel | `git push origin main` (auto-deploys) |
+| Deploy to live site | Build `npm run build` in `frontend/`, upload `dist/` to cPanel `public_html/` |
 
 ---
 

@@ -6,10 +6,11 @@ import {
     Clock, ThumbsUp, Users, Activity, AlertCircle, Phone
 } from 'lucide-react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import api from '../../services/api';
+import { leadApi } from '../../api/api';
 import { ASSETS } from '../../utils/imageAssets';
 import ParallaxImage from '../../components/common/ParallaxImage';
 import { Container, Section, SectionHeading } from '../../components/ui/Layout';
@@ -52,9 +53,13 @@ const CashlessInsurance = () => {
     const onSubmitInquiry = async (data) => {
         setIsSubmitting(true);
         try {
-            await api.post('/insurance-inquiry', {
-                ...data,
-                company_name: selectedCompany.name
+            await leadApi.submitInsuranceInquiry({
+                name: data.patient_name,
+                phone: data.phone,
+                message: data.message,
+                source_page: 'Cashless Insurance',
+                company_name: selectedCompany.name,
+                policy_number: data.policy_number,
             });
             toast.success("Inquiry submitted! Our team will contact you soon.");
             setSelectedCompany(null);
@@ -83,9 +88,12 @@ const CashlessInsurance = () => {
             className="bg-white min-h-screen font-sans overflow-hidden relative"
             style={{ position: 'relative' }}
         >
-            <Helmet>
-                <title>Cashless Insurance & TPA | Umang Superspeciality Hospital</title>
-            </Helmet>
+            <SeoHead
+                title="Cashless Insurance & TPA"
+                description="Get cashless treatment at Umang Superspeciality Hospital with 50+ empanelled insurance companies and TPAs including CGHS, ESIC, and leading private insurers in Gurugram."
+                canonical="/cashless-insurance"
+                keywords={["cashless insurance Gurugram", "TPA hospital", "CGHS hospital Gurugram", "health insurance hospital"]}
+            />
 
             {/* 1. CINEMATIC HERO */}
             <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-brand-dark">

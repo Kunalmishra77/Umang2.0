@@ -1,5 +1,6 @@
-import React, { lazy, Suspense, useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { lazyWithRetry as lazy } from './utils/lazyWithRetry';
 import MainLayout from './layouts/MainLayout';
 import ScrollToTop from './components/utils/ScrollToTop';
 import WhatsAppFloating from './components/common/WhatsAppFloating';
@@ -11,6 +12,11 @@ import 'react-toastify/dist/ReactToastify.css';
 // Eagerly load the home page for fast initial render
 import Home from './pages/home/Home';
 
+// Admin panel (Supabase auth)
+import { AuthProvider } from './lib/auth';
+import { SiteContentProvider } from './lib/siteContent';
+import ProtectedRoute from './admin/ProtectedRoute';
+
 // Lazy load all other pages
 const About = lazy(() => import('./pages/about/About'));
 const Infrastructure = lazy(() => import('./pages/infrastructure/Infrastructure'));
@@ -20,14 +26,8 @@ const SpecialityDetail = lazy(() => import('./pages/specialties/SpecialityDetail
 const DoctorSearch = lazy(() => import('./pages/doctors/DoctorSearch'));
 const DoctorProfile = lazy(() => import('./pages/doctors/DoctorProfile'));
 const BookingPage = lazy(() => import('./pages/appointments/BookingPage'));
-const Login = lazy(() => import('./pages/auth/Login'));
-const Register = lazy(() => import('./pages/auth/Register'));
 const Pharmacy = lazy(() => import('./pages/services/Pharmacy'));
 const Contact = lazy(() => import('./pages/contact/Contact'));
-const PatientDashboard = lazy(() => import('./pages/patients/PatientDashboard'));
-const PatientAppointments = lazy(() => import('./pages/patients/PatientAppointments'));
-const PatientProfile = lazy(() => import('./pages/patients/PatientProfile'));
-const BookAppointmentPatient = lazy(() => import('./pages/appointments/BookAppointmentPatient'));
 const Terms = lazy(() => import('./pages/legal/Terms'));
 const Privacy = lazy(() => import('./pages/legal/Privacy'));
 const Services = lazy(() => import('./pages/services/Services'));
@@ -74,8 +74,6 @@ const Newsletters = lazy(() => import('./pages/media-center/Newsletters'));
 const MediaConnect = lazy(() => import('./pages/media-center/MediaConnect'));
 const PressReleaseDetail = lazy(() => import('./pages/media-center/PressReleaseDetail'));
 const GeneralAppointment = lazy(() => import('./pages/appointments/GeneralAppointment'));
-const LabReports = lazy(() => import('./pages/patients/LabReports'));
-const Billing = lazy(() => import('./pages/patients/Billing'));
 const InquiryHub = lazy(() => import('./pages/contact/InquiryHub'));
 const Logout = lazy(() => import('./pages/auth/Logout'));
 const CashlessInsurance = lazy(() => import('./pages/legal/CashlessInsurance'));
@@ -83,9 +81,16 @@ const GenericCmsPage = lazy(() => import('./pages/legal/GenericCmsPage'));
 const Sitemap = lazy(() => import('./pages/legal/Sitemap'));
 const IcuPage = lazy(() => import('./pages/infrastructure/IcuPage'));
 const IcuUnitDetail = lazy(() => import('./pages/infrastructure/IcuUnitDetail'));
-const PatientLayout = lazy(() => import('./layouts/PatientLayout'));
 const NotFound = lazy(() => import('./pages/utils/NotFound'));
-const Patients = lazy(() => import('./pages/patients/Patients'));
+
+// Admin panel pages
+const AdminLayout = lazy(() => import('./admin/AdminLayout'));
+const AdminLogin = lazy(() => import('./admin/AdminLogin'));
+const AdminDashboard = lazy(() => import('./admin/AdminDashboard'));
+const AdminLeads = lazy(() => import('./admin/AdminLeads'));
+const AdminOffers = lazy(() => import('./admin/AdminOffers'));
+const AdminContent = lazy(() => import('./admin/AdminContent'));
+const AdminMedia = lazy(() => import('./admin/AdminMedia'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -96,7 +101,8 @@ function App() {
   }, []);
 
   return (
-    <>
+    <AuthProvider>
+      <SiteContentProvider>
       <AnimatePresence mode="wait">
         {isLoading && <Preloader key="preloader" />}
       </AnimatePresence>
@@ -198,28 +204,24 @@ function App() {
             <Route path="privacy-policy" element={<Privacy />} />
             <Route path="cms/legal-and-compliance" element={<DynamicSubPage />} />
             <Route path="patient-experience" element={<DynamicSubPage />} />
-            <Route path="patient-portal" element={<Patients />} />
             <Route path="sitemap" element={<Sitemap />} />
             <Route path="logout" element={<Logout />} />
             <Route path="*" element={<NotFound />} />
           </Route>
 
-          {/* Patient Portal Routes with Sidebar */}
-          <Route path="patients" element={<PatientLayout />}>
-            <Route index element={<PatientDashboard />} />
-            <Route path="lab-reports" element={<LabReports />} />
-            <Route path="appointments" element={<PatientAppointments />} />
-            <Route path="profile" element={<PatientProfile />} />
-            <Route path="billing" element={<Billing />} />
-            <Route path="book-appointment" element={<BookAppointmentPatient />} />
-            <Route path="*" element={<NotFound />} />
+          {/* Admin panel (Supabase auth) */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<ProtectedRoute><AdminLayout /></ProtectedRoute>}>
+            <Route index element={<AdminDashboard />} />
+            <Route path="leads" element={<AdminLeads />} />
+            <Route path="offers" element={<AdminOffers />} />
+            <Route path="content" element={<AdminContent />} />
+            <Route path="media" element={<AdminMedia />} />
           </Route>
-
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
         </Routes>
       </Suspense>
-    </>
+      </SiteContentProvider>
+    </AuthProvider>
   );
 }
 

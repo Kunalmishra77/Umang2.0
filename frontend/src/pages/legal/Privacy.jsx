@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { Shield, Eye, Lock, Share2, UserCheck, ChevronRight, Mail, FileCheck, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Container, Section } from '../../components/ui/Layout';
@@ -46,10 +46,11 @@ const Privacy = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <Helmet>
-        <title>Privacy Policy | Umang Superspeciality Hospital</title>
-        <meta name="description" content="Privacy policy and data protection guidelines for patients and users of Umang Hospital." />
-      </Helmet>
+      <SeoHead
+        title="Privacy Policy"
+        description="Learn how Umang Superspeciality Hospital collects, uses, and protects your personal and medical data. We are committed to safeguarding your privacy."
+        canonical="/privacy-policy"
+      />
 
       {/* 1. PREMIUM HERO SECTION */}
       <section className="relative pt-40 pb-24 bg-[#030712] text-white overflow-hidden">

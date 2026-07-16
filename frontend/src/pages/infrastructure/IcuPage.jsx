@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Activity, Bed, Thermometer, UserCheck, Heart, ShieldCheck, CheckCircle2, ArrowRight, Clock, Phone, Calendar, Zap, Microscope, Award } from 'lucide-react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import api from '../../services/api';
 import { ASSETS } from '../../utils/imageAssets';
 import { siteConfig } from '../../config/siteConfig';
@@ -45,10 +45,12 @@ const IcuPage = () => {
             ref={containerRef} 
             className="bg-white min-h-screen font-sans overflow-hidden relative"
         >
-            <Helmet>
-                <title>Smart ICU Hub | Umang Superspeciality Hospital</title>
-                <meta name="description" content="Explore our high-tech critical care ecosystem with specialized ICU, SICU, and CCU units featuring AI-driven monitoring." />
-            </Helmet>
+            <SeoHead
+                title="Smart ICU & Critical Care Hub"
+                description="State-of-the-art ICU at Umang Hospital, Gurugram — General ICU, SICU, and CCU with AI-driven monitoring, 24/7 intensivists, and advanced life support systems."
+                canonical="/infrastructure/icu"
+                keywords={["ICU hospital Gurugram", "critical care unit", "SICU CCU Gurugram", "intensive care"]}
+            />
 
             {/* 1. CINEMATIC HERO */}
             <section className="relative h-[75vh] min-h-[550px] flex items-center justify-center overflow-hidden bg-brand-dark">
@@ -68,7 +70,7 @@ const IcuPage = () => {
                            <span className="w-12 h-[2px] bg-primary-500" />
                            <span className="text-primary-400 font-black uppercase tracking-[0.4em] text-[11px]">Elite Critical Care</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl lg:text-5xl font-serif font-bold text-white mb-6 tracking-tighter leading-[1.1]">
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-6 tracking-tighter leading-[1.1]">
                             Smart ICU <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-300 via-cyan-200 to-primary-400 normal">Hub.</span>
                         </h1>
                         <p className="text-lg md:text-xl text-primary-100/70 max-w-2xl mx-auto mb-10 font-light leading-relaxed">

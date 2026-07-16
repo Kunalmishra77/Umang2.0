@@ -87,7 +87,7 @@ const PrescriptionUpload = () => {
               <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="w-12 h-12 text-green-600" />
               </div>
-              <h2 className="text-2xl font-bold text-[#0f172a] mb-2">Upload Successful!</h2>
+              <h2 className="text-2xl font-serif font-bold text-[#0f172a] mb-2">Upload Successful!</h2>
               <p className="text-gray-500 mb-8">Our pharmacists will verify your prescription and contact you shortly.</p>
               <Link to="/services/buy-medicines" className="text-primary-600 font-bold hover:underline">Return to Pharmacy</Link>
             </motion.div>

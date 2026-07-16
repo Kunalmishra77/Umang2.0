@@ -13,6 +13,7 @@ import MedicalUpgrades from '../../components/home/MedicalUpgrades';
 import Testimonials from '../../components/home/Testimonials';
 import HomeFaq from '../../components/home/HomeFaq';
 import AppointmentCTA from '../../components/home/AppointmentCTA';
+import OfferDisplay from '../../components/common/OfferDisplay';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
 const Home = () => {
@@ -37,6 +38,7 @@ const Home = () => {
       />
 
       <main className="overflow-x-hidden relative">
+        <OfferDisplay />
         <HeroSection />
         <EventHighlights />
         <HospitalVideoSection />

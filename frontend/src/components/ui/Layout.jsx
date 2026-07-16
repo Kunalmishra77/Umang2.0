@@ -28,7 +28,7 @@ export const SectionHeading = ({
       </span>
     )}
     <h2 
-      className={'mb-8 ' + (dark ? 'text-white' : 'text-brand-dark')}
+      className={'mb-8 font-serif font-bold ' + (dark ? 'text-white' : 'text-brand-dark')}
       dangerouslySetInnerHTML={{ __html: title }}
     />
     {description && (

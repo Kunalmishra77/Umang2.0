@@ -126,7 +126,7 @@ const HealthPackagesPreview = () => {
         <div className="flex flex-col lg:flex-row justify-between lg:items-end mb-8 sm:mb-14 lg:mb-16 gap-4 sm:gap-6 text-center lg:text-left">
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl">
             <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[11px] sm:text-[12px] mb-2 sm:mb-3 block">Preventive Care</span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-dark leading-tight">
               Our Health <span className="text-primary-600 normal">Packages</span>
             </h2>
             <p className="text-gray-500 mt-3 sm:mt-4 text-sm sm:text-base lg:text-lg font-light leading-relaxed">

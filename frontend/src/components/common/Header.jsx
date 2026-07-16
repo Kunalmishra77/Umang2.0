@@ -56,10 +56,10 @@ const Header = () => {
         </div>
 
         {/* MAIN NAV ROW */}
-        <div className={`bg-white transition-all duration-500 border-b border-gray-100 relative ${isScrolled ? 'h-12 lg:h-14' : 'h-14 lg:h-16'}`}>
+        <div className={`bg-white transition-all duration-500 border-b border-gray-100 relative ${isScrolled ? 'h-14 lg:h-[68px]' : 'h-14 lg:h-[76px]'}`}>
           <div className="container-custom flex items-center justify-between gap-4 px-4 w-full h-full relative">
             <Link to="/" className="flex items-center shrink-0 group py-1">
-               <img src="/Umang-logo.webp" alt="Umang Superspeciality Hospital" className="h-9 lg:h-11 w-auto object-contain" />
+               <img src="/Umang-logo.webp" alt="Umang Superspeciality Hospital" className="h-11 lg:h-14 w-auto object-contain" />
             </Link>
 
             {/* Tightened Navigation Spacing */}
@@ -106,8 +106,8 @@ const Header = () => {
             </nav>
 
             <div className="flex items-center gap-2">
-               <Link to="/doctors" className="h-10 lg:h-11 px-4 lg:px-6 rounded-xl flex items-center gap-2 text-[11px] lg:text-[12px] font-black uppercase tracking-widest transition-all bg-primary-600 text-white shadow-lg shadow-primary-600/20 hover:bg-primary-500 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap">
-                 <Calendar className="w-3.5 h-3.5" /> <span className="hidden sm:inline">Appointment</span><span className="sm:hidden">BOOK</span>
+               <Link to="/doctors" className="h-11 lg:h-13 px-5 lg:px-7 rounded-xl flex items-center gap-2 text-[13px] lg:text-[15px] font-black uppercase tracking-widest transition-all bg-primary-600 text-white shadow-lg shadow-primary-600/20 hover:bg-primary-500 hover:-translate-y-0.5 active:scale-95 whitespace-nowrap">
+                 <Calendar className="w-4 h-4 lg:w-[18px] lg:h-[18px]" /> <span className="hidden sm:inline">Appointment</span><span className="sm:hidden">BOOK</span>
                </Link>
                <button className="xl:hidden w-11 h-11 flex items-center justify-center rounded-xl bg-gray-50 text-gray-700 border border-gray-100" onClick={() => setIsMobileMenuOpen(true)}>
                  <Menu className="w-6 h-6" />

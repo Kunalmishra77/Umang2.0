@@ -236,7 +236,7 @@ const MedicalUpgrades = () => {
             className="max-w-2xl text-left"
           >
             <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[11px] sm:text-[12px] mb-3 sm:mb-4 block">Clinical Infrastructure</span>
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-serif font-bold leading-[1.1] text-brand-dark">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-[1.1] text-brand-dark">
               Built for <span className="text-primary-600 normal">Precision.</span>
             </h2>
             <p className="text-gray-500 mt-4 sm:mt-6 text-sm lg:text-lg font-light leading-relaxed max-w-[55ch]">

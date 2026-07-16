@@ -305,7 +305,7 @@ const SpecialitiesSection = () => {
             <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[11px] lg:text-[12px] mb-3 block">
               Clinical Excellence
             </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-dark leading-tight">
               Centres of{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-cyan-500">
                 Excellence

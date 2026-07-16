@@ -88,7 +88,7 @@ const EventRegistration = () => {
                  <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
                     <CheckCircle className="w-10 h-10 text-green-600" />
                  </div>
-                 <h2 className="text-2xl font-bold text-[#0f172a] mb-2">You're Registered!</h2>
+                 <h2 className="text-2xl font-serif font-bold text-[#0f172a] mb-2">You're Registered!</h2>
                  <p className="text-gray-500 mb-6">A confirmation email with the event pass has been sent to you.</p>
                  <p className="text-xs text-gray-400">Redirecting to events...</p>
               </motion.div>

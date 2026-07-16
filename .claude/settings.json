@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\('scripts',{}\\)\\)\")",
+      "Bash(dir \"D:\\\\Umang2.0\\\\Umang Images\" /b)",
+      "PowerShell(netstat -ano)",
+      "Bash(cd /d/Umang2.0/frontend && grep -roh \"'/[^']*\\\\.\\\\\\(webp\\\\|jpeg\\\\|jpg\\\\|png\\\\|mp4\\\\|MP4\\\\|svg\\\\|webm\\\\\\)'\" src/ | sed \"s/'//g\" | sort -u)",
+      "Read(//d/d/Umang2.0/frontend/**)",
+      "Bash(unzip -p Umang-Hospital-Deployment.zip \"01_frontend-build\\\\\\\\index.html\")",
+      "Read(//d/tmp/**)",
+      "Bash(rm -rf verify_extract)",
+      "Bash(mkdir verify_extract)",
+      "Bash(unzip -q \"/d/Umang2.0/Umang-Hospital-Deployment.zip\" -d verify_extract)",
+      "Bash(find /tmp/verify_extract -iname \"index.html\")",
+      "Read(//tmp/**)",
+      "Read(//tmp/verify_extract/01_frontend-build/**)"
+    ]
+  }
+}

@@ -91,7 +91,7 @@ const BookingPage = () => {
                      <img src={doctor.image} alt={doctor.name} className="w-full h-full object-cover" />
                   </div>
                   <div>
-                     <h2 className="text-xl lg:text-2xl font-bold text-gray-900">{doctor.name}</h2>
+                     <h2 className="text-xl lg:text-2xl font-serif font-bold text-gray-900">{doctor.name}</h2>
                      <p className="text-primary-600 text-xs lg:text-sm font-bold uppercase tracking-wider">{doctor.dept}</p>
                      <div className="flex items-center gap-1 text-yellow-400 mt-1">
                         <Star className="w-3 h-3 fill-current" /> <span className="text-gray-400 text-[10px] lg:text-xs font-bold">{doctor.rating} Rating</span>

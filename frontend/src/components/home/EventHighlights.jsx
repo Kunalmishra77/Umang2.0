@@ -113,7 +113,7 @@ const EventHighlights = () => {
               <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
               <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-gray-400">Currently Running</span>
             </div>
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-brand-dark leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-dark leading-tight">
               Hospital <span className="text-primary-600">Programs</span>
             </h2>
           </div>

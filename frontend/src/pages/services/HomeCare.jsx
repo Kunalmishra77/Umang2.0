@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { 
   Home, Heart, Activity, UserCheck, Clock, ShieldCheck, 
   Phone, Calendar, CheckCircle, ArrowRight, Star, ChevronDown,
@@ -64,10 +64,12 @@ const HomeCare = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <Helmet>
-        <title>Home Care Services | Umang Hospital</title>
-        <meta name="description" content="Professional hospital-like care at home. ICU setup, nursing, physiotherapy, and medical equipment rental services." />
-      </Helmet>
+      <SeoHead
+        title="Home Care Services"
+        description="Hospital-quality care at your doorstep in Gurugram — ICU setup at home, nursing care, physiotherapy, wound care, and medical equipment by trained Umang Hospital professionals."
+        canonical="/services/home-care"
+        keywords={["home care services Gurugram", "nursing at home", "ICU at home Gurugram", "physiotherapy home visit"]}
+      />
 
       {/* 1. Hero Section */}
       <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center bg-[#f0f9ff] overflow-hidden py-12 lg:py-8">

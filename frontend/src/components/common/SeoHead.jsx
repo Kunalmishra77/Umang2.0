@@ -12,7 +12,7 @@ const SeoHead = ({
 }) => {
   const fullTitle = `${title} | ${siteConfig.name}`;
   const fullDescription = description || siteConfig.marketingMessage;
-  const siteUrl = 'https://umanghospital.com'; // Replace with real production URL
+  const siteUrl = 'https://www.umanghospitals.in';
   const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
 
   return (

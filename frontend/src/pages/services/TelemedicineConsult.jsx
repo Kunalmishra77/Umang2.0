@@ -22,7 +22,7 @@ const TelemedicineConsult = () => {
       <div className="w-full max-w-2xl">
         {step === 1 && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
-            <h1 className="text-3xl font-bold mb-8">System Check</h1>
+            <h1 className="text-3xl font-serif font-bold mb-8">System Check</h1>
             
             <div className="grid gap-4 mb-8">
               <div className="bg-white/5 p-4 rounded-2xl flex items-center justify-between border border-white/10">

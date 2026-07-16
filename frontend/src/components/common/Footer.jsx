@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, Mail, Heart, ArrowUp } from 'lucide-react';
+import { Facebook, Twitter, Linkedin, Instagram, Youtube, MapPin, Phone, Mail, Heart, ArrowUp } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
+import { useSiteContent } from '../../lib/siteContent';
 
 const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const content = useSiteContent();
+
+  const socials = [
+    { icon: Facebook, href: content.social.facebook },
+    { icon: Instagram, href: content.social.instagram },
+    { icon: Linkedin, href: content.social.linkedin },
+    { icon: Twitter, href: content.social.twitter },
+    { icon: Youtube, href: content.social.youtube },
+  ].filter((s) => s.href);
 
   useEffect(() => {
     const handleMenuToggle = (e) => {
@@ -60,21 +70,17 @@ const Footer = () => {
           <div className="lg:col-span-4 lg:pr-12 text-center sm:text-left">
             <Link to="/" className="inline-block mb-6 lg:mb-8 group">
               <img
-                src="/Umang-logo.webp"
+                src="/Umang-logo-footer.png"
                 alt={siteConfig.name}
-                className="h-14 lg:h-16 w-auto brightness-0 invert"
+                className="h-12 lg:h-14 w-auto"
               />
             </Link>
             <p className="text-gray-300 mb-8 leading-relaxed font-light text-base lg:text-lg max-w-md mx-auto sm:mx-0">
-              {siteConfig.name} is a {siteConfig.stats.beds}-bedded super speciality hospital in Gurugram, {siteConfig.marketingMessage.toLowerCase()}.
+              {content.footer.about_text ||
+                `${siteConfig.name} is a ${siteConfig.stats.beds}-bedded super speciality hospital in Gurugram, ${siteConfig.marketingMessage.toLowerCase()}.`}
             </p>
             <div className="flex justify-center sm:justify-start gap-4">
-              {[
-                { icon: Facebook, href: "https://facebook.com" },
-                { icon: Twitter, href: "https://twitter.com" },
-                { icon: Linkedin, href: "https://linkedin.com" },
-                { icon: Instagram, href: "https://instagram.com" }
-              ].map((item, i) => (
+              {socials.map((item, i) => (
                 <a 
                   key={i}
                   href={item.href} 
@@ -142,7 +148,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-white font-bold text-base mb-1">{siteConfig.locations.main.title}</p>
-                  <p className="text-sm lg:text-base text-gray-400 leading-relaxed max-w-[280px]">{siteConfig.locations.main.address}</p>
+                  <p className="text-sm lg:text-base text-gray-400 leading-relaxed max-w-[280px]">{content.contact.address || siteConfig.locations.main.address}</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
@@ -151,7 +157,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-white font-bold text-base mb-0.5">Emergency Line</p>
-                  <p className="text-gray-400 font-medium text-sm lg:text-base">{siteConfig.contacts.emergency}</p>
+                  <p className="text-gray-400 font-medium text-sm lg:text-base">{content.contact.emergency || siteConfig.contacts.emergency}</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 group">
@@ -160,7 +166,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <p className="text-white font-bold text-base mb-0.5">Support Email</p>
-                  <p className="text-sm lg:text-base text-gray-300 hover:text-white transition-colors truncate max-w-[250px] lg:max-w-none">{siteConfig.contacts.email}</p>
+                  <p className="text-sm lg:text-base text-gray-300 hover:text-white transition-colors truncate max-w-[250px] lg:max-w-none">{content.contact.email || siteConfig.contacts.email}</p>
                 </div>
               </div>
             </div>

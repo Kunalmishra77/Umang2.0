@@ -27,11 +27,6 @@ const HospitalVideoSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
           {/* Video side with reveal animation */}
           <motion.div className="order-2 lg:order-1 relative" style={{ y: leftY }}>
-            <div className="mb-6 lg:mb-8">
-              <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] md:text-sm mb-3 block">Virtual Hospital Tour</span>
-              <h3 className="text-xl lg:text-2xl font-serif font-bold text-brand-dark">World-Class Infrastructure</h3>
-            </div>
-
             <motion.div
               initial={{ opacity: 0, scale: 0.92 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -47,6 +42,11 @@ const HospitalVideoSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f172a]/60 via-transparent to-transparent" />
             </motion.div>
 
+            <div className="mt-6 lg:mt-8">
+              <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[12px] md:text-sm mb-3 block">Virtual Hospital Tour</span>
+              <h3 className="text-xl lg:text-2xl font-serif font-bold text-brand-dark">World-Class Infrastructure</h3>
+            </div>
+
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-primary-500/10 rounded-full blur-3xl -z-10" />
           </motion.div>
 
@@ -59,7 +59,7 @@ const HospitalVideoSection = () => {
               transition={{ duration: 0.8 }}
             >
               <span className="text-primary-600 font-bold uppercase tracking-[0.3em] text-[11px] sm:text-[12px] mb-3 sm:mb-4 block">The Umang Experience</span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-brand-dark mb-6 sm:mb-8 leading-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-brand-dark mb-6 sm:mb-8 leading-tight">
                 Next-Gen Infrastructure with a <span className="text-primary-600 normal font-medium">Human Touch.</span>
               </h2>
 

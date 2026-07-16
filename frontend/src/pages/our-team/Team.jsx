@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet-async';
+import SeoHead from '../../components/common/SeoHead';
 import { 
   Award, Heart, UserPlus, Linkedin, 
   Mail, ChevronRight, Quote, Star, ShieldCheck, Activity, ArrowRight 
@@ -19,10 +19,12 @@ const consultants = doctors.filter(d => d.role === 'Senior Consultant').slice(0,
 const Team = () => {
   return (
     <div className="bg-white min-h-screen pt-12">
-      <Helmet>
-        <title>Medical Faculty - Visionaries of Umang Hospital</title>
-        <meta name="description" content="Meet the medical experts, directors, and compassionate nursing staff behind Umang Hospital's success." />
-      </Helmet>
+      <SeoHead
+        title="Medical Faculty & Team"
+        description="Meet the expert doctors, medical directors, and specialists at Umang Superspeciality Hospital, Gurugram — committed to compassionate and advanced patient care."
+        canonical="/team"
+        keywords={["doctors Umang Hospital", "specialist doctors Gurugram", "medical team Gurugram"]}
+      />
 
       {/* SECTION 1: HERO - THE VISIONARIES */}
       <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center bg-[#0f172a] overflow-hidden">
