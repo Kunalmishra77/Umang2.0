@@ -10,11 +10,23 @@ import gsap from 'gsap';
 import { ASSETS } from '../../utils/imageAssets';
 import { siteConfig } from '../../config/siteConfig';
 import { useLeadForm } from '../../hooks/useLeadForm';
+import { usePublished } from '../../lib/useCollection';
+
+// Map a DB hero row to the shape the slide renderer expects.
+const mapSlide = (s) =>
+  s.heading ? s : {
+    img: s.image_url,
+    tag: s.tag,
+    heading: [s.heading1, s.heading2].filter(Boolean),
+    desc: s.description,
+    cta: { label: s.cta_label || 'Learn more', to: s.cta_to || '/' },
+    accent: s.accent || '#1E97B2',
+  };
 
 /* ═══════════════════════════════════════════════════════════
    SLIDE DATA
 ═══════════════════════════════════════════════════════════ */
-const heroSlides = [
+const staticHeroSlides = [
   {
     img: ASSETS.RECEPTION,
     tag: 'Welcome to Umang',
@@ -372,6 +384,7 @@ const SlideContent = ({ slide, isActive, index }) => {
 ═══════════════════════════════════════════════════════════ */
 const HeroSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const heroSlides = usePublished('hero_slides', staticHeroSlides).map(mapSlide);
   const swiperRef = useRef(null);
   const { progress, reset: resetProgress } = useAutoplayProgress(4000);
 

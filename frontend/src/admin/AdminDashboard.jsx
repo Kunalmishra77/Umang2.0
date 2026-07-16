@@ -9,6 +9,8 @@ export default function AdminDashboard() {
   const [stats, setStats] = useState({ total: 0, new: 0, contacted: 0, converted: 0 });
   const [offersLive, setOffersLive] = useState(0);
   const [recent, setRecent] = useState([]);
+  const [traffic, setTraffic] = useState({ total_views: 0, unique_sessions: 0 });
+  const [topPages, setTopPages] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -32,9 +34,15 @@ export default function AdminDashboard() {
       const { data } = await supabase.from('leads')
         .select('id,type,name,phone,status,source_page,created_at')
         .order('created_at', { ascending: false }).limit(6);
+      const [{ data: vs }, { data: tp }] = await Promise.all([
+        supabase.rpc('admin_view_stats', { days: 7 }),
+        supabase.rpc('admin_top_pages', { days: 7 }),
+      ]);
       if (!active) return;
       setStats({ total, new: nw, contacted, converted });
       setRecent(data || []);
+      if (vs && vs[0]) setTraffic(vs[0]);
+      setTopPages(tp || []);
       setLoading(false);
     })();
     return () => { active = false; };
@@ -76,6 +84,33 @@ export default function AdminDashboard() {
             <div className="text-xs text-gray-400">{a.sub}</div>
           </Link>
         ))}
+      </div>
+
+      {/* Traffic (last 7 days) */}
+      <div className="grid lg:grid-cols-3 gap-4 mb-8">
+        <div className="bg-white rounded-2xl border border-gray-100 p-5">
+          <div className="text-sm text-gray-500 mb-1">Page views · 7d</div>
+          <div className="text-3xl font-serif font-bold text-brand-dark">{loading ? '—' : traffic.total_views}</div>
+        </div>
+        <div className="bg-white rounded-2xl border border-gray-100 p-5">
+          <div className="text-sm text-gray-500 mb-1">Unique visitors · 7d</div>
+          <div className="text-3xl font-serif font-bold text-brand-dark">{loading ? '—' : traffic.unique_sessions}</div>
+        </div>
+        <div className="bg-white rounded-2xl border border-gray-100 p-5">
+          <div className="text-sm text-gray-500 mb-2">Top pages · 7d</div>
+          {topPages.length === 0 ? (
+            <div className="text-xs text-gray-400">No data yet.</div>
+          ) : (
+            <ul className="space-y-1">
+              {topPages.slice(0, 5).map((p) => (
+                <li key={p.path} className="flex justify-between text-sm">
+                  <span className="text-gray-600 truncate mr-2">{p.path}</span>
+                  <span className="font-bold text-brand-dark">{p.views}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
 
       <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden">

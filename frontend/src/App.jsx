@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazyWithRetry as lazy } from './utils/lazyWithRetry';
 import MainLayout from './layouts/MainLayout';
 import ScrollToTop from './components/utils/ScrollToTop';
+import PageTracker from './components/common/PageTracker';
 import WhatsAppFloating from './components/common/WhatsAppFloating';
 import Preloader from './components/common/Preloader';
 import { AnimatePresence } from 'framer-motion';
@@ -97,6 +98,7 @@ const AdminDoctors = lazy(() => import('./admin/AdminDoctors'));
 const AdminServices = lazy(() => import('./admin/AdminServices'));
 const AdminSpecialities = lazy(() => import('./admin/AdminSpecialities'));
 const AdminGallery = lazy(() => import('./admin/AdminGallery'));
+const AdminHero = lazy(() => import('./admin/AdminHero'));
 const Gallery = lazy(() => import('./pages/gallery/Gallery'));
 
 function App() {
@@ -114,6 +116,7 @@ function App() {
         {isLoading && <Preloader key="preloader" />}
       </AnimatePresence>
       <ScrollToTop />
+      <PageTracker />
       <WhatsAppFloating />
       <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop closeOnClick pauseOnFocusLoss draggable pauseOnHover theme="light" />
       <Suspense fallback={<div className="min-h-screen" />}>
@@ -231,6 +234,7 @@ function App() {
             <Route path="services" element={<AdminServices />} />
             <Route path="specialities" element={<AdminSpecialities />} />
             <Route path="gallery" element={<AdminGallery />} />
+            <Route path="hero" element={<AdminHero />} />
           </Route>
         </Routes>
       </Suspense>

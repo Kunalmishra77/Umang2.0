@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Users, LogOut, Megaphone, FileText, Image, Quote, HelpCircle, Stethoscope, Layers, Grid3x3, HeartPulse } from 'lucide-react';
+import { LayoutDashboard, Users, LogOut, Megaphone, FileText, Image, Quote, HelpCircle, Stethoscope, Layers, Grid3x3, HeartPulse, GalleryHorizontal } from 'lucide-react';
 import { useAuth } from '../lib/auth';
 
 const nav = [
@@ -8,6 +8,7 @@ const nav = [
   { to: '/admin/leads', label: 'Leads', icon: Users },
   { to: '/admin/offers', label: 'Offers', icon: Megaphone },
   { to: '/admin/content', label: 'Content', icon: FileText },
+  { to: '/admin/hero', label: 'Hero Slides', icon: GalleryHorizontal },
   { to: '/admin/doctors', label: 'Doctors', icon: Stethoscope },
   { to: '/admin/specialities', label: 'Specialities', icon: HeartPulse },
   { to: '/admin/services', label: 'Services', icon: Layers },
