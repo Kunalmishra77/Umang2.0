@@ -52,7 +52,10 @@
       "Bash(cd \"d:/Agentix Project/Umang2.0/frontend\" && cat /tmp/npmi.log | tail -5; echo \"---which npm node---\"; which node; which npm)",
       "PowerShell(cd \"d:/Agentix Project/Umang2.0/frontend\"; npm install @supabase/supabase-js 2>&1 | Select-Object -Last 6; Write-Output \"EXIT: $LASTEXITCODE\")",
       "Bash(cd \"d:/Agentix Project/Umang2.0/frontend\" && npm run build >/tmp/build11.log 2>&1; echo \"EXIT: $?\"; grep -iE \"error|fail\" /tmp/build11.log | head; tail -2 /tmp/build11.log)",
-      "Bash(cd \"d:/Agentix Project/Umang2.0/frontend\" && npm run build >/tmp/build15.log 2>&1; echo \"EXIT: $?\"; grep -iE \"error|could not|failed to resolve\" /tmp/build15.log | head; tail -2 /tmp/build15.log)"
+      "Bash(cd \"d:/Agentix Project/Umang2.0/frontend\" && npm run build >/tmp/build15.log 2>&1; echo \"EXIT: $?\"; grep -iE \"error|could not|failed to resolve\" /tmp/build15.log | head; tail -2 /tmp/build15.log)",
+      "Bash(grep -iE \"\\\\.env\\($|\\\\.\\)|secret|service_role\")",
+      "Bash(cd \"d:/Agentix Project/Umang2.0/frontend\" && grep -iE \"error|cannot find|TS[0-9]\" /tmp/build16.log | head -20)",
+      "Bash(echo \"BUILD EXIT: $?\")"
     ]
   }
 }
