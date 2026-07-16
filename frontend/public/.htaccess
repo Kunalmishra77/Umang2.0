@@ -18,6 +18,9 @@ RewriteCond %{THE_REQUEST} \s/General(%20|\s)Surgery\.html [NC]
 RewriteRule ^General(%20|\ )Surgery\.html$ /specialities/surgery [R=301,NE,L]
 RewriteCond %{THE_REQUEST} \s/index\.html [NC]
 RewriteRule ^index\.html$              /                         [R=301,L]
+# Old ads landing page URL -> new clean URL
+RewriteCond %{THE_REQUEST} \s/lp\.html [NC]
+RewriteRule ^lp\.html$                 /book-consultation/       [R=301,L]
 
 # ── SPA routing: serve index.html for any non-file/non-dir route ──────────────
 RewriteCond %{REQUEST_FILENAME} !-f
