@@ -47,16 +47,16 @@ const insertLead = async (type, { name, phone, email, message, speciality, sourc
     source_page: source_page || null,
     extra, // department, preferred_date, preferred_time, inquiry_type, etc.
   };
-  // No .single(): the DB guard may silently skip an exact duplicate (returns
-  // zero rows), which we still treat as a successful submission.
-  const { data, error } = await supabase.from('leads').insert(row).select('id');
+  // Do NOT use .select() here: anon has INSERT-only rights on leads (no SELECT),
+  // so a RETURNING clause would fail RLS. Insert without returning the row.
+  const { error } = await supabase.from('leads').insert(row);
   if (error) {
     if (String(error.message).includes('rate_limited')) {
       throw new Error('Too many requests. Please try again in a little while.');
     }
     throw new Error(error.message || 'Could not submit. Please try again.');
   }
-  return { data: data?.[0] ?? null };
+  return { data: null };
 };
 
 export const leadApi = {
