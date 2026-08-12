@@ -22,7 +22,7 @@ export const siteConfig = {
 
   contacts: {
     main: '+91 78382 12727',
-    whatsapp: '+91 78382 12727',
+    whatsapp: '+91 92058 74922',
     emergency: '+91 78382 12727',
     email: 'umanghospitalgurugram@gmail.com'
   },

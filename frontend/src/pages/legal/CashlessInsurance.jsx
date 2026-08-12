@@ -399,7 +399,7 @@ const CashlessInsurance = () => {
                                             <a href="tel:+917838212727" className="flex items-center gap-3 text-xs font-bold text-primary-400 hover:text-white transition-colors">
                                                 <PhoneCall className="w-4 h-4" /> +91 78382 12727
                                             </a>
-                                            <a href="https://wa.me/917838212727" className="flex items-center gap-3 text-xs font-bold text-green-400 hover:text-white transition-colors">
+                                            <a href="https://wa.me/919205874922" className="flex items-center gap-3 text-xs font-bold text-green-400 hover:text-white transition-colors">
                                                 <MessageCircle className="w-4 h-4" /> WhatsApp Us
                                             </a>
                                         </div>

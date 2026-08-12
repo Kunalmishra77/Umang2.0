@@ -67,15 +67,24 @@ const insertLead = async (type, { name, phone, email, message, speciality, sourc
     throw new Error(error.message || 'Could not submit. Please try again.');
   }
 
-  // Conversion tracking: fire a GTM dataLayer event on every successful lead
-  // so Google Ads / GA4 can count it as a conversion (trigger on 'lead_submit').
+  // Conversion tracking: fire on every successful lead so Google Ads can count it.
   if (typeof window !== 'undefined') {
+    // 1) GTM dataLayer event (trigger on 'lead_submit') for GTM-based tags / GA4.
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: 'lead_submit',
       lead_type: type,
       source_page: row.source_page || '(unknown)',
     });
+    // 2) Direct Google Ads conversion (gtag base is loaded in index.html head).
+    //    "AC - Website Leads" conversion — fires the moment a form is submitted.
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        send_to: 'AW-18283776134/lOdlCL-pu-AcEIaRsY5E',
+        value: 1.0,
+        currency: 'INR',
+      });
+    }
   }
 
   return { data: null };
