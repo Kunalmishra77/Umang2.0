@@ -527,7 +527,7 @@ const DoctorSearch = () => {
             {[
               { q: "Can I book a same-day appointment?", a: "Yes, if slots are available, you can book same-day appointments. Look for the 'Today' badge on the doctor profiles for instant slot availability." },
               { q: "Do you offer second opinions online?", a: "Absolutely. Most of our senior specialists are available for video consultations specifically for detailed second opinions and case reviews." },
-              { q: "How do I cancel or reschedule?", a: "You can manage your bookings through the Patient Portal or by calling our 24/7 helpline at +91 85880 72727 at least 4 hours in advance." },
+              { q: "How do I cancel or reschedule?", a: "You can manage your bookings through the Patient Portal or by calling our 24/7 helpline at +91 78382 12727 at least 4 hours in advance." },
               { q: "What should I bring for consultation?", a: "Please bring your previous medical records, ongoing prescriptions, and a valid ID proof. This helps our specialists understand your history better." },
               { q: "Are all doctors available for walk-ins?", a: "While we accept walk-ins, it is highly recommended to book an appointment to ensure you are seen by your preferred specialist with minimal waiting time." },
               { q: "Can I book for a family member?", a: "Yes, you can use your account to book appointments for family members. Just ensure to enter their correct patient details during the booking process." }
@@ -561,7 +561,7 @@ const DoctorSearch = () => {
             <Link to="/appointments/request" className="px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-base hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
               <Calendar size={20} className="group-hover:rotate-12 transition-transform" /> Book Appointment
             </Link>
-            <a href="tel:+918588072727" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+            <a href="tel:+917838212727" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
               <Phone size={20} /> Get Call Back
             </a>
           </div>

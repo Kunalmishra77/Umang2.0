@@ -16,35 +16,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 
 <!-- ═══════════════════════════════════════════════════════════════════════
-     GOOGLE ADS CONVERSION — this page IS the conversion proof.
-     Because a visitor only reaches this URL AFTER a successful form submit,
-     you can count a conversion on the LOAD of this page. Two ways (pick one):
-
-     A) In GTM (recommended): create a "Google Ads Conversion Tracking" tag,
-        trigger = Page View where Page Path equals /book-consultation/thank-you/
-        (or the Custom Event  lead_submit  we push below). No code change here.
-
-     B) Direct gtag: uncomment the two blocks below and put your real
-        Conversion ID (AW-XXXXXXXXX) and Conversion Label from Google Ads.
-
-     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
-     <script>
-       window.dataLayer = window.dataLayer || [];
-       function gtag(){dataLayer.push(arguments);}
-       gtag('js', new Date());
-       gtag('config', 'AW-XXXXXXXXX');
-       gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/YourConversionLabel'});
-     </script>
+     GOOGLE ADS CONVERSION — a visitor only reaches this URL AFTER a successful
+     form submit, so the LOAD of this page counts a lead conversion.
+     NOTE: this uses your "Click to call" conversion label for now. When you
+     create a dedicated "Lead form submitted" conversion in Google Ads, just
+     replace the send_to value below with that new label.
 ════════════════════════════════════════════════════════════════════════ -->
+<!-- Google tag (gtag.js) — Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18283776134"></script>
 <script>
-  /* Fire a dataLayer event on load so GTM / Google Ads can record the lead. */
   window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: 'lead_submit',
-    lead_type: 'callback',
-    source_page: 'Google Ads Landing Page',
-    conversion: true
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18283776134');
+  /* Fire the lead conversion on this page's load */
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18283776134/iU9hCLn2qOAcEIaRsY5E',
+    'value': 1.0,
+    'currency': 'INR'
   });
+  /* Also push a Custom Event so GTM-based conversion tracking works too */
+  window.dataLayer.push({ event: 'lead_submit', lead_type: 'callback', source_page: 'Google Ads Landing Page', conversion: true });
 </script>
 
 <link rel="icon" type="image/png" href="/favicon.png">

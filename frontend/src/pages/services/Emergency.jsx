@@ -54,7 +54,7 @@ const Emergency = () => {
     <div className="bg-white min-h-screen">
       <SeoHead 
         title="Emergency & Trauma Care" 
-        description="24/7 Emergency Room and Trauma Center. Immediate care for heart attacks, strokes, and accidents. Call 89297 33551."
+        description="24/7 Emergency Room and Trauma Center. Immediate care for heart attacks, strokes, and accidents. Call 78382 12727."
         canonical="/services/emergency"
       />
 
@@ -383,7 +383,7 @@ const Emergency = () => {
                <p className="text-xs font-bold text-red-200 uppercase">Emergency?</p>
                <p className="font-bold text-lg">Tap to Call</p>
             </div>
-            <a href="tel:+918588072727" className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center shadow-lg animate-pulse">
+            <a href="tel:+917838212727" className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center shadow-lg animate-pulse">
                <Phone className="w-6 h-6 fill-current" />
             </a>
          </div>

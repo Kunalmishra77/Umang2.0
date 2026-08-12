@@ -406,7 +406,7 @@ const Specialities = () => {
 
           <div className="grid lg:grid-cols-2 gap-8 relative z-10">
             {[
-              { q: "How do I choose the right specialist?", a: "You can use our Symptom Navigator or contact our primary desk at +91 85880 72727 for guidance based on your specific health concerns." },
+              { q: "How do I choose the right specialist?", a: "You can use our Symptom Navigator or contact our primary desk at +91 78382 12727 for guidance based on your specific health concerns." },
               { q: "Are all specialists available 24/7?", a: "While standard OPD hours are 9 AM - 8 PM, a senior specialist from each core department is always on call 24/7 for emergency cases." },
               { q: "Do you offer online video consultations?", a: "Yes, we offer secure telemedicine sessions for follow-ups and initial screenings. You can book these via our patient portal or WhatsApp." },
               { q: "What should I bring for my first visit?", a: "Please bring your previous medical records, ongoing prescriptions, and a valid ID proof. This helps our specialists understand your history better." },

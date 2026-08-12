@@ -24,6 +24,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WHVG8Z8Z');</script>
 <!-- End Google Tag Manager -->
+
+<!-- Google tag (gtag.js) — Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18283776134"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18283776134');
+</script>
+<!-- Event snippet for "Click to call" conversion -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') { window.location = url; }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18283776134/iU9hCLn2qOAcEIaRsY5E',
+      'value': 1.0,
+      'currency': 'INR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -65,6 +90,17 @@ h2{font-size:clamp(1.55rem,3.6vw,2.4rem);margin-bottom:10px}
 .btn-wa{background:#25D366;color:#0a3a24;box-shadow:0 12px 28px rgba(37,211,102,.35)}
 .btn-wa:hover{background:#1ebe5a;color:#062a19}
 .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+/* ── Book Consultation modal ── */
+.modal-overlay{position:fixed;inset:0;z-index:300;background:rgba(5,20,32,.78);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto}
+.modal-overlay.open{display:flex}
+.modal-box{background:#fff;border-radius:20px;max-width:470px;width:100%;padding:clamp(22px,4vw,30px);position:relative;margin:auto;box-shadow:0 30px 90px rgba(0,0,0,.55);animation:modalIn .25s ease}
+@keyframes modalIn{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.modal-close{position:absolute;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:none;background:#eef3f6;color:#33475b;font-size:24px;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .15s}
+.modal-close:hover{background:#dde7ec}
+.modal-box h3{font-size:1.3rem;color:var(--navy);margin-bottom:4px;font-family:var(--font-head)}
+.modal-box .small{font-size:13px;color:#6b8294;margin-bottom:14px}
+body.modal-open{overflow:hidden}
 
 /* ── Header ── */
 .hdr{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -963,6 +999,43 @@ footer a:hover{color:#fff}
   </div>
 </footer>
 
+<!-- ═══ BOOK CONSULTATION MODAL (opens in place for every "Book" button) ═══ -->
+<div class="modal-overlay" id="bookModal" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-label="Book a consultation">
+    <button class="modal-close" type="button" aria-label="Close">&times;</button>
+    <h3>Book a Free Consultation</h3>
+    <p class="small">Fill in your details — our medical coordinator will call you back within 15 minutes.</p>
+    <form class="lead-form" novalidate>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="f-label">Patient Name *</label>
+      <input class="f-in" type="text" name="name" required placeholder="Your full name">
+      <label class="f-label">Phone Number *</label>
+      <input class="f-in" type="tel" name="phone" required placeholder="+91 XXXXX XXXXX">
+      <label class="f-label">Department / Specialty</label>
+      <select class="f-in" name="speciality">
+        <option value="">-- Select Department --</option>
+        <option>Cardiology &amp; Cardiac Sciences</option><option>Neurology &amp; Neurosurgery</option>
+        <option>Orthopedics, Trauma &amp; Pain Management</option><option>Gastroenterology</option>
+        <option>Pulmonology</option><option>Urology</option><option>Nephrology</option>
+        <option>General Surgery &amp; Laparoscopy</option><option>Obstetrics &amp; Gynecology</option>
+        <option>Pediatrics &amp; Neonatology</option><option>Critical Care Medicine / ICU</option>
+        <option>Physiotherapy &amp; Rehabilitation</option><option>General Medicine</option>
+        <option>ENT (Ear, Nose &amp; Throat)</option><option>Endocrinology</option>
+        <option>Oncology (Cancer Care)</option><option>Psychiatry &amp; Mental Health</option>
+        <option>Dermatology</option><option>Plastic &amp; Reconstructive Surgery</option>
+        <option>Ophthalmology</option><option>Anesthesia &amp; Pain Management</option>
+        <option>Diagnostics / Health Check-Up</option><option>Emergency / Ambulance</option>
+      </select>
+      <label class="f-label">Message / Additional Details (Optional)</label>
+      <textarea class="f-in" name="message" rows="2" placeholder="Brief description of your concern"></textarea>
+      <button type="submit" class="btn btn-orange" style="width:100%;margin-top:16px;">Book Consultation</button>
+      <div class="f-ok">✓ Thank you! Our team will call you within 15 minutes.</div>
+      <div class="f-err"></div>
+      <p class="f-note"><svg class="ic"><use href="#i-lock"/></svg> No spam. Your details are secure &amp; used only to contact you.</p>
+    </form>
+  </div>
+</div>
+
 <!-- ═══ MOBILE STICKY BAR ═══ -->
 <div class="mob-bar">
   <a class="c" href="tel:+917838212727"><svg class="ic"><use href="#i-phone"/></svg> Call</a>
@@ -1054,6 +1127,24 @@ footer a:hover{color:#fff}
     prev.addEventListener('click', function () { row.scrollBy({ left: -step, behavior: 'smooth' }); });
     next.addEventListener('click', function () { row.scrollBy({ left: step, behavior: 'smooth' }); });
   }
+
+  /* Book Consultation → open the form in a popup (no scrolling away) */
+  var modal = document.getElementById('bookModal');
+  function openModal(e) { if (e) e.preventDefault(); modal.classList.add('open'); document.body.classList.add('modal-open'); var n = modal.querySelector('input[name=name]'); if (n) setTimeout(function () { n.focus(); }, 120); }
+  function closeModal() { modal.classList.remove('open'); document.body.classList.remove('modal-open'); }
+  if (modal) {
+    document.querySelectorAll('a[href="#book"]').forEach(function (a) { a.addEventListener('click', openModal); });
+    modal.querySelector('.modal-close').addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+  }
+
+  /* Google Ads "Click to call" conversion — fires on any call-button click */
+  document.querySelectorAll('a[href^="tel:"]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      try { gtag('event', 'conversion', { 'send_to': 'AW-18283776134/iU9hCLn2qOAcEIaRsY5E', 'value': 1.0, 'currency': 'INR' }); } catch (err) {}
+    });
+  });
 })();
 </script>
 </body>

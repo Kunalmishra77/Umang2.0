@@ -282,7 +282,7 @@ const LabDiagnostics = () => {
                </ul>
                <div className="flex flex-wrap gap-6">
                   <a href={`tel:${siteConfig.contacts.main.replace(/\s/g, '')}`} className="h-16 px-10 rounded-full bg-white text-primary-700 font-bold text-lg hover:bg-primary-50 transition-all flex items-center justify-center gap-3">
-                     <Phone className="w-6 h-6" /> Call +91 85880 72727
+                     <Phone className="w-6 h-6" /> Call +91 78382 12727
                   </a>
                </div>
             </div>

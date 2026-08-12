@@ -396,10 +396,10 @@ const CashlessInsurance = () => {
                                             </p>
                                         </div>
                                         <div className="space-y-4 relative z-10">
-                                            <a href="tel:+918588072727" className="flex items-center gap-3 text-xs font-bold text-primary-400 hover:text-white transition-colors">
-                                                <PhoneCall className="w-4 h-4" /> +91 85880 72727
+                                            <a href="tel:+917838212727" className="flex items-center gap-3 text-xs font-bold text-primary-400 hover:text-white transition-colors">
+                                                <PhoneCall className="w-4 h-4" /> +91 78382 12727
                                             </a>
-                                            <a href="https://wa.me/918588072727" className="flex items-center gap-3 text-xs font-bold text-green-400 hover:text-white transition-colors">
+                                            <a href="https://wa.me/917838212727" className="flex items-center gap-3 text-xs font-bold text-green-400 hover:text-white transition-colors">
                                                 <MessageCircle className="w-4 h-4" /> WhatsApp Us
                                             </a>
                                         </div>
@@ -491,8 +491,8 @@ const CashlessInsurance = () => {
                             <p className="text-gray-500 mb-10 leading-relaxed text-lg font-light">
                                 Our dedicated insurance desk is available 24/7 to help you with the pre-authorization process and claim documentation.
                             </p>
-                            <a href="tel:+918588072727" className="inline-flex items-center justify-center gap-3 bg-brand-dark text-white px-10 py-6 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-primary-600 transition-all text-center shadow-2xl hover:-translate-y-1 active:scale-95 duration-300">
-                                Call Helpline: +91 85880 72727
+                            <a href="tel:+917838212727" className="inline-flex items-center justify-center gap-3 bg-brand-dark text-white px-10 py-6 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-primary-600 transition-all text-center shadow-2xl hover:-translate-y-1 active:scale-95 duration-300">
+                                Call Helpline: +91 78382 12727
                             </a>
                         </motion.div>
                     </div>
@@ -518,7 +518,7 @@ const CashlessInsurance = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <a href="tel:+918588072727" className="btn-outline">Talk to Claim Expert</a>
+                            <a href="tel:+917838212727" className="btn-outline">Talk to Claim Expert</a>
                         </div>
                     </div>
                 </Container>
@@ -561,7 +561,7 @@ const CashlessInsurance = () => {
                         <Link to="/appointments/request" className="px-8 py-4 bg-primary-600 text-white rounded-xl font-bold text-base hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
                             <Calendar size={20} className="group-hover:rotate-12 transition-transform" /> Book Appointment
                         </Link>
-                        <a href="tel:+918588072727" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+                        <a href="tel:+917838212727" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
                             <Phone size={20} /> Get Call Back
                         </a>
                     </div>

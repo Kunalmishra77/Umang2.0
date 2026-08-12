@@ -379,7 +379,7 @@ const HealthCheckBooking = () => {
                <h2 className="text-4xl font-serif font-bold mb-4">Healthy Living Starts Here.</h2>
                <p className="text-primary-200 text-lg opacity-80">Join 50,000+ individuals who trust Umang for their annual health screenings.</p>
             </div>
-            <a href="tel:+918588072727" className="h-16 px-10 rounded-xl bg-white text-[#0f172a] font-black text-lg hover:bg-primary-50 transition-all flex items-center gap-3 shadow-2xl">
+            <a href="tel:+917838212727" className="h-16 px-10 rounded-xl bg-white text-[#0f172a] font-black text-lg hover:bg-primary-50 transition-all flex items-center gap-3 shadow-2xl">
                <Smartphone className="w-6 h-6" /> Call for Assistance
             </a>
          </div>

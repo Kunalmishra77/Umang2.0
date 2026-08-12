@@ -33,7 +33,7 @@ export const specialitiesData = {
     recovery: "Post-procedural care includes 24/7 monitoring in our dedicated 7-bed CCU, followed by a personalized cardiac rehabilitation program to ensure long-term heart health.",
     relatedServices: ["Emergency & Trauma", "Critical Care (CCU)", "Vascular Surgery", "Preventive Health Checkups"],
     bullets: ["24/7 Cath Lab", "Emergency Angioplasty", "Dedicated 7-bed CCU"],
-    emergencyCallout: "Severe chest pain, crushing sensation, or pain radiating to arm/jaw? Call +91 89297 33551 immediately.",
+    emergencyCallout: "Severe chest pain, crushing sensation, or pain radiating to arm/jaw? Call +91 78382 12727 immediately.",
     faq: [
       { q: "Do you have heart specialists available 24/7?", a: "Yes, our cardiologists are available round-the-clock for emergency angioplasty and critical cardiac care." },
       { q: "What is Angiography?", a: "It is a diagnostic test to check if heart arteries have blockages, typically taking 20-45 minutes." }

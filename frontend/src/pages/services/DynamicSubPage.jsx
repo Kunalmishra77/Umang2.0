@@ -278,7 +278,7 @@ const DynamicSubPage = () => {
               <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Need specialized <span className="text-primary-400">assistance?</span></h2>
               <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">Our coordination desk is available 24/7 to help you navigate through our world-class facilities and services.</p>
               <div className="flex flex-col sm:flex-row justify-center gap-6">
-                 <a href="tel:8588072727" className="px-10 py-5 bg-white text-brand-dark rounded-full font-bold text-base shadow-xl flex items-center justify-center gap-3">
+                 <a href="tel:7838212727" className="px-10 py-5 bg-white text-brand-dark rounded-full font-bold text-base shadow-xl flex items-center justify-center gap-3">
                     <Phone size={20} /> Call Help Desk
                  </a>
                  <Link to="/appointments/request" className="px-10 py-5 border border-white/20 text-white rounded-full font-bold text-base backdrop-blur-md hover:bg-white/10 flex items-center justify-center gap-3">

@@ -356,8 +356,8 @@ const NursingStaff = () => {
           <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 leading-tight">Touch of <span className="text-rose-400 normal">Healing.</span></h2>
           <p className="text-slate-400 text-base lg:text-lg mb-8 max-w-xl mx-auto font-light leading-relaxed">Our clinical nursing coordinators are available 24/7 to assist with your patient care queries.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
-            <a href="tel:+918588072727" className="px-8 py-4 bg-rose-600 text-white rounded-xl font-bold text-base hover:bg-rose-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
-              <Phone size={20} className="group-hover:rotate-12 transition-transform" /> 85880 72727
+            <a href="tel:+917838212727" className="px-8 py-4 bg-rose-600 text-white rounded-xl font-bold text-base hover:bg-rose-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+              <Phone size={20} className="group-hover:rotate-12 transition-transform" /> 78382 12727
             </a>
             <Link to="/careers" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
               <Users size={20} /> Join Our Team

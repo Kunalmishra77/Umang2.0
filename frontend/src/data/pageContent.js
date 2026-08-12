@@ -229,7 +229,7 @@ export const pageContent = {
       { type: 'text-image', title: 'Golden Hour Protocols', text: 'Our emergency team is trained to initiate treatment protocols as soon as the ambulance reaches the patient, maximizing survival odds.', image: ASSETS.AMBULANCE },
       { type: 'highlights', eyebrow: 'Golden Hour', title: 'Life Benchmarks.', sideTitle: 'ER Mobility', sideDesc: 'Our ambulances are essentially mobile ICUs with ACLS life-support kit ready for zero-delay response.', items: ['ACLS Certified', '24/7 Availability', 'Inter-hospital transfer', 'Trauma-ready kits', 'On-call doctor', 'Smart Dispatch'] },
       { type: 'faq', items: [
-        { q: 'How to book an ambulance?', a: 'Call our emergency helpline at +91 85880 72727 for immediate dispatch.' },
+        { q: 'How to book an ambulance?', a: 'Call our emergency helpline at +91 78382 12727 for immediate dispatch.' },
         { q: 'Is the service available outside Gurugram?', a: 'Yes, we provide long-distance transfers across the NCR region.' }
       ]}
     ]

@@ -436,14 +436,14 @@ export const navConfig = {
           id: 'whatsapp',
           title: 'WhatsApp Help',
           icon: MessageSquare,
-          href: 'https://wa.me/918588072727',
+          href: 'https://wa.me/917838212727',
           preview: {
             title: 'Digital Connect',
             desc: 'Fastest way to get answers via WhatsApp chat assistance.',
             bullets: ['Report Help', 'Booking Chat', 'Price Check', 'Quick Help'],
             image: '/assets/Home/hero11.webp',
             tag: 'Chat',
-            cta: { label: 'Start Chat', href: 'https://wa.me/918588072727' }
+            cta: { label: 'Start Chat', href: 'https://wa.me/917838212727' }
           }
         },
         {

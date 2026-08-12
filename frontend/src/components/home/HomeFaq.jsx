@@ -66,7 +66,7 @@ const HomeFaq = () => {
                   </div>
                   <div>
                     <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">24/7 Helpline</p>
-                    <p className="font-bold text-brand-dark">+91 85880 72727</p>
+                    <p className="font-bold text-brand-dark">+91 78382 12727</p>
                   </div>
                 </a>
 

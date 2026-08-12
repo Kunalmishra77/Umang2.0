@@ -169,7 +169,7 @@ const Terms = () => {
                         </div>
                         <div>
                            <p className="text-[11px] font-black uppercase text-slate-500 tracking-widest leading-none mb-1.5">Emergency</p>
-                           <p className="font-bold text-sm text-white">+91 85880 72727</p>
+                           <p className="font-bold text-sm text-white">+91 78382 12727</p>
                         </div>
                      </div>
                      <div className="flex items-center gap-3">

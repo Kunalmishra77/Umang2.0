@@ -357,7 +357,7 @@ const Telemedicine = () => {
             {[
               { q: "Is digital prescription valid at pharmacies?", a: "Yes, our digital prescriptions are signed by registered doctors and are legally valid at all pharmacies across India as per IT Act 2000." },
               { q: "What if I experience technical issues during call?", a: "Our support team is on standby. If a call drops, the doctor will attempt to call you back, or we will reschedule instantly at no extra cost." },
-              { q: "Can I use telemedicine for emergency cases?", a: "Telemedicine is NOT for life-threatening emergencies. Please call our 24/7 ER at 89297 33551 for immediate ambulance dispatch." },
+              { q: "Can I use telemedicine for emergency cases?", a: "Telemedicine is NOT for life-threatening emergencies. Please call our 24/7 ER at 78382 12727 for immediate ambulance dispatch." },
               { q: "How do I join the video consultation?", a: "Once your appointment is confirmed, you'll receive a secure link via SMS and Email. Just click the link to join—no app download required." },
               { q: "Can I choose my preferred doctor?", a: "Yes, you can browse through our list of available specialists and choose the consultant who best fits your medical needs." },
               { q: "Are consultations private and secure?", a: "Absolutely. We use end-to-end encrypted video platforms that comply with global healthcare data privacy standards (HIPAA)." }

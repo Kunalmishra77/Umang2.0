@@ -382,7 +382,7 @@ const PatientStories = () => {
                   <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
                      <p className="text-sm font-bold text-slate-700 mb-4">Direct Support Line</p>
                      <div className="flex items-center gap-4 text-primary-600 font-black text-xl">
-                        <Smartphone className="w-6 h-6" /> +91 85880 72727
+                        <Smartphone className="w-6 h-6" /> +91 78382 12727
                      </div>
                   </div>
                </div>
@@ -419,7 +419,7 @@ const PatientStories = () => {
             <Link to="/appointments/request" className="px-8 py-4 bg-[#0f172a] text-white rounded-xl font-bold text-base hover:bg-primary-600 transition-all shadow-lg hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
               <Calendar size={20} className="group-hover:rotate-12 transition-transform" /> Book Appointment
             </Link>
-            <a href="tel:+918588072727" className="px-8 py-4 border-2 border-slate-100 text-brand-dark rounded-xl font-bold text-base hover:bg-slate-50 transition-all flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
+            <a href="tel:+917838212727" className="px-8 py-4 border-2 border-slate-100 text-brand-dark rounded-xl font-bold text-base hover:bg-slate-50 transition-all flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
               <Smartphone size={20} /> Get Call Back
             </a>
           </div>

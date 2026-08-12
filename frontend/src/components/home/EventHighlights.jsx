@@ -221,7 +221,7 @@ const EventHighlights = () => {
                       {event.cta.label} <ArrowRight className="w-4 h-4" />
                     </Link>
                     <a
-                      href={`tel:+918588072727`}
+                      href={`tel:+917838212727`}
                       className="inline-flex items-center gap-2 px-5 py-3 border border-gray-200 hover:border-primary-300 rounded-full font-bold text-[13px] text-gray-600 hover:text-primary-600 transition-all"
                     >
                       Call to Enquire

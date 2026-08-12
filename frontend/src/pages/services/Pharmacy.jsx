@@ -359,7 +359,7 @@ const Pharmacy = () => {
             <h2 className="text-3xl md:text-5xl font-serif font-bold mb-8">Trust Umang for your <br />clinical pharmacy needs.</h2>
             <p className="text-blue-100 text-lg mb-12 max-w-2xl mx-auto">Our registered pharmacists are available 24/7 to guide you with the right dosage and usage information.</p>
             <div className="flex justify-center gap-6">
-              <a href="tel:8588072727" className="px-10 py-5 bg-white text-primary-600 rounded-full font-bold text-base shadow-xl flex items-center gap-3 hover:scale-105 transition-all">
+              <a href="tel:7838212727" className="px-10 py-5 bg-white text-primary-600 rounded-full font-bold text-base shadow-xl flex items-center gap-3 hover:scale-105 transition-all">
                 <Phone size={20} /> Speak to Pharmacist
               </a>
             </div>

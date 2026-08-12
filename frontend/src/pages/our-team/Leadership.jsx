@@ -389,7 +389,7 @@ const Leadership = () => {
           <h2 className="text-4xl lg:text-6xl font-serif font-bold mb-10 leading-tight">Connect with <span className="text-primary-400 normal">Board.</span></h2>
           <p className="text-slate-400 text-xl mb-16 max-w-2xl mx-auto font-light leading-relaxed">For institutional inquiries, corporate partnerships, or strategic feedback.</p>
           <div className="flex flex-col sm:flex-row justify-center gap-8">
-            <a href="tel:+918588072727" className="px-12 py-6 bg-primary-600 text-white rounded-2xl font-bold text-lg hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
+            <a href="tel:+917838212727" className="px-12 py-6 bg-primary-600 text-white rounded-2xl font-bold text-lg hover:bg-primary-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-4 group">
               <Phone size={24} className="group-hover:rotate-12 transition-transform" /> Contact Desk
             </a>
             <Link to="/contact" className="px-12 py-6 border border-white/20 text-white rounded-2xl font-bold text-lg hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-4 hover:scale-105 active:scale-95">

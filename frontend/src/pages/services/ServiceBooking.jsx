@@ -89,7 +89,7 @@ const ServiceBooking = () => {
                            type="tel" 
                            required 
                            className="w-full h-14 pl-12 pr-4 rounded-xl border border-gray-200 focus:border-primary-600 outline-none transition-all"
-                           placeholder="+91 85880 72727"
+                           placeholder="+91 78382 12727"
                            value={formData.phone}
                            onChange={e => setFormData({...formData, phone: e.target.value})}
                          />

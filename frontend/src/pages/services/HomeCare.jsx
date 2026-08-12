@@ -369,7 +369,7 @@ const HomeCare = () => {
              </div>
              <h3 className="text-2xl font-bold text-[#0f172a] mb-4">Need immediate assistance?</h3>
              <p className="text-gray-600 mb-8 max-w-lg mx-auto text-lg">Our Home Care coordinators are available 24/7 to answer your queries and arrange urgent care within 4-12 hours.</p>
-             <a href="tel:+918588072727" className="inline-flex items-center gap-2 px-10 py-5 bg-primary-600 text-white rounded-full font-bold shadow-xl hover:bg-primary-700 hover-lift transition-all">
+             <a href="tel:+917838212727" className="inline-flex items-center gap-2 px-10 py-5 bg-primary-600 text-white rounded-full font-bold shadow-xl hover:bg-primary-700 hover-lift transition-all">
                 Speak to Care Manager
              </a>
           </div>

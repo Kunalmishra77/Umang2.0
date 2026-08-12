@@ -77,7 +77,7 @@ const IcuPage = () => {
                             Advanced life support, AI-driven vigilance, and a multidisciplinary team dedicated to clinical excellence in every critical second.
                         </p>
                         <div className="flex flex-wrap justify-center gap-5">
-                           <a href="tel:+918929733551" className="px-8 py-4 bg-red-600 text-white rounded-full font-bold text-[12px] uppercase tracking-widest hover:bg-red-700 transition-all shadow-xl hover:scale-105 active:scale-95">
+                           <a href="tel:+917838212727" className="px-8 py-4 bg-red-600 text-white rounded-full font-bold text-[12px] uppercase tracking-widest hover:bg-red-700 transition-all shadow-xl hover:scale-105 active:scale-95">
                               Emergency Helpline
                            </a>
                            <Link to="/contact" className="px-8 py-4 bg-white/5 backdrop-blur-md border border-white/20 text-white rounded-full font-bold text-[12px] uppercase tracking-widest hover:bg-white/10 transition-all">
@@ -472,7 +472,7 @@ const IcuPage = () => {
                     <h2 className="text-3xl lg:text-5xl font-serif font-bold mb-6 leading-tight">Vigilance <br /><span className="text-primary-400 normal">24/7.</span></h2>
                     <p className="text-slate-400 text-base lg:text-lg mb-10 max-w-xl mx-auto font-light leading-relaxed">Our clinical command center is available round-the-clock for critical emergencies and specialist consultation.</p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4 lg:gap-6">
-                        <a href="tel:+918929733551" className="px-8 py-4 bg-red-600 text-white rounded-xl font-bold text-base hover:bg-red-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
+                        <a href="tel:+917838212727" className="px-8 py-4 bg-red-600 text-white rounded-xl font-bold text-base hover:bg-red-700 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center justify-center gap-3 group">
                             <Phone size={20} className="group-hover:rotate-12 transition-transform" /> Emergency Hub
                         </a>
                         <Link to="/contact" className="px-8 py-4 border border-white/20 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all backdrop-blur-md flex items-center justify-center gap-3 hover:scale-105 active:scale-95">
