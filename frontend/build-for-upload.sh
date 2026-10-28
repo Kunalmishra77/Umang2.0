@@ -7,5 +7,5 @@ PROXY_URL="${1:?usage: build-for-upload.sh https://<proxy-host>}"
 cd "$(dirname "$0")"
 VITE_SUPABASE_URL="$PROXY_URL" npm run build
 rm -f umang-dist.zip
-(cd dist && powershell -NoProfile -Command "Compress-Archive -Path * -DestinationPath ../umang-dist.zip -Force")
+python make-zip.py dist umang-dist.zip
 echo "built with VITE_SUPABASE_URL=$PROXY_URL -> $(pwd)/umang-dist.zip"
