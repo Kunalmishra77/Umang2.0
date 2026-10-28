@@ -4,3 +4,4 @@ node_modules
 
 # Playwright MCP debug artifacts
 .playwright-mcp/
+frontend/umang-dist.zip
